@@ -92,7 +92,7 @@ jobs:
           environment:
             ENV: <<parameters.env>>
             TAG: <<parameters.tag>>
-            ROLE: radiolab-vue-<<parameters.env>>
+            ROLE: gothamist-vue3-<<parameters.env>>
           command: |
             TAG=${TAG:-$CIRCLE_TAG}
 
@@ -104,8 +104,8 @@ jobs:
               --fargate \
               --cpu=256 \
               --memory-reservation=512 \
-              --ecr-repository=radiolab-vue \
-              --ecs-cluster=radiolab-vue \
+              --ecr-repository=gothamist-vue3 \
+              --ecs-cluster=gothamist-vue3 \
               --ports=3000 \
               --execution-role=$ROLE \
               --task-role=$ROLE \
