@@ -1,4 +1,4 @@
-# Radiolab Web Client
+# Gothamist Web Client
 
 ## IMPORTANT
 if you get this error, or any other error:
@@ -63,6 +63,6 @@ start chrome.exe --disable-web-security --user-data-dir=c:\my-chrome-data\data -
 Build the application for production:
 
 ```bash
-docker build -t radiolab-vue .
-docker run -p 3000:3000 -e HOST=0.0.0.0 radiolab-vue -e API_URL=https://api.demo2.wnyc.net
+docker build -t gothamist-vue3 .
+docker run -p 3000:3000 -e HOST=0.0.0.0 gothamist-vue3 -e API_URL=https://api.demo2.wnyc.net
 ```

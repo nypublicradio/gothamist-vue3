@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   },
   //buildModules: [],
   css: [
-    '@nypublicradio/nypr-design-system-vue3/src/assets/themes/radiolab/radiolab.min.css',
+    '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/gothamist.min.css',
     '@nypublicradio/nypr-design-system-vue3/src/assets/styles/flags.css',
     'primevue/resources/primevue.min.css',
     'primeicons/primeicons.css',
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           // besure to mirror theses imports in the vitest.config.ts
-          additionalData: `@import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/radiolab/variables.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/radiolab/_mixins.scss"; @import "~/assets/scss/global.scss";`,
+          additionalData: `@import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/variables.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/_mixins.scss"; @import "~/assets/scss/global.scss";`,
         },
       },
       postcss: {
@@ -57,8 +57,8 @@ export default defineNuxtConfig({
   publicRuntimeConfig: {
     SENTRY_DSN: process.env['SENTRY_DSN'],
     ENV: process.env['ENV'],
-    HTL_CSS: process.env['HTL_CSS'] || 'https://htlbid.com/stage/v3/radiolab.com/htlbid.css',
-    HTL_JS: process.env['HTL_JS'] || 'https://htlbid.com/stage/v3/radiolab.com/htlbid.js',
+    HTL_CSS: process.env['HTL_CSS'] || 'https://htlbid.com/stage/v3/gothamist.com/htlbid.css',
+    HTL_JS: process.env['HTL_JS'] || 'https://htlbid.com/stage/v3/gothamist.com/htlbid.js',
     HTL_IS_TESTING: process.env['HTL_IS_TESTING'] || 'yes',
     API_URL: process.env['API_URL'] || "https://api.wnyc.org"
   }
