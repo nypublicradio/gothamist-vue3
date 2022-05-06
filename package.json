@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@nuxt/test-utils-edge": "^3.0.0-rc.2-27526179.f74a523",
-    "@nypublicradio/nypr-design-system-vue3": "^0.1.17",
+    "@nypublicradio/nypr-design-system-vue3": "^0.2.0",
     "@sentry/tracing": "^6.18.2",
     "@sentry/vue": "^6.18.2",
     "@vitejs/plugin-vue": "^2.3.2",
