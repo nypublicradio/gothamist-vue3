@@ -10,7 +10,6 @@ export function normalizeFindPageResponse(pageResponse: Record<string, any>): Pa
     if (pageResponse.value.meta.type === 'news.ArticlePage') {
         return normalizeArticlePage(pageResponse.value)
     }
-    return normalizePage(pageResponse.value)
 }
 
 export function normalizePage(page: Record<string, any>): Page {

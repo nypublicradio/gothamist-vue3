@@ -12,6 +12,7 @@
     "@babel/core": "^7.17.7",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
+    "@types/humps": "^2.0.1",
     "@vue/cli-service": "^5.0.4",
     "@vue/compiler-sfc": "^3.2.31",
     "jest-axe": "^5.0.1",
