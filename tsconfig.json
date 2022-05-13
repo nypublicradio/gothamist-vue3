@@ -1,4 +1,5 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
     "target": "ESNext",
@@ -10,5 +11,5 @@
     "types": [
       "node"
     ]
-  }
+  },
 }
