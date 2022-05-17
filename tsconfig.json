@@ -9,7 +9,8 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "types": [
-      "node"
+      "node",
+      "vitest/globals"
     ]
   },
 }

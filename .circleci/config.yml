@@ -69,6 +69,7 @@ jobs:
           name: Run unit tests
           command: |
             npm ci
+            npx nuxi prepare
             npm run test      
 
   deploy:
