@@ -6,7 +6,7 @@ if you get this error, or any other error:
 
 first run this install to fix it:
 ```bash
-npm i nuxt@3.0.0-rc.2
+npm i nuxt@3.0.0-rc.3
 ```
 
 We recommend to look at the [Nuxt 3 documentation](https://v3.nuxtjs.org).
@@ -22,7 +22,7 @@ npm install npm@8.6.0 -g
 
 ```bash
 npm install
-npm i nuxt@3.0.0-rc.2
+npm i nuxt@3.0.0-rc.3
 ```
 
 For more info on the nuxt release candidates see https://github.com/nuxt/framework/releases
@@ -37,26 +37,6 @@ Start the development server on `http://localhost:3000`
 ```bash
 npm run dev
 ```
-
-To avoid a CORS error, open a new Chrome window from the terminal with web security disabled:
-
-Mac OS
-```bash
-open -na Google\ Chrome --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security
-```
-
-Windows cmd prompt
-```bash
-cd c:\Program Files\Google\Chrome\Application
-chrome.exe --disable-web-security --user-data-dir=c:\my-chrome-data\data --new-window http://localhost:3000/
-```
-You can create a .bat file as well:
-```bash
-cd "C:\Program Files\Google\Chrome\Application\"
-start chrome.exe --disable-web-security --user-data-dir=c:\my-chrome-data\data --new-window http://localhost:3000/
-
-```
-
 
 ## Production
 
