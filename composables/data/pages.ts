@@ -1,23 +1,19 @@
-import humps from 'humps'
-import { normalizeArticle } from './articles'
+import { normalizeArticlePage } from './articlePages'
 import { Page } from './types'
 
 export async function findPage(htmlPath: string) {
-    const config = useRuntimeConfig()
     let params = { html_path: htmlPath }
-    const {data, error} = await useFetch('/pages/find', { baseURL: config['API_URL'], params })
-    return { data, error }
+    return await useAviary('/pages/find', {params})
 }
 
-export function normalizeFindPageResponse(pageResponse):Page {
+export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page {
     if (pageResponse.value.meta.type === 'news.ArticlePage') {
-        return normalizeArticle(pageResponse.value)
+        return normalizeArticlePage(pageResponse.value)
     }
     return normalizePage(pageResponse.value)
 }
 
-export function normalizePage(pageData):Page {
-    const page = humps.camelizeKeys(pageData)
+export function normalizePage(page: Record<string, any>): Page {
     return {
         id: page.id,
         title: page.title,

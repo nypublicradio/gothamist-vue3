@@ -21,7 +21,7 @@ export interface Page {
     uuid: string
 }
 
-export interface Article extends Page {
+export interface ArticlePage extends Page {
     title: string,
     description: string,
     image?: Image,

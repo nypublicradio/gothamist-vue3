@@ -1,3 +1,3 @@
 export { findPage } from './pages'
 export { normalizeFindPageResponse } from './pages'
-export { findArticles, normalizeFindArticlesResponse } from './articles'
+export { findArticlePages, normalizeFindArticlePagesResponse} from './articlePages'

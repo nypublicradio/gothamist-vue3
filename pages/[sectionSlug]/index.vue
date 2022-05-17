@@ -3,8 +3,8 @@
   const route = useRoute()
   const { data:sectionPageData } = await findPage(route.params.sectionSlug)
   const { title:sectionTitle, id:sectionId } = normalizeFindPageResponse(sectionPageData)
-  const { data:articleData } = await findArticles({descendant_of: sectionId})
-  const articles = normalizeFindArticlesResponse(articleData)
+  const { data:articleData } = await findArticlePages({descendant_of: sectionId})
+  const articles = normalizeFindArticlePagesResponse(articleData)
 </script> 
 
 <template>

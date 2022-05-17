@@ -1,8 +1,6 @@
-import humps from 'humps'
-import { Article } from './types'
+import { ArticlePage } from './types'
 
-export async function findArticles(queryParams: any) {
-    const config = useRuntimeConfig()
+export async function findArticlePages(queryParams: any) {
     const defaultParams  = {
      type: 'news.ArticlePage',
      fields: ['ancestry','description','lead_asset','legacy_id','listing_image','publication_date','show_as_feature','sponsored_content','tags','updated_date','url','uuid','listing_title','listing_summary'].join(','),
@@ -13,16 +11,14 @@ export async function findArticles(queryParams: any) {
      sponsored_content: false,
     }
     let params = Object.assign({}, defaultParams, queryParams)
-    const {data, error} = await useFetch('/pages/', { baseURL: config['API_URL'], params })
-    return { data, error }
+    return await useAviary('/pages/', {params})
 }
 
-export function normalizeFindArticlesResponse (articlesResponse: any): Article[] {
-    return articlesResponse.value.items?.map(normalizeArticle)
+export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
+    return articlesResponse.value.items?.map(normalizeArticlePage)
 }
 
-export function normalizeArticle(articleData: any): Article {
-    const article = humps.camelizeKeys(articleData)
+export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
     return {
         id: article.id,
         title: article.title,
