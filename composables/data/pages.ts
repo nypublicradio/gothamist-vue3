@@ -3,7 +3,7 @@ import { Page } from './types'
 
 export async function findPage(htmlPath: string) {
     let params = { html_path: htmlPath }
-    return await UseAviary('/pages/find', {params})
+    return await useAviary('/pages/find', {params})
 }
 
 export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page {
