@@ -3,7 +3,6 @@ import { ref, onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
 const config = useRuntimeConfig()
 const route = useRoute()
-const darkMode = ref(false)
 const atTop = ref(true)
 
 onMounted(() => {
@@ -28,67 +27,48 @@ onMounted(() => {
   <div
     class="page"
     :class="[`${route.name}`]"
-    :data-style-mode="darkMode ? 'dark' : 'default'"
   >
-    <Html>
+    <Html lang="en">
       <Head>
+        <Link rel="preconnect" :href="config.API_URL" />
         <Link rel="stylesheet" :href="config.HTL_CSS" type="text/css" />
         <Script :src="config.HTL_JS" async />
-        <Title>Radiolab: Podcasts | WNYC Studios | Podcasts</Title>
-        <Meta name="description" content="Investigating a strange world." />
-        <Meta
-          name="keywords"
-          content="podcasts, npr, new york, WNYC Studios, arts, culture, classical, music, news, public, radio"
-        />
-        <Meta name="og:site_name" content="Radiolab Podcasts | WNYC Studios" />
+        <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
+        <Meta name="description" content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio." />
+        <Meta name="og:site_name" content="Gothamist: New York City Local News, Food, Arts & Events" />
         <Meta name="og:type" content="website" />
         <Meta
           name="og:url"
-          :content="`https://www.radiolab.org${route.fullPath}`"
+          :content="`https://www.gothamist.com${route.fullPath}`"
         />
         <Meta
           name="og:title"
-          content="Radiolab: Podcasts | WNYC Studios | Podcasts"
+          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
         />
         <Meta name="og:description" content="Investigating a strange world." />
         <Meta
           name="og:image"
-          content="https://media.wnyc.org/i/1200/600/l/80/2020/09/Radiolab_OG_Image_Options_3.png"
+          content="https://gothamist.com/static-images/home_og_1200x650.png"
         />
+        <Meta name="og:locale" content="en_US" />
         <Meta name="og:image:width" content="1200" />
-        <Meta name="og:image:height" content="600" />
+        <Meta name="og:image:height" content="650" />
         <Meta name="fb:app_id" content="151261804904925" />
-        <Meta
-          name="fb:pages"
-          content="224921207956535"
-          data-detail="WNYC Studios"
-        />
         <Meta name="twitter:card" content="summary_large_image" />
-        <Meta name="twitter:site" content="@radiolab" />
-        <Meta
-          name="twitter:title"
-          content="Radiolab: Podcasts | WNYC Studios | Podcasts"
-        />
-        <Meta
-          name="twitter:description"
-          content="Investigating a strange world."
-        />
-        <Meta
-          name="twitter:image"
-          content="https://media.wnyc.org/i/1200/600/l/80/2020/09/Radiolab_OG_Image_Options_3.png"
-        />
-        <Meta
-          name="apple-itunes-app"
-          content="app-id=152249110, affiliate-data=at=1010lSme&amp;ct=radiolab"
-        />
+        <Meta name="twitter:site" content="@gothamist" />
       </Head>
     </Html>
-    <radiolab-header :class="[{ 'at-top': atTop }]" />
+    <header>
+      <h1><NuxtLink to="/">Gothamist</NuxtLink></h1>
+      <!-- Header -->
+    </header>
     <main>
       <slot />
     </main>
-    <radiolab-footer />
-    <audio-player />
+    <footer>
+      <i>footer</i>
+      <!-- Footer -->
+    </footer>
   </div>
 </template>
 

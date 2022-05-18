@@ -1,4 +1,5 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
     "target": "ESNext",
@@ -8,7 +9,8 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "types": [
-      "node"
+      "node",
+      "vitest/globals"
     ]
-  }
+  },
 }
