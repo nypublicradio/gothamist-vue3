@@ -11,7 +11,7 @@ export async function findArticlePages(queryParams: any) {
      sponsored_content: false,
     }
     let params = Object.assign({}, defaultParams, queryParams)
-    return await UseAviary('/pages/', {params})
+    return await useAviary('/pages/', {params})
 }
 
 export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
