@@ -1,14 +1,21 @@
 import { normalizeArticlePage } from './articlePages'
-import { Page } from './types'
+import { normalizeTagPage } from './tagPages'
+import { Page, ArticlePage, TagPage } from './types'
 
 export async function findPage(htmlPath: string) {
     let params = { html_path: htmlPath }
     return await useAviary('/pages/find', {params})
 }
 
-export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page {
-    if (pageResponse.value.meta.type === 'news.ArticlePage') {
-        return normalizeArticlePage(pageResponse.value)
+export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page | ArticlePage | TagPage {
+    const pageType = pageResponse.value?.meta?.type
+    switch (pageType) {
+        case 'news.ArticlePage':
+            return normalizeArticlePage(pageResponse.value)
+        case 'tagpages.TagPageIndex':
+            return normalizeTagPage(pageResponse.value)
+        default:
+            return normalizePage(pageResponse.value)
     }
 }
 

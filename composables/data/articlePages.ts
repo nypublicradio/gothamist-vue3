@@ -6,9 +6,6 @@ export async function findArticlePages(queryParams: any) {
      fields: ['ancestry','description','lead_asset','legacy_id','listing_image','publication_date','show_as_feature','sponsored_content','tags','updated_date','url','uuid','listing_title','listing_summary'].join(','),
      order: '-publication_date',
      show_on_index_listing: true,
-     limit: 4,
-     show_as_feature: true,
-     sponsored_content: false,
     }
     let params = Object.assign({}, defaultParams, queryParams)
     return await useAviary('/pages/', {params})
@@ -41,6 +38,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         url: article.url,
         uuid: article.uuid,
         section: { name: article.ancestry[0].title, slug: article.ancestry[0].slug },
+        body: article.body,
 
         // for listing pages
         listingImage: article.listingImage ?? article.leadAsset?.[0].image ?? article.leadAsset?.[0].defaultImage,

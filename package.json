@@ -16,7 +16,8 @@
     "@vue/compiler-sfc": "^3.2.31",
     "jest-axe": "^5.0.1",
     "nuxt": "^3.0.0-rc.3",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vue-tsc": "^0.34.15"
   },
   "dependencies": {
     "@nuxt/test-utils-edge": "^3.0.0-rc.2-27526179.f74a523",

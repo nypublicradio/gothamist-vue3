@@ -61,7 +61,10 @@ export default defineNuxtConfig({
     HTL_CSS: process.env['HTL_CSS'] || 'https://htlbid.com/stage/v3/gothamist.com/htlbid.css',
     HTL_JS: process.env['HTL_JS'] || 'https://htlbid.com/stage/v3/gothamist.com/htlbid.js',
     HTL_IS_TESTING: process.env['HTL_IS_TESTING'] || 'yes',
-    API_URL: process.env['API_URL'] || "https://cms.demo.nypr.digital/api/v2"
+    API_URL: process.env['API_URL'] || "https://cms.demo.nypr.digital/api/v2",
+    navigationId: 1,
+    systemMessagesId: 1,
+    sitewideComponentsId: 2
   },
   typescript: {
     strict: true

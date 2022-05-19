@@ -1,9 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
+import { findNavigation } from '~~/composables/data/navigation';
 const config = useRuntimeConfig()
 const route = useRoute()
 const atTop = ref(true)
+const navigationData = findNavigation()
+const navigation = normalizeFindNavigationResponse(navigationData)
+const breakingNewsData = findBreakingNews()
+const breakingNews = normalizeFindBreakingNewsResponse(breakingNewsData)
+const productBannersData = findProductBanners()
+const productBanners = normalizeFindProductBannersResponse(productBannersData)
 
 onMounted(() => {
   document.addEventListener('scroll', (e) => {
@@ -26,7 +33,7 @@ onMounted(() => {
 <template>
   <div
     class="page"
-    :class="[`${route.name}`]"
+    :class="[`${String(route.name)}`]"
   >
     <Html lang="en">
       <Head>

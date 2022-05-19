@@ -1,8 +1,9 @@
-<script setup>
+<script setup lang="ts">
+import { ArticlePage } from '~~/composables/data/types';
   import { fuzzyDateTime } from '~~/utilities/date'
   const route = useRoute()
   const { data } = await findPage(`${route.params.sectionSlug}/${route.params.articleSlug}`)
-  const article = normalizeFindPageResponse(data)
+  const article = normalizeFindPageResponse(data) as ArticlePage
 </script>
 
 <template>
