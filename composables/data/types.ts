@@ -18,7 +18,7 @@ export interface Image {
 export interface StreamfieldBlock {
     id: string,
     type: string,
-    value: string,
+    value: any,
 }
 
 export interface Page {
@@ -46,7 +46,7 @@ export interface ArticlePage extends Page {
     url: string,
     uuid: string,
     section: Tag,
-    body?: StreamfieldBlock,
+    body?: StreamfieldBlock[],
 
     listingTitle: string,
     listingDescription: string,

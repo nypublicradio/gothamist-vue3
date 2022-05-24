@@ -63,7 +63,7 @@ export default defineNuxtConfig({
     HTL_IS_TESTING: process.env['HTL_IS_TESTING'] || 'yes',
     API_URL: process.env['API_URL'] || "https://cms.demo.nypr.digital/api/v2",
     navigationId: 1,
-    systemMessagesId: 1,
+    systemMessagesId: 2,
     sitewideComponentsId: 2
   },
   typescript: {

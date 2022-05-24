@@ -13,5 +13,6 @@ import { ArticlePage } from '~~/composables/data/types';
     <span>{{ article.description }}</span><br>
     <span>{{ fuzzyDateTime(article.publicationDate) }}</span><br>
     <span v-if="article.updatedDate">Updated: {{ fuzzyDateTime(article.updatedDate) }}</span><br>
+    <VStreamfield :streamfield="article.body" />
   </div>
 </template>

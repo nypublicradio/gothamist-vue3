@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
-import { findNavigation } from '~~/composables/data/navigation';
 const config = useRuntimeConfig()
 const route = useRoute()
 const atTop = ref(true)
-const navigationData = findNavigation()
+const { data:navigationData } = await findNavigation()
 const navigation = normalizeFindNavigationResponse(navigationData)
-const breakingNewsData = findBreakingNews()
+const { data:breakingNewsData } = await findBreakingNews()
 const breakingNews = normalizeFindBreakingNewsResponse(breakingNewsData)
-const productBannersData = findProductBanners()
+const { data:productBannersData } = await findProductBanners()
 const productBanners = normalizeFindProductBannersResponse(productBannersData)
 
 onMounted(() => {

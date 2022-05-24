@@ -1,0 +1,1 @@
+<template><blockquote>{{quote}}</blockquote>-{{author}}</template>

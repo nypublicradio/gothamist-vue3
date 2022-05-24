@@ -19,7 +19,6 @@
       <ul>
         <li v-for="tag in article.tags" :key="tag.slug"><NuxtLink :to='`/tags/${tag.slug}`'>{{tag.name}}</NuxtLink></li>
       </ul>
-
     </div>
   </div>
 </template>

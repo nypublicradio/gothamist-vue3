@@ -2,12 +2,14 @@ import { BreakingNews } from './types'
 
 export async function findBreakingNews(id?: number) {
     const config = useRuntimeConfig()
-    id = id ?? config.BreakingNewsId
-    return await useAviary('/system_messages/${id}')
+    id = id ?? config.sitewideComponentsId
+    return await useAviary(`/sitewide_components/${id}`)
 }
 
 export function normalizeFindBreakingNewsResponse(breakingNewsData: Record<string, any>): BreakingNews[] {
-    return breakingNewsData.value.items?.map(normalizeBreakingNews)
+    return breakingNewsData.value?.breakingNews
+        ?.filter(newsItem => newsItem.value)
+        .map(normalizeBreakingNews) ?? []
 }
 
 export function normalizeBreakingNews(newsItem: Record<string, any>): BreakingNews {
