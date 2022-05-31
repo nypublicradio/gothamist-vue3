@@ -1,3 +1,5 @@
+import { StreamfieldBlock } from "./StreamfieldBlock"
+
 export interface Tag {
     name: string,
     slug?: string
@@ -11,14 +13,8 @@ export interface Image {
     alt: string,
     caption?: string,
     credit?: string,
-    credit_link?: string,
+    creditLink?: string,
     file?: string,
-}
-
-export interface StreamfieldBlock {
-    id: string,
-    type: string,
-    value: any,
 }
 
 export interface Page {

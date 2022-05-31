@@ -1,0 +1,53 @@
+import { ArticlePage, Image } from "./types";
+
+export type BlockQuoteBlock = {
+    id: string,
+    type: 'block_quote';
+    value: { blockQuote: string };
+}
+
+export type CodeBlock = {
+    id: string,
+    type: 'code';
+    value: { code: string };
+}
+
+export type ContentCollectionBlock = {
+    id: string;
+    type: 'content_collection';
+    value: { pages: ArticlePage[] };
+}
+
+export type EmbedBlock = {
+    id: string;
+    type: 'embed';
+    value: { embed: string }; 
+}
+
+export type HeadingBlock = {
+    id: string;
+    type: 'heading';
+    value: string;  
+}
+
+export type ImageBlock = {
+    id: string;
+    type: 'image';
+    value: { image: Image };  
+}
+
+export type ParagraphBlock = {
+    id: string;
+    type: 'paragraph';
+    value: string;  
+}
+
+export type PullQuoteBlock = {
+    id: string;
+    type: 'paragraph';
+    value: { pullQuote: string, attribution: string };  
+}
+
+export type StreamfieldBlock = BlockQuoteBlock | CodeBlock | ContentCollectionBlock | HeadingBlock | ImageBlock | ParagraphBlock | PullQuoteBlock
+
+

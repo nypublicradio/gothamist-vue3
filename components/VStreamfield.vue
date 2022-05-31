@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { StreamfieldBlock } from '~~/composables/data/types';
+import { StreamfieldBlock } from '../composables/data/StreamfieldBlock';
 defineProps<{
   streamfield: StreamfieldBlock[]
 }>()
@@ -14,84 +14,61 @@ function countMountedBlock() {
 <template>
   <div class="streamfield">
     <template v-for="block in streamfield">
-      <!-- block-quote -->
-      <div
+      <BlockQuoteBlock
         v-if="block.type === 'block_quote'"
         :key="`${block.id}-block-quote`"
-        class="streamfield-block-quote"
-      >
-        <blockquote>
-          <p>
-            {{ block.value.blockQuote }}
-          </p>
-        </blockquote>
-      </div>
+        :block="block"
+        @hook:mounted="countMountedBlock"
+      />
 
-      <!-- code -->
-      <html-fragment
-        v-else-if="block.type === 'code'"
+      <CodeBlock
+        v-else="block.type === 'code'"
         :key="`${block.id}-code`"
-        class="streamfield-code u-spacing"
-        :html="block.value.code"
+        :block="block"
         @hook:mounted="countMountedBlock"
       />
 
-      <!-- content collection -->
-      <div
-        v-else-if="block.type === 'content_collection'"
+      <ContentCollectionBlock
+        v-else="block.type === 'content_collection'"
         :key="`${block.id}-content-collection`"
-        class="streamfield-content-collection"
-      >
-        <!--  -->
-      </div>
-
-      <!-- embed -->
-      <div
-        v-else-if="block.type === 'embed'"
-        :key="`${block.id}-embed`"
-        class="streamfield-embed"
-        v-html="block.value.embed"
-      />
-
-      <!-- heading -->
-      <div
-        v-else-if="block.type === 'heading'"
-        :key="`${block.id}-heading`"
-        class="streamfield-heading"
-      >
-        <h3>{{ block.value }}</h3>
-      </div>
-
-      <!-- image -->
-      <div
-        v-else-if="block.type === 'image'"
-        :key="`${block.id}-image`"
-        class="streamfield-image"
-      >
-      [image {{block.value}}]
-      </div>
-
-      <!-- paragraph -->
-      <html-fragment
-        v-else-if="block.type === 'paragraph'"
-        :key="block.id"
-        class="streamfield-paragraph u-spacing"
-        :html="block.value"
+        :block="block"
         @hook:mounted="countMountedBlock"
       />
 
-      <!-- pull-quote -->
-      <div
-        v-else-if="block.type === 'pull_quote'"
+      <EmbedBlock
+        v-else="block.type === 'embed'"
+        :key="`${block.id}-embed`"
+        :block="block"
+        @hook:mounted="countMountedBlock"
+      />
+
+      <HeadingBlock
+        v-else="block.type === 'heading'"
+        :key="`${block.id}-heading`"
+        :block="block"
+        @hook:mounted="countMountedBlock"
+      />
+
+      <ImageBlock
+        v-else="block.type === 'image'"
+        :key="`${block.id}-image`"
+        :block="block"
+        @hook:mounted="countMountedBlock"
+      />
+
+      <ParagraphBlock
+        v-else="block.type === 'paragraph'"
+        :key="`${block.id}-paragraph`"
+        :block="block"
+        @hook:mounted="countMountedBlock"
+      />
+
+      <PullQuoteBlock
+        v-else="block.type === 'pull_quote'"
         :key="`${block.id}-pull-quote`"
-        class="streamfield-pull-quote"
-      >
-        <pull-quote
-          :quote="block.value.pullQuote"
-          :author="block.value.attribution" 
-          @hook:mounted="countMountedBlock"
-        />
-      </div>
+        :block="block"
+        @hook:mounted="countMountedBlock"
+      />
     </template>
   </div>
 </template>
