@@ -49,4 +49,4 @@ export type PullQuoteBlock = {
     value: { pullQuote: string, attribution: string };  
 }
 
-export type StreamfieldBlock = BlockQuoteBlock | CodeBlock | ContentCollectionBlock | EmbedBlock |HeadingBlock | ImageBlock | ParagraphBlock | PullQuoteBlock
+export type StreamfieldBlock = BlockQuoteBlock | CodeBlock | ContentCollectionBlock | EmbedBlock | HeadingBlock | ImageBlock | ParagraphBlock | PullQuoteBlock

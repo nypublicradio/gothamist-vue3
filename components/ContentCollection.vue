@@ -1,6 +1,6 @@
 <!-- Placeholder Component-->
 <script setup lang="ts">
-import { ArticlePage } from '~~/composables/types/Page';
+import { ArticlePage } from '../composables/types/Page'
 
 defineProps<{
   articles: ArticlePage[]
