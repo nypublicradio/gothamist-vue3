@@ -9,10 +9,8 @@ import { fuzzyDateTime } from '../../utilities/date'
       : undefined
     const { data:articleData } = await findArticlePages({ tag_slug: tagSlug, limit:12, offset:0 })
     const articles = normalizeFindArticlePagesResponse(articleData)
-    const tagName = articles.length 
-      ?
-      articles[0].tags.find(tag => tag.slug === tagSlug)?.name
-      : tagSlug
+    const tagName = articles[0]?.tags.find(tag => tag.slug === tagSlug)?.name
+      || tagSlug
 </script> 
 
 <template>

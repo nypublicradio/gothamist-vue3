@@ -6,8 +6,10 @@ const route = useRoute()
 const atTop = ref(true)
 const { data:navigationData } = await findNavigation()
 const navigation = normalizeFindNavigationResponse(navigationData)
+
 const { data:breakingNewsData } = await findBreakingNews()
 const breakingNews = normalizeFindBreakingNewsResponse(breakingNewsData)
+
 const { data:productBannersData } = await findProductBanners()
 const productBanners = normalizeFindProductBannersResponse(productBannersData)
 
