@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-    <HtmlFragment
+    <div
       class="streamfield-code u-spacing"
       :html="block.value.code"
     />
