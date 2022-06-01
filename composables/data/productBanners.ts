@@ -1,9 +1,8 @@
 import ProductBanner from "../types/ProductBanner"
 
-export async function findProductBanners(id?: number) {
+export async function findProductBanners() {
     const config = useRuntimeConfig()
-    id = id ?? config.systemMessagesId
-    return await useAviary(`/system_messages/${id}`)
+    return await useAviary(`/system_messages/${config.systemMessagesId}`)
 }
 
 export function normalizeFindProductBannersResponse(productBannersData: Record<string, any>): ProductBanner[] {

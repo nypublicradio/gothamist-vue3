@@ -3,7 +3,7 @@
   const route = useRoute()
   const { data:sectionPageData } = await findPage(route.params.sectionSlug as string)
   const { title:sectionTitle, id:sectionId } = normalizeFindPageResponse(sectionPageData)
-  const { data:articleData } = await findArticlePages({descendant_of: sectionId})
+  const { data:articleData } = await findArticlePages({ descendant_of: sectionId })
   const articles = normalizeFindArticlePagesResponse(articleData)
 </script> 
 
@@ -17,7 +17,7 @@
       <span>{{ fuzzyDateTime(article.publicationDate) }}</span><br>
       <span v-if="article.updatedDate">Updated: {{ fuzzyDateTime(article.updatedDate) }}</span><br>
       <ul>
-        <li v-for="tag in article.tags" :key="tag.slug"><NuxtLink :to='`/tags/${tag.slug}`'>{{tag.name}}</NuxtLink></li>
+        <li v-for="tag in article.tags" :key="tag.slug"><NuxtLink :to='`/tags/${tag.slug}`'>{{ tag.name }}</NuxtLink></li>
       </ul>
     </div>
   </div>

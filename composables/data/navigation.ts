@@ -1,9 +1,8 @@
 import Navigation from "../types/Navigation"
 
-export async function findNavigation(id?: number) {
+export async function findNavigation() {
     const config = useRuntimeConfig()
-    id = id ?? config.navigationId
-    return await useAviary(`/navigation/${id}`)
+    return await useAviary(`/navigation/${config.navigationId}`)
 }
 
 export function normalizeFindNavigationResponse(nav: Record<string, any>): Navigation {

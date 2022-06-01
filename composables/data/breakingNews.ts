@@ -1,9 +1,8 @@
 import BreakingNews from "../types/BreakingNews"
 
-export async function findBreakingNews(id?: number) {
+export async function findBreakingNews() {
     const config = useRuntimeConfig()
-    id = id ?? config.sitewideComponentsId
-    return await useAviary(`/sitewide_components/${id}`)
+    return await useAviary(`/sitewide_components/${config.sitewideComponentsId}`)
 }
 
 export function normalizeFindBreakingNewsResponse(breakingNewsData: Record<string, any>): BreakingNews[] {

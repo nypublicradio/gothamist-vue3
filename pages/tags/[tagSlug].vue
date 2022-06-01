@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { TagPage } from '~~/composables/data/types';
-import { fuzzyDateTime } from '~~/utilities/date';
+import { TagPage } from '../../composables/types/Page'
+import { fuzzyDateTime } from '../../utilities/date'
     const route = useRoute()
     const tagSlug = route.params.tagSlug
     const { data:tagPageData, error } = await findPage(`tags/${tagSlug}`)
     const curatedTagPage = tagPageData?.value ?
       normalizeFindPageResponse(tagPageData) as TagPage
       : undefined
-    const { data:articleData } = await findArticlePages({tag_slug: tagSlug, limit:12, offset:0})
+    const { data:articleData } = await findArticlePages({ tag_slug: tagSlug, limit:12, offset:0 })
     const articles = normalizeFindArticlePagesResponse(articleData)
     const tagName = articles.length 
       ?
@@ -28,7 +28,7 @@ import { fuzzyDateTime } from '~~/utilities/date';
       <span>{{ fuzzyDateTime(article.publicationDate) }}</span><br>
       <span v-if="article.updatedDate">Updated: {{ fuzzyDateTime(article.updatedDate) }}</span><br>
       <ul>
-        <li v-for="tag in article.tags" :key="tag.slug"><NuxtLink :to='`/tags/${tag.slug}`'>{{tag.name}}</NuxtLink></li>
+        <li v-for="tag in article.tags" :key="tag.slug"><NuxtLink :to='`/tags/${tag.slug}`'>{{ tag.name }}</NuxtLink></li>
       </ul>
 
     </div>
