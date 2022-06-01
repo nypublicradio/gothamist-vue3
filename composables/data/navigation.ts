@@ -1,4 +1,4 @@
-import { Navigation } from './types'
+import Navigation from "../types/Navigation"
 
 export async function findNavigation(id?: number) {
     const config = useRuntimeConfig()

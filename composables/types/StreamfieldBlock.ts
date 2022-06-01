@@ -1,4 +1,5 @@
-import { ArticlePage, Image } from "./types";
+import Image from "./Image";
+import { ArticlePage } from "./Page";
 
 export type BlockQuoteBlock = {
     id: string,
@@ -49,5 +50,3 @@ export type PullQuoteBlock = {
 }
 
 export type StreamfieldBlock = BlockQuoteBlock | CodeBlock | ContentCollectionBlock | HeadingBlock | ImageBlock | ParagraphBlock | PullQuoteBlock
-
-

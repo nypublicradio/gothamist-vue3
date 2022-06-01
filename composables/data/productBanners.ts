@@ -1,4 +1,4 @@
-import { ProductBanner } from './types'
+import ProductBanner from "../types/ProductBanner"
 
 export async function findProductBanners(id?: number) {
     const config = useRuntimeConfig()

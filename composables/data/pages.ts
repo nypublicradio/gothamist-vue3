@@ -1,6 +1,6 @@
 import { normalizeArticlePage } from './articlePages'
 import { normalizeTagPage } from './tagPages'
-import { Page, ArticlePage, TagPage } from './types'
+import { Page, ArticlePage, TagPage } from "../types/Page"
 
 export async function findPage(htmlPath: string) {
     let params = { html_path: htmlPath }

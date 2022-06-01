@@ -1,4 +1,4 @@
-import { BreakingNews } from './types'
+import BreakingNews from "../types/BreakingNews"
 
 export async function findBreakingNews(id?: number) {
     const config = useRuntimeConfig()

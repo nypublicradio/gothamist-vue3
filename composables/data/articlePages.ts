@@ -1,4 +1,4 @@
-import { ArticlePage } from './types'
+import { ArticlePage } from "../types/Page"
 
 export async function findArticlePages(queryParams: any) {
     const defaultParams  = {

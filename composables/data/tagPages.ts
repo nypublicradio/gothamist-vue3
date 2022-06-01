@@ -1,4 +1,4 @@
-import { TagPage } from './types'
+import { TagPage } from "../types/Page"
 
 export function normalizeFindTagPageResponse (tagPageResponse: any): TagPage {
     return tagPageResponse.value.items?.map(normalizeTagPage)
