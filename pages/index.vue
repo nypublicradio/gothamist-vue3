@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import { fuzzyDateTime } from '../utilities/date'
-  const { data } = await findArticlePages("")
-  const articles = normalizeFindArticlePagesResponse(data)
+
+  const articles = await findArticlePages("")
+    .then(({data}) => normalizeFindArticlePagesResponse(data))
 </script>
 
 <template>

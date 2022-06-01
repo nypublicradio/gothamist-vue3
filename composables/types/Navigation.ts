@@ -7,6 +7,6 @@ export default interface Navigation {
     primaryFooterLinks: NavigationLink[];
     secondaryFooterLinks: NavigationLink[];
     legalLinks: NavigationLink[];
-    copyrightYear: 'string';
-    propertyDescription: 'string';
+    copyrightYear: string;
+    propertyDescription: string;
 }

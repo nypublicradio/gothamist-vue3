@@ -1,10 +1,11 @@
 <script setup lang="ts">
   import { fuzzyDateTime } from '~~/utilities/date';
+
   const route = useRoute()
-  const { data:sectionPageData } = await findPage(route.params.sectionSlug as string)
-  const { title:sectionTitle, id:sectionId } = normalizeFindPageResponse(sectionPageData)
-  const { data:articleData } = await findArticlePages({ descendant_of: sectionId })
-  const articles = normalizeFindArticlePagesResponse(articleData)
+  const { title:sectionTitle, id:sectionId } = await findPage(route.params.sectionSlug as string) 
+    .then(({data}) => normalizeFindPageResponse(data))  
+  const articles  =  await findArticlePages({ descendant_of: sectionId })
+    .then(({data}) => normalizeFindArticlePagesResponse(data))
 </script> 
 
 <template>

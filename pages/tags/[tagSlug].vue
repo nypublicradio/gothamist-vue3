@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { TagPage } from '../../composables/types/Page'
-import { fuzzyDateTime } from '../../utilities/date'
-    const route = useRoute()
-    const tagSlug = route.params.tagSlug
-    const { data:tagPageData, error } = await findPage(`tags/${tagSlug}`)
-    const curatedTagPage = tagPageData?.value ?
-      normalizeFindPageResponse(tagPageData) as TagPage
-      : undefined
-    const { data:articleData } = await findArticlePages({ tag_slug: tagSlug, limit:12, offset:0 })
-    const articles = normalizeFindArticlePagesResponse(articleData)
-    const tagName = articles[0]?.tags.find(tag => tag.slug === tagSlug)?.name
-      || tagSlug
+  import { TagPage } from '../../composables/types/Page'
+  import { fuzzyDateTime } from '../../utilities/date'
+
+  const route = useRoute()
+  const tagSlug = route.params.tagSlug
+  const curatedTagPage = await findPage(`tags/${tagSlug}`)
+    .then(({data}) => data?.value && normalizeFindPageResponse(data) as TagPage)
+
+  const articles = await findArticlePages({ tag_slug: tagSlug, limit:12, offset:0 })
+    .then(({data}) => normalizeFindArticlePagesResponse(data))
+
+  const tagName = articles[0]?.tags.find(tag => tag.slug === tagSlug)?.name
+    || tagSlug
 </script> 
 
 <template>

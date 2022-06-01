@@ -1,6 +1,6 @@
 <!-- Placeholder Component-->
 <script setup lang="ts">
-import { Image } from '../composables/data/types'
+import Image from '../composables/types/Image'
 const props = defineProps<{
   image: Image
   width: number
@@ -21,5 +21,5 @@ const height = props.height || deriveDisplayHeight(props.width, props.image)
 const imageUrl =`${config.IMAGE_BASE_URL}/${props.image.id}/${imageSizing}-${props.width}x${props.height}/`
 </script>
 <template>
-    <img src="{{ imageUrl }}" width="{{ width }}" height="{{ height }}">
+    <img :src="imageUrl" :width="width" :height="height" />
 </template>

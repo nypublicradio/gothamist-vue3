@@ -45,8 +45,8 @@ export type ParagraphBlock = {
 
 export type PullQuoteBlock = {
     id: string;
-    type: 'paragraph';
+    type: 'pull_quote';
     value: { pullQuote: string, attribution: string };  
 }
 
-export type StreamfieldBlock = BlockQuoteBlock | CodeBlock | ContentCollectionBlock | HeadingBlock | ImageBlock | ParagraphBlock | PullQuoteBlock
+export type StreamfieldBlock = BlockQuoteBlock | CodeBlock | ContentCollectionBlock | EmbedBlock |HeadingBlock | ImageBlock | ParagraphBlock | PullQuoteBlock
