@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import { StreamfieldBlock } from '../composables/types/StreamfieldBlock';
-defineProps<{
+const props = defineProps<{
   streamfieldBlocks: StreamfieldBlock[]
 }>()
+const emit = defineEmits<{
+  (e: 'allBlocksMounted'): void
+}>()
 
-const blocksMounted = ref(0)
+let blocksMounted = 0
 
 function countMountedBlock() {
-  blocksMounted.value++
+  blocksMounted++
+  if (blocksMounted === props.streamfieldBlocks.length) {
+    emit('allBlocksMounted')
+  }
 }
 </script>
 

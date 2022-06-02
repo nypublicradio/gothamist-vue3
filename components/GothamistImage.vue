@@ -6,6 +6,7 @@ const props = defineProps<{
   width: number
   height?: number
 }>()
+
 const config = useRuntimeConfig()
 const imageSizing = 'fill'
 
@@ -17,9 +18,10 @@ const deriveDisplayHeight = (displayWidth: number, image: Image): number => {
   return image.height * scaling
 }
 
-const height = props.height || deriveDisplayHeight(props.width, props.image)
-const imageUrl =`${config.IMAGE_BASE_URL}/${props.image.id}/${imageSizing}-${props.width}x${props.height}/`
+const displayWidth = props.width
+const displayHeight = props.height || deriveDisplayHeight(props.width, props.image)
+const imageUrl =`${config.IMAGE_BASE_URL}${props.image.id}/${imageSizing}-${displayWidth}x${displayHeight}/`
 </script>
 <template>
-    <img :src="imageUrl" :width="width" :height="height" />
+    <img :src="imageUrl" :width="displayWidth" :height="displayHeight" />
 </template>

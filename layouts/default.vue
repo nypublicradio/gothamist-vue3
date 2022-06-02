@@ -33,7 +33,7 @@
 <template>
   <div
     class="page"
-    :class="[`${String(route.name)}`]"
+    :class="[`${route.name as string}`]"
   >
     <Html lang="en">
       <Head>
