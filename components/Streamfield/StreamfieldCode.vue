@@ -8,6 +8,6 @@ defineProps<{
 <template>
     <div
       class="streamfield-code u-spacing"
-      :html="block.value.code"
+      v-html="block.value.code"
     />
 </template>
