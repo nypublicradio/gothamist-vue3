@@ -1,17 +1,26 @@
 <script setup lang="ts">
-  import { fuzzyDateTime } from '~~/utilities/date';
+  import { TagPage } from '../../composables/types/Page'
+  import { fuzzyDateTime } from '../../utilities/date'
 
   const route = useRoute()
-  const { title:sectionTitle, id:sectionId } = await findPage(route.params.sectionSlug as string) 
-    .then(({data}) => normalizeFindPageResponse(data))  
-  const articles  =  await findArticlePages({ descendant_of: sectionId })
+  const tagSlug = route.params.tagSlug
+  const curatedTagPage = await findPage(`tags/${tagSlug}`)
+    .then(({data}) => data?.value && normalizeFindPageResponse(data) as TagPage)
+
+  const articles = await findArticlePages({ tag_slug: tagSlug, limit:12, offset:0 })
     .then(({data}) => normalizeFindArticlePagesResponse(data))
+
+  const tagName = articles[0]?.tags.find(tag => tag.slug === tagSlug)?.name
+    || tagSlug
 </script> 
 
 <template>
   <div>
-    <h1>{{ sectionTitle }}</h1>
+    <h1>{{ tagName  }}</h1>
     <div v-for="article in articles" :key="article.uuid">
+      <div v-if="curatedTagPage?.topPageZone">
+        <pre>{{curatedTagPage.topPageZone}}</pre>
+      </div>
       <NuxtLink :to="`/${article.section.slug}`">{{article.section.name}}</NuxtLink><br>
       <NuxtLink :to="article.link"><b>{{ article.title }}</b></NuxtLink><br>
       <span>{{ article.description }}</span><br>
@@ -20,6 +29,8 @@
       <ul>
         <li v-for="tag in article.tags" :key="tag.slug"><NuxtLink :to='`/tags/${tag.slug}`'>{{ tag.name }}</NuxtLink></li>
       </ul>
+
     </div>
   </div>
 </template>
+  

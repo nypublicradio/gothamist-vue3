@@ -1,32 +1,39 @@
-<script setup>
-import { ref, onMounted } from 'vue'
-import { useRuntimeConfig } from '#app'
-const config = useRuntimeConfig()
-const route = useRoute()
-const atTop = ref(true)
+<script setup lang="ts">
+  import { ref, onMounted } from 'vue'
+  import { useRuntimeConfig } from '#app'
 
-onMounted(() => {
-  document.addEventListener('scroll', (e) => {
-    atTop.value = window.scrollY > 0 ? false : true
-    //atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
+  const config = useRuntimeConfig()
+  const route = useRoute()
+  const atTop = ref(true)
+  const navigation =  await findNavigation()
+    .then(({data}) => normalizeFindNavigationResponse(data))
+  const breakingNews = await findBreakingNews()
+    .then(({data}) => normalizeFindBreakingNewsResponse(data))
+  const productBanners = await findProductBanners()
+    .then(({data}) => normalizeFindProductBannersResponse(data))
+
+  onMounted(() => {
+    document.addEventListener('scroll', (e) => {
+      atTop.value = window.scrollY > 0 ? false : true
+      //atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
+    })
+    // Ads
+    window.htlbid = window.htlbid || {}
+    htlbid.cmd = htlbid.cmd || []
+    htlbid.cmd.push(function () {
+      htlbid.layout('universal') // Leave as 'universal' or add custom layout
+      htlbid.setTargeting('is_testing', config.HTL_IS_TESTING) // Set to "no" for production
+      htlbid.setTargeting('is_home', route.name === 'index' ? 'yes' : 'no') // Set to "yes" on the homepage
+      htlbid.setTargeting('category', route.name) // dynamically pass page category into this function
+      htlbid.setTargeting('post_id', route.name) // dynamically pass unique post/page id into this function
+    })
   })
-  // Ads
-  window.htlbid = window.htlbid || {}
-  htlbid.cmd = htlbid.cmd || []
-  htlbid.cmd.push(function () {
-    htlbid.layout('universal') // Leave as 'universal' or add custom layout
-    htlbid.setTargeting('is_testing', config.HTL_IS_TESTING) // Set to "no" for production
-    htlbid.setTargeting('is_home', route.name === 'index' ? 'yes' : 'no') // Set to "yes" on the homepage
-    htlbid.setTargeting('category', route.name) // dynamically pass page category into this function
-    htlbid.setTargeting('post_id', route.name) // dynamically pass unique post/page id into this function
-  })
-})
 </script>
 
 <template>
   <div
     class="page"
-    :class="[`${route.name}`]"
+    :class="[`${route.name as string}`]"
   >
     <Html lang="en">
       <Head>

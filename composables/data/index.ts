@@ -1,3 +1,11 @@
 export { findPage } from './pages'
 export { normalizeFindPageResponse } from './pages'
-export { findArticlePages, normalizeFindArticlePagesResponse} from './articlePages'
+export { findArticlePages } from './articlePages'
+export { normalizeFindArticlePagesResponse} from './articlePages'
+export { findNavigation } from './navigation'
+export { normalizeFindNavigationResponse} from './navigation'
+export { findProductBanners } from './productBanners'
+export { normalizeFindProductBannersResponse} from './productBanners'
+export { findBreakingNews } from './breakingNews'
+export { normalizeFindBreakingNewsResponse } from './breakingNews'
+    

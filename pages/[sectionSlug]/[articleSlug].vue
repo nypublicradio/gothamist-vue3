@@ -1,8 +1,10 @@
-<script setup>
-  import { fuzzyDateTime } from '~~/utilities/date'
+<script setup lang="ts">
+  import { ArticlePage } from '../../composables/types/Page'
+  import { fuzzyDateTime } from '../../utilities/date'
+
   const route = useRoute()
-  const { data } = await findPage(`${route.params.sectionSlug}/${route.params.articleSlug}`)
-  const article = normalizeFindPageResponse(data)
+  const article = await findPage(`${route.params.sectionSlug}/${route.params.articleSlug}`)
+    .then(({data}) => normalizeFindPageResponse(data)) as ArticlePage
 </script>
 
 <template>
@@ -12,5 +14,6 @@
     <span>{{ article.description }}</span><br>
     <span>{{ fuzzyDateTime(article.publicationDate) }}</span><br>
     <span v-if="article.updatedDate">Updated: {{ fuzzyDateTime(article.updatedDate) }}</span><br>
+    <VStreamfield :streamfieldBlocks="article.body" />
   </div>
 </template>
