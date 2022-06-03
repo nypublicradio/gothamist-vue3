@@ -1,6 +1,9 @@
-import { StreamfieldBlock } from "./StreamfieldBlock";
-import Tag from "./Tag";
-import Image from "./Image";
+import { StreamfieldBlock } from './StreamfieldBlock';
+import Author from './Author';
+import ContributingOrganization from './ContributingOrganization';
+import Image from './Image';
+import Sponsor from './Sponsor';
+import Tag from './Tag';
 
 export interface Page {
     id: number;
@@ -28,6 +31,10 @@ export interface ArticlePage extends Page {
     uuid: string;
     section: Tag;
     body?: StreamfieldBlock[];
+
+    authors: Author[],
+    contributingOrganizations: ContributingOrganization[],
+    sponsors: Sponsor[],
 
     listingTitle: string;
     listingDescription: string;
