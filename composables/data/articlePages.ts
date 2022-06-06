@@ -1,4 +1,5 @@
 import { ArticlePage } from "../types/Page"
+import Author from '../types/Author'
 
 export async function findArticlePages(queryParams: any) {
     const defaultParams  = {
@@ -30,6 +31,9 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         gallerySlides: article.leadAsset[0]?.type === 'lead_gallery' && article.leadAsset[0]?.slides,
 
         legacyId: article.legacyId,
+        authors: article.relatedAuthors?.map(normalizeAuthor),
+        contributingOrganizations: article.relatedContributingOrganizations,
+        sponsors: article.relatedSponsors,
         publicationDate: new Date(article.publicationDate),
         updatedDate: article.updatedDate ? new Date(article.updatedDate) : undefined,
         showAsFeature: article.showAsFeature,
@@ -41,13 +45,26 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         body: article.body,
 
         // for listing pages
-        listingImage: article.listingImage ?? article.leadAsset[0]?.image ?? article.leadAsset[0]?.defaultImage,
-        listingTitle: article.listingTitle ?? article.title,
-        listingDescription: article.listingSummary ?? article.description,
+        listingImage: article.listingImage || article.leadAsset[0]?.value?.image || article.leadAsset[0]?.value?.defaultImage,
+        listingTitle: article.listingTitle || article.title,
+        listingDescription: article.listingSummary || article.description,
 
         // for social/OG metadata
-        socialImage: article.socialImage ?? article.leadAsset[0]?.image ?? article.leadAsset[0]?.defaultImage,
-        socialTitle: article.socialTitle ?? article.title,
-        socialDescription: article.socialText ?? article.description,
+        socialImage: article.socialImage || article.leadAsset[0]?.value?.image || article.leadAsset[0]?.value?.defaultImage,
+        socialTitle: article.socialTitle || article.title,
+        socialDescription: article.socialText || article.description,
+    }
+}
+
+function normalizeAuthor(author:Record<string, any>): Author {
+    return {
+        id: author.id,
+        name: `${author.firstName} ${author.lastName}`,
+        photoID: author.photo,
+        jobTitle: author.jobTitle,
+        biography: author.biography,
+        website: author.website,
+        email: author.email,
+        slug: author.slug
     }
 }
