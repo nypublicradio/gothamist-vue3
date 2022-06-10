@@ -17,7 +17,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             })
         ],
         logErrors: false,
-        debug: true,
+        debug: false,
         sampleRate: 1,
         tracesSampleRate: 1,
         environment: config.ENV || 'dev',
