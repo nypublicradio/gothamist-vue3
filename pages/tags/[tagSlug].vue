@@ -12,6 +12,11 @@
 
   const tagName = articles[0]?.tags.find(tag => tag.slug === tagSlug)?.name
     || tagSlug
+
+  onMounted(() => {
+    const { $analytics } = useNuxtApp()
+    $analytics.sendPageView({ page_type: 'tag_page' })
+  })
 </script> 
 
 <template>

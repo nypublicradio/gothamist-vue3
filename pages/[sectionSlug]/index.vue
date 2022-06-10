@@ -3,9 +3,14 @@
 
   const route = useRoute()
   const { title:sectionTitle, id:sectionId } = await findPage(route.params.sectionSlug as string) 
-    .then(({data}) => normalizeFindPageResponse(data))  
+    .then(({data}) => normalizeFindPageResponse(data))
   const articles  =  await findArticlePages({ descendant_of: sectionId })
     .then(({data}) => normalizeFindArticlePagesResponse(data))
+
+  onMounted(() => {
+    const { $analytics } = useNuxtApp()
+    $analytics.sendPageView({ page_type: 'section_page' })
+  })
 </script> 
 
 <template>
