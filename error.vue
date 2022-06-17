@@ -1,16 +1,12 @@
-<script setup lang="tx">
+<script setup lang="ts">
   defineProps<{
-    error: {
-      type: Object,
-      default: null,
-    }
-  }>
+    error: string
+  }>()
 
   onMounted(() => {
     const { $analytics } = useNuxtApp()
     $analytics.sendPageView({ page_type: 'error_page' })
   })
-})
 </script>
 <template>
     <Html>

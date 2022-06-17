@@ -1,4 +1,3 @@
-import { defineNuxtPlugin, useRuntimeConfig } from '#app';
 import * as Sentry from '@sentry/vue';
 import { Integrations } from '@sentry/tracing';
 
