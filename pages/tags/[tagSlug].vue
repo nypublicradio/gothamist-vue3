@@ -14,7 +14,6 @@
     || tagSlug
 
   onMounted(() => {
-    console.log('tagPage')
     const { $analytics } = useNuxtApp()
     $analytics.sendPageView({ page_type: 'tag_page' })
   })
