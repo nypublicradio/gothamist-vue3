@@ -3,6 +3,11 @@
 
   const articles = await findArticlePages("")
     .then(({data}) => normalizeFindArticlePagesResponse(data))
+
+  onMounted(() => {
+    const { $analytics } = useNuxtApp()
+    $analytics.sendPageView({ page_type: 'home_page' })
+  })
 </script>
 
 <template>

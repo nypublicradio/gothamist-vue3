@@ -1,22 +1,24 @@
-<script setup>
-const props = defineProps({
-  error: {
-    type: Object,
-    default: null,
-  },
-})
+<script setup lang="ts">
+  defineProps<{
+    error: string
+  }>()
+
+  onMounted(() => {
+    const { $analytics } = useNuxtApp()
+    $analytics.sendPageView({ page_type: 'error_page' })
+  })
 </script>
 <template>
     <Html>
       <Head>
-        <Title>{{ error }} Error | Radiolab | WNYC Studios</Title>
+        <Title>{{ error }} Error | Gothamist</Title>
         <Meta
           name="og:title"
-          :content="`${error} Error | Radiolab | WNYC Studios`"
+          :content="`${error} Error | Gothamist`"
         />
         <Meta
           name="twitter:title"
-          :content="`${error} Error | Radiolab | WNYC Studios`"
+          :content="`${error} Error | Gothamist`"
         />
       </Head>
       <div class="error-page">

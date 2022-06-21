@@ -1,4 +1,3 @@
-import { defineNuxtPlugin, useRuntimeConfig } from '#app';
 import * as Sentry from '@sentry/vue';
 import { Integrations } from '@sentry/tracing';
 
@@ -17,7 +16,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             })
         ],
         logErrors: false,
-        debug: true,
+        debug: false,
         sampleRate: 1,
         tracesSampleRate: 1,
         environment: config.ENV || 'dev',
