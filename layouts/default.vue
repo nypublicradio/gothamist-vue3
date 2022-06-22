@@ -4,6 +4,7 @@
 
   const config = useRuntimeConfig()
   const route = useRoute()
+  const { $htlbid } = useNuxtApp()
   const atTop = ref(true)
   const navigation =  await findNavigation()
     .then(({data}) => normalizeFindNavigationResponse(data))
@@ -17,17 +18,13 @@
       atTop.value = window.scrollY > 0 ? false : true
       //atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
     })
-    // Ads
-    window.htlbid = window.htlbid || {}
-    htlbid.cmd = htlbid.cmd || []
-    htlbid.cmd.push(function () {
-      htlbid.layout('universal') // Leave as 'universal' or add custom layout
-      htlbid.setTargeting('is_testing', config.HTL_IS_TESTING) // Set to "no" for production
-      htlbid.setTargeting('is_home', route.name === 'index' ? 'yes' : 'no') // Set to "yes" on the homepage
-      htlbid.setTargeting('category', route.name) // dynamically pass page category into this function
-      htlbid.setTargeting('post_id', route.name) // dynamically pass unique post/page id into this function
+    $htlbid.init()
+    $htlbid.setTargeting({
+        is_testing: config.HTL_IS_TESTING,
     })
+    $htlbid.setTargetingForRoute(route)
   })
+  watch(route, (value) => $htlbid.setTargetingForRoute(value))
 </script>
 
 <template>
