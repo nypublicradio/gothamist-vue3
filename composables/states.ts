@@ -1,0 +1,1 @@
+export const useSensitiveContent = () => useState<boolean>('sensitiveContent', () => false)

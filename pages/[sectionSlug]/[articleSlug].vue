@@ -9,14 +9,17 @@
 
   const trackingData = usePageTrackingData(article)
   const adTargetingData = usePageAdTargetingData(article)
+  const sensitiveContent = useSensitiveContent()
 
   onMounted(() => {
     $analytics.sendPageView(trackingData)
     $htlbid.setTargeting(adTargetingData)
+    sensitiveContent.value = article.sensitiveContent
   })
 
   onUnmounted(() => {
     $htlbid.clearTargeting(adTargetingData)
+    sensitiveContent.value = false
   })
 
   function usePageTrackingData(article: ArticlePage): Record<string, any> {

@@ -12,6 +12,7 @@
     .then(({data}) => normalizeFindBreakingNewsResponse(data))
   const productBanners = await findProductBanners()
     .then(({data}) => normalizeFindProductBannersResponse(data))
+  const sensitiveContent = useSensitiveContent()
 
   onMounted(() => {
     document.addEventListener('scroll', (e) => {
@@ -63,6 +64,7 @@
         <Meta name="twitter:site" content="@gothamist" />
       </Head>
     </Html>
+    <div v-if="!sensitiveContent" class="htlad-skin" />
     <header>
       <h1><NuxtLink to="/">Gothamist</NuxtLink></h1>
       <!-- Header -->
