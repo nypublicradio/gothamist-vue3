@@ -11,7 +11,6 @@ export default defineNuxtPlugin(() => {
     const setTargeting = (targetingParams) => {
         htlbid.cmd.push(() => {
           for (const key in targetingParams) {
-            console.log('SET TARGETING', key, targetingParams[key])
             htlbid.setTargeting(key, targetingParams[key])
           }
         })
