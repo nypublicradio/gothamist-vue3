@@ -25,6 +25,8 @@ export interface ArticlePage extends Page {
     publicationDate: Date;
     updatedDate: Date | null;
     showAsFeature: boolean;
+    sensitiveContent: boolean;
+    provocativeContent: boolean;
     sponsoredContent: boolean;
     tags: Tag[];
     url: string;

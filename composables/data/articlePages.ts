@@ -37,6 +37,8 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         publicationDate: new Date(article.publicationDate),
         updatedDate: article.updatedDate ? new Date(article.updatedDate) : undefined,
         showAsFeature: article.showAsFeature,
+        sensitiveContent: article.sensitiveContent,
+        provocativeContent: article.provocativeContent,
         sponsoredContent: article.sponsoredContent,
         tags: article.tags,
         url: article.url,

@@ -3,16 +3,23 @@
   import { fuzzyDateTime } from '../../utilities/date'
 
   const route = useRoute()
+  const { $analytics, $htlbid } = useNuxtApp()
   const article = await findPage(`${route.params.sectionSlug}/${route.params.articleSlug}`)
     .then(({data}) => normalizeFindPageResponse(data)) as ArticlePage
 
+  const trackingData = usePageTrackingData(article)
+  const adTargetingData = usePageAdTargetingData(article)
+
   onMounted(() => {
-    const data = usePageData(article)
-    const { $analytics } = useNuxtApp()
-    $analytics.sendPageView(data)
+    $analytics.sendPageView(trackingData)
+    $htlbid.setTargeting(adTargetingData)
   })
 
-  function usePageData(article: ArticlePage): Record<string, any> {
+  onUnmounted(() => {
+    $htlbid.clearTargeting(adTargetingData)
+  })
+
+  function usePageTrackingData(article: ArticlePage): Record<string, any> {
     return {
       page_type: 'article',
       article_authors: article.authors.map(author => author.name).join(','),
@@ -21,6 +28,16 @@
       article_tags: article.tags.map(tag => tag.slug).join(','),
       article_title: article.title,
       article_primary_tag: article.tags[0]?.slug
+    }
+  }
+
+  function usePageAdTargetingData(article: ArticlePage):Record<string, any> {
+    return {
+      Template: 'Article',
+      tags: article?.tags?.map(tag => tag.name),
+      racy: article?.provocativeContent ? 'true' : '',
+      Sponsor: article?.sponsors?.map(tag => tag.name),
+      Category: article?.section.name
     }
   }
 </script>

@@ -2,6 +2,7 @@
   import { TagPage } from '../../composables/types/Page'
   import { fuzzyDateTime } from '../../utilities/date'
 
+  const { $analytics, $htlbid } = useNuxtApp()
   const route = useRoute()
   const tagSlug = route.params.tagSlug
   const curatedTagPage = await findPage(`tags/${tagSlug}`)
@@ -14,8 +15,12 @@
     || tagSlug
 
   onMounted(() => {
-    const { $analytics } = useNuxtApp()
     $analytics.sendPageView({ page_type: 'tag_page' })
+    $htlbid.setTargeting({ Template: 'Tag' })
+  })
+
+  onUnmounted(() => {
+    $htlbid.clearTargeting({ Template: 'Tag' })
   })
 </script> 
 

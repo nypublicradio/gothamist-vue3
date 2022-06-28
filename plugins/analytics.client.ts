@@ -1,5 +1,3 @@
-import { onMounted } from 'vue'
-
 export default defineNuxtPlugin(() => {
     const config = useRuntimeConfig()
     window.dataLayer = window.dataLayer || []
