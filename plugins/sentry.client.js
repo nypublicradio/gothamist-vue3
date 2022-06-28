@@ -12,14 +12,14 @@ export default defineNuxtPlugin((nuxtApp) => {
         integrations: [
             new Integrations.BrowserTracing({
                 routingInstrumentation: Sentry.vueRouterInstrumentation(nuxtApp.$router),
-                tracingOrigins: ['radiolab.org']
+                tracingOrigins: ['gothamist.com', ]
             })
         ],
-        logErrors: false,
+        logErrors: true,
         debug: false,
         sampleRate: 1,
         tracesSampleRate: 1,
-        environment: config.ENV || 'dev',
+        environment: config.SENTRY_ENV,
         beforeSend(event) {
             return event;
         }
