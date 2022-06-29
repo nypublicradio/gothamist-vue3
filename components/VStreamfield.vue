@@ -25,56 +25,56 @@ function countMountedBlock() {
         v-if="block.type === 'block_quote'"
         :key="`${block.id}-block-quote`"
         :block="block"
-        @vnodeMounted="countMountedBlock"
+        @vue:mounted="countMountedBlock"
       />
 
       <StreamfieldCode
         v-else-if="block.type === 'code'"
         :key="`${block.id}-code`"
         :block="block"
-        @vnodeMounted="countMountedBlock"
+        @vue:mounted="countMountedBlock"
       />
 
       <StreamfieldContentCollection
         v-else-if="block.type === 'content_collection'"
         :key="`${block.id}-content-collection`"
         :block="block"
-        @vnodeMounted="countMountedBlock"
+        @vue:mounted="countMountedBlock"
       />
 
       <StreamfieldEmbed
         v-else-if="block.type === 'embed'"
         :key="`${block.id}-embed`"
         :block="block"
-        @vnodeMounted="countMountedBlock"
+        @vue:mounted="countMountedBlock"
       />
 
       <StreamfieldHeading
         v-else-if="block.type === 'heading'"
         :key="`${block.id}-heading`"
         :block="block"
-        @vnodeMounted="countMountedBlock"
+        @vue:mounted="countMountedBlock"
       />
 
       <StreamfieldImage
         v-else-if="block.type === 'image'"
         :key="`${block.id}-image`"
         :block="block"
-        @vnodeMounted="countMountedBlock"
+        @vue:mounted="countMountedBlock"
       />
 
       <StreamfieldParagraph
         v-else-if="block.type === 'paragraph'"
         :key="`${block.id}-paragraph`"
         :block="block"
-        @vnodeMounted="countMountedBlock"
+        @vue:mounted="countMountedBlock"
       />
 
       <StreamfieldPullQuote
         v-else-if="block.type === 'pull_quote'"
         :key="`${block.id}-pull-quote`"
         :block="block"
-        @vnodeMounted="countMountedBlock"
+        @vue:mounted="countMountedBlock"
       />
     </template>
   </div>
