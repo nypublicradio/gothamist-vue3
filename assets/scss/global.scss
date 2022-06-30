@@ -4,6 +4,12 @@ body {
   background: #ffffff;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--black300);
+}
+
 section {
   display: flex;
   flex-direction: column;
