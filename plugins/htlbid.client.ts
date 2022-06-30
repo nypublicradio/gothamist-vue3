@@ -11,7 +11,6 @@ export default defineNuxtPlugin(() => {
     const setTargeting = (targetingParams) => {
         htlbid.cmd.push(() => {
           for (const key in targetingParams) {
-            console.log('SET TARGETING', key, targetingParams[key])
             htlbid.setTargeting(key, targetingParams[key])
           }
         })
@@ -34,13 +33,22 @@ export default defineNuxtPlugin(() => {
                 .filter(segment => segment.length > 0)
         })
     }
+    const clearAds = () => {
+      document.querySelectorAll('.htl-ad').forEach(function (el) {
+        el.remove()
+      })
+      document.querySelectorAll('.htl-ad-gpt').forEach(function (el) {
+        el.remove()
+      })
+    }
     return {
         provide: {
           htlbid: {
             init,
             setTargeting,
             clearTargeting,
-            setTargetingForRoute
+            setTargetingForRoute,
+            clearAds
           }
         }
       }
