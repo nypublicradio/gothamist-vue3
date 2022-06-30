@@ -9,15 +9,36 @@
 
   const trackingData = usePageTrackingData(article)
   const adTargetingData = usePageAdTargetingData(article)
+  const sensitiveContent = useSensitiveContent()
 
   onMounted(() => {
     $analytics.sendPageView(trackingData)
     $htlbid.setTargeting(adTargetingData)
+    sensitiveContent.value = article.sensitiveContent
   })
 
   onUnmounted(() => {
     $htlbid.clearTargeting(adTargetingData)
+    sensitiveContent.value = false
   })
+
+  function handleArticleMounted(el) {
+    const landmarks = useStreamfieldLandmarks(el.value)
+    const adTarget = landmarks[Math.min(landmarks.length - 1, 5)].node
+    useInsertAd(adTarget)
+  }
+
+  function useInsertAd(targetElement) {
+    const sensitiveContent = useSensitiveContent()
+       if (article && !sensitiveContent.value) {
+        const adDiv = document.createElement('DIV')
+        adDiv.classList.add('htlad-interior_midpage_1',
+          'ad-div',
+          'mod-break-margins',
+          'mod-ad-disclosure')
+        useInsertAfterElement(adDiv, targetElement)
+      }
+  }
 
   function usePageTrackingData(article: ArticlePage): Record<string, any> {
     return {
@@ -49,6 +70,9 @@
     <span>{{ article.description }}</span><br>
     <span>{{ fuzzyDateTime(article.publicationDate) }}</span><br>
     <span v-if="article.updatedDate">Updated: {{ fuzzyDateTime(article.updatedDate) }}</span><br>
-    <VStreamfield :streamfieldBlocks="article.body" />
+    <VStreamfield 
+      :streamfieldBlocks="article.body" 
+      @allBlocksMounted="handleArticleMounted"
+    />
   </div>
 </template>
