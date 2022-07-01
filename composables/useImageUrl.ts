@@ -8,8 +8,7 @@ export default function useImageUrl(image:Image, options?:{width:number, height:
     const config = useRuntimeConfig()
     const imageUrlTemplate = `${config.IMAGE_BASE_URL}${image.id}/fill-%width%x%height%|format-jpeg|jpegquality-%quality%`
     return imageUrlTemplate
-        .replace('%width%', String(options?.width) || '%width%' ) 
-        .replace('%height%', String(options?.height) || '%height%' ) 
-        .replace('%quality%', String(options?.quality) || '%quality%' ) 
-
+        .replace('%width%', options?.width && String(options.width) || '%width%' )
+        .replace('%height%', options?.height && String(options.height) || '%height%' )
+        .replace('%quality%', options?.quality && String(options.quality) || '%quality%' )
 }
