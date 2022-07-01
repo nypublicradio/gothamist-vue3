@@ -1,50 +1,59 @@
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
-  import { useRuntimeConfig } from '#app'
+import { ref, onMounted } from 'vue'
+import { useRuntimeConfig } from '#app'
 
-  const config = useRuntimeConfig()
-  const route = useRoute()
-  const { $htlbid } = useNuxtApp()
-  const atTop = ref(true)
-  const navigation =  await findNavigation()
-    .then(({data}) => normalizeFindNavigationResponse(data))
-  const breakingNews = await findBreakingNews()
-    .then(({data}) => normalizeFindBreakingNewsResponse(data))
-  const productBanners = await findProductBanners()
-    .then(({data}) => normalizeFindProductBannersResponse(data))
-  const sensitiveContent = useSensitiveContent()
+const config = useRuntimeConfig()
+const route = useRoute()
+const { $htlbid } = useNuxtApp()
+const atTop = ref(true)
+const navigation = await findNavigation().then(({ data }) =>
+  normalizeFindNavigationResponse(data)
+)
+const breakingNews = await findBreakingNews().then(({ data }) =>
+  normalizeFindBreakingNewsResponse(data)
+)
+const productBanners = await findProductBanners().then(({ data }) =>
+  normalizeFindProductBannersResponse(data)
+)
+const sensitiveContent = useSensitiveContent()
 
-  onMounted(() => {
-    document.addEventListener('scroll', (e) => {
-      atTop.value = window.scrollY > 0 ? false : true
-      //atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
-    })
-    $htlbid.init()
-    $htlbid.setTargeting({
-        is_testing: config.HTL_IS_TESTING,
-    })
-    $htlbid.setTargetingForRoute(route)
+onMounted(() => {
+  document.addEventListener('scroll', (e) => {
+    atTop.value = window.scrollY > 0 ? false : true
+    //atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
   })
-  watch(route, (value) =>  {
-    $htlbid.setTargetingForRoute(value)
-    $htlbid.clearAds()
+  $htlbid.init()
+  $htlbid.setTargeting({
+    is_testing: config.HTL_IS_TESTING,
   })
+  $htlbid.setTargetingForRoute(route)
+})
+watch(route, (value) => {
+  $htlbid.setTargetingForRoute(value)
+  $htlbid.clearAds()
+})
 </script>
 
 <template>
-  <div
-    class="page"
-    :class="[`${route.name as string}`]"
-  >
+  <div class="page" :class="[`${route.name as string}`]">
     <Html lang="en">
       <Head>
         <Link rel="preconnect" :href="config.API_URL" />
-        <Script :src="`https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`" async />
+        <Script
+          :src="`https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`"
+          async
+        />
         <Link rel="stylesheet" :href="config.HTL_CSS" type="text/css" />
         <Script :src="config.HTL_JS" async />
         <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
-        <Meta name="description" content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio." />
-        <Meta name="og:site_name" content="Gothamist: New York City Local News, Food, Arts & Events" />
+        <Meta
+          name="description"
+          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
+        />
+        <Meta
+          name="og:site_name"
+          content="Gothamist: New York City Local News, Food, Arts & Events"
+        />
         <Meta name="og:type" content="website" />
         <Meta
           name="og:url"

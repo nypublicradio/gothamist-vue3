@@ -19,7 +19,6 @@ export default defineNuxtConfig({
   //buildModules: [],
   css: [
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/gothamist.min.css',
-    '@nypublicradio/nypr-design-system-vue3/src/assets/styles/flags.css',
     'primevue/resources/primevue.min.css',
     'primeicons/primeicons.css',
     'mosha-vue-toastify/dist/style.css',
@@ -29,7 +28,7 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           // besure to mirror theses imports in the vitest.config.ts
-          additionalData: `@import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/variables.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/_mixins.scss"; @import "~/assets/scss/global.scss";`,
+          additionalData: `@import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/variables.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/_mixins.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/typography.scss"; @import "~/assets/scss/global.scss";`,
         },
       },
       postcss: {
