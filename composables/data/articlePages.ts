@@ -34,7 +34,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         authors: article.relatedAuthors?.map(normalizeAuthor),
         contributingOrganizations: article.relatedContributingOrganizations,
         sponsors: article.relatedSponsors,
-        publicationDate: new Date(article.publicationDate),
+        publicationDate: new Date(article.publicationDate) ||  new Date(article.meta?.firstPublishedAt),
         updatedDate: article.updatedDate ? new Date(article.updatedDate) : undefined,
         showAsFeature: article.showAsFeature,
         sensitiveContent: article.sensitiveContent,
@@ -55,6 +55,9 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         socialImage: article.socialImage || article.leadAsset[0]?.value?.image || article.leadAsset[0]?.value?.defaultImage,
         socialTitle: article.socialTitle || article.title,
         socialDescription: article.socialText || article.description,
+
+        seoTitle: article.meta.seoTitle || article.title,
+        searchDescription: article.meta.searchDescription || article.description,
     }
 }
 
@@ -67,6 +70,7 @@ function normalizeAuthor(author:Record<string, any>): Author {
         biography: author.biography,
         website: author.website,
         email: author.email,
-        slug: author.slug
+        slug: author.slug,
+        url: `/staff/${author.slug}`
     }
 }
