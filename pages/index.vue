@@ -17,38 +17,42 @@ onMounted(() => {
 
 <template>
   <div>
-    <template v-if="articles">
-      <div v-for="article in articles" :key="article.uuid">
-        <v-card
-          class="mod-horizontal mb-5"
-          :image="`${config.IMAGE_BASE_URL}${article.image.id}/fill-318x214|format-jpeg|jpegquality-70`"
-          :title="article.title"
-          :titleLink="article.link"
-          :ratio="[3, 2]"
-          :width="318"
-          :height="214"
-          :maxWidth="article.image.width"
-          :maxHeight="article.image.height"
-          :tags="[
-            {
-              name: article.section.name,
-              slug: article.section.slug,
-            },
-          ]"
-        >
-          <p>
-            {{ article.description }}
-          </p>
-          <div class="article-metadata">
-            <span>
-              <v-byline :authors="article.authors" />
-            </span>
-            <span>comments go here</span>
+    <section>
+      <div class="content">
+        <template v-if="articles">
+          <div v-for="article in articles" :key="article.uuid">
+            <v-card
+              class="mod-horizontal mb-3 lg:mb-5 tag-small"
+              :image="`${config.IMAGE_BASE_URL}${article.image.id}/fill-%width%x%height%|format-jpeg|jpegquality-%quality%`"
+              :width="318"
+              :height="212"
+              :sizes="[1]"
+              :title="article.title"
+              :titleLink="article.link"
+              :maxWidth="article.image.width"
+              :maxHeight="article.image.height"
+              :tags="[
+                {
+                  name: article.section.name,
+                  slug: article.section.slug,
+                },
+              ]"
+            >
+              <p class="desc">
+                {{ article.description }}
+              </p>
+              <div class="article-metadata">
+                <span>
+                  <v-byline :authors="article.authors" />
+                </span>
+                <span>comments go here</span>
+              </div>
+            </v-card>
+            <hr class="mb-3 lg:mb-5" />
           </div>
-        </v-card>
-        <hr class="mb-5" />
+        </template>
       </div>
-    </template>
+    </section>
   </div>
 </template>
 

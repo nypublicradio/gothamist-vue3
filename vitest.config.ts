@@ -19,7 +19,7 @@ export default (/* { mode } */) => {
       preprocessorOptions: {
         scss: {
           // besure to mirror theses imports in the nuxt.config.ts
-          additionalData: `@import "node_modules/@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/variables.scss"; @import "node_modules/@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/_mixins.scss"; @import "assets/scss/global.scss";`,
+          additionalData: `@import "node_modules/@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/variables.scss"; @import "node_modules/@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/_mixins.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/typography.scss"; @import "assets/scss/global.scss";`,
         },
       },
     },

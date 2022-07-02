@@ -1,4 +1,5 @@
 $contentWidth: 1440px;
+$mobileBreakpoint: '<lg';
 
 body {
   background: #ffffff;
@@ -81,3 +82,5 @@ section {
     }
   }
 }
+
+/* be low will eventually go in the theme extentions.scss*/
