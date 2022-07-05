@@ -92,7 +92,8 @@ import { ArticlePage } from './types/Page'
       return breadcrumbs
   }
 
-  function useBreadcrumbList(breadcrumb:{name: string, url:string}, article: ArticlePage):Record<string, any> {
+  // turn a breadcrumb into a JSON-LD breadcrumbList
+  function useBreadcrumbList(breadcrumb:{name: string, url:string}):Record<string, any> {
     return {
       '@type': 'BreadcrumbList',
       itemListElement: [{
@@ -160,7 +161,7 @@ import { ArticlePage } from './types/Page'
           publisher,
           isAccessibleForFree: true
         },
-        ...useBreadcrumbs(article).map(crumb => useBreadcrumbList(crumb, article))
+        ...useBreadcrumbs(article).map(useBreadcrumbList)
       ]
     }
   }
