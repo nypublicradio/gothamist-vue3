@@ -84,10 +84,7 @@ watch(route, (value) => {
     <main>
       <slot />
     </main>
-    <footer>
-      <i>footer</i>
-      <!-- Footer -->
-    </footer>
+    <gothamist-footer />
   </div>
 </template>
 

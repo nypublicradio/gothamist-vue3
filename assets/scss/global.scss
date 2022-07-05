@@ -20,7 +20,10 @@ section {
   .content {
     width: 100%;
     max-width: $contentWidth;
-    padding: spacingXY(10, 6);
+    padding: 2.5rem;
+    @include media('<lg') {
+      padding: 2.5rem 1.5rem;
+    }
   }
 }
 
@@ -80,6 +83,12 @@ section {
         height: 100%;
       }
     }
+  }
+}
+
+[data-style-mode='dark'] {
+  hr {
+    background: var(--black200);
   }
 }
 
