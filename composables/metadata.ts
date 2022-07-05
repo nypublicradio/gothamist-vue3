@@ -24,36 +24,6 @@ import { ArticlePage } from './types/Page'
     }
   }
 
-  // Get <head> metadata values (for use with useHead) for an article
-  function useArticlePageHeadMetadata(article: ArticlePage):Record<string, any> {
-    const metadata = {
-      meta: [
-        { name: 'og:title', content: article.socialTitle },
-        { name: 'og:description', content: article.socialDescription },
-        { name: 'og:url', content: article.url },
-        { name: 'og:image', content: useImageUrl(article.socialImage, {width: 1200, height: 650, quality: 85}) },
-        { name: 'og:image:width', content: '1200' },
-        { name: 'og:image:height', content: '650' },
-        { name: 'og:image:alt', content: article.socialImage.alt },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'article:published_time', content: article.publicationDate?.toISOString() },
-        { name: 'article:modified_time', content: article.updatedDate?.toISOString() || ''},
-        { name: 'article:section', content: article.section.name },
-        { name: 'article:tag', content: article.tags.map(tag => tag.slug).join(',') },
-      ],
-      script: [
-        {
-            type: 'application/ld-json',
-            children: JSON.stringify(useArticlePageStructuredData(article)),
-        },
-      ]
-    }
-    for (const author of article.authors) {
-      metadata.meta.push( { name: 'article:author', content: `https://gothamist.com${author.url}` })
-    }
-    return metadata
-  }
-
   // Get the list of breadcrumbs, different paths to the
   // article via sections and tags
   function useBreadcrumbs (article: ArticlePage):{name: string, url: string}[] {
@@ -164,6 +134,36 @@ import { ArticlePage } from './types/Page'
         ...useBreadcrumbs(article).map(useBreadcrumbList)
       ]
     }
+  }
+
+  // Get <head> metadata values (for use with useHead) for an article
+  function useArticlePageHeadMetadata(article: ArticlePage):Record<string, any> {
+    const metadata = {
+      meta: [
+        { name: 'og:title', content: article.socialTitle },
+        { name: 'og:description', content: article.socialDescription },
+        { name: 'og:url', content: article.url },
+        { name: 'og:image', content: useImageUrl(article.socialImage, {width: 1200, height: 650, quality: 85}) },
+        { name: 'og:image:width', content: '1200' },
+        { name: 'og:image:height', content: '650' },
+        { name: 'og:image:alt', content: article.socialImage.alt },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'article:published_time', content: article.publicationDate?.toISOString() },
+        { name: 'article:modified_time', content: article.updatedDate?.toISOString() || ''},
+        { name: 'article:section', content: article.section.name },
+        { name: 'article:tag', content: article.tags.map(tag => tag.slug).join(',') },
+      ],
+      script: [
+        {
+            type: 'application/ld-json',
+            children: JSON.stringify(useArticlePageStructuredData(article)),
+        },
+      ]
+    }
+    for (const author of article.authors) {
+      metadata.meta.push( { name: 'article:author', content: `https://gothamist.com${author.url}` })
+    }
+    return metadata
   }
 
   export {
