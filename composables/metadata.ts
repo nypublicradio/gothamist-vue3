@@ -1,6 +1,7 @@
 import { ArticlePage } from './types/Page'
 
-function useArticlePageTrackingData(article: ArticlePage): Record<string, any> {
+  // Get tracking values for GA for an article
+  function useArticlePageTrackingData(article: ArticlePage): Record<string, any> {
     return {
       page_type: 'article',
       article_authors: article.authors.map(author => author.name).join(','),
@@ -12,6 +13,7 @@ function useArticlePageTrackingData(article: ArticlePage): Record<string, any> {
     }
   }
 
+  // Get ad targeting values for HTL for an article
   function useArticlePageAdTargetingData(article: ArticlePage):Record<string, any> {
     return {
       Template: 'Article',
@@ -22,6 +24,7 @@ function useArticlePageTrackingData(article: ArticlePage): Record<string, any> {
     }
   }
 
+  // Get <head> metadata values (for use with useHead) for an article
   function useArticlePageHeadMetadata(article: ArticlePage):Record<string, any> {
     const metadata = {
       meta: [
@@ -51,6 +54,8 @@ function useArticlePageTrackingData(article: ArticlePage): Record<string, any> {
     return metadata
   }
 
+
+  // Get JSON-LD metadata for an article
   function useArticlePageStructuredData(article: ArticlePage):Record<string, any> {
       const publisher = {
       '@type': 'NewsMediaOrganization',
