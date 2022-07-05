@@ -54,6 +54,55 @@ import { ArticlePage } from './types/Page'
     return metadata
   }
 
+  // Get the list of breadcrumbs, different paths to the
+  // article via sections and tags
+  function useBreadcrumbs (article: ArticlePage):{name: string, url: string}[] {
+    const breadcrumbs = [
+        {
+          name: article.section.name,
+          url: `/${article.section.slug}`
+        }
+      ]
+      if (
+        article.tags?.find(
+          tag => tag.name === 'opinion' || tag.name === '@opinion'
+        )
+      ) {
+        breadcrumbs.push({
+          name: 'Opinion',
+          url: '/tags/opinion'
+        })
+      }
+      if (
+        article.tags?.find(
+          tag => tag.name === 'analysis' || tag.name === '@analysis'
+        )
+      ) {
+        breadcrumbs.push({
+          name: 'Analysis',
+          url: '/tags/analysis'
+        })
+      }
+      if (article.tags?.find(tag => tag.name === 'we the commuters')) {
+        breadcrumbs.push({
+          name: 'We The Commuters',
+          url: '/tags/we-the-commuters'
+        })
+      }
+      return breadcrumbs
+  }
+
+  function useBreadcrumbList(breadcrumb:{name: string, url:string}, article: ArticlePage):Record<string, any> {
+    return {
+      '@type': 'BreadcrumbList',
+      itemListElement: [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": breadcrumb.name,
+        "item": `https://gothamist.com${breadcrumb.url}`
+      }]
+    }
+  }
 
   // Get JSON-LD metadata for an article
   function useArticlePageStructuredData(article: ArticlePage):Record<string, any> {
@@ -113,56 +162,6 @@ import { ArticlePage } from './types/Page'
         },
         ...useBreadcrumbs(article).map(crumb => useBreadcrumbList(crumb, article))
       ]
-    }
-  }
-
-  // Get the list of breadcrumbs, different paths to the
-  // article via sections and tags
-  function useBreadcrumbs (article: ArticlePage):{name: string, url: string}[] {
-    const breadcrumbs = [
-        {
-          name: article.section.name,
-          url: `/${article.section.slug}`
-        }
-      ]
-      if (
-        article.tags?.find(
-          tag => tag.name === 'opinion' || tag.name === '@opinion'
-        )
-      ) {
-        breadcrumbs.push({
-          name: 'Opinion',
-          url: '/tags/opinion'
-        })
-      }
-      if (
-        article.tags?.find(
-          tag => tag.name === 'analysis' || tag.name === '@analysis'
-        )
-      ) {
-        breadcrumbs.push({
-          name: 'Analysis',
-          url: '/tags/analysis'
-        })
-      }
-      if (article.tags?.find(tag => tag.name === 'we the commuters')) {
-        breadcrumbs.push({
-          name: 'We The Commuters',
-          url: '/tags/we-the-commuters'
-        })
-      }
-      return breadcrumbs
-  }
-
-  function useBreadcrumbList(breadcrumb:{name: string, url:string}, article: ArticlePage):Record<string, any> {
-    return {
-      '@type': 'BreadcrumbList',
-      itemListElement: [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": breadcrumb.name,
-        "item": `https://gothamist.com${breadcrumb.url}`
-      }]
     }
   }
 
