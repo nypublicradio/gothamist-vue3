@@ -45,7 +45,7 @@ function useArticlePageTrackingData(article: ArticlePage): Record<string, any> {
         },
       ]
     }
-    for (let author of article.authors) {
+    for (const author of article.authors) {
       metadata.meta.push( { name: 'article:author', content: `https://gothamist.com${author.url}` })
     }
     return metadata
