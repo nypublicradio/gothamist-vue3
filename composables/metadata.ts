@@ -111,33 +111,20 @@ import { ArticlePage } from './types/Page'
           publisher,
           isAccessibleForFree: true
         },
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: useBreadcrumbs(article).map((crumb, index) => {
-            return {
-              '@type': 'ListItem',
-              position: index + 1,
-              item: {
-                '@id': `https://gothamist.com${crumb.slug}`,
-                name: crumb.name
-              }
-            }
-          })
-        }
+        ...useBreadcrumbs(article).map(crumb => useBreadcrumbList(crumb, article))
       ]
     }
   }
 
-  function useBreadcrumbs (article: ArticlePage):Record<string, any> {
+  // Get the list of breadcrumbs, different paths to the
+  // article via sections and tags
+  function useBreadcrumbs (article: ArticlePage):{name: string, url: string}[] {
     const breadcrumbs = [
         {
           name: article.section.name,
-          slug: `/${article.section.slug}`
+          url: `/${article.section.slug}`
         }
       ]
-      if (article.sponsoredContent) {
-        breadcrumbs.push({ name: 'Sponsored', slug: '' })
-      }
       if (
         article.tags?.find(
           tag => tag.name === 'opinion' || tag.name === '@opinion'
@@ -145,7 +132,7 @@ import { ArticlePage } from './types/Page'
       ) {
         breadcrumbs.push({
           name: 'Opinion',
-          slug: '/tags/opinion'
+          url: '/tags/opinion'
         })
       }
       if (
@@ -155,16 +142,28 @@ import { ArticlePage } from './types/Page'
       ) {
         breadcrumbs.push({
           name: 'Analysis',
-          slug: '/tags/analysis'
+          url: '/tags/analysis'
         })
       }
       if (article.tags?.find(tag => tag.name === 'we the commuters')) {
         breadcrumbs.push({
           name: 'We The Commuters',
-          slug: '/tags/we-the-commuters'
+          url: '/tags/we-the-commuters'
         })
       }
       return breadcrumbs
+  }
+
+  function useBreadcrumbList(breadcrumb:{name: string, url:string}, article: ArticlePage):Record<string, any> {
+    return {
+      '@type': 'BreadcrumbList',
+      itemListElement: [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": breadcrumb.name,
+        "item": `https://gothamist.com${breadcrumb.url}`
+      }]
+    }
   }
 
   export {
