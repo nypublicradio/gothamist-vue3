@@ -11,10 +11,10 @@ export default defineNuxtPlugin(() => {
     gtag('config', config.GA_MEASUREMENT_ID)
 
 
-    const sendEvent = (name: string, params: Record<string, any>) => {
+    const sendEvent = (name: string, params: Record<string, string>) => {
       gtag('event', name, params)
     }
-    const sendPageView = (params: Record<string, any>) => {
+    const sendPageView = (params: Record<string, string>) => {
       sendEvent('page_view', {
         page_location: document.location.href,
         page_title: document.title,

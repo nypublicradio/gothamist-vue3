@@ -1,12 +1,12 @@
 import { ArticlePage } from './types/Page'
 
   // Get tracking values for GA for an article
-  function useArticlePageTrackingData(article: ArticlePage): Record<string, any> {
+  function useArticlePageTrackingData(article: ArticlePage): Record<string, string> {
     return {
       page_type: 'article',
       article_authors: article.authors.map(author => author.name).join(','),
-      article_publish_date: article.publicationDate,
-      article_updated_date: article.updatedDate,
+      article_publish_date: article.publicationDate.toISOString(),
+      article_updated_date: article.updatedDate.toISOString(),
       article_tags: article.tags.map(tag => tag.slug).join(','),
       article_title: article.title,
       article_primary_tag: article.tags[0]?.slug
@@ -14,7 +14,7 @@ import { ArticlePage } from './types/Page'
   }
 
   // Get ad targeting values for HTL for an article
-  function useArticlePageAdTargetingData(article: ArticlePage):Record<string, any> {
+  function useArticlePageAdTargetingData(article: ArticlePage):Record<string, string | string[]> {
     return {
       Template: 'Article',
       tags: article?.tags?.map(tag => tag.name),
