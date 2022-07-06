@@ -146,7 +146,6 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
       color: var(--black300);
       @include media('<lg') {
         flex-direction: row-reverse;
