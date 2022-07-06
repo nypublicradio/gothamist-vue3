@@ -59,15 +59,13 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
       <hr class="w-full my-5" />
       <div class="bottom grid">
         <v-share-tools class="left col-12 lg:col-4 pr-0">
-          <client-only>
-            <v-share-tools-item service="facebook" username="gothamist" />
-            <v-share-tools-item service="twitter" username="gothamist" />
-            <v-share-tools-item service="instagram" username="gothamist" />
-            <v-share-tools-item
-              service="youtube"
-              username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
-            />
-          </client-only>
+          <v-share-tools-item service="facebook" username="gothamist" />
+          <v-share-tools-item service="twitter" username="gothamist" />
+          <v-share-tools-item service="instagram" username="gothamist" />
+          <v-share-tools-item
+            service="youtube"
+            username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
+          />
         </v-share-tools>
         <div class="right col-12 lg:col-8">
           <div class="menu">
