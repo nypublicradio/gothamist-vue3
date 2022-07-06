@@ -1,13 +1,30 @@
 <script setup>
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
+import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 </script>
 
 <template>
   <section class="footer" data-style-mode="dark">
     <div class="content grid">
       <!-- <div class="grid"> -->
-      <div class="hidden lg:flex col-4 p-0">list-menu</div>
+      <div class="hidden lg:flex col-4 p-0">
+        <div class="menu-list">
+          <VFlexibleLink to="https://sponsorship.wnyc.org/">
+            Advertising
+          </VFlexibleLink>
+          <VFlexibleLink to="https://www.nypublicradio.org/support/">
+            Support us
+          </VFlexibleLink>
+          <VFlexibleLink to="/contact"> Contact us </VFlexibleLink>
+          <VFlexibleLink to="/feed"> RSS feed </VFlexibleLink>
+          <VFlexibleLink
+            to="https://www.nypublicradio.org/diversity-dei-overview/"
+          >
+            Diversity (DEI)
+          </VFlexibleLink>
+        </div>
+      </div>
       <div class="col-12 lg:col-8 right p-0">
         <div class="logo-lockup">
           <img
@@ -17,33 +34,38 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
           />
           <div class="copy">
             Gothamist is a website about New York City news, arts, and events,
-            and food, brought to you by New York Public Radio. Support us
+            and food, brought to you by New York Public Radio.
+            <nuxt-link style="color: var(--soybean-500)" to="/support">
+              Support us</nuxt-link
+            >
           </div>
         </div>
         <div class="block lg:hidden">list-menu</div>
         <div class="logos flex">
-          <a href="https://www.site.org" target="_blank">
-            <!-- <img src="/wnyc-logo.svg" alt="" /> -->
+          <a href="https://www.wnyc.org/" target="_blank">
             <logo-wnyc />
           </a>
-          <a href="https://www.site.org" target="_blank">
-            <img src="/nypr-logo.svg" alt=""
-          /></a>
-          <a href="https://www.site.org" target="_blank">
-            <img src="/wnyc-studios-logo.svg" alt=""
-          /></a>
-          <a href="https://www.site.org" target="_blank">
-            <img src="/njpr-logo.svg" alt=""
-          /></a>
-          <a href="https://www.site.org" target="_blank">
-            <img src="/wqxr-logo.svg" alt=""
-          /></a>
-          <a href="https://www.site.org" target="_blank">
-            <img src="/new-sounds-logo.svg" alt=""
-          /></a>
-          <a href="https://www.site.org" target="_blank">
-            <img src="/the-greene-space-logo.svg" alt=""
-          /></a>
+          <a href="https://www.nypublicradio.org/" target="_blank">
+            <logo-nypr />
+          </a>
+          <a href="https://www.wnycstudios.org/" target="_blank">
+            <logo-wnyc-studios />
+          </a>
+          <a
+            href="https://www.wnyc.org/series/new-jersey-public-radio/"
+            target="_blank"
+          >
+            <logo-njpr />
+          </a>
+          <a href="https://www.wqxr.org/" target="_blank">
+            <logo-wqxr />
+          </a>
+          <a href="https://www.newsounds.org/" target="_blank">
+            <logo-new-sounds />
+          </a>
+          <a href="https://www.thegreenespace.org/" target="_blank">
+            <logo-the-greene-space />
+          </a>
         </div>
       </div>
       <hr class="w-full my-4" />
@@ -64,7 +86,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
           <nuxt-link to="/terms">Terms of use</nuxt-link>
           <nuxt-link to="/privacy-policy">Privacy policy</nuxt-link>
         </div>
-        <div class="type-fineprint">
+        <div class="type-fineprint copywrite">
           © 2022 New York Public Radio. All rights reserved.
         </div>
       </div>
@@ -73,7 +95,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .footer {
   background-color: var(--black-500);
   color: var(--white);
@@ -107,15 +129,19 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
       .logos {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         gap: 1rem 1.5rem;
         @include media('<lg') {
           gap: 1rem 1rem;
         }
         a {
+          svg path {
+            transition: fill 0.25s;
+            -webkit-transition: fill 0.25s;
+          }
           &:hover {
             svg {
               path {
-                opacity: 0.1;
                 fill: var(--link-hover-color) !important;
               }
             }
@@ -130,13 +156,29 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
       gap: 1rem;
       width: 100%;
       color: var(--black300);
-
+      @include media('<md') {
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
       .social {
-        //display: flex;
+        @include media('<md') {
+          order: 2;
+        }
       }
       .menu {
         display: flex;
         gap: 1rem;
+        @include media('<md') {
+          flex-direction: column;
+          align-items: flex-start;
+          order: 1;
+        }
+      }
+      .copywrite {
+        @include media('<md') {
+          width: 100%;
+          order: 3;
+        }
       }
     }
   }

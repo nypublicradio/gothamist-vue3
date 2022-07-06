@@ -91,17 +91,16 @@ section {
     background: var(--black200);
   }
   a:hover {
-    color: var(--link-hover-color);
+    color: var(--link-hover-color) !important;
   }
 }
 
 /* be low will eventually go in the theme extentions.scss*/
 
 .v-share-tools {
-  &.group {
-    gap: 0.75rem;
-  }
   a {
+    width: 16px;
+    height: 16px;
     &:hover {
       svg path,
       svg circle {
