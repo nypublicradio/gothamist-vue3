@@ -1,6 +1,7 @@
 <script setup>
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
+import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 </script>
 
 <template>
@@ -29,30 +30,36 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
             <menu-list />
           </div>
           <div class="logos flex">
-            <a href="https://www.wnyc.org/" target="_blank">
+            <v-flexible-link to="https://www.wnyc.org/" target="_blank">
               <logo-wnyc />
-            </a>
-            <a href="https://www.nypublicradio.org/" target="_blank">
+            </v-flexible-link>
+            <v-flexible-link
+              to="https://www.nypublicradio.org/"
+              target="_blank"
+            >
               <logo-nypr />
-            </a>
-            <a href="https://www.wnycstudios.org/" target="_blank">
+            </v-flexible-link>
+            <v-flexible-link to="https://www.wnycstudios.org/" target="_blank">
               <logo-wnyc-studios />
-            </a>
-            <a
-              href="https://www.wnyc.org/series/new-jersey-public-radio/"
+            </v-flexible-link>
+            <v-flexible-link
+              to="https://www.wnyc.org/series/new-jersey-public-radio/"
               target="_blank"
             >
               <logo-njpr />
-            </a>
-            <a href="https://www.wqxr.org/" target="_blank">
+            </v-flexible-link>
+            <v-flexible-link to="https://www.wqxr.org/" target="_blank">
               <logo-wqxr />
-            </a>
-            <a href="https://www.newsounds.org/" target="_blank">
+            </v-flexible-link>
+            <v-flexible-link to="https://www.newsounds.org/" target="_blank">
               <logo-new-sounds />
-            </a>
-            <a href="https://www.thegreenespace.org/" target="_blank">
+            </v-flexible-link>
+            <v-flexible-link
+              to="https://www.thegreenespace.org/"
+              target="_blank"
+            >
               <logo-the-greene-space />
-            </a>
+            </v-flexible-link>
           </div>
         </div>
       </div>

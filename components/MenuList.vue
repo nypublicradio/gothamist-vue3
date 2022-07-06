@@ -5,17 +5,17 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 
 <template>
   <div class="menu-list">
-    <VFlexibleLink to="https://sponsorship.wnyc.org/">
+    <v-flexible-link to="https://sponsorship.wnyc.org/">
       Advertising
-    </VFlexibleLink>
-    <VFlexibleLink to="https://www.nypublicradio.org/support/">
+    </v-flexible-link>
+    <v-flexible-link to="https://www.nypublicradio.org/support/">
       Support us
-    </VFlexibleLink>
-    <VFlexibleLink to="/contact"> Contact us </VFlexibleLink>
-    <VFlexibleLink to="/feed"> RSS feed </VFlexibleLink>
-    <VFlexibleLink to="https://www.nypublicradio.org/diversity-dei-overview/">
+    </v-flexible-link>
+    <v-flexible-link to="/contact"> Contact us </v-flexible-link>
+    <v-flexible-link to="/feed"> RSS feed </v-flexible-link>
+    <v-flexible-link to="https://www.nypublicradio.org/diversity-dei-overview/">
       Diversity (DEI)
-    </VFlexibleLink>
+    </v-flexible-link>
   </div>
 </template>
 
