@@ -1,18 +1,6 @@
 <script setup>
-import 'v-share-tools-item' from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
-import { ref, computed, onMounted, defineEmits } from 'vue'
-
-const props = defineProps({
-  //   propVar: {
-  //     type: Boolean,
-  //     default: false,
-  //   },
-})
-
-//const emit = defineEmits(["change", "click"]);
-
-// lifecycle hooks
-onMounted(() => {})
+import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
+import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
 </script>
 
 <template>
@@ -34,26 +22,43 @@ onMounted(() => {})
         </div>
         <div class="block lg:hidden">list-menu</div>
         <div class="logos flex">
-          <img src="/wnyc-logo.svg" alt="" />
-          <img src="/nypr-logo.svg" alt="" />
-          <img src="/wnyc-studios-logo.svg" alt="" />
-          <img src="/njpr-logo.svg" alt="" />
-          <img src="/wqxr-logo.svg" alt="" />
-          <img src="/new-sounds-logo.svg" alt="" />
-          <img src="/the-greene-space-logo.svg" alt="" />
+          <a href="https://www.site.org" target="_blank">
+            <!-- <img src="/wnyc-logo.svg" alt="" /> -->
+            <logo-wnyc />
+          </a>
+          <a href="https://www.site.org" target="_blank">
+            <img src="/nypr-logo.svg" alt=""
+          /></a>
+          <a href="https://www.site.org" target="_blank">
+            <img src="/wnyc-studios-logo.svg" alt=""
+          /></a>
+          <a href="https://www.site.org" target="_blank">
+            <img src="/njpr-logo.svg" alt=""
+          /></a>
+          <a href="https://www.site.org" target="_blank">
+            <img src="/wqxr-logo.svg" alt=""
+          /></a>
+          <a href="https://www.site.org" target="_blank">
+            <img src="/new-sounds-logo.svg" alt=""
+          /></a>
+          <a href="https://www.site.org" target="_blank">
+            <img src="/the-greene-space-logo.svg" alt=""
+          /></a>
         </div>
       </div>
       <hr class="w-full my-4" />
       <div class="bottom">
-        <div class="social">
-          <v-share-tools-item service="facebook" username="gothamist" />
-          <v-share-tools-item service="twitter" username="gothamist" />
-          <v-share-tools-item service="instagram" username="gothamist" />
-          <v-share-tools-item
-            service="youtube"
-            username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
-          />
-        </div>
+        <client-only>
+          <v-share-tools class="social">
+            <v-share-tools-item service="facebook" username="gothamist" />
+            <v-share-tools-item service="twitter" username="gothamist" />
+            <v-share-tools-item service="instagram" username="gothamist" />
+            <v-share-tools-item
+              service="youtube"
+              username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
+            />
+          </v-share-tools>
+        </client-only>
         <div class="menu">
           <nuxt-link to="/accessibility">Accessibility</nuxt-link>
           <nuxt-link to="/terms">Terms of use</nuxt-link>
@@ -106,30 +111,39 @@ onMounted(() => {})
         @include media('<lg') {
           gap: 1rem 1rem;
         }
-        img {
+        a {
+          &:hover {
+            svg {
+              path {
+                opacity: 0.1;
+                fill: var(--link-hover-color) !important;
+              }
+            }
+          }
         }
       }
     }
     .bottom {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 1rem;
       width: 100%;
       color: var(--black300);
 
       .social {
-        display: flex;
+        //display: flex;
       }
       .menu {
         display: flex;
         gap: 1rem;
-        a {
-          @include font-config($type-fineprint);
-          color: var(--white200);
-          font-weight: 400;
-        }
       }
     }
+  }
+  a {
+    @include font-config($type-fineprint);
+    color: var(--white200);
+    font-weight: 400;
   }
 }
 </style>
