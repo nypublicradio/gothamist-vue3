@@ -56,7 +56,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
           </div>
         </div>
       </div>
-      <hr class="w-full my-5" />
+      <hr class="w-full my-4" />
       <div class="bottom grid">
         <v-share-tools class="left col-12 lg:col-4 pr-0">
           <v-share-tools-item service="facebook" username="gothamist" />
@@ -89,6 +89,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
   .content {
     padding-bottom: 25px;
     .top {
+      margin: 0;
       .right {
         min-height: 250px;
         display: flex;
@@ -147,11 +148,14 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
       justify-content: space-between;
       align-items: center;
       color: var(--black300);
+      margin: 0;
       @include media('<lg') {
         flex-direction: row-reverse;
         align-items: flex-start;
       }
       .left {
+        padding-left: 0;
+        padding-right: 0;
         @include media('<lg') {
           justify-content: flex-end;
         }
@@ -160,7 +164,9 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        gap: 1rem;
+        gap: 1.5rem;
+        padding-left: 0;
+        padding-right: 0;
         @include media('<lg') {
           margin-top: -2rem;
           flex-direction: column;
