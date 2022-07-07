@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { fuzzyDateTime } from '~~/utilities/date'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 
-const config = useRuntimeConfig()
 const route = useRoute()
 
 const { title: sectionTitle, id: sectionId } = await findPage(
@@ -26,7 +24,7 @@ onMounted(() => {
     <div v-for="article in articles" :key="article.uuid">
       <v-card
         class="mod-horizontal mb-5"
-        :image="`${config.IMAGE_BASE_URL}${article.image.id}/fill-318x214|format-jpeg|jpegquality-70`"
+        :image="useImageUrl(article.listingImage)"
         :title="article.title"
         :titleLink="article.link"
         :ratio="[3, 2]"

@@ -45,6 +45,10 @@ export interface ArticlePage extends Page {
     socialTitle: string;
     socialDescription: string;
     socialImage: Image;
+
+    seoTitle?: string;
+    searchDescription?: string;
+
 }
 
 export interface TagPage extends Page {

@@ -10,4 +10,5 @@ export default interface Author {
     website?:string;
     email?: string;
     slug: string;
+    url: string;
 }

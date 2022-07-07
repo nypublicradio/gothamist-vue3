@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { TagPage } from '../../composables/types/Page'
-import { fuzzyDateTime } from '../../utilities/date'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
-const config = useRuntimeConfig()
 const tagSlug = route.params.tagSlug
 const curatedTagPage = await findPage(`tags/${tagSlug}`).then(
   ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
@@ -40,7 +38,7 @@ onUnmounted(() => {
       </div>
       <v-card
         class="mod-horizontal mb-5"
-        :image="`${config.IMAGE_BASE_URL}${article.image.id}/fill-318x214|format-jpeg|jpegquality-70`"
+        :image="useImageUrl(article.listingImage)"
         :title="article.title"
         :titleLink="article.link"
         :ratio="[3, 2]"
