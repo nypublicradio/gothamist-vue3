@@ -8,8 +8,11 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  threshold: {
+    type: Number,
+    default: 600,
+  },
 })
-
 onMounted(() => {
   if (!props.hide) {
     gsap.registerPlugin(ScrollTrigger)
@@ -31,7 +34,7 @@ onMounted(() => {
 
 <template>
   <div v-if="!hide" class="relative">
-    <ScrollTop id="scrollTopBtn" :threshold="600" icon="pi pi-arrow-up" />
+    <ScrollTop id="scrollTopBtn" :threshold="threshold" icon="pi pi-arrow-up" />
   </div>
 </template>
 

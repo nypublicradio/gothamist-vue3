@@ -84,8 +84,8 @@ watch(route, (value) => {
     </header>
     <main>
       <slot />
-      <scroll-top-button />
     </main>
+    <scroll-top-button />
     <gothamist-footer />
   </div>
 </template>
