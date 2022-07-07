@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+    class="new-sounds-logo"
     aria-label="New Sounds Logo"
     width="112"
     height="13"

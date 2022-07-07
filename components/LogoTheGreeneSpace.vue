@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+    class="the-greene-space-logo"
     aria-label="The Greene Space Logo"
     width="39"
     height="31"

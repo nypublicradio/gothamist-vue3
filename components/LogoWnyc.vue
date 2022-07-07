@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+    class="wnyc-logo"
     aria-label="WNYC Logo"
     width="56"
     height="23"

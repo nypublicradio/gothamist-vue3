@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+    class="njpr-logo"
     aria-label="NJPR Logo"
     width="76"
     height="22"

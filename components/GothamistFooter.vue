@@ -8,21 +8,19 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
   <section class="footer" data-style-mode="dark">
     <div class="content">
       <div class="top grid">
-        <div class="hidden lg:flex col-4 p-0">
+        <div class="hidden lg:flex col-3 p-0">
           <menu-list />
         </div>
-        <div class="col-12 lg:col-8 right p-0">
+        <div class="col-12 lg:col-9 right p-0">
           <div class="logo-lockup">
-            <img
-              class="logo"
-              src="/gothamist-logo-white.svg"
-              alt="gothamist logo"
-            />
+            <v-flexible-link to="/" class="gothamist-logo">
+              <logo-gothamist />
+            </v-flexible-link>
             <div class="copy">
               Gothamist is a website about New York City news, arts, and events,
               and food, brought to you by New York Public Radio.
-              <nuxt-link style="color: var(--soybean-500)" to="/support">
-                Support us</nuxt-link
+              <v-flexible-link style="color: var(--soybean)" to="/support">
+                Support us</v-flexible-link
               >
             </div>
           </div>
@@ -30,14 +28,13 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
             <menu-list />
           </div>
           <div class="logos flex">
+            <logo-nypr />
+            <div class="bracket bracket-left" />
             <v-flexible-link to="https://www.wnyc.org/" target="_blank">
               <logo-wnyc />
             </v-flexible-link>
-            <v-flexible-link
-              to="https://www.nypublicradio.org/"
-              target="_blank"
-            >
-              <logo-nypr />
+            <v-flexible-link to="https://www.wnyc.org/" target="_blank">
+              <logo-gothamist />
             </v-flexible-link>
             <v-flexible-link to="https://www.wnycstudios.org/" target="_blank">
               <logo-wnyc-studios />
@@ -54,18 +51,21 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
             <v-flexible-link to="https://www.newsounds.org/" target="_blank">
               <logo-new-sounds />
             </v-flexible-link>
-            <v-flexible-link
-              to="https://www.thegreenespace.org/"
-              target="_blank"
-            >
-              <logo-the-greene-space />
-            </v-flexible-link>
+            <div class="inline-flex">
+              <v-flexible-link
+                to="https://www.thegreenespace.org/"
+                target="_blank"
+              >
+                <logo-the-greene-space />
+              </v-flexible-link>
+              <div class="bracket bracket-right ml-3" />
+            </div>
           </div>
         </div>
       </div>
       <hr class="w-full my-4" />
       <div class="bottom grid">
-        <v-share-tools class="left col-12 lg:col-4 pr-0">
+        <v-share-tools class="left col-12 lg:col-3 pr-0">
           <v-share-tools-item service="facebook" username="gothamist" />
           <v-share-tools-item service="twitter" username="gothamist" />
           <v-share-tools-item service="instagram" username="gothamist" />
@@ -74,11 +74,13 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
             username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
           />
         </v-share-tools>
-        <div class="right col-12 lg:col-8">
+        <div class="right col-12 lg:col-9">
           <div class="menu">
-            <nuxt-link to="/accessibility">Accessibility</nuxt-link>
-            <nuxt-link to="/terms">Terms of use</nuxt-link>
-            <nuxt-link to="/privacy-policy">Privacy policy</nuxt-link>
+            <v-flexible-link to="/accessibility">Accessibility</v-flexible-link>
+            <v-flexible-link to="/terms">Terms of use</v-flexible-link>
+            <v-flexible-link to="/privacy-policy"
+              >Privacy policy</v-flexible-link
+            >
           </div>
           <div class="type-fineprint copywrite">
             © 2022 New York Public Radio. All rights reserved.
@@ -114,8 +116,14 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
             flex-direction: column;
             align-items: flex-start;
           }
-          .logo {
-            width: 225px;
+          .gothamist-logo {
+            svg {
+              width: 225px;
+              height: auto;
+              path {
+                fill: var(--white);
+              }
+            }
             @include media('<lg') {
               width: 190px;
             }
@@ -123,28 +131,45 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
           .copy {
             @include font-config($type-fineprint);
             color: var(--white200);
-            max-width: 380px;
+            max-width: 350px;
           }
         }
         .logos {
           display: flex;
           flex-wrap: wrap;
           align-items: center;
-          gap: 1rem 1.2rem;
+          gap: 1rem 1.5rem;
+          @include media('<xl') {
+            gap: 1rem 0.75rem;
+          }
           @include media('<lg') {
             gap: 1rem 1rem;
           }
-          a {
-            svg path {
-              transition: fill 0.25s;
-              -webkit-transition: fill 0.25s;
+          @include media('<sm') {
+            gap: 1rem 0.65rem;
+          }
+          svg {
+            &.gothamist-logo {
+              width: auto;
+              height: 16px;
             }
-            &:hover {
-              svg {
-                path {
-                  fill: var(--link-hover-color) !important;
-                }
-              }
+            &.njpr-logo {
+              width: auto;
+              height: 18px;
+            }
+            path {
+              fill: var(--white);
+            }
+          }
+          .bracket {
+            height: 32px;
+            width: 8px;
+            border: 1px solid var(--black300);
+            &.bracket-left {
+              border-right: none;
+            }
+            &.bracket-right {
+              border-left: none;
             }
           }
         }

@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+    class="nypr-logo"
     aria-label="NYPR Logo"
     width="75"
     height="31"

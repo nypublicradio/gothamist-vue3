@@ -86,17 +86,6 @@ section {
   }
 }
 
-[data-style-mode='dark'] {
-  hr {
-    background: var(--black200);
-  }
-  a:hover {
-    color: var(--link-hover-color) !important;
-  }
-}
-
-/* be low will eventually go in the theme extentions.scss*/
-
 .v-share-tools {
   a {
     width: 16px;
@@ -110,6 +99,28 @@ section {
     svg {
       width: 16px;
       height: 16px;
+    }
+  }
+}
+
+[data-style-mode='dark'] {
+  hr {
+    background: var(--black200);
+  }
+  a:hover,
+  a.flexible-link:hover {
+    color: var(--soybean) !important;
+    svg path {
+      fill: var(--soybean) !important;
+    }
+  }
+
+  .v-share-tools {
+    a:hover {
+      svg path,
+      svg circle {
+        fill: var(--soybean) !important;
+      }
     }
   }
 }

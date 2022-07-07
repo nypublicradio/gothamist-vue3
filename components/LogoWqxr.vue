@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+    class="wqxr-logo"
     aria-label="WQXR Logo"
     width="72"
     height="17"
