@@ -2,7 +2,8 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { ref, onMounted } from 'vue'
-
+const route = useRoute()
+let gsapScrollTrigger = null
 const props = defineProps({
   hide: {
     type: Boolean,
@@ -13,11 +14,13 @@ const props = defineProps({
     default: 600,
   },
 })
-onMounted(() => {
+
+const initScrollTrigger = () => {
   if (!props.hide) {
-    gsap.registerPlugin(ScrollTrigger)
-    ScrollTrigger.create({
+    gsapScrollTrigger = ScrollTrigger.create({
+      id: 'scrollTopID',
       trigger: '#footer',
+      invalidateOnRefresh: true,
       onEnter: () => {
         const btn = document.getElementById('scrollTopBtn')
         btn.classList.add('stick')
@@ -29,6 +32,21 @@ onMounted(() => {
       //markers: true,
     })
   }
+}
+
+watch(route, () => {
+  if (!props.hide) {
+    gsapScrollTrigger.refresh()
+    ScrollTrigger.getById('scrollTopID').kill()
+    setTimeout(() => {
+      initScrollTrigger()
+    }, 1000)
+  }
+})
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+  initScrollTrigger()
 })
 </script>
 
