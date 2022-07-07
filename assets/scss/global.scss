@@ -20,7 +20,10 @@ section {
   .content {
     width: 100%;
     max-width: $contentWidth;
-    padding: spacingXY(10, 6);
+    padding: 2.5rem;
+    @include media('<lg') {
+      padding: 2.5rem 1.5rem;
+    }
   }
 }
 
@@ -83,4 +86,41 @@ section {
   }
 }
 
-/* be low will eventually go in the theme extentions.scss*/
+.v-share-tools {
+  a {
+    width: 16px;
+    height: 16px;
+    &:hover {
+      svg path,
+      svg circle {
+        fill: var(--link-hover-color) !important;
+      }
+    }
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+[data-style-mode='dark'] {
+  hr {
+    background: var(--black200);
+  }
+  a:hover,
+  a.flexible-link:hover {
+    color: var(--soybean) !important;
+    svg path {
+      fill: var(--soybean) !important;
+    }
+  }
+
+  .v-share-tools {
+    a:hover {
+      svg path,
+      svg circle {
+        fill: var(--soybean) !important;
+      }
+    }
+  }
+}
