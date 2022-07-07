@@ -63,7 +63,7 @@ import { ArticlePage } from './types/Page'
   }
 
   // turn a breadcrumb into a JSON-LD breadcrumbList
-  function useBreadcrumbList(breadcrumb:{name: string, url:string}):Record<string, any> {
+  function useBreadcrumbList(breadcrumb:{name: string, url:string}):Record<string, unknown> {
     return {
       '@type': 'BreadcrumbList',
       itemListElement: [{
@@ -76,7 +76,7 @@ import { ArticlePage } from './types/Page'
   }
 
   // Get JSON-LD metadata for an article
-  function useArticlePageStructuredData(article: ArticlePage):Record<string, any> {
+  function useArticlePageStructuredData(article: ArticlePage):Record<string, unknown> {
       const publisher = {
       '@type': 'NewsMediaOrganization',
       name: 'Gothamist',
@@ -137,7 +137,9 @@ import { ArticlePage } from './types/Page'
   }
 
   // Get <head> metadata values (for use with useHead) for an article
-  function useArticlePageHeadMetadata(article: ArticlePage):Record<string, any> {
+  function useArticlePageHeadMetadata(article: ArticlePage)
+    :{meta: {name: string, content: string}[], script: {type: string, children: string}[]}
+  {
     const metadata = {
       meta: [
         { name: 'og:title', content: article.socialTitle },
