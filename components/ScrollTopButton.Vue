@@ -2,7 +2,9 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { ref, onMounted } from 'vue'
+
 const route = useRoute()
+
 let gsapScrollTrigger = null
 const props = defineProps({
   hide: {
@@ -15,6 +17,7 @@ const props = defineProps({
   },
 })
 
+// init func for the scrollTrigger on the footer
 const initScrollTrigger = () => {
   if (!props.hide) {
     gsapScrollTrigger = ScrollTrigger.create({
@@ -38,6 +41,7 @@ watch(route, () => {
   if (!props.hide) {
     gsapScrollTrigger.refresh()
     ScrollTrigger.getById('scrollTopID').kill()
+    // not sure how to detect when a new routed page is mounted, so just using a setTimeout for now
     setTimeout(() => {
       initScrollTrigger()
     }, 1000)
