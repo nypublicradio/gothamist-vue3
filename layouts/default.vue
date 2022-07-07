@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ScrollTopButton from '~/components/ScrollTopButton.vue'
 import { ref, onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
 
@@ -83,6 +84,7 @@ watch(route, (value) => {
     </header>
     <main>
       <slot />
+      <scroll-top-button />
     </main>
     <gothamist-footer />
   </div>

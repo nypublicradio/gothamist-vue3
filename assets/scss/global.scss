@@ -86,6 +86,26 @@ section {
   }
 }
 
+.p-scrolltop {
+  box-shadow: none;
+  width: 68px;
+  height: 68px;
+  @include media('<lg') {
+    width: 45px;
+    height: 45px;
+  }
+  &.p-link {
+    background: var(--black);
+  }
+  .p-scrolltop-icon {
+    font-size: 1.3rem;
+    @include media('<lg') {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* be low will eventually go in the theme extentions.scss*/
 .v-share-tools {
   a {
     width: 16px;

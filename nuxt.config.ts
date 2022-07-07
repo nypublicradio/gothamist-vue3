@@ -51,7 +51,8 @@ export default defineNuxtConfig({
   build: {
     transpile: [
       'primevue',
-      'mosha-vue-toastify'
+      'mosha-vue-toastify',
+      'gsap'
     ]
   },
   publicRuntimeConfig: {

@@ -5,7 +5,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 </script>
 
 <template>
-  <section class="footer" data-style-mode="dark">
+  <section id="footer" class="footer" data-style-mode="dark">
     <div class="content">
       <div class="top grid">
         <div class="hidden lg:flex col-3 p-0">
