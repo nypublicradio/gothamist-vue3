@@ -83,6 +83,7 @@ watch(route, (value) => {
     </header>
     <main>
       <slot />
+      <ScrollTop threshold="600" icon="pi pi-arrow-up" />
     </main>
     <footer>
       <i>footer</i>
