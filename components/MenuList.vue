@@ -1,20 +1,26 @@
 <script setup>
-//import { ref, computed, onMounted, defineEmits } from 'vue'
+import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+
+const props = defineProps({
+  navData: {
+    type: Object,
+    default: null,
+    required: true,
+  },
+})
+
+const secondaryNavigation = ref(props.navData.secondaryNavigation)
 </script>
 
 <template>
   <div class="menu-list">
-    <v-flexible-link to="https://sponsorship.wnyc.org/">
-      Advertising
-    </v-flexible-link>
-    <v-flexible-link to="https://www.nypublicradio.org/support/">
-      Support us
-    </v-flexible-link>
-    <v-flexible-link to="/contact"> Contact us </v-flexible-link>
-    <v-flexible-link to="/feed"> RSS feed </v-flexible-link>
-    <v-flexible-link to="https://www.nypublicradio.org/diversity-dei-overview/">
-      Diversity (DEI)
+    <v-flexible-link
+      v-for="(item, index) in secondaryNavigation"
+      :to="item.value.url"
+      :key="`secondaryNavigation-${index}`"
+    >
+      {{ item.value.title }}
     </v-flexible-link>
   </div>
 </template>
