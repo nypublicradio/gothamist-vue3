@@ -32,20 +32,32 @@ export function normalizeFindArticlePagesResponse (articlesResponse: any): Artic
     return articlesResponse.value.items?.map(normalizeArticlePage)
 }
 
+function getArticleLink(articleData):string {
+    if (articleData.ancestry) {
+        return `/${articleData.ancestry[0].slug}/${articleData.meta.slug}`
+    }
+    else if (articleData.path) {
+        return articleData.path.replace('/home/', '/')
+    }
+    else {
+        return '/'
+    }
+}
+
 // normalize the article page data
 export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
     return {
         id: article.id,
         title: article.title,
         description: article.description,
-        image:  article.leadAsset[0].value.image ?? article.leadAsset[0]?.value.defaultImage,
-        link: `/${article.ancestry[0].slug}/${article.meta.slug}`,
+        image:  article.leadAsset?.[0].value.image ?? article.leadAsset?.[0].value.defaultImage,
+        link: getArticleLink(article),
 
         leadAsset: article.leadAsset?.[0],
-        leadImage: article.leadAsset[0]?.type === 'lead_image' && article.leadAsset[0]?.value.image,
-        leadGallery: article.leadAsset[0]?.type === 'lead_gallery' && article.leadAsset[0]?.value,
+        leadImage: article.leadAsset?.[0].type === 'lead_image' && article.leadAsset?.[0].value.image,
+        leadGallery: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].value,
         
-        gallerySlides: article.leadAsset[0]?.type === 'lead_gallery' && article.leadAsset[0]?.slides,
+        gallerySlides: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].slides,
 
         legacyId: article.legacyId,
         authors: article.relatedAuthors?.map(normalizeAuthor),
@@ -60,21 +72,21 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         tags: article.tags,
         url: article.url,
         uuid: article.uuid,
-        section: { name: article.ancestry[0].title, slug: article.ancestry[0].slug },
+        section: { name: article.ancestry?.[0].title, slug: article.ancestry?.[0].slug },
         body: article.body,
 
         // for listing pages
-        listingImage: article.listingImage || article.leadAsset[0]?.value?.image || article.leadAsset[0]?.value?.defaultImage,
+        listingImage: article.listingImage || article.leadAsset?.[0].value?.image || article.leadAsset?.[0].value?.defaultImage,
         listingTitle: article.listingTitle || article.title,
         listingDescription: article.listingSummary || article.description,
 
         // for social/OG metadata
-        socialImage: article.socialImage || article.leadAsset[0]?.value?.image || article.leadAsset[0]?.value?.defaultImage,
+        socialImage: article.socialImage || article.leadAsset?.[0].value?.image || article.leadAsset?.[0].value?.defaultImage,
         socialTitle: article.socialTitle || article.title,
         socialDescription: article.socialText || article.description,
 
-        seoTitle: article.meta.seoTitle || article.title,
-        searchDescription: article.meta.searchDescription || article.description,
+        seoTitle: article.meta?.seoTitle || article.title,
+        searchDescription: article.meta?.searchDescription || article.description,
     }
 }
 

@@ -5,7 +5,7 @@
   const route = useRoute()
 //   const { $analytics, $htlbid } = useNuxtApp()
   const gallery = await findPage(`${route.params.sectionSlug}/photos/${route.params.gallerySlug}`)
-    .then(({data}) => {console.log(data); return normalizeFindPageResponse(data)}) as GalleryPage
+    .then(({data}) => normalizeFindPageResponse(data)) as GalleryPage
 
 //   const trackingData = useArticlePageTrackingData(article)
 //   const adTargetingData = useArticlePageAdTargetingData(article)
@@ -27,10 +27,12 @@
 </script>
 
 <template>
-  <div>
+  <div v-if="gallery">
+    <NuxtLink :to="gallery.articleLink">Back</NuxtLink>
+    <h2 v-if="gallery.title">{{ gallery.title }}</h2>
     <div v-for="slide in gallery.slides">
       <div>
-        <h2 v-if="slide.title">{{ slide.title }}</h2>
+        <h3 v-if="slide.title">{{ slide.title }}</h3>
         <VImageWithCaptionVue
           :image="useImageUrl(slide.image)"
           :alt-text="slide.image.alt"

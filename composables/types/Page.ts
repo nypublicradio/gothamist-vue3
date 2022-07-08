@@ -64,6 +64,8 @@ export interface GalleryPage extends Page {
 
     authors: Author[],
     contributingOrganizations: ContributingOrganization[],
+    relatedArticles: ArticlePage[]
+    articleLink: string,
 
     listingTitle: string;
     listingDescription: string;
