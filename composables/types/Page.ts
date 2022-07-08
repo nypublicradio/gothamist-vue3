@@ -2,6 +2,7 @@ import { StreamfieldBlock } from './StreamfieldBlock';
 import Author from './Author';
 import ContributingOrganization from './ContributingOrganization';
 import Image from './Image';
+import Slide from './Slide';
 import Sponsor from './Sponsor';
 import Tag from './Tag';
 
@@ -12,7 +13,6 @@ export interface Page {
 }
 
 export interface ArticlePage extends Page {
-    title: string;
     description: string;
     image?: Image;
     link: string;
@@ -55,4 +55,24 @@ export interface TagPage extends Page {
     headerImage: Image;
     topPageZone: StreamfieldBlock[];
     midPageZone: StreamfieldBlock[];
+}
+
+export interface GalleryPage extends Page {
+    description: string;
+
+    slides: Slide[]
+
+    authors: Author[],
+    contributingOrganizations: ContributingOrganization[],
+
+    listingTitle: string;
+    listingDescription: string;
+    listingImage: Image;
+
+    socialTitle: string;
+    socialDescription: string;
+    socialImage: Image;
+
+    seoTitle: string;
+    searchDescription: string;
 }
