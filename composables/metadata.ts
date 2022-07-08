@@ -5,8 +5,8 @@ import { ArticlePage } from './types/Page'
     return {
       page_type: 'article',
       article_authors: article.authors.map(author => author.name).join(','),
-      article_publish_date: article.publicationDate.toISOString(),
-      article_updated_date: article.updatedDate.toISOString(),
+      article_publish_date: article.publicationDate?.toISOString(),
+      article_updated_date: article.updatedDate?.toISOString(),
       article_tags: article.tags.map(tag => tag.slug).join(','),
       article_title: article.title,
       article_primary_tag: article.tags[0]?.slug
