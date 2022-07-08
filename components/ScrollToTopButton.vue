@@ -1,7 +1,7 @@
 <script setup>
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 
 const route = useRoute()
 
@@ -26,11 +26,15 @@ const initScrollTrigger = () => {
       invalidateOnRefresh: true,
       onEnter: () => {
         const btn = document.getElementById('scrollTopBtn')
-        btn.classList.add('stick')
+        if (btn) {
+          btn.classList.add('stick')
+        }
       },
       onLeaveBack: () => {
         const btn = document.getElementById('scrollTopBtn')
-        btn.classList.remove('stick')
+        if (btn) {
+          btn.classList.remove('stick')
+        }
       },
       //markers: true,
     })
@@ -65,8 +69,17 @@ onMounted(() => {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  animation: pScrolltopFadeInAnimation ease 1s;
   &.stick {
     position: absolute;
+  }
+  @keyframes pScrolltopFadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
 </style>

@@ -9,7 +9,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
     <v-flexible-link to="https://www.wnyc.org/" target="_blank">
       <logo-wnyc />
     </v-flexible-link>
-    <v-flexible-link to="https://www.wnyc.org/" target="_blank">
+    <v-flexible-link to="/" target="_blank">
       <logo-gothamist />
     </v-flexible-link>
     <v-flexible-link to="https://www.wnycstudios.org/" target="_blank">
