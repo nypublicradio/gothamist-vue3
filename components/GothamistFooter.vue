@@ -49,7 +49,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
               >Privacy policy</v-flexible-link
             >
           </div>
-          <div class="type-fineprint copywrite">
+          <div class="type-fineprint copyright">
             © 2022 New York Public Radio. All rights reserved.
           </div>
         </div>
@@ -98,7 +98,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
           .copy {
             @include font-config($type-fineprint);
             color: var(--white200);
-            max-width: 350px;
+            max-width: 370px;
           }
         }
       }
@@ -137,11 +137,13 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
           a {
             @include font-config($type-fineprint);
             color: var(--white200);
-            font-weight: 400;
           }
           @include media('<lg') {
             flex-direction: column;
           }
+        }
+        .copyright {
+          color: var(--black300);
         }
       }
     }
