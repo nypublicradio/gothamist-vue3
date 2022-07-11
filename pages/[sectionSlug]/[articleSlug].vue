@@ -28,12 +28,14 @@ onUnmounted(() => {
   sensitiveContent.value = false
 })
 
+// handle ads when the article is mounted
 function handleArticleMounted(el) {
   const landmarks = useStreamfieldLandmarks(el.value)
   const adTarget = landmarks[Math.min(landmarks.length - 1, 5)].node
   useInsertAd(adTarget)
 }
 
+// insert ads into the target element
 function useInsertAd(targetElement) {
   const sensitiveContent = useSensitiveContent()
   if (article && !sensitiveContent.value) {
