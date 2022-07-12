@@ -6,8 +6,8 @@ defineProps<{
 </script>
 
 <template>
-    <ContentCollection 
-      class="streamfield-content-collection"
-      :articles="block.value.pages"
-    />
+  <ContentCollection
+    class="streamfield-content-collection mb-5"
+    :articles="block.value.pages"
+  />
 </template>
