@@ -59,12 +59,14 @@ export interface TagPage extends Page {
 
 export interface GalleryPage extends Page {
     description: string;
+    url: string;
 
     slides: Slide[]
 
     authors: Author[],
     contributingOrganizations: ContributingOrganization[],
     relatedArticles: ArticlePage[]
+    articleTitle: string,
     articleLink: string,
 
     listingTitle: string;

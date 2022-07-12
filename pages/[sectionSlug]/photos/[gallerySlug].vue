@@ -3,33 +3,29 @@
   import VImageWithCaptionVue from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue';
 
   const route = useRoute()
-//   const { $analytics, $htlbid } = useNuxtApp()
+  const { $analytics, $htlbid } = useNuxtApp()
   const gallery = await findPage(`${route.params.sectionSlug}/photos/${route.params.gallerySlug}`)
     .then(({data}) => normalizeFindPageResponse(data)) as GalleryPage
 
-//   const trackingData = useArticlePageTrackingData(article)
-//   const adTargetingData = useArticlePageAdTargetingData(article)
-//   const sensitiveContent = useSensitiveContent()
-//   const headMetadata = useArticlePageHeadMetadata(article)
+  const headMetadata = useGalleryPageHeadMetadata(gallery)
+  const adTargetingData = { Template: 'Article Gallery' }
 
-//   useHead(headMetadata)
+  useHead(headMetadata)
 
   onMounted(() => {
-    // $analytics.sendPageView(trackingData)
-    // $htlbid.setTargeting(adTargetingData)
-    // sensitiveContent.value = article.sensitiveContent
+    $analytics.sendPageView({page_type: 'gallery'})
+    $htlbid.setTargeting(adTargetingData)
   })
 
   onUnmounted(() => {
-    // $htlbid.clearTargeting(adTargetingData)
-    // sensitiveContent.value = false
+    $htlbid.clearTargeting(adTargetingData)
   })
 </script>
 
 <template>
   <div v-if="gallery">
     <NuxtLink :to="gallery.articleLink">Back</NuxtLink>
-    <h2 v-if="gallery.title">{{ gallery.title }}</h2>
+    <h2 v-if="gallery.title">{{ gallery.articleTitle }} - Photos</h2>
     <div v-for="slide in gallery.slides">
       <div>
         <h3 v-if="slide.title">{{ slide.title }}</h3>

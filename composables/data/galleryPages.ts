@@ -27,26 +27,29 @@ export function normalizeGalleryPage(page: Record<string, any>):GalleryPage {
         id: page.id,
         uuid: page.uuid,
         title: page.title,
-        description: page.description,    
+        description: page.description,
+        url: page.url,
 
         slides: page.slides.map(normalizeSlide),
-    
+
         authors: page.relatedAuthors,
         contributingOrganizations: page.relatedContributingOrganizations,
         relatedArticles: page.relatedArticles?.map(normalizeArticlePage),
+        articleTitle: '',
         articleLink: '',
 
         listingTitle: page.listingTitle || page.title,
         listingDescription: page.listingSummary || page.description,
         listingImage: page.listingImage || useImageFromSlideData(page.slides[0]),
-    
+
         socialTitle: page.socialTitle || page.title,
         socialDescription: page.socialText || page.description,
         socialImage:  page.socialImage || useImageFromSlideData(page.slides[0]),
-    
+
         seoTitle: page.meta.seoTitle,
         searchDescription: page.meta.searchDescription
     }
+    galleryPage.articleTitle = galleryPage.relatedArticles?.[0].title
     galleryPage.articleLink = galleryPage.relatedArticles?.[0].link
     return galleryPage
 }
