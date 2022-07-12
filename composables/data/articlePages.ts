@@ -1,10 +1,23 @@
 import { ArticlePage } from "../types/Page"
 import Author from '../types/Author'
 
+export async function findFeaturedArticlePages(queryParams: any) {
+    const defaultParams  = {
+     type: 'news.ArticlePage',
+     fields: ['ancestry','description','lead_asset','legacy_id','listing_image','publication_date','show_as_feature','sponsored_content','tags','updated_date','url','uuid','listing_title','listing_summary','related_authors'].join(','),
+     order: '-publication_date',
+     limit: 4,
+     show_as_feature: true,
+     show_on_index_listing: true,
+    }
+    let params = Object.assign({}, defaultParams, queryParams)
+    return await useAviary('/pages/', {params})
+}
+
 export async function findArticlePages(queryParams: any) {
     const defaultParams  = {
      type: 'news.ArticlePage',
-     fields: ['ancestry','description','lead_asset','legacy_id','listing_image','publication_date','show_as_feature','sponsored_content','tags','updated_date','url','uuid','listing_title','listing_summary'].join(','),
+     fields: ['ancestry','description','lead_asset','legacy_id','listing_image','publication_date','show_as_feature','sponsored_content','tags','updated_date','url','uuid','listing_title','listing_summary','related_authors'].join(','),
      order: '-publication_date',
      show_on_index_listing: true,
     }
@@ -63,14 +76,10 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 
 function normalizeAuthor(author:Record<string, any>): Author {
     return {
-        id: author.id,
-        name: `${author.firstName} ${author.lastName}`,
-        photoID: author.photo,
-        jobTitle: author.jobTitle,
-        biography: author.biography,
-        website: author.website,
-        email: author.email,
-        slug: author.slug,
-        url: `/staff/${author.slug}`
+        firstName: author.firstName,
+        lastName: author.lastName,
+        url: author.slug && `/staff/${author.slug}`,
+        organization: author.contributingOrganization?.name,
+        organizationUrl: author.contributingOrganization?.url
     }
 }
