@@ -81,10 +81,18 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 // normalize the author data
 function normalizeAuthor(author:Record<string, any>): Author {
     return {
+        id: author.id,
         firstName: author.firstName,
         lastName: author.lastName,
         url: author.slug && `/staff/${author.slug}`,
         organization: author.contributingOrganization?.name,
-        organizationUrl: author.contributingOrganization?.url
+        organizationUrl: author.contributingOrganization?.url,
+        name: `${author.firstName} ${author.lastName}`,
+        photoID: author.photo,
+        jobTitle: author.jobTitle,
+        biography: author.biography,
+        website: author.website,
+        email: author.email,
+        slug: author.slug,
     }
 }
