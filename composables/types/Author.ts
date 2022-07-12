@@ -1,4 +1,4 @@
-import ContributingOrganization from "./ContributingOrganization";
+// import ContributingOrganization from "./ContributingOrganization";
 
 export default interface Author {
     firstName: string;

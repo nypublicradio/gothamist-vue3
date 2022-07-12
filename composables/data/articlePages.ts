@@ -1,6 +1,7 @@
 import { ArticlePage } from "../types/Page"
 import Author from '../types/Author'
 
+// get the 4 featured article pages
 export async function findFeaturedArticlePages(queryParams: any) {
     const defaultParams  = {
      type: 'news.ArticlePage',
@@ -10,10 +11,11 @@ export async function findFeaturedArticlePages(queryParams: any) {
      show_as_feature: true,
      show_on_index_listing: true,
     }
-    let params = Object.assign({}, defaultParams, queryParams)
+    const params = Object.assign({}, defaultParams, queryParams)
     return await useAviary('/pages/', {params})
 }
 
+// get article pages
 export async function findArticlePages(queryParams: any) {
     const defaultParams  = {
      type: 'news.ArticlePage',
@@ -25,10 +27,12 @@ export async function findArticlePages(queryParams: any) {
     return await useAviary('/pages/', {params})
 }
 
+// normalize the article page data
 export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
     return articlesResponse.value.items?.map(normalizeArticlePage)
 }
 
+// normalize the article page data
 export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
     return {
         id: article.id,
@@ -74,6 +78,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
     }
 }
 
+// normalize the author data
 function normalizeAuthor(author:Record<string, any>): Author {
     return {
         firstName: author.firstName,
