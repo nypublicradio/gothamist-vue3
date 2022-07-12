@@ -9,6 +9,9 @@ hr {
   border: 0;
   height: 1px;
   background: var(--black300);
+  &.black {
+    background: var(--black);
+  }
 }
 
 section {
@@ -23,65 +26,6 @@ section {
     padding: 2.5rem;
     @include media('<lg') {
       padding: 2.5rem 1.5rem;
-    }
-  }
-}
-
-.html-formatting {
-  a {
-    &:hover,
-    &:active {
-      color: var(--link-hover-color);
-    }
-    &:visited {
-      color: inherit;
-    }
-  }
-  p,
-  dl {
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-  }
-  strong {
-    font-weight: var(--font-weight-600);
-  }
-  img {
-    max-width: 100%;
-    position: relative;
-  }
-  .button {
-    border-radius: 2rem;
-    align-items: center;
-    cursor: pointer;
-    display: inline-flex;
-    margin: 0;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    vertical-align: bottom;
-    background: var(--white100);
-    border: 2px solid transparent;
-    color: var(--black500);
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-  .user-embedded-video {
-    div {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
     }
   }
 }
@@ -105,7 +49,7 @@ section {
   }
 }
 
-/* be low will eventually go in the theme extentions.scss*/
+/* below will eventually go in the theme extentions.scss*/
 .v-share-tools {
   a {
     width: 16px;
