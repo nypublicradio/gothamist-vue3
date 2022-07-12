@@ -26,7 +26,7 @@
   <div v-if="gallery">
     <NuxtLink :to="gallery.articleLink">Back</NuxtLink>
     <h2 v-if="gallery.title">{{ gallery.articleTitle }} - Photos</h2>
-    <div v-for="slide in gallery.slides" key="slide.image.id">
+    <div v-for="slide in gallery.slides" :key="slide.image.id">
       <div>
         <h3 v-if="slide.title">{{ slide.title }}</h3>
         <VImageWithCaptionVue

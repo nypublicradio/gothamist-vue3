@@ -27,11 +27,6 @@ export async function findArticlePages(queryParams: any) {
     return await useAviary('/pages/', {params})
 }
 
-// Transform a list of article page data from the API into a simpler and typed format
-export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
-    return articlesResponse.value.items?.map(normalizeArticlePage)
-}
-
 // Get a relative link to an article
 function getArticleLink(articleData):string {
     if (articleData.ancestry) {
@@ -108,4 +103,9 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         seoTitle: article.meta?.seoTitle || article.title,
         searchDescription: article.meta?.searchDescription || article.description,
     }
+}
+
+// Transform a list of article page data from the API into a simpler and typed format
+export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
+    return articlesResponse.value.items?.map(normalizeArticlePage)
 }
