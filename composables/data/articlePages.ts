@@ -15,7 +15,7 @@ export async function findFeaturedArticlePages(queryParams: any) {
     return await useAviary('/pages/', {params})
 }
 
-// get article pages
+// Get a list of article pages using the Aviary /pages api
 export async function findArticlePages(queryParams: any) {
     const defaultParams  = {
      type: 'news.ArticlePage',
@@ -23,15 +23,16 @@ export async function findArticlePages(queryParams: any) {
      order: '-publication_date',
      show_on_index_listing: true,
     }
-    let params = Object.assign({}, defaultParams, queryParams)
+    const params = Object.assign({}, defaultParams, queryParams)
     return await useAviary('/pages/', {params})
 }
 
-// normalize the article page data
+// Transform a list of article page data from the API into a simpler and typed format
 export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
     return articlesResponse.value.items?.map(normalizeArticlePage)
 }
 
+// Get a relative link to an article
 function getArticleLink(articleData):string {
     if (articleData.ancestry) {
         return `/${articleData.ancestry[0].slug}/${articleData.meta.slug}`
@@ -44,7 +45,26 @@ function getArticleLink(articleData):string {
     }
 }
 
-// normalize the article page data
+// Transform author data from the API into a simpler and typed format
+function normalizeAuthor(author:Record<string, any>): Author {
+    return {
+        id: author.id,
+        firstName: author.firstName,
+        lastName: author.lastName,
+        organization: author.contributingOrganization?.name,
+        organizationUrl: author.contributingOrganization?.url,
+        name: `${author.firstName} ${author.lastName}`,
+        photoID: author.photo,
+        jobTitle: author.jobTitle,
+        biography: author.biography,
+        website: author.website,
+        email: author.email,
+        slug: author.slug,
+        url: author.slug && `/staff/${author.slug}`
+    }
+}
+
+// Transform page data from the API into a simpler and typed format
 export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
     return {
         id: article.id,
@@ -87,24 +107,5 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 
         seoTitle: article.meta?.seoTitle || article.title,
         searchDescription: article.meta?.searchDescription || article.description,
-    }
-}
-
-// normalize the author data
-function normalizeAuthor(author:Record<string, any>): Author {
-    return {
-        id: author.id,
-        firstName: author.firstName,
-        lastName: author.lastName,
-        url: author.slug && `/staff/${author.slug}`,
-        organization: author.contributingOrganization?.name,
-        organizationUrl: author.contributingOrganization?.url,
-        name: `${author.firstName} ${author.lastName}`,
-        photoID: author.photo,
-        jobTitle: author.jobTitle,
-        biography: author.biography,
-        website: author.website,
-        email: author.email,
-        slug: author.slug,
     }
 }

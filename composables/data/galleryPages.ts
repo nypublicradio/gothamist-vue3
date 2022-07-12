@@ -3,7 +3,7 @@ import Slide from "../types/Slide"
 import Image from "../types/Image"
 import { normalizeArticlePage } from "./articlePages"
 
-// take a slide and return an image, with the caption override applied if it exists
+// Take a slide and return an image, with the caption override applied if it exists
 function useImageFromSlideData(slideData: Record<string, any>):Image {
     const image = slideData.value.slideImage.image as Image
     const captionOverride = slideData.value.slideImage.caption
@@ -13,7 +13,7 @@ function useImageFromSlideData(slideData: Record<string, any>):Image {
     return image
 }
 
-// Convert api json slide data into a simpler and typed format
+// Transform slide data from the API  into a simpler and typed format
 export function normalizeSlide(slideData: Record<string, any>):Slide {
     return {
         title: slideData.value.slideTitle,
@@ -21,7 +21,7 @@ export function normalizeSlide(slideData: Record<string, any>):Slide {
     }
 }
 
-// Convert api json gallery page data into a simpler and typed format
+// Transform gallery page data from the API into a simpler and typed format
 export function normalizeGalleryPage(page: Record<string, any>):GalleryPage {
     const galleryPage = {
         id: page.id,

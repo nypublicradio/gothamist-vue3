@@ -168,6 +168,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
     return metadata
   }
 
+  // Get <head> metadata values (for use with useHead) for a gallery
   function useGalleryPageHeadMetadata(gallery: GalleryPage) {
     const metadata = {
       meta: [
