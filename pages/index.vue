@@ -53,10 +53,7 @@ onMounted(() => {
             </div>
             <div class="col-12 xl:col-4">
               <hr class="black mb-3" />
-              <div class="flex align-items-center mb-4">
-                <span class="mr-2">LATEST</span>
-                <arrow-right />
-              </div>
+              <div class="mb-3">LATEST</div>
               <div
                 v-for="article in featuredArticles.slice(
                   1,
@@ -92,10 +89,6 @@ onMounted(() => {
           <hr class="black mb-4" />
           <p>donation component goes here</p>
           <hr class="black mt-4 mb-3" />
-          <div class="flex align-items-center mb-4">
-            <span class="mr-2">SKYLINE</span>
-            <arrow-right />
-          </div>
         </div>
         <template v-if="articles">
           <div v-for="article in articles" :key="article.uuid">
