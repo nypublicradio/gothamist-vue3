@@ -123,7 +123,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
             caption: article.socialImage?.caption
           },
           headline: article.seoTitle,
-          alternativeHeadline: article.seoTitle,
+          alternativeHeadline: [article.title, article.socialTitle, article.listingTitle],
           description: article.searchDescription,
           datePublished: article.publicationDate,
           dateModified: article.updatedDate,
@@ -138,9 +138,10 @@ import { ArticlePage, GalleryPage } from './types/Page'
 
   // Get <head> metadata values (for use with useHead) for an article
   function useArticlePageHeadMetadata(article: ArticlePage)
-    :{meta: {name: string, content: string}[], script: {type: string, children: string}[]}
+    :{title: string, meta: {name: string, content: string}[], script: {type: string, children: string}[]}
   {
     const metadata = {
+      title: `${article.seoTitle} - Gothamist`,
       meta: [
         { name: 'og:title', content: article.socialTitle },
         { name: 'og:description', content: article.socialDescription },
