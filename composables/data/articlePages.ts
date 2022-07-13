@@ -15,7 +15,7 @@ export async function findFeaturedArticlePages(queryParams: any) {
     return await useAviary('/pages/', {params})
 }
 
-// get article pages
+// Get a list of article pages using the Aviary /pages api
 export async function findArticlePages(queryParams: any) {
     const defaultParams  = {
      type: 'news.ArticlePage',
@@ -23,29 +23,56 @@ export async function findArticlePages(queryParams: any) {
      order: '-publication_date',
      show_on_index_listing: true,
     }
-    let params = Object.assign({}, defaultParams, queryParams)
+    const params = Object.assign({}, defaultParams, queryParams)
     return await useAviary('/pages/', {params})
 }
 
-// normalize the article page data
-export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
-    return articlesResponse.value.items?.map(normalizeArticlePage)
+// Get a relative link to an article
+function getArticleLink(articleData):string {
+    if (articleData.ancestry) {
+        return `/${articleData.ancestry[0].slug}/${articleData.meta.slug}`
+    }
+    else if (articleData.path) {
+        return articleData.path.replace('/home/', '/')
+    }
+    else {
+        return '/'
+    }
 }
 
-// normalize the article page data
+// Transform author data from the API into a simpler and typed format
+function normalizeAuthor(author:Record<string, any>): Author {
+    return {
+        id: author.id,
+        firstName: author.firstName,
+        lastName: author.lastName,
+        organization: author.contributingOrganization?.name,
+        organizationUrl: author.contributingOrganization?.url,
+        name: `${author.firstName} ${author.lastName}`,
+        photoID: author.photo,
+        jobTitle: author.jobTitle,
+        biography: author.biography,
+        website: author.website,
+        email: author.email,
+        slug: author.slug,
+        url: author.slug && `/staff/${author.slug}`
+    }
+}
+
+// Transform page data from the API into a simpler and typed format
 export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
     return {
         id: article.id,
         title: article.title,
         description: article.description,
-        image:  article.leadAsset[0].value.image ?? article.leadAsset[0]?.value.defaultImage,
-        link: `/${article.ancestry[0].slug}/${article.meta.slug}`,
+        image:  article.leadAsset?.[0].value.image ?? article.leadAsset?.[0].value.defaultImage,
+        link: getArticleLink(article),
 
         leadAsset: article.leadAsset?.[0],
-        leadImage: article.leadAsset[0]?.type === 'lead_image' && article.leadAsset[0]?.value.image,
-        leadGallery: article.leadAsset[0]?.type === 'lead_gallery' && article.leadAsset[0]?.value,
+        leadImage: article.leadAsset?.[0].type === 'lead_image' && article.leadAsset?.[0].value.image,
+        leadGallery: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].value,
         
-        gallerySlides: article.leadAsset[0]?.type === 'lead_gallery' && article.leadAsset[0]?.slides,
+        gallerySlides: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].slides,
 
         legacyId: article.legacyId,
         authors: article.relatedAuthors?.map(normalizeAuthor),
@@ -60,39 +87,25 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         tags: article.tags,
         url: article.url,
         uuid: article.uuid,
-        section: { name: article.ancestry[0].title, slug: article.ancestry[0].slug },
+        section: { name: article.ancestry?.[0].title, slug: article.ancestry?.[0].slug },
         body: article.body,
 
         // for listing pages
-        listingImage: article.listingImage || article.leadAsset[0]?.value?.image || article.leadAsset[0]?.value?.defaultImage,
+        listingImage: article.listingImage || article.leadAsset?.[0].value?.image || article.leadAsset?.[0].value?.defaultImage,
         listingTitle: article.listingTitle || article.title,
         listingDescription: article.listingSummary || article.description,
 
         // for social/OG metadata
-        socialImage: article.socialImage || article.leadAsset[0]?.value?.image || article.leadAsset[0]?.value?.defaultImage,
+        socialImage: article.socialImage || article.leadAsset?.[0].value?.image || article.leadAsset?.[0].value?.defaultImage,
         socialTitle: article.socialTitle || article.title,
         socialDescription: article.socialText || article.description,
 
-        seoTitle: article.meta.seoTitle || article.title,
-        searchDescription: article.meta.searchDescription || article.description,
+        seoTitle: article.meta?.seoTitle || article.title,
+        searchDescription: article.meta?.searchDescription || article.description,
     }
 }
 
-// normalize the author data
-function normalizeAuthor(author:Record<string, any>): Author {
-    return {
-        id: author.id,
-        firstName: author.firstName,
-        lastName: author.lastName,
-        url: author.slug && `/staff/${author.slug}`,
-        organization: author.contributingOrganization?.name,
-        organizationUrl: author.contributingOrganization?.url,
-        name: `${author.firstName} ${author.lastName}`,
-        photoID: author.photo,
-        jobTitle: author.jobTitle,
-        biography: author.biography,
-        website: author.website,
-        email: author.email,
-        slug: author.slug,
-    }
+// Transform a list of article page data from the API into a simpler and typed format
+export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
+    return articlesResponse.value.items?.map(normalizeArticlePage)
 }
