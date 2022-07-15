@@ -10,6 +10,4 @@ deployments:
       --env NUXT_PORT=$NUXT_PORT
     pre_launch:
       context: squash_host
-      command:
-        - echo "@nypublicradio:registry=https://npm.pkg.github.com" > /home/test-instance/.npmrc
-        - echo "//npm.pkg.github.com/:_authToken=${PAT}" >> /home/test-instance/.npmrc
+      command: echo "@nypublicradio:registry=https://npm.pkg.github.com" > /home/test-instance/.npmrc; echo "//npm.pkg.github.com/:_authToken=${PAT}" >> /home/test-instance/.npmrc
