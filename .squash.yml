@@ -9,5 +9,5 @@ deployments:
       --env NUXT_HOST=$NUXT_HOST
       --env NUXT_PORT=$NUXT_PORT
     pre_launch:
-      context: squash_host
-      command: /home/test-instance/squash_pre_build.sh
+      - context: squash_host
+        command: /home/test-instance/squash_pre_build.sh
