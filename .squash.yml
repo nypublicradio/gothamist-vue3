@@ -2,14 +2,14 @@ deployments:
   gothamist-vue3:
     port_forwarding:
       80:3000
-      environment:
-        - NUXT_HOST=0.0.0.0
-        - NUXT_PORT=3000
-      run_options:
-        --env NUXT_HOST=$NUXT_HOST
-        --env NUXT_PORT=$NUXT_PORT
-      pre_launch:
-        context: squash_host
-        command:
-          - echo "@nypublicradio:registry=https://npm.pkg.github.com" > /home/test-instance/.npmrc
-          - echo "//npm.pkg.github.com/:_authToken=${PAT}" >> /home/test-instance/.npmrc
+    environment:
+      - NUXT_HOST=0.0.0.0
+      - NUXT_PORT=3000
+    run_options:
+      --env NUXT_HOST=$NUXT_HOST
+      --env NUXT_PORT=$NUXT_PORT
+    pre_launch:
+      context: squash_host
+      command:
+        - echo "@nypublicradio:registry=https://npm.pkg.github.com" > /home/test-instance/.npmrc
+        - echo "//npm.pkg.github.com/:_authToken=${PAT}" >> /home/test-instance/.npmrc
