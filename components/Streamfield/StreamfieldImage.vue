@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import { ImageBlock } from '../../composables/types/StreamfieldBlock'
 defineProps<{
   block: ImageBlock
@@ -6,9 +7,14 @@ defineProps<{
 </script>
 
 <template>
-  <GothamistImage
-    class="streamfield-image"
-    :image="block.value.image"
-    :width="640"
+  <v-image-with-caption
+    class="mb-5"
+    :image="useImageUrl(block.value.image)"
+    :alt-text="block.value.image.alt"
+    :maxWidth="block.value.image.width"
+    :maxHeight="block.value.image.height"
+    :description="block.value.image.caption"
+    :credit="`Photo by ${block.value.image.credit}`"
+    :credit-url="block.value.image.creditLink"
   />
 </template>
