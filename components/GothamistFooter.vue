@@ -72,7 +72,6 @@ const copyrightYear = ref(props.navData.copyrightYear)
 <style lang="scss">
 .footer {
   background-color: var(--black-500);
-  color: var(--white);
   .content {
     padding-bottom: 25px;
     .top {
@@ -110,7 +109,6 @@ const copyrightYear = ref(props.navData.copyrightYear)
             max-width: 370px;
             * {
               @include font-config($type-fineprint);
-              color: var(--white200);
             }
           }
         }
@@ -120,7 +118,6 @@ const copyrightYear = ref(props.navData.copyrightYear)
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--black300);
       margin: 0;
       @include media('<lg') {
         flex-direction: row-reverse;
@@ -149,7 +146,6 @@ const copyrightYear = ref(props.navData.copyrightYear)
           gap: 1rem;
           a {
             @include font-config($type-fineprint);
-            color: var(--white200);
           }
           @include media('<lg') {
             flex-direction: column;

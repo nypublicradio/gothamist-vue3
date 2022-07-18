@@ -10,15 +10,15 @@ const props = defineProps({
   },
 })
 
-const secondaryNavigation = ref(props.navData.secondaryNavigation)
+const primaryFooterLinks = ref(props.navData.primaryFooterLinks)
 </script>
 
 <template>
   <div class="menu-list">
     <v-flexible-link
-      v-for="(item, index) in secondaryNavigation"
+      v-for="(item, index) in primaryFooterLinks"
       :to="item.value.url"
-      :key="`secondaryNavigation-${index}`"
+      :key="`primaryFooterLinks-${index}`"
     >
       {{ item.value.title }}
     </v-flexible-link>
