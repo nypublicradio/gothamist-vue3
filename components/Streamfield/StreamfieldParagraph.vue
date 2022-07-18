@@ -6,8 +6,5 @@ defineProps<{
 </script>
 
 <template>
-    <div 
-      class="streamfield-paragraph u-spacing o-rte-text"
-      v-html="block.value"
-    />
+  <div class="streamfield-paragraph mb-5" v-html="block.value" />
 </template>

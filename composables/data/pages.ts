@@ -1,4 +1,5 @@
 import { normalizeArticlePage } from './articlePages'
+import { normalizeGalleryPage } from './galleryPages'
 import { normalizeTagPage } from './tagPages'
 import { Page, ArticlePage, TagPage } from "../types/Page"
 
@@ -12,6 +13,8 @@ export function normalizeFindPageResponse(pageResponse: Record<string, any>): Pa
     switch (pageType) {
         case 'news.ArticlePage':
             return normalizeArticlePage(pageResponse.value)
+        case 'gallery.GalleryPage':
+            return normalizeGalleryPage(pageResponse.value)
         case 'tagpages.TagPageIndex':
             return normalizeTagPage(pageResponse.value)
         default:
