@@ -8,11 +8,11 @@ ARG HTL_IS_TESTING
 ARG API_URL
 ARG IMAGE_BASE_URL
 ARG GA_MEASUREMENT_ID
-ARG PAT
 
 WORKDIR /code
 
-RUN pre_build.sh
+RUN echo "@nypublicradio:registry=https://npm.pkg.github.com" > .npmrc
+RUN --mount=type=secret,id=PAT && echo "//npm.pkg.github.com/:_authToken=$PAT" >> .npmrc
 
 COPY ./package.json .
 COPY ./package-lock.json .
