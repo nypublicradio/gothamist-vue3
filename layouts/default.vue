@@ -85,7 +85,7 @@ watch(route, (value) => {
       <slot />
     </main>
     <scroll-to-top-button />
-    <gothamist-footer />
+    <gothamist-footer :navData="navigation" />
   </div>
 </template>
 
