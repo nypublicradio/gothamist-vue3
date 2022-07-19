@@ -9,7 +9,8 @@ deployments:
     environment:
       - NUXT_HOST=0.0.0.0
       - NUXT_PORT=3000
+      - DOCKER_BUILDKIT=1
     run_options:
       --env NUXT_HOST=$NUXT_HOST
       --env NUXT_PORT=$NUXT_PORT
-      --env DOCKER_BUILDKIT=1
+      --env DOCKER_BUILDKIT=$DOCKER_BUILDKIT
