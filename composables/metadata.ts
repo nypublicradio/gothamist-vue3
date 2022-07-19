@@ -157,7 +157,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
       ],
       script: [
         {
-            type: 'application/ld-json',
+            type: 'application/ld+json',
             children: JSON.stringify(useArticlePageStructuredData(article)),
         },
       ]
