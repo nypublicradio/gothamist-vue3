@@ -1,5 +1,7 @@
 deployments:
   gothamist-vue3:
+    filename:
+      ./squash_DockerFile
     port_forwarding:
       80:3000
     environment:
@@ -8,8 +10,5 @@ deployments:
     run_options:
       --env NUXT_HOST=$NUXT_HOST
       --env NUXT_PORT=$NUXT_PORT
-    pre_launch:
-      - context: squash_host
-        command:
-          - echo "@nypublicradio:registry=https://npm.pkg.github.com" > /home/test-instance/code/.npmrc
-          - echo "//npm.pkg.github.com/:_authToken=${PAT}" >> /home/test-instance/code/.npmrc
+      --env PAT=$PAT
+    do
