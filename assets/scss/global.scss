@@ -30,6 +30,15 @@ section {
   }
 }
 
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  padding: calc(var(--inline-spacing) / 4);
+  border: solid 1px var(--gray-100);
+}
+
 .p-scrolltop {
   box-shadow: none;
   width: 68px;
@@ -73,7 +82,6 @@ section {
   }
   a:hover,
   a.flexible-link:hover {
-    color: var(--soybean) !important;
     svg path {
       fill: var(--soybean) !important;
     }
