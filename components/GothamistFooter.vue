@@ -2,6 +2,18 @@
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+
+const props = defineProps({
+  navData: {
+    type: Object,
+    default: null,
+    required: true,
+  },
+})
+
+const legalLinks = ref(props.navData.legalLinks)
+const propertyDescription = ref(props.navData.propertyDescription)
+const copyrightYear = ref(props.navData.copyrightYear)
 </script>
 
 <template>
@@ -9,23 +21,20 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
     <div class="content">
       <div class="top grid">
         <div class="hidden lg:flex col-3 p-0">
-          <menu-list />
+          <menu-list :navData="props.navData" />
         </div>
         <div class="col-12 lg:col-9 right p-0">
           <div class="logo-lockup">
             <v-flexible-link to="/" class="gothamist-logo">
               <logo-gothamist />
             </v-flexible-link>
-            <div class="copy">
-              Gothamist is a website about New York City news, arts, and events,
-              and food, brought to you by New York Public Radio.
-              <v-flexible-link style="color: var(--soybean)" to="/support">
-                Support us</v-flexible-link
-              >
-            </div>
+            <div
+              class="property-description"
+              v-html="propertyDescription"
+            ></div>
           </div>
           <div class="block lg:hidden">
-            <menu-list />
+            <menu-list :navData="props.navData" />
           </div>
           <nypr-logos-bracket />
         </div>
@@ -43,14 +52,16 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
         </v-share-tools>
         <div class="right col-12 lg:col-9">
           <div class="menu">
-            <v-flexible-link to="/accessibility">Accessibility</v-flexible-link>
-            <v-flexible-link to="/terms">Terms of use</v-flexible-link>
-            <v-flexible-link to="/privacy-policy"
-              >Privacy policy</v-flexible-link
+            <v-flexible-link
+              v-for="(item, index) in legalLinks"
+              :to="item.value.url"
+              :key="`legalLinks-${index}`"
             >
+              {{ item.value.title }}
+            </v-flexible-link>
           </div>
           <div class="type-fineprint copyright">
-            © 2022 New York Public Radio. All rights reserved.
+            ©{{ copyrightYear }} New York Public Radio. All rights reserved.
           </div>
         </div>
       </div>
@@ -61,7 +72,6 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 <style lang="scss">
 .footer {
   background-color: var(--black-500);
-  color: var(--white);
   .content {
     padding-bottom: 25px;
     .top {
@@ -95,10 +105,11 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
               width: 190px;
             }
           }
-          .copy {
-            @include font-config($type-fineprint);
-            color: var(--white200);
+          .property-description {
             max-width: 370px;
+            * {
+              @include font-config($type-fineprint);
+            }
           }
         }
       }
@@ -107,7 +118,6 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--black300);
       margin: 0;
       @include media('<lg') {
         flex-direction: row-reverse;
@@ -136,7 +146,6 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
           gap: 1rem;
           a {
             @include font-config($type-fineprint);
-            color: var(--white200);
           }
           @include media('<lg') {
             flex-direction: column;
