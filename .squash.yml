@@ -12,5 +12,3 @@ deployments:
     run_options:
       --env NUXT_HOST=$NUXT_HOST
       --env NUXT_PORT=$NUXT_PORT
-      --env PAT=$PAT
-    do
