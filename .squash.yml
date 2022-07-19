@@ -1,7 +1,7 @@
 deployments:
   gothamist-vue3:
     filename:
-      ./squash_DockerFile
+      ./squash_Dockerfile
     build_options:
       --secret id=PAT,env=PAT
     port_forwarding:
