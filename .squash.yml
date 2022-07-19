@@ -11,5 +11,5 @@ deployments:
     pre_launch:
       - context: squash_host
         command:
-          - echo "@nypublicradio:registry=https://npm.pkg.github.com" > .npmrc
-          - echo "//npm.pkg.github.com/:_authToken=${PAT}" >> .npmrc
+          - echo "@nypublicradio:registry=https://npm.pkg.github.com" > /home/test-instance/.npmrc
+          - echo "//npm.pkg.github.com/:_authToken=${PAT}" >> /home/test-instance/.npmrc
