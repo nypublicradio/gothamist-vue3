@@ -46,7 +46,7 @@ table tr:first-child {
   font-weight: bold;
   text-transform: uppercase;
 }
-table tr:last-child:not(.totalline){
+table tr:last-child:not(.totalline) {
   border-bottom: solid 1px var(--black);
 }
 table tr.totalline {
@@ -115,7 +115,7 @@ table tr.totalline {
   }
 }
 
-.sectionSlug-articleSlug a {
+.sectionSlug-articleSlug a:not(.image-with-caption-credit-link) {
   &:hover {
     background-color: var(--text-color);
     color: var(--white);
@@ -127,5 +127,22 @@ table tr.totalline {
 .streamfield-paragraph h4,
 .streamfield-paragraph h5,
 .streamfield-paragraph h6 {
-  margin-bottom: calc(var(--inline-spacing)/3);
+  margin-bottom: calc(var(--inline-spacing) / 3);
+}
+
+.streamfield-paragraph p {
+  font-family: var(--font-family-header);
+}
+
+.footer.image-with-caption-credit-link,
+.footer.image-with-caption-description,
+.image-with-caption .footer {
+  font-family: var(--font-family-header);
+}
+
+ol ol li {
+  list-style: lower-latin;
+  &::marker {
+    text-transform: uppercase;
+  }
 }
