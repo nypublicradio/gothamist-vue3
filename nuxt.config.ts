@@ -64,6 +64,7 @@ export default defineNuxtConfig({
     API_URL: process.env['API_URL'] || 'https://cms.demo.nypr.digital/api/v2',
     IMAGE_BASE_URL: process.env['IMAGE_BASE_URL'] || 'https://cms.demo.nypr.digital/images/',
     GA_MEASUREMENT_ID: process.env['GA_MEASUREMENT_ID'],
+    NEWSLETTER_API: process.env['NEWSLETTER_API'] || 'https://api.demo.nypr.digital/email-proxy/subscribe',
     navigationId: 1,
     systemMessagesId: 2,
     sitewideComponentsId: 2,

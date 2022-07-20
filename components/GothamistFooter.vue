@@ -20,10 +20,10 @@ const copyrightYear = ref(props.navData.copyrightYear)
   <section id="footer" class="footer" data-style-mode="dark">
     <div class="content">
       <div class="top grid">
-        <div class="hidden lg:flex col-3 p-0">
+        <div class="hidden lg:flex lg:col-3 xl:col-4 p-0">
           <menu-list :navData="props.navData" />
         </div>
-        <div class="col-12 lg:col-9 right p-0">
+        <div class="col-12 lg:col-9 xl:col-8 right p-0">
           <div class="logo-lockup">
             <v-flexible-link to="/" class="gothamist-logo">
               <logo-gothamist />
@@ -41,7 +41,7 @@ const copyrightYear = ref(props.navData.copyrightYear)
       </div>
       <hr class="w-full my-4" />
       <div class="bottom grid">
-        <v-share-tools class="left col-12 lg:col-3 pr-0">
+        <v-share-tools class="left col-12 lg:col-3 xl:col-4 pr-0">
           <v-share-tools-item service="facebook" username="gothamist" />
           <v-share-tools-item service="twitter" username="gothamist" />
           <v-share-tools-item service="instagram" username="gothamist" />
@@ -50,7 +50,7 @@ const copyrightYear = ref(props.navData.copyrightYear)
             username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
           />
         </v-share-tools>
-        <div class="right col-12 lg:col-9">
+        <div class="right col-12 lg:col-9 xl:col-8">
           <div class="menu">
             <v-flexible-link
               v-for="(item, index) in legalLinks"

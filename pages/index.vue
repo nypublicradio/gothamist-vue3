@@ -124,5 +124,10 @@ onMounted(() => {
         </template>
       </div>
     </section>
+    <section>
+      <div class="content">
+        <newsletter-home />
+      </div>
+    </section>
   </div>
 </template>
