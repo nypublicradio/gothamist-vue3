@@ -126,6 +126,8 @@ const copyrightYear = ref(props.navData.copyrightYear)
         padding-left: 0;
         padding-right: 0;
         @include media('<lg') {
+          z-index: 2;
+          width: auto;
           justify-content: flex-end;
         }
       }
@@ -142,6 +144,7 @@ const copyrightYear = ref(props.navData.copyrightYear)
         }
         .menu {
           display: flex;
+          align-self: flex-start;
           gap: 1rem;
           a {
             @include font-config($type-fineprint);

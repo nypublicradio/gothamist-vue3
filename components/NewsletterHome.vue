@@ -23,7 +23,7 @@ onMounted(() => {})
       <h4>Never miss a story in your neighborhood</h4>
     </div>
     <div class="col-12 lg:col-8 xl:col-5 col-offset-0 xl:col-offset-1">
-      <p class="type-paragraph2">
+      <p class="type-paragraph2 pr-0 lg:pr-8 xl:pr-0">
         Catch up on the most important headlines of the day with a roundup of
         essential NYC news, delivered to your inbox every day at 5pm.
       </p>

@@ -21,6 +21,7 @@ const props = defineProps({
 // submit the newsletter form and add email address to the Gothamist Newsletter list
 function submitForm() {
   submitted.value = true
+  submissionStatus.value = null
   axios
     // .post(`https://api.prod.nypr.digital/email-proxy/subscribe`,
     .post(config.NEWSLETTER_API, {
@@ -70,7 +71,7 @@ function submitForm() {
         <small
           v-if="submissionStatus === 'error'"
           id="email-address-field"
-          class="p-error px-4 mt-1 block"
+          class="p-error mt-1 block"
           >Sorry, there was an error with your submission. Please try
           again!</small
         >
@@ -88,7 +89,7 @@ function submitForm() {
         <Button
           :disabled="submitted || !checked"
           @click="submitForm"
-          class="p-button-rounded"
+          class="submit-btn p-button-rounded"
           label="Subscribe"
         >
           <i v-if="submitted" class="pi pi-spin pi-spinner" />
@@ -101,12 +102,13 @@ function submitForm() {
 
 <style lang="scss">
 .newsletter-form .p-button {
-  width: 135px;
+  //width: 135px;
   height: 41px;
 }
 
 .newsletter-form .pi-spinner {
   font-size: 1.25rem;
+  color: var(--black);
   margin: auto;
 }
 .newsletter-form {
@@ -117,6 +119,9 @@ function submitForm() {
     label {
       @include font-config($type-fineprint);
     }
+  }
+  .p-error {
+    text-align: right;
   }
 }
 </style>
