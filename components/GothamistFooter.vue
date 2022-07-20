@@ -7,7 +7,6 @@ const props = defineProps({
   navData: {
     type: Object,
     default: null,
-    required: true,
   },
 })
 
