@@ -12,7 +12,7 @@ ARG GA_MEASUREMENT_ID
 WORKDIR /code
 
 RUN echo "@nypublicradio:registry=https://npm.pkg.github.com" > .npmrc
-RUN --mount=type=secret,id=PAT,uid=1002 export PAT=$(cat /run/secrets/PAT) && echo "//npm.pkg.github.com/:_authToken=$PAT" >> .npmrc
+RUN --mount=type=secret,id=PAT,uid=1002,gid=1002 export PAT=$(cat /run/secrets/PAT) && echo "//npm.pkg.github.com/:_authToken=$PAT" >> .npmrc
 
 COPY ./package.json .
 COPY ./package-lock.json .
