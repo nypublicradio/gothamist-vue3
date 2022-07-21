@@ -20,7 +20,7 @@ const props = defineProps({
   },
   thanksMessage: {
     type: String,
-    default: 'Thank you for signing up',
+    default: 'Thank you for signing up!',
   },
 })
 
@@ -99,7 +99,7 @@ function submitForm() {
         </div>
       </div>
     </span>
-    <p v-else>{{ props.thanksMessage }}</p>
+    <p v-else class="type-paragraph3">{{ props.thanksMessage }}</p>
   </div>
 </template>
 
@@ -122,6 +122,7 @@ function submitForm() {
   margin-left: -1rem;
   width: 110px;
   margin-top: 8px;
+  text-decoration: underline;
   @include media('<md') {
     margin-top: -1rem;
   }
