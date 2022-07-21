@@ -3,7 +3,7 @@ deployments:
     filename:
       ./squash_Dockerfile
     build_options:
-      --secret id=PAT,env=PAT
+      --secret id=PAT,env=$PAT
     port_forwarding:
       80:3000
     environment:
