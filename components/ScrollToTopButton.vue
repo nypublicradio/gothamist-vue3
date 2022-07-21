@@ -22,7 +22,7 @@ const initScrollTrigger = () => {
   if (!props.hide) {
     gsapScrollTrigger = ScrollTrigger.create({
       id: 'scrollTopID',
-      trigger: '#footer',
+      trigger: '#gotahmist-footer',
       invalidateOnRefresh: true,
       onEnter: () => {
         const btn = document.getElementById('scrollTopBtn')

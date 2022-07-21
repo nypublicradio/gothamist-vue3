@@ -16,7 +16,11 @@ const copyrightYear = ref(props.navData.copyrightYear)
 </script>
 
 <template>
-  <section id="footer" class="footer" data-style-mode="dark">
+  <section
+    id="gotahmist-footer"
+    class="gothamist-footer"
+    data-style-mode="dark"
+  >
     <div class="content">
       <div class="top grid">
         <div class="hidden lg:flex lg:col-3 xl:col-4 p-0">
@@ -69,7 +73,7 @@ const copyrightYear = ref(props.navData.copyrightYear)
 </template>
 
 <style lang="scss">
-.footer {
+.gothamist-footer {
   background-color: var(--black-500);
   .content {
     padding-bottom: 25px;
