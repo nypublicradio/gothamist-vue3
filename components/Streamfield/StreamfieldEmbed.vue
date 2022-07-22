@@ -6,5 +6,5 @@ defineProps<{
 </script>
 
 <template>
-  <div class="streamfield-embed mb-5" v-html="block.value.embed" />
+  <div class="streamfield-embed mb-7" v-html="block.value.embed" />
 </template>

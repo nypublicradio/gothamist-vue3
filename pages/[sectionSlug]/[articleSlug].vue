@@ -2,7 +2,6 @@
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 import { ArticlePage } from '../../composables/types/Page'
-import { fuzzyDateTime } from '../../utilities/date'
 
 const route = useRoute()
 const { $analytics, $htlbid } = useNuxtApp()
@@ -54,6 +53,10 @@ function useInsertAd(targetElement) {
 
 <template>
   <div>
+    <Head>
+      <Script v-if="article" type="application/ld+json" :children="JSON.stringify(useArticlePageStructuredData(article))" />
+      <Link rel="canonical" v-if="article" :href="article.url" />
+    </Head>
     <section>
       <div class="content">
         <div v-if="article">
