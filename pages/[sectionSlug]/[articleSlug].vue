@@ -54,6 +54,9 @@ function useInsertAd(targetElement) {
 
 <template>
   <div>
+    <Head>
+      <Script v-if="article" type="application/ld+json" :children="JSON.stringify(useArticlePageStructuredData(article))" />
+    </Head>
     <section>
       <div class="content">
         <div v-if="article">
