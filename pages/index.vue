@@ -140,15 +140,5 @@ onMounted(() => {
         <newsletter-home @submitEventEmit="newsletterSubmitEvent" />
       </div>
     </section>
-    <section data-style-mode="dark" style="background: #111111">
-      <div class="content">
-        <newsletter-home @submitEventEmit="newsletterSubmitEvent" />
-      </div>
-    </section>
-    <section data-style-mode="dark" style="background: #111111">
-      <div class="content">
-        <newsletter-home altDesign @submitEventEmit="newsletterSubmitEvent" />
-      </div>
-    </section>
   </div>
 </template>
