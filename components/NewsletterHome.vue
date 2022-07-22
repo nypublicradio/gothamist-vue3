@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRuntimeConfig } from '#app'
-import axios from 'axios'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 const config = useRuntimeConfig()
@@ -41,17 +40,20 @@ const hideComp = () => {
 
 // submit the newsletter form and add email address to the Gothamist Newsletter list
 const submitForm = (email) => {
+  console.log('submitting')
   isSubmitting.value = true
   submissionStatus.value = null
-  axios
-    .post(config.NEWSLETTER_API, {
+  fetch(config.NEWSLETTER_API, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
+    body: JSON.stringify({
       list: config.NEWSLETTER_LIST_ID,
       email: email,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    })
+    }),
+  })
     .then(() => {
       submissionStatus.value = 'success'
       emit('submit', 'success')
