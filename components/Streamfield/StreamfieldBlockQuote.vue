@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="streamfield-block-quote mb-5">
+  <div class="streamfield-block-quote mb-7">
     <blockquote>
       <p>
         {{ block.value.blockQuote }}
