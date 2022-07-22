@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <v-image-with-caption
-    class="mb-5"
+    class="mb-7"
     :image="useImageUrl(block.value.image)"
     :alt-text="block.value.image.alt"
     :maxWidth="block.value.image.width"

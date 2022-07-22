@@ -32,6 +32,7 @@ section {
 
 table {
   border-collapse: collapse;
+  font-family: var(--font-family-header);
 }
 table th,
 table td {
@@ -128,10 +129,6 @@ table tr.totalline {
 .streamfield-paragraph h5,
 .streamfield-paragraph h6 {
   margin-bottom: calc(var(--inline-spacing) / 3);
-}
-
-.streamfield-paragraph p {
-  font-family: var(--font-family-header);
 }
 
 .footer.image-with-caption-credit-link,

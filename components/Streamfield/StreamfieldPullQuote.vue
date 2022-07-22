@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <PullQuote
-    class="streamfield-pull-quote mb-5"
+    class="streamfield-pull-quote mb-7"
     :quote="block.value.pullQuote"
     :author="block.value.attribution"
   />
