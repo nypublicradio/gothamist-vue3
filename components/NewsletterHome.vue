@@ -40,7 +40,6 @@ const hideComp = () => {
 
 // submit the newsletter form and add email address to the Gothamist Newsletter list
 const submitForm = (email) => {
-  console.log('submitting')
   isSubmitting.value = true
   submissionStatus.value = null
   fetch(config.NEWSLETTER_API, {
