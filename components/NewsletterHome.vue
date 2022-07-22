@@ -11,9 +11,18 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  altDesign: {
+    type: Boolean,
+    default: false,
+  },
   submitButtonText: {
     type: String,
     default: 'Sign up',
+  },
+  submitButtonIcon: {
+    type: String,
+    //default: 'pi-arrow-right',
+    default: null,
   },
 })
 
@@ -72,8 +81,10 @@ const submitForm = (email) => {
         class="mt-5"
         :showNoThanks="props.showNoThanks"
         :submitButtonText="props.submitButtonText"
+        :submitButtonIcon="props.submitButtonIcon"
         :isSubmiting="isSubmiting"
         :submissionStatus="submissionStatus"
+        :altDesign="props.altDesign"
       >
         By submitting your information, you're agreeing to receive
         communications from New York Public Radio in accordance with our

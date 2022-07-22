@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const props = defineProps({
   showNoThanks: {
@@ -10,6 +10,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  altDesign: {
+    type: Boolean,
+    default: false,
+  },
   submissionStatus: {
     type: String,
     default: null,
@@ -17,6 +21,10 @@ const props = defineProps({
   submitButtonText: {
     type: String,
     default: 'Sign up',
+  },
+  submitButtonIcon: {
+    type: String,
+    default: null,
   },
   thanksMessage: {
     type: String,
@@ -31,6 +39,14 @@ const emit = defineEmits<{
 
 const email = ref('')
 const checked = ref(true)
+const submitButtonRef = ref(null)
+const submitBtnWidth = ref(100)
+const inputTextRef = ref(null)
+
+onMounted(() => {
+  //gets the width of the submit button to set the padding right on the input field
+  submitBtnWidth.value = submitButtonRef.value.offsetWidth + 20
+})
 
 // submit the email value through the emit
 function submitForm() {
@@ -47,20 +63,32 @@ function submitForm() {
     >
       <div class="flex-grow-1">
         <span class="p-input-icon-right w-full">
-          <i class="submit-icon">
+          <i
+            ref="submitButtonRef"
+            class="submit-icon"
+            :class="[{ altDesign: props.altDesign && props.submitButtonIcon }]"
+            :data-style-mode="props.altDesign ? 'dark' : 'default'"
+          >
             <Button
               :disabled="props.isSubmiting || !checked"
               @click="submitForm"
               class="submit-btn p-button-rounded"
-              :label="props.submitButtonText"
+              :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
+              iconPos="right"
+              :label="submitButtonIcon ? null : props.submitButtonText"
             >
               <i v-if="props.isSubmiting" class="pi pi-spin pi-spinner" />
             </Button>
           </i>
           <InputText
+            ref="inputTextRef"
             :disabled="props.isSubmiting"
             class="w-full p-inputtext-lg"
-            :class="[{ 'p-invalid': props.submissionStatus === 'error' }]"
+            :class="[
+              { 'p-invalid': props.submissionStatus === 'error' },
+              { 'alt-design': props.altDesign },
+            ]"
+            :style="`padding-right: ${submitBtnWidth}px`"
             type="email"
             placeholder="your@email.com"
             aria-describedby="email-address-field"
@@ -106,7 +134,21 @@ function submitForm() {
 <style lang="scss">
 .email-collector-form .p-input-icon-right {
   .submit-icon {
-    margin-top: -1.25rem;
+    margin-top: -1.3rem;
+    .p-button {
+      min-height: 41px;
+      min-width: 41px;
+    }
+    &.altDesign {
+      margin-top: -0.85rem;
+      .p-button {
+        min-height: unset;
+        min-width: unset;
+        border-radius: 20px;
+        height: 1.75rem;
+        width: 2.5rem;
+      }
+    }
   }
   .p-inputtext {
     padding-right: 100px;
