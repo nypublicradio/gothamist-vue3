@@ -136,7 +136,7 @@ onMounted(() => {
     </section>
     <section>
       <div class="content">
-        <newsletter-home @submitEventEmit="newsletterSubmitEvent" />
+        <newsletter-home @submit="newsletterSubmitEvent" />
       </div>
     </section>
   </div>

@@ -27,24 +27,25 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-  (e: 'submitEventEmit', value: any): void
+  (e: 'submit', value: any): void
 }>()
 
-const showComp = ref(true)
+const showComponent = ref(true)
 const submissionStatus = ref(null)
-const isSubmiting = ref(false)
+const isSubmitting = ref(false)
 
 // hides the entire component when the "No Thanks" button is clicked
 const hideComp = () => {
-  showComp.value = false
+  showComponent.value = false
 }
+
 // submit the newsletter form and add email address to the Gothamist Newsletter list
 const submitForm = (email) => {
-  isSubmiting.value = true
+  isSubmitting.value = true
   submissionStatus.value = null
   axios
     .post(config.NEWSLETTER_API, {
-      list: '65dbec786b',
+      list: config.NEWSLETTER_LIST_ID,
       email: email,
       headers: {
         'Content-Type': 'application/json',
@@ -53,18 +54,18 @@ const submitForm = (email) => {
     })
     .then(() => {
       submissionStatus.value = 'success'
-      emit('submitEventEmit', 'success')
+      emit('submit', 'success')
     })
     .catch(() => {
       submissionStatus.value = 'error'
-      isSubmiting.value = false
-      emit('submitEventEmit', 'error')
+      isSubmitting.value = false
+      emit('submit', 'error')
     })
 }
 </script>
 
 <template>
-  <div v-if="showComp" class="newsletter-home grid grid-nogutter">
+  <div v-if="showComponent" class="newsletter-home grid grid-nogutter">
     <divider />
 
     <div class="col-12 lg:col-3 pr-3 pb-2">
@@ -76,13 +77,13 @@ const submitForm = (email) => {
         essential NYC news, delivered to your inbox every day at 5pm.
       </p>
       <email-collector-form
-        @noThanksEventEmit="hideComp"
-        @submitFormEmit="submitForm"
+        @noThanksClick="hideComp"
+        @submit="submitForm"
         class="mt-5"
         :showNoThanks="props.showNoThanks"
         :submitButtonText="props.submitButtonText"
         :submitButtonIcon="props.submitButtonIcon"
-        :isSubmiting="isSubmiting"
+        :isSubmitting="isSubmitting"
         :submissionStatus="submissionStatus"
         :altDesign="props.altDesign"
       >

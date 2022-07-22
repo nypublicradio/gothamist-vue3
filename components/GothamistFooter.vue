@@ -17,7 +17,7 @@ const copyrightYear = ref(props.navData.copyrightYear)
 
 <template>
   <section
-    id="gotahmist-footer"
+    id="gothamist-footer"
     class="gothamist-footer"
     data-style-mode="dark"
   >

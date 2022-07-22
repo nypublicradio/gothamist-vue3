@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 const props = defineProps({
   showNoThanks: {
     type: Boolean,
     default: false,
   },
-  isSubmiting: {
+  isSubmitting: {
     type: Boolean,
     default: false,
   },
@@ -33,29 +33,59 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-  (e: 'submitFormEmit', value: any): void
-  (e: 'noThanksEventEmit'): void
+  (e: 'submit', value: any): void
+  (e: 'noThanksClick'): void
 }>()
 
 const email = ref('')
 const checked = ref(true)
 const submitButtonRef = ref(null)
-const submitBtnWidth = ref(100)
-const inputTextRef = ref(null)
+const submitButtonWidth = ref(100)
+const emailErrorText = ref(null)
 
 onMounted(() => {
   //gets the width of the submit button to set the padding right on the input field
-  submitBtnWidth.value = submitButtonRef.value.offsetWidth + 20
+  submitButtonWidth.value = submitButtonRef.value.offsetWidth + 20
 })
 
-// submit the email value through the emit
-function submitForm() {
-  emit('submitFormEmit', email.value)
+// function to check if the email is a valid format and to set the error text
+const validateEmail = () => {
+  const validRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/
+  emailErrorText.value = null
+  if (validRegex.test(email.value)) {
+    return true
+  } else {
+    emailErrorText.value = 'Please enter a valid email address.'
+    return false
+  }
+}
+
+// watches for changes in the submissionStatus prop and sets error messages accordingly
+watch(
+  () => props.submissionStatus,
+  () => {
+    emailErrorText.value = null
+    switch (props.submissionStatus) {
+      case 'success':
+        break
+      case 'error':
+        emailErrorText.value =
+          'Sorry, there was an error with your submission. Please try again!'
+        break
+      default:
+    }
+  }
+)
+
+// submit the email value through the emit if the email is valid
+const submitForm = () => {
+  if (validateEmail()) emit('submit', email.value)
 }
 </script>
 
 <template>
   <div class="email-collector-form">
+    <!-- when the submissionStatus is 'success' it will hide the form and show Thank you message -->
     <span
       v-if="props.submissionStatus !== 'success'"
       class="flex flex-column lg:flex-row"
@@ -70,25 +100,24 @@ function submitForm() {
             :data-style-mode="props.altDesign ? 'dark' : 'default'"
           >
             <Button
-              :disabled="props.isSubmiting || !checked"
+              :disabled="props.isSubmitting || !checked"
               @click="submitForm"
               class="submit-btn p-button-rounded"
               :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
               iconPos="right"
               :label="submitButtonIcon ? null : props.submitButtonText"
             >
-              <i v-if="props.isSubmiting" class="pi pi-spin pi-spinner" />
+              <i v-if="props.isSubmitting" class="pi pi-spin pi-spinner" />
             </Button>
           </i>
           <InputText
-            ref="inputTextRef"
-            :disabled="props.isSubmiting"
+            :disabled="props.isSubmitting"
             class="w-full p-inputtext-lg"
             :class="[
-              { 'p-invalid': props.submissionStatus === 'error' },
+              { 'p-invalid': emailErrorText },
               { 'alt-design': props.altDesign },
             ]"
-            :style="`padding-right: ${submitBtnWidth}px`"
+            :style="`padding-right: ${submitButtonWidth}px`"
             type="email"
             placeholder="your@email.com"
             aria-describedby="email-address-field"
@@ -98,30 +127,26 @@ function submitForm() {
             @keypress.enter="submitForm"
           />
         </span>
-        <small
-          v-if="props.submissionStatus === 'error'"
-          id="email-address-field"
-          class="p-error mt-1 block"
-          >Sorry, there was an error with your submission. Please try
-          again!</small
-        >
+        <Transition name="fade">
+          <small
+            v-if="emailErrorText"
+            id="email-address-field"
+            class="p-error mt-1 block"
+            >{{ emailErrorText }}</small
+          >
+        </Transition>
         <div class="field-checkbox mt-3">
-          <Checkbox
-            id="binary"
-            v-model="checked"
-            :binary="true"
-            @click="!checked"
-          />
+          <Checkbox v-model="checked" :binary="true" @click="!checked" />
           <label for="binary"><slot /></label>
         </div>
       </div>
       <div v-if="props.showNoThanks" class="flex justify-content-start">
         <div>
           <Button
-            @click="emit('noThanksEventEmit')"
+            @click="emit('noThanksClick')"
             class="no-thanks-btn p-button-link"
             label="No thanks"
-            :style="props.isSubmiting ? 'visibility: hidden' : ''"
+            :style="props.isSubmitting ? 'visibility: hidden' : ''"
           >
           </Button>
         </div>
