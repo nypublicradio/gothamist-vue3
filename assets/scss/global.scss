@@ -116,14 +116,6 @@ table tr.totalline {
   }
 }
 
-// to go is DS extentions
-
-// v-card image hack to figure out
-.v-card.mod-vertical .card-image-wrapper {
-  width: inherit;
-  width: -webkit-fill-available;
-}
-
 .sectionSlug-articleSlug a:not(.image-with-caption-credit-link) {
   &:hover {
     background-color: var(--text-color);
@@ -150,4 +142,12 @@ ol ol li {
   &::marker {
     text-transform: uppercase;
   }
+}
+
+// to go is DS extentions
+
+// v-card image hack to figure out
+.v-card.mod-vertical .card-image-wrapper {
+  width: inherit;
+  width: -webkit-fill-available;
 }
