@@ -138,7 +138,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
 
   // Get <head> metadata values (for use with useHead) for an article
   function useArticlePageHeadMetadata(article: ArticlePage)
-    :{title: string, meta: {name: string, content: string}[], script: {type: string, children: string}[]}
+    :{ title: string, meta: {name: string, content: string}[] }
   {
     const metadata = {
       title: `${article.seoTitle} - Gothamist`,
@@ -155,12 +155,6 @@ import { ArticlePage, GalleryPage } from './types/Page'
         { name: 'article:modified_time', content: article.updatedDate?.toISOString() || ''},
         { name: 'article:section', content: article.section.name },
         { name: 'article:tag', content: article.tags.map(tag => tag.slug).join(',') },
-      ],
-      script: [
-        {
-            type: 'application/ld+json',
-            children: JSON.stringify(useArticlePageStructuredData(article)),
-        },
       ]
     }
     for (const author of article.authors) {
@@ -189,5 +183,6 @@ import { ArticlePage, GalleryPage } from './types/Page'
     useArticlePageTrackingData,
     useArticlePageAdTargetingData,
     useArticlePageHeadMetadata,
+    useArticlePageStructuredData,
     useGalleryPageHeadMetadata
   }
