@@ -12,8 +12,7 @@ const articles = await findArticlePages('').then(({ data }) =>
 )
 
 const newsletterSubmitEvent = (e) => {
-  console.log('emitted newsletter submit event', e)
-
+  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
   // sendEvent('click_tracking', {
   //   event_category: 'Click Tracking',
   //   component: 'Footer',
