@@ -1,6 +1,7 @@
 import { defineNuxtPlugin } from '#app'
 import Divider from 'primevue/divider/divider.esm.js'
 import Button from 'primevue/button/button.esm.js'
+import Checkbox from 'primevue/checkbox/checkbox.esm.js'
 import InputText from 'primevue/inputtext/inputtext.esm.js'
 import Image from 'primevue/image/image.esm.js'
 import InputSwitch from 'primevue/inputswitch/inputswitch.esm.js'
@@ -23,6 +24,7 @@ import ScrollTop from 'primevue/scrolltop/scrolltop.esm.js'
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true })
     nuxtApp.vueApp.component('Divider', Divider)
+    nuxtApp.vueApp.component('Checkbox', Checkbox)
     nuxtApp.vueApp.component('InputText', InputText)
     nuxtApp.vueApp.component('Button', Button)
     nuxtApp.vueApp.component('Image', Image)
