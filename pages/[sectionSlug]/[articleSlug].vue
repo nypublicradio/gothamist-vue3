@@ -66,14 +66,16 @@ function useInsertAd(targetElement) {
         <div class="grid">
           <div class="col-fixed hidden xxl:block" style="width: 300px"></div>
           <div class="col">
-            <v-tag :name="article.section.name" :slug="article.section.slug" />
+            <v-tag :name="article.section.name" slug="/news" />
             <h2 class="mt-4 mb-3">{{ article.title }}</h2>
           </div>
           <div class="col-fixed hidden lg:block" style="width: 300px"></div>
         </div>
         <div class="grid">
           <div class="col-fixed hidden xxl:block" style="width: 300px">
-            AUTHOR COMP/SOCIAL
+            <hr class="black" />
+            <div class="py-4">AUTHOR COMP/SOCIAL</div>
+            <hr />
           </div>
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-3">
@@ -90,7 +92,11 @@ function useInsertAd(targetElement) {
                 :ratio="[3, 2]"
               />
             </div>
-            <div class="block xxl:hidden">AUTHOR COMP/SOCIAL</div>
+            <div class="block xxl:hidden">
+              <hr class="black" />
+              <div class="py-4">AUTHOR COMP/SOCIAL</div>
+              <hr />
+            </div>
             <div class="block lg:hidden">
               <img src="https://fakeimg.pl/300x250/?text=AD Here" />
             </div>
@@ -109,7 +115,35 @@ function useInsertAd(targetElement) {
 </template>
 
 <style lang="scss">
-.ad-div {
-  display: none;
+.sectionSlug-articleSlug {
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 720px;
+    z-index: -1;
+    background: var(--lightsoybean-500);
+    background: -moz-linear-gradient(
+      top,
+      var(--lightsoybean-500) 17%,
+      var(--white) 100%
+    );
+    background: -webkit-linear-gradient(
+      top,
+      var(--lightsoybean-500) 17%,
+      var(--white) 100%
+    );
+    background: linear-gradient(
+      to bottom,
+      var(--lightsoybean-500) 17%,
+      var(--white) 100%
+    );
+  }
+  .v-tag .p-button {
+    background: transparent;
+  }
 }
 </style>
