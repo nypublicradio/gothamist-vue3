@@ -13,7 +13,10 @@ const props = defineProps({
 const authors = ref(props.article?.authors || [])
 const isMultipleAuthors = ref(authors.value.length > 1)
 const date = ref(new Date(props.article?.publicationDate) || null)
-const comments = ref(props.article?.comments || 24)
+const updatedDate = ref(new Date(props.article?.updatedDate) || null)
+const comments = ref(props.article?.comments || null)
+const isSponsored = ref(props.article?.sponsoredContent || false)
+const sponsors = ref(props.article?.sponsors || [])
 
 // lifecycle hooks
 onMounted(() => {})
@@ -34,21 +37,35 @@ onMounted(() => {})
         </div>
       </div>
       <div>
-        <div class="author-name">
-          By
-          <span v-for="(author, index) of authors">
-            <v-flexible-link :to="author.url" class="author-name">
-              {{ author.name }}
-            </v-flexible-link>
-            <span
-              v-if="isMultipleAuthors && index !== authors.length - 1"
-              class="author-name"
-            >
-              &nbsp;and&nbsp;
+        <div>
+          <div v-if="isSponsored" class="sponsored">
+            <p class="type-caption">Article sponsored by</p>
+            <div v-for="sponsor of sponsors" class="author-image mr-3">
+              <v-flexible-link :to="sponsor.url" raw>
+                <img :src="sponsor.photoID || '/avatar.svg'" />
+              </v-flexible-link>
+            </div>
+          </div>
+
+          <div v-else class="author-name">
+            By
+            <span v-for="(author, index) of authors">
+              <v-flexible-link :to="author.url" class="author-name">
+                {{ author.name }}
+              </v-flexible-link>
+              <span
+                v-if="isMultipleAuthors && index !== authors.length - 1"
+                class="author-name"
+              >
+                &nbsp;and&nbsp;
+              </span>
             </span>
-          </span>
+          </div>
         </div>
-        <p class="type-caption">Published {{ formatDateAndTime(date) }}</p>
+        <p class="type-caption">Published: {{ formatDateAndTime(date) }}</p>
+        <p v-if="updatedDate" class="type-caption">
+          Updated: {{ formatDateAndTime(updatedDate) }}
+        </p>
         <v-flexible-link v-if="comments" to="#comments" class="comments">
           {{ comments }} Comments
         </v-flexible-link>
