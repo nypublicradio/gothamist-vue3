@@ -115,6 +115,9 @@ table tr.totalline {
     }
   }
 }
+.sectionSlug-articleSlug a {
+  font-weight: normal;
+}
 
 .sectionSlug-articleSlug a:not(.image-with-caption-credit-link) {
   &:hover {
