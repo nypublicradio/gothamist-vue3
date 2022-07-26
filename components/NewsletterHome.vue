@@ -42,16 +42,12 @@ const hideComp = () => {
 const submitForm = (email) => {
   isSubmitting.value = true
   submissionStatus.value = null
-  fetch(config.NEWSLETTER_API, {
+  $fetch(config.NEWSLETTER_API, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    },
-    body: JSON.stringify({
+    body: {
       list: config.NEWSLETTER_LIST_ID,
       email: email,
-    }),
+    },
   })
     .then(() => {
       submissionStatus.value = 'success'
