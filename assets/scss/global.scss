@@ -43,7 +43,7 @@ table tr:nth-child(odd) {
 }
 table tr:first-child {
   border-bottom: solid 1px var(--black);
-  background-color: var(--lightsoybean-500);
+  background-color: var(--soybean200);
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -52,7 +52,7 @@ table tr:last-child:not(.totalline) {
 }
 table tr.totalline {
   background-color: var(--white);
-  border-bottom: solid 1px var(--lightsoybean-500);
+  border-bottom: solid 1px var(--soybean200);
   border-top: solid 1px var(--black);
   font-weight: bold;
   text-transform: uppercase;
@@ -78,6 +78,7 @@ table tr.totalline {
 }
 
 /* below will eventually go in the theme extentions.scss*/
+
 .v-share-tools {
   a {
     width: 16px;

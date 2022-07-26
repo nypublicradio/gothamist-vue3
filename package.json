@@ -19,7 +19,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@nypublicradio/nypr-design-system-vue3": "^0.3.22",
+    "@nypublicradio/nypr-design-system-vue3": "^0.3.24",
     "@sentry/tracing": "^6.18.2",
     "@sentry/vue": "^6.18.2",
     "@vitejs/plugin-vue": "^2.3.2",

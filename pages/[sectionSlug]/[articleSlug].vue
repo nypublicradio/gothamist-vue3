@@ -20,6 +20,7 @@ onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
+  console.log('article =  ', article)
 })
 
 onUnmounted(() => {
@@ -73,12 +74,10 @@ function useInsertAd(targetElement) {
         </div>
         <div class="grid">
           <div class="col-fixed hidden xxl:block" style="width: 300px">
-            <hr class="black" />
-            <div class="py-4">AUTHOR COMP/SOCIAL</div>
-            <hr />
+            <byline :article="article" />
           </div>
           <div class="col overflow-hidden" v-if="article">
-            <div class="mb-3">
+            <div class="mb-6">
               <v-image-with-caption
                 :image="useImageUrl(article.listingImage)"
                 :width="664"
@@ -93,9 +92,7 @@ function useInsertAd(targetElement) {
               />
             </div>
             <div class="block xxl:hidden">
-              <hr class="black" />
-              <div class="py-4">AUTHOR COMP/SOCIAL</div>
-              <hr />
+              <byline :article="article" />
             </div>
             <div class="block lg:hidden">
               <img src="https://fakeimg.pl/300x250/?text=AD Here" />
@@ -125,20 +122,20 @@ function useInsertAd(targetElement) {
     width: 100%;
     height: 720px;
     z-index: -1;
-    background: var(--lightsoybean-500);
+    background: var(--soybean200);
     background: -moz-linear-gradient(
       top,
-      var(--lightsoybean-500) 17%,
+      var(--soybean200) 17%,
       var(--white) 100%
     );
     background: -webkit-linear-gradient(
       top,
-      var(--lightsoybean-500) 17%,
+      var(--soybean200) 17%,
       var(--white) 100%
     );
     background: linear-gradient(
       to bottom,
-      var(--lightsoybean-500) 17%,
+      var(--soybean200) 17%,
       var(--white) 100%
     );
   }
