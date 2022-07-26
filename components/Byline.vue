@@ -11,6 +11,7 @@ const props = defineProps({
 })
 
 const authors = ref(props.article?.authors || [])
+const isMultipleAuthors = ref(authors.value.length > 1)
 const date = ref(new Date(props.article?.publicationDate) || null)
 const comments = ref(props.article?.comments || 24)
 
@@ -21,19 +22,31 @@ onMounted(() => {})
 <template>
   <div class="byline">
     <hr class="black" />
-    <div class="author flex align-items-center py-4">
-      <div v-for="author of authors" class="author-images">
-        <div class="author-image mr-3">
-          <v-flexible-link :to="article.url" raw>
+    <div
+      class="author flex py-4"
+      :class="isMultipleAuthors ? 'multiple-authors' : 'one-author'"
+    >
+      <div class="author-images flex">
+        <div v-for="author of authors" class="author-image mr-3">
+          <v-flexible-link :to="author.url" raw>
             <img :src="author.photoID || '/avatar.svg'" />
           </v-flexible-link>
         </div>
       </div>
       <div>
-        <div v-for="author of authors">
-          <v-flexible-link :to="article.url" class="author-name">
-            By {{ author.name }}
-          </v-flexible-link>
+        <div class="author-name">
+          By
+          <span v-for="(author, index) of authors">
+            <v-flexible-link :to="author.url" class="author-name">
+              {{ author.name }}
+            </v-flexible-link>
+            <span
+              v-if="isMultipleAuthors && index !== authors.length - 1"
+              class="author-name"
+            >
+              &nbsp;and&nbsp;
+            </span>
+          </span>
         </div>
         <p class="type-caption">Published {{ formatDateAndTime(date) }}</p>
         <v-flexible-link v-if="comments" to="#comments" class="comments">
@@ -62,12 +75,30 @@ onMounted(() => {})
     }
     .author-name {
       @include font-config($type-link);
-      &:hover {
-        text-decoration: underline;
+      .flexible-link {
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
     .comments {
       @include font-config($type-textlink2);
+    }
+    &.multiple-authors {
+      flex-direction: column;
+      align-items: start;
+      .author-image {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 10px;
+        img {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+    &.one-author {
+      align-items: center;
     }
   }
 }
