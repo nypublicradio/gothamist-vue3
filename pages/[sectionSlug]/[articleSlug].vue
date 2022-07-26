@@ -54,33 +54,62 @@ function useInsertAd(targetElement) {
 <template>
   <div>
     <Head>
-      <Script v-if="article" type="application/ld+json" :children="JSON.stringify(useArticlePageStructuredData(article))" />
+      <Script
+        v-if="article"
+        type="application/ld+json"
+        :children="JSON.stringify(useArticlePageStructuredData(article))"
+      />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
     <section>
       <div class="content">
-        <div v-if="article">
-          <div class="text-left md:text-center mb-3">
+        <div class="grid">
+          <div class="col-fixed hidden xxl:block" style="width: 300px"></div>
+          <div class="col">
             <v-tag :name="article.section.name" :slug="article.section.slug" />
-            <h1 class="mt-4 mb-6">{{ article.title }}</h1>
-            <v-image-with-caption
-              :image="useImageUrl(article.listingImage)"
-              :alt-text="article.image.alt"
-              :maxWidth="article.image.width"
-              :maxHeight="article.image.height"
-              :description="article.image.caption"
-              :credit="`Photo by ${article.image.credit}`"
-              :credit-url="article.image.creditLink"
-              :ratio="[3, 2]"
+            <h2 class="mt-4 mb-3">{{ article.title }}</h2>
+          </div>
+          <div class="col-fixed hidden lg:block" style="width: 300px"></div>
+        </div>
+        <div class="grid">
+          <div class="col-fixed hidden xxl:block" style="width: 300px">
+            AUTHOR COMP/SOCIAL
+          </div>
+          <div class="col overflow-hidden" v-if="article">
+            <div class="mb-3">
+              <v-image-with-caption
+                :image="useImageUrl(article.listingImage)"
+                :width="664"
+                :height="442"
+                :alt-text="article.image.alt"
+                :maxWidth="article.image.width"
+                :maxHeight="article.image.height"
+                :credit="`Photo by ${article.image.credit}`"
+                :credit-url="article.image.creditLink"
+                :sizes="[1, 2]"
+                :ratio="[3, 2]"
+              />
+            </div>
+            <div class="block xxl:hidden">AUTHOR COMP/SOCIAL</div>
+            <div class="block lg:hidden">
+              <img src="https://fakeimg.pl/300x250/?text=AD Here" />
+            </div>
+            <v-streamfield
+              :streamfield-blocks="article.body"
+              @all-blocks-mounted="handleArticleMounted"
             />
           </div>
-          <hr class="mb-7" />
-          <v-streamfield
-            :streamfield-blocks="article.body"
-            @all-blocks-mounted="handleArticleMounted"
-          />
+          <div class="col-fixed hidden lg:block" style="width: 300px">
+            <img src="https://fakeimg.pl/300x250/?text=AD Here" />
+          </div>
         </div>
       </div>
     </section>
   </div>
 </template>
+
+<style lang="scss">
+.ad-div {
+  display: none;
+}
+</style>
