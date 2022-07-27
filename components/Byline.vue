@@ -28,7 +28,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
 
     <!-- sponsored -->
     <div v-if="isSponsored" class="sponsored flex align-items-center py-4">
-      <div class="author-image mr-3">
+      <div class="author-image">
         <v-flexible-link :to="sponsor.link" raw>
           <v-simple-responsive-image
             v-if="sponsor.logo"
@@ -56,7 +56,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
       :class="isMultipleAuthors ? 'multiple-authors' : 'one-author'"
     >
       <div class="author-images flex">
-        <div v-for="author of authors" class="author-image mr-3">
+        <div v-for="author of authors" class="author-image">
           <v-flexible-link :to="author.url" raw>
             <v-simple-responsive-image
               v-if="author.photoID"
@@ -138,6 +138,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
       width: 60px;
       height: 60px;
       border-radius: 50%;
+      margin-right: 12px;
       overflow: hidden;
       img {
         width: 60px;

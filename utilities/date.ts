@@ -31,7 +31,7 @@ export const formatDateAndTime = function (date) {
   const month = formattedDate.toLocaleString('default', { month: 'short' })
   const year = formattedDate.getFullYear()
   const hours = formattedDate.getHours()
-  const minutes = formattedDate.getMinutes()
+  const minutes = (formattedDate.getMinutes() < 10 ? '0' : '') + formattedDate.getMinutes()
   var suffix = hour >= 12 ? "pm" : "am";
   var hour = ((hours + 11) % 12 + 1)
   return `${month} ${day}, ${year} at ${hour}:${minutes}${suffix}`
