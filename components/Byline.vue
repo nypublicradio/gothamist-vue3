@@ -56,7 +56,11 @@ const sponsor = ref(props.article?.sponsors[0] || [])
       :class="isMultipleAuthors ? 'multiple-authors' : 'one-author'"
     >
       <div class="author-images flex">
-        <div v-for="author of authors" class="author-image">
+        <div
+          v-for="author of authors"
+          :key="author.photoID"
+          class="author-image"
+        >
           <v-flexible-link :to="author.url" raw>
             <v-simple-responsive-image
               v-if="author.photoID"
@@ -74,7 +78,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
       <div>
         <div class="type-link">
           By
-          <span v-for="(author, index) of authors">
+          <span v-for="(author, index) of authors" :key="author.name">
             <v-flexible-link :to="author.url" class="author-name">
               {{ author.name }}
             </v-flexible-link>

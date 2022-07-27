@@ -32,7 +32,7 @@ export const formatDateAndTime = function (date) {
   const year = formattedDate.getFullYear()
   const hours = formattedDate.getHours()
   const minutes = (formattedDate.getMinutes() < 10 ? '0' : '') + formattedDate.getMinutes()
-  var suffix = hour >= 12 ? "pm" : "am";
-  var hour = ((hours + 11) % 12 + 1)
+  const hour = ((hours + 11) % 12 + 1)
+  const suffix = hour >= 12 ? "pm" : "am";
   return `${month} ${day}, ${year} at ${hour}:${minutes}${suffix}`
 }
