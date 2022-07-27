@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { formatDateAndTime } from '~/utilities/date'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
+import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
+import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
 
 const props = defineProps({
   article: {
@@ -18,12 +20,6 @@ const updatedDate = ref(props.article?.updatedDate || null)
 const comments = ref(props.article?.comments || null)
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const sponsor = ref(props.article?.sponsors[0] || [])
-
-const getSponsorImage = (sponsorLogoID) => {
-  //need backend work to get the sponsored image
-  //return sponsorLogoID || '/sponsor-default.jpg'
-  return '/sponsor-default.jpg'
-}
 </script>
 
 <template>
@@ -48,7 +44,7 @@ const getSponsorImage = (sponsorLogoID) => {
       </div>
       <div>
         <p class="type-caption">Article sponsored by</p>
-        <v-flexible-link :to="sponsor.link" class="author-name" raw>
+        <v-flexible-link :to="sponsor.link" class="author-name">
           {{ sponsor.name }}
         </v-flexible-link>
       </div>
@@ -76,7 +72,7 @@ const getSponsorImage = (sponsorLogoID) => {
         </div>
       </div>
       <div>
-        <div class="author-name">
+        <div class="type-link">
           By
           <span v-for="(author, index) of authors">
             <v-flexible-link :to="author.url" class="author-name">
@@ -101,6 +97,25 @@ const getSponsorImage = (sponsorLogoID) => {
       </div>
     </div>
     <hr />
+    <!-- social share -->
+    <v-share-tools label="Share" class="mt-4">
+      <v-share-tools-item service="email" username="gothamist" action="share" />
+      <v-share-tools-item
+        service="reddit"
+        username="gothamist"
+        action="share"
+      />
+      <v-share-tools-item
+        service="twitter"
+        username="gothamist"
+        action="share"
+      />
+      <v-share-tools-item
+        service="facebook"
+        username="gothamist"
+        action="share"
+      />
+    </v-share-tools>
   </div>
 </template>
 
@@ -121,7 +136,7 @@ const getSponsorImage = (sponsorLogoID) => {
     }
     .author-name {
       @include font-config($type-link);
-      .flexible-link {
+      &.flexible-link {
         &:hover {
           text-decoration: underline;
         }

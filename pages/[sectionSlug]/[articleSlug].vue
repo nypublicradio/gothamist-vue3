@@ -111,6 +111,7 @@ function useInsertAd(targetElement) {
             </div>
             <div class="block lg:hidden">
               <img src="https://fakeimg.pl/300x250/?text=AD Here" />
+              <p class="type-fineprint">Powered by members and sponsors</p>
             </div>
             <v-streamfield
               :streamfield-blocks="article.body"
@@ -119,6 +120,7 @@ function useInsertAd(targetElement) {
           </div>
           <div class="col-fixed hidden lg:block" style="width: 300px">
             <img src="https://fakeimg.pl/300x250/?text=AD Here" />
+            <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
         </div>
       </div>

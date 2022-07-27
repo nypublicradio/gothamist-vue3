@@ -80,7 +80,11 @@ table tr.totalline {
 /* below will eventually go in the theme extentions.scss*/
 
 .v-share-tools {
-  a {
+  .label {
+    @include font-config($type-caption);
+  }
+  a,
+  button {
     width: 16px;
     height: 16px;
     &:hover {
