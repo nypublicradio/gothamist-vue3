@@ -15,8 +15,8 @@ const props = defineProps({
 
 const authors = ref(props.article.authors)
 const isMultipleAuthors = ref(props.article.authors.length > 1)
-const date = ref(props.article?.publicationDate || null)
-const updatedDate = ref(props.article?.updatedDate || null)
+const date = ref(formatDateAndTime(props.article?.publicationDate) || null)
+const updatedDate = ref(formatDateAndTime(props.article?.updatedDate) || null)
 const comments = ref(props.article?.comments || null)
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const sponsor = ref(props.article?.sponsors[0] || [])
@@ -96,9 +96,9 @@ const sponsor = ref(props.article?.sponsors[0] || [])
           </span>
         </div>
 
-        <p class="type-caption">Published: {{ formatDateAndTime(date) }}</p>
+        <p class="type-caption">Published: {{ date }}</p>
         <p v-if="updatedDate" class="type-caption">
-          Updated: {{ formatDateAndTime(updatedDate) }}
+          Updated: {{ updatedDate }}
         </p>
         <v-flexible-link v-if="comments" to="#comments" class="comments">
           {{ comments }} Comments
@@ -155,7 +155,6 @@ const sponsor = ref(props.article?.sponsors[0] || [])
     .contributing-org {
       display: inline;
       color: var(--gray-600);
-      //cursor: pointer;
     }
     .comments {
       @include font-config($type-textlink2);

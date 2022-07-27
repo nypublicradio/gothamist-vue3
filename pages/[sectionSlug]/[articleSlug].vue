@@ -1,28 +1,14 @@
 <script setup lang="ts">
-import { useRuntimeConfig } from '#app'
-import { onMounted, onBeforeMount } from 'vue'
+import { onMounted } from 'vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 import { ArticlePage } from '../../composables/types/Page'
-const config = useRuntimeConfig()
+
 const route = useRoute()
 const { $analytics, $htlbid } = useNuxtApp()
 const article = (await findPage(
   `${route.params.sectionSlug}/${route.params.articleSlug}`
 ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage
-
-// const appendFullAuthorsData = async (article) => {
-//   const authorsFull = []
-//   await article.authors.forEach((author) => {
-//     $fetch(config.API_URL + '/pages/' + author.id).then(async (response) => {
-//       await authorsFull.push(response)
-//     })
-//   })
-//   article.authorsFull = authorsFull
-// }
-// onBeforeMount(() => {
-//   appendFullAuthorsData(article)
-// })
 
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
@@ -35,7 +21,7 @@ onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
-  console.log('article =  ', article)
+  console.log('article', article)
 })
 
 onUnmounted(() => {

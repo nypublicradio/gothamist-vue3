@@ -25,6 +25,7 @@ export const fuzzyDateTime = function (time: Date): string {
 
 // formats a date in the format of ShortMonthName DD, YYYY
 export const formatDateAndTime = function (date) {
+  if (!date) return null
   const formattedDate = new Date(date)
   const day = formattedDate.getDate()
   const month = formattedDate.toLocaleString('default', { month: 'short' })
