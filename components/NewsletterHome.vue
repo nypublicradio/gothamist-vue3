@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: 'Sign up',
   },
+  titleText: {
+    type: String,
+    default: 'Get the news New Yorkers need in your inbox',
+  },
   submitButtonIcon: {
     type: String,
     //default: 'pi-arrow-right',
@@ -66,7 +70,7 @@ const submitForm = (email) => {
     <divider />
 
     <div class="col-12 lg:col-3 pr-3 pb-2">
-      <h4>Never miss a story in your neighborhood</h4>
+      <h4>{{ titleText }}</h4>
     </div>
     <div class="col-12 lg:col-7 xl:col-5 col-offset-0 xl:col-offset-1">
       <p class="type-paragraph2 pr-0 lg:pr-8 xl:pr-0">
