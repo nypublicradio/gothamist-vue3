@@ -78,6 +78,19 @@ table tr.totalline {
 }
 
 /* below will eventually go in the theme extentions.scss*/
+.image-with-caption {
+  .image-with-caption-image {
+    .image-with-caption-caption {
+      p {
+        @include font-config($type-paragraph3);
+        color: #ffffff;
+      }
+    }
+  }
+  .image-with-caption-icons .p-button {
+    border-radius: 50%;
+  }
+}
 
 .v-share-tools {
   .label {

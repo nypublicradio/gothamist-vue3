@@ -92,11 +92,12 @@ function useInsertAd(targetElement) {
             <byline :article="article" />
           </div>
           <div class="col overflow-hidden" v-if="article">
-            <div class="mb-6">
+            <div class="mb-4 xxl:mb-6">
               <v-image-with-caption
-                :image="useImageUrl(article.listingImage)"
-                :width="664"
-                :height="442"
+                :image="useImageUrl(article.image)"
+                :imageUrl="article.leadAsset.value.imageLink"
+                :width="760"
+                :height="506"
                 :alt-text="article.image.alt"
                 :maxWidth="article.image.width"
                 :maxHeight="article.image.height"
@@ -104,14 +105,11 @@ function useInsertAd(targetElement) {
                 :credit-url="article.image.creditLink"
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
+                :caption="article.leadAsset.value.caption"
               />
             </div>
             <div class="block xxl:hidden">
               <byline :article="article" />
-            </div>
-            <div class="block lg:hidden">
-              <img src="https://fakeimg.pl/300x250/?text=AD Here" />
-              <p class="type-fineprint">Powered by members and sponsors</p>
             </div>
             <v-streamfield
               :streamfield-blocks="article.body"

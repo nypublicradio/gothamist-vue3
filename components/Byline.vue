@@ -86,7 +86,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
             >
               {{ author.organization }}
             </v-flexible-link>
-            <span v-if="author.organization">)&nbsp;</span>
+            <span v-if="author.organization">)</span>
             <span
               v-if="isMultipleAuthors && index !== authors.length - 1"
               class="author-name"
@@ -107,7 +107,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
     </div>
     <hr />
     <!-- social share -->
-    <v-share-tools label="Share" class="mt-4">
+    <v-share-tools label="Share" class="mt-3">
       <v-share-tools-item service="email" username="gothamist" action="share" />
       <v-share-tools-item
         service="reddit"
@@ -125,6 +125,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         action="share"
       />
     </v-share-tools>
+    <hr class="my-3 xxl:hidden" />
   </div>
 </template>
 
