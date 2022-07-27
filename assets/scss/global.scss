@@ -83,6 +83,7 @@ table tr.totalline {
     .image-with-caption-caption {
       p {
         @include font-config($type-paragraph3);
+        padding-right: 40px;
         color: #ffffff;
       }
     }

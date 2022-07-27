@@ -105,7 +105,9 @@ function useInsertAd(targetElement) {
                 :credit-url="article.image.creditLink"
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
-                :caption="article.leadAsset.value.caption"
+                :caption="
+                  article.leadAsset.value.caption || article.image.caption
+                "
               />
             </div>
             <div class="block xxl:hidden">
