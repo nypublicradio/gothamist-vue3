@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { formatDateAndTime } from '~/utilities/date'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
 
 const props = defineProps({
   article: {
@@ -33,10 +34,16 @@ const getSponsorImage = (sponsorLogoID) => {
     <div v-if="isSponsored" class="sponsored flex align-items-center py-4">
       <div class="author-image mr-3">
         <v-flexible-link :to="sponsor.link" raw>
-          <img
-            :src="getSponsorImage(sponsor.logo) || '/avatar.svg'"
+          <v-simple-responsive-image
+            v-if="sponsor.logo"
+            :src="useImageId(sponsor.logo)"
+            :width="60"
+            :height="60"
+            :sizes="[1, 2]"
+            :ratio="[1, 1]"
             alt="Sponsor's image"
           />
+          <img v-else src="/avatar.svg" alt="Sponsor's image" />
         </v-flexible-link>
       </div>
       <div>
@@ -55,7 +62,16 @@ const getSponsorImage = (sponsorLogoID) => {
       <div class="author-images flex">
         <div v-for="author of authors" class="author-image mr-3">
           <v-flexible-link :to="author.url" raw>
-            <img src="/avatar.svg" alt="Author's image" />
+            <v-simple-responsive-image
+              v-if="author.photoID"
+              :src="useImageId(author.photoID)"
+              :width="60"
+              :height="60"
+              :sizes="[1, 2]"
+              :ratio="[1, 1]"
+              alt="Author's image"
+            />
+            <img v-else src="/avatar.svg" alt="Author's image" />
           </v-flexible-link>
         </div>
       </div>

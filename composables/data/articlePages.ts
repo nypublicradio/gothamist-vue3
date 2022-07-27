@@ -3,32 +3,32 @@ import Author from '../types/Author'
 
 // get the 4 featured article pages
 export async function findFeaturedArticlePages(queryParams: any) {
-    const defaultParams  = {
-     type: 'news.ArticlePage',
-     fields: ['ancestry','description','lead_asset','legacy_id','listing_image','publication_date','show_as_feature','sponsored_content','tags','updated_date','url','uuid','listing_title','listing_summary','related_authors'].join(','),
-     order: '-publication_date',
-     limit: 4,
-     show_as_feature: true,
-     show_on_index_listing: true,
+    const defaultParams = {
+        type: 'news.ArticlePage',
+        fields: ['ancestry', 'description', 'lead_asset', 'legacy_id', 'listing_image', 'publication_date', 'show_as_feature', 'sponsored_content', 'tags', 'updated_date', 'url', 'uuid', 'listing_title', 'listing_summary', 'related_authors'].join(','),
+        order: '-publication_date',
+        limit: 4,
+        show_as_feature: true,
+        show_on_index_listing: true,
     }
     const params = Object.assign({}, defaultParams, queryParams)
-    return await useAviary('/pages/', {params})
+    return await useAviary('/pages/', { params })
 }
 
 // Get a list of article pages using the Aviary /pages api
 export async function findArticlePages(queryParams: any) {
-    const defaultParams  = {
-     type: 'news.ArticlePage',
-     fields: ['ancestry','description','lead_asset','legacy_id','listing_image','publication_date','show_as_feature','sponsored_content','tags','updated_date','url','uuid','listing_title','listing_summary','related_authors'].join(','),
-     order: '-publication_date',
-     show_on_index_listing: true,
+    const defaultParams = {
+        type: 'news.ArticlePage',
+        fields: ['ancestry', 'description', 'lead_asset', 'legacy_id', 'listing_image', 'publication_date', 'show_as_feature', 'sponsored_content', 'tags', 'updated_date', 'url', 'uuid', 'listing_title', 'listing_summary', 'related_authors'].join(','),
+        order: '-publication_date',
+        show_on_index_listing: true,
     }
     const params = Object.assign({}, defaultParams, queryParams)
-    return await useAviary('/pages/', {params})
+    return await useAviary('/pages/', { params })
 }
 
 // Get a relative link to an article
-function getArticleLink(articleData):string {
+function getArticleLink(articleData): string {
     if (articleData.ancestry) {
         return `/${articleData.ancestry[0].slug}/${articleData.meta.slug}`
     }
@@ -41,7 +41,7 @@ function getArticleLink(articleData):string {
 }
 
 // Transform author data from the API into a simpler and typed format
-function normalizeAuthor(author:Record<string, any>): Author {
+function normalizeAuthor(author: Record<string, any>): Author {
     return {
         id: author.id,
         firstName: author.firstName,
@@ -65,20 +65,20 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         id: article.id,
         title: article.title,
         description: article.description,
-        image:  article.leadAsset?.[0].value.image ?? article.leadAsset?.[0].value.defaultImage,
+        image: article.leadAsset?.[0].value.image ?? article.leadAsset?.[0].value.defaultImage,
         link: getArticleLink(article),
 
         leadAsset: article.leadAsset?.[0],
         leadImage: article.leadAsset?.[0].type === 'lead_image' && article.leadAsset?.[0].value.image,
         leadGallery: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].value,
-        
+
         gallerySlides: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].slides,
 
         legacyId: article.legacyId,
         authors: article.relatedAuthors?.map(normalizeAuthor),
         contributingOrganizations: article.relatedContributingOrganizations,
         sponsors: article.relatedSponsors,
-        publicationDate: new Date(article.publicationDate) ||  new Date(article.meta?.firstPublishedAt),
+        publicationDate: new Date(article.publicationDate) || new Date(article.meta?.firstPublishedAt),
         updatedDate: article.updatedDate ? new Date(article.updatedDate) : undefined,
         showAsFeature: article.showAsFeature,
         sensitiveContent: article.sensitiveContent,
@@ -106,6 +106,6 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 }
 
 // Transform a list of article page data from the API into a simpler and typed format
-export function normalizeFindArticlePagesResponse (articlesResponse: any): ArticlePage[] {
+export function normalizeFindArticlePagesResponse(articlesResponse: any): ArticlePage[] {
     return articlesResponse.value.items?.map(normalizeArticlePage)
 }

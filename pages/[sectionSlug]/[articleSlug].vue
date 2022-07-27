@@ -11,18 +11,18 @@ const article = (await findPage(
   `${route.params.sectionSlug}/${route.params.articleSlug}`
 ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage
 
-const appendFullAuthorsData = async (article) => {
-  const authorsFull = []
-  await article.authors.forEach((author) => {
-    $fetch(config.API_URL + '/pages/' + author.id).then(async (response) => {
-      await authorsFull.push(response)
-    })
-  })
-  article.authorsFull = authorsFull
-}
-onBeforeMount(() => {
-  appendFullAuthorsData(article)
-})
+// const appendFullAuthorsData = async (article) => {
+//   const authorsFull = []
+//   await article.authors.forEach((author) => {
+//     $fetch(config.API_URL + '/pages/' + author.id).then(async (response) => {
+//       await authorsFull.push(response)
+//     })
+//   })
+//   article.authorsFull = authorsFull
+// }
+// onBeforeMount(() => {
+//   appendFullAuthorsData(article)
+// })
 
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
