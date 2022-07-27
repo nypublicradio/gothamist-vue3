@@ -17,7 +17,7 @@ const authors = ref(props.article.authors)
 const isMultipleAuthors = ref(props.article.authors.length > 1)
 const date = ref(formatDateAndTime(props.article?.publicationDate) || null)
 const updatedDate = ref(formatDateAndTime(props.article?.updatedDate) || null)
-const comments = ref(props.article?.comments || null)
+const comments = ref(props.article?.comments || 20)
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const sponsor = ref(props.article?.sponsors[0] || [])
 </script>

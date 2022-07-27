@@ -102,6 +102,7 @@ function useInsertAd(targetElement) {
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
+            <div id="comments">Comments section here</div>
           </div>
           <div class="col-fixed hidden lg:block" style="width: 300px">
             <img src="https://fakeimg.pl/300x250/?text=AD Here" />
