@@ -1,10 +1,8 @@
 <script setup>
-import { useRuntimeConfig } from '#app'
-import { ref, onBeforeMount, onMounted } from 'vue'
+import { ref } from 'vue'
 import { formatDateAndTime } from '~/utilities/date'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
-const config = useRuntimeConfig()
 const props = defineProps({
   article: {
     type: Object,
@@ -12,8 +10,8 @@ const props = defineProps({
   },
 })
 
-const authors = ref([])
-const isMultipleAuthors = ref(authors.value.length > 1)
+const authors = ref(props.article.authors)
+const isMultipleAuthors = ref(authors.value.length > 0)
 const date = ref(props.article?.publicationDate || null)
 const updatedDate = ref(props.article?.updatedDate || null)
 const comments = ref(props.article?.comments || null)
@@ -25,36 +23,6 @@ const getSponsorImage = (sponsorLogoID) => {
   //return sponsorLogoID || '/sponsor-default.jpg'
   return '/sponsor-default.jpg'
 }
-
-const getAuthors = () => {
-  const authorArray = []
-  props.article.authors.forEach((author, index, arr) => {
-    $fetch(config.API_URL + '/pages/' + author.id).then((response) => {
-      console.log('response = ', response)
-      authorArray.push(response)
-      //const imgSrc = String(response['photo']['meta']['download_url'])
-      // const imgSrc = response.photo?.meta?.download_url || null
-      // console.log('response =', response)
-
-      // if (imgSrc) {
-      //   console.log('imgSrc = ', imgSrc)
-      //   return imgSrc
-      // } else {
-      //   console.log('avatar')
-      //   return '/avatar.svg'
-      // }
-    })
-  })
-  authors.value = authorArray
-}
-
-onBeforeMount(() => {
-  getAuthors()
-})
-
-onMounted(() => {
-  console.log('authors data =', authors.value)
-})
 </script>
 
 <template>
@@ -87,7 +55,7 @@ onMounted(() => {
       <div class="author-images flex">
         <div v-for="author of authors" class="author-image mr-3">
           <v-flexible-link :to="author.url" raw>
-            <img :src="getAuthorImage(author.id)" alt="Author's image" />
+            <img src="/avatar.svg" alt="Author's image" />
           </v-flexible-link>
         </div>
       </div>
