@@ -78,11 +78,20 @@ const sponsor = ref(props.article?.sponsors[0] || [])
             <v-flexible-link :to="author.url" class="author-name">
               {{ author.name }}
             </v-flexible-link>
+            <span v-if="author.organization">&nbsp;(</span>
+            <v-flexible-link
+              v-if="author.organization"
+              :to="author.organizationUrl || null"
+              class="author-name contributing-org"
+            >
+              {{ author.organization }}
+            </v-flexible-link>
+            <span v-if="author.organization">)&nbsp;</span>
             <span
               v-if="isMultipleAuthors && index !== authors.length - 1"
               class="author-name"
             >
-              &nbsp;and&nbsp;
+              and
             </span>
           </span>
         </div>
@@ -136,11 +145,16 @@ const sponsor = ref(props.article?.sponsors[0] || [])
     }
     .author-name {
       @include font-config($type-link);
-      &.flexible-link {
-        &:hover {
-          text-decoration: underline;
-        }
+    }
+    a.author-name {
+      &:hover {
+        text-decoration: underline;
       }
+    }
+    .contributing-org {
+      display: inline;
+      color: var(--gray-600);
+      //cursor: pointer;
     }
     .comments {
       @include font-config($type-textlink2);
