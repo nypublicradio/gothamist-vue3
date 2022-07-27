@@ -35,7 +35,6 @@ onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
-  console.log('article =  ', article)
 })
 
 onUnmounted(() => {

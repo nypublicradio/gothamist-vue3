@@ -14,7 +14,7 @@ const props = defineProps({
 })
 
 const authors = ref(props.article.authors)
-const isMultipleAuthors = ref(authors.value.length > 0)
+const isMultipleAuthors = ref(props.article.authors.length > 1)
 const date = ref(props.article?.publicationDate || null)
 const updatedDate = ref(props.article?.updatedDate || null)
 const comments = ref(props.article?.comments || null)
