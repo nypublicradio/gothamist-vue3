@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { StreamfieldBlock } from '../composables/types/StreamfieldBlock';
+import { StreamfieldBlock } from '../composables/types/StreamfieldBlock'
 const props = defineProps<{
   streamfieldBlocks: StreamfieldBlock[]
 }>()
@@ -79,3 +79,12 @@ function countMountedBlock() {
     </template>
   </div>
 </template>
+
+<style lang="scss">
+.instagram-media {
+  min-width: unset !important;
+}
+.twitter-tweet iframe {
+  max-width: 300px;
+}
+</style>
