@@ -135,7 +135,7 @@ const submitForm = () => {
             >{{ emailErrorText }}</small
           >
         </Transition>
-        <div class="field-checkbox mt-3">
+        <div class="field-checkbox mt-3 mb-0">
           <Checkbox v-model="checked" :binary="true" @click="!checked" />
           <label for="binary"><slot /></label>
         </div>
