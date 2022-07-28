@@ -1,3 +1,4 @@
+import { normalizeHomePageFeaturedArticle } from './articlePages'
 import { normalizeArticlePage } from './articlePages'
 import { normalizeGalleryPage } from './galleryPages'
 import { normalizeTagPage } from './tagPages'
@@ -29,4 +30,3 @@ export function normalizePage(page: Record<string, any>): Page {
         uuid: page.uuid
     }
 }
-

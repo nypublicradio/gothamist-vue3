@@ -1,3 +1,4 @@
+export { normalizeHomePageFeaturedArticle } from './articlePages'
 export { findPage } from './pages'
 export { normalizeFindPageResponse } from './pages'
 export { findArticlePages } from './articlePages'

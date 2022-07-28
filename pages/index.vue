@@ -3,6 +3,10 @@ import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCar
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
+const featuredArticle = await findPage('/').then(({ data }) =>
+  normalizeHomePageFeaturedArticle(data)
+)
+
 const latestArticles = await findLatestArticlePages('').then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
@@ -35,27 +39,27 @@ onMounted(() => {
             <div class="col-12 xl:col-8">
               <v-card
                 class="mod-vertical mod-featured mod-large"
-                :image="useImageUrl(latestArticles[0].listingImage)"
+                :image="useImageUrl(featuredArticle.listingImage)"
                 :sizes="[1]"
                 :width="871"
                 :height="581"
-                :title="latestArticles[0].title"
-                :titleLink="latestArticles[0].link"
-                :maxWidth="latestArticles[0].image.width"
-                :maxHeight="latestArticles[0].image.height"
+                :title="featuredArticle.title"
+                :titleLink="featuredArticle.link"
+                :maxWidth="featuredArticle.image.width"
+                :maxHeight="featuredArticle.image.height"
                 :tags="[
                   {
-                    name: latestArticles[0].section.name,
-                    slug: latestArticles[0].section.slug,
+                    name: featuredArticle.section.name,
+                    slug: featuredArticle.section.slug,
                   },
                 ]"
               >
                 <p class="desc">
-                  {{ latestArticles[0].description }}
+                  {{ featuredArticle.description }}
                 </p>
                 <div class="article-metadata">
                   <span>
-                    <v-byline :authors="latestArticles[0].authors" />
+                    <v-byline :authors="featuredArticle.authors" />
                   </span>
                   <span>comments</span>
                 </div>
