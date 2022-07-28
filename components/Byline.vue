@@ -71,7 +71,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
           <v-flexible-link :to="author.url" raw>
             <v-simple-responsive-image
               v-if="author.photoID"
-              :src="useImageId(author.photoID)"
+              :src="useImageUrl({ id: author.photoID })"
               :width="60"
               :height="60"
               :sizes="[1, 2]"
