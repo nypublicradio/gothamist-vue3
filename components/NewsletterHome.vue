@@ -67,8 +67,6 @@ const submitForm = (email) => {
 
 <template>
   <div v-if="showComponent" class="newsletter-home grid grid-nogutter">
-    <divider />
-
     <div class="col-12 lg:col-3 pr-3 pb-2">
       <h4>{{ titleText }}</h4>
     </div>
@@ -95,15 +93,3 @@ const submitForm = (email) => {
     </div>
   </div>
 </template>
-
-<style lang="scss">
-.newsletter-home {
-  padding-bottom: 3rem;
-  .p-divider {
-    margin-bottom: 1.5rem;
-    &:before {
-      border-color: var(--black);
-    }
-  }
-}
-</style>

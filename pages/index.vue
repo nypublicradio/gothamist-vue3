@@ -34,7 +34,7 @@ onMounted(() => {
   <div>
     <section>
       <div class="content">
-        <template v-if="latestArticles">
+        <template v-if="featuredArticle && latestArticles">
           <div class="grid mb-6">
             <div class="col-12 xl:col-8">
               <v-card
@@ -95,8 +95,8 @@ onMounted(() => {
         </template>
         <div class="mt-4 mb-5">
           <hr class="black mb-4" />
-          <p>donation component goes here</p>
-          <hr class="black mt-4 mb-3" />
+          <newsletter-home @submit="newsletterSubmitEvent" />
+          <hr class="black my-4" />
         </div>
         <template v-if="articles">
           <div v-for="article in articles" :key="article.uuid">
@@ -132,10 +132,11 @@ onMounted(() => {
         </template>
       </div>
     </section>
-    <section>
+    <!-- <section>
       <div class="content">
+        <hr class="black mb-4" />
         <newsletter-home @submit="newsletterSubmitEvent" />
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
