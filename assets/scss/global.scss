@@ -79,6 +79,10 @@ table tr.totalline {
 }
 
 /* below will eventually go in the theme extentions.scss*/
+.no-underline {
+  text-decoration: none;
+}
+
 .image-with-caption {
   .image-with-caption-image {
     .image-with-caption-caption {

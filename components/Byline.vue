@@ -129,7 +129,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         action="share"
       />
     </v-share-tools>
-    <hr class="my-3 xxl:hidden" />
+    <hr class="mt-3 mb-5 xxl:hidden" />
   </div>
 </template>
 
