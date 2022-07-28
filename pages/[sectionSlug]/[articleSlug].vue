@@ -65,15 +65,15 @@ function useInsertAd(targetElement) {
     <section>
       <div class="content">
         <div class="grid">
-          <div class="col-fixed hidden xxl:block" style="width: 300px"></div>
+          <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
             <v-tag :name="article.section.name" slug="/news" />
             <h2 class="mt-4 mb-3">{{ article.title }}</h2>
           </div>
-          <div class="col-fixed hidden lg:block" style="width: 300px"></div>
+          <div class="col-fixed hidden lg:block"></div>
         </div>
         <div class="grid">
-          <div class="col-fixed hidden xxl:block" style="width: 300px">
+          <div class="col-fixed hidden xxl:block">
             <byline :article="article" />
           </div>
           <div class="col overflow-hidden" v-if="article">
@@ -81,8 +81,8 @@ function useInsertAd(targetElement) {
               <v-image-with-caption
                 :image="useImageUrl(article.image)"
                 :imageUrl="article.leadAsset.value.imageLink"
-                :width="760"
-                :height="506"
+                :width="728"
+                :height="485"
                 :alt-text="article.image.alt"
                 :maxWidth="article.image.width"
                 :maxHeight="article.image.height"
@@ -98,13 +98,14 @@ function useInsertAd(targetElement) {
             <div class="block xxl:hidden">
               <byline :article="article" />
             </div>
+            <article-donation-CTA />
             <v-streamfield
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
             <div id="comments">Comments section here</div>
           </div>
-          <div class="col-fixed hidden lg:block" style="width: 300px">
+          <div class="col-fixed hidden lg:block">
             <img src="https://fakeimg.pl/300x250/?text=AD Here" />
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
@@ -115,6 +116,7 @@ function useInsertAd(targetElement) {
 </template>
 
 <style lang="scss">
+$fixed-width: 316px;
 .sectionSlug-articleSlug {
   &:before {
     content: '';
@@ -144,6 +146,9 @@ function useInsertAd(targetElement) {
   }
   .v-tag .p-button {
     background: transparent;
+  }
+  .col-fixed {
+    width: $fixed-width;
   }
 }
 </style>
