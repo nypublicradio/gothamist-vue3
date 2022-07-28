@@ -17,7 +17,7 @@ const authors = ref(props.article.authors)
 const isMultipleAuthors = ref(props.article.authors.length > 1)
 const date = ref(formatDateAndTime(props.article?.publicationDate) || null)
 const updatedDate = ref(formatDateAndTime(props.article?.updatedDate) || null)
-const comments = ref(props.article?.comments || 20)
+const comments = ref(props.article?.comments || 'Go to')
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const sponsor = ref(props.article?.sponsors[0] || [])
 </script>
@@ -32,7 +32,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         <v-flexible-link :to="sponsor.link" raw>
           <v-simple-responsive-image
             v-if="sponsor.logo"
-            :src="useImageId(sponsor.logo)"
+            :src="useImageUrl({ id: sponsor.logo })"
             :width="60"
             :height="60"
             :sizes="[1, 2]"
@@ -46,6 +46,13 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         <p class="type-caption">Article sponsored by</p>
         <v-flexible-link :to="sponsor.link" class="author-name">
           {{ sponsor.name }}
+        </v-flexible-link>
+        <p class="type-caption">Published: {{ date }}</p>
+        <p v-if="updatedDate" class="type-caption">
+          Updated: {{ updatedDate }}
+        </p>
+        <v-flexible-link v-if="comments" to="#comments" class="comments">
+          {{ comments }} comments
         </v-flexible-link>
       </div>
     </div>
@@ -99,13 +106,12 @@ const sponsor = ref(props.article?.sponsors[0] || [])
             </span>
           </span>
         </div>
-
         <p class="type-caption">Published: {{ date }}</p>
         <p v-if="updatedDate" class="type-caption">
           Updated: {{ updatedDate }}
         </p>
         <v-flexible-link v-if="comments" to="#comments" class="comments">
-          {{ comments }} Comments
+          {{ comments }} comments
         </v-flexible-link>
       </div>
     </div>

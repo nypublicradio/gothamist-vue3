@@ -5,6 +5,10 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 const config = useRuntimeConfig()
 
 const props = defineProps({
+  donateUrlBase: {
+    type: String,
+    default: null,
+  },
   utmCampaign: {
     type: String,
     default: 'article-top',
@@ -12,7 +16,9 @@ const props = defineProps({
 })
 
 const donateUrl = ref(
-  `${config.donateUrlBase}&utm_campaign=${props.utmCampaign}`
+  `${props.donateUrlBase || config.donateUrlBase}&utm_campaign=${
+    props.utmCampaign
+  }`
 )
 
 const emit = defineEmits(['donate-click'])
