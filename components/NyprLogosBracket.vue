@@ -41,7 +41,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem 1.5rem;
+  gap: 1rem 1.25rem;
   @include media('<xl') {
     gap: 1rem 0.75rem;
   }

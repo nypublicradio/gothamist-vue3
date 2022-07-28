@@ -3,6 +3,7 @@ $mobileBreakpoint: '<lg';
 
 body {
   background: #ffffff;
+  height: 100vh;
 }
 
 hr {
@@ -43,7 +44,7 @@ table tr:nth-child(odd) {
 }
 table tr:first-child {
   border-bottom: solid 1px var(--black);
-  background-color: var(--lightsoybean-500);
+  background-color: var(--soybean200);
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -52,7 +53,7 @@ table tr:last-child:not(.totalline) {
 }
 table tr.totalline {
   background-color: var(--white);
-  border-bottom: solid 1px var(--lightsoybean-500);
+  border-bottom: solid 1px var(--soybean200);
   border-top: solid 1px var(--black);
   font-weight: bold;
   text-transform: uppercase;
@@ -78,8 +79,31 @@ table tr.totalline {
 }
 
 /* below will eventually go in the theme extentions.scss*/
+.no-underline {
+  text-decoration: none;
+}
+
+.image-with-caption {
+  .image-with-caption-image {
+    .image-with-caption-caption {
+      p {
+        @include font-config($type-paragraph3);
+        padding-right: 40px;
+        color: #ffffff;
+      }
+    }
+  }
+  .image-with-caption-icons .p-button {
+    border-radius: 50%;
+  }
+}
+
 .v-share-tools {
-  a {
+  .label {
+    @include font-config($type-caption);
+  }
+  a,
+  button {
     width: 16px;
     height: 16px;
     &:hover {
@@ -121,8 +145,8 @@ table tr.totalline {
 
 .sectionSlug-articleSlug a:not(.image-with-caption-credit-link) {
   &:hover {
-    background-color: var(--text-color);
-    color: var(--white);
+    // background-color: var(--text-color);
+    // color: var(--white);
   }
 }
 
@@ -145,4 +169,12 @@ ol ol li {
   &::marker {
     text-transform: uppercase;
   }
+}
+
+// to go is DS extentions
+
+// v-card image hack to figure out
+.v-card.mod-vertical .card-image-wrapper {
+  width: inherit;
+  width: -webkit-fill-available;
 }
