@@ -1,4 +1,3 @@
-import { normalizeHomePageFeaturedArticle } from './articlePages'
 import { normalizeArticlePage } from './articlePages'
 import { normalizeGalleryPage } from './galleryPages'
 import { normalizeTagPage } from './tagPages'
