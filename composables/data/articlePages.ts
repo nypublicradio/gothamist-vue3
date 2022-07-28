@@ -2,7 +2,7 @@ import { ArticlePage } from "../types/Page"
 import Author from '../types/Author'
 
 // get the 4 featured article pages
-export async function findFeaturedArticlePages(queryParams: any) {
+export async function findLatestArticlePages(queryParams: any) {
     const defaultParams = {
         type: 'news.ArticlePage',
         fields: ['ancestry', 'description', 'lead_asset', 'legacy_id', 'listing_image', 'publication_date', 'show_as_feature', 'sponsored_content', 'tags', 'updated_date', 'url', 'uuid', 'listing_title', 'listing_summary', 'related_authors'].join(','),

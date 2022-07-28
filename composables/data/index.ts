@@ -1,7 +1,7 @@
 export { findPage } from './pages'
 export { normalizeFindPageResponse } from './pages'
-export { findFeaturedArticlePages } from './articlePages'
 export { findArticlePages } from './articlePages'
+export { findLatestArticlePages } from './articlePages'
 export { normalizeFindArticlePagesResponse} from './articlePages'
 export { findNavigation } from './navigation'
 export { normalizeFindNavigationResponse} from './navigation'
