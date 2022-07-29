@@ -112,7 +112,7 @@ function useInsertAd(targetElement) {
         </div>
       </div>
     </section>
-    <section class="pb-0">
+    <section>
       <div class="content">
         <div class="grid">
           <div class="col-fixed hidden xxl:block"></div>

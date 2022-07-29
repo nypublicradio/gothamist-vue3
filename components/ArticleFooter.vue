@@ -19,7 +19,7 @@ const profileData = isSponsored.value
 <template>
   <div class="article-footer">
     <!-- tags -->
-    <div v-if="tags" class="tags flex gap-1 align-items-center py-6">
+    <div v-if="tags" class="tags flex gap-1 align-items-center pb-6">
       <p class="type-caption mr-3">Tagged</p>
       <v-tag
         v-for="tag in tags"
