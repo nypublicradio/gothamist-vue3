@@ -28,16 +28,19 @@ const profileData = isSponsored.value
         :key="tag.name"
       />
     </div>
-    <hr class="black" />
+    <!-- profile -->
+    <hr class="black mb-6" />
     <div class="grid">
       <div class="profile-col">
         <article-footer-profile
           v-for="profile in profileData"
           :profileData="profile"
           :sponsored="isSponsored"
+          class="mb-6"
         />
       </div>
-      <div class="col-fixed">
+      <div class="col-fixed m-auto">
+        <!-- <div class="htlad-index_rectangle_1" /> -->
         <img src="https://fakeimg.pl/300x250/?text=AD Here" />
         <p class="type-fineprint">Powered by members and sponsors</p>
       </div>

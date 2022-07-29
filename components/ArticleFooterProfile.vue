@@ -2,6 +2,9 @@
 import { ref, computed, onMounted } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
+import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
+import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
+
 const props = defineProps({
   profileData: {
     type: Object,
@@ -14,6 +17,13 @@ const props = defineProps({
 })
 
 const profile = ref(props.profileData)
+const ctaText = ref(props.sponsored ? 'Read more' : 'Learn More')
+const profileImage = ref(
+  props.sponsored ? profile.value.logo : profile.value.photoID
+)
+const profileLink = ref(
+  props.sponsored ? profile.value.link : profile.value.url
+)
 
 //const emit = defineEmits(["change", "click"]);
 
@@ -25,16 +35,38 @@ onMounted(() => {
 
 <template>
   <div class="article-footer-profile flex pr-0 md:pr-3">
-    <div class="col">
-      text goes here text goes here text goes here text goes here text goes here
-      text goes here text goes here text goes here
+    <div class="col md:pr-4 flex flex-column gap-2">
+      <div
+        class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"
+      >
+        <v-flexible-link :to="profileLink" class="no-underline">
+          <h5>{{ profile.name }}</h5>
+        </v-flexible-link>
+        <span v-if="!profile.social">
+          <v-share-tools class="">
+            <v-share-tools-item service="facebook" username="gothamist" />
+            <v-share-tools-item service="twitter" username="gothamist" />
+            <v-share-tools-item service="instagram" username="gothamist" />
+            <v-share-tools-item
+              service="youtube"
+              username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
+            />
+          </v-share-tools>
+        </span>
+      </div>
+      <p v-if="profile.biography" class="p2 truncate t3lines">
+        {{ profile.biography }}
+      </p>
+      <v-flexible-link :to="profileLink" class="type-textlink1">
+        {{ ctaText }}
+      </v-flexible-link>
     </div>
     <div class="col-fixed profile">
       <div class="author-image">
-        <v-flexible-link :to="profile.url" raw>
+        <v-flexible-link :to="profileLink" raw>
           <v-simple-responsive-image
-            v-if="profile.photoID"
-            :src="useImageUrl({ id: profile.photoID })"
+            v-if="profileImage"
+            :src="useImageUrl({ id: profileImage })"
             :width="86"
             :height="86"
             :sizes="[1, 2]"

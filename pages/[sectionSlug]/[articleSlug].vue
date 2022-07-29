@@ -105,13 +105,14 @@ function useInsertAd(targetElement) {
             />
           </div>
           <div class="col-fixed hidden lg:block">
+            <!-- <div class="htlad-index_rectangle_1" /> -->
             <img src="https://fakeimg.pl/300x250/?text=AD Here" />
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
         </div>
       </div>
     </section>
-    <section>
+    <section class="pb-0">
       <div class="content">
         <div class="grid">
           <div class="col-fixed hidden xxl:block"></div>
