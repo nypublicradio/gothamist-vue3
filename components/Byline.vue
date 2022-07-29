@@ -51,7 +51,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         <p v-if="updatedDate" class="type-caption">
           Updated: {{ updatedDate }}
         </p>
-        <v-flexible-link v-if="comments" to="#comments" class="comments">
+        <v-flexible-link v-if="comments" to="#comments" class="type-textlink2">
           {{ comments }} comments
         </v-flexible-link>
       </div>
@@ -110,7 +110,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         <p v-if="updatedDate" class="type-caption">
           Updated: {{ updatedDate }}
         </p>
-        <v-flexible-link v-if="comments" to="#comments" class="comments">
+        <v-flexible-link v-if="comments" to="#comments" class="type-textlink2">
           {{ comments }} comments
         </v-flexible-link>
       </div>
@@ -166,9 +166,6 @@ const sponsor = ref(props.article?.sponsors[0] || [])
     .contributing-org {
       display: inline;
       color: var(--gray-600);
-    }
-    .comments {
-      @include font-config($type-textlink2);
     }
     &.multiple-authors {
       flex-direction: column;
