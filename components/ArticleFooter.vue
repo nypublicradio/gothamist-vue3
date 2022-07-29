@@ -43,7 +43,7 @@ const profileData = isSponsored.value
           <div>Comments section here</div>
         </div>
       </div>
-      <div class="col-fixed m-auto">
+      <div class="col-fixed mx-auto">
         <!-- <div class="htlad-index_rectangle_1" /> -->
         <img src="https://fakeimg.pl/300x250/?text=AD Here" />
         <p class="type-fineprint">Powered by members and sponsors</p>
