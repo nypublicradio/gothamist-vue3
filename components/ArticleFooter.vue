@@ -28,7 +28,7 @@ const profileData = isSponsored.value
         :key="tag.name"
       />
     </div>
-    <!-- profile -->
+    <!-- profile & comments-->
     <hr class="black mb-6" />
     <div class="grid">
       <div class="profile-col">
@@ -38,6 +38,10 @@ const profileData = isSponsored.value
           :sponsored="isSponsored"
           class="mb-6"
         />
+        <div id="comments" class="pr-0 lg:pr-3 mb-6">
+          <hr class="black mb-6" />
+          <div>Comments section here</div>
+        </div>
       </div>
       <div class="col-fixed m-auto">
         <!-- <div class="htlad-index_rectangle_1" /> -->

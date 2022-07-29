@@ -122,17 +122,6 @@ function useInsertAd(targetElement) {
         </div>
       </div>
     </section>
-    <section>
-      <div class="content">
-        <div class="grid">
-          <div class="col-fixed hidden xxl:block"></div>
-          <div class="col">
-            <div id="comments">Comments section here</div>
-          </div>
-          <div class="col-fixed hidden lg:block"></div>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
