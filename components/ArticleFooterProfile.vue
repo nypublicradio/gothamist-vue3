@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
@@ -24,13 +24,6 @@ const profileImage = ref(
 const profileLink = ref(
   props.sponsored ? profile.value.link : profile.value.url
 )
-
-//const emit = defineEmits(["change", "click"]);
-
-// lifecycle hooks
-onMounted(() => {
-  console.log('profile = ', profile.value)
-})
 </script>
 
 <template>

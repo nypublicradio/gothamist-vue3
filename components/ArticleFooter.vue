@@ -34,6 +34,7 @@ const profileData = isSponsored.value
       <div class="profile-col">
         <article-footer-profile
           v-for="profile in profileData"
+          :key="profile.id"
           :profileData="profile"
           :sponsored="isSponsored"
           class="mb-6"
