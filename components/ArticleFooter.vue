@@ -13,12 +13,20 @@ const isSponsored = ref(props.article?.sponsoredContent || false)
 const profileData = isSponsored.value
   ? props.article?.sponsors
   : props.article.authors
+
+const onTagClicked = (tag) => {
+  sendEvent('click_tracking', {
+    event_category: 'Click Tracking',
+    component: 'Article Tags',
+    event_label: tag.name,
+  })
+}
 </script>
 
 <template>
   <div class="article-footer">
     <!-- tags -->
-    <article-tags :tags="tags" @tagClicked="console.log('tag clicked')" />
+    <article-tags :tags="tags" @tag-clicked="onTagClicked" />
     <!-- profile & comments-->
     <hr class="black mb-6" />
     <div class="grid">
