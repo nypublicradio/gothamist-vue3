@@ -16,6 +16,7 @@ const productBanners = await findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
 const sensitiveContent = useSensitiveContent()
+
 onMounted(() => {
   document.addEventListener('scroll', (e) => {
     atTop.value = window.scrollY > 0 ? false : true
