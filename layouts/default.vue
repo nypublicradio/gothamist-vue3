@@ -16,7 +16,7 @@ const productBanners = await findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
 const sensitiveContent = useSensitiveContent()
-
+const isGalleryPage = route.path.includes('/photos/')
 onMounted(() => {
   document.addEventListener('scroll', (e) => {
     atTop.value = window.scrollY > 0 ? false : true
@@ -77,15 +77,15 @@ watch(route, (value) => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <header>
+    <header v-if="!isGalleryPage">
       <h1><NuxtLink to="/">Gothamist</NuxtLink></h1>
       <!-- Header -->
     </header>
     <main>
       <slot />
     </main>
-    <scroll-to-top-button />
-    <gothamist-footer :navData="navigation" />
+    <scroll-to-top-button v-if="!isGalleryPage" />
+    <gothamist-footer v-if="!isGalleryPage" :navData="navigation" />
   </div>
 </template>
 
