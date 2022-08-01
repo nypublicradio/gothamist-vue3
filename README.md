@@ -30,6 +30,15 @@ For more info on the nuxt release candidates see https://github.com/nuxt/framewo
 in VS Code, use the following plugin for formatting. Be sure to install the older version 0.33.10:
 https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar
 
+## Create .env and .npmrc files
+
+```bash
+cp .env.sample .env
+cp .npmrc.sample .npmrc
+```
+
+You will need to update the newly created .npmrc file and add your own personal access token at the end of line 2. You can create one in github under settings -> developer settings -> personal access tokens
+
 ## Development
 
 Start the development server on `http://localhost:3000`
