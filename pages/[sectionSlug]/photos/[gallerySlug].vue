@@ -140,6 +140,7 @@ onUnmounted(() => {
               :credit-url="slide.image.creditLink"
               :description="slide.title || slide.image.caption"
               :quality="80"
+              :ratio="[slide.image.width, slide.image.height]"
             />
             <hr class="mt-4 xl:mt-4 mb-2 xl:mb-4" />
           </div>
