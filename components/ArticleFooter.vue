@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 
 const props = defineProps({
   article: {
@@ -19,15 +18,7 @@ const profileData = isSponsored.value
 <template>
   <div class="article-footer">
     <!-- tags -->
-    <div v-if="tags" class="tags flex gap-1 align-items-center pb-6">
-      <p class="type-caption mr-3">Tagged</p>
-      <v-tag
-        v-for="tag in tags"
-        :name="tag.name"
-        :slug="tag.slug"
-        :key="tag.name"
-      />
-    </div>
+    <article-tags :tags="tags" />
     <!-- profile & comments-->
     <hr class="black mb-6" />
     <div class="grid">
@@ -46,7 +37,10 @@ const profileData = isSponsored.value
       </div>
       <div class="col-fixed mx-auto">
         <!-- <div class="htlad-index_rectangle_1" /> -->
-        <img src="https://fakeimg.pl/300x250/?text=AD Here" />
+        <img
+          src="https://fakeimg.pl/300x250/?text=AD Here"
+          style="width: 100%; max-width: 300px"
+        />
         <p class="type-fineprint">Powered by members and sponsors</p>
       </div>
     </div>
