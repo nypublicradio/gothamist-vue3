@@ -24,15 +24,13 @@ export const fuzzyDateTime = function (time: Date): string {
 }
 
 // formats a date in the format of ShortMonthName DD, YYYY
-export const formatDateAndTime = function (date) {
-  if (!date) return null
-  const formattedDate = new Date(date)
-  const day = formattedDate.getDate()
-  const month = formattedDate.toLocaleString('default', { month: 'short' })
-  const year = formattedDate.getFullYear()
-  const hours = formattedDate.getHours()
-  const minutes = (formattedDate.getMinutes() < 10 ? '0' : '') + formattedDate.getMinutes()
-  const hour = ((hours + 11) % 12 + 1)
-  const suffix = hour >= 12 ? "pm" : "am";
-  return `${month} ${day}, ${year} at ${hour}:${minutes}${suffix}`
+export const formatDateForByline = function (date) {
+  if (date) {
+    const dateObject = new Date(date)
+    const now = new Date()
+    const shortDate = format(dateObject, 'MMM d, y')
+    const longDate = format(dateObject, "MMM d, y 'at' h:mm aaaa")
+    return differenceInHours(now, dateObject) <= 12 ? longDate : shortDate
+  }
+  return null
 }
