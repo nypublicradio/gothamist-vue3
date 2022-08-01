@@ -18,7 +18,7 @@ const profileData = isSponsored.value
 <template>
   <div class="article-footer">
     <!-- tags -->
-    <article-tags :tags="tags" />
+    <article-tags :tags="tags" @tagClicked="console.log('tag clicked')" />
     <!-- profile & comments-->
     <hr class="black mb-6" />
     <div class="grid">

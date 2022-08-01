@@ -1,4 +1,5 @@
 <script setup>
+import { useRuntimeConfig } from '#app'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 const props = defineProps({
   tags: {
@@ -10,7 +11,7 @@ const props = defineProps({
     default: 'Tagged',
   },
 })
-
+const config = useRuntimeConfig()
 const emit = defineEmits(['tag-clicked'])
 </script>
 
@@ -23,7 +24,7 @@ const emit = defineEmits(['tag-clicked'])
       <v-tag
         v-for="tag in props.tags"
         :name="tag.name"
-        :slug="tag.slug"
+        :slug="`/tags/${tag.slug}`"
         :key="tag.name"
         @click="emit('tag-clicked', tag)"
       />
