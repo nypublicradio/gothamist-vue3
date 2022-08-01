@@ -62,7 +62,7 @@ function useInsertAd(targetElement) {
       />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
-    <section>
+    <section class="top-section">
       <div class="content">
         <div class="grid">
           <div class="col-fixed hidden xxl:block"></div>
@@ -103,11 +103,21 @@ function useInsertAd(targetElement) {
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
-            <div id="comments">Comments section here</div>
           </div>
           <div class="col-fixed hidden lg:block">
+            <!-- <div class="htlad-index_rectangle_1" /> -->
             <img src="https://fakeimg.pl/300x250/?text=AD Here" />
             <p class="type-fineprint">Powered by members and sponsors</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <div class="grid">
+          <div class="col-fixed hidden xxl:block"></div>
+          <div class="col">
+            <article-footer :article="article" />
           </div>
         </div>
       </div>
@@ -116,17 +126,9 @@ function useInsertAd(targetElement) {
 </template>
 
 <style lang="scss">
-$fixed-width: 316px;
+$article-fixed-width: 316px;
 .sectionSlug-articleSlug {
-  &:before {
-    content: '';
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 720px;
-    z-index: -1;
+  .top-section {
     background: var(--soybean200);
     background: -moz-linear-gradient(
       top,
@@ -143,12 +145,14 @@ $fixed-width: 316px;
       var(--soybean200) 17%,
       var(--white) 100%
     );
+    background-size: 100% 720px !important;
+    background-repeat: no-repeat !important;
   }
   .v-tag .p-button {
     background: transparent;
   }
   .col-fixed {
-    width: $fixed-width;
+    width: $article-fixed-width;
   }
 }
 </style>

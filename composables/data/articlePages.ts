@@ -59,7 +59,6 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         leadGallery: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].value,
 
         gallerySlides: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].slides,
-
         legacyId: article.legacyId,
         authors: article.relatedAuthors?.map(normalizeAuthor),
         contributingOrganizations: article.relatedContributingOrganizations,
