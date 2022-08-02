@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 
 const props = defineProps({
   article: {
@@ -11,42 +10,47 @@ const props = defineProps({
 
 const tags = ref(props.article.tags)
 const isSponsored = ref(props.article?.sponsoredContent || false)
+const isDisableComments = ref(props.article?.disableComments || false)
 const profileData = isSponsored.value
   ? props.article?.sponsors
   : props.article.authors
+
+// function attached to the emit of the article-tags when clicked
+const onTagClicked = (tag) => {
+  sendEvent('click_tracking', {
+    event_category: 'Click Tracking',
+    component: 'Article Tags',
+    event_label: tag.name,
+  })
+}
 </script>
 
 <template>
   <div class="article-footer">
     <!-- tags -->
-    <div v-if="tags" class="tags flex gap-1 align-items-center pb-6">
-      <p class="type-caption mr-3">Tagged</p>
-      <v-tag
-        v-for="tag in tags"
-        :name="tag.name"
-        :slug="tag.slug"
-        :key="tag.name"
-      />
-    </div>
+    <article-tags :tags="tags" @tag-clicked="onTagClicked" />
     <!-- profile & comments-->
-    <hr class="black mb-6" />
-    <div class="grid">
+    <hr class="black mb-4 md:mb-6" />
+    <div class="grid gutter-x-30">
       <div class="profile-col">
         <article-footer-profile
           v-for="profile in profileData"
           :key="profile.id"
           :profileData="profile"
           :sponsored="isSponsored"
-          class="mb-6"
+          class="mb-4 md:mb-6"
         />
-        <div id="comments" class="pr-0 lg:pr-3 mb-6">
-          <hr class="black mb-6" />
+        <div v-if="!isDisableComments" id="comments" class="mb-4 md:mb-6">
+          <hr class="black mb-4 md:mb-6" />
           <div>Comments section here</div>
         </div>
       </div>
       <div class="col-fixed mx-auto">
         <!-- <div class="htlad-index_rectangle_1" /> -->
-        <img src="https://fakeimg.pl/300x250/?text=AD Here" />
+        <img
+          src="https://fakeimg.pl/300x250/?text=AD Here"
+          style="width: 100%; max-width: 300px"
+        />
         <p class="type-fineprint">Powered by members and sponsors</p>
       </div>
     </div>

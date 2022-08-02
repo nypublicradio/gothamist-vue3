@@ -49,6 +49,8 @@ export interface ArticlePage extends Page {
     seoTitle?: string;
     searchDescription?: string;
 
+    disableComments?: string;
+
 }
 
 export interface TagPage extends Page {

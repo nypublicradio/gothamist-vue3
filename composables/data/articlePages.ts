@@ -87,6 +87,9 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 
         seoTitle: article.meta?.seoTitle || article.title,
         searchDescription: article.meta?.searchDescription || article.description,
+
+        // for comments
+        disableComments: article.disableComments,
     }
 }
 

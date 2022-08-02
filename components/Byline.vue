@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { formatDateAndTime } from '~/utilities/date'
+
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
@@ -14,9 +14,10 @@ const props = defineProps({
 })
 
 const authors = ref(props.article.authors)
+const shareUrl = ref(props.article.url)
+const shareTitle = ref(props.article.title)
 const isMultipleAuthors = ref(props.article.authors.length > 1)
-const date = ref(formatDateAndTime(props.article?.publicationDate) || null)
-const updatedDate = ref(formatDateAndTime(props.article?.updatedDate) || null)
+const isDisableComments = ref(props.article?.disableComments || false)
 const comments = ref(props.article?.comments || 'Go to')
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const sponsor = ref(props.article?.sponsors[0] || [])
@@ -47,11 +48,12 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         <v-flexible-link :to="sponsor.link" class="author-name">
           {{ sponsor.name }}
         </v-flexible-link>
-        <p class="type-caption">Published: {{ date }}</p>
-        <p v-if="updatedDate" class="type-caption">
-          Updated: {{ updatedDate }}
-        </p>
-        <v-flexible-link v-if="comments" to="#comments" class="type-textlink2">
+        <date-published :article="props.article" />
+        <v-flexible-link
+          v-if="!isDisableComments"
+          to="#comments"
+          class="type-textlink2"
+        >
           {{ comments }} comments
         </v-flexible-link>
       </div>
@@ -106,11 +108,12 @@ const sponsor = ref(props.article?.sponsors[0] || [])
             </span>
           </span>
         </div>
-        <p class="type-caption">Published: {{ date }}</p>
-        <p v-if="updatedDate" class="type-caption">
-          Updated: {{ updatedDate }}
-        </p>
-        <v-flexible-link v-if="comments" to="#comments" class="type-textlink2">
+        <date-published :article="props.article" />
+        <v-flexible-link
+          v-if="!isDisableComments"
+          to="#comments"
+          class="type-textlink2"
+        >
           {{ comments }} comments
         </v-flexible-link>
       </div>
@@ -118,21 +121,77 @@ const sponsor = ref(props.article?.sponsors[0] || [])
     <hr />
     <!-- social share -->
     <v-share-tools label="Share" class="mt-3">
-      <v-share-tools-item service="email" username="gothamist" action="share" />
       <v-share-tools-item
-        service="reddit"
-        username="gothamist"
         action="share"
-      />
-      <v-share-tools-item
-        service="twitter"
-        username="gothamist"
-        action="share"
-      />
-      <v-share-tools-item
         service="facebook"
-        username="gothamist"
+        :url="shareUrl"
+        :utm-parameters="{
+          medium: 'social',
+          source: 'facebook',
+          campaign: 'shared_facebook',
+        }"
+        @share="
+          sendEvent('click_tracking', {
+            event_category: 'Click Tracking',
+            component: 'Article Byline',
+            event_label: 'Social Share Facebook',
+          })
+        "
+      />
+
+      <v-share-tools-item
         action="share"
+        service="twitter"
+        :url="shareUrl"
+        :share-parameters="{ text: shareTitle, via: 'gothamist' }"
+        :utm-parameters="{
+          medium: 'social',
+          source: 'twitter',
+          campaign: 'shared_twitter',
+        }"
+        @share="
+          sendEvent('click_tracking', {
+            event_category: 'Click Tracking',
+            component: 'Article Byline',
+            event_label: 'Social Share Twitter',
+          })
+        "
+      />
+      <v-share-tools-item
+        action="share"
+        service="reddit"
+        :url="shareUrl"
+        :share-parameters="{ title: shareTitle }"
+        :utm-parameters="{
+          medium: 'social',
+          source: 'reddit',
+          campaign: 'shared_reddit',
+        }"
+        @share="
+          sendEvent('click_tracking', {
+            event_category: 'Click Tracking',
+            component: 'Article Byline',
+            event_label: 'Social Share Reddit',
+          })
+        "
+      />
+      <v-share-tools-item
+        action="share"
+        service="email"
+        :url="shareUrl"
+        :share-parameters="{ body: shareTitle + ' - %URL%' }"
+        :utm-parameters="{
+          medium: 'social',
+          source: 'email',
+          campaign: 'shared_email',
+        }"
+        @share="
+          sendEvent('click_tracking', {
+            event_category: 'Click Tracking',
+            component: 'Article Byline',
+            event_label: 'Social Share Email',
+          })
+        "
       />
     </v-share-tools>
     <hr class="mt-3 mb-5 xxl:hidden" />
