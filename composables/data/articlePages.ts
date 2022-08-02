@@ -1,20 +1,6 @@
 import { ArticlePage } from "../types/Page"
 import Author from '../types/Author'
 
-// get the 4 featured article pages
-export async function findFeaturedArticlePages(queryParams: any) {
-    const defaultParams = {
-        type: 'news.ArticlePage',
-        fields: ['ancestry', 'description', 'lead_asset', 'legacy_id', 'listing_image', 'publication_date', 'show_as_feature', 'sponsored_content', 'tags', 'updated_date', 'url', 'uuid', 'listing_title', 'listing_summary', 'related_authors'].join(','),
-        order: '-publication_date',
-        limit: 4,
-        show_as_feature: true,
-        show_on_index_listing: true,
-    }
-    const params = Object.assign({}, defaultParams, queryParams)
-    return await useAviary('/pages/', { params })
-}
-
 // Get a list of article pages using the Aviary /pages api
 export async function findArticlePages(queryParams: any) {
     const defaultParams = {
