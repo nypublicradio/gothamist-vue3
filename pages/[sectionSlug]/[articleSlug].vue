@@ -64,7 +64,7 @@ function useInsertAd(targetElement) {
     </Head>
     <section class="top-section">
       <div class="content">
-        <div class="grid">
+        <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
             <v-tag :name="article.section.name" slug="/news" />
@@ -72,7 +72,7 @@ function useInsertAd(targetElement) {
           </div>
           <div class="col-fixed hidden lg:block"></div>
         </div>
-        <div class="grid">
+        <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block">
             <byline :article="article" />
           </div>
@@ -106,7 +106,10 @@ function useInsertAd(targetElement) {
           </div>
           <div class="col-fixed hidden lg:block">
             <!-- <div class="htlad-index_rectangle_1" /> -->
-            <img src="https://fakeimg.pl/300x250/?text=AD Here" />
+            <img
+              src="https://fakeimg.pl/300x250/?text=AD Here"
+              style="width: 100%; max-width: 300px"
+            />
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
         </div>
@@ -114,7 +117,7 @@ function useInsertAd(targetElement) {
     </section>
     <section>
       <div class="content">
-        <div class="grid">
+        <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
             <article-footer :article="article" />
@@ -126,7 +129,7 @@ function useInsertAd(targetElement) {
 </template>
 
 <style lang="scss">
-$article-fixed-width: 316px;
+$article-fixed-width: 330px;
 .sectionSlug-articleSlug {
   .top-section {
     background: var(--soybean200);
@@ -152,7 +155,8 @@ $article-fixed-width: 316px;
     background: transparent;
   }
   .col-fixed {
-    width: $article-fixed-width;
+    width: 100%;
+    max-width: $article-fixed-width;
   }
 }
 </style>

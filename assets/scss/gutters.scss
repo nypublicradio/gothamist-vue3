@@ -1,0 +1,62 @@
+/*grid col padding*/
+$gridGutterSizes: (
+  sm: 0.25rem,
+  md: 0.5rem,
+  lg: 1rem,
+  xl: 1.5rem,
+  xxl: 2rem,
+  xxxl: 2.5rem,
+  30: 15px,
+);
+.grid {
+  @each $size in $gridGutterSizes {
+    $key: nth($size, 1);
+    $value: nth($size, 2);
+    &.gutter-#{$key} {
+      margin-right: -#{$value};
+      margin-left: -#{$value};
+      margin-top: -#{$value};
+      @include media('<md') {
+        margin-right: -0.5rem;
+        margin-left: -0.5rem;
+        margin-top: -0.5rem;
+      }
+      > * {
+        padding: #{$value};
+        @include media('<md') {
+          padding: 0.5rem;
+        }
+      }
+    }
+    &.gutter-x-#{$key} {
+      margin-right: -#{$value};
+      margin-left: -#{$value};
+      @include media('<md') {
+        margin-right: -0.5rem;
+        margin-left: -0.5rem;
+      }
+      > * {
+        padding-left: #{$value};
+        padding-right: #{$value};
+        @include media('<md') {
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+      }
+    }
+    &.gutter-y-#{$key} {
+      margin-top: -#{$value};
+      @include media('<md') {
+        margin-top: -0.5rem;
+      }
+      > * {
+        padding-top: #{$value};
+        padding-bottom: #{$value};
+        @include media('<md') {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
