@@ -27,7 +27,7 @@ const profileLink = ref(
 </script>
 
 <template>
-  <div class="article-footer-profile flex pr-0 md:pr-3">
+  <div class="article-footer-profile grid">
     <div class="col md:pr-4 flex flex-column gap-2">
       <div
         class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"

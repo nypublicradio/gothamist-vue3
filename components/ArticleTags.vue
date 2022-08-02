@@ -14,7 +14,7 @@ const emit = defineEmits(['tag-clicked'])
 </script>
 
 <template>
-  <div v-if="props.tags" class="tags flex align-items-start pb-6">
+  <div v-if="props.tags" class="tags flex align-items-start mb-4 md:mb-6">
     <p v-if="props.label" class="type-caption mr-3 mt-0 lg:mt-1">
       {{ props.label }}
     </p>
