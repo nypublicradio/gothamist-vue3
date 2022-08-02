@@ -1,6 +1,9 @@
 $contentWidth: 1440px;
 $mobileBreakpoint: '<lg';
 
+@import './gutters.scss';
+@import './gap.scss';
+
 body {
   background: #ffffff;
   height: 100vh;
@@ -76,35 +79,6 @@ table tr.totalline {
       font-size: 1rem;
     }
   }
-}
-
-//prime-flex gap does not work for some reason, so I am adding the helpfull classes hear
-.gap-0 {
-  gap: 0;
-}
-.gap-1 {
-  gap: 0.25rem;
-}
-.gap-2 {
-  gap: 0.5rem;
-}
-.gap-3 {
-  gap: 1rem;
-}
-.gap-4 {
-  gap: 1.5rem;
-}
-.gap-5 {
-  gap: 2rem;
-}
-.gap-6 {
-  gap: 3rem;
-}
-.gap-7 {
-  gap: 4rem;
-}
-.gap-8 {
-  gap: 5rem;
 }
 
 /* below will eventually go in the theme extentions.scss*/

@@ -21,11 +21,11 @@ const props = defineProps({
   },
   prefix: {
     type: String,
-    default: 'Published: ',
+    default: 'Published ',
   },
   prefixModified: {
     type: String,
-    default: 'Modified: ',
+    default: 'Modified ',
   },
 })
 

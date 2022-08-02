@@ -17,6 +17,7 @@ const authors = ref(props.article.authors)
 const shareUrl = ref(props.article.url)
 const shareTitle = ref(props.article.title)
 const isMultipleAuthors = ref(props.article.authors.length > 1)
+const isDisableComments = ref(props.article?.disableComments || false)
 const comments = ref(props.article?.comments || 'Go to')
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const sponsor = ref(props.article?.sponsors[0] || [])
@@ -48,7 +49,11 @@ const sponsor = ref(props.article?.sponsors[0] || [])
           {{ sponsor.name }}
         </v-flexible-link>
         <date-published :article="props.article" />
-        <v-flexible-link v-if="comments" to="#comments" class="type-textlink2">
+        <v-flexible-link
+          v-if="!isDisableComments"
+          to="#comments"
+          class="type-textlink2"
+        >
           {{ comments }} comments
         </v-flexible-link>
       </div>
@@ -104,7 +109,11 @@ const sponsor = ref(props.article?.sponsors[0] || [])
           </span>
         </div>
         <date-published :article="props.article" />
-        <v-flexible-link v-if="comments" to="#comments" class="type-textlink2">
+        <v-flexible-link
+          v-if="!isDisableComments"
+          to="#comments"
+          class="type-textlink2"
+        >
           {{ comments }} comments
         </v-flexible-link>
       </div>
