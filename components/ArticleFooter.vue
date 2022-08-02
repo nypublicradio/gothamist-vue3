@@ -14,6 +14,7 @@ const profileData = isSponsored.value
   ? props.article?.sponsors
   : props.article.authors
 
+// function attached to the emit of the article-tags when clicked
 const onTagClicked = (tag) => {
   sendEvent('click_tracking', {
     event_category: 'Click Tracking',
