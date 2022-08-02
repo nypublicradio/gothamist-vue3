@@ -122,29 +122,32 @@ onUnmounted(() => {
             {{ gallery.slides.length }} photos
           </p>
         </div>
-        <template v-for="(slide, index) in gallery.slides" :key="index">
-          <div class="col-12" :class="{ 'xl:col-6': index % 3 !== 0 }">
-            <template v-if="index % 3 === 0 && index !== 0">
-              <img
-                class="mb-4 xl:mb-7"
-                src="https://fakeimg.pl/300x250/?text=AD Here"
-              />
-            </template>
-            <v-image-with-caption
-              :image="useImageUrl(slide.image)"
-              :imageUrl="slide.image.file"
-              :alt-text="slide.image.alt"
-              :maxWidth="slide.image.width"
-              :maxHeight="slide.image.height"
-              :credit="`Photo by ${slide.image.credit}`"
-              :credit-url="slide.image.creditLink"
-              :description="slide.title || slide.image.caption"
-              :quality="80"
-              :ratio="[slide.image.width, slide.image.height]"
+        <div
+          v-for="(slide, index) in gallery.slides"
+          class="col-12"
+          :class="{ 'xl:col-6': index % 3 !== 0 }"
+          :key="index"
+        >
+          <template v-if="index % 3 === 0 && index !== 0">
+            <img
+              class="mb-4 xl:mb-7"
+              src="https://fakeimg.pl/300x250/?text=AD Here"
             />
-            <hr class="mt-4 xl:mt-4 mb-2 xl:mb-4" />
-          </div>
-        </template>
+          </template>
+          <v-image-with-caption
+            :image="useImageUrl(slide.image)"
+            :imageUrl="slide.image.file"
+            :alt-text="slide.image.alt"
+            :maxWidth="slide.image.width"
+            :maxHeight="slide.image.height"
+            :credit="`Photo by ${slide.image.credit}`"
+            :credit-url="slide.image.creditLink"
+            :description="slide.title || slide.image.caption"
+            :quality="80"
+            :ratio="[slide.image.width, slide.image.height]"
+          />
+          <hr class="mt-4 xl:mt-4 mb-2 xl:mb-4" />
+        </div>
       </div>
       <div class="text-right mt-2">
         <NuxtLink :to="gallery.articleLink">
