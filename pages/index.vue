@@ -16,6 +16,18 @@ const latestArticles = await findArticlePages({
 const articles = await findArticlePages('').then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
+const articlesToShow = ref(6)
+
+const homePageCollections = []
+const homePageCollectionItems = await findPage('/').then(({ data }) =>
+  data.value.pageCollectionRelationship.forEach((collection) => {
+    homePageCollections.push({
+      id: collection.id,
+      layout: collection.layout,
+      data: normalizeArticlePage(collection.pages[0]),
+    })
+  })
+)
 
 const newsletterSubmitEvent = (e) => {
   //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
@@ -89,56 +101,112 @@ onMounted(() => {
                     <span>comments</span>
                   </div>
                 </v-card>
-                <hr class="mb-3" />
               </div>
-              <p>ad goes here</p>
+              <img
+                class="mb-1"
+                src="https://fakeimg.pl/450x250/?text=AD Here"
+              />
+              <p class="text-sm text-gray-400">
+                Powered by members and sponsors
+              </p>
             </div>
           </div>
         </template>
-        <div class="mt-4 mb-5">
-          <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
-          <hr class="black my-4" />
-        </div>
-        <template v-if="articles">
-          <div v-for="article in articles" :key="article.uuid">
+        <!-- home page collections - only implementing the single story feature layout for now -->
+        <template v-if="homePageCollections && homePageCollections.length > 0">
+          <div v-for="collection in homePageCollections" :key="collection.id">
             <v-card
-              class="mod-horizontal mb-3 lg:mb-5 tag-small"
-              :image="useImageUrl(article.listingImage)"
-              :width="318"
-              :height="212"
+              v-if="collection.layout === 'single-story-feature'"
+              class="mod-large mb-3 lg:mb-6 tag-small"
+              data-style-mode="dark"
+              :image="useImageUrl(collection.data.listingImage)"
+              :ratio="[3, 2]"
+              :width="1053"
+              :height="708"
               :sizes="[1]"
-              :title="article.title"
-              :titleLink="article.link"
-              :maxWidth="article.image.width"
-              :maxHeight="article.image.height"
+              :title="collection.data.title"
+              :titleLink="collection.data.link"
+              :maxWidth="collection.data.image.width"
+              :maxHeight="collection.data.image.height"
               :tags="[
                 {
-                  name: article.section.name,
-                  slug: article.section.slug,
+                  name: collection.data.section.name,
+                  slug: collection.data.section.slug,
                 },
               ]"
             >
               <p class="desc">
-                {{ article.description }}
+                {{ collection.data.description }}
               </p>
               <div class="article-metadata">
                 <span>
-                  <v-byline :authors="article.authors" />
+                  <v-byline :authors="collection.data.authors" />
                 </span>
                 <span>comments</span>
               </div>
             </v-card>
-            <hr class="mb-5" />
           </div>
         </template>
+        <!-- river -->
+        <template v-if="articles">
+          <div class="grid gutter-x-xl">
+            <div class="col-1">LATEST</div>
+            <div class="col">
+              <div
+                v-for="article in articles.slice(0, articlesToShow)"
+                :key="article.uuid"
+              >
+                <v-card
+                  class="mod-horizontal mb-3 lg:mb-5 tag-small"
+                  :image="useImageUrl(article.listingImage)"
+                  :width="318"
+                  :height="212"
+                  :sizes="[1]"
+                  :title="article.title"
+                  :titleLink="article.link"
+                  :maxWidth="article.image.width"
+                  :maxHeight="article.image.height"
+                  :tags="[
+                    {
+                      name: article.section.name,
+                      slug: article.section.slug,
+                    },
+                  ]"
+                >
+                  <p class="desc">
+                    {{ article.description }}
+                  </p>
+                  <div class="article-metadata">
+                    <span>
+                      <v-byline :authors="article.authors" />
+                    </span>
+                    <span>comments</span>
+                  </div>
+                </v-card>
+                <hr class="mb-5" />
+              </div>
+              <a
+                v-if="articlesToShow < articles.length"
+                class="cursor-pointer font-normal"
+                @click="articlesToShow += 6"
+              >
+                Load more
+              </a>
+            </div>
+            <div class="col-fixed mx-auto">
+              <img
+                class="mb-4 xl:mb-7"
+                src="https://fakeimg.pl/300x600/?text=AD Here"
+              />
+            </div>
+          </div>
+        </template>
+        <!-- newsletter -->
+        <div class="mt-8 mb-5">
+          <hr class="black mb-4" />
+          <newsletter-home @submit="newsletterSubmitEvent" />
+        </div>
       </div>
     </section>
-    <!-- <section>
-      <div class="content">
-        <hr class="black mb-4" />
-        <newsletter-home @submit="newsletterSubmitEvent" />
-      </div>
-    </section> -->
   </div>
 </template>
