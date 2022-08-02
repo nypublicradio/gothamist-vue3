@@ -115,7 +115,7 @@ onUnmounted(() => {
           </NuxtLink>
         </div>
       </div>
-      <div class="grid gutter-30">
+      <div class="grid gutter-x-30">
         <div class="col-12">
           <h1 v-if="gallery.title">{{ gallery.articleTitle }}</h1>
           <p class="gallery-photo-count mb-3">

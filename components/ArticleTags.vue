@@ -22,7 +22,7 @@ const emit = defineEmits(['tag-clicked'])
       <v-tag
         v-for="tag in props.tags"
         :name="tag.name"
-        :slug="`/news`"
+        :slug="`/tags/${tag.slug}`"
         :key="tag.name"
         @click="emit('tag-clicked', tag)"
       />
