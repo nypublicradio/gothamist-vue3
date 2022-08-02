@@ -10,6 +10,8 @@ const article = (await findPage(
   `${route.params.sectionSlug}/${route.params.articleSlug}`
 ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage
 
+console.log(ArticlePage)
+
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
@@ -79,20 +81,18 @@ function useInsertAd(targetElement) {
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-4 xxl:mb-6">
               <v-image-with-caption
-                :image="useImageUrl(article.image)"
-                :imageUrl="article.leadAsset.value.imageLink"
+                :image="useImageUrl(article.leadImage)"
+                :imageUrl="article.imageLink"
                 :width="728"
                 :height="485"
-                :alt-text="article.image.alt"
-                :maxWidth="article.image.width"
-                :maxHeight="article.image.height"
-                :credit="`Photo by ${article.image.credit}`"
-                :credit-url="article.image.creditLink"
+                :alt-text="article.leadImage.alt"
+                :maxWidth="article.leadImage.width"
+                :maxHeight="article.leadImage.height"
+                :credit="`Photo by ${article.leadImage.credit}`"
+                :credit-url="article.leadImage.creditLink"
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
-                :caption="
-                  article.leadAsset.value.caption || article.image.caption
-                "
+                :caption="article.leadImageCaption"
               />
             </div>
             <div class="block xxl:hidden">

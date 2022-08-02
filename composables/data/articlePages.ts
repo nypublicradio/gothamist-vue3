@@ -52,6 +52,8 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         title: article.title,
         description: article.description,
         image: article.leadAsset?.[0].value.image ?? article.leadAsset?.[0].value.defaultImage,
+        leadImageCaption: article.leadAsset?.[0].value.caption ?? article.leadAsset?.[0].value.image.caption,
+        imageLink: article.leadAsset?.[0].value.imageLink,
         link: getArticleLink(article),
 
         leadAsset: article.leadAsset?.[0],
