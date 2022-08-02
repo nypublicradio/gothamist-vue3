@@ -106,7 +106,10 @@ function useInsertAd(targetElement) {
           </div>
           <div class="col-fixed hidden lg:block">
             <!-- <div class="htlad-index_rectangle_1" /> -->
-            <img src="https://fakeimg.pl/300x250/?text=AD Here" />
+            <img
+              src="https://fakeimg.pl/300x250/?text=AD Here"
+              style="width: 100%; max-width: 300px"
+            />
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
         </div>
@@ -152,7 +155,8 @@ $article-fixed-width: 316px;
     background: transparent;
   }
   .col-fixed {
-    width: $article-fixed-width;
+    width: 100%;
+    max-width: $article-fixed-width;
   }
 }
 </style>
