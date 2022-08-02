@@ -29,4 +29,3 @@ export function normalizePage(page: Record<string, any>): Page {
         uuid: page.uuid
     }
 }
-
