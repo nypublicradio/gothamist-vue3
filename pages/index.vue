@@ -45,10 +45,17 @@ onMounted(() => {
                 :sizes="[1]"
                 :width="871"
                 :height="581"
+<<<<<<< HEAD
                 :title="featuredArticle.title"
                 :titleLink="featuredArticle.link"
                 :maxWidth="featuredArticle.image.width"
                 :maxHeight="featuredArticle.image.height"
+=======
+                :title="featuredArticles[0].title"
+                :titleLink="featuredArticles[0].link"
+                :maxWidth="featuredArticles[0].listingImage.width"
+                :maxHeight="featuredArticles[0].listingImage.height"
+>>>>>>> b11473c (use the listing image on listing pages)
                 :tags="[
                   {
                     name: featuredArticle.section.name,
@@ -79,8 +86,8 @@ onMounted(() => {
                   :sizes="[1]"
                   :title="article.title"
                   :titleLink="article.link"
-                  :maxWidth="article.image.width"
-                  :maxHeight="article.image.height"
+                  :maxWidth="article.listingImage.width"
+                  :maxHeight="article.listingImage.height"
                 >
                   <div class="article-metadata">
                     <span>
@@ -110,8 +117,8 @@ onMounted(() => {
               :sizes="[1]"
               :title="article.title"
               :titleLink="article.link"
-              :maxWidth="article.image.width"
-              :maxHeight="article.image.height"
+              :maxWidth="article.listingImage.width"
+              :maxHeight="article.listingImage.height"
               :tags="[
                 {
                   name: article.section.name,
