@@ -48,7 +48,7 @@ const emit = defineEmits(['donate-click'])
   margin-bottom: 2.5rem;
   p {
     color: var(--black100);
-    line-height: 18.2px;
+    margin-top: 2px;
   }
 }
 </style>
