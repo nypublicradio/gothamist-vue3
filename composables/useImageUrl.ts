@@ -9,6 +9,9 @@ import Image from './types/Image'
 //useImageUrl({ id: imageId })
 export default function useImageUrl(image: Image, options?: { width: number, height: number, quality: number }): string {
     const config = useRuntimeConfig()
+    if (!image) {
+        return ""
+    }
     const imageUrlTemplate = `${config.IMAGE_BASE_URL}${image.id}/fill-%width%x%height%|format-jpeg|jpegquality-%quality%`
     return imageUrlTemplate
         .replace('%width%', options?.width && String(options.width) || '%width%')

@@ -8,6 +8,10 @@ export async function findPage(htmlPath: string) {
     return await useAviary('/pages/find', {params})
 }
 
+export async function usePageById(pageId: number) {
+    return await useAviary(`/pages/${pageId}`)
+}
+
 export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page | ArticlePage | TagPage {
     const pageType = pageResponse.value?.meta?.type
     switch (pageType) {
