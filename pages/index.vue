@@ -20,7 +20,7 @@ const articles = await findArticlePages('').then(({ data }) =>
 const articlesToShow = ref(6)
 
 const homePageCollections = []
-await findPage('/').then(({ data }) =>
+const homePageCollectionItems = await findPage('/').then(({ data }) =>
   data.value.pageCollectionRelationship.forEach((collection) => {
     homePageCollections.push({
       id: collection.id,
@@ -60,8 +60,8 @@ onMounted(() => {
                 :height="598"
                 :title="featuredArticle.title"
                 :titleLink="featuredArticle.link"
-                :maxWidth="featuredArticle.image.width"
-                :maxHeight="featuredArticle.image.height"
+                :maxWidth="featuredArticle.listingImage.width"
+                :maxHeight="featuredArticle.listingImage.height"
                 :tags="[
                   {
                     name: featuredArticle.section.name,
@@ -99,8 +99,8 @@ onMounted(() => {
                   :sizes="[1]"
                   :title="article.title"
                   :titleLink="article.link"
-                  :maxWidth="article.image.width"
-                  :maxHeight="article.image.height"
+                  :maxWidth="article.listingImage.width"
+                  :maxHeight="article.listingImage.height"
                 >
                   <div class="article-metadata">
                     <span>
@@ -113,6 +113,7 @@ onMounted(() => {
               <img
                 class="mb-1"
                 src="https://fakeimg.pl/450x250/?text=AD Here"
+                style="max-width: 100%"
               />
               <p class="text-sm text-gray-400">
                 Powered by members and sponsors
@@ -134,8 +135,8 @@ onMounted(() => {
               :sizes="[1]"
               :title="collection.data.title"
               :titleLink="collection.data.link"
-              :maxWidth="collection.data.image.width"
-              :maxHeight="collection.data.image.height"
+              :maxWidth="collection.data.listingImage.width"
+              :maxHeight="collection.data.listingImage.height"
               :tags="[
                 {
                   name: collection.data.section.name,
@@ -205,6 +206,7 @@ onMounted(() => {
               <img
                 class="mb-4 xl:mb-7"
                 src="https://fakeimg.pl/300x600/?text=AD Here"
+                style="max-width: 100%"
               />
             </div>
           </div>

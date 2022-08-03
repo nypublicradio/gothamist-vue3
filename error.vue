@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { stringLiteral } from '@babel/types';
+
   defineProps<{
-    error: string
+    error: {
+      url: string,
+      statusCode: string,
+      statusMessage: string,
+      message: string,
+      description: string,
+      data: string,
+    }
   }>()
 
   onMounted(() => {
@@ -11,17 +20,22 @@
 <template>
     <Html>
       <Head>
-        <Title>{{ error }} Error | Gothamist</Title>
+        <Title>{{ error.statusCode }} Error | Gothamist</Title>
         <Meta
           name="og:title"
-          :content="`${error} Error | Gothamist`"
+          :content="`${error.statusCode} Error | Gothamist`"
         />
         <Meta
           name="twitter:title"
-          :content="`${error} Error | Gothamist`"
+          :content="`${error.statusCode} Error | Gothamist`"
         />
       </Head>
       <div class="error-page">
+        <h1>{{error.statusCode}} Error - {{error.statusMessage}}</h1>
+        <div v-if="$config.DEBUG === 'true'">
+          <pre class="font-bold">{{error.message}}</pre>
+          <div v-html="error.description"></div>
+        </div>
       </div>
     </Html>
 </template>
