@@ -43,7 +43,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
           <img v-else src="/avatar.svg" alt="Sponsor's image" />
         </v-flexible-link>
       </div>
-      <div>
+      <div class="flex flex-column gap-125">
         <p class="type-caption">Article sponsored by</p>
         <v-flexible-link :to="sponsor.link" class="author-name">
           {{ sponsor.name }}
@@ -84,7 +84,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
           </v-flexible-link>
         </div>
       </div>
-      <div>
+      <div class="flex flex-column gap-125">
         <div class="type-link">
           By
           <span v-for="(author, index) of authors" :key="author.name">
