@@ -20,7 +20,7 @@ const articles = await findArticlePages('').then(({ data }) =>
 const articlesToShow = ref(6)
 
 const homePageCollections = []
-const homePageCollectionItems = await findPage('/').then(({ data }) =>
+await findPage('/').then(({ data }) =>
   data.value.pageCollectionRelationship.forEach((collection) => {
     homePageCollections.push({
       id: collection.id,
