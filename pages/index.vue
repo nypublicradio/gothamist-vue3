@@ -2,11 +2,12 @@
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import useImageUrl from '~~/composables/useImageUrl'
+import { ArticlePage } from '~~/composables/types/Page'
 
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = await findPage('/').then(({ data }) =>
-  normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
-)
+  normalizeFindPageResponse(data.value.pageCollectionRelationship?.[0].pages?.[0])
+) as ArticlePage
 
 const latestArticles = await findArticlePages({
   show_as_feature: true,
@@ -45,17 +46,10 @@ onMounted(() => {
                 :sizes="[1]"
                 :width="871"
                 :height="581"
-<<<<<<< HEAD
                 :title="featuredArticle.title"
                 :titleLink="featuredArticle.link"
-                :maxWidth="featuredArticle.image.width"
-                :maxHeight="featuredArticle.image.height"
-=======
-                :title="featuredArticles[0].title"
-                :titleLink="featuredArticles[0].link"
-                :maxWidth="featuredArticles[0].listingImage.width"
-                :maxHeight="featuredArticles[0].listingImage.height"
->>>>>>> b11473c (use the listing image on listing pages)
+                :maxWidth="featuredArticle.listingImage.width"
+                :maxHeight="featuredArticle.listingImage.height"
                 :tags="[
                   {
                     name: featuredArticle.section.name,
