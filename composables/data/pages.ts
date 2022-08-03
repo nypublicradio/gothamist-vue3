@@ -8,6 +8,7 @@ export async function findPage(htmlPath: string) {
     return await useAviary('/pages/find', {params})
 }
 
+// Get a page by it's cms id
 export async function usePageById(pageId: number) {
     return await useAviary(`/pages/${pageId}`)
 }
