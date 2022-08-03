@@ -1,5 +1,6 @@
 export { normalizeArticlePage } from './articlePages'
 export { findPage } from './pages'
+export { usePageById } from './pages'
 export { normalizeFindPageResponse } from './pages'
 export { findArticlePages } from './articlePages'
 export { normalizeFindArticlePagesResponse} from './articlePages'
