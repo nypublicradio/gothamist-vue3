@@ -2,12 +2,11 @@
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import useImageUrl from '~~/composables/useImageUrl'
-import { ArticlePage } from '~~/composables/types/Page'
 
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = await findPage('/').then(({ data }) =>
-  normalizeFindPageResponse(data.value.pageCollectionRelationship?.[0].pages?.[0])
-) as ArticlePage
+    normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
+)
 
 const latestArticles = await findArticlePages({
   show_as_feature: true,
