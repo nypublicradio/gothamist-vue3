@@ -18,6 +18,19 @@ hr {
   }
 }
 
+.button-pill-icon {
+  .pi {
+    &:before {
+      border: 1px solid var(--black);
+      border-radius: 10px;
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: bold;
+      display: flex;
+    }
+  }
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -175,9 +188,3 @@ ol ol li {
 }
 
 // to go is DS extentions
-
-// v-card image hack to figure out
-.v-card.mod-vertical .card-image-wrapper {
-  width: inherit;
-  width: -webkit-fill-available;
-}
