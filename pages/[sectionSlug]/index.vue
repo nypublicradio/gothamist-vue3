@@ -30,8 +30,8 @@ onMounted(() => {
         :ratio="[3, 2]"
         :width="318"
         :height="214"
-        :maxWidth="article.image.width"
-        :maxHeight="article.image.height"
+        :maxWidth="article.listingImage.width"
+        :maxHeight="article.listingImage.height"
         :tags="[
           {
             name: article.section.name,

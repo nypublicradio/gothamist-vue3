@@ -5,7 +5,7 @@ import useImageUrl from '~~/composables/useImageUrl'
 
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = await findPage('/').then(({ data }) =>
-  normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
+    normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
 )
 
 const latestArticles = await findArticlePages({
@@ -47,8 +47,8 @@ onMounted(() => {
                 :height="581"
                 :title="featuredArticle.title"
                 :titleLink="featuredArticle.link"
-                :maxWidth="featuredArticle.image.width"
-                :maxHeight="featuredArticle.image.height"
+                :maxWidth="featuredArticle.listingImage.width"
+                :maxHeight="featuredArticle.listingImage.height"
                 :tags="[
                   {
                     name: featuredArticle.section.name,
@@ -79,8 +79,8 @@ onMounted(() => {
                   :sizes="[1]"
                   :title="article.title"
                   :titleLink="article.link"
-                  :maxWidth="article.image.width"
-                  :maxHeight="article.image.height"
+                  :maxWidth="article.listingImage.width"
+                  :maxHeight="article.listingImage.height"
                 >
                   <div class="article-metadata">
                     <span>
@@ -110,8 +110,8 @@ onMounted(() => {
               :sizes="[1]"
               :title="article.title"
               :titleLink="article.link"
-              :maxWidth="article.image.width"
-              :maxHeight="article.image.height"
+              :maxWidth="article.listingImage.width"
+              :maxHeight="article.listingImage.height"
               :tags="[
                 {
                   name: article.section.name,
