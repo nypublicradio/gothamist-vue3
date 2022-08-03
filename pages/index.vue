@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
+import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
 // the home page featured article should display only the first story in the home page content collection
@@ -49,14 +50,14 @@ onMounted(() => {
     <section>
       <div class="content">
         <template v-if="featuredArticle && latestArticles">
-          <div class="grid mb-6">
+          <div class="grid mb-6 gutter-x-30">
             <div class="col-12 xl:col-8">
               <v-card
-                class="mod-vertical mod-featured mod-large"
+                class="featured-article mod-vertical mod-featured mod-large"
                 :image="useImageUrl(featuredArticle.listingImage)"
                 :sizes="[1]"
-                :width="871"
-                :height="581"
+                :width="897"
+                :height="598"
                 :title="featuredArticle.title"
                 :titleLink="featuredArticle.link"
                 :maxWidth="featuredArticle.image.width"
@@ -80,8 +81,15 @@ onMounted(() => {
               </v-card>
             </div>
             <div class="col-12 xl:col-4">
-              <hr class="black mb-3" />
-              <div class="mb-3">LATEST</div>
+              <hr class="black mb-1" />
+              <v-flexible-link class="mb-3 -ml-3" to="#latest" raw>
+                <Button
+                  class="p-button-text p-button-rounded button-pill-icon"
+                  icon="pi pi-arrow-right ml-2"
+                  iconPos="right"
+                  label="LATEST"
+                />
+              </v-flexible-link>
               <div v-for="article in latestArticles" :key="article.uuid">
                 <v-card
                   class="mod-horizontal mod-left mod-small mb-3 tag-small"
@@ -149,8 +157,8 @@ onMounted(() => {
         </template>
         <!-- river -->
         <template v-if="articles">
-          <div class="grid gutter-x-xl">
-            <div class="col-1">LATEST</div>
+          <div id="latest" class="grid gutter-x-xl">
+            <div class="col-1 type-label3">LATEST</div>
             <div class="col">
               <div
                 v-for="article in articles.slice(0, articlesToShow)"
@@ -185,13 +193,13 @@ onMounted(() => {
                 </v-card>
                 <hr class="mb-5" />
               </div>
-              <a
+              <Button
                 v-if="articlesToShow < articles.length"
-                class="cursor-pointer font-normal"
+                class="p-button-rounded"
+                label="Load More"
                 @click="articlesToShow += 6"
               >
-                Load more
-              </a>
+              </Button>
             </div>
             <div class="col-fixed mx-auto">
               <img
@@ -210,3 +218,16 @@ onMounted(() => {
     </section>
   </div>
 </template>
+
+<style lang="scss">
+.v-card.featured-article {
+  .card-details {
+    padding: 0.75rem 0;
+  }
+  .card-image-wrapper {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
+</style>
