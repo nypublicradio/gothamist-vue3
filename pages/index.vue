@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
+import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = await findPage('/').then(({ data }) =>
-    normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
+  normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
 )
 
 const latestArticles = await findArticlePages({
@@ -15,6 +16,18 @@ const latestArticles = await findArticlePages({
 
 const articles = await findArticlePages('').then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
+)
+const articlesToShow = ref(6)
+
+const homePageCollections = []
+const homePageCollectionItems = await findPage('/').then(({ data }) =>
+  data.value.pageCollectionRelationship.forEach((collection) => {
+    homePageCollections.push({
+      id: collection.id,
+      layout: collection.layout,
+      data: normalizeArticlePage(collection.pages[0]),
+    })
+  })
 )
 
 const newsletterSubmitEvent = (e) => {
@@ -37,14 +50,14 @@ onMounted(() => {
     <section>
       <div class="content">
         <template v-if="featuredArticle && latestArticles">
-          <div class="grid mb-6">
+          <div class="grid mb-6 gutter-x-30">
             <div class="col-12 xl:col-8">
               <v-card
-                class="mod-vertical mod-featured mod-large"
+                class="featured-article mod-vertical mod-featured mod-large"
                 :image="useImageUrl(featuredArticle.listingImage)"
                 :sizes="[1]"
-                :width="871"
-                :height="581"
+                :width="897"
+                :height="598"
                 :title="featuredArticle.title"
                 :titleLink="featuredArticle.link"
                 :maxWidth="featuredArticle.listingImage.width"
@@ -68,8 +81,15 @@ onMounted(() => {
               </v-card>
             </div>
             <div class="col-12 xl:col-4">
-              <hr class="black mb-3" />
-              <div class="mb-3">LATEST</div>
+              <hr class="black mb-1" />
+              <v-flexible-link class="mb-3 -ml-3" to="#latest" raw>
+                <Button
+                  class="p-button-text p-button-rounded button-pill-icon"
+                  icon="pi pi-arrow-right ml-2"
+                  iconPos="right"
+                  label="LATEST"
+                />
+              </v-flexible-link>
               <div v-for="article in latestArticles" :key="article.uuid">
                 <v-card
                   class="mod-horizontal mod-left mod-small mb-3 tag-small"
@@ -89,56 +109,127 @@ onMounted(() => {
                     <span>comments</span>
                   </div>
                 </v-card>
-                <hr class="mb-3" />
               </div>
-              <p>ad goes here</p>
+              <img
+                class="mb-1"
+                src="https://fakeimg.pl/450x250/?text=AD Here"
+                style="max-width: 100%"
+              />
+              <p class="text-sm text-gray-400">
+                Powered by members and sponsors
+              </p>
             </div>
           </div>
         </template>
-        <div class="mt-4 mb-5">
-          <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
-          <hr class="black my-4" />
-        </div>
-        <template v-if="articles">
-          <div v-for="article in articles" :key="article.uuid">
+        <!-- home page collections - only implementing the single story feature layout for now -->
+        <template v-if="homePageCollections && homePageCollections.length > 0">
+          <div v-for="collection in homePageCollections" :key="collection.id">
             <v-card
-              class="mod-horizontal mb-3 lg:mb-5 tag-small"
-              :image="useImageUrl(article.listingImage)"
-              :width="318"
-              :height="212"
+              v-if="collection.layout === 'single-story-feature'"
+              class="mod-large mb-3 lg:mb-6 tag-small"
+              data-style-mode="dark"
+              :image="useImageUrl(collection.data.listingImage)"
+              :ratio="[3, 2]"
+              :width="1053"
+              :height="708"
               :sizes="[1]"
-              :title="article.title"
-              :titleLink="article.link"
-              :maxWidth="article.listingImage.width"
-              :maxHeight="article.listingImage.height"
+              :title="collection.data.title"
+              :titleLink="collection.data.link"
+              :maxWidth="collection.data.listingImage.width"
+              :maxHeight="collection.data.listingImage.height"
               :tags="[
                 {
-                  name: article.section.name,
-                  slug: article.section.slug,
+                  name: collection.data.section.name,
+                  slug: collection.data.section.slug,
                 },
               ]"
             >
               <p class="desc">
-                {{ article.description }}
+                {{ collection.data.description }}
               </p>
               <div class="article-metadata">
                 <span>
-                  <v-byline :authors="article.authors" />
+                  <v-byline :authors="collection.data.authors" />
                 </span>
                 <span>comments</span>
               </div>
             </v-card>
-            <hr class="mb-5" />
           </div>
         </template>
+        <!-- river -->
+        <template v-if="articles">
+          <div id="latest" class="grid gutter-x-xl">
+            <div class="col-1 type-label3">LATEST</div>
+            <div class="col">
+              <div
+                v-for="article in articles.slice(0, articlesToShow)"
+                :key="article.uuid"
+              >
+                <v-card
+                  class="mod-horizontal mb-3 lg:mb-5 tag-small"
+                  :image="useImageUrl(article.listingImage)"
+                  :width="318"
+                  :height="212"
+                  :sizes="[1]"
+                  :title="article.title"
+                  :titleLink="article.link"
+                  :maxWidth="article.image.width"
+                  :maxHeight="article.image.height"
+                  :tags="[
+                    {
+                      name: article.section.name,
+                      slug: article.section.slug,
+                    },
+                  ]"
+                >
+                  <p class="desc">
+                    {{ article.description }}
+                  </p>
+                  <div class="article-metadata">
+                    <span>
+                      <v-byline :authors="article.authors" />
+                    </span>
+                    <span>comments</span>
+                  </div>
+                </v-card>
+                <hr class="mb-5" />
+              </div>
+              <Button
+                v-if="articlesToShow < articles.length"
+                class="p-button-rounded"
+                label="Load More"
+                @click="articlesToShow += 6"
+              >
+              </Button>
+            </div>
+            <div class="col-fixed mx-auto">
+              <img
+                class="mb-4 xl:mb-7"
+                src="https://fakeimg.pl/300x600/?text=AD Here"
+                style="max-width: 100%"
+              />
+            </div>
+          </div>
+        </template>
+        <!-- newsletter -->
+        <div class="mt-8 mb-5">
+          <hr class="black mb-4" />
+          <newsletter-home @submit="newsletterSubmitEvent" />
+        </div>
       </div>
     </section>
-    <!-- <section>
-      <div class="content">
-        <hr class="black mb-4" />
-        <newsletter-home @submit="newsletterSubmitEvent" />
-      </div>
-    </section> -->
   </div>
 </template>
+
+<style lang="scss">
+.v-card.featured-article {
+  .card-details {
+    padding: 0.75rem 0;
+  }
+  .card-image-wrapper {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
+</style>
