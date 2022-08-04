@@ -113,6 +113,7 @@ jobs:
               --environment=$ENV \
               --tag=$TAG \
               --wait=300
+              --enable-execute-command
 
 commands:
   setup_npmrc:
