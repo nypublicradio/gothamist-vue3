@@ -3,7 +3,7 @@ import { onMounted } from 'vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
-import { normalizeGalleryPage } from '~~/composables/data/galleryPages';
+import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 
 const route = useRoute()
 const { $analytics, $htlbid } = useNuxtApp()
@@ -11,10 +11,11 @@ const article = (await findPage(
   `${route.params.sectionSlug}/${route.params.articleSlug}`
 ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage
 
-let gallery;
+let gallery
 if (article.leadGallery) {
-    gallery = (await usePageById(article.leadGallery.gallery)
-      .then(({data}) => normalizeGalleryPage(data.value))) as GalleryPage
+  gallery = (await usePageById(article.leadGallery.gallery).then(({ data }) =>
+    normalizeGalleryPage(data.value)
+  )) as GalleryPage
 }
 
 const topImage = article.leadImage || gallery.slides[0].image
@@ -60,6 +61,15 @@ function useInsertAd(targetElement) {
     useInsertAfterElement(adDiv, targetElement)
   }
 }
+
+const newsletterSubmitEvent = (e) => {
+  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
+  // sendEvent('click_tracking', {
+  //   event_category: 'Click Tracking',
+  //   component: 'Footer',
+  //   event_label: 'Become a member',
+  // })
+}
 </script>
 
 <template>
@@ -77,14 +87,23 @@ function useInsertAd(targetElement) {
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
-            <v-tag :name="article.section.name" :slug="`/${article.section.slug}`" />
+            <v-tag
+              :name="article.section.name"
+              :slug="`/${article.section.slug}`"
+            />
             <h2 class="mt-4 mb-3">{{ article.title }}</h2>
           </div>
           <div class="col-fixed hidden lg:block"></div>
         </div>
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block">
-            <byline :article="article" />
+            <byline class="mb-3" :article="article" />
+            <div>
+              <div id="pinned-newsletter">
+                <hr class="black mb-4" />
+                <newsletter-article @submit="newsletterSubmitEvent" />
+              </div>
+            </div>
           </div>
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-4 xxl:mb-6">

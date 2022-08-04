@@ -136,7 +136,12 @@ const submitForm = () => {
           >
         </Transition>
         <div class="field-checkbox mt-3 mb-0">
-          <Checkbox v-model="checked" :binary="true" @click="!checked" />
+          <Checkbox
+            v-model="checked"
+            :disabled="props.isSubmitting"
+            :binary="true"
+            @click="!checked"
+          />
           <label for="binary"><slot /></label>
         </div>
       </div>
