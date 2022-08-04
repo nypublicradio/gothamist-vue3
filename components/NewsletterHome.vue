@@ -22,6 +22,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  showX: {
+    type: Boolean,
+    default: false,
+  },
   submitButtonText: {
     type: String,
     default: 'Sign up',
@@ -79,7 +83,16 @@ const submitForm = (email) => {
     class="newsletter-home grid"
     :class="[{ small: props.small }]"
   >
-    <div class="col-12 lg:col-3 pr-3 pb-2">
+    <Button
+      v-if="props.showX"
+      class="closer-x p-button-rounded p-button-sm p-button-text"
+      icon="pi pi-times"
+      @click="hideComp"
+    />
+    <div
+      class="col-12 lg:col-3 pr-3 pb-2"
+      :class="props.showX ? 'pr-6' : 'pr-3'"
+    >
       <h4>{{ titleText }}</h4>
     </div>
     <div class="col-12 lg:col-7 xl:col-5 col-offset-0 xl:col-offset-1">
@@ -107,17 +120,25 @@ const submitForm = (email) => {
 </template>
 
 <style lang="scss">
-.newsletter-home.small {
-  h4 {
-    font-size: var(--font-size-7);
-    line-height: var(--font-size-7);
-    letter-spacing: -0.01em;
+.newsletter-home {
+  position: relative;
+  .closer-x {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
-  > div {
-    flex: 0 0 auto;
-    padding: 0.5rem;
-    width: 100%;
-    margin-left: 0 !important;
+  &.small {
+    h4 {
+      font-size: var(--font-size-7);
+      line-height: var(--font-size-7);
+      letter-spacing: -0.01em;
+    }
+    > div {
+      flex: 0 0 auto;
+      padding: 0.5rem;
+      width: 100%;
+      margin-left: 0 !important;
+    }
   }
 }
 </style>
