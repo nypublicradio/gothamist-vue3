@@ -36,6 +36,7 @@ onUnmounted(() => {
       <div class="content">
         <h1>{{ tagName }}</h1>
         <div
+          v-if="articles"
           v-for="article in articles.slice(0, articlesToShow)"
           :key="article.uuid"
         >
@@ -72,7 +73,7 @@ onUnmounted(() => {
           <hr class="mb-5" />
         </div>
         <Button
-          v-if="articlesToShow < articles.length"
+          v-if="articles && articlesToShow < articles.length"
           class="p-button-rounded"
           label="Load More"
           @click="articlesToShow += 6"

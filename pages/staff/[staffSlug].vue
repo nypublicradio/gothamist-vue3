@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { StaffPage } from '../../composables/types/Page'
+//import { StaffPage } from '../../composables/types/Page'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
 const staffSlug = route.params.staffSlug
-console.log('staffSlug = ', staffSlug)
-const curatedStaffPage = await findPage(`staff/${staffSlug}`).then(
-  ({ data }) => data?.value && (normalizeFindPageResponse(data) as StaffPage)
-)
+// const curatedStaffPage = await findPage(`staff/${staffSlug}`).then(
+//   ({ data }) => data?.value && (normalizeFindPageResponse(data) as StaffPage)
+// )
 
 const articlesToShow = ref(6)
 
@@ -52,12 +51,10 @@ onUnmounted(() => {
           :showCta="false"
         />
         <div
+          v-if="articles"
           v-for="article in articles.slice(0, articlesToShow)"
           :key="article.uuid"
         >
-          <div v-if="curatedStaffPage?.topPageZone">
-            <pre>{{ curatedStaffPage.topPageZone }}</pre>
-          </div>
           <v-card
             class="mod-horizontal mb-5"
             :image="useImageUrl(article.listingImage)"
@@ -88,7 +85,7 @@ onUnmounted(() => {
           <hr class="mb-5" />
         </div>
         <Button
-          v-if="articlesToShow < articles.length"
+          v-if="articles && articlesToShow < articles.length"
           class="p-button-rounded"
           label="Load More"
           @click="articlesToShow += 6"
