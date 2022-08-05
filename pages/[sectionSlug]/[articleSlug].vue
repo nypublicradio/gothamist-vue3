@@ -122,8 +122,13 @@ const newsletterSubmitEvent = (e) => {
                 :caption="topCaption"
               />
             </div>
-            <div class="block xxl:hidden">
+            <div class="block xxl:hidden mb-5">
               <byline :article="article" />
+              <!-- <newsletter-home
+                @submit="newsletterSubmitEvent"
+                small
+                :showBlurb="false"
+              /> -->
             </div>
             <article-donation-CTA />
             <v-streamfield

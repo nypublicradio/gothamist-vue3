@@ -70,15 +70,35 @@ onBeforeUnmount(() => {
 <style lang="scss">
 #scrollTopBtn {
   position: fixed;
-  width: 70px;
-  height: 70px;
+  width: 68px;
+  height: 68px;
+  @include media('<lg') {
+    width: 45px;
+    height: 45px;
+  }
   bottom: 20px;
   right: 20px;
-  top: unset !important;
+
   .p-scrolltop {
     position: relative;
     bottom: 0;
     right: 0;
+    box-shadow: none;
+    width: 68px;
+    height: 68px;
+    @include media('<lg') {
+      width: 45px;
+      height: 45px;
+    }
+    &.p-link {
+      background: var(--black);
+    }
+    .p-scrolltop-icon {
+      font-size: 1.3rem;
+      @include media('<lg') {
+        font-size: 1rem;
+      }
+    }
     animation: pScrolltopFadeInAnimation ease 1s;
     @keyframes pScrolltopFadeInAnimation {
       0% {
