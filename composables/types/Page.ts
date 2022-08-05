@@ -36,7 +36,8 @@ export interface ArticlePage extends Page {
     section: Tag;
     body?: StreamfieldBlock[];
 
-    authors: Author[],
+    authors?: Author[],
+    relatedAuthors?: Author[],
     contributingOrganizations: ContributingOrganization[],
     sponsors: Sponsor[],
 

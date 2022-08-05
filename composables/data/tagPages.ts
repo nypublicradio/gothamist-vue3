@@ -9,7 +9,7 @@ export function normalizeTagPage(page: Record<string, any>): TagPage {
         id: page.id,
         title: page.title,
         uuid: page.uuid,
-        headerImage: page.designedHeader[0]?.value,
+        headerImage: page.designedHeader[0]?.value.image,
         topPageZone: page.topPageZone,
         midPageZone: page.midpageZone
     }
