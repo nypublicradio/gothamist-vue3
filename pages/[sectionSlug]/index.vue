@@ -35,7 +35,7 @@ onMounted(() => {
         :tags="[
           {
             name: article.section.name,
-            slug: article.section.slug,
+            slug: `/tags/${article.section.slug}`,
           },
         ]"
       >

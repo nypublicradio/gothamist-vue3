@@ -1,32 +1,44 @@
 <script setup lang="ts">
-import { TagPage } from '../../composables/types/Page'
+import { ref } from 'vue'
+import { StaffPage } from '../../composables/types/Page'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
-const tagSlug = route.params.tagSlug
-const curatedTagPage = await findPage(`tags/${tagSlug}`).then(
-  ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
+const staffSlug = route.params.staffSlug
+console.log('staffSlug = ', staffSlug)
+const curatedStaffPage = await findPage(`staff/${staffSlug}`).then(
+  ({ data }) => data?.value && (normalizeFindPageResponse(data) as StaffPage)
 )
+
 const articlesToShow = ref(6)
 
 const articles = await findArticlePages({
-  tag_slug: tagSlug,
-  //limit: 12,
+  author_slug: staffSlug,
+  //  limit: 12,
   offset: 0,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
-const tagName =
-  articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
+const getAuthorName = () => {
+  var splitStr = staffSlug.toLowerCase().split('-')
+  for (var i = 0; i < splitStr.length; i++) {
+    splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
+  }
+  return splitStr.join(' ')
+}
+
+const authorProfileData = articles[0]?.authors.find(
+  (author) => author.name === getAuthorName()
+)
 
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'tag_page' })
-  $htlbid.setTargeting({ Template: 'Tag' })
+  $analytics.sendPageView({ page_type: 'staff_page' })
+  $htlbid.setTargeting({ Template: 'Staff' })
 })
 
 onUnmounted(() => {
-  $htlbid.clearTargeting({ Template: 'Tag' })
+  $htlbid.clearTargeting({ Template: 'Staff' })
 })
 </script>
 
@@ -34,13 +46,17 @@ onUnmounted(() => {
   <div>
     <section>
       <div class="content">
-        <h1>{{ tagName }}</h1>
+        <article-footer-profile
+          :profileData="authorProfileData"
+          class="mb-4 md:mb-6"
+          :showCta="false"
+        />
         <div
           v-for="article in articles.slice(0, articlesToShow)"
           :key="article.uuid"
         >
-          <div v-if="curatedTagPage?.topPageZone">
-            <pre>{{ curatedTagPage.topPageZone }}</pre>
+          <div v-if="curatedStaffPage?.topPageZone">
+            <pre>{{ curatedStaffPage.topPageZone }}</pre>
           </div>
           <v-card
             class="mod-horizontal mb-5"
@@ -55,7 +71,7 @@ onUnmounted(() => {
             :tags="[
               {
                 name: article.section.name,
-                slug: article.section.slug,
+                slug: `/tags/${article.section.slug}`,
               },
             ]"
           >

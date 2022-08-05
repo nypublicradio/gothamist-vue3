@@ -17,6 +17,7 @@ const latestArticles = await findArticlePages({
 const articles = await findArticlePages('').then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
+
 const articlesToShow = ref(6)
 
 const homePageCollections = []
@@ -65,7 +66,7 @@ onMounted(() => {
                 :tags="[
                   {
                     name: featuredArticle.section.name,
-                    slug: featuredArticle.section.slug,
+                    slug: `/tags/${featuredArticle.section.slug}`,
                   },
                 ]"
               >
@@ -159,7 +160,7 @@ onMounted(() => {
         <!-- river -->
         <template v-if="articles">
           <div id="latest" class="grid gutter-x-xl">
-            <div class="col-1 type-label3">LATEST</div>
+            <div class="col-12 xxl:col-1 type-label3">LATEST</div>
             <div class="col">
               <div
                 v-for="article in articles.slice(0, articlesToShow)"
@@ -178,7 +179,7 @@ onMounted(() => {
                   :tags="[
                     {
                       name: article.section.name,
-                      slug: article.section.slug,
+                      slug: `/tags/${article.section.slug}`,
                     },
                   ]"
                 >
@@ -202,7 +203,7 @@ onMounted(() => {
               >
               </Button>
             </div>
-            <div class="col-fixed mx-auto">
+            <div class="col-fixed hidden xl:block mx-auto">
               <img
                 class="mb-4 xl:mb-7"
                 src="https://fakeimg.pl/300x600/?text=AD Here"

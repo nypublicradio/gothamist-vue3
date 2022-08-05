@@ -10,6 +10,10 @@ const props = defineProps({
     type: Object,
     default: {},
   },
+  showCta: {
+    type: Boolean,
+    default: true,
+  },
   sponsored: {
     type: Boolean,
     default: false,
@@ -50,7 +54,7 @@ const profileLink = ref(
       <p v-if="profile.biography" class="p2 truncate t3lines">
         {{ profile.biography }}
       </p>
-      <v-flexible-link :to="profileLink" class="type-textlink1">
+      <v-flexible-link v-if="showCta" :to="profileLink" class="type-textlink1">
         {{ ctaText }}
       </v-flexible-link>
     </div>
