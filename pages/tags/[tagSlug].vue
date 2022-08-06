@@ -40,8 +40,8 @@ const newsletterSubmitEvent = (e) => {
 
 <template>
   <div>
-    <section class="tag-page-header">
-      <h1 class="m-5 px-5">{{ curatedTagPage?.title || tagName }}</h1>
+    <section class="tag-page-header py-1">
+      <h1 class="m-5 tag-large">{{ curatedTagPage?.title || tagName }}</h1>
     </section>
     <section v-if="curatedTagPage?.headerImage" class="tag-page-header-image">
       <v-image-with-caption
@@ -137,15 +137,6 @@ const newsletterSubmitEvent = (e) => {
 <style lang="scss">
 .tag-page-header {
   background: var(--black);
-}
-
-.tag-page-header h1 {
-  text-transform: uppercase;
-  font-size: var(--font-size-17);
-  line-height: var(--font-size-17);
-  color: var(--soybean);
-  border: solid 1px var(--soybean);
-  border-radius: var(--tag-border-radius);
 }
 
 .tag-page-top-zone .streamfield {

@@ -123,6 +123,7 @@ onMounted(() => {
             </div>
           </div>
         </template>
+        <boroughs class="mb-6" />
         <!-- home page collections - only implementing the single story feature layout for now -->
         <template v-if="homePageCollections && homePageCollections.length > 0">
           <div v-for="collection in homePageCollections" :key="collection.id">
