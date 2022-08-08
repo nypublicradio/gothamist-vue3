@@ -18,6 +18,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  staffPage: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const profile = ref(props.profileData)
@@ -28,10 +32,20 @@ const profileImage = ref(
 const profileLink = ref(
   props.sponsored ? profile.value.link : profile.value.url
 )
+const profileImageSizeLg = ref(157)
+const profileImageSizeMd = ref(86)
+const profileImageSizeSm = ref(60)
+
+const imageSize = ref(
+  props.staffImage ? profileImageSizeLg.value : profileImageSizeMd.value
+)
 </script>
 
 <template>
-  <div class="article-footer-profile grid">
+  <div
+    class="article-footer-profile grid"
+    :class="[{ staffPage: props.staffPage }]"
+  >
     <div class="col md:pr-4 flex flex-column gap-2">
       <div
         class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"
@@ -64,8 +78,8 @@ const profileLink = ref(
           <v-simple-responsive-image
             v-if="profileImage"
             :src="useImageUrl({ id: profileImage })"
-            :width="86"
-            :height="86"
+            :width="imageSize"
+            :height="imageSize"
             :sizes="[1, 2]"
             :ratio="[1, 1]"
             alt="Author's image"
@@ -87,21 +101,32 @@ const profileLink = ref(
   }
   .author-image {
     background: #ffffff;
-    width: 86px;
-    height: 86px;
+    width: v-bind(profileImageSizeMd);
+    height: v-bind(profileImageSizeMd);
     border-radius: 50%;
     margin-right: 12px;
     overflow: hidden;
     img {
-      width: 86px;
-      height: 86px;
+      width: v-bind(profileImageSizeMd);
+      height: v-bind(profileImageSizeMd);
     }
     @include media('<md') {
-      width: 60px;
-      height: 60px;
+      width: v-bind(profileImageSizeSm);
+      height: v-bind(profileImageSizeSm);
       img {
-        width: 60px;
-        height: 60px;
+        width: v-bind(profileImageSizeSm);
+        height: v-bind(profileImageSizeSm);
+      }
+    }
+  }
+  &.staffPage {
+    flex-direction: row-reverse;
+    .author-image {
+      width: v-bind(profileImageSizeLg);
+      height: v-bind(profileImageSizeLg);
+      img {
+        width: v-bind(profileImageSizeLg);
+        height: v-bind(profileImageSizeLg);
       }
     }
   }

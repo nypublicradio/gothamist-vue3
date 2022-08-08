@@ -45,44 +45,65 @@ onUnmounted(() => {
   <div>
     <section>
       <div class="content">
-        <article-footer-profile
-          :profileData="authorProfileData"
-          class="mb-4 md:mb-6"
-          :showCta="false"
-        />
-        <div
-          v-if="articles"
-          v-for="article in articles.slice(0, articlesToShow)"
-          :key="article.uuid"
-        >
-          <v-card
-            class="mod-horizontal mb-5"
-            :image="useImageUrl(article.listingImage)"
-            :title="article.title"
-            :titleLink="article.link"
-            :ratio="[3, 2]"
-            :width="318"
-            :height="214"
-            :maxWidth="article.listingImage.width"
-            :maxHeight="article.listingImage.height"
-            :tags="[
-              {
-                name: article.section.name,
-                slug: `/tags/${article.section.slug}`,
-              },
-            ]"
-          >
-            <p>
-              {{ article.description }}
-            </p>
-            <div class="article-metadata">
-              <span>
-                <v-byline :authors="article.authors" />
-              </span>
-              <span>comments go here</span>
+        <div class="grid gutter-x-30">
+          <div class="col-12">
+            <h2>Articles by</h2>
+            <hr class="black mt-3 md:mt-6 mb-2" />
+          </div>
+          <div class="col">
+            <article-footer-profile
+              :profileData="authorProfileData"
+              class="mb-4 md:mb-6"
+              :showCta="false"
+              staffPage
+            />
+          </div>
+          <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
+        </div>
+        <div class="grid gutter-x-30">
+          <div class="col">
+            <div
+              v-if="articles"
+              v-for="article in articles.slice(0, articlesToShow)"
+              :key="article.uuid"
+            >
+              <v-card
+                class="mod-horizontal mb-5"
+                :image="useImageUrl(article.listingImage)"
+                :title="article.title"
+                :titleLink="article.link"
+                :ratio="[3, 2]"
+                :width="318"
+                :height="214"
+                :maxWidth="article.listingImage.width"
+                :maxHeight="article.listingImage.height"
+                :tags="[
+                  {
+                    name: article.section.name,
+                    slug: `/tags/${article.section.slug}`,
+                  },
+                ]"
+              >
+                <p>
+                  {{ article.description }}
+                </p>
+                <div class="article-metadata">
+                  <span>
+                    <v-byline :authors="article.authors" />
+                  </span>
+                  <span>comments go here</span>
+                </div>
+              </v-card>
+              <hr class="mb-5" />
             </div>
-          </v-card>
-          <hr class="mb-5" />
+          </div>
+          <div class="col-fixed col-fixed-width-330 hidden xl:block">
+            <img
+              src="https://fakeimg.pl/300x250/?text=AD Here"
+              style="width: 100%; max-width: 300px"
+            />
+            <p class="type-fineprint">Powered by members and sponsors</p>
+          </div>
         </div>
         <Button
           v-if="articles && articlesToShow < articles.length"
