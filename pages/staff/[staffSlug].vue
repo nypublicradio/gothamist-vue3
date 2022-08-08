@@ -105,13 +105,6 @@ onUnmounted(() => {
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
         </div>
-        <Button
-          v-if="articles && articlesToShow < articles.length"
-          class="p-button-rounded"
-          label="Load More"
-          @click="articlesToShow += 6"
-        >
-        </Button>
       </div>
     </section>
   </div>
