@@ -180,6 +180,7 @@ onUnmounted(() => {
 
 .sectionSlug-photos-gallerySlug .gallery-photo-count {
   font-size: var(--font-size-4);
+  font-family: var(--font-family-header);
   color: var(--black-100);
 }
 
