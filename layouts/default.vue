@@ -92,8 +92,8 @@ watch(route, (value) => {
 <style lang="scss">
 body,
 html {
-  overflow-y: auto;
-  overflow-x: hidden;
+  //overflow-y: auto;
+  //overflow-x: hidden;
 }
 
 main {
