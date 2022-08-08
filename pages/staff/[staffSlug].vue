@@ -50,47 +50,48 @@ onUnmounted(() => {
           class="mb-4 md:mb-6"
           :showCta="false"
         />
-        <div
-          v-if="articles"
-          v-for="article in articles.slice(0, articlesToShow)"
-          :key="article.uuid"
-        >
-          <v-card
-            class="mod-horizontal mb-5"
-            :image="useImageUrl(article.listingImage)"
-            :title="article.title"
-            :titleLink="article.link"
-            :ratio="[3, 2]"
-            :width="318"
-            :height="214"
-            :maxWidth="article.listingImage.width"
-            :maxHeight="article.listingImage.height"
-            :tags="[
-              {
-                name: article.section.name,
-                slug: `/tags/${article.section.slug}`,
-              },
-            ]"
+        <div v-if="articles">
+          <div
+            v-for="article in articles.slice(0, articlesToShow)"
+            :key="article.uuid"
           >
-            <p>
-              {{ article.description }}
-            </p>
-            <div class="article-metadata">
-              <span>
-                <v-byline :authors="article.authors" />
-              </span>
-              <span>comments go here</span>
-            </div>
-          </v-card>
-          <hr class="mb-5" />
+            <v-card
+              class="mod-horizontal mb-5"
+              :image="useImageUrl(article.listingImage)"
+              :title="article.title"
+              :titleLink="article.link"
+              :ratio="[3, 2]"
+              :width="318"
+              :height="214"
+              :maxWidth="article.listingImage.width"
+              :maxHeight="article.listingImage.height"
+              :tags="[
+                {
+                  name: article.section.name,
+                  slug: `/tags/${article.section.slug}`,
+                },
+              ]"
+            >
+              <p>
+                {{ article.description }}
+              </p>
+              <div class="article-metadata">
+                <span>
+                  <v-byline :authors="article.authors" />
+                </span>
+                <span>comments go here</span>
+              </div>
+            </v-card>
+            <hr class="mb-5" />
+          </div>
+          <Button
+            v-if="articles && articlesToShow < articles.length"
+            class="p-button-rounded"
+            label="Load More"
+            @click="articlesToShow += 6"
+          >
+          </Button>
         </div>
-        <Button
-          v-if="articles && articlesToShow < articles.length"
-          class="p-button-rounded"
-          label="Load More"
-          @click="articlesToShow += 6"
-        >
-        </Button>
       </div>
     </section>
   </div>
