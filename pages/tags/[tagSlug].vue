@@ -2,6 +2,7 @@
 import { TagPage } from '../../composables/types/Page'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
+import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
@@ -16,6 +17,7 @@ const articles = await findArticlePages({
   //limit: 12,
   offset: 0,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
+const articlesToShow = ref(10)
 
 const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
@@ -28,6 +30,15 @@ onMounted(() => {
 onUnmounted(() => {
   $htlbid.clearTargeting({ Template: 'Tag' })
 })
+
+const newsletterSubmitEvent = (e) => {
+  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
+  // sendEvent('click_tracking', {
+  //   event_category: 'Click Tracking',
+  //   component: 'Footer',
+  //   event_label: 'Become a member',
+  // })
+}
 </script>
 
 <template>

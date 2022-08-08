@@ -59,6 +59,7 @@ onMounted(() => {
                 :sizes="[1]"
                 :width="897"
                 :height="598"
+                :quality="80"
                 :title="featuredArticle.title"
                 :titleLink="featuredArticle.link"
                 :maxWidth="featuredArticle.listingImage.width"
@@ -102,6 +103,7 @@ onMounted(() => {
                   :titleLink="article.link"
                   :maxWidth="article.listingImage.width"
                   :maxHeight="article.listingImage.height"
+                  :quality="80"
                 >
                   <div class="article-metadata">
                     <span>
@@ -122,6 +124,7 @@ onMounted(() => {
             </div>
           </div>
         </template>
+        <boroughs class="mb-6" />
         <!-- home page collections - only implementing the single story feature layout for now -->
         <template v-if="homePageCollections && homePageCollections.length > 0">
           <div v-for="collection in homePageCollections" :key="collection.id">
@@ -134,6 +137,7 @@ onMounted(() => {
               :width="1053"
               :height="708"
               :sizes="[1]"
+              :quality="80"
               :title="collection.data.title"
               :titleLink="collection.data.link"
               :maxWidth="collection.data.listingImage.width"
@@ -172,6 +176,7 @@ onMounted(() => {
                   :width="318"
                   :height="212"
                   :sizes="[1]"
+                  :quality="80"
                   :title="article.title"
                   :titleLink="article.link"
                   :maxWidth="article.image.width"
