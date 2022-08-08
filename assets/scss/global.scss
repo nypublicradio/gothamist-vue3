@@ -178,3 +178,9 @@ ol ol li {
 }
 
 // to go is DS extentions
+
+// v-card image hack to figure out
+.v-card.mod-vertical .card-image-wrapper {
+  width: inherit;
+  width: -webkit-fill-available;
+}
