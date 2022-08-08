@@ -20,7 +20,7 @@ export function normalizeFindPageResponse(pageResponse: Record<string, any>): Pa
             return normalizeArticlePage(pageResponse.value)
         case 'gallery.GalleryPage':
             return normalizeGalleryPage(pageResponse.value)
-        case 'tagpages.TagPageIndex':
+        case 'tagpages.TagPage':
             return normalizeTagPage(pageResponse.value)
         default:
             return normalizePage(pageResponse.value)

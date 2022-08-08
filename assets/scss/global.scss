@@ -168,4 +168,31 @@ ol ol li {
   }
 }
 
+.tag-large {
+  text-transform: uppercase;
+  padding: 0 .75rem;
+  font-size: var(--font-size-10);
+  line-height: var(--font-size-10);
+  color: var(--soybean);
+  border: solid 1px var(--soybean);
+  border-radius: var(--tag-border-radius);
+  white-space: nowrap;
+  @include media('>lg') {
+    padding: 0 1.75rem;
+    font-size: var(--font-size-16);
+    line-height: var(--font-size-17);
+  }
+}
+
+.flexible-link:not(.raw).tag-large {
+  transition: var(--transition-duration);
+  color: var(--soybean);
+  &:hover {
+    background-color: var(--soybean);
+    color: var(--black)!important;
+    border: solid 1px var(--black);
+    text-decoration: none;
+  }
+}
+
 // to go is DS extentions
