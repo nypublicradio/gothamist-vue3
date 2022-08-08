@@ -52,7 +52,6 @@ onUnmounted(() => {
                 })
               "
             />
-
             <v-share-tools-item
               action="share"
               service="twitter"
@@ -136,7 +135,6 @@ onUnmounted(() => {
           </template>
           <v-image-with-caption
             :image="useImageUrl(slide.image)"
-            :imageUrl="slide.image.file"
             :alt-text="slide.image.alt"
             :maxWidth="slide.image.width"
             :maxHeight="slide.image.height"
@@ -145,6 +143,7 @@ onUnmounted(() => {
             :description="slide.title || slide.image.caption"
             :quality="80"
             :ratio="[slide.image.width, slide.image.height]"
+            :allow-preview="true"
           />
           <hr class="mt-4 xl:mt-4 mb-2 xl:mb-4" />
         </div>
