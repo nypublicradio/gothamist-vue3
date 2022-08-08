@@ -34,44 +34,47 @@ onUnmounted(() => {
   <div>
     <section>
       <div class="content">
-        <h1>{{ tagName }}</h1>
-        <div
-          v-if="articles"
-          v-for="article in articles.slice(0, articlesToShow)"
-          :key="article.uuid"
-        >
-          <div v-if="curatedTagPage?.topPageZone">
-            <pre>{{ curatedTagPage.topPageZone }}</pre>
-          </div>
-          <v-card
-            class="mod-horizontal mb-5"
-            :image="useImageUrl(article.listingImage)"
-            :title="article.title"
-            :titleLink="article.link"
-            :ratio="[3, 2]"
-            :width="318"
-            :height="214"
-            :maxWidth="article.listingImage.width"
-            :maxHeight="article.listingImage.height"
-            :tags="[
-              {
-                name: article.section.name,
-                slug: article.section.slug,
-              },
-            ]"
+        <h2>{{ tagName }}</h2>
+        <hr class="black mt-3 md:mt-6 mb-6" />
+        <div v-if="articles">
+          <div
+            v-for="article in articles.slice(0, articlesToShow)"
+            :key="article.uuid"
           >
-            <p>
-              {{ article.description }}
-            </p>
-            <div class="article-metadata">
-              <span>
-                <v-byline :authors="article.authors" />
-              </span>
-              <span>comments go here</span>
+            <div v-if="curatedTagPage?.topPageZone">
+              <pre>{{ curatedTagPage.topPageZone }}</pre>
             </div>
-          </v-card>
-          <hr class="mb-5" />
+            <v-card
+              class="mod-horizontal mb-5"
+              :image="useImageUrl(article.listingImage)"
+              :title="article.title"
+              :titleLink="article.link"
+              :ratio="[3, 2]"
+              :width="318"
+              :height="214"
+              :maxWidth="article.listingImage.width"
+              :maxHeight="article.listingImage.height"
+              :tags="[
+                {
+                  name: article.section.name,
+                  slug: article.section.slug,
+                },
+              ]"
+            >
+              <p>
+                {{ article.description }}
+              </p>
+              <div class="article-metadata">
+                <span>
+                  <v-byline :authors="article.authors" />
+                </span>
+                <span>comments go here</span>
+              </div>
+            </v-card>
+            <hr class="mb-5" />
+          </div>
         </div>
+        <p v-else>No articles available</p>
         <Button
           v-if="articles && articlesToShow < articles.length"
           class="p-button-rounded"

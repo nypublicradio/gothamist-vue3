@@ -74,9 +74,8 @@ onUnmounted(() => {
           <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
         </div>
         <div class="grid gutter-x-30">
-          <div class="col">
+          <div v-if="articles" class="col">
             <div
-              v-if="articles"
               v-for="article in articles.slice(0, articlesToShow)"
               :key="article.uuid"
             >
@@ -110,6 +109,7 @@ onUnmounted(() => {
               <hr class="mb-5" />
             </div>
           </div>
+          <p v-else>No articles available</p>
           <div class="col-fixed col-fixed-width-330 hidden xl:block">
             <img
               src="https://fakeimg.pl/300x250/?text=AD Here"
