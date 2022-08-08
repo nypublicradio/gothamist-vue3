@@ -2,13 +2,24 @@
 import { onMounted } from 'vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
-import { ArticlePage } from '../../composables/types/Page'
+import { ArticlePage, GalleryPage } from '../../composables/types/Page'
+import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 
 const route = useRoute()
 const { $analytics, $htlbid } = useNuxtApp()
 const article = (await findPage(
   `${route.params.sectionSlug}/${route.params.articleSlug}`
 ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage
+
+let gallery
+if (article.leadGallery) {
+  gallery = (await usePageById(article.leadGallery.gallery).then(({ data }) =>
+    normalizeGalleryPage(data.value)
+  )) as GalleryPage
+}
+
+const topImage = article.leadImage || gallery.slides[0].image
+const topCaption = article.leadImageCaption || gallery?.slides[0].image.title
 
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
@@ -50,6 +61,15 @@ function useInsertAd(targetElement) {
     useInsertAfterElement(adDiv, targetElement)
   }
 }
+
+const newsletterSubmitEvent = (e) => {
+  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
+  // sendEvent('click_tracking', {
+  //   event_category: 'Click Tracking',
+  //   component: 'Footer',
+  //   event_label: 'Become a member',
+  // })
+}
 </script>
 
 <template>
@@ -62,41 +82,53 @@ function useInsertAd(targetElement) {
       />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
-    <section class="top-section">
+    <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
-            <v-tag :name="article.section.name" slug="/news" />
+            <v-tag
+              :name="article.section.name"
+              :slug="`/${article.section.slug}`"
+            />
             <h2 class="mt-4 mb-3">{{ article.title }}</h2>
           </div>
           <div class="col-fixed hidden lg:block"></div>
         </div>
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block">
-            <byline :article="article" />
+            <byline class="mb-3" :article="article" />
+            <div>
+              <div id="pinned-newsletter">
+                <hr class="black mb-4" />
+                <newsletter-article @submit="newsletterSubmitEvent" />
+              </div>
+            </div>
           </div>
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-4 xxl:mb-6">
               <v-image-with-caption
-                :image="useImageUrl(article.image)"
-                :imageUrl="article.leadAsset.value.imageLink"
+                :image="useImageUrl(topImage)"
+                :imageUrl="article.imageLink"
                 :width="728"
                 :height="485"
-                :alt-text="article.image.alt"
-                :maxWidth="article.image.width"
-                :maxHeight="article.image.height"
-                :credit="`Photo by ${article.image.credit}`"
-                :credit-url="article.image.creditLink"
+                :alt-text="topImage.alt"
+                :maxWidth="topImage.width"
+                :maxHeight="topImage.height"
+                :credit="topImage.credit && `Photo by ${topImage.credit}`"
+                :credit-url="topImage.creditLink"
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
-                :caption="
-                  article.leadAsset.value.caption || article.image.caption
-                "
+                :caption="topCaption"
               />
             </div>
-            <div class="block xxl:hidden">
+            <div class="block xxl:hidden mb-5">
               <byline :article="article" />
+              <!-- <newsletter-home
+                @submit="newsletterSubmitEvent"
+                small
+                :showBlurb="false"
+              /> -->
             </div>
             <article-donation-CTA />
             <v-streamfield
@@ -120,7 +152,7 @@ function useInsertAd(targetElement) {
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
-            <article-footer :article="article" />
+            <article-footer v-if="article" :article="article" />
           </div>
         </div>
       </div>

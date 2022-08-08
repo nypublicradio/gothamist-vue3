@@ -14,6 +14,18 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  small: {
+    type: Boolean,
+    default: false,
+  },
+  showBlurb: {
+    type: Boolean,
+    default: true,
+  },
+  showX: {
+    type: Boolean,
+    default: false,
+  },
   submitButtonText: {
     type: String,
     default: 'Sign up',
@@ -66,19 +78,32 @@ const submitForm = (email) => {
 </script>
 
 <template>
-  <div v-if="showComponent" class="newsletter-home grid grid-nogutter">
-    <div class="col-12 lg:col-3 pr-3 pb-2">
+  <div
+    v-if="showComponent"
+    class="newsletter-home grid"
+    :class="[{ small: props.small }]"
+  >
+    <Button
+      v-if="props.showX"
+      class="closer-x p-button-rounded p-button-sm p-button-text"
+      icon="pi pi-times"
+      @click="hideComp"
+    />
+    <div
+      class="col-12 lg:col-3 pr-3 pb-2"
+      :class="props.showX ? 'pr-6' : 'pr-3'"
+    >
       <h4>{{ titleText }}</h4>
     </div>
     <div class="col-12 lg:col-7 xl:col-5 col-offset-0 xl:col-offset-1">
-      <p class="type-paragraph2 pr-0 lg:pr-8 xl:pr-0">
+      <p v-if="showBlurb" class="type-paragraph2 pr-0 lg:pr-8 xl:pr-0">
         Catch up on the most important headlines of the day with a roundup of
         essential NYC news, delivered to your inbox every day at 5pm.
       </p>
       <email-collector-form
         @noThanksClick="hideComp"
         @submit="submitForm"
-        class="mt-5"
+        :class="showBlurb ? 'mt-5' : 'mt-2'"
         :showNoThanks="props.showNoThanks"
         :submitButtonText="props.submitButtonText"
         :submitButtonIcon="props.submitButtonIcon"
@@ -93,3 +118,27 @@ const submitForm = (email) => {
     </div>
   </div>
 </template>
+
+<style lang="scss">
+.newsletter-home {
+  position: relative;
+  .closer-x {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &.small {
+    h4 {
+      font-size: var(--font-size-7);
+      line-height: var(--font-size-7);
+      letter-spacing: -0.01em;
+    }
+    > div {
+      flex: 0 0 auto;
+      padding: 0.5rem;
+      width: 100%;
+      margin-left: 0 !important;
+    }
+  }
+}
+</style>

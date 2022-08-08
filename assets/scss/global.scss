@@ -18,6 +18,19 @@ hr {
   }
 }
 
+.button-pill-icon {
+  .pi {
+    &:before {
+      border: 1px solid var(--black);
+      border-radius: 10px;
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: bold;
+      display: flex;
+    }
+  }
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -60,25 +73,6 @@ table tr.totalline {
   border-top: solid 1px var(--black);
   font-weight: bold;
   text-transform: uppercase;
-}
-
-.p-scrolltop {
-  box-shadow: none;
-  width: 68px;
-  height: 68px;
-  @include media('<lg') {
-    width: 45px;
-    height: 45px;
-  }
-  &.p-link {
-    background: var(--black);
-  }
-  .p-scrolltop-icon {
-    font-size: 1.3rem;
-    @include media('<lg') {
-      font-size: 1rem;
-    }
-  }
 }
 
 /* below will eventually go in the theme extentions.scss*/

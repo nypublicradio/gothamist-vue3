@@ -16,6 +16,8 @@ export interface ArticlePage extends Page {
     description: string;
     image?: Image;
     link: string;
+    leadImageCaption?: string;
+    imageLink?: string;
 
     leadAsset?: any[];
     leadImage?: Image;
