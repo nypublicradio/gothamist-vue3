@@ -1,7 +1,7 @@
 <script setup>
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
-import { onMounted } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 
 const route = useRoute()
 
@@ -20,32 +20,25 @@ const props = defineProps({
 // init func for the scrollTrigger on the footer
 const initScrollTrigger = () => {
   if (!props.hide) {
-    gsapScrollTrigger = ScrollTrigger.create({
-      id: 'scrollTopID',
-      trigger: '#gothamist-footer',
-      invalidateOnRefresh: true,
-      onEnter: () => {
-        const btn = document.getElementById('scrollTopBtn')
-        if (btn) {
-          btn.classList.add('stick')
-        }
+    gsapScrollTrigger = gsap.timeline()
+    gsapScrollTrigger.to('#scrollTopBtn', {
+      scrollTrigger: {
+        id: 'scrollToTopButtonID',
+        trigger: '#gothamist-footer',
+        start: '0% 100%',
+        toggleActions: 'play none none reset',
+        //markers: true,
       },
-      onLeaveBack: () => {
-        const btn = document.getElementById('scrollTopBtn')
-        if (btn) {
-          btn.classList.remove('stick')
-        }
-      },
-      //markers: true,
+      position: 'absolute', // new
     })
   }
 }
 
 watch(route, () => {
   if (!props.hide) {
-    gsapScrollTrigger.refresh()
-    ScrollTrigger.getById('scrollTopID').kill()
-    // not sure how to detect when a new routed page is mounted, so just using a setTimeout for now
+    gsapScrollTrigger.pause(0).kill(true)
+    ScrollTrigger.getById('scrollToTopButtonID').kill(true)
+    gsapScrollTrigger = null
     setTimeout(() => {
       initScrollTrigger()
     }, 1000)
@@ -54,31 +47,66 @@ watch(route, () => {
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-  initScrollTrigger()
+  setTimeout(() => {
+    initScrollTrigger()
+  }, 1000)
+})
+
+onBeforeUnmount(() => {
+  gsapScrollTrigger.pause(0).kill(true)
+  ScrollTrigger.getById('scrollToTopButtonID').kill(true)
+  gsapScrollTrigger = null
 })
 </script>
 
 <template>
   <div v-if="!hide" class="relative">
-    <ScrollTop id="scrollTopBtn" :threshold="threshold" icon="pi pi-arrow-up" />
+    <div id="scrollTopBtn">
+      <ScrollTop :threshold="threshold" icon="pi pi-arrow-up" />
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-.p-scrolltop {
+#scrollTopBtn {
   position: fixed;
+  width: 68px;
+  height: 68px;
+  @include media('<lg') {
+    width: 45px;
+    height: 45px;
+  }
   bottom: 20px;
   right: 20px;
-  animation: pScrolltopFadeInAnimation ease 1s;
-  &.stick {
-    position: absolute;
-  }
-  @keyframes pScrolltopFadeInAnimation {
-    0% {
-      opacity: 0;
+
+  .p-scrolltop {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    box-shadow: none;
+    width: 68px;
+    height: 68px;
+    @include media('<lg') {
+      width: 45px;
+      height: 45px;
     }
-    100% {
-      opacity: 1;
+    &.p-link {
+      background: var(--black);
+    }
+    .p-scrolltop-icon {
+      font-size: 1.3rem;
+      @include media('<lg') {
+        font-size: 1rem;
+      }
+    }
+    animation: pScrolltopFadeInAnimation ease 1s;
+    @keyframes pScrolltopFadeInAnimation {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
 }
