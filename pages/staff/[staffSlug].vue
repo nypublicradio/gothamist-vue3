@@ -109,10 +109,10 @@ onUnmounted(() => {
               <hr class="mb-5" />
             </div>
           </div>
-          <p v-else>No articles available</p>
+          <p v-else class="col">No articles available</p>
           <div class="col-fixed col-fixed-width-330 hidden xl:block">
             <img
-              src="https://fakeimg.pl/300x250/?text=AD Here"
+              src="https://fakeimg.pl/300x600/?text=AD Here"
               style="width: 100%; max-width: 300px"
             />
             <p class="type-fineprint">Powered by members and sponsors</p>
