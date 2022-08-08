@@ -97,6 +97,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 
 // Transform a list of article page data from the API into a simpler and typed format
 export function normalizeFindArticlePagesResponse(articlesResponse: any): ArticlePage[] {
-    console.log(articlesResponse) // the response from the API is empty for http://localhost:3000/staff/michelle-bocanegra
+    //console.log(articlesResponse)
+    // the response from the API is empty for http://localhost:3000/staff/michelle-bocanegra
     return articlesResponse.value.items?.map(normalizeArticlePage)
 }

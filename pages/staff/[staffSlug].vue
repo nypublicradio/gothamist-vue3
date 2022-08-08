@@ -19,7 +19,13 @@ const articles = await findArticlePages({
   offset: 0,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
-const getAuthorName = () => {
+// find a match of the slug in the articles' authors array and return the matched author's data
+const authorProfileData = articles[1]?.authors.find((author) => {
+  if (author.slug === staffSlug) return author
+})
+
+// formats the name of the author by manipulating the slug. This is used when authorProfileData returns no data
+const getAuthorNameFromSlug = () => {
   var splitStr = staffSlug.toLowerCase().split('-')
   for (var i = 0; i < splitStr.length; i++) {
     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
@@ -27,9 +33,15 @@ const getAuthorName = () => {
   return splitStr.join(' ')
 }
 
-const authorProfileData = articles[0]?.authors.find(
-  (author) => author.name === getAuthorName()
-)
+// emitted event from the newsletter submission form
+const newsletterSubmitEvent = (e) => {
+  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
+  // sendEvent('click_tracking', {
+  //   event_category: 'Click Tracking',
+  //   component: 'Footer',
+  //   event_label: 'Become a member',
+  // })
+}
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'staff_page' })
@@ -50,13 +62,14 @@ onUnmounted(() => {
             <h2>Articles by</h2>
             <hr class="black mt-3 md:mt-6 mb-2" />
           </div>
-          <div class="col">
-            <article-footer-profile
+          <div class="col mb-6">
+            <author-profile
+              v-if="authorProfileData"
               :profileData="authorProfileData"
-              class="mb-4 md:mb-6"
               :showCta="false"
               staffPage
             />
+            <h5 v-else>{{ getAuthorNameFromSlug() }}</h5>
           </div>
           <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
         </div>
@@ -104,6 +117,28 @@ onUnmounted(() => {
             />
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
+        </div>
+        <div class="block xl:hidden">
+          <img
+            src="https://fakeimg.pl/300x250/?text=AD Here"
+            class="block m-auto"
+            style="width: 100%; max-width: 300px"
+          />
+          <p class="type-fineprint text-center">
+            Powered by members and sponsors
+          </p>
+        </div>
+        <Button
+          v-if="articles && articlesToShow < articles.length"
+          class="p-button-rounded"
+          label="Load More"
+          @click="articlesToShow += 6"
+        >
+        </Button>
+
+        <div class="mt-8 mb-5">
+          <hr class="black mb-4" />
+          <newsletter-home @submit="newsletterSubmitEvent" />
         </div>
       </div>
     </section>

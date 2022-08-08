@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
@@ -34,18 +34,16 @@ const profileLink = ref(
 )
 const profileImageSizeLg = ref(157)
 const profileImageSizeMd = ref(86)
-const profileImageSizeSm = ref(60)
+const profileImageSizeSm = ref('60px')
 
 const imageSize = ref(
-  props.staffImage ? profileImageSizeLg.value : profileImageSizeMd.value
+  props.staffPage ? profileImageSizeLg.value : profileImageSizeMd.value
 )
+const imageSizePx = ref(imageSize.value + 'px')
 </script>
 
 <template>
-  <div
-    class="article-footer-profile grid"
-    :class="[{ staffPage: props.staffPage }]"
-  >
+  <div class="author-profile grid" :class="[{ staffPage: props.staffPage }]">
     <div class="col md:pr-4 flex flex-column gap-2">
       <div
         class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"
@@ -65,7 +63,11 @@ const imageSize = ref(
           </v-share-tools>
         </span>
       </div>
-      <p v-if="profile.biography" class="p2 truncate t3lines">
+      <p
+        v-if="profile.biography"
+        class="p2"
+        :class="props.staffPage ? '' : 'truncate t3lines'"
+      >
         {{ profile.biography }}
       </p>
       <v-flexible-link v-if="showCta" :to="profileLink" class="type-textlink1">
@@ -92,23 +94,24 @@ const imageSize = ref(
 </template>
 
 <style lang="scss">
-.article-footer-profile {
+.author-profile {
   .col-fixed.profile {
-    width: 102px;
+    box-sizing: content-box;
+    width: v-bind(imageSizePx);
     @include media('<md') {
-      width: 76px;
+      width: v-bind(profileImageSizeSm);
     }
   }
   .author-image {
     background: #ffffff;
-    width: v-bind(profileImageSizeMd);
-    height: v-bind(profileImageSizeMd);
+    width: v-bind(imageSizePx);
+    height: v-bind(imageSizePx);
     border-radius: 50%;
     margin-right: 12px;
     overflow: hidden;
     img {
-      width: v-bind(profileImageSizeMd);
-      height: v-bind(profileImageSizeMd);
+      width: v-bind(imageSizePx);
+      height: v-bind(imageSizePx);
     }
     @include media('<md') {
       width: v-bind(profileImageSizeSm);
@@ -121,14 +124,6 @@ const imageSize = ref(
   }
   &.staffPage {
     flex-direction: row-reverse;
-    .author-image {
-      width: v-bind(profileImageSizeLg);
-      height: v-bind(profileImageSizeLg);
-      img {
-        width: v-bind(profileImageSizeLg);
-        height: v-bind(profileImageSizeLg);
-      }
-    }
   }
 }
 </style>
