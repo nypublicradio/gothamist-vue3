@@ -14,6 +14,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  outlined: {
+    type: Boolean,
+    default: false,
+  },
   small: {
     type: Boolean,
     default: false,
@@ -110,6 +114,7 @@ const submitForm = (email) => {
         :isSubmitting="isSubmitting"
         :submissionStatus="submissionStatus"
         :altDesign="props.altDesign"
+        :outlined="props.outlined"
       >
         By submitting your information, you're agreeing to receive
         communications from New York Public Radio in accordance with our
