@@ -161,7 +161,6 @@ const newsletterSubmitEvent = (e) => {
 </template>
 
 <style lang="scss">
-$article-fixed-width: 330px;
 .sectionSlug-articleSlug {
   .top-section {
     background: var(--soybean200);
@@ -188,7 +187,7 @@ $article-fixed-width: 330px;
   }
   .col-fixed {
     width: 100%;
-    max-width: $article-fixed-width;
+    max-width: $col-fixed-width-330;
   }
 }
 </style>

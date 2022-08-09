@@ -33,7 +33,7 @@ const onTagClicked = (tag) => {
     <hr class="black mb-4 md:mb-6" />
     <div class="grid gutter-x-30">
       <div class="profile-col">
-        <article-footer-profile
+        <author-profile
           v-for="profile in profileData"
           :key="profile.id"
           :profileData="profile"
