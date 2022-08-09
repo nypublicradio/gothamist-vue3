@@ -28,7 +28,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
     <div class="boroughs-footer mt-4 xl:mt-5">
       ♥
       <v-flexible-link
-        to="https://www.nypublicradio.org/support/"
+        to="https://pledge.wnyc.org/support/gothamist/?utm_medium=partnersite&utm_source=gothamist&utm_campaign=homepage-brand-moment"
         target="_blank"
       >
         Support our local coverage

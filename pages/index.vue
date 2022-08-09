@@ -49,6 +49,7 @@ onMounted(() => {
   <div>
     <section>
       <div class="content">
+        <!-- featured and latest articles -->
         <template v-if="featuredArticle && latestArticles">
           <div class="grid mb-6 gutter-x-30">
             <div class="col-12 xl:col-8">
@@ -66,7 +67,7 @@ onMounted(() => {
                 :tags="[
                   {
                     name: featuredArticle.section.name,
-                    slug: featuredArticle.section.slug,
+                    slug: `/tags/${featuredArticle.section.slug}`,
                   },
                 ]"
               >
@@ -123,7 +124,11 @@ onMounted(() => {
             </div>
           </div>
         </template>
-        <boroughs class="mb-6" />
+        <!-- newsletter -->
+        <div class="mt-8 mb-5">
+          <hr class="black mb-4" />
+          <newsletter-home @submit="newsletterSubmitEvent" />
+        </div>
         <!-- home page collections - only implementing the single story feature layout for now -->
         <template v-if="homePageCollections && homePageCollections.length > 0">
           <div v-for="collection in homePageCollections" :key="collection.id">
@@ -160,10 +165,11 @@ onMounted(() => {
             </v-card>
           </div>
         </template>
+        <boroughs class="mb-6" />
         <!-- river -->
         <template v-if="articles">
           <div id="latest" class="grid gutter-x-xl">
-            <div class="col-1 type-label3">LATEST</div>
+            <div class="col-12 xxl:col-1 type-label3">LATEST</div>
             <div class="col">
               <div
                 v-for="article in articles.slice(0, articlesToShow)"
@@ -183,7 +189,7 @@ onMounted(() => {
                   :tags="[
                     {
                       name: article.section.name,
-                      slug: article.section.slug,
+                      slug: `/tags/${article.section.slug}`,
                     },
                   ]"
                 >
@@ -207,7 +213,7 @@ onMounted(() => {
               >
               </Button>
             </div>
-            <div class="col-fixed mx-auto">
+            <div class="col-fixed hidden xl:block mx-auto">
               <img
                 class="mb-4 xl:mb-7"
                 src="https://fakeimg.pl/300x600/?text=AD Here"
@@ -216,11 +222,6 @@ onMounted(() => {
             </div>
           </div>
         </template>
-        <!-- newsletter -->
-        <div class="mt-8 mb-5">
-          <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
-        </div>
       </div>
     </section>
   </div>
