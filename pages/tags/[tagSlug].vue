@@ -1,20 +1,20 @@
 <script setup lang="ts">
-//import { TagPage } from '../../composables/types/Page'
+import { TagPage } from '../../composables/types/Page'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
+import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
 const tagSlug = route.params.tagSlug
-// const curatedTagPage = await findPage(`tags/${tagSlug}`).then(
-//   ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
-// )
-const articlesToShow = ref(6)
+const curatedTagPage = await findPage(`tags/${tagSlug}`).then(
+  ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
+)
+
+const articlesToShow = ref(10)
 
 const articles = await findArticlePages({
   tag_slug: tagSlug,
-  //limit: 12,
-  offset: 0,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
 const tagName =
@@ -29,7 +29,6 @@ onUnmounted(() => {
   $htlbid.clearTargeting({ Template: 'Tag' })
 })
 
-// emitted event from the newsletter submission form
 const newsletterSubmitEvent = (e) => {
   //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
   // sendEvent('click_tracking', {
@@ -42,112 +41,109 @@ const newsletterSubmitEvent = (e) => {
 
 <template>
   <div>
-    <div class="tag-slug">
-      <section class="tag-head">
-        <div class="content">
-          <div class="grid">
-            <div class="col-12">
-              <div class="tag">
-                <h2 class="text">{{ tagName }}</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="content">
-          <div class="grid gutter-x-30">
-            <div v-if="articles" class="col">
-              <div
-                v-for="article in articles.slice(0, articlesToShow)"
-                :key="article.uuid"
+    <section class="tag-page-header py-1">
+      <h1 class="m-3 lg:m-5 tag-large">
+        {{ curatedTagPage?.title || tagName }}
+      </h1>
+    </section>
+    <section v-if="curatedTagPage?.headerImage" class="tag-page-header-image">
+      <v-image-with-caption
+        :image="useImageUrl(curatedTagPage.headerImage)"
+        :width="1440"
+        :height="288"
+        :sizes="[1]"
+        :alt-text="curatedTagPage.headerImage.alt"
+        :maxWidth="curatedTagPage.headerImage.width"
+        :maxHeight="curatedTagPage.headerImage.height"
+        :ratio="[5, 1]"
+      />
+    </section>
+    <section v-if="curatedTagPage?.topPageZone" class="tag-page-top-zone">
+      <div class="content mt-0 lg:mt-3">
+        <v-streamfield
+          :streamfield-blocks="curatedTagPage.topPageZone"
+          class="pt-4 lg:pt-6"
+        />
+      </div>
+    </section>
+    <section v-if="articles">
+      <div class="content">
+        <div class="grid gutter-x-xl">
+          <div class="col">
+            <div
+              v-for="(article, index) in articles.slice(0, articlesToShow)"
+              :key="index"
+            >
+              <v-card
+                class="mod-horizontal mb-5"
+                :image="useImageUrl(article.listingImage)"
+                :title="article.title"
+                :titleLink="article.link"
+                :ratio="[3, 2]"
+                :width="318"
+                :height="214"
+                :maxWidth="article.listingImage.width"
+                :maxHeight="article.listingImage.height"
+                :tags="[
+                  {
+                    name: article.section.name,
+                    slug: `/${article.section.slug}`,
+                  },
+                ]"
               >
-                <!-- <div v-if="curatedTagPage?.topPageZone">
-                  <pre>{{ curatedTagPage.topPageZone }}</pre>
-                </div> -->
-                <v-card
-                  class="mod-horizontal mb-5"
-                  :image="useImageUrl(article.listingImage)"
-                  :title="article.title"
-                  :titleLink="article.link"
-                  :ratio="[3, 2]"
-                  :width="318"
-                  :height="214"
-                  :maxWidth="article.listingImage.width"
-                  :maxHeight="article.listingImage.height"
-                  :tags="[
-                    {
-                      name: article.section.name,
-                      slug: article.section.slug,
-                    },
-                  ]"
-                >
-                  <p>
-                    {{ article.description }}
-                  </p>
-                  <div class="article-metadata">
-                    <span>
-                      <v-byline :authors="article.authors" />
-                    </span>
-                    <span>comments go here</span>
-                  </div>
-                </v-card>
-                <hr class="mb-5" />
+                <p>
+                  {{ article.description }}
+                </p>
+                <v-card-metadata :article="article" />
+              </v-card>
+              <hr class="mb-5" />
+              <!-- mid page zone should go after the third article -->
+              <div
+                v-if="index === 2 && curatedTagPage?.midPageZone"
+                class="tag-page-mid-zone my-8"
+              >
+                <v-streamfield
+                  :streamfield-blocks="curatedTagPage.midPageZone"
+                />
               </div>
             </div>
-            <p v-else class="col">No articles available</p>
-            <div class="col-fixed col-fixed-width-330 hidden xl:block">
-              <img
-                src="https://fakeimg.pl/300x600/?text=AD Here"
-                style="width: 100%; max-width: 300px"
-              />
-              <p class="type-fineprint">Powered by members and sponsors</p>
-            </div>
+            <Button
+              v-if="articlesToShow < articles.length"
+              class="p-button-rounded"
+              label="Load More"
+              @click="articlesToShow += 10"
+            >
+            </Button>
           </div>
-          <div class="block xl:hidden mb-4">
+          <div class="col-fixed mx-auto">
             <img
-              src="https://fakeimg.pl/300x250/?text=AD Here"
-              class="block m-auto"
-              style="width: 100%; max-width: 300px"
+              class="mb-4 xl:mb-7"
+              src="https://fakeimg.pl/300x600/?text=AD Here"
+              style="max-width: 100%"
             />
-            <p class="type-fineprint text-center">
-              Powered by members and sponsors
-            </p>
-          </div>
-          <Button
-            v-if="articles && articlesToShow < articles.length"
-            class="p-button-rounded"
-            label="Load More"
-            @click="articlesToShow += 6"
-          >
-          </Button>
-          <div class="mt-8 mb-5">
-            <hr class="black mb-4" />
-            <newsletter-home @submit="newsletterSubmitEvent" />
           </div>
         </div>
-      </section>
-    </div>
+        <!-- newsletter -->
+        <div class="mt-8 mb-5">
+          <hr class="black mb-4" />
+          <newsletter-home @submit="newsletterSubmitEvent" />
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <style lang="scss">
-.tag-slug {
-  .tag-head {
-    background-color: var(--black);
-    .tag {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      .text {
-        color: var(--soybean);
-        border: 1px solid var(--soybean);
-        border-radius: 30rem;
-        text-align: center;
-        text-transform: uppercase;
-        padding: 0 2rem;
-      }
-    }
-  }
+.tag-page-header {
+  background: var(--black);
+}
+
+.tag-page-top-zone .streamfield {
+  border-top: 1px solid var(--black);
+}
+
+.tag-page-top-zone .streamfield p {
+  font-size: var(--font-size-6);
+  line-height: var(--font-size-9);
 }
 </style>

@@ -9,35 +9,32 @@ defineProps<{
 }>()
 </script>
 <template>
-  <div class="grid">
-    <div
-      v-for="article in articles"
-      :key="article.uuid"
-      class="col-12 xl:col-4"
-    >
-      <v-card
-        class="mod-vertical mod-large mb-3 lg:mb-5 tag-small"
-        :image="useImageUrl(article.leadAsset[0].value.image.file)"
-        :width="665"
-        :height="448"
-        :sizes="[1]"
-        :title="article.title"
-        :titleLink="article.link"
-        :maxWidth="article.leadAsset[0].value.image.width"
-        :maxHeight="article.leadAsset[0].value.image.height"
-        :quality="80"
+  <div>
+    <div class="grid gutter-x-30 justify-content-center">
+      <div
+        v-for="article in articles"
+        :key="article.uuid"
+        class="col-12 md:col-6 xl:col-4 flex"
       >
-        <p class="desc">
-          {{ article.description }}
-        </p>
-        <div class="article-metadata">
-          <span>
-            <v-byline :authors="article.relatedAuthors" />
-          </span>
-          <span>comments</span>
-        </div>
-      </v-card>
-      <hr class="mb-5" />
+        <v-card
+          class="mod-vertical mod-large mb-3 lg:mb-5 tag-small"
+          :image="useImageUrl(article.leadAsset[0].value.image)"
+          :width="318"
+          :height="212"
+          :sizes="[1]"
+          :title="article.title"
+          :titleLink="article.link"
+          :maxWidth="article.leadAsset[0].value.image.width"
+          :maxHeight="article.leadAsset[0].value.image.height"
+        >
+          <p class="desc">
+            {{ article.description }}
+          </p>
+          <v-card-metadata :article="article" />
+        </v-card>
+        <hr class="mb-5 block md:hidden" />
+      </div>
     </div>
+    <hr class="mb-5 hidden md:block" />
   </div>
 </template>

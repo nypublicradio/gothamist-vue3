@@ -1,3 +1,6 @@
+// to go is DS extentions
+@import './extensions.scss';
+
 $contentWidth: 1440px;
 $mobileBreakpoint: '<lg';
 $col-fixed-width-330: 330px;
@@ -179,7 +182,7 @@ ol ol li {
 
 .tag-large {
   text-transform: uppercase;
-  padding: 0 .75rem;
+  padding: 0 0.75rem;
   font-size: var(--font-size-10);
   line-height: var(--font-size-10);
   color: var(--soybean);
@@ -198,10 +201,14 @@ ol ol li {
   color: var(--soybean);
   &:hover {
     background-color: var(--soybean);
-    color: var(--black)!important;
+    color: var(--black) !important;
     border: solid 1px var(--black);
     text-decoration: none;
   }
 }
 
-// to go is DS extentions
+.v-card.single-story-feature {
+  .card-details {
+    padding: 1rem 1rem 1.5rem 0;
+  }
+}

@@ -92,19 +92,14 @@ onUnmounted(() => {
                 :tags="[
                   {
                     name: article.section.name,
-                    slug: `/tags/${article.section.slug}`,
+                    slug: `/${article.section.slug}`,
                   },
                 ]"
               >
                 <p>
                   {{ article.description }}
                 </p>
-                <div class="article-metadata">
-                  <span>
-                    <v-byline :authors="article.authors" />
-                  </span>
-                  <span>comments go here</span>
-                </div>
+                <v-card-metadata :article="article" />
               </v-card>
               <hr class="mb-5" />
             </div>
