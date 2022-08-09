@@ -17,7 +17,6 @@ const articles = await findArticlePages({
   //limit: 12,
   offset: 0,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
-const articlesToShow = ref(10)
 
 const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
