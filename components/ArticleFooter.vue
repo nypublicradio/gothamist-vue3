@@ -40,12 +40,20 @@ const onTagClicked = (tag) => {
           :sponsored="isSponsored"
           class="mb-4 md:mb-6"
         />
+        <div class="block mx-auto block lg:hidden mb-6" style="width: 300px">
+          <!-- <div class="htlad-index_rectangle_1" /> -->
+          <img
+            src="https://fakeimg.pl/300x250/?text=AD Here"
+            style="width: 100%; max-width: 300px"
+          />
+          <p class="type-fineprint">Powered by members and sponsors</p>
+        </div>
         <div v-if="!isDisableComments" id="comments" class="mb-4 md:mb-6">
           <hr class="black mb-4 md:mb-6" />
           <div>Comments section here</div>
         </div>
       </div>
-      <div class="col-fixed mx-auto">
+      <div class="col-fixed mx-auto hidden lg:block">
         <!-- <div class="htlad-index_rectangle_1" /> -->
         <img
           src="https://fakeimg.pl/300x250/?text=AD Here"

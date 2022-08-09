@@ -25,7 +25,7 @@ const props = defineProps({
 })
 
 const profile = ref(props.profileData)
-const ctaText = ref(props.sponsored ? 'Read more' : 'Learn More')
+const ctaText = ref(props.sponsored ? 'Learn More' : 'Read more')
 const profileImage = ref(
   props.sponsored ? profile.value.logo : profile.value.photoID
 )
