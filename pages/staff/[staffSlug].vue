@@ -118,7 +118,7 @@ onUnmounted(() => {
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
         </div>
-        <div class="block xl:hidden">
+        <div class="block xl:hidden mb-4">
           <img
             src="https://fakeimg.pl/300x250/?text=AD Here"
             class="block m-auto"

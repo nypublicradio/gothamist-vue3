@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { TagPage } from '../../composables/types/Page'
+//import { TagPage } from '../../composables/types/Page'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
-import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
 const tagSlug = route.params.tagSlug
-const curatedTagPage = await findPage(`tags/${tagSlug}`).then(
-  ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
-)
+// const curatedTagPage = await findPage(`tags/${tagSlug}`).then(
+//   ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
+// )
 const articlesToShow = ref(6)
 
 const articles = await findArticlePages({
@@ -17,7 +16,6 @@ const articles = await findArticlePages({
   //limit: 12,
   offset: 0,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
-const articlesToShow = ref(10)
 
 const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
@@ -31,6 +29,7 @@ onUnmounted(() => {
   $htlbid.clearTargeting({ Template: 'Tag' })
 })
 
+// emitted event from the newsletter submission form
 const newsletterSubmitEvent = (e) => {
   //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
   // sendEvent('click_tracking', {
@@ -63,9 +62,9 @@ const newsletterSubmitEvent = (e) => {
                 v-for="article in articles.slice(0, articlesToShow)"
                 :key="article.uuid"
               >
-                <div v-if="curatedTagPage?.topPageZone">
+                <!-- <div v-if="curatedTagPage?.topPageZone">
                   <pre>{{ curatedTagPage.topPageZone }}</pre>
-                </div>
+                </div> -->
                 <v-card
                   class="mod-horizontal mb-5"
                   :image="useImageUrl(article.listingImage)"
@@ -105,7 +104,7 @@ const newsletterSubmitEvent = (e) => {
               <p class="type-fineprint">Powered by members and sponsors</p>
             </div>
           </div>
-          <div class="block xl:hidden">
+          <div class="block xl:hidden mb-4">
             <img
               src="https://fakeimg.pl/300x250/?text=AD Here"
               class="block m-auto"
@@ -122,6 +121,10 @@ const newsletterSubmitEvent = (e) => {
             @click="articlesToShow += 6"
           >
           </Button>
+          <div class="mt-8 mb-5">
+            <hr class="black mb-4" />
+            <newsletter-home @submit="newsletterSubmitEvent" />
+          </div>
         </div>
       </section>
     </div>
