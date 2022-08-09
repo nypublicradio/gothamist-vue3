@@ -49,6 +49,7 @@ onMounted(() => {
   <div>
     <section>
       <div class="content">
+        <!-- featured and latest articles -->
         <template v-if="featuredArticle && latestArticles">
           <div class="grid mb-6 gutter-x-30">
             <div class="col-12 xl:col-8">
@@ -112,7 +113,11 @@ onMounted(() => {
             </div>
           </div>
         </template>
-        <boroughs class="mb-6" />
+        <!-- newsletter -->
+        <div class="mt-8 mb-5">
+          <hr class="black mb-4" />
+          <newsletter-home @submit="newsletterSubmitEvent" />
+        </div>
         <!-- home page collections - only implementing the single story feature layout for now -->
         <template v-if="homePageCollections && homePageCollections.length > 0">
           <div v-for="collection in homePageCollections" :key="collection.id">
@@ -144,6 +149,7 @@ onMounted(() => {
             </v-card>
           </div>
         </template>
+        <boroughs class="mb-6" />
         <!-- river -->
         <template v-if="articles">
           <div id="latest" class="grid gutter-x-xl">
@@ -195,11 +201,6 @@ onMounted(() => {
             </div>
           </div>
         </template>
-        <!-- newsletter -->
-        <div class="mt-8 mb-5">
-          <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
-        </div>
       </div>
     </section>
   </div>

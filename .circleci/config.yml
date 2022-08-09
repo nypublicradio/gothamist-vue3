@@ -87,7 +87,7 @@ jobs:
       - checkout
       - setup_npmrc
       - setup_remote_docker:
-          version: 19.03.13            
+          version: 20.10.12            
       - run:
           name: Deploy
           environment:
@@ -103,8 +103,8 @@ jobs:
             
             nyprsetuptools DockerDeploy \
               --fargate \
-              --cpu=256 \
-              --memory-reservation=512 \
+              --cpu=1024 \
+              --memory-reservation=2048 \
               --ecr-repository=gothamist-vue3 \
               --ecs-cluster=gothamist-vue3 \
               --ports=3000 \
