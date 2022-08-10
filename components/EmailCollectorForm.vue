@@ -48,12 +48,15 @@ const emit = defineEmits<{
 const email = ref('')
 const checked = ref(true)
 const submitButtonRef = ref(null)
-const submitButtonWidth = ref(100)
+const submitButtonWidth = ref(40)
 const emailErrorText = ref(null)
 
 onMounted(() => {
-  //gets the width of the submit button to set the padding right on the input field
-  submitButtonWidth.value = submitButtonRef.value.offsetWidth + 20
+  // for some reason the submit button is not always rendered when the component is mounted coming from a route transition, so I have to add a slight delay to make sure it gets access to the button
+  setTimeout(() => {
+    //gets the width of the submit button to set the padding right on the input field
+    submitButtonWidth.value = submitButtonRef.value.offsetWidth + 20
+  }, 500)
 })
 
 // function to check if the email is a valid format and to set the error text
@@ -92,81 +95,86 @@ const submitForm = () => {
 </script>
 
 <template>
-  <div class="email-collector-form">
-    <!-- when the submissionStatus is 'success' it will hide the form and show Thank you message -->
-    <span
-      v-if="props.submissionStatus !== 'success'"
-      class="flex flex-column lg:flex-row"
-      style="gap: 1rem"
-    >
-      <div class="flex-grow-1">
-        <span class="p-input-icon-right w-full">
-          <i
-            ref="submitButtonRef"
-            class="submit-icon"
-            :class="[{ altDesign: props.altDesign && props.submitButtonIcon }]"
-            :data-style-mode="props.dark ? 'dark' : 'default'"
-          >
-            <Button
-              :disabled="props.isSubmitting || !checked"
-              @click="submitForm"
-              class="submit-btn p-button-rounded"
-              :class="[{ 'p-button-outlined': props.outlined }]"
-              :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
-              iconPos="right"
-              :label="submitButtonIcon ? null : props.submitButtonText"
+  <div>
+    <div class="email-collector-form">
+      <!-- when the submissionStatus is 'success' it will hide the form and show Thank you message -->
+      <span
+        v-if="props.submissionStatus !== 'success'"
+        class="flex flex-column lg:flex-row"
+        style="gap: 1rem"
+      >
+        <div class="flex-grow-1">
+          <span class="p-input-icon-right w-full">
+            <i
+              ref="submitButtonRef"
+              class="submit-icon"
+              :class="[
+                { altDesignIcon: props.altDesign && props.submitButtonIcon },
+              ]"
+              :data-style-mode="props.dark ? 'dark' : 'default'"
             >
-              <i v-if="props.isSubmitting" class="pi pi-spin pi-spinner" />
+              <Button
+                :disabled="props.isSubmitting || !checked"
+                @click="submitForm"
+                class="submit-btn p-button-rounded"
+                :class="[{ 'p-button-outlined': props.outlined }]"
+                :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
+                iconPos="right"
+                :label="submitButtonIcon ? null : props.submitButtonText"
+              >
+                <i v-if="props.isSubmitting" class="pi pi-spin pi-spinner" />
+              </Button>
+            </i>
+            <InputText
+              :disabled="props.isSubmitting"
+              class="w-full p-inputtext-lg"
+              :class="[
+                { 'p-invalid': emailErrorText },
+                { 'alt-design': props.altDesign },
+                { dark: props.dark },
+              ]"
+              :style="`padding-right: ${submitButtonWidth}px`"
+              type="email"
+              placeholder="your@email.com"
+              aria-describedby="email-address-field"
+              v-model="email"
+              autocomplete="email"
+              name="email"
+              @keypress.enter="submitForm"
+            />
+          </span>
+          <Transition name="fade">
+            <small
+              v-if="emailErrorText"
+              id="email-address-field"
+              class="p-error mt-1 block"
+              >{{ emailErrorText }}</small
+            >
+          </Transition>
+          <div class="field-checkbox mt-3 mb-0">
+            <Checkbox
+              v-model="checked"
+              :disabled="props.isSubmitting"
+              :binary="true"
+              @click="!checked"
+            />
+            <label for="binary"><slot /></label>
+          </div>
+        </div>
+        <div v-if="props.showNoThanks" class="flex justify-content-start">
+          <div>
+            <Button
+              @click="emit('noThanksClick')"
+              class="no-thanks-btn p-button-link"
+              label="No thanks"
+              :style="props.isSubmitting ? 'visibility: hidden' : ''"
+            >
             </Button>
-          </i>
-          <InputText
-            :disabled="props.isSubmitting"
-            class="w-full p-inputtext-lg"
-            :class="[
-              { 'p-invalid': emailErrorText },
-              { 'alt-design': props.altDesign },
-            ]"
-            :style="`padding-right: ${submitButtonWidth}px`"
-            type="email"
-            placeholder="your@email.com"
-            aria-describedby="email-address-field"
-            v-model="email"
-            autocomplete="email"
-            name="email"
-            @keypress.enter="submitForm"
-          />
-        </span>
-        <Transition name="fade">
-          <small
-            v-if="emailErrorText"
-            id="email-address-field"
-            class="p-error mt-1 block"
-            >{{ emailErrorText }}</small
-          >
-        </Transition>
-        <div class="field-checkbox mt-3 mb-0">
-          <Checkbox
-            v-model="checked"
-            :disabled="props.isSubmitting"
-            :binary="true"
-            @click="!checked"
-          />
-          <label for="binary"><slot /></label>
+          </div>
         </div>
-      </div>
-      <div v-if="props.showNoThanks" class="flex justify-content-start">
-        <div>
-          <Button
-            @click="emit('noThanksClick')"
-            class="no-thanks-btn p-button-link"
-            label="No thanks"
-            :style="props.isSubmitting ? 'visibility: hidden' : ''"
-          >
-          </Button>
-        </div>
-      </div>
-    </span>
-    <p v-else class="type-paragraph3">{{ props.thanksMessage }}</p>
+      </span>
+      <p v-else class="type-paragraph3">{{ props.thanksMessage }}</p>
+    </div>
   </div>
 </template>
 
@@ -177,10 +185,15 @@ const submitForm = () => {
     .p-button {
       min-height: 41px;
       min-width: 41px;
+      padding: 0px 16px;
+      &:disabled {
+        padding: 0;
+      }
     }
-    &.altDesign {
+    &.altDesignIcon {
       margin-top: -0.65rem;
       .p-button {
+        padding: 0;
         min-height: unset;
         min-width: unset;
         border-radius: 20px;
