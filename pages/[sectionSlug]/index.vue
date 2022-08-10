@@ -75,7 +75,7 @@ const newsletterSubmitEvent = (e) => {
             </div>
             <div v-if="latestArticles.length > 4" class="col-12 xl:col-4">
               <v-card
-                class="mod-vertical mod-large mb-1 tag-small"
+                class="mod-vertical mod-large mb-4"
                 :image="useImageUrl(latestArticles[1].listingImage)"
                 :width="665"
                 :height="448"
@@ -105,9 +105,9 @@ const newsletterSubmitEvent = (e) => {
                 v-for="article in latestArticles.slice(2, 5)"
                 :key="article.uuid"
               >
-                <hr class="mb-2" />
+                <hr class="mb-4" />
                 <v-card
-                  class="mod-horizontal mod-left mod-small mb-1 tag-small latest-articles"
+                  class="mod-horizontal mod-left mod-small mb-4 tag-small latest-articles"
                   :title="article.title"
                   :titleLink="article.link"
                 >
@@ -195,10 +195,30 @@ const newsletterSubmitEvent = (e) => {
   text-transform: uppercase;
   border-bottom: solid 1px var(--black);
 }
-// .section-page .mod-vertical:not(.mod-featured) .card-details .card-title .h2 {
-//   font-size: var(--font-size-9);
-//   line-height: var(--font-size-8);
-// }
+.section-page .card-details {
+  overflow: visible;
+}
+.section-page .v-card.mod-featured .card-details .card-title .h2 {
+  font-size: var(--font-size-17);
+  line-height: var(--font-size-17);
+}
+.section-page .v-card.mod-featured.mod-large .card-details .card-title .v-tag {
+  margin-top: 26px;
+  @include media('>lg') {
+    margin-top: 8px;
+  }
+}
+.section-page
+  .mod-vertical:not(.mod-featured)
+  .card-details
+  .card-title
+  .v-tag {
+  margin-top: -6px;
+}
+.section-page .mod-vertical:not(.mod-featured) .card-details .card-title .h2 {
+  font-size: var(--font-size-8);
+  line-height: var(--font-size-9);
+}
 .section-page .v-card.mod-small.latest-articles .card-details .card-title .h2 {
   font-weight: 600;
 }
