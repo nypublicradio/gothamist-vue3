@@ -411,11 +411,11 @@ $img-height-mobile: 106px;
 }
 
 @mixin tag-small() {
-  font-size: var(--font-size-6);
+  font-size: var(--font-size-6) !important;
 }
 
 @mixin tag-large() {
-  font-size: var(--font-size-10);
+  font-size: var(--font-size-10) !important;
 }
 
 @mixin tag-mobile() {
@@ -426,7 +426,7 @@ $img-height-mobile: 106px;
 .v-tag {
   .p-button-label {
     font-family: var(--font-family-header);
-    font-size: var(--font-size-7);
+    font-size: var(--font-size-6);
   }
   &.tag-large .p-button-label {
     @include tag-large();
