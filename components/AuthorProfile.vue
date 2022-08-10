@@ -95,6 +95,10 @@ const imageSizePx = ref(imageSize.value + 'px')
 
 <style lang="scss">
 .author-profile {
+  gap: 1rem;
+  @include media('<md') {
+    gap: 0;
+  }
   .col-fixed.profile {
     box-sizing: content-box;
     width: v-bind(imageSizePx);
@@ -124,6 +128,9 @@ const imageSizePx = ref(imageSize.value + 'px')
   }
   &.staffPage {
     flex-direction: row-reverse;
+    .flexible-link {
+      pointer-events: none;
+    }
   }
 }
 </style>
