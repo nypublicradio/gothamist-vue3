@@ -500,6 +500,15 @@ $img-height-mobile: 106px;
   margin-bottom: 0;
 }
 
+// hover styles for enlarge button
+.p-image .p-button:enabled:hover {
+  background-color: var(--white);
+  border-color: var(--white);
+  .p-button-icon {
+    color: var(--black) !important;
+  }
+}
+
 /* Streamfield */
 .streamfield-paragraph ul,
 .streamfield-paragraph ol,
