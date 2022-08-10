@@ -194,12 +194,4 @@ onUnmounted(() => {
   font-weight: normal;
   text-decoration: none;
 }
-
-.sectionSlug-photos-gallerySlug .p-button:enabled:hover {
-  background-color: var(--white);
-  border-color: var(--white);
-  .p-button-icon {
-    color: var(--black) !important;
-  }
-}
 </style>
