@@ -493,8 +493,9 @@ $img-height-mobile: 106px;
   font-size: var(--font-size-6);
   margin-bottom: 0;
 }
+
 // hover styles for enlarge button
-.image-with-caption .p-button:enabled:hover {
+.p-image .p-button:enabled:hover {
   background-color: var(--white);
   border-color: var(--white);
   .p-button-icon {
