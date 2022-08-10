@@ -6,6 +6,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  dark: {
+    type: Boolean,
+    default: false,
+  },
+  outlined: {
+    type: Boolean,
+    default: false,
+  },
   isSubmitting: {
     type: Boolean,
     default: false,
@@ -97,12 +105,13 @@ const submitForm = () => {
             ref="submitButtonRef"
             class="submit-icon"
             :class="[{ altDesign: props.altDesign && props.submitButtonIcon }]"
-            :data-style-mode="props.altDesign ? 'dark' : 'default'"
+            :data-style-mode="props.dark ? 'dark' : 'default'"
           >
             <Button
               :disabled="props.isSubmitting || !checked"
               @click="submitForm"
               class="submit-btn p-button-rounded"
+              :class="[{ 'p-button-outlined': props.outlined }]"
               :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
               iconPos="right"
               :label="submitButtonIcon ? null : props.submitButtonText"
@@ -170,13 +179,16 @@ const submitForm = () => {
       min-width: 41px;
     }
     &.altDesign {
-      margin-top: -0.85rem;
+      margin-top: -0.65rem;
       .p-button {
         min-height: unset;
         min-width: unset;
         border-radius: 20px;
-        height: 1.75rem;
-        width: 2.5rem;
+        height: 1.4rem;
+        width: 2rem;
+        .pi {
+          font-size: 0.75rem;
+        }
       }
     }
   }

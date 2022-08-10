@@ -33,7 +33,15 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="newsletterElm" class="newsletter-article">
-    <newsletter-home @submit="emit('submit')" small :showBlurb="false" showX />
+    <newsletter-home
+      @submit="emit('submit')"
+      small
+      :showBlurb="false"
+      showX
+      altDesign
+      outlined
+      submitButtonIcon="pi-arrow-right"
+    />
   </div>
 </template>
 
