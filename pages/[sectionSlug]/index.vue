@@ -62,13 +62,16 @@ const newsletterSubmitEvent = (e) => {
                   },
                 ]"
               >
-                <p class="desc">
-                  {{ latestArticles[0].description }}
-                </p>
+                <div class="grid mt-1">
+                  <div class="col-12 xl:col-6">
+                    <p class="desc">
+                      {{ latestArticles[0].description }}
+                    </p>
+                  </div>
+                  <div class="separator col-fixed mt-2 ml-2"></div>
+                  <div class="col-12 xl:col-5">Byline Goes Here</div>
+                </div>
                 <div class="article-metadata">
-                  <span>
-                    <v-byline :authors="latestArticles[0].authors" />
-                  </span>
                   <span>comments</span>
                 </div>
               </v-card>
@@ -194,6 +197,14 @@ const newsletterSubmitEvent = (e) => {
   font-size: var(--font-size-17);
   text-transform: uppercase;
   border-bottom: solid 1px var(--black);
+}
+.section-page .featured-article .grid .separator {
+  display: none;
+  @include media('>xl') {
+    display: block;
+    height: 44px;
+    border-left: solid 1px var(--black300);
+  }
 }
 .section-page .card-details {
   overflow: visible;
