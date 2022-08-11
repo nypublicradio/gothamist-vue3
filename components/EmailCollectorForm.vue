@@ -137,6 +137,7 @@ const submitForm = () => {
               :style="`padding-right: ${submitButtonWidth}px`"
               type="email"
               placeholder="your@email.com"
+              aria-label="sign up"
               aria-describedby="email-address-field"
               v-model="email"
               autocomplete="email"
@@ -154,6 +155,9 @@ const submitForm = () => {
           </Transition>
           <div class="field-checkbox mt-3 mb-0">
             <Checkbox
+              role="checkbox"
+              aria-label="Toggle agreement to the terms"
+              :aria-checked="checked"
               v-model="checked"
               :disabled="props.isSubmitting"
               :binary="true"
