@@ -120,6 +120,9 @@ const newsletterSubmitEvent = (e) => {
               class="mb-4 xl:mb-7"
               src="https://fakeimg.pl/300x600/?text=AD Here"
               style="max-width: 100%"
+              width="300"
+              height="600"
+              alt="advertisement"
             />
           </div>
         </div>

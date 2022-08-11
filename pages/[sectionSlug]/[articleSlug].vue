@@ -141,6 +141,9 @@ const newsletterSubmitEvent = (e) => {
             <img
               src="https://fakeimg.pl/300x250/?text=AD Here"
               style="width: 100%; max-width: 300px"
+              width="300"
+              height="250"
+              alt="advertisement"
             />
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>

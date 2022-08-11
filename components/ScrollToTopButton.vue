@@ -62,7 +62,12 @@ onBeforeUnmount(() => {
 <template>
   <div v-if="!hide" class="relative">
     <div id="scrollTopBtn">
-      <ScrollTop :threshold="threshold" icon="pi pi-arrow-up" />
+      <ScrollTop
+        :threshold="threshold"
+        icon="pi pi-arrow-up"
+        aria-label="scroll to top"
+        role="button"
+      />
     </div>
   </div>
 </template>

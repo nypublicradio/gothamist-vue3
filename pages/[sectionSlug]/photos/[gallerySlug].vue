@@ -131,6 +131,9 @@ onUnmounted(() => {
             <img
               class="mb-4 xl:mb-7"
               src="https://fakeimg.pl/300x250/?text=AD Here"
+              width="300"
+              height="250"
+              alt="advertisement"
             />
           </template>
           <v-image-with-caption
