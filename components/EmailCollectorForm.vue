@@ -52,7 +52,8 @@ const submitButtonWidth = ref(40)
 const emailErrorText = ref(null)
 
 onMounted(() => {
-  // for some reason the submit button is not always rendered when the component is mounted coming from a route transition, so I have to add a slight delay to make sure it gets access to the button
+  // for some reason the submit button is not always rendered when the component is mounted coming from a route transition, so I have to add a slight delay to make sure it gets access to the button.
+  //this is a known bug: https://github.com/nuxt/framework/issues/3587
   setTimeout(() => {
     //gets the width of the submit button to set the padding right on the input field
     submitButtonWidth.value = submitButtonRef.value.offsetWidth + 20
