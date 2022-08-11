@@ -155,6 +155,12 @@ const newsletterSubmitEvent = (e) => {
             <article-footer v-if="article" :article="article" />
           </div>
         </div>
+
+        <article-recirculation
+          class="mb-6"
+          :sectionSlug="article.section.slug"
+        />
+
         <!-- only show inline news letter with pinned version is hidden -->
         <div class="mt-8 mb-5 block xxl:hidden">
           <hr class="black mb-4" />
