@@ -2,17 +2,28 @@
 import { onMounted, onBeforeUnmount } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+
+const props = defineProps({
+  triggerID: {
+    type: String,
+    default: '',
+  },
+  pinEndTriggerID: {
+    type: String,
+    default: '',
+  },
+})
 const newsletterElm = ref(null)
 const emit = defineEmits(['submit'])
 
 // init func for the scrollTrigger on the newsletter
 const initScrollTrigger = () => {
   ScrollTrigger.create({
-    trigger: '#pinned-newsletter',
+    trigger: `#${props.triggerID}`,
     id: 'pinnedNewsletterID',
     pin: true,
     start: '1px top',
-    endTrigger: '#gothamist-footer',
+    endTrigger: `#${props.pinEndTriggerID}`,
     end: `top 0%+=${newsletterElm.value.offsetHeight + 40}px`,
     //markers: true,
     pinSpacing: false,
@@ -44,8 +55,3 @@ onBeforeUnmount(() => {
     />
   </div>
 </template>
-
-<style lang="scss">
-.newsletter-article {
-}
-</style>

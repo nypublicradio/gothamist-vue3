@@ -27,6 +27,14 @@ $gridGutterSizes: (
           padding: 0.5rem;
         }
       }
+      &.keep-gutter {
+        margin-top: -#{$value};
+        margin-left: -#{$value};
+        margin-right: -#{$value};
+        > * {
+          padding: #{$value};
+        }
+      }
     }
     &.gutter-x-#{$key} {
       margin-right: -#{$value};
@@ -43,6 +51,14 @@ $gridGutterSizes: (
           padding-right: 0.5rem;
         }
       }
+      &.keep-gutter {
+        margin-right: -#{$value};
+        margin-left: -#{$value};
+        > * {
+          padding-left: #{$value};
+          padding-right: #{$value};
+        }
+      }
     }
     &.gutter-y-#{$key} {
       margin-top: -#{$value};
@@ -55,6 +71,14 @@ $gridGutterSizes: (
         @include media('<md') {
           padding-top: 0.5rem;
           padding-bottom: 0.5rem;
+        }
+      }
+      &.keep-gutter {
+        margin-top: -#{$value};
+        margin-bottom: -#{$value};
+        > * {
+          padding-bottom: #{$value};
+          padding-top: #{$value};
         }
       }
     }
