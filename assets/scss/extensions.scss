@@ -324,7 +324,7 @@ $img-height-mobile: 106px;
 .v-card .card-details .card-title .v-tag {
   margin-top: 3.5px;
   @include media(#{$mobileBreakpoint}) {
-    margin-top: -1px;
+    margin-top: 0;
   }
 }
 .v-card .card-details .card-title,
@@ -391,7 +391,9 @@ $img-height-mobile: 106px;
 .v-card.mod-horizontal .card-details .card-title .h2 {
   @include media(#{$mobileBreakpoint}) {
     font-size: var(--font-size-7);
-    line-height: var(--font-size-8);
+    //line-height: var(--font-size-8);
+    // fixes safari render issue
+    line-height: 21px;
   }
 }
 
@@ -417,7 +419,9 @@ $img-height-mobile: 106px;
   .card-details .card-title,
   .card-details .card-title .h2 {
     font-size: var(--font-size-6);
-    line-height: var(--font-size-8);
+    //line-height: var(--font-size-8);
+    // fixes safari render issue
+    line-height: 21px;
     font-weight: 400;
   }
 }
