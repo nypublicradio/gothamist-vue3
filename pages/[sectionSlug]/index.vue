@@ -47,6 +47,7 @@ const newsletterSubmitEvent = (e) => {
             <div v-if="latestArticles.length > 0" class="col-12 xl:col-8">
               <v-card
                 class="featured-article mod-vertical mod-featured mod-large"
+                loading="eager"
                 :image="useImageUrl(latestArticles[0].listingImage)"
                 :sizes="[1]"
                 :width="897"
@@ -79,6 +80,7 @@ const newsletterSubmitEvent = (e) => {
             <div v-if="latestArticles.length > 4" class="col-12 xl:col-4">
               <v-card
                 class="mod-vertical mod-large mb-4"
+                loading="eager"
                 :image="useImageUrl(latestArticles[1].listingImage)"
                 :width="665"
                 :height="448"

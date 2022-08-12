@@ -48,6 +48,7 @@ const newsletterSubmitEvent = (e) => {
     </section>
     <section v-if="curatedTagPage?.headerImage" class="tag-page-header-image">
       <v-image-with-caption
+        loading="eager"
         :image="useImageUrl(curatedTagPage.headerImage)"
         :width="1440"
         :height="288"

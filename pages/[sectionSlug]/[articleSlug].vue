@@ -108,6 +108,7 @@ const newsletterSubmitEvent = (e) => {
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-4 xxl:mb-6">
               <v-image-with-caption
+                loading="eager"
                 :image="useImageUrl(topImage)"
                 :imageUrl="article.imageLink"
                 :width="728"

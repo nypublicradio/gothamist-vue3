@@ -55,6 +55,7 @@ onMounted(() => {
             <div class="col-12 xl:col-8">
               <v-card
                 class="featured-article mod-vertical mod-featured mod-large"
+                loading="eager"
                 :image="useImageUrl(featuredArticle.listingImage)"
                 :sizes="[1]"
                 :width="897"
@@ -89,6 +90,7 @@ onMounted(() => {
               <div v-for="article in latestArticles" :key="article.uuid">
                 <v-card
                   class="mod-horizontal mod-left mod-small mb-3 tag-small"
+                  loading="eager"
                   :image="useImageUrl(article.listingImage)"
                   :width="158"
                   :height="106"
