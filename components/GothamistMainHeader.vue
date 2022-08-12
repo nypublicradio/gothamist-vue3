@@ -23,7 +23,7 @@ const sideBarVisible = ref(false);
             </div>
         </div>
         <div class="gothamist-header-right">
-            <v-flexible-link :to="donateUrl" raw class="pr-2">
+            <v-flexible-link :to="`${donateUrl}&utm_campaign=brandheader`" raw class="pr-2">
                 <Button class="gothamist-header-donate-button p-button-rounded"> 
                     <span class="p-button-label">Donate</span>
                 </Button>

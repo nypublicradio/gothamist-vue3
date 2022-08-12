@@ -83,7 +83,7 @@ watch(route, (value) => {
     <GothamistMainHeader 
       :navigation="navigation"
       :showLogo="route.name !== 'index'"
-      :donateUrl="config.DONATE_URL"
+      :donateUrl="config.donateUrlBase"
     />
     <main>
       <slot />
