@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import Navigation from '~~/composables/types/Navigation.js';
+import { computed } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { ArticlePage } from '~~/composables/types/Page.js';
+import Navigation from '~~/composables/types/Navigation.js';
 
 const props = defineProps<{
     articles: ArticlePage[]
     navigation: Navigation
 }>()
 
-const featuredArticle = props.articles[0]
-const latestArticles = props.articles.slice(1)
+const featuredArticle = computed(() => props.articles[0])
+const latestArticles = computed(() => props.articles.slice(1))
 </script>
 
 <template v-if="featuredArticle && latestArticles">
