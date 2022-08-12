@@ -101,7 +101,12 @@ const newsletterSubmitEvent = (e) => {
             <div>
               <div id="pinned-newsletter" style="min-width: 300px">
                 <hr class="black mb-4" />
-                <newsletter-article @submit="newsletterSubmitEvent" />
+                <newsletter-article
+                  class="pb-8"
+                  triggerID="pinned-newsletter"
+                  pinEndTriggerID="article-recirculation"
+                  @submit="newsletterSubmitEvent"
+                />
               </div>
             </div>
           </div>
@@ -158,14 +163,12 @@ const newsletterSubmitEvent = (e) => {
             <article-footer v-if="article" :article="article" />
           </div>
         </div>
-
         <article-recirculation
-          class="mb-6"
-          :sectionSlug="article.section.slug"
+          id="article-recirculation"
+          class="my-6"
+          :article="article"
         />
-
-        <!-- only show inline news letter with pinned version is hidden -->
-        <div class="mt-8 mb-5 block xxl:hidden">
+        <div class="mt-6 mb-5">
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent" />
         </div>

@@ -1,28 +1,63 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import { ref, computed, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { gsap } from 'gsap'
+import { Draggable } from '~/assets/gsap/Draggable.js'
+import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 
 const props = defineProps({
-  sectionSlug: {
-    type: String,
-    default: '',
+  article: {
+    type: Object,
+    default: null,
   },
 })
 
 const { title: sectionTitle, id: sectionId } = await findPage(
-  props.sectionSlug as string
+  props.article.section.slug as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
   descendant_of: sectionId,
-  limit: 5,
-  offset: 1,
+  limit: 6,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
-console.log('section articles = ', articles)
+
+// remove the currcnt article from the list of articles
+const articlesFiltered = articles.filter(
+  (article) => article.id !== props.article.id
+)
+
 const sectionName = ref(sectionTitle)
-const articleLg = ref(articles[0])
-const articleMd = ref(articles[1])
-const articlesSm = ref([articles[2], articles[3], articles[4]])
+const articleLg = ref(articlesFiltered[0])
+const articleMd = ref(articlesFiltered[1])
+const articlesSm = ref([
+  articlesFiltered[2],
+  articlesFiltered[3],
+  articlesFiltered[4],
+])
+const isMobile = ref(false)
+
+onMounted(() => {
+  // draggable setup
+  if (window.innerWidth < 768 && articles) {
+    isMobile.value = true
+    setTimeout(() => {
+      gsap.registerPlugin(InertiaPlugin)
+      gsap.registerPlugin(Draggable)
+      Draggable.create('.horz-scroll-content', {
+        type: 'x',
+        edgeResistance: 0.45,
+        bounds: '.horz-scroll',
+        inertia: true,
+      })
+    }, 1000)
+  }
+})
+onBeforeUnmount(() => {
+  // kill draggable
+  if (isMobile.value) {
+    Draggable.get('.horz-scroll-content').kill()
+  }
+})
 </script>
 
 <template>
@@ -43,12 +78,6 @@ const articlesSm = ref([articles[2], articles[3], articles[4]])
             :titleLink="articleLg.link"
             :maxWidth="articleLg.listingImage.width"
             :maxHeight="articleLg.listingImage.height"
-            :tags="[
-              {
-                name: articleLg.section.name,
-                slug: `/${articleLg.section.slug}`,
-              },
-            ]"
           >
             <p class="desc">
               {{ articleLg.description }}
@@ -69,12 +98,6 @@ const articlesSm = ref([articles[2], articles[3], articles[4]])
             :sizes="[1]"
             :maxWidth="articleMd.listingImage.width"
             :maxHeight="articleMd.listingImage.height"
-            :tags="[
-              {
-                name: articleMd.section.name,
-                slug: `/${articleMd.section.slug}`,
-              },
-            ]"
           >
             <p>
               {{ articleMd.description }}
@@ -105,11 +128,18 @@ const articlesSm = ref([articles[2], articles[3], articles[4]])
             <v-card-metadata :article="articleMd" />
           </v-card>
           <hr class="my-5 block xl:hidden" />
-          <div class="horz-scroll-holder">
+          <div class="horz-scroll-holder" :class="[{ mobile: isMobile }]">
             <div class="horz-scroll">
               <div class="grid gutter-x-xl keep-gutter horz-scroll-content">
                 <template v-for="article in articlesSm" :key="article.uuid">
-                  <div class="v-hr col-4 xl:col-12 flex xl:flex-column">
+                  <div
+                    class="v-hr flex xl:flex-column"
+                    :class="
+                      isMobile
+                        ? ' col-4 xl:col-12'
+                        : 'col-12 sm:col-4 xl:col-12'
+                    "
+                  >
                     <hr class="w-full mb-3 hidden xl:block" />
                     <v-card
                       class="article-sm mod-horizontal mod-small mb-3 tag-small"
@@ -152,41 +182,48 @@ const articlesSm = ref([articles[2], articles[3], articles[4]])
       border-right: 1px solid #ebebeb !important;
     }
   }
-  .horz-scroll-holder {
+  .horz-scroll-holder.mobile {
     position: relative;
     @include media('<md') {
       margin-left: -1.5rem;
       margin-right: -1.5rem;
-      &:before {
+      &:after {
         content: '';
+        z-index: 1;
         pointer-events: none;
         position: absolute;
         top: 0;
         right: 0;
         display: block;
         height: 100%;
-        width: 100px;
+        width: 100%;
         background: -moz-linear-gradient(
           left,
-          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 10%,
+          rgba(255, 255, 255, 0) 65%,
           rgba(255, 255, 255, 1) 100%
         );
         background: -webkit-linear-gradient(
           left,
-          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 10%,
+          rgba(255, 255, 255, 0) 65%,
           rgba(255, 255, 255, 1) 100%
         );
         background: linear-gradient(
           to right,
-          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 10%,
+          rgba(255, 255, 255, 0) 65%,
           rgba(255, 255, 255, 1) 100%
         );
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
       }
     }
     .horz-scroll {
+      overflow-x: hidden;
       @include media('<md') {
-        overflow-x: scroll;
+        //overflow-x: scroll;
 
         .horz-scroll-content {
           padding: 0 24px;
