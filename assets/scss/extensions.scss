@@ -351,6 +351,21 @@ $img-height-mobile: 106px;
     line-height: var(--font-size-11);
   }
 }
+.v-card.mod-featured2.mod-large .card-details .card-title .v-tag {
+  margin-top: 16.5px;
+  @include media(#{$mobileBreakpoint}) {
+    margin-top: 0;
+  }
+}
+.v-card.mod-featured2 .card-details .card-title,
+.v-card.mod-featured2 .card-details .card-title .h2 {
+  font-size: var(--font-size-17);
+  line-height: var(--font-size-17);
+  @include media(#{$mobileBreakpoint}) {
+    font-size: var(--font-size-10);
+    line-height: var(--font-size-11);
+  }
+}
 .v-card .card-details .card-slot {
   flex-grow: 1;
   display: flex;
