@@ -109,6 +109,9 @@ onUnmounted(() => {
             <img
               src="https://fakeimg.pl/300x600/?text=AD Here"
               style="width: 100%; max-width: 300px"
+              width="300"
+              height="600"
+              alt="advertisement"
             />
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
@@ -118,6 +121,9 @@ onUnmounted(() => {
             src="https://fakeimg.pl/300x250/?text=AD Here"
             class="block m-auto"
             style="width: 100%; max-width: 300px"
+            width="300"
+            height="250"
+            alt="advertisement"
           />
           <p class="type-fineprint text-center">
             Powered by members and sponsors

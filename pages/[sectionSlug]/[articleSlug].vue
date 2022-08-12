@@ -99,7 +99,7 @@ const newsletterSubmitEvent = (e) => {
           <div class="col-fixed hidden xxl:block">
             <byline class="mb-3" :article="article" />
             <div>
-              <div id="pinned-newsletter">
+              <div id="pinned-newsletter" style="min-width: 300px">
                 <hr class="black mb-4" />
                 <newsletter-article @submit="newsletterSubmitEvent" />
               </div>
@@ -141,6 +141,9 @@ const newsletterSubmitEvent = (e) => {
             <img
               src="https://fakeimg.pl/300x250/?text=AD Here"
               style="width: 100%; max-width: 300px"
+              width="300"
+              height="250"
+              alt="advertisement"
             />
             <p class="type-fineprint">Powered by members and sponsors</p>
           </div>
@@ -154,6 +157,11 @@ const newsletterSubmitEvent = (e) => {
           <div class="col">
             <article-footer v-if="article" :article="article" />
           </div>
+        </div>
+        <!-- only show inline news letter with pinned version is hidden -->
+        <div class="mt-8 mb-5 block xxl:hidden">
+          <hr class="black mb-4" />
+          <newsletter-home @submit="newsletterSubmitEvent" />
         </div>
       </div>
     </section>

@@ -253,7 +253,6 @@ label,
 .p-inputtext {
   background: var(--input-bg);
   &.alt-design {
-    color: var(--white);
     padding-left: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -273,15 +272,18 @@ label,
     &.p-disabled {
       background: transparent;
     }
-    &::placeholder {
-      color: var(--input-placeholder-text-color-on-dark);
-    }
-    &:-ms-input-placeholder {
-      color: var(--input-placeholder-text-color-on-dark);
-    }
+    &.dark {
+      color: var(--white);
+      &::placeholder {
+        color: var(--input-placeholder-text-color-on-dark);
+      }
+      &:-ms-input-placeholder {
+        color: var(--input-placeholder-text-color-on-dark);
+      }
 
-    &::-ms-input-placeholder {
-      color: var(--input-placeholder-text-color-on-dark);
+      &::-ms-input-placeholder {
+        color: var(--input-placeholder-text-color-on-dark);
+      }
     }
   }
 }
@@ -411,7 +413,7 @@ $img-height-mobile: 106px;
 }
 
 @mixin tag-small() {
-  font-size: var(--font-size-6) !important;
+  font-size: var(--font-size-5) !important;
 }
 
 @mixin tag-large() {
@@ -438,6 +440,10 @@ $img-height-mobile: 106px;
     .p-button-label {
       @include tag-mobile();
     }
+  }
+  /* temp disabling transitions. Kelly is having odd transition issues on his machine (chrome /mac) not reproducing it on my windoes chrome */
+  .p-button {
+    transition: none;
   }
 }
 
@@ -492,6 +498,15 @@ $img-height-mobile: 106px;
 .footer.image-with-caption-description {
   font-size: var(--font-size-6);
   margin-bottom: 0;
+}
+
+// hover styles for enlarge button
+.p-image .p-button:enabled:hover {
+  background-color: var(--white);
+  border-color: var(--white);
+  .p-button-icon {
+    color: var(--black) !important;
+  }
 }
 
 /* Streamfield */

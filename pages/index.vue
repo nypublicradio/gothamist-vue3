@@ -106,6 +106,9 @@ onMounted(() => {
                 class="mb-1"
                 src="https://fakeimg.pl/450x250/?text=AD Here"
                 style="max-width: 100%"
+                width="450"
+                height="250"
+                alt="advertisement"
               />
               <p class="text-sm text-gray-400">
                 Powered by members and sponsors
@@ -197,6 +200,9 @@ onMounted(() => {
                 class="mb-4 xl:mb-7"
                 src="https://fakeimg.pl/300x600/?text=AD Here"
                 style="max-width: 100%"
+                width="300"
+                height="600"
+                alt="advertisement"
               />
             </div>
           </div>
