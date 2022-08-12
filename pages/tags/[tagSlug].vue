@@ -11,10 +11,11 @@ const curatedTagPage = await findPage(`tags/${tagSlug}`).then(
   ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
 )
 
+const articlesToShow = ref(10)
+
 const articles = await findArticlePages({
   tag_slug: tagSlug,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
-const articlesToShow = ref(10)
 
 const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
@@ -41,24 +42,27 @@ const newsletterSubmitEvent = (e) => {
 <template>
   <div>
     <section class="tag-page-header py-1">
-      <h1 class="m-5 tag-large">{{ curatedTagPage?.title || tagName }}</h1>
+      <h1 class="m-3 lg:m-5 tag-large">
+        {{ curatedTagPage?.title || tagName }}
+      </h1>
     </section>
     <section v-if="curatedTagPage?.headerImage" class="tag-page-header-image">
       <v-image-with-caption
         :image="useImageUrl(curatedTagPage.headerImage)"
         :width="1440"
-        :height="343"
+        :height="288"
+        :sizes="[1]"
         :alt-text="curatedTagPage.headerImage.alt"
         :maxWidth="curatedTagPage.headerImage.width"
         :maxHeight="curatedTagPage.headerImage.height"
         :ratio="[5, 1]"
       />
     </section>
-    <section v-if="curatedTagPage?.topPageZone" class="tag-page-top-zone mt-3">
-      <div class="content">
+    <section v-if="curatedTagPage?.topPageZone" class="tag-page-top-zone">
+      <div class="content mt-0 lg:mt-3">
         <v-streamfield
           :streamfield-blocks="curatedTagPage.topPageZone"
-          class="pt-6"
+          class="pt-4 lg:pt-6"
         />
       </div>
     </section>
@@ -83,19 +87,14 @@ const newsletterSubmitEvent = (e) => {
                 :tags="[
                   {
                     name: article.section.name,
-                    slug: article.section.slug,
+                    slug: `/${article.section.slug}`,
                   },
                 ]"
               >
                 <p>
                   {{ article.description }}
                 </p>
-                <div class="article-metadata">
-                  <span>
-                    <v-byline :authors="article.authors" />
-                  </span>
-                  <span>comments go here</span>
-                </div>
+                <v-card-metadata :article="article" />
               </v-card>
               <hr class="mb-5" />
               <!-- mid page zone should go after the third article -->
@@ -121,6 +120,9 @@ const newsletterSubmitEvent = (e) => {
               class="mb-4 xl:mb-7"
               src="https://fakeimg.pl/300x600/?text=AD Here"
               style="max-width: 100%"
+              width="300"
+              height="600"
+              alt="advertisement"
             />
           </div>
         </div>

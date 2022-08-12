@@ -10,24 +10,40 @@ const props = defineProps({
     type: Object,
     default: {},
   },
+  showCta: {
+    type: Boolean,
+    default: true,
+  },
   sponsored: {
+    type: Boolean,
+    default: false,
+  },
+  staffPage: {
     type: Boolean,
     default: false,
   },
 })
 
 const profile = ref(props.profileData)
-const ctaText = ref(props.sponsored ? 'Read more' : 'Learn More')
+const ctaText = ref(props.sponsored ? 'Learn More' : 'Read more')
 const profileImage = ref(
   props.sponsored ? profile.value.logo : profile.value.photoID
 )
 const profileLink = ref(
   props.sponsored ? profile.value.link : profile.value.url
 )
+const profileImageSizeLg = ref(157)
+const profileImageSizeMd = ref(86)
+const profileImageSizeSm = ref('60px')
+
+const imageSize = ref(
+  props.staffPage ? profileImageSizeLg.value : profileImageSizeMd.value
+)
+const imageSizePx = ref(imageSize.value + 'px')
 </script>
 
 <template>
-  <div class="article-footer-profile grid">
+  <div class="author-profile grid" :class="[{ staffPage: props.staffPage }]">
     <div class="col md:pr-4 flex flex-column gap-2">
       <div
         class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"
@@ -47,10 +63,14 @@ const profileLink = ref(
           </v-share-tools>
         </span>
       </div>
-      <p v-if="profile.biography" class="p2 truncate t3lines">
+      <p
+        v-if="profile.biography"
+        class="p2"
+        :class="props.staffPage ? '' : 'truncate t3lines'"
+      >
         {{ profile.biography }}
       </p>
-      <v-flexible-link :to="profileLink" class="type-textlink1">
+      <v-flexible-link v-if="showCta" :to="profileLink" class="type-textlink1">
         {{ ctaText }}
       </v-flexible-link>
     </div>
@@ -60,8 +80,8 @@ const profileLink = ref(
           <v-simple-responsive-image
             v-if="profileImage"
             :src="useImageUrl({ id: profileImage })"
-            :width="86"
-            :height="86"
+            :width="imageSize"
+            :height="imageSize"
             :sizes="[1, 2]"
             :ratio="[1, 1]"
             alt="Author's image"
@@ -74,31 +94,42 @@ const profileLink = ref(
 </template>
 
 <style lang="scss">
-.article-footer-profile {
+.author-profile {
+  gap: 1rem;
+  @include media('<md') {
+    gap: 0;
+  }
   .col-fixed.profile {
-    width: 102px;
+    box-sizing: content-box;
+    width: v-bind(imageSizePx);
     @include media('<md') {
-      width: 76px;
+      width: v-bind(profileImageSizeSm);
     }
   }
   .author-image {
     background: #ffffff;
-    width: 86px;
-    height: 86px;
+    width: v-bind(imageSizePx);
+    height: v-bind(imageSizePx);
     border-radius: 50%;
     margin-right: 12px;
     overflow: hidden;
     img {
-      width: 86px;
-      height: 86px;
+      width: v-bind(imageSizePx);
+      height: v-bind(imageSizePx);
     }
     @include media('<md') {
-      width: 60px;
-      height: 60px;
+      width: v-bind(profileImageSizeSm);
+      height: v-bind(profileImageSizeSm);
       img {
-        width: 60px;
-        height: 60px;
+        width: v-bind(profileImageSizeSm);
+        height: v-bind(profileImageSizeSm);
       }
+    }
+  }
+  &.staffPage {
+    flex-direction: row-reverse;
+    .flexible-link {
+      pointer-events: none;
     }
   }
 }

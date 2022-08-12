@@ -82,7 +82,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
       name: 'Gothamist',
       logo: {
         '@type': 'ImageObject',
-        url: 'http://gothamist.com/static-images/home_og_1200x600.png',
+        url: 'https://gothamist.com/static-images/home_og_1200x600.png',
         width: '1200',
         height: '600'
       },

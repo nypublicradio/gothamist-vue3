@@ -51,16 +51,16 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         id: article.id,
         title: article.title,
         description: article.description,
-        image: article.leadAsset?.[0].value.image ?? article.leadAsset?.[0].value.defaultImage,
-        leadImageCaption: article.leadAsset?.[0].value?.caption ?? article.leadAsset?.[0].value.image?.caption,
-        imageLink: article.leadAsset?.[0].value.imageLink,
+        image: article.leadAsset?.[0]?.value?.image ?? article.leadAsset?.[0]?.value?.defaultImage,
+        leadImageCaption: article.leadAsset?.[0]?.value?.caption ?? article.leadAsset?.[0]?.value?.image?.caption,
+        imageLink: article.leadAsset?.[0]?.value?.imageLink,
         link: getArticleLink(article),
 
         leadAsset: article.leadAsset?.[0],
-        leadImage: article.leadAsset?.[0].type === 'lead_image' && article.leadAsset?.[0].value.image,
-        leadGallery: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].value,
+        leadImage: article.leadAsset?.[0]?.type === 'lead_image' && article.leadAsset?.[0]?.value.image,
+        leadGallery: article.leadAsset?.[0]?.type === 'lead_gallery' && article.leadAsset?.[0]?.value,
 
-        gallerySlides: article.leadAsset?.[0].type === 'lead_gallery' && article.leadAsset?.[0].slides,
+        gallerySlides: article.leadAsset?.[0]?.type === 'lead_gallery' && article.leadAsset?.[0]?.slides,
         legacyId: article.legacyId,
         authors: article.relatedAuthors?.map(normalizeAuthor),
         contributingOrganizations: article.relatedContributingOrganizations,
@@ -78,12 +78,12 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         body: article.body,
 
         // for listing pages
-        listingImage: article.listingImage || article.leadAsset?.[0].value?.image || article.leadAsset?.[0].value?.defaultImage,
+        listingImage: article.listingImage || article.leadAsset?.[0]?.value?.image || article.leadAsset?.[0]?.value?.defaultImage,
         listingTitle: article.listingTitle || article.title,
         listingDescription: article.listingSummary || article.description,
 
         // for social/OG metadata
-        socialImage: article.socialImage || article.leadAsset?.[0].value?.image || article.leadAsset?.[0].value?.defaultImage,
+        socialImage: article.socialImage || article.leadAsset?.[0]?.value?.image || article.leadAsset?.[0]?.value?.defaultImage,
         socialTitle: article.socialTitle || article.title,
         socialDescription: article.socialText || article.description,
 
@@ -97,5 +97,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 
 // Transform a list of article page data from the API into a simpler and typed format
 export function normalizeFindArticlePagesResponse(articlesResponse: any): ArticlePage[] {
+    //console.log(articlesResponse)
+    // the response from the API is empty for http://localhost:3000/staff/michelle-bocanegra
     return articlesResponse.value.items?.map(normalizeArticlePage)
 }

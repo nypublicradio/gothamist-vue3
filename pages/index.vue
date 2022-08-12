@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
@@ -17,6 +16,7 @@ const latestArticles = await findArticlePages({
 const articles = await findArticlePages('').then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
+
 const articlesToShow = ref(6)
 
 const homePageCollections = []
@@ -59,7 +59,6 @@ onMounted(() => {
                 :sizes="[1]"
                 :width="897"
                 :height="598"
-                :quality="80"
                 :title="featuredArticle.title"
                 :titleLink="featuredArticle.link"
                 :maxWidth="featuredArticle.listingImage.width"
@@ -67,19 +66,14 @@ onMounted(() => {
                 :tags="[
                   {
                     name: featuredArticle.section.name,
-                    slug: `/tags/${featuredArticle.section.slug}`,
+                    slug: `/${featuredArticle.section.slug}`,
                   },
                 ]"
               >
                 <p class="desc">
                   {{ featuredArticle.description }}
                 </p>
-                <div class="article-metadata">
-                  <span>
-                    <v-byline :authors="featuredArticle.authors" />
-                  </span>
-                  <span>comments</span>
-                </div>
+                <v-card-metadata :article="featuredArticle" />
               </v-card>
             </div>
             <div class="col-12 xl:col-4">
@@ -105,18 +99,16 @@ onMounted(() => {
                   :maxHeight="article.listingImage.height"
                   :quality="80"
                 >
-                  <div class="article-metadata">
-                    <span>
-                      <v-byline :authors="article.authors" />
-                    </span>
-                    <span>comments</span>
-                  </div>
+                  <v-card-metadata :article="article" :showComments="false" />
                 </v-card>
               </div>
               <img
                 class="mb-1"
                 src="https://fakeimg.pl/450x250/?text=AD Here"
                 style="max-width: 100%"
+                width="450"
+                height="250"
+                alt="advertisement"
               />
               <p class="text-sm text-gray-400">
                 Powered by members and sponsors
@@ -134,7 +126,7 @@ onMounted(() => {
           <div v-for="collection in homePageCollections" :key="collection.id">
             <v-card
               v-if="collection.layout === 'single-story-feature'"
-              class="mod-large mb-3 lg:mb-6 tag-small"
+              class="mod-large mb-3 lg:mb-6 tag-small single-story-feature"
               data-style-mode="dark"
               :image="useImageUrl(collection.data.listingImage)"
               :ratio="[3, 2]"
@@ -156,12 +148,7 @@ onMounted(() => {
               <p class="desc">
                 {{ collection.data.description }}
               </p>
-              <div class="article-metadata">
-                <span>
-                  <v-byline :authors="collection.data.authors" />
-                </span>
-                <span>comments</span>
-              </div>
+              <v-card-metadata :article="collection.data" />
             </v-card>
           </div>
         </template>
@@ -189,19 +176,14 @@ onMounted(() => {
                   :tags="[
                     {
                       name: article.section.name,
-                      slug: `/tags/${article.section.slug}`,
+                      slug: `/${article.section.slug}`,
                     },
                   ]"
                 >
                   <p class="desc">
                     {{ article.description }}
                   </p>
-                  <div class="article-metadata">
-                    <span>
-                      <v-byline :authors="article.authors" />
-                    </span>
-                    <span>comments</span>
-                  </div>
+                  <v-card-metadata :article="article" />
                 </v-card>
                 <hr class="mb-5" />
               </div>
@@ -218,6 +200,9 @@ onMounted(() => {
                 class="mb-4 xl:mb-7"
                 src="https://fakeimg.pl/300x600/?text=AD Here"
                 style="max-width: 100%"
+                width="300"
+                height="600"
+                alt="advertisement"
               />
             </div>
           </div>
@@ -231,11 +216,6 @@ onMounted(() => {
 .v-card.featured-article {
   .card-details {
     padding: 0.75rem 0;
-  }
-  .card-image-wrapper {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 0;
   }
 }
 </style>
