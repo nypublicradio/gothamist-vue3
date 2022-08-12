@@ -86,6 +86,7 @@ export default defineNuxtConfig({
     navigationId: 1,
     systemMessagesId: 2,
     sitewideComponentsId: 2,
+    DONATE_URL: "https://pledge.wnyc.org/support/gothamist?utm_medium=redirect&utm_source=wnyc&utm_campaign=gothamist&utm_medium=partnersite&utm_source=gothamist&utm_campaign=brandheader"
   },
   typescript: {
     strict: true
