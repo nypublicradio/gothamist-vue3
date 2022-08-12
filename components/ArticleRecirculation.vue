@@ -127,32 +127,37 @@ onBeforeUnmount(() => {
             </p>
             <v-card-metadata :article="articleMd" />
           </v-card>
-          <hr class="my-5 block xl:hidden" />
+          <hr
+            class="my-5"
+            :class="isMobile ? 'block xl:hidden' : 'hidden sm:block xl:hidden'"
+          />
           <div class="horz-scroll-holder" :class="[{ mobile: isMobile }]">
             <div class="horz-scroll">
               <div class="grid gutter-x-xl keep-gutter horz-scroll-content">
-                <template v-for="article in articlesSm" :key="article.uuid">
-                  <div
-                    class="v-hr flex xl:flex-column"
+                <div
+                  v-for="article in articlesSm"
+                  :key="article.id"
+                  class="v-hr flex"
+                  :class="
+                    isMobile
+                      ? ' col-4 xl:col-12 xl:flex-column'
+                      : 'col-12 sm:col-4 xl:col-12 flex-column sm:flex-row xl:flex-column'
+                  "
+                >
+                  <hr
+                    class="w-full mb-3"
                     :class="
-                      isMobile
-                        ? ' col-4 xl:col-12'
-                        : 'col-12 sm:col-4 xl:col-12'
+                      isMobile ? 'hidden xl:block' : 'block sm:hidden xl:block'
                     "
+                  />
+                  <v-card
+                    class="article-sm mod-horizontal mod-small mb-3 tag-small"
+                    :title="article.title"
+                    :titleLink="article.link"
                   >
-                    <hr class="w-full mb-3 hidden xl:block" />
-                    <v-card
-                      class="article-sm mod-horizontal mod-small mb-3 tag-small"
-                      :title="article.title"
-                      :titleLink="article.link"
-                    >
-                      <v-card-metadata
-                        :article="article"
-                        :showComments="false"
-                      />
-                    </v-card>
-                  </div>
-                </template>
+                    <v-card-metadata :article="article" :showComments="false" />
+                  </v-card>
+                </div>
               </div>
             </div>
           </div>
