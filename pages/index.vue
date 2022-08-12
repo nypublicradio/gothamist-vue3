@@ -211,11 +211,3 @@ onMounted(() => {
     </section>
   </div>
 </template>
-
-<style lang="scss">
-.v-card.featured-article {
-  .card-details {
-    padding: 0.75rem 0;
-  }
-}
-</style>

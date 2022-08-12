@@ -5,7 +5,7 @@ $mobileBreakpoint: '<lg';
 /* Extra Link Styles */
 a {
   color: var(--link-color);
-  font-weight: bold;
+  font-weight: normal;
   transition: var(--transition-duration);
   text-decoration: var(--link-text-decoration);
   &:hover {
