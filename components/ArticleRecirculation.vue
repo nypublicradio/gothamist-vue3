@@ -135,8 +135,8 @@ onBeforeUnmount(() => {
             <div class="horz-scroll">
               <div class="grid gutter-x-xl keep-gutter horz-scroll-content">
                 <div
-                  v-for="article in articlesSm"
-                  :key="article.id"
+                  v-for="articleSm in articlesSm"
+                  :key="articleSm.id"
                   class="v-hr flex"
                   :class="
                     isMobile
@@ -152,10 +152,13 @@ onBeforeUnmount(() => {
                   />
                   <v-card
                     class="article-sm mod-horizontal mod-small mb-3 tag-small"
-                    :title="article.title"
-                    :titleLink="article.link"
+                    :title="articleSm.title"
+                    :titleLink="articleSm.link"
                   >
-                    <v-card-metadata :article="article" :showComments="false" />
+                    <v-card-metadata
+                      :article="articleSm"
+                      :showComments="false"
+                    />
                   </v-card>
                 </div>
               </div>
