@@ -5,6 +5,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
+import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 
 const props = defineProps({
   article: {
@@ -85,29 +86,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         </div>
       </div>
       <div class="flex flex-column gap-125">
-        <div class="type-link">
-          By
-          <span v-for="(author, index) of authors" :key="author.name">
-            <v-flexible-link :to="author.url" class="author-name">
-              {{ author.name }}
-            </v-flexible-link>
-            <span v-if="author.organization">&nbsp;(</span>
-            <v-flexible-link
-              v-if="author.organization"
-              :to="author.organizationUrl || null"
-              class="author-name contributing-org"
-            >
-              {{ author.organization }}
-            </v-flexible-link>
-            <span v-if="author.organization">)</span>
-            <span
-              v-if="isMultipleAuthors && index !== authors.length - 1"
-              class="author-name"
-            >
-              and
-            </span>
-          </span>
-        </div>
+        <v-byline :authors="authors" prefix="By" />
         <date-published :article="props.article" />
         <v-flexible-link
           v-if="!isDisableComments"
@@ -200,6 +179,9 @@ const sponsor = ref(props.article?.sponsors[0] || [])
 
 <style lang="scss">
 .byline {
+  * {
+    @include font-config($type-link);
+  }
   .author,
   .sponsored {
     .author-image {
@@ -213,18 +195,6 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         width: 60px;
         height: 60px;
       }
-    }
-    .author-name {
-      @include font-config($type-link);
-    }
-    a.author-name {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    .contributing-org {
-      display: inline;
-      color: var(--gray-600);
     }
     &.multiple-authors {
       flex-direction: column;
@@ -241,6 +211,14 @@ const sponsor = ref(props.article?.sponsors[0] || [])
     }
     &.one-author {
       align-items: center;
+    }
+  }
+  .v-byline {
+    a.v-byline-author-name {
+      font-weight: var(--font-weight-500);
+    }
+    .v-byline-contributing-org {
+      color: var(--gray-600);
     }
   }
 }
