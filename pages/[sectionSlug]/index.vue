@@ -69,7 +69,9 @@ const newsletterSubmitEvent = (e) => {
                     </p>
                   </div>
                   <div class="separator col-fixed mt-2 ml-2"></div>
-                  <div class="col-12 xl:col-5">Byline Goes Here</div>
+                  <div class="col-12 xl:col-5">
+                    <Byline :article="latestArticles[0]" />
+                  </div>
                 </div>
                 <div class="article-metadata">
                   <span>comments</span>
