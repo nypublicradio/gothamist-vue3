@@ -76,8 +76,8 @@ onBeforeUnmount(() => {
             :height="598"
             :title="articleLg.title"
             :titleLink="articleLg.link"
-            :maxWidth="articleLg.listingImage.width"
-            :maxHeight="articleLg.listingImage.height"
+            :maxWidth="articleLg.listingImage?.width"
+            :maxHeight="articleLg.listingImage?.height"
           >
             <p class="desc">
               {{ articleLg.description }}
@@ -96,8 +96,8 @@ onBeforeUnmount(() => {
             :width="433"
             :height="289"
             :sizes="[1]"
-            :maxWidth="articleMd.listingImage.width"
-            :maxHeight="articleMd.listingImage.height"
+            :maxWidth="articleMd.listingImage?.width"
+            :maxHeight="articleMd.listingImage?.height"
           >
             <p>
               {{ articleMd.description }}
@@ -113,8 +113,8 @@ onBeforeUnmount(() => {
             :width="318"
             :height="212"
             :sizes="[1]"
-            :maxWidth="articleMd.listingImage.width"
-            :maxHeight="articleMd.listingImage.height"
+            :maxWidth="articleMd.listingImage?.width"
+            :maxHeight="articleMd.listingImage?.height"
             :tags="[
               {
                 name: articleMd.section.name,

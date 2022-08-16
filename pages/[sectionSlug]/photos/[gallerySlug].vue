@@ -137,6 +137,7 @@ onUnmounted(() => {
             />
           </template>
           <v-image-with-caption
+            v-if="slide.image"
             :image="useImageUrl(slide.image)"
             :alt-text="slide.image.alt"
             :maxWidth="slide.image.width"
