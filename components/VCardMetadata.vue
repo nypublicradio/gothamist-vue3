@@ -9,6 +9,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  altDesign: {
+    type: Boolean,
+    default: false,
+  },
   showComments: {
     type: Boolean,
     default: true,
@@ -17,18 +21,48 @@ const props = defineProps({
 </script>
 
 <template>
-  <div
-    v-if="props.article"
-    class="article-metadata v-card-metadata"
-    :class="[{ stack: props.stack }]"
-  >
-    <span>
-      <v-byline :authors="article.authors || article.relatedAuthors" />
-    </span>
-    <!-- remove "!" and "|| '##'"" when we support comments -->
-    <span class="comments" v-if="!article.comments && showComments">
-      {{ article.comments || '##' }} Comments
-    </span>
+  <div>
+    <div
+      v-if="props.article"
+      class="article-metadata v-card-metadata"
+      :class="[{ stack: props.stack }, { 'alt-design': props.altDesign }]"
+    >
+      <!-- default byline and comments -->
+      <template v-if="!props.altDesign">
+        <span>
+          <v-byline
+            :authors="props.article.authors || props.article.relatedAuthors"
+          />
+        </span>
+        <span class="comments" v-if="!props.article.comments && showComments">
+          {{ props.article.comments || '##' }} Comments
+        </span>
+      </template>
+
+      <!-- alt design blurb, byline w/photos and comments -->
+      <template v-else>
+        <div class="grid w-full gutter-x-xxl">
+          <div class="col-12 md:col-6 separator">
+            <p class="desc">
+              {{ props.article.description }}
+            </p>
+          </div>
+          <div class="col-12 md:col-6">
+            <byline
+              :article="props.article"
+              :showSocial="false"
+              :showComments="false"
+            />
+          </div>
+          <span
+            class="col-12 comments"
+            v-if="!props.article.comments && showComments"
+          >
+            {{ props.article.comments || '##' }} Comments
+          </span>
+        </div>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -38,6 +72,7 @@ const props = defineProps({
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    margin-top: 0;
     .comments {
       border: none;
       margin: 0;
@@ -57,6 +92,13 @@ const props = defineProps({
   }
   &.stack {
     @include stackComments;
+  }
+  &.alt-design {
+    .separator {
+      @include media('>md') {
+        border-right: solid 1px var(--black300);
+      }
+    }
   }
 }
 </style>

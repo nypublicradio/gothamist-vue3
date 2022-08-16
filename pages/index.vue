@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
 // the home page featured article should display only the first story in the home page content collection

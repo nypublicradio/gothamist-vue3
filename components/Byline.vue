@@ -12,29 +12,35 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  showSocial: {
+    type: Boolean,
+    default: true,
+  },
+  showComments: {
+    type: Boolean,
+    default: true,
+  },
 })
 
-const authors = ref(props.article.authors)
-const shareUrl = ref(props.article.url)
-const shareTitle = ref(props.article.title)
-const isMultipleAuthors = ref(props.article.authors.length > 1)
+const authors = ref(props.article?.authors)
+const shareUrl = ref(props.article?.url)
+const shareTitle = ref(props.article?.title)
+const isMultipleAuthors = ref(props.article?.authors.length > 1)
 const isDisableComments = ref(props.article?.disableComments || false)
 const comments = ref(props.article?.comments || 'Go to')
 const isSponsored = ref(props.article?.sponsoredContent || false)
-const sponsor = ref(props.article?.sponsors[0] || [])
+const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
 </script>
 
 <template>
   <div class="byline">
-    <hr class="black" />
-
     <!-- sponsored -->
-    <div v-if="isSponsored" class="sponsored flex align-items-center py-4">
+    <div v-if="isSponsored" class="sponsored flex align-items-center">
       <div class="author-image">
-        <v-flexible-link :to="sponsor.link" raw>
+        <v-flexible-link :to="sponsor?.link" raw>
           <v-simple-responsive-image
-            v-if="sponsor.logo"
-            :src="useImageUrl({ id: sponsor.logo })"
+            v-if="sponsor?.logo"
+            :src="useImageUrl({ id: sponsor?.logo })"
             :width="60"
             :height="60"
             :sizes="[1, 2]"
@@ -46,12 +52,12 @@ const sponsor = ref(props.article?.sponsors[0] || [])
       </div>
       <div class="flex flex-column gap-125">
         <p class="type-caption">Article sponsored by</p>
-        <v-flexible-link :to="sponsor.link" class="author-name">
-          {{ sponsor.name }}
+        <v-flexible-link :to="sponsor?.link" class="author-name">
+          {{ sponsor?.name }}
         </v-flexible-link>
         <date-published :article="props.article" />
         <v-flexible-link
-          v-if="!isDisableComments"
+          v-if="!isDisableComments && props.showComments"
           to="#comments"
           class="type-textlink2"
         >
@@ -62,7 +68,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
     <!-- authors -->
     <div
       v-else
-      class="author flex py-4"
+      class="author flex"
       :class="isMultipleAuthors ? 'multiple-authors' : 'one-author'"
     >
       <div class="author-images flex">
@@ -89,7 +95,7 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         <v-byline :authors="authors" prefix="By" />
         <date-published :article="props.article" />
         <v-flexible-link
-          v-if="!isDisableComments"
+          v-if="!isDisableComments && props.showComments"
           to="#comments"
           class="type-textlink2"
         >
@@ -97,83 +103,84 @@ const sponsor = ref(props.article?.sponsors[0] || [])
         </v-flexible-link>
       </div>
     </div>
-    <hr />
     <!-- social share -->
-    <v-share-tools label="Share" class="mt-3">
-      <v-share-tools-item
-        action="share"
-        service="facebook"
-        :url="shareUrl"
-        :utm-parameters="{
-          medium: 'social',
-          source: 'facebook',
-          campaign: 'shared_facebook',
-        }"
-        @share="
-          sendEvent('click_tracking', {
-            event_category: 'Click Tracking',
-            component: 'Article Byline',
-            event_label: 'Social Share Facebook',
-          })
-        "
-      />
+    <div v-if="showSocial">
+      <hr class="mt-4" />
+      <v-share-tools label="Share" class="mt-3">
+        <v-share-tools-item
+          action="share"
+          service="facebook"
+          :url="shareUrl"
+          :utm-parameters="{
+            medium: 'social',
+            source: 'facebook',
+            campaign: 'shared_facebook',
+          }"
+          @share="
+            sendEvent('click_tracking', {
+              event_category: 'Click Tracking',
+              component: 'Article Byline',
+              event_label: 'Social Share Facebook',
+            })
+          "
+        />
 
-      <v-share-tools-item
-        action="share"
-        service="twitter"
-        :url="shareUrl"
-        :share-parameters="{ text: shareTitle, via: 'gothamist' }"
-        :utm-parameters="{
-          medium: 'social',
-          source: 'twitter',
-          campaign: 'shared_twitter',
-        }"
-        @share="
-          sendEvent('click_tracking', {
-            event_category: 'Click Tracking',
-            component: 'Article Byline',
-            event_label: 'Social Share Twitter',
-          })
-        "
-      />
-      <v-share-tools-item
-        action="share"
-        service="reddit"
-        :url="shareUrl"
-        :share-parameters="{ title: shareTitle }"
-        :utm-parameters="{
-          medium: 'social',
-          source: 'reddit',
-          campaign: 'shared_reddit',
-        }"
-        @share="
-          sendEvent('click_tracking', {
-            event_category: 'Click Tracking',
-            component: 'Article Byline',
-            event_label: 'Social Share Reddit',
-          })
-        "
-      />
-      <v-share-tools-item
-        action="share"
-        service="email"
-        :url="shareUrl"
-        :share-parameters="{ body: shareTitle + ' - %URL%' }"
-        :utm-parameters="{
-          medium: 'social',
-          source: 'email',
-          campaign: 'shared_email',
-        }"
-        @share="
-          sendEvent('click_tracking', {
-            event_category: 'Click Tracking',
-            component: 'Article Byline',
-            event_label: 'Social Share Email',
-          })
-        "
-      />
-    </v-share-tools>
-    <hr class="mt-3 mb-5 xxl:hidden" />
+        <v-share-tools-item
+          action="share"
+          service="twitter"
+          :url="shareUrl"
+          :share-parameters="{ text: shareTitle, via: 'gothamist' }"
+          :utm-parameters="{
+            medium: 'social',
+            source: 'twitter',
+            campaign: 'shared_twitter',
+          }"
+          @share="
+            sendEvent('click_tracking', {
+              event_category: 'Click Tracking',
+              component: 'Article Byline',
+              event_label: 'Social Share Twitter',
+            })
+          "
+        />
+        <v-share-tools-item
+          action="share"
+          service="reddit"
+          :url="shareUrl"
+          :share-parameters="{ title: shareTitle }"
+          :utm-parameters="{
+            medium: 'social',
+            source: 'reddit',
+            campaign: 'shared_reddit',
+          }"
+          @share="
+            sendEvent('click_tracking', {
+              event_category: 'Click Tracking',
+              component: 'Article Byline',
+              event_label: 'Social Share Reddit',
+            })
+          "
+        />
+        <v-share-tools-item
+          action="share"
+          service="email"
+          :url="shareUrl"
+          :share-parameters="{ body: shareTitle + ' - %URL%' }"
+          :utm-parameters="{
+            medium: 'social',
+            source: 'email',
+            campaign: 'shared_email',
+          }"
+          @share="
+            sendEvent('click_tracking', {
+              event_category: 'Click Tracking',
+              component: 'Article Byline',
+              event_label: 'Social Share Email',
+            })
+          "
+        />
+      </v-share-tools>
+    </div>
   </div>
 </template>
 
@@ -220,6 +227,10 @@ const sponsor = ref(props.article?.sponsors[0] || [])
     .v-byline-contributing-org {
       color: var(--gray-600);
     }
+  }
+  .date-published .type-caption,
+  .sponsored .type-caption {
+    @include font-config($type-caption);
   }
 }
 </style>
