@@ -90,6 +90,14 @@ const newsletterSubmitEvent = (e) => {
 </template>
 
 <style lang="scss">
+.page.sectionSlug {
+  background: linear-gradient(
+    180deg,
+    #f3f3e4 0,
+    rgba(255, 255, 255, 0) 720px,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
 .section-page .v-card {
   background-color: transparent;
 }
