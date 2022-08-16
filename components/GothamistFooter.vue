@@ -1,18 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+import Navigation from '~~/composables/types/Navigation.js';
 
-const props = defineProps({
-  navData: {
-    type: Object,
-    default: null,
-  },
-})
+const props = defineProps<{
+  navigation: Navigation
+}>()
 
-const legalLinks = ref(props.navData.legalLinks)
-const propertyDescription = ref(props.navData.propertyDescription)
-const copyrightYear = ref(props.navData.copyrightYear)
+const legalLinks = ref(props.navigation.legalLinks)
+const propertyDescription = ref(props.navigation.propertyDescription)
+const copyrightYear = ref(props.navigation.copyrightYear)
 </script>
 
 <template>
@@ -24,7 +22,7 @@ const copyrightYear = ref(props.navData.copyrightYear)
     <div class="content">
       <div class="top grid">
         <div class="hidden lg:flex lg:col-3 xl:col-4 p-0">
-          <menu-list :navData="props.navData" />
+          <menu-list :navLinks="props.navigation.primaryFooterLinks" />
         </div>
         <div class="col-12 lg:col-9 xl:col-8 right p-0">
           <div class="logo-lockup">
@@ -37,7 +35,7 @@ const copyrightYear = ref(props.navData.copyrightYear)
             ></div>
           </div>
           <div class="block lg:hidden">
-            <menu-list :navData="props.navData" />
+            <menu-list :navLinks="props.navigation.primaryFooterLinks" />
           </div>
           <nypr-logos-bracket />
         </div>
@@ -153,7 +151,7 @@ const copyrightYear = ref(props.navData.copyrightYear)
           a {
             @include font-config($type-fineprint);
           }
-          @include media('<lg') {
+          @include media('<md') {
             flex-direction: column;
           }
         }

@@ -55,7 +55,7 @@ function normalizeAuthor(author: Record<string, any>): Author {
 export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
     return {
         id: article.id,
-        title: article.listingTitle || article.title,
+        title: article.title,
         description: article.description,
         image: article.leadAsset?.[0]?.value?.image ?? article.leadAsset?.[0]?.value?.defaultImage,
         leadImageCaption: article.leadAsset?.[0]?.value?.caption ?? article.leadAsset?.[0]?.value?.image?.caption,

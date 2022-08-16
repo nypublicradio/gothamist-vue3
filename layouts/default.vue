@@ -9,6 +9,9 @@ const atTop = ref(true)
 const navigation = await findNavigation().then(({ data }) =>
   normalizeFindNavigationResponse(data)
 )
+const navigationState = useNavigation()
+navigationState.value = navigation
+
 const breakingNews = await findBreakingNews().then(({ data }) =>
   normalizeFindBreakingNewsResponse(data)
 )
@@ -77,26 +80,18 @@ watch(route, (value) => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <header>
-      <h1><NuxtLink to="/">Gothamist</NuxtLink></h1>
-      <!-- Header -->
-    </header>
+    <GothamistMainHeader 
+      :navigation="navigation"
+      :showLogo="route.name !== 'index'"
+      :donateUrl="config.donateUrlBase"
+    />
     <main>
       <slot />
     </main>
     <scroll-to-top-button />
-    <gothamist-footer :navData="navigation" />
+    <gothamist-footer :navigation="navigation" />
   </div>
 </template>
 
 <style lang="scss">
-body,
-html {
-  //overflow-y: auto;
-  //overflow-x: hidden;
-}
-
-main {
-  padding-top: var(--header-height);
-}
 </style>

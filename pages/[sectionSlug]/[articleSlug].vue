@@ -97,7 +97,8 @@ const newsletterSubmitEvent = (e) => {
         </div>
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block">
-            <byline class="mb-3" :article="article" />
+            <hr class="black" />
+            <byline class="mb-3 pt-4" :article="article" />
             <div>
               <div id="pinned-newsletter" style="min-width: 300px">
                 <hr class="black mb-4" />
@@ -117,18 +118,20 @@ const newsletterSubmitEvent = (e) => {
                 :imageUrl="article.imageLink"
                 :width="728"
                 :height="485"
-                :alt-text="topImage.alt"
-                :maxWidth="topImage.width"
-                :maxHeight="topImage.height"
-                :credit="topImage.credit && `Photo by ${topImage.credit}`"
-                :credit-url="topImage.creditLink"
+                :alt-text="topImage?.alt"
+                :maxWidth="topImage?.width"
+                :maxHeight="topImage?.height"
+                :credit="topImage?.credit && `Photo by ${topImage?.credit}`"
+                :credit-url="topImage?.creditLink"
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
               />
             </div>
             <div class="block xxl:hidden mb-5">
-              <byline :article="article" />
+              <hr class="black" />
+              <byline class="pt-4" :article="article" />
+              <hr class="mt-3 mb-5" />
               <!-- <newsletter-home
                 @submit="newsletterSubmitEvent"
                 small
@@ -150,7 +153,9 @@ const newsletterSubmitEvent = (e) => {
               height="250"
               alt="advertisement"
             />
-            <p class="type-fineprint">Powered by members and sponsors</p>
+            <p class="type-fineprint">
+              Gothamist is funded by sponsors and member donations
+            </p>
           </div>
         </div>
       </div>
@@ -163,11 +168,9 @@ const newsletterSubmitEvent = (e) => {
             <article-footer v-if="article" :article="article" />
           </div>
         </div>
-        <article-recirculation
-          id="article-recirculation"
-          class="my-6"
-          :article="article"
-        />
+        <hr class="black" />
+        <p class="type-label3 mt-2 mb-4">MORE {{ article.section.slug }}</p>
+        <article-recirculation id="article-recirculation" :article="article" />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent" />
@@ -178,27 +181,13 @@ const newsletterSubmitEvent = (e) => {
 </template>
 
 <style lang="scss">
-.sectionSlug-articleSlug {
-  .top-section {
-    background: var(--soybean200);
-    background: -moz-linear-gradient(
-      top,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background: -webkit-linear-gradient(
-      top,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background: linear-gradient(
-      to bottom,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background-size: 100% 720px !important;
-    background-repeat: no-repeat !important;
-  }
+.page.sectionSlug-articleSlug {
+  background: linear-gradient(
+    180deg,
+    #f3f3e4 0,
+    rgba(255, 255, 255, 0) 720px,
+    rgba(255, 255, 255, 0) 100%
+  );
   .v-tag .p-button {
     background: transparent;
   }
