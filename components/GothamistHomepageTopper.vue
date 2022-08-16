@@ -30,7 +30,7 @@ const latestArticles = computed(() => props.articles.slice(1))
         :sizes="[1]"
         :width="897"
         :height="598"
-        :title="featuredArticle.title"
+        :title="featuredArticle.listingTitle || featuredArticle.title"
         :titleLink="featuredArticle.link"
         :maxWidth="featuredArticle.listingImage?.width"
         :maxHeight="featuredArticle.listingImage?.height"
@@ -64,7 +64,7 @@ const latestArticles = computed(() => props.articles.slice(1))
           :width="158"
           :height="106"
           :sizes="[1]"
-          :title="article.title"
+          :title="article.listingTitle || article.title"
           :titleLink="article.link"
           :maxWidth="article.listingImage?.width"
           :maxHeight="article.listingImage?.height"
@@ -81,7 +81,9 @@ const latestArticles = computed(() => props.articles.slice(1))
         height="250"
         alt="advertisement"
       />
-      <p class="text-sm text-gray-400">Powered by members and sponsors</p>
+      <p class="type-fineprint">
+        Gothamist is funded by sponsors and member donations
+      </p>
     </div>
   </div>
 </template>
