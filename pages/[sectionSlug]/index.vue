@@ -9,7 +9,7 @@ const { title: sectionTitle, id: sectionId } = await findPage(
 
 const articles = await findArticlePages({
   descendant_of: sectionId,
-  show_as_feature: false,
+  offset: 5,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 const articlesToShow = ref(6)
 
@@ -35,11 +35,7 @@ const newsletterSubmitEvent = (e) => {
         <h1 class="mb-5">{{ sectionTitle }}</h1>
         <hr class="black" />
         <!-- featured area -->
-        <article-recirculation
-          id="article-recirculation"
-          class="my-6"
-          :showAsFeature="true"
-        />
+        <article-recirculation id="article-recirculation" class="my-6" />
         <!-- articles -->
         <div v-if="articles" class="grid gutter-x-xl">
           <div class="col-1 hidden xl:block"></div>
@@ -51,7 +47,7 @@ const newsletterSubmitEvent = (e) => {
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
-                :title="article.title"
+                :title="article.listingTitle || article.title"
                 :titleLink="article.link"
                 :ratio="[3, 2]"
                 :width="318"

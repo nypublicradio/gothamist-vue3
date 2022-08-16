@@ -13,10 +13,6 @@ const props = defineProps({
     type: Object,
     default: {},
   },
-  showAsFeature: {
-    type: Boolean,
-    default: false,
-  },
 })
 
 const route = useRoute()
@@ -27,7 +23,6 @@ const { title: sectionTitle, id: sectionId } = await findPage(
 
 const articles = await findArticlePages({
   descendant_of: sectionId,
-  show_as_feature: props.showAsFeature,
   limit: 6,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
