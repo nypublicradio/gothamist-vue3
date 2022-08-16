@@ -87,8 +87,8 @@ onUnmounted(() => {
                 :ratio="[3, 2]"
                 :width="318"
                 :height="214"
-                :maxWidth="article.listingImage.width"
-                :maxHeight="article.listingImage.height"
+                :maxWidth="article.listingImage?.width"
+                :maxHeight="article.listingImage?.height"
                 :tags="[
                   {
                     name: article.section.name,

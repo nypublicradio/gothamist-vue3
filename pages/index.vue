@@ -74,8 +74,8 @@ onMounted(() => {
               :quality="80"
               :title="collection.data.listingTitle || collection.data.title"
               :titleLink="collection.data.link"
-              :maxWidth="collection.data.listingImage.width"
-              :maxHeight="collection.data.listingImage.height"
+              :maxWidth="collection.data.listingImage?.width"
+              :maxHeight="collection.data.listingImage?.height"
               :tags="[
                 {
                   name: collection.data.section.name,
@@ -109,8 +109,8 @@ onMounted(() => {
                   :quality="80"
                   :title="article.listingTitle || article.title"
                   :titleLink="article.link"
-                  :maxWidth="article.image.width"
-                  :maxHeight="article.image.height"
+                  :maxWidth="article.image?.width"
+                  :maxHeight="article.image?.height"
                   :tags="[
                     {
                       name: article.section.name,

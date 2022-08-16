@@ -52,9 +52,9 @@ const newsletterSubmitEvent = (e) => {
         :width="1440"
         :height="288"
         :sizes="[1]"
-        :alt-text="curatedTagPage.headerImage.alt"
-        :maxWidth="curatedTagPage.headerImage.width"
-        :maxHeight="curatedTagPage.headerImage.height"
+        :alt-text="curatedTagPage.headerImage?.alt"
+        :maxWidth="curatedTagPage.headerImage?.width"
+        :maxHeight="curatedTagPage.headerImage?.height"
         :ratio="[5, 1]"
       />
     </section>
@@ -82,8 +82,8 @@ const newsletterSubmitEvent = (e) => {
                 :ratio="[3, 2]"
                 :width="318"
                 :height="214"
-                :maxWidth="article.listingImage.width"
-                :maxHeight="article.listingImage.height"
+                :maxWidth="article.listingImage?.width"
+                :maxHeight="article.listingImage?.height"
                 :tags="[
                   {
                     name: article.section.name,
