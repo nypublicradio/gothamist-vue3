@@ -67,7 +67,7 @@ const menuListClick = (menuTitle) => {
               <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
             </v-flexible-link>
             <div class="gothamist-sidebar-header-tagline">
-              News for New&nbsp;Yorkers
+              News for New Yorkers
             </div>
           </div>
         </template>
@@ -152,7 +152,10 @@ const menuListClick = (menuTitle) => {
 }
 
 .gothamist-sidebar-header-tagline {
-  //width: 100px;
+  width: 71px;
+  font-family: var(--font-family-header);
+  font-size: 12px;
+  line-height: var(--font-size-5);
   color: white;
 }
 
