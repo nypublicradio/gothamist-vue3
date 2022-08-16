@@ -158,9 +158,13 @@ onMounted(() => {
     rgba(255, 255, 255, 0) 100%
   );
   .v-card.single-story-feature .card-details {
+    justify-content: flex-end;
     @include media('<xl') {
       padding: 0 1rem 1.5rem 1rem;
     }
+  }
+  .v-card .card-details .card-slot {
+    flex-grow: 0;
   }
 }
 .v-card.featured-article {
