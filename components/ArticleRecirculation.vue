@@ -117,7 +117,7 @@ onBeforeUnmount(() => {
           <v-card
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.title"
+            :title="articleMd.listingTitle || articleMd.title"
             :titleLink="articleMd.link"
             :width="318"
             :height="212"
