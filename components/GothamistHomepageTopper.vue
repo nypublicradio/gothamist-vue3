@@ -32,8 +32,8 @@ const latestArticles = computed(() => props.articles.slice(1))
         :height="598"
         :title="featuredArticle.listingTitle || featuredArticle.title"
         :titleLink="featuredArticle.link"
-        :maxWidth="featuredArticle.listingImage.width"
-        :maxHeight="featuredArticle.listingImage.height"
+        :maxWidth="featuredArticle.listingImage?.width"
+        :maxHeight="featuredArticle.listingImage?.height"
         :tags="[
           {
             name: featuredArticle.section.name,
@@ -66,8 +66,8 @@ const latestArticles = computed(() => props.articles.slice(1))
           :sizes="[1]"
           :title="article.listingTitle || article.title"
           :titleLink="article.link"
-          :maxWidth="article.listingImage.width"
-          :maxHeight="article.listingImage.height"
+          :maxWidth="article.listingImage?.width"
+          :maxHeight="article.listingImage?.height"
           :quality="80"
         >
           <v-card-metadata :article="article" :showComments="false" />
