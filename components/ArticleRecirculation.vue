@@ -105,13 +105,13 @@ onBeforeUnmount(() => {
             <p>
               {{ articleMd.description }}
             </p>
-            <v-card-metadata :article="articleMd" />
+            <v-card-metadata stack :article="articleMd" />
           </v-card>
           <!-- md article mobile  -->
           <v-card
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.title"
+            :title="articleMd.listingTitle || articleMd.title"
             :titleLink="articleMd.link"
             :width="318"
             :height="212"

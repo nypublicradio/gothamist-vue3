@@ -190,6 +190,9 @@ const newsletterSubmitEvent = (e) => {
   );
   .v-tag .p-button {
     background: transparent;
+    &:hover {
+      background: var(--tag-hover-bg);
+    }
   }
   .col-fixed {
     width: 100%;
