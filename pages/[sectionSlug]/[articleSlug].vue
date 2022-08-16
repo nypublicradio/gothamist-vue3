@@ -153,7 +153,9 @@ const newsletterSubmitEvent = (e) => {
               height="250"
               alt="advertisement"
             />
-            <p class="type-fineprint">Powered by members and sponsors</p>
+            <p class="type-fineprint">
+              Gothamist is funded by sponsors and member donations
+            </p>
           </div>
         </div>
       </div>
