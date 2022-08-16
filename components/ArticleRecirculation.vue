@@ -13,13 +13,16 @@ const props = defineProps({
     type: Object,
     default: {},
   },
+  slug: {
+    type: String,
+    default: null,
+  },
 })
 
 const route = useRoute()
-
-const routeSectionSlug = ref(route.params.routeSectionSlug || 'news')
-console.log('routeSectionSlug', routeSectionSlug.value)
-
+const routeSectionSlug = ref(
+  props.slug ? props.slug : route.params.sectionSlug || 'news'
+)
 const { title: sectionTitle, id: sectionId } = await findPage(
   routeSectionSlug.value as string
 ).then(({ data }) => normalizeFindPageResponse(data))

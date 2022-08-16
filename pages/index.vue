@@ -48,7 +48,6 @@ onMounted(() => {
   <div>
     <section>
       <div class="content">
-        <article-recirculation />
         <gothamist-homepage-topper
           :articles="[featuredArticle, ...latestArticles]"
           :navigation="navigation"
