@@ -117,11 +117,11 @@ const newsletterSubmitEvent = (e) => {
                 :imageUrl="article.imageLink"
                 :width="728"
                 :height="485"
-                :alt-text="topImage.alt"
-                :maxWidth="topImage.width"
-                :maxHeight="topImage.height"
-                :credit="topImage.credit && `Photo by ${topImage.credit}`"
-                :credit-url="topImage.creditLink"
+                :alt-text="topImage?.alt"
+                :maxWidth="topImage?.width"
+                :maxHeight="topImage?.height"
+                :credit="topImage?.credit && `Photo by ${topImage.credit}`"
+                :credit-url="topImage?.creditLink"
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
@@ -178,27 +178,13 @@ const newsletterSubmitEvent = (e) => {
 </template>
 
 <style lang="scss">
-.sectionSlug-articleSlug {
-  .top-section {
-    background: var(--soybean200);
-    background: -moz-linear-gradient(
-      top,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background: -webkit-linear-gradient(
-      top,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background: linear-gradient(
-      to bottom,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background-size: 100% 720px !important;
-    background-repeat: no-repeat !important;
-  }
+.page.sectionSlug-articleSlug {
+  background: linear-gradient(
+    180deg,
+    #f3f3e4 0,
+    rgba(255, 255, 255, 0) 720px,
+    rgba(255, 255, 255, 0) 100%
+  );
   .v-tag .p-button {
     background: transparent;
   }

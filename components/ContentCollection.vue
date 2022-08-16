@@ -22,10 +22,10 @@ defineProps<{
           :width="318"
           :height="212"
           :sizes="[1]"
-          :title="article.title"
+          :title="article.listingTitle || article.title"
           :titleLink="article.link"
-          :maxWidth="article.leadAsset[0].value.image.width"
-          :maxHeight="article.leadAsset[0].value.image.height"
+          :maxWidth="article.leadAsset[0].value.image?.width"
+          :maxHeight="article.leadAsset[0].value.image?.height"
         >
           <p class="desc">
             {{ article.description }}
