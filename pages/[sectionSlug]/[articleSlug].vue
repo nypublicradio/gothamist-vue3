@@ -178,27 +178,8 @@ const newsletterSubmitEvent = (e) => {
 </template>
 
 <style lang="scss">
-.sectionSlug-articleSlug {
-  .top-section {
-    background: var(--soybean200);
-    background: -moz-linear-gradient(
-      top,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background: -webkit-linear-gradient(
-      top,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background: linear-gradient(
-      to bottom,
-      var(--soybean200) 17%,
-      var(--white) 100%
-    );
-    background-size: 100% 720px !important;
-    background-repeat: no-repeat !important;
-  }
+.page.sectionSlug-articleSlug {
+  background: linear-gradient(180deg, #F3F3E4 0, rgba(255, 255, 255, 0) 720px, rgba(255, 255, 255, 0) 100%);
   .v-tag .p-button {
     background: transparent;
   }

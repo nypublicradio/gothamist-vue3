@@ -1,22 +1,17 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import NavigationLink from "./NavigationLink";
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
-const props = defineProps({
-  navData: {
-    type: Object,
-    default: null,
-    required: true,
-  },
-})
+defineProps<{
+  navLinks: NavigationLink[],
+}>()
 
-const primaryFooterLinks = ref(props.navData.primaryFooterLinks)
 </script>
 
 <template>
   <div class="menu-list">
     <v-flexible-link
-      v-for="(item, index) in primaryFooterLinks"
+      v-for="(item, index) in navLinks"
       :to="item.value.url"
       :key="`primaryFooterLinks-${index}`"
     >
@@ -30,7 +25,7 @@ const primaryFooterLinks = ref(props.navData.primaryFooterLinks)
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  @include media('<lg') {
+  @include media('<md') {
     gap: 1rem;
   }
   .flexible-link {
