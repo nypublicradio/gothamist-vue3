@@ -1,43 +1,43 @@
 <script setup lang="ts">
-import { stringLiteral } from '@babel/types';
+import { stringLiteral } from '@babel/types'
 
-  defineProps<{
-    error: {
-      url: string,
-      statusCode: string,
-      statusMessage: string,
-      message: string,
-      description: string,
-      data: string,
-    }
-  }>()
+defineProps<{
+  error: {
+    url: string
+    statusCode: string
+    statusMessage: string
+    message: string
+    description: string
+    data: string
+  }
+}>()
 
-  onMounted(() => {
-    const { $analytics } = useNuxtApp()
-    $analytics.sendPageView({ page_type: 'error_page' })
-  })
+onMounted(() => {
+  const { $analytics } = useNuxtApp()
+  $analytics.sendPageView({ page_type: 'error_page' })
+})
 </script>
 <template>
-    <Html>
-      <Head>
-        <Title>{{ error.statusCode }} Error | Gothamist</Title>
-        <Meta
-          name="og:title"
-          :content="`${error.statusCode} Error | Gothamist`"
-        />
-        <Meta
-          name="twitter:title"
-          :content="`${error.statusCode} Error | Gothamist`"
-        />
-      </Head>
-      <div class="error-page">
-        <h1>{{error.statusCode}} Error - {{error.statusMessage}}</h1>
-        <div v-if="$config.DEBUG === 'true'">
-          <pre class="font-bold">{{error.message}}</pre>
-          <div v-html="error.description"></div>
-        </div>
-      </div>
-    </Html>
+  <Html>
+    <Head>
+      <Title>{{ error.statusCode }} Error | Gothamist</Title>
+      <Meta
+        name="og:title"
+        :content="`${error.statusCode} Error | Gothamist`"
+      />
+      <Meta
+        name="twitter:title"
+        :content="`${error.statusCode} Error | Gothamist`"
+      />
+    </Head>
+  </Html>
+  <div class="error-page">
+    <h1>{{ error.statusCode }} Error - {{ error.statusMessage }}</h1>
+    <div v-if="$config.DEBUG === 'true'">
+      <pre class="font-bold">{{ error.message }}</pre>
+      <div v-html="error.description"></div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">

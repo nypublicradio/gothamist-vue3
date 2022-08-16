@@ -41,10 +41,7 @@ const latestArticles = computed(() => props.articles.slice(1))
           },
         ]"
       >
-        <p class="desc">
-          {{ featuredArticle.description }}
-        </p>
-        <v-card-metadata :article="featuredArticle" />
+        <v-card-metadata altDesign :article="featuredArticle" />
       </v-card>
     </div>
     <div class="col-12 xl:col-4 flex flex-column justify-content-end">
