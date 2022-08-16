@@ -74,7 +74,7 @@ onBeforeUnmount(() => {
             :sizes="[1]"
             :width="897"
             :height="598"
-            :title="articleLg.title"
+            :title="articleLg.listingTitle || articleLg.title"
             :titleLink="articleLg.link"
             :maxWidth="articleLg.listingImage.width"
             :maxHeight="articleLg.listingImage.height"
@@ -90,7 +90,7 @@ onBeforeUnmount(() => {
           <v-card
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.title"
+            :title="articleMd.listingTitle || articleMd.title"
             :titleLink="articleMd.link"
             :ratio="[3, 2]"
             :width="433"
@@ -152,7 +152,7 @@ onBeforeUnmount(() => {
                   />
                   <v-card
                     class="article-sm mod-horizontal mod-small mb-3 tag-small"
-                    :title="articleSm.title"
+                    :title="articleSm.listingTitle || articleSm.title"
                     :titleLink="articleSm.link"
                   >
                     <v-card-metadata

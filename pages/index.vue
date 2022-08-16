@@ -72,7 +72,7 @@ onMounted(() => {
               :height="708"
               :sizes="[1]"
               :quality="80"
-              :title="collection.data.title"
+              :title="collection.data.listingTitle || collection.data.title"
               :titleLink="collection.data.link"
               :maxWidth="collection.data.listingImage.width"
               :maxHeight="collection.data.listingImage.height"
@@ -107,7 +107,7 @@ onMounted(() => {
                   :height="212"
                   :sizes="[1]"
                   :quality="80"
-                  :title="article.title"
+                  :title="article.listingTitle || article.title"
                   :titleLink="article.link"
                   :maxWidth="article.image.width"
                   :maxHeight="article.image.height"
@@ -152,7 +152,12 @@ onMounted(() => {
 
 <style lang="scss">
 .page.index {
-  background: linear-gradient(180deg, #F3F3E4 0, rgba(255, 255, 255, 0) 615px, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    #f3f3e4 0,
+    rgba(255, 255, 255, 0) 615px,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 .v-card.featured-article {
   .card-details {
