@@ -9,7 +9,6 @@ const featuredArticle = await findPage('/').then(({ data }) =>
 )
 
 const latestArticles = await findArticlePages({
-  show_as_feature: true,
   limit: 4,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
@@ -158,6 +157,11 @@ onMounted(() => {
     rgba(255, 255, 255, 0) 615px,
     rgba(255, 255, 255, 0) 100%
   );
+  .v-card.single-story-feature .card-details {
+    @include media('<xl') {
+      padding: 0 1rem 1.5rem 1rem;
+    }
+  }
 }
 .v-card.featured-article {
   .card-details {
