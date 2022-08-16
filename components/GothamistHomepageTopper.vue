@@ -81,7 +81,7 @@ const latestArticles = computed(() => props.articles.slice(1))
         height="250"
         alt="advertisement"
       />
-      <p class="text-sm text-gray-600">
+      <p class="type-fineprint">
         Gothamist is funded by sponsors and member donations
       </p>
     </div>
