@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import useImageUrl from '~~/composables/useImageUrl'
@@ -14,8 +15,8 @@ let articles = ref(
   )
 )
 const articlesToShow = ref(10)
-
 const isSearching = ref(false)
+
 async function getSearchResults() {
   isSearching.value = true
   articles.value = await searchArticlePages({ q: query.value }).then(
@@ -55,8 +56,8 @@ const newsletterSubmitEvent = (e) => {
                 </div>
                 <form id="search" class="mt-4 mb-2">
                   <input
+                    autofocus
                     class="search-page-input"
-                    :disabled="isSearching"
                     type="text"
                     placeholder="search"
                     aria-label="Search this site"
