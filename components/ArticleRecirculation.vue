@@ -13,12 +13,18 @@ const props = defineProps({
     type: Object,
     default: {},
   },
+  slug: {
+    type: String,
+    default: null,
+  },
 })
 
 const route = useRoute()
-
+const routeSectionSlug = ref(
+  props.slug ? props.slug : route.params.sectionSlug || 'news'
+)
 const { title: sectionTitle, id: sectionId } = await findPage(
-  route.params.sectionSlug as string
+  routeSectionSlug.value as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
@@ -111,7 +117,7 @@ onBeforeUnmount(() => {
           <v-card
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.title"
+            :title="articleMd.listingTitle || articleMd.title"
             :titleLink="articleMd.link"
             :width="318"
             :height="212"
@@ -170,6 +176,7 @@ onBeforeUnmount(() => {
 <style lang="scss">
 .recirculation {
   .v-card {
+    background: transparent;
     &.article-sm {
       .card-title-link .h2 {
         font-weight: 600 !important;
