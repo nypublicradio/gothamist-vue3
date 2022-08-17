@@ -49,7 +49,9 @@ const onTagClicked = (tag) => {
             height="250"
             alt="advertisement"
           />
-          <p class="type-fineprint">Powered by members and sponsors</p>
+          <p class="type-fineprint">
+            Gothamist is funded by sponsors and member donations
+          </p>
         </div>
         <div v-if="!isDisableComments" id="comments" class="mb-4 md:mb-6">
           <hr class="black mb-4 md:mb-6" />
@@ -65,7 +67,9 @@ const onTagClicked = (tag) => {
           height="250"
           alt="advertisement"
         />
-        <p class="type-fineprint">Powered by members and sponsors</p>
+        <p class="type-fineprint">
+          Gothamist is funded by sponsors and member donations
+        </p>
       </div>
     </div>
   </div>

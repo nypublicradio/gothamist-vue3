@@ -5,15 +5,20 @@ import { gsap } from 'gsap'
 import { Draggable } from '~/assets/gsap/Draggable.js'
 import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 
+// this component is used in the articleSlug at the bottom of the article page, and also as the topper in the section index page
+
 const props = defineProps({
+  // the article to fileter out from the results if it exists
   article: {
     type: Object,
-    default: null,
+    default: {},
   },
 })
 
+const route = useRoute()
+
 const { title: sectionTitle, id: sectionId } = await findPage(
-  props.article.section.slug as string
+  route.params.sectionSlug as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
@@ -23,10 +28,9 @@ const articles = await findArticlePages({
 
 // remove the currcnt article from the list of articles
 const articlesFiltered = articles.filter(
-  (article) => article.id !== props.article.id
+  (article) => article.id !== props.article?.id
 )
 
-const sectionName = ref(sectionTitle)
 const articleLg = ref(articlesFiltered[0])
 const articleMd = ref(articlesFiltered[1])
 const articlesSm = ref([
@@ -63,9 +67,6 @@ onBeforeUnmount(() => {
 <template>
   <div>
     <div v-if="articles" class="recirculation">
-      <hr class="black" />
-      <p class="type-label3 mt-2 mb-4">MORE {{ sectionName }}</p>
-
       <div class="grid gutter-x-30">
         <div class="col-12 xl:col-8">
           <v-card
@@ -74,30 +75,32 @@ onBeforeUnmount(() => {
             :sizes="[1]"
             :width="897"
             :height="598"
-            :title="articleLg.title"
+            :title="articleLg.listingTitle || articleLg.title"
             :titleLink="articleLg.link"
-            :maxWidth="articleLg.listingImage.width"
-            :maxHeight="articleLg.listingImage.height"
+            :maxWidth="articleLg.listingImage?.width"
+            :maxHeight="articleLg.listingImage?.height"
           >
-            <p class="desc">
-              {{ articleLg.description }}
-            </p>
-            <v-card-metadata :article="articleLg" />
+            <v-card-metadata
+              class="mt-0 md:mt-2"
+              altDesign
+              :article="articleLg"
+            />
           </v-card>
+          <hr class="block xl:hidden mb-3" />
         </div>
         <div class="col-12 xl:col-4">
           <!-- md article desktop  -->
           <v-card
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.title"
+            :title="articleMd.listingTitle || articleMd.title"
             :titleLink="articleMd.link"
             :ratio="[3, 2]"
             :width="433"
             :height="289"
             :sizes="[1]"
-            :maxWidth="articleMd.listingImage.width"
-            :maxHeight="articleMd.listingImage.height"
+            :maxWidth="articleMd.listingImage?.width"
+            :maxHeight="articleMd.listingImage?.height"
           >
             <p>
               {{ articleMd.description }}
@@ -113,14 +116,8 @@ onBeforeUnmount(() => {
             :width="318"
             :height="212"
             :sizes="[1]"
-            :maxWidth="articleMd.listingImage.width"
-            :maxHeight="articleMd.listingImage.height"
-            :tags="[
-              {
-                name: articleMd.section.name,
-                slug: `/${articleMd.section.slug}`,
-              },
-            ]"
+            :maxWidth="articleMd.listingImage?.width"
+            :maxHeight="articleMd.listingImage?.height"
           >
             <p>
               {{ articleMd.description }}
@@ -152,7 +149,7 @@ onBeforeUnmount(() => {
                   />
                   <v-card
                     class="article-sm mod-horizontal mod-small mb-3 tag-small"
-                    :title="articleSm.title"
+                    :title="articleSm.listingTitle || articleSm.title"
                     :titleLink="articleSm.link"
                   >
                     <v-card-metadata

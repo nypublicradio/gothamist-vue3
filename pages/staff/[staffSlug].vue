@@ -82,13 +82,13 @@ onUnmounted(() => {
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
-                :title="article.title"
+                :title="article.listingTitle || article.title"
                 :titleLink="article.link"
                 :ratio="[3, 2]"
                 :width="318"
                 :height="214"
-                :maxWidth="article.listingImage.width"
-                :maxHeight="article.listingImage.height"
+                :maxWidth="article.listingImage?.width"
+                :maxHeight="article.listingImage?.height"
                 :tags="[
                   {
                     name: article.section.name,
@@ -113,7 +113,7 @@ onUnmounted(() => {
               height="600"
               alt="advertisement"
             />
-            <p class="type-fineprint">Powered by members and sponsors</p>
+            <p class="type-fineprint">Gothamist is funded by sponsors and member donations</p>
           </div>
         </div>
         <div class="block xl:hidden mb-4">
@@ -126,7 +126,7 @@ onUnmounted(() => {
             alt="advertisement"
           />
           <p class="type-fineprint text-center">
-            Powered by members and sponsors
+            Gothamist is funded by sponsors and member donations
           </p>
         </div>
         <Button

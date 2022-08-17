@@ -8,10 +8,11 @@ const { title: sectionTitle, id: sectionId } = await findPage(
   route.params.sectionSlug as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
-const latestArticles = await findArticlePages({
+const articles = await findArticlePages({
   descendant_of: sectionId,
-  show_as_feature: true,
+  offset: 5,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
+const articlesToShow = ref(6)
 
 const articles = await findArticlePages({
   descendant_of: sectionId,
@@ -38,93 +39,10 @@ const newsletterSubmitEvent = (e) => {
   <div>
     <section class="section-page">
       <div class="content">
-        <h1 class="pb-5 mb-6">{{ sectionTitle }}</h1>
+        <h1 class="mb-5">{{ sectionTitle }}</h1>
+        <hr class="black" />
         <!-- featured area -->
-        <template v-if="latestArticles">
-          <div class="grid mb-6 gutter-x-30">
-            <div v-if="latestArticles.length > 0" class="col-12 xl:col-8">
-              <v-card
-                class="featured-article mod-vertical mod-featured mod-large"
-                loading="eager"
-                :image="useImageUrl(latestArticles[0].listingImage)"
-                :sizes="[1]"
-                :width="897"
-                :height="598"
-                :title="latestArticles[0].title"
-                :titleLink="latestArticles[0].link"
-                :maxWidth="latestArticles[0].listingImage.width"
-                :maxHeight="latestArticles[0].listingImage.height"
-                :tags="[
-                  {
-                    name: latestArticles[0].section.name,
-                    slug: latestArticles[0].section.slug,
-                  },
-                ]"
-              >
-                <div class="grid mt-1">
-                  <div class="col-12 xl:col-6">
-                    <p class="desc">
-                      {{ latestArticles[0].description }}
-                    </p>
-                  </div>
-                  <div class="separator col-fixed mt-2 ml-2"></div>
-                  <div class="col-12 xl:col-5">Byline Goes Here</div>
-                </div>
-                <div class="article-metadata">
-                  <span>comments</span>
-                </div>
-              </v-card>
-            </div>
-            <div v-if="latestArticles.length > 4" class="col-12 xl:col-4">
-              <v-card
-                class="mod-vertical mod-large mb-4"
-                loading="eager"
-                :image="useImageUrl(latestArticles[1].listingImage)"
-                :width="665"
-                :height="448"
-                :sizes="[1]"
-                :title="latestArticles[1].title"
-                :titleLink="latestArticles[1].link"
-                :maxWidth="latestArticles[1].listingImage.width"
-                :maxHeight="latestArticles[1].listingImage.height"
-                :tags="[
-                  {
-                    name: latestArticles[1].section.name,
-                    slug: latestArticles[1].section.slug,
-                  },
-                ]"
-              >
-                <p class="desc">
-                  {{ latestArticles[0].description }}
-                </p>
-                <div class="article-metadata">
-                  <span>
-                    <v-byline :authors="latestArticles[1].authors" />
-                  </span>
-                  <span>comments</span>
-                </div>
-              </v-card>
-              <div
-                v-for="article in latestArticles.slice(2, 5)"
-                :key="article.uuid"
-              >
-                <hr class="mb-4" />
-                <v-card
-                  class="mod-horizontal mod-left mod-small mb-4 tag-small latest-articles"
-                  :title="article.title"
-                  :titleLink="article.link"
-                >
-                  <div class="article-metadata">
-                    <span>
-                      <v-byline :authors="article.authors" />
-                    </span>
-                    <span>comments</span>
-                  </div>
-                </v-card>
-              </div>
-            </div>
-          </div>
-        </template>
+        <article-recirculation id="article-recirculation" class="my-6" />
         <!-- articles -->
         <div v-if="articles" class="grid gutter-x-xl">
           <div class="col-1 hidden xl:block"></div>
@@ -136,29 +54,18 @@ const newsletterSubmitEvent = (e) => {
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
-                :title="article.title"
+                :title="article.listingTitle || article.title"
                 :titleLink="article.link"
                 :ratio="[3, 2]"
                 :width="318"
                 :height="214"
-                :maxWidth="article.listingImage.width"
-                :maxHeight="article.listingImage.height"
-                :tags="[
-                  {
-                    name: article.section.name,
-                    slug: article.section.slug,
-                  },
-                ]"
+                :maxWidth="article.listingImage?.width"
+                :maxHeight="article.listingImage?.height"
               >
                 <p>
                   {{ article.description }}
                 </p>
-                <div class="article-metadata">
-                  <span>
-                    <v-byline :authors="article.authors" />
-                  </span>
-                  <span>comments go here</span>
-                </div>
+                <v-card-metadata :article="article" />
               </v-card>
               <hr class="mb-5" />
             </div>
@@ -190,51 +97,18 @@ const newsletterSubmitEvent = (e) => {
 </template>
 
 <style lang="scss">
+.page.sectionSlug {
+  background: linear-gradient(
+    180deg,
+    #f3f3e4 0,
+    rgba(255, 255, 255, 0) 720px,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
 .section-page .v-card {
   background-color: transparent;
 }
-.section-page h1 {
-  font-size: var(--font-size-17);
-  text-transform: uppercase;
-  border-bottom: solid 1px var(--black);
-}
-.section-page .featured-article .grid .separator {
-  display: none;
-  @include media('>xl') {
-    display: block;
-    height: 44px;
-    border-left: solid 1px var(--black300);
-  }
-}
 .section-page .card-details {
   overflow: visible;
-}
-.section-page .v-card.mod-featured .card-details .card-title .h2 {
-  font-size: var(--font-size-17);
-  line-height: var(--font-size-17);
-}
-.section-page .v-card.mod-featured.mod-large .card-details .card-title .v-tag {
-  margin-top: 26px;
-  @include media('>lg') {
-    margin-top: 8px;
-  }
-}
-.section-page
-  .mod-vertical:not(.mod-featured)
-  .card-details
-  .card-title
-  .v-tag {
-  margin-top: -6px;
-}
-.section-page .mod-vertical:not(.mod-featured) .card-details .card-title .h2 {
-  font-size: var(--font-size-8);
-  line-height: var(--font-size-9);
-}
-.section-page .v-card.mod-small.latest-articles .card-details .card-title .h2 {
-  font-weight: 600;
-}
-.section-page .mod-vertical .card-details {
-  padding-left: 0;
-  padding-right: 0;
 }
 </style>

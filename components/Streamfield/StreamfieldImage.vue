@@ -8,6 +8,7 @@ defineProps<{
 
 <template>
   <v-image-with-caption
+    v-if="block.value.image"
     class="mb-7"
     :image="useImageUrl(block.value.image)"
     :alt-text="block.value.image.alt"

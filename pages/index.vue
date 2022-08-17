@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
 // the home page featured article should display only the first story in the home page content collection
@@ -9,7 +8,6 @@ const featuredArticle = await findPage('/').then(({ data }) =>
 )
 
 const latestArticles = await findArticlePages({
-  show_as_feature: true,
   limit: 4,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
@@ -38,6 +36,7 @@ const newsletterSubmitEvent = (e) => {
   //   event_label: 'Become a member',
   // })
 }
+const navigation = useNavigation()
 
 onMounted(() => {
   const { $analytics } = useNuxtApp()
@@ -49,75 +48,10 @@ onMounted(() => {
   <div>
     <section>
       <div class="content">
-        <!-- featured and latest articles -->
-        <template v-if="featuredArticle && latestArticles">
-          <div class="grid mb-6 gutter-x-30">
-            <div class="col-12 xl:col-8">
-              <v-card
-                class="featured-article mod-vertical mod-featured mod-large"
-                loading="eager"
-                :image="useImageUrl(featuredArticle.listingImage)"
-                :sizes="[1]"
-                :width="897"
-                :height="598"
-                :title="featuredArticle.title"
-                :titleLink="featuredArticle.link"
-                :maxWidth="featuredArticle.listingImage.width"
-                :maxHeight="featuredArticle.listingImage.height"
-                :tags="[
-                  {
-                    name: featuredArticle.section.name,
-                    slug: `/${featuredArticle.section.slug}`,
-                  },
-                ]"
-              >
-                <p class="desc">
-                  {{ featuredArticle.description }}
-                </p>
-                <v-card-metadata :article="featuredArticle" />
-              </v-card>
-            </div>
-            <div class="col-12 xl:col-4">
-              <hr class="black mb-1" />
-              <v-flexible-link class="mb-3 -ml-3" to="#latest" raw>
-                <Button
-                  class="p-button-text p-button-rounded button-pill-icon"
-                  icon="pi pi-arrow-right ml-2"
-                  iconPos="right"
-                  label="LATEST"
-                />
-              </v-flexible-link>
-              <div v-for="article in latestArticles" :key="article.uuid">
-                <v-card
-                  class="mod-horizontal mod-left mod-small mb-3 tag-small"
-                  loading="eager"
-                  :image="useImageUrl(article.listingImage)"
-                  :width="158"
-                  :height="106"
-                  :sizes="[1]"
-                  :title="article.title"
-                  :titleLink="article.link"
-                  :maxWidth="article.listingImage.width"
-                  :maxHeight="article.listingImage.height"
-                  :quality="80"
-                >
-                  <v-card-metadata :article="article" :showComments="false" />
-                </v-card>
-              </div>
-              <img
-                class="mb-1"
-                src="https://fakeimg.pl/450x250/?text=AD Here"
-                style="max-width: 100%"
-                width="450"
-                height="250"
-                alt="advertisement"
-              />
-              <p class="text-sm text-gray-400">
-                Powered by members and sponsors
-              </p>
-            </div>
-          </div>
-        </template>
+        <gothamist-homepage-topper
+          :articles="[featuredArticle, ...latestArticles]"
+          :navigation="navigation"
+        />
         <!-- newsletter -->
         <div class="mt-8 mb-5">
           <hr class="black mb-4" />
@@ -136,10 +70,10 @@ onMounted(() => {
               :height="708"
               :sizes="[1]"
               :quality="80"
-              :title="collection.data.title"
+              :title="collection.data.listingTitle || collection.data.title"
               :titleLink="collection.data.link"
-              :maxWidth="collection.data.listingImage.width"
-              :maxHeight="collection.data.listingImage.height"
+              :maxWidth="collection.data.listingImage?.width"
+              :maxHeight="collection.data.listingImage?.height"
               :tags="[
                 {
                   name: collection.data.section.name,
@@ -171,10 +105,10 @@ onMounted(() => {
                   :height="212"
                   :sizes="[1]"
                   :quality="80"
-                  :title="article.title"
+                  :title="article.listingTitle || article.title"
                   :titleLink="article.link"
-                  :maxWidth="article.image.width"
-                  :maxHeight="article.image.height"
+                  :maxWidth="article.image?.width"
+                  :maxHeight="article.image?.height"
                   :tags="[
                     {
                       name: article.section.name,
@@ -213,3 +147,28 @@ onMounted(() => {
     </section>
   </div>
 </template>
+
+<style lang="scss">
+.page.index {
+  background: linear-gradient(
+    180deg,
+    #f3f3e4 0,
+    rgba(255, 255, 255, 0) 615px,
+    rgba(255, 255, 255, 0) 100%
+  );
+  .v-card.single-story-feature .card-details {
+    justify-content: flex-end;
+    @include media('<xl') {
+      padding: 0 1rem 1.5rem 1rem;
+    }
+  }
+  .v-card .card-details .card-slot {
+    flex-grow: 0;
+  }
+}
+.v-card.featured-article {
+  .card-details {
+    padding: 0.75rem 0;
+  }
+}
+</style>
