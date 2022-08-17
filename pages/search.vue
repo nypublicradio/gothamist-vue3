@@ -177,6 +177,11 @@ const newsletterSubmitEvent = (e) => {
     font-size: var(--font-size-17);
     line-height: var(--font-size-17);
     transition: var(--transition-duration);
+    padding-right: 50px;
+    @include media('<md') {
+      font-size: var(--font-size-14);
+      line-height: var(--font-size-14);
+    }
     &:focus {
       outline: none;
       border-bottom: solid 2px var(--soybean);
@@ -184,7 +189,7 @@ const newsletterSubmitEvent = (e) => {
   }
   .search-page-button {
     position: absolute;
-    right: 1.5rem;
+    right: 0.5rem;
     bottom: 0.5rem;
     padding: 0;
     border-radius: 20px !important;
