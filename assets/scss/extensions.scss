@@ -306,6 +306,10 @@ $img-height-mobile: 106px;
     gap: 1rem !important;
   }
 }
+.v-card:not([data-style-mode="dark"]),
+.v-card:not([data-style-mode="dark"]) .v-tag .flexible-link .p-button {
+  background: transparent;
+}
 .v-card.mod-left .card-image-wrapper {
   display: contents;
 }
