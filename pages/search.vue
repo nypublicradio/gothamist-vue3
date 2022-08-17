@@ -43,44 +43,40 @@ const newsletterSubmitEvent = (e) => {
 <template>
   <div>
     <div class="search-page">
-      <div class="pb-4">
-        <section>
-          <div class="content">
-            <div class="grid gutter-x-xl">
-              <div class="col-1 hidden xl:block"></div>
-              <div class="col">
-                <div class="search-page-results pt-2">
-                  <span v-if="articles">
-                    <strong>{{ articles.length }}</strong> results for:
-                  </span>
-                </div>
-                <form id="search" class="mt-4 mb-2">
-                  <input
-                    autofocus
-                    class="search-page-input"
-                    type="text"
-                    placeholder="search"
-                    aria-label="Search this site"
-                    v-model="query"
-                    name="q"
-                    @keypress.enter.prevent="getSearchResults"
-                  />
-                  <Button
-                    class="search-page-button p-button-rounded p-button-outlined"
-                    :icon="
-                      isSearching
-                        ? 'pi pi-spin pi-spinner'
-                        : 'pi pi-arrow-right'
-                    "
-                    iconPos="right"
-                    @click="getSearchResults"
-                  />
-                </form>
+      <section>
+        <div class="content">
+          <div class="grid gutter-x-xl">
+            <div class="col-1 hidden xl:block"></div>
+            <div class="col">
+              <div class="search-page-results pt-2">
+                <span v-if="articles">
+                  <strong>{{ articles.length }}</strong> results for:
+                </span>
               </div>
+              <form id="search" class="mt-4 mb-2">
+                <input
+                  autofocus
+                  class="search-page-input"
+                  type="text"
+                  placeholder="search"
+                  aria-label="Search this site"
+                  v-model="query"
+                  name="q"
+                  @keypress.enter.prevent="getSearchResults"
+                />
+                <Button
+                  class="search-page-button p-button-rounded p-button-outlined"
+                  :icon="
+                    isSearching ? 'pi pi-spin pi-spinner' : 'pi pi-arrow-right'
+                  "
+                  iconPos="right"
+                  @click="getSearchResults"
+                />
+              </form>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
       <section>
         <div class="content">
           <!-- search results article river -->
