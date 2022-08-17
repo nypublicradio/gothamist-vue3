@@ -101,7 +101,7 @@ const newsletterSubmitEvent = (e) => {
                     :height="212"
                     :sizes="[1]"
                     :quality="80"
-                    :title="article.title"
+                    :title="article.listingTitle || article.title"
                     :titleLink="article.link"
                     :maxWidth="article.image?.width"
                     :maxHeight="article.image?.height"
@@ -151,7 +151,13 @@ const newsletterSubmitEvent = (e) => {
 </template>
 
 <style lang="scss">
-.search-page {
+.search {
+  background: linear-gradient(
+    180deg,
+    #f3f3e4 0,
+    rgba(255, 255, 255, 0) 720px,
+    rgba(255, 255, 255, 0) 100%
+  );
   form {
     max-width: 894px;
     width: 100%;
