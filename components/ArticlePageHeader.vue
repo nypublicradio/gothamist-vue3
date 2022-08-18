@@ -13,9 +13,11 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
       type: Number,
       default: 0
     },
-    donateUrl: {
+    donateUrlBase: {
       type: String,
-      default: ''
+    },
+    utmCampaign: {
+      type: String,
     },
     shareUrl: {
       type: String,
@@ -120,7 +122,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
             "
           />
         </v-share-tools>
-        <v-flexible-link :to="`${donateUrl}&utm_campaign=goth_header`" raw class="pr-2">
+        <v-flexible-link :to="`${donateUrlBase}&utm_campaign={utmCampaign}`" raw class="pr-2">
             <Button class="article-page-header-donate-button p-button-rounded"> 
                 <span class="p-button-label">Donate</span>
             </Button>

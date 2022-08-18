@@ -101,6 +101,7 @@ const getGalleryLink = computed(() => {
       <ArticlePageHeader
         :class="`article-page-header ${showHeader ? '' : 'js-hidden'}`"
         :donateUrl="config.donateUrlBase"
+        utmCampaign="goth_header"
         :progress="scrollTrackerProps.scrollPercentage"
         :title="article?.title"
         :shareUrl="article.url"
