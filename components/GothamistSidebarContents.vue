@@ -37,7 +37,7 @@ const props = defineProps<{
                 <div class="mr-2">Replace this message with a thing about being non profit, member funded local news.</div>
                 <div><LogoNypr /></div>
             </div>
-            <v-flexible-link :to="donateUrl" raw>
+            <v-flexible-link :to="`${donateUrl}&utm_campaign=goth_hamburger`" raw>
                 <Button class="p-button-rounded w-full">
                     <span class="p-button-label">
                         <span class="pi pi-heart-fill"></span>

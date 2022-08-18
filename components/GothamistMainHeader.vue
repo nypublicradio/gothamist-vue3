@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import GothamistSidebarContents from "./GothamistSidebarContents.vue";
 import Navigation from "~~/composables/types/Navigation";
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
@@ -9,11 +8,12 @@ defineProps<{
     donateUrl: string
 }>()
 
-const sideBarVisible = ref(false);
+  const sidebarIsOpen = useSidebarIsOpen()
+  const openSidebar = () => { sidebarIsOpen.value = true }
 </script>
 
 <template>
-    <header class="gothamist-header flex justify-content-between">
+    <header class="gothamist-header flex justify-content-between p-3 md:px-5">
         <div class="gothamist-header-left">
             <v-flexible-link to="/" raw>
                 <LogoGothamist v-if="showLogo" class="gothamist-header-logo pr-2" />
@@ -28,30 +28,7 @@ const sideBarVisible = ref(false);
                     <span class="p-button-label">Donate</span>
                 </Button>
             </v-flexible-link>
-            <Button icon="pi pi-bars" class="p-button p-component p-button-icon-only p-button-text p-button-rounded" @click="sideBarVisible = true" />
-            <Sidebar 
-                v-model:visible="sideBarVisible" 
-                position="right" 
-                data-style-mode="dark" 
-                class="gothamist-sidebar px-3 md:px-4">
-                <template v-slot:header>
-                    <div class="gothamist-sidebar-header flex md:hidden">
-                        <v-flexible-link to="/" raw>
-                            <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
-                        </v-flexible-link>
-                        <div class="gothamist-sidebar-header-tagline">
-                            News for New Yorkers
-                        </div>
-                    </div>
-                </template>
-                <template v-slot:default>
-                    <GothamistSidebarContents
-                        :navigation="navigation" 
-                        :donateUrl="donateUrl" 
-                        class="mt-3"
-                    />
-                </template>
-            </SideBar>
+            <Button icon="pi pi-bars" class="p-button p-component p-button-icon-only p-button-text p-button-rounded" @click="openSidebar" />
         </div>
     </header>
 </template>
@@ -60,14 +37,10 @@ const sideBarVisible = ref(false);
 .gothamist-header {
     width: 100%;
     height: 68px;
-    padding: 1rem 1.5rem;
-    @include media('>md') {
-      padding: 1rem 2.5rem;
-    }
-    display: flex;
 }
+
 .gothamist-header-logo {
-    height: 34px;
+    height: 36px;
     width: auto;
 }
 

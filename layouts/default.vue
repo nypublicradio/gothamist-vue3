@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import { ref, onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
+import { useSidebarIsOpen } from '~~/composables/states.js';
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -19,6 +21,7 @@ const productBanners = await findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
 const sensitiveContent = useSensitiveContent()
+const sidebarOpen = useSidebarIsOpen()
 
 onMounted(() => {
   document.addEventListener('scroll', (e) => {
@@ -80,11 +83,37 @@ watch(route, (value) => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
+    <div class="leaderboard-ad-wrapper">
+      <div v-if="!sensitiveContent" class='htlad-gothamist_index_leaderboard_1'></div>
+    </div>
     <GothamistMainHeader 
       :navigation="navigation"
       :showLogo="route.name !== 'index'"
       :donateUrl="config.donateUrlBase"
     />
+    <Sidebar 
+      v-model:visible="sidebarOpen" 
+      position="right" 
+      data-style-mode="dark" 
+      class="gothamist-sidebar px-3 md:px-4">
+      <template v-slot:header>
+          <div class="gothamist-sidebar-header flex md:hidden">
+              <v-flexible-link to="/" raw>
+                  <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
+              </v-flexible-link>
+              <div class="gothamist-sidebar-header-tagline">
+                  News for New Yorkers
+              </div>
+          </div>
+      </template>
+      <template v-slot:default>
+          <GothamistSidebarContents
+              :navigation="navigation" 
+              :donateUrl="config.donateUrlBase" 
+              class="mt-3"
+          />
+      </template>
+    </SideBar>
     <main>
       <slot />
     </main>
@@ -94,4 +123,18 @@ watch(route, (value) => {
 </template>
 
 <style lang="scss">
+  .leaderboard-ad-wrapper {
+    background: #111111;
+    @include media('<md') {
+      height: 116px;
+      padding: 8px auto;
+      position: sticky;
+      top: 0;
+      z-index: 5000;
+    }
+    @include media('>=md') {
+      height: 306px;
+      padding: 28px auto;
+    }
+  }
 </style>

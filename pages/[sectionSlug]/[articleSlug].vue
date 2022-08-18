@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, computed } from 'vue'
+import { useMediaQuery, useWindowScroll } from '@vueuse/core'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
@@ -22,11 +23,17 @@ if (article.leadGallery) {
 const topImage = article.leadImage || gallery.slides[0].image
 const topCaption = article.leadImageCaption || gallery?.slides[0].image.title
 const galleryLength = gallery?.slides.length || 0
-
+const config = useRuntimeConfig()
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
+const { y: scrollY } = useWindowScroll()
+const isMediumOrUpScreen = useMediaQuery(`(min-width: 768px)`)
+// maybe these values should be calculated automatically by measuring on the position of the main header
+// or something instead of hardcoding them here, but this works for now
+const showHeaderAfter = computed(() => isMediumOrUpScreen.value ? 374 : 68)
+const showHeader = computed(() => scrollY.value > showHeaderAfter.value)
 
 useHead(headMetadata)
 
@@ -64,13 +71,12 @@ function useInsertAd(targetElement) {
   }
 }
 
-const newsletterSubmitEvent = (e) => {
-  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
-  // sendEvent('click_tracking', {
-  //   event_category: 'Click Tracking',
-  //   component: 'Footer',
-  //   event_label: 'Become a member',
-  // })
+const newsletterSubmitEvent = () => {
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking',
+    component: 'Footer',
+    event_label: 'Become a member',
+  })
 }
 
 const getGalleryLink = computed(() => {
@@ -88,6 +94,19 @@ const getGalleryLink = computed(() => {
       />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
+    <ScrollTracker
+      scrollTarget=".article-body"
+      v-slot="scrollTrackerProps"
+    >
+      <ArticlePageHeader
+        :class="`article-page-header ${showHeader ? '' : 'js-hidden'}`"
+        :donateUrl="config.donateUrlBase"
+        :progress="scrollTrackerProps.scrollPercentage"
+        :title="article?.title"
+        :shareUrl="article.url"
+        :shareTitle="article.socialTitle"
+      />
+    </ScrollTracker>
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
@@ -157,6 +176,7 @@ const getGalleryLink = computed(() => {
             </div>
             <article-donation-CTA />
             <v-streamfield
+              class="article-body"
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
@@ -212,6 +232,7 @@ const getGalleryLink = computed(() => {
     width: 100%;
     max-width: $col-fixed-width-330;
   }
+
   .view-gallery-button {
     position: absolute;
     top: 1rem;
@@ -222,6 +243,15 @@ const getGalleryLink = computed(() => {
         background: map-get($colors, 'soybeanhover');
       }
     }
+  }
+
+ .article-page-header {
+    transition: opacity 0.4s ease-in;
+  }
+  .article-page-header.js-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-in, visibility 0s 0.4s;
   }
 }
 </style>
