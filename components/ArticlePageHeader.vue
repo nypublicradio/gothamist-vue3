@@ -15,9 +15,11 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
     },
     donateUrlBase: {
       type: String,
+      required: true,
     },
     utmCampaign: {
       type: String,
+      required: true,
     },
     shareUrl: {
       type: String,
