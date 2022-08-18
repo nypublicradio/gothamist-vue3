@@ -6,7 +6,8 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 
 const props = defineProps<{
     navigation: Navigation
-    donateUrl: string
+    donateUrlBase: string
+    utmCampaign: string
 }>()
 </script>
 
@@ -37,7 +38,7 @@ const props = defineProps<{
                 <div class="mr-2">Replace this message with a thing about being non profit, member funded local news.</div>
                 <div><LogoNypr /></div>
             </div>
-            <v-flexible-link :to="`${donateUrl}&utm_campaign=goth_hamburger`" raw>
+            <v-flexible-link :to="`${donateUrlBase}&utm_campaign=${utmCampaign}`" raw>
                 <Button class="p-button-rounded w-full">
                     <span class="p-button-label">
                         <span class="pi pi-heart-fill"></span>

@@ -6,6 +6,7 @@ defineProps<{
     showLogo: boolean,
     navigation: Navigation
     donateUrl: string
+    utmCampaign: string
 }>()
 
   const sidebarIsOpen = useSidebarIsOpen()
@@ -23,7 +24,7 @@ defineProps<{
             </div>
         </div>
         <div class="gothamist-header-right">
-            <v-flexible-link :to="`${donateUrl}&utm_campaign=goth_header`" raw class="pr-2">
+            <v-flexible-link :to="`${donateUrl}&utm_campaign=${utmCampaign}`" raw class="pr-2">
                 <Button class="gothamist-header-donate-button p-button-rounded"> 
                     <span class="p-button-label">Donate</span>
                 </Button>

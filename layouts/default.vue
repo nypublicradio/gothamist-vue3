@@ -89,7 +89,8 @@ watch(route, (value) => {
     <GothamistMainHeader 
       :navigation="navigation"
       :showLogo="route.name !== 'index'"
-      :donateUrl="config.donateUrlBase"
+      :donateUrlBase="config.donateUrlBase"
+      utmCampaign="goth_header"
     />
     <Sidebar 
       v-model:visible="sidebarOpen" 
@@ -109,7 +110,8 @@ watch(route, (value) => {
       <template v-slot:default>
           <GothamistSidebarContents
               :navigation="navigation" 
-              :donateUrl="config.donateUrlBase" 
+              :donateUrlBase="config.donateUrlBase"
+              utmCampaign="goth_hamburger"
               class="mt-3"
           />
       </template>
