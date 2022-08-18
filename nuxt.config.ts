@@ -82,7 +82,7 @@ export default defineNuxtConfig({
     NEWSLETTER_API: process.env['NEWSLETTER_API'] || 'https://api.demo.nypr.digital/email-proxy/subscribe',
     NEWSLETTER_LIST_ID: '65dbec786b',
     DEBUG: process.env['DEBUG'] || 'false',
-    donateUrlBase: 'https://pledge3.wnyc.org/donate/gothamist/onestep/?utm_medium=partnersite&utm_source=gothamist',
+    donateUrlBase: 'https://pledge.wnyc.org/support/gothamist/?utm_medium=partnersite&utm_source=gothamist',
     navigationId: 1,
     systemMessagesId: 2,
     sitewideComponentsId: 2,
