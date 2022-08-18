@@ -32,12 +32,6 @@ console.log('article is', props.article)
 
 <template>
   <div class="comments-section">
-    <!-- <Head>
-      <Script
-        :src="`https://launcher.spot.im/spot/${config.OPENWEB_SPOT_ID}`"
-        data-spotim-module="spotim-launcher"
-      />
-    </Head> -->
     <div
       data-spotim-module="conversation"
       :data-post-url="article.url"
