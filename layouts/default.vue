@@ -83,8 +83,8 @@ watch(route, (value) => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <div class="leaderboard-ad-wrapper">
-      <div v-if="!sensitiveContent" class='htlad-gothamist_index_leaderboard_1'></div>
+    <div class="leaderboard-ad-wrapper flex justify-content-center">
+      <div v-if="!sensitiveContent" class='htlad-index_leaderboard_1'></div>
     </div>
     <GothamistMainHeader 
       :navigation="navigation"
