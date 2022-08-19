@@ -45,7 +45,7 @@ onUnmounted(() => {
                 campaign: 'shared_facebook',
               }"
               @share="
-                sendEvent('click_tracking', {
+                $analytics.sendEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Byline',
                   event_label: 'Social Share Facebook',
@@ -63,7 +63,7 @@ onUnmounted(() => {
                 campaign: 'shared_twitter',
               }"
               @share="
-                sendEvent('click_tracking', {
+                $analytics.sendEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Byline',
                   event_label: 'Social Share Twitter',
@@ -81,7 +81,7 @@ onUnmounted(() => {
                 campaign: 'shared_reddit',
               }"
               @share="
-                sendEvent('click_tracking', {
+                $analytics.sendEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Byline',
                   event_label: 'Social Share Reddit',
@@ -99,7 +99,7 @@ onUnmounted(() => {
                 campaign: 'shared_email',
               }"
               @share="
-                sendEvent('click_tracking', {
+                $analytics.sendEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Byline',
                   event_label: 'Social Share Email',

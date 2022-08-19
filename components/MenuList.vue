@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import NavigationLink from "./NavigationLink";
+import NavigationLink from './NavigationLink'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 defineProps<{
-  navLinks: NavigationLink[],
+  navLinks: NavigationLink[]
 }>()
-
+const emit = defineEmits(['menu-list-click'])
 </script>
 
 <template>
@@ -14,6 +14,7 @@ defineProps<{
       v-for="(item, index) in navLinks"
       :to="item.value.url"
       :key="`primaryFooterLinks-${index}`"
+      @click="emit('menu-list-click', item.value.title)"
     >
       {{ item.value.title }}
     </v-flexible-link>

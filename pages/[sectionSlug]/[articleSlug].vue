@@ -65,12 +65,11 @@ function useInsertAd(targetElement) {
 }
 
 const newsletterSubmitEvent = (e) => {
-  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
-  // sendEvent('click_tracking', {
-  //   event_category: 'Click Tracking',
-  //   component: 'Footer',
-  //   event_label: 'Become a member',
-  // })
+  $analytics.sendEvent('click_tracking', {
+    event_category: `Click Tracking - ${e} - Newsletter`,
+    component: e,
+    event_label: 'Newsletter',
+  })
 }
 
 const getGalleryLink = computed(() => {
@@ -112,7 +111,7 @@ const getGalleryLink = computed(() => {
                   class="pb-8"
                   triggerID="pinned-newsletter"
                   pinEndTriggerID="article-recirculation"
-                  @submit="newsletterSubmitEvent"
+                  @submit="newsletterSubmitEvent('pinned')"
                 />
               </div>
             </div>
@@ -149,11 +148,6 @@ const getGalleryLink = computed(() => {
               <hr class="black" />
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
-              <!-- <newsletter-home
-                @submit="newsletterSubmitEvent"
-                small
-                :showBlurb="false"
-              /> -->
             </div>
             <article-donation-CTA />
             <v-streamfield
@@ -190,7 +184,7 @@ const getGalleryLink = computed(() => {
         <article-recirculation id="article-recirculation" :article="article" />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
+          <newsletter-home @submit="newsletterSubmitEvent('footer')" />
         </div>
       </div>
     </section>
@@ -207,6 +201,9 @@ const getGalleryLink = computed(() => {
   );
   .v-tag .p-button {
     background: transparent;
+    &:hover {
+      background: var(--tag-hover-bg);
+    }
   }
   .col-fixed {
     width: 100%;

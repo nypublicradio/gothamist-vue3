@@ -5,7 +5,7 @@ import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VB
 import useImageUrl from '~~/composables/useImageUrl'
 
 const route = useRoute()
-
+const { $analytics } = useNuxtApp()
 const querySlug = route.query.q
 const query = ref(querySlug || '')
 
@@ -26,18 +26,16 @@ async function getSearchResults() {
 }
 
 onMounted(() => {
-  const { $analytics } = useNuxtApp()
   $analytics.sendPageView({ page_type: 'search_page' })
   getSearchResults()
 })
 
-const newsletterSubmitEvent = (e) => {
-  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
-  // sendEvent('click_tracking', {
-  //   event_category: 'Click Tracking',
-  //   component: 'Footer',
-  //   event_label: 'Become a member',
-  // })
+const newsletterSubmitEvent = () => {
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking - Footer - Newsletter',
+    component: 'footer',
+    event_label: 'Newsletter',
+  })
 }
 </script>
 <template>

@@ -12,8 +12,8 @@ defineProps<{
   }
 }>()
 
+const { $analytics } = useNuxtApp()
 onMounted(() => {
-  const { $analytics } = useNuxtApp()
   $analytics.sendPageView({ page_type: 'error_page' })
 })
 </script>
