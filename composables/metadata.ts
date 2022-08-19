@@ -86,7 +86,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
         width: '1200',
         height: '600'
       },
-      sameAs: 'https://www.facebook.com/gothamist,https://twitter.com/gothamist,https://www.instagram.com/gothamist,https://www.youtube.com/channel/UCY_2VeS5Q9_sMZRhtvF0c5Q,https://en.wikipedia.org/wiki/Gothamist',
+      sameAs: 'https://en.wikipedia.org/wiki/Gothamist',
       url: 'https://gothamist.com',
       diversityPolicy: 'https://www.nypublicradio.org/diversity-dei-overview/'
     }
