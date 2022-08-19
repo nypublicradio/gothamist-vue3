@@ -34,13 +34,12 @@ const getAuthorNameFromSlug = () => {
 }
 
 // emitted event from the newsletter submission form
-const newsletterSubmitEvent = (e) => {
-  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
-  // sendEvent('click_tracking', {
-  //   event_category: 'Click Tracking',
-  //   component: 'Footer',
-  //   event_label: 'Become a member',
-  // })
+const newsletterSubmitEvent = () => {
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking - Footer - Newsletter',
+    component: 'footer',
+    event_label: 'Newsletter',
+  })
 }
 
 onMounted(() => {
@@ -113,7 +112,9 @@ onUnmounted(() => {
               height="600"
               alt="advertisement"
             />
-            <p class="type-fineprint">Gothamist is funded by sponsors and member donations</p>
+            <p class="type-fineprint">
+              Gothamist is funded by sponsors and member donations
+            </p>
           </div>
         </div>
         <div class="block xl:hidden mb-4">

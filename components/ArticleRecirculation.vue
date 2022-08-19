@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
             :sizes="[1]"
             :width="897"
             :height="598"
-            :title="articleLg.listingTitle || articleLg.title"
+            :title="articleLg.listingTitle"
             :titleLink="articleLg.link"
             :maxWidth="articleLg.listingImage?.width"
             :maxHeight="articleLg.listingImage?.height"
@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
           <v-card
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.listingTitle || articleMd.title"
+            :title="articleMd.listingTitle"
             :titleLink="articleMd.link"
             :ratio="[3, 2]"
             :width="433"
@@ -117,7 +117,7 @@ onBeforeUnmount(() => {
           <v-card
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.listingTitle || articleMd.title"
+            :title="articleMd.listingTitle"
             :titleLink="articleMd.link"
             :width="318"
             :height="212"
@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
                   />
                   <v-card
                     class="article-sm mod-horizontal mod-small mb-3 tag-small"
-                    :title="articleSm.listingTitle || articleSm.title"
+                    :title="articleSm.listingTitle"
                     :titleLink="articleSm.link"
                   >
                     <v-card-metadata

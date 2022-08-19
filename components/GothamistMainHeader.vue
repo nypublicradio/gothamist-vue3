@@ -8,16 +8,16 @@ defineProps<{
   navigation: Navigation
   donateUrl: string
 }>()
-
+const { $analytics } = useNuxtApp()
 const sideBarVisible = ref(false)
 
 const menuListClick = (menuTitle) => {
   //emitted mobile menu click event
-  // sendEvent('click_tracking', {
-  //   event_category: 'Click Tracking',
-  //   component: 'SideBar',
-  //   event_label: menuTitle,
-  // })
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking - Mobile Menu',
+    component: 'sidebar',
+    event_label: menuTitle,
+  })
 
   // close the sidebar after menu item click
   sideBarVisible.value = false
