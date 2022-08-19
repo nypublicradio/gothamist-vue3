@@ -56,7 +56,6 @@ const onTagClicked = (tag) => {
         </div>
         <div v-if="!isDisableComments" id="comments" class="mb-4 md:mb-6">
           <hr class="black mb-4 md:mb-6" />
-          <div>Comments section here</div>
           <comments-section :article="props.article" />
         </div>
       </div>
