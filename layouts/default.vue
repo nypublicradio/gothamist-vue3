@@ -6,7 +6,7 @@ import { useSidebarIsOpen } from '~~/composables/states.js';
 
 const config = useRuntimeConfig()
 const route = useRoute()
-const { $htlbid } = useNuxtApp()
+const { $htlbid, $analytics } = useNuxtApp()
 const atTop = ref(true)
 const navigation = await findNavigation().then(({ data }) =>
   normalizeFindNavigationResponse(data)
@@ -22,6 +22,17 @@ const productBanners = await findProductBanners().then(({ data }) =>
 )
 const sensitiveContent = useSensitiveContent()
 const sidebarOpen = useSidebarIsOpen()
+const closeSidebar = () => sidebarOpen.value = false;
+
+const trackSidebarClick = (label) => {
+  //emitted mobile menu click event
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking - Mobile Menu',
+    component: 'header',
+    event_label: label,
+  })
+  closeSidebar()
+}
 
 onMounted(() => {
   document.addEventListener('scroll', (e) => {
@@ -93,13 +104,14 @@ watch(route, (value) => {
       utmCampaign="goth_header"
     />
     <Sidebar 
-      v-model:visible="sidebarOpen" 
-      position="right" 
-      data-style-mode="dark" 
+      v-model:visible="sidebarOpen"
+      :baseZIndex="5000"
+      position="right"
+      data-style-mode="dark"
       class="gothamist-sidebar px-3 md:px-4">
       <template v-slot:header>
           <div class="gothamist-sidebar-header flex md:hidden">
-              <v-flexible-link to="/" raw>
+              <v-flexible-link to="/" raw @click="trackSidebarClick('sidebar logo')">
                   <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
               </v-flexible-link>
               <div class="gothamist-sidebar-header-tagline">
@@ -111,6 +123,7 @@ watch(route, (value) => {
           <GothamistSidebarContents
               :navigation="navigation" 
               :donateUrlBase="config.donateUrlBase"
+              @menuListClick="trackSidebarClick($event)"
               utmCampaign="goth_hamburger"
               class="mt-3"
           />
@@ -139,4 +152,57 @@ watch(route, (value) => {
       padding: 28px auto;
     }
   }
+
+  .gothamist-sidebar.p-sidebar-right {
+    background-color: var(--black-500);
+    width: 100vw;
+    @include media('>sm') {
+      width: 480px;
+    }
+    .p-sidebar-close {
+      color: white;
+    }
+  }
+
+.gothamist-sidebar .p-sidebar-header {
+  justify-content: space-between;
+  padding: 1rem 0 0 0;
+}
+
+.gothamist-sidebar .p-sidebar-header {
+  align-items: flex-end;
+}
+
+.gothamist-sidebar-header-logo {
+  width: 120px;
+  padding-bottom: 3px;
+  height: auto;
+  * {
+    fill: white;
+  }
+}
+
+.gothamist-sidebar-header-tagline {
+  width: 71px;
+  font-family: var(--font-family-header);
+  font-size: 12px;
+  line-height: var(--font-size-5);
+  color: white;
+}
+
+.gothamist-sidebar .p-sidebar-content {
+  padding: 0;
+}
+
+.p-sidebar-mask {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.gothamist-sidebar-header-tagline {
+  width: 71px;
+  font-family: var(--font-family-header);
+  font-size: 12px;
+  line-height: var(--font-size-5);
+  color: white;
+}
 </style>

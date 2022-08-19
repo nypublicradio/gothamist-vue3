@@ -71,11 +71,11 @@ function useInsertAd(targetElement) {
   }
 }
 
-const newsletterSubmitEvent = () => {
+const newsletterSubmitEvent = (e) => {
   $analytics.sendEvent('click_tracking', {
-    event_category: 'Click Tracking',
-    component: 'Footer',
-    event_label: 'Become a member',
+    event_category: `Click Tracking - ${e} - Newsletter`,
+    component: e,
+    event_label: 'Newsletter',
   })
 }
 
@@ -100,7 +100,7 @@ const getGalleryLink = computed(() => {
     >
       <ArticlePageHeader
         :class="`article-page-header ${showHeader ? '' : 'js-hidden'}`"
-        :donateUrl="config.donateUrlBase"
+        :donateUrlBase="config.donateUrlBase"
         utmCampaign="goth_header"
         :progress="scrollTrackerProps.scrollPercentage"
         :title="article?.title"
@@ -132,7 +132,7 @@ const getGalleryLink = computed(() => {
                   class="pb-8"
                   triggerID="pinned-newsletter"
                   pinEndTriggerID="article-recirculation"
-                  @submit="newsletterSubmitEvent"
+                  @submit="newsletterSubmitEvent('pinned')"
                 />
               </div>
             </div>
@@ -169,13 +169,8 @@ const getGalleryLink = computed(() => {
               <hr class="black" />
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
-              <!-- <newsletter-home
-                @submit="newsletterSubmitEvent"
-                small
-                :showBlurb="false"
-              /> -->
             </div>
-            <article-donation-CTA />
+            <article-donation-CTA :donateUrlBase="$config.donateUrlBase" utmCampaign="article-top" />
             <v-streamfield
               class="article-body"
               :streamfield-blocks="article.body"
@@ -211,7 +206,7 @@ const getGalleryLink = computed(() => {
         <article-recirculation id="article-recirculation" :article="article" />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
+          <newsletter-home @submit="newsletterSubmitEvent('footer')" />
         </div>
       </div>
     </section>
@@ -228,6 +223,9 @@ const getGalleryLink = computed(() => {
   );
   .v-tag .p-button {
     background: transparent;
+    &:hover {
+      background: var(--tag-hover-bg);
+    }
   }
   .col-fixed {
     width: 100%;
