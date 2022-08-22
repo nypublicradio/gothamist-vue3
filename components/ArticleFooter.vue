@@ -8,6 +8,7 @@ const props = defineProps({
   },
 })
 
+const { $analytics } = useNuxtApp()
 const tags = ref(props.article.tags)
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const isDisableComments = ref(props.article?.disableComments || false)
@@ -17,7 +18,7 @@ const profileData = isSponsored.value
 
 // function attached to the emit of the article-tags when clicked
 const onTagClicked = (tag) => {
-  sendEvent('click_tracking', {
+  $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking',
     component: 'Article Tags',
     event_label: tag.name,
@@ -55,7 +56,7 @@ const onTagClicked = (tag) => {
         </div>
         <div v-if="!isDisableComments" id="comments" class="mb-4 md:mb-6">
           <hr class="black mb-4 md:mb-6" />
-          <div>Comments section here</div>
+          <comments-section :article="props.article" />
         </div>
       </div>
       <div class="col-fixed mx-auto hidden lg:block">

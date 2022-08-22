@@ -29,13 +29,12 @@ onUnmounted(() => {
   $htlbid.clearTargeting({ Template: 'Tag' })
 })
 
-const newsletterSubmitEvent = (e) => {
-  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
-  // sendEvent('click_tracking', {
-  //   event_category: 'Click Tracking',
-  //   component: 'Footer',
-  //   event_label: 'Become a member',
-  // })
+const newsletterSubmitEvent = () => {
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking - Footer - Newsletter',
+    component: 'footer',
+    event_label: 'Newsletter',
+  })
 }
 </script>
 
@@ -78,7 +77,7 @@ const newsletterSubmitEvent = (e) => {
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
-                :title="article.listingTitle || article.title"
+                :title="article.listingTitle"
                 :titleLink="article.link"
                 :ratio="[3, 2]"
                 :width="318"

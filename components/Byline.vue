@@ -22,6 +22,8 @@ const props = defineProps({
   },
 })
 
+const { $analytics } = useNuxtApp()
+
 const authors = ref(props.article?.authors)
 const shareUrl = ref(props.article?.url)
 const shareTitle = ref(props.article?.title)
@@ -117,7 +119,7 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
             campaign: 'shared_facebook',
           }"
           @share="
-            sendEvent('click_tracking', {
+            $analytics.sendEvent('click_tracking', {
               event_category: 'Click Tracking',
               component: 'Article Byline',
               event_label: 'Social Share Facebook',
@@ -136,7 +138,7 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
             campaign: 'shared_twitter',
           }"
           @share="
-            sendEvent('click_tracking', {
+            $analytics.sendEvent('click_tracking', {
               event_category: 'Click Tracking',
               component: 'Article Byline',
               event_label: 'Social Share Twitter',
@@ -154,7 +156,7 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
             campaign: 'shared_reddit',
           }"
           @share="
-            sendEvent('click_tracking', {
+            $analytics.sendEvent('click_tracking', {
               event_category: 'Click Tracking',
               component: 'Article Byline',
               event_label: 'Social Share Reddit',
@@ -172,7 +174,7 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
             campaign: 'shared_email',
           }"
           @share="
-            sendEvent('click_tracking', {
+            $analytics.sendEvent('click_tracking', {
               event_category: 'Click Tracking',
               component: 'Article Byline',
               event_label: 'Social Share Email',

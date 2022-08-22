@@ -27,19 +27,17 @@ const homePageCollectionItems = await findPage('/').then(({ data }) =>
     })
   })
 )
-
-const newsletterSubmitEvent = (e) => {
-  //emitted newsletter submit event, @Matt, not exactly sure how to get this work like you mentioned.
-  // sendEvent('click_tracking', {
-  //   event_category: 'Click Tracking',
-  //   component: 'Footer',
-  //   event_label: 'Become a member',
-  // })
+const { $analytics } = useNuxtApp()
+const newsletterSubmitEvent = () => {
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking - Footer - Newsletter',
+    component: 'footer',
+    event_label: 'Newsletter',
+  })
 }
 const navigation = useNavigation()
 
 onMounted(() => {
-  const { $analytics } = useNuxtApp()
   $analytics.sendPageView({ page_type: 'home_page' })
 })
 </script>
@@ -70,7 +68,7 @@ onMounted(() => {
               :height="708"
               :sizes="[1]"
               :quality="80"
-              :title="collection.data.listingTitle || collection.data.title"
+              :title="collection.data.listingTitle"
               :titleLink="collection.data.link"
               :maxWidth="collection.data.listingImage?.width"
               :maxHeight="collection.data.listingImage?.height"
@@ -105,7 +103,7 @@ onMounted(() => {
                   :height="212"
                   :sizes="[1]"
                   :quality="80"
-                  :title="article.listingTitle || article.title"
+                  :title="article.listingTitle"
                   :titleLink="article.link"
                   :maxWidth="article.image?.width"
                   :maxHeight="article.image?.height"

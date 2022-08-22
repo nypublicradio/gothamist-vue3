@@ -13,12 +13,18 @@ const props = defineProps({
     type: Object,
     default: {},
   },
+  slug: {
+    type: String,
+    default: null,
+  },
 })
 
 const route = useRoute()
-
+const routeSectionSlug = ref(
+  props.slug ? props.slug : route.params.sectionSlug || 'news'
+)
 const { title: sectionTitle, id: sectionId } = await findPage(
-  route.params.sectionSlug as string
+  routeSectionSlug.value as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
@@ -75,7 +81,7 @@ onBeforeUnmount(() => {
             :sizes="[1]"
             :width="897"
             :height="598"
-            :title="articleLg.listingTitle || articleLg.title"
+            :title="articleLg.listingTitle"
             :titleLink="articleLg.link"
             :maxWidth="articleLg.listingImage?.width"
             :maxHeight="articleLg.listingImage?.height"
@@ -93,7 +99,7 @@ onBeforeUnmount(() => {
           <v-card
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.listingTitle || articleMd.title"
+            :title="articleMd.listingTitle"
             :titleLink="articleMd.link"
             :ratio="[3, 2]"
             :width="433"
@@ -105,13 +111,13 @@ onBeforeUnmount(() => {
             <p>
               {{ articleMd.description }}
             </p>
-            <v-card-metadata :article="articleMd" />
+            <v-card-metadata stack :article="articleMd" />
           </v-card>
           <!-- md article mobile  -->
           <v-card
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
             :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.title"
+            :title="articleMd.listingTitle"
             :titleLink="articleMd.link"
             :width="318"
             :height="212"
@@ -149,7 +155,7 @@ onBeforeUnmount(() => {
                   />
                   <v-card
                     class="article-sm mod-horizontal mod-small mb-3 tag-small"
-                    :title="articleSm.listingTitle || articleSm.title"
+                    :title="articleSm.listingTitle"
                     :titleLink="articleSm.link"
                   >
                     <v-card-metadata
@@ -170,6 +176,7 @@ onBeforeUnmount(() => {
 <style lang="scss">
 .recirculation {
   .v-card {
+    background: transparent;
     &.article-sm {
       .card-title-link .h2 {
         font-weight: 600 !important;

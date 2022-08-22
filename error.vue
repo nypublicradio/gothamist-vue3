@@ -15,8 +15,8 @@ const navigation = await findNavigation().then(({ data }) =>
 //   show_as_feature: true,
 // }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
+const { $analytics } = useNuxtApp()
 onMounted(() => {
-  const { $analytics } = useNuxtApp()
   $analytics.sendPageView({ page_type: 'error_page' })
 })
 
