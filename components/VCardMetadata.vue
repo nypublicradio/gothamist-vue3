@@ -82,6 +82,7 @@ const props = defineProps({
   &.article-metadata {
     display: flex;
     align-items: center;
+
     .byline,
     .comments {
       line-height: 1rem;
@@ -99,6 +100,9 @@ const props = defineProps({
         border-right: solid 1px var(--black300);
       }
     }
+  }
+  .v-byline {
+    line-height: normal;
   }
 }
 </style>
