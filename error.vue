@@ -243,9 +243,5 @@ const newsletterSubmitEvent = (e) => {
       line-height: var(--font-size-6);
     }
   }
-  .v-card.mod-large .card-details {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 </style>
