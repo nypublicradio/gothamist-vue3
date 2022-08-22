@@ -140,6 +140,14 @@ const newsletterSubmitEvent = () => {
   background: var(--black);
 }
 
+.tag-page-top-zone {
+  width: 100%;
+  margin: auto;
+  @include media('>lg') {
+    width: 80%;
+  }
+}
+
 .tag-page-top-zone .streamfield {
   border-top: 1px solid var(--black);
 }
