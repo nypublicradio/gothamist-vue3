@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { gsap } from 'gsap'
+import { Draggable } from '~/assets/gsap/Draggable.js'
+import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 import { useRuntimeConfig } from '#app'
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -7,13 +12,43 @@ const props = defineProps({
   error: Object,
 })
 
+console.log(props.error)
+
 const navigation = await findNavigation().then(({ data }) =>
   normalizeFindNavigationResponse(data)
 )
 
-// const latestArticles = await findArticlePages({
-//   show_as_feature: true,
-// }).then(({ data }) => normalizeFindArticlePagesResponse(data))
+const articles = await findArticlePages({
+  limit: 5,
+}).then(({ data }) => normalizeFindArticlePagesResponse(data))
+
+const articleLg = ref(articles[0])
+const articleMd = ref(articles[1])
+const articlesSm = ref([articles[2], articles[3], articles[4]])
+const isMobile = ref(false)
+
+onMounted(() => {
+  // draggable setup
+  if (window.innerWidth < 768 && articles) {
+    isMobile.value = true
+    setTimeout(() => {
+      gsap.registerPlugin(InertiaPlugin)
+      gsap.registerPlugin(Draggable)
+      Draggable.create('.horz-scroll-content', {
+        type: 'x',
+        edgeResistance: 0.45,
+        bounds: '.horz-scroll',
+        inertia: true,
+      })
+    }, 1000)
+  }
+})
+onBeforeUnmount(() => {
+  // kill draggable
+  if (isMobile.value) {
+    Draggable.get('.horz-scroll-content').kill()
+  }
+})
 
 const { $analytics } = useNuxtApp()
 onMounted(() => {
@@ -66,86 +101,111 @@ const newsletterSubmitEvent = (e) => {
         </div>
         <div class="content">
           <!-- featured area -->
-          <!-- <template v-if="latestArticles">
-            <div class="grid mb-6 gutter-x-30">
-              <div v-if="latestArticles.length > 0" class="col-12 xl:col-8">
+
+          <div v-if="articles" class="recirculation">
+            <div class="grid gutter-x-30">
+              <div class="col-12 xl:col-8">
                 <v-card
-                  class="featured-article mod-vertical mod-featured mod-large"
-                  :image="useImageUrl(latestArticles[0].listingImage)"
+                  class="article-lg mod-vertical mod-featured2 mod-large mb-4"
+                  :image="useImageUrl(articleLg.listingImage)"
                   :sizes="[1]"
                   :width="897"
                   :height="598"
-                  :title="latestArticles[0].title"
-                  :titleLink="latestArticles[0].link"
-                  :maxWidth="latestArticles[0].listingImage.width"
-                  :maxHeight="latestArticles[0].listingImage.height"
-                  :tags="[
-                    {
-                      name: latestArticles[0].section.name,
-                      slug: latestArticles[0].section.slug,
-                    },
-                  ]"
+                  :title="articleLg.listingTitle"
+                  :titleLink="articleLg.link"
+                  :maxWidth="articleLg.listingImage?.width"
+                  :maxHeight="articleLg.listingImage?.height"
                 >
-                  <p class="desc">
-                    {{ latestArticles[0].description }}
-                  </p>
-                  <div class="article-metadata">
-                    <span>
-                      <v-byline :authors="latestArticles[0].authors" />
-                    </span>
-                    <span>comments</span>
-                  </div>
+                  <v-card-metadata
+                    class="mt-0 md:mt-2"
+                    altDesign
+                    :article="articleLg"
+                  />
                 </v-card>
+                <hr class="block xl:hidden mb-3" />
               </div>
-              <div v-if="latestArticles.length > 4" class="col-12 xl:col-4">
+              <div class="col-12 xl:col-4">
+                <!-- md article desktop  -->
                 <v-card
-                  class="mod-vertical mod-large mb-1 tag-small"
-                  :image="useImageUrl(latestArticles[1].listingImage)"
-                  :width="665"
-                  :height="448"
+                  class="hidden xl:flex article-md mod-vertical mod-large mb-5"
+                  :image="useImageUrl(articleMd.listingImage)"
+                  :title="articleMd.listingTitle"
+                  :titleLink="articleMd.link"
+                  :ratio="[3, 2]"
+                  :width="433"
+                  :height="289"
                   :sizes="[1]"
-                  :title="latestArticles[1].title"
-                  :titleLink="latestArticles[1].link"
-                  :maxWidth="latestArticles[1].listingImage.width"
-                  :maxHeight="latestArticles[1].listingImage.height"
-                  :tags="[
-                    {
-                      name: latestArticles[1].section.name,
-                      slug: latestArticles[1].section.slug,
-                    },
-                  ]"
+                  :maxWidth="articleMd.listingImage?.width"
+                  :maxHeight="articleMd.listingImage?.height"
                 >
-                  <p class="desc">
-                    {{ latestArticles[0].description }}
+                  <p>
+                    {{ articleMd.description }}
                   </p>
-                  <div class="article-metadata">
-                    <span>
-                      <v-byline :authors="latestArticles[1].authors" />
-                    </span>
-                    <span>comments</span>
-                  </div>
+                  <v-card-metadata stack :article="articleMd" />
                 </v-card>
-                <div
-                  v-for="article in latestArticles.slice(2, 5)"
-                  :key="article.uuid"
+                <!-- md article mobile  -->
+                <v-card
+                  class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
+                  :image="useImageUrl(articleMd.listingImage)"
+                  :title="articleMd.listingTitle"
+                  :titleLink="articleMd.link"
+                  :width="318"
+                  :height="212"
+                  :sizes="[1]"
+                  :maxWidth="articleMd.listingImage?.width"
+                  :maxHeight="articleMd.listingImage?.height"
                 >
-                  <hr class="mb-2" />
-                  <v-card
-                    class="mod-horizontal mod-left mod-small mb-1 tag-small latest-articles"
-                    :title="article.title"
-                    :titleLink="article.link"
-                  >
-                    <div class="article-metadata">
-                      <span>
-                        <v-byline :authors="article.authors" />
-                      </span>
-                      <span>comments</span>
+                  <p>
+                    {{ articleMd.description }}
+                  </p>
+                  <v-card-metadata :article="articleMd" />
+                </v-card>
+                <hr
+                  class="my-5"
+                  :class="
+                    isMobile ? 'block xl:hidden' : 'hidden sm:block xl:hidden'
+                  "
+                />
+                <div class="horz-scroll-holder" :class="[{ mobile: isMobile }]">
+                  <div class="horz-scroll">
+                    <div
+                      class="grid gutter-x-xl keep-gutter horz-scroll-content"
+                    >
+                      <div
+                        v-for="articleSm in articlesSm"
+                        :key="articleSm.id"
+                        class="v-hr flex"
+                        :class="
+                          isMobile
+                            ? ' col-4 xl:col-12 xl:flex-column'
+                            : 'col-12 sm:col-4 xl:col-12 flex-column sm:flex-row xl:flex-column'
+                        "
+                      >
+                        <hr
+                          class="w-full mb-3"
+                          :class="
+                            isMobile
+                              ? 'hidden xl:block'
+                              : 'block sm:hidden xl:block'
+                          "
+                        />
+                        <v-card
+                          class="article-sm mod-horizontal mod-small mb-3 tag-small"
+                          :title="articleSm.listingTitle"
+                          :titleLink="articleSm.link"
+                        >
+                          <v-card-metadata
+                            :article="articleSm"
+                            :showComments="false"
+                          />
+                        </v-card>
+                      </div>
                     </div>
-                  </v-card>
+                  </div>
                 </div>
               </div>
             </div>
-          </template> -->
+          </div>
           <!-- newsletter -->
           <div class="mt-8 mb-5">
             <hr class="black mb-4" />
