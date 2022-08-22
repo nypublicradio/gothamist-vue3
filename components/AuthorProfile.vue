@@ -99,11 +99,14 @@ const imageSizePx = ref(imageSize.value + 'px')
   @include media('<md') {
     gap: 0;
   }
-  .col-fixed.profile {
-    box-sizing: content-box;
-    width: v-bind(imageSizePx);
-    @include media('<md') {
-      width: v-bind(profileImageSizeSm);
+  .col-fixed {
+    max-width: v-bind(imageSizePx) !important;
+    .profile {
+      box-sizing: content-box;
+      width: v-bind(imageSizePx);
+      @include media('<md') {
+        width: v-bind(profileImageSizeSm);
+      }
     }
   }
   .author-image {
