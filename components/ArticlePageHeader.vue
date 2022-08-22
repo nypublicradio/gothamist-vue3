@@ -38,16 +38,15 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
 <template>
 <header class="article-page-header">
   <div class="article-page-header-progress">
-    <div class="article-page-header-contents p-3 md:px-5 flex justify-content-between">
+    <div class="article-page-header-contents py-3 px-4 md:px-5 flex align-items-center justify-content-between">
       <div class="article-page-header-left">
         <v-flexible-link to="/" raw>
           <LogoGothamist class="article-page-header-logo" />
         </v-flexible-link>
         <div class="article-page-header-tagline hidden">News for New Yorkers</div>
-        <div class="hidden">{{props.title}}</div>
       </div>
-      <div class="article-page-header-center hidden md:block px-4">
-        <span class="article-page-header-title">{{title}}</span>
+      <div class="article-page-header-center hidden h6 md:block px-4">
+        {{title}}
       </div>
       <div class="article-page-header-right flex justify-content-end">
         <v-share-tools class="hidden lg:flex mx-3">
@@ -129,7 +128,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
                 <span class="p-button-label">Donate</span>
             </Button>
         </v-flexible-link>
-        <Button icon="pi pi-bars" class="p-button p-component p-button-icon-only p-button-text p-button-rounded" @click="openSidebar" />
+        <Button icon="pi pi-bars" class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2" @click="openSidebar" />
       </div>
     </div>
   </div>
@@ -190,20 +189,13 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
 
 .article-page-header-logo {
   width: auto;
-  height: 36px;
+  height: 34px;
 }
 
 .article-page-header-center {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.article-page-header-title {
-  font-size: var(--font-size-7);
-  font-weight: var(--font-weight-600);
-  line-height: 36px;
-  min-width: 0; 
 }
 
 .article-page-header-donate-button {

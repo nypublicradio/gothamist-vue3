@@ -36,7 +36,7 @@ const trackClick = (category, label) => {
         News for New Yorkers
       </div>
     </div>
-    <div class="gothamist-header-right">
+    <div class="gothamist-header-right align-items-center">
       <v-flexible-link
         :to="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
         raw
@@ -48,7 +48,7 @@ const trackClick = (category, label) => {
       </v-flexible-link>
       <Button
         icon="pi pi-bars"
-        class="p-button p-component p-button-icon-only p-button-text p-button-rounded"
+        class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
         @click="openSidebar"
       />
     </div>
