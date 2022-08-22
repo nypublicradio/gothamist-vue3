@@ -131,7 +131,7 @@ const getGalleryLink = computed(() => {
                 <newsletter-article
                   class="pb-8"
                   triggerID="pinned-newsletter"
-                  pinEndTriggerID="article-recirculation"
+                  pinEndTriggerID="pinned-newsletter-end"
                   @submit="newsletterSubmitEvent('pinned')"
                 />
               </div>
@@ -140,6 +140,7 @@ const getGalleryLink = computed(() => {
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-4 xxl:mb-6 relative">
               <v-image-with-caption
+                loading="eager"
                 :image="useImageUrl(topImage)"
                 :imageUrl="article.imageLink"
                 :width="728"
@@ -194,7 +195,7 @@ const getGalleryLink = computed(() => {
       </div>
     </section>
     <section>
-      <div class="content">
+      <div id="pinned-newsletter-end" class="content">
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
@@ -203,7 +204,10 @@ const getGalleryLink = computed(() => {
         </div>
         <hr class="black" />
         <p class="type-label3 mt-2 mb-4">MORE {{ article.section.slug }}</p>
-        <article-recirculation id="article-recirculation" :article="article" />
+        <article-recirculation
+          :slug="String(route.params.sectionSlug)"
+          :article="article"
+        />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent('footer')" />
