@@ -6,7 +6,10 @@ const config = useRuntimeConfig()
 const route = useRoute()
 
 const props = defineProps({
-  error: Object,
+  error: {
+    type: Object,
+    default: {},
+  },
 })
 
 //console.log(props.error)
