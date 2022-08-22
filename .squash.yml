@@ -1,0 +1,16 @@
+deployments:
+  gothamist-vue3:
+    filename:
+      ./squash_Dockerfile
+    build_options:
+      --secret id=PAT,env=PAT
+    port_forwarding:
+      80:3000
+    environment:
+      - NUXT_HOST=0.0.0.0
+      - NUXT_PORT=3000
+      - DOCKER_BUILDKIT=1
+    run_options:
+      --env NUXT_HOST=$NUXT_HOST
+      --env NUXT_PORT=$NUXT_PORT
+      --env DOCKER_BUILDKIT=$DOCKER_BUILDKIT
