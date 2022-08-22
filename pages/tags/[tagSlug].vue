@@ -47,6 +47,7 @@ const newsletterSubmitEvent = () => {
     </section>
     <section v-if="curatedTagPage?.headerImage" class="tag-page-header-image">
       <v-image-with-caption
+        loading="eager"
         :image="useImageUrl(curatedTagPage.headerImage)"
         :width="1440"
         :height="288"
@@ -138,6 +139,14 @@ const newsletterSubmitEvent = () => {
 <style lang="scss">
 .tag-page-header {
   background: var(--black);
+}
+
+.tag-page-top-zone {
+  width: 100%;
+  margin: auto;
+  @include media('>lg') {
+    width: 80%;
+  }
 }
 
 .tag-page-top-zone .streamfield {

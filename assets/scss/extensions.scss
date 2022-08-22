@@ -306,8 +306,8 @@ $img-height-mobile: 106px;
     gap: 1rem !important;
   }
 }
-.v-card:not([data-style-mode="dark"]),
-.v-card:not([data-style-mode="dark"]) .v-tag .flexible-link .p-button {
+.v-card:not([data-style-mode='dark']),
+.v-card:not([data-style-mode='dark']) .v-tag .flexible-link .p-button {
   background: transparent;
 }
 .v-card.mod-left .card-image-wrapper {
@@ -491,7 +491,7 @@ $img-height-mobile: 106px;
 .article-metadata {
   font-size: var(--font-size-4);
   line-height: var(--font-size-4);
-  margin-top: 12px;
+  margin-top: 12px !important;
   @include media(#{$mobileBreakpoint}) {
     font-size: var(--font-size-3);
     line-height: var(--font-size-3);

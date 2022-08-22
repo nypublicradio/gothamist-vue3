@@ -8,21 +8,19 @@ import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 // this component is used in the articleSlug at the bottom of the article page, and also as the topper in the section index page
 
 const props = defineProps({
-  // the article to fileter out from the results if it exists
+  // the article to filter out from the results if it exists
   article: {
     type: Object,
     default: {},
   },
   slug: {
     type: String,
-    default: null,
+    default: 'news',
   },
 })
 
 const route = useRoute()
-const routeSectionSlug = ref(
-  props.slug ? props.slug : route.params.sectionSlug || 'news'
-)
+const routeSectionSlug = ref(props.slug)
 const { title: sectionTitle, id: sectionId } = await findPage(
   routeSectionSlug.value as string
 ).then(({ data }) => normalizeFindPageResponse(data))
@@ -32,7 +30,7 @@ const articles = await findArticlePages({
   limit: 6,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
-// remove the currcnt article from the list of articles
+// remove the current article from the list of articles
 const articlesFiltered = articles.filter(
   (article) => article.id !== props.article?.id
 )
@@ -85,6 +83,7 @@ onBeforeUnmount(() => {
             :titleLink="articleLg.link"
             :maxWidth="articleLg.listingImage?.width"
             :maxHeight="articleLg.listingImage?.height"
+            loading="eager"
           >
             <v-card-metadata
               class="mt-0 md:mt-2"
@@ -107,6 +106,7 @@ onBeforeUnmount(() => {
             :sizes="[1]"
             :maxWidth="articleMd.listingImage?.width"
             :maxHeight="articleMd.listingImage?.height"
+            loading="eager"
           >
             <p>
               {{ articleMd.description }}
@@ -124,6 +124,7 @@ onBeforeUnmount(() => {
             :sizes="[1]"
             :maxWidth="articleMd.listingImage?.width"
             :maxHeight="articleMd.listingImage?.height"
+            loading="eager"
           >
             <p>
               {{ articleMd.description }}

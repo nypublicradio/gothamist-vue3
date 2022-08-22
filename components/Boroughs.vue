@@ -51,12 +51,16 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
     line-height: var(--font-size-17);
   }
 }
-.boroughs a {
-  margin: 0 0.15rem 0.25rem;
+.boroughs .tag-large {
+  margin: 0 0.15rem 0.25rem 0.25rem;
+  margin-top: 0.5rem !important;
   text-decoration: none;
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  margin: auto;
   @include media('>lg') {
     margin: 0 0.25rem 0.5rem;
+    display: inline-block;
   }
 }
 .boroughs .boroughs-header {

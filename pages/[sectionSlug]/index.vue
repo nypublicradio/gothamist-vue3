@@ -34,7 +34,11 @@ const newsletterSubmitEvent = () => {
         <h1 class="mb-5">{{ sectionTitle }}</h1>
         <hr class="black" />
         <!-- featured area -->
-        <article-recirculation id="article-recirculation" class="my-6" />
+        <article-recirculation
+          :slug="String(route.params.sectionSlug)"
+          id="article-recirculation"
+          class="my-6"
+        />
         <!-- articles -->
         <div v-if="articles" class="grid gutter-x-xl">
           <div class="col-1 hidden xl:block"></div>
