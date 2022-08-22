@@ -56,6 +56,10 @@ export interface ArticlePage extends Page {
 
 }
 
+export interface InformationPage extends Page {
+    body: any[];
+}
+
 export interface StaffPage extends Page {
     headerImage: Image;
     topPageZone: StreamfieldBlock[];
