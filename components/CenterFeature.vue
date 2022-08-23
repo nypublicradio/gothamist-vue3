@@ -21,7 +21,7 @@ const centerFeatureCollections = []
 const centerFeatureCollectionItems = await findPage(
   routeSectionSlug.value as string
 ).then(({ data }) => {
-  console.log('data', data.value)
+  //console.log('data', data.value)
   // data.value.pageCollectionRelationship.forEach((collection) => {
   //   centerFeatureCollections.push({
   //     id: collection.id,
@@ -30,7 +30,7 @@ const centerFeatureCollectionItems = await findPage(
   //   })
   // })
 })
-console.log('centerFeatureCollections = ', centerFeatureCollections)
+//console.log('centerFeatureCollections = ', centerFeatureCollections)
 
 const { title: sectionTitle, id: sectionId } = await findPage(
   routeSectionSlug.value as string

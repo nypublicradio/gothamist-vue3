@@ -54,35 +54,41 @@ const latestArticles = computed(() => props.articles.slice(1))
           label="LATEST"
         />
       </v-flexible-link>
-      <div v-for="article in latestArticles" :key="article.uuid">
+
+      <horizontal-drag
+        :articles="latestArticles"
+        v-slot="slotProps"
+        class="mb-4"
+      >
         <v-card
-          class="mod-horizontal mod-left mod-mobile mb-3 tag-small"
-          :image="useImageUrl(article.listingImage)"
+          class="mod-horizontal mod-left mod-small mb-0"
+          :image="useImageUrl(slotProps.article.listingImage)"
           :width="106"
           :height="106"
-          :ratio="[1.1]"
-          :sizes="[1]"
-          :title="article.listingTitle || article.title"
-          :titleLink="article.link"
-          :maxWidth="article.listingImage?.width"
-          :maxHeight="article.listingImage?.height"
+          :ratio="[1, 1]"
+          :sizes="[2]"
+          :title="slotProps.article.listingTitle || slotProps.article.title"
+          :titleLink="slotProps.article.link"
+          :maxWidth="slotProps.article.listingImage?.width"
+          :maxHeight="slotProps.article.listingImage?.height"
           :quality="80"
         >
           <div></div>
-          <v-card-metadata :article="article" :showComments="false" />
+          <v-card-metadata :article="slotProps.article" :showComments="false" />
         </v-card>
+      </horizontal-drag>
+      <div class="mb-1 mx-auto block">
+        <img
+          src="https://fakeimg.pl/450x250/?text=AD Here"
+          style="max-width: 100%"
+          width="450"
+          height="250"
+          alt="advertisement"
+        />
+        <p class="type-fineprint">
+          Gothamist is funded by sponsors and member donations
+        </p>
       </div>
-      <img
-        class="mb-1"
-        src="https://fakeimg.pl/450x250/?text=AD Here"
-        style="max-width: 100%"
-        width="450"
-        height="250"
-        alt="advertisement"
-      />
-      <p class="type-fineprint">
-        Gothamist is funded by sponsors and member donations
-      </p>
     </div>
   </div>
 </template>
