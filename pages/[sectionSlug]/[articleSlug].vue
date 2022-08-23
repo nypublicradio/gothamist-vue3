@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, computed } from 'vue'
+import { useMediaQuery, useWindowScroll } from '@vueuse/core'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
@@ -19,14 +20,21 @@ if (article.leadGallery) {
   )) as GalleryPage
 }
 
-const topImage = article.leadImage || gallery.slides[0].image
-const topCaption = article.leadImageCaption || gallery?.slides[0].image.title
-const galleryLength = gallery?.slides.length || 0
+const topImage = article.leadImage || gallery?.slides?.[0]?.image || null
+const topCaption =
+  article.leadImageCaption || gallery?.slides?.[0]?.image.title || null
+const galleryLength = gallery?.slides?.length || 0
 
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
+const { y: scrollY } = useWindowScroll()
+const isMediumOrUpScreen = useMediaQuery(`(min-width: 768px)`)
+// maybe these values should be calculated automatically by measuring on the position of the main header
+// or something instead of hardcoding them here, but this works for now
+const showHeaderAfter = computed(() => isMediumOrUpScreen.value ? 374 : 68)
+const showHeader = computed(() => scrollY.value > showHeaderAfter.value)
 
 useHead(headMetadata)
 
@@ -87,12 +95,27 @@ const getGalleryLink = computed(() => {
       />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
+    <ScrollTracker
+      scrollTarget=".article-body"
+      v-slot="scrollTrackerProps"
+    >
+      <ArticlePageHeader
+        :class="`article-page-header ${showHeader ? '' : 'js-hidden'}`"
+        :donateUrlBase="config.donateUrlBase"
+        utmCampaign="goth_header"
+        :progress="scrollTrackerProps.scrollPercentage"
+        :title="article?.title"
+        :shareUrl="article.url"
+        :shareTitle="article.socialTitle"
+      />
+    </ScrollTracker>
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
             <v-tag
+              v-if="article?.section"
               :name="article.section.name"
               :slug="`/${article.section.slug}`"
             />
@@ -119,6 +142,7 @@ const getGalleryLink = computed(() => {
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-4 xxl:mb-6 relative">
               <v-image-with-caption
+                v-if="topImage"
                 loading="eager"
                 :image="useImageUrl(topImage)"
                 :imageUrl="article.imageLink"
@@ -150,8 +174,9 @@ const getGalleryLink = computed(() => {
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
             </div>
-            <article-donation-CTA />
+            <article-donation-CTA :donateUrlBase="$config.donateUrlBase" utmCampaign="article-top" />
             <v-streamfield
+              class="article-body"
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
@@ -181,7 +206,9 @@ const getGalleryLink = computed(() => {
           </div>
         </div>
         <hr class="black" />
-        <p class="type-label3 mt-2 mb-4">MORE {{ article.section.slug }}</p>
+        <p v-if="article?.section" class="type-label3 mt-2 mb-4">
+          MORE {{ article.section.slug }}
+        </p>
         <article-recirculation
           :slug="String(route.params.sectionSlug)"
           :article="article"
@@ -213,6 +240,7 @@ const getGalleryLink = computed(() => {
     width: 100%;
     max-width: $col-fixed-width-330;
   }
+
   .view-gallery-button {
     position: absolute;
     top: 1rem;
@@ -223,6 +251,15 @@ const getGalleryLink = computed(() => {
         background: map-get($colors, 'soybeanhover');
       }
     }
+  }
+
+ .article-page-header {
+    transition: opacity 0.4s ease-in;
+  }
+  .article-page-header.js-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-in, visibility 0s 0.4s;
   }
 }
 </style>

@@ -47,14 +47,14 @@ const articlesSm = ref([
         <div class="col-12 xl:col-8">
           <v-card
             class="article-lg mod-vertical mod-featured2 mod-large mb-4"
-            :image="useImageUrl(articleLg.listingImage)"
+            :image="useImageUrl(articleLg?.listingImage)"
             :sizes="[1]"
             :width="897"
             :height="598"
-            :title="articleLg.listingTitle"
-            :titleLink="articleLg.link"
-            :maxWidth="articleLg.listingImage?.width"
-            :maxHeight="articleLg.listingImage?.height"
+            :title="articleLg?.listingTitle"
+            :titleLink="articleLg?.link"
+            :maxWidth="articleLg?.listingImage?.width"
+            :maxHeight="articleLg?.listingImage?.height"
             loading="eager"
           >
             <v-card-metadata
@@ -69,37 +69,37 @@ const articlesSm = ref([
           <!-- md article desktop  -->
           <v-card
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
-            :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.listingTitle"
-            :titleLink="articleMd.link"
+            :image="useImageUrl(articleMd?.listingImage)"
+            :title="articleMd?.listingTitle"
+            :titleLink="articleMd?.link"
             :ratio="[3, 2]"
             :width="433"
             :height="289"
             :sizes="[1]"
-            :maxWidth="articleMd.listingImage?.width"
-            :maxHeight="articleMd.listingImage?.height"
+            :maxWidth="articleMd?.listingImage?.width"
+            :maxHeight="articleMd?.listingImage?.height"
             loading="eager"
           >
             <p>
-              {{ articleMd.description }}
+              {{ articleMd?.description }}
             </p>
             <v-card-metadata stack :article="articleMd" />
           </v-card>
           <!-- md article mobile  -->
           <v-card
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
-            :image="useImageUrl(articleMd.listingImage)"
-            :title="articleMd.listingTitle"
-            :titleLink="articleMd.link"
+            :image="useImageUrl(articleMd?.listingImage)"
+            :title="articleMd?.listingTitle"
+            :titleLink="articleMd?.link"
             :width="318"
             :height="212"
             :sizes="[1]"
-            :maxWidth="articleMd.listingImage?.width"
-            :maxHeight="articleMd.listingImage?.height"
+            :maxWidth="articleMd?.listingImage?.width"
+            :maxHeight="articleMd?.listingImage?.height"
             loading="eager"
           >
             <p>
-              {{ articleMd.description }}
+              {{ articleMd?.description }}
             </p>
             <v-card-metadata :article="articleMd" />
           </v-card>
