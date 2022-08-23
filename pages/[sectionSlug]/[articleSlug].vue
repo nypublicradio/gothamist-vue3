@@ -20,10 +20,11 @@ if (article.leadGallery) {
   )) as GalleryPage
 }
 
-const topImage = article.leadImage || gallery.slides[0].image
-const topCaption = article.leadImageCaption || gallery?.slides[0].image.title
-const galleryLength = gallery?.slides.length || 0
-const config = useRuntimeConfig()
+const topImage = article.leadImage || gallery?.slides?.[0]?.image || null
+const topCaption =
+  article.leadImageCaption || gallery?.slides?.[0]?.image.title || null
+const galleryLength = gallery?.slides?.length || 0
+
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
@@ -114,6 +115,7 @@ const getGalleryLink = computed(() => {
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
             <v-tag
+              v-if="article?.section"
               :name="article.section.name"
               :slug="`/${article.section.slug}`"
             />
@@ -140,6 +142,7 @@ const getGalleryLink = computed(() => {
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-4 xxl:mb-6 relative">
               <v-image-with-caption
+                v-if="topImage"
                 loading="eager"
                 :image="useImageUrl(topImage)"
                 :imageUrl="article.imageLink"
@@ -203,7 +206,9 @@ const getGalleryLink = computed(() => {
           </div>
         </div>
         <hr class="black" />
-        <p class="type-label3 mt-2 mb-4">MORE {{ article.section.slug }}</p>
+        <p v-if="article?.section" class="type-label3 mt-2 mb-4">
+          MORE {{ article.section.slug }}
+        </p>
         <article-recirculation
           :slug="String(route.params.sectionSlug)"
           :article="article"

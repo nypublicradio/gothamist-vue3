@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+import { ref, onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
+import { useSidebarIsOpen } from '~~/composables/states.js'
 
 const config = useRuntimeConfig()
 const route = useRoute()
+const { $htlbid, $analytics } = useNuxtApp()
+const atTop = ref(true)
 
 const props = defineProps({
   error: {
@@ -12,15 +16,47 @@ const props = defineProps({
   },
 })
 
-//console.log(props.error)
-
 const navigation = await findNavigation().then(({ data }) =>
   normalizeFindNavigationResponse(data)
 )
+const navigationState = useNavigation()
+navigationState.value = navigation
 
-const { $analytics } = useNuxtApp()
+const breakingNews = await findBreakingNews().then(({ data }) =>
+  normalizeFindBreakingNewsResponse(data)
+)
+const productBanners = await findProductBanners().then(({ data }) =>
+  normalizeFindProductBannersResponse(data)
+)
+const sensitiveContent = useSensitiveContent()
+const sidebarOpen = useSidebarIsOpen()
+const closeSidebar = () => (sidebarOpen.value = false)
+
+const trackSidebarClick = (label) => {
+  //emitted mobile menu click event
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking - Mobile Menu',
+    component: 'header',
+    event_label: label,
+  })
+  closeSidebar()
+}
+
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'error_page' })
+  document.addEventListener('scroll', (e) => {
+    atTop.value = window.scrollY > 0 ? false : true
+    //atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
+  })
+  $htlbid.init()
+  $htlbid.setTargeting({
+    is_testing: config.HTL_IS_TESTING,
+  })
+  $htlbid.setTargetingForRoute(route)
+})
+watch(route, (value) => {
+  $htlbid.setTargetingForRoute(value)
+  $htlbid.clearAds()
 })
 
 const newsletterSubmitEvent = () => {
@@ -33,24 +69,87 @@ const newsletterSubmitEvent = () => {
 </script>
 <template>
   <div class="error-page">
-    <Html>
+    <Html lang="en">
       <Head>
-        <Title>{{ error.statusCode }} Error | Gothamist</Title>
+        <Link rel="preconnect" :href="config.API_URL" />
+        <Script
+          :src="`https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`"
+          async
+        />
+        <Link rel="stylesheet" :href="config.HTL_CSS" type="text/css" />
+        <Script :src="config.HTL_JS" async />
+        <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
+        <Meta
+          name="description"
+          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
+        />
+        <Meta
+          name="og:site_name"
+          content="Gothamist: New York City Local News, Food, Arts & Events"
+        />
+        <Meta name="og:type" content="website" />
+        <Meta
+          name="og:url"
+          :content="`https://www.gothamist.com${route.fullPath}`"
+        />
         <Meta
           name="og:title"
-          :content="`${error.statusCode} Error | Gothamist`"
+          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
         />
+        <Meta name="og:description" content="Investigating a strange world." />
         <Meta
-          name="twitter:title"
-          :content="`${error.statusCode} Error | Gothamist`"
+          name="og:image"
+          content="https://gothamist.com/static-images/home_og_1200x650.png"
         />
+        <Meta name="og:locale" content="en_US" />
+        <Meta name="og:image:width" content="1200" />
+        <Meta name="og:image:height" content="650" />
+        <Meta name="fb:app_id" content="151261804904925" />
+        <Meta name="twitter:card" content="summary_large_image" />
+        <Meta name="twitter:site" content="@gothamist" />
       </Head>
     </Html>
+    <div v-if="!sensitiveContent" class="htlad-skin" />
+    <div class="leaderboard-ad-wrapper flex justify-content-center">
+      <div v-if="!sensitiveContent" class="htlad-index_leaderboard_1"></div>
+    </div>
     <GothamistMainHeader
       :navigation="navigation"
       :showLogo="route.name !== 'index'"
-      :donateUrl="config.donateUrlBase"
+      :donateUrlBase="config.donateUrlBase"
+      utmCampaign="goth_header"
     />
+    <Sidebar
+      v-model:visible="sidebarOpen"
+      :baseZIndex="5000"
+      position="right"
+      data-style-mode="dark"
+      class="gothamist-sidebar px-3 md:px-4"
+    >
+      <template v-slot:header>
+        <div class="gothamist-sidebar-header flex md:hidden">
+          <v-flexible-link
+            to="/"
+            raw
+            @click="trackSidebarClick('sidebar logo')"
+          >
+            <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
+          </v-flexible-link>
+          <div class="gothamist-sidebar-header-tagline">
+            News for New Yorkers
+          </div>
+        </div>
+      </template>
+      <template v-slot:default>
+        <GothamistSidebarContents
+          :navigation="navigation"
+          :donateUrlBase="config.donateUrlBase"
+          @menuListClick="trackSidebarClick($event)"
+          utmCampaign="goth_hamburger"
+          class="mt-3"
+        />
+      </template>
+    </Sidebar>
     <main>
       <section>
         <div class="error-page-header p-6">
