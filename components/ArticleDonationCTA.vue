@@ -7,11 +7,11 @@ const config = useRuntimeConfig()
 const props = defineProps({
   donateUrlBase: {
     type: String,
-    default: null,
+    required: true
   },
   utmCampaign: {
     type: String,
-    default: 'article-top',
+    required: true
   },
 })
 

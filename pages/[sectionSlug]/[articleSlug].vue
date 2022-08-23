@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, computed } from 'vue'
+import { useMediaQuery, useWindowScroll } from '@vueuse/core'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
@@ -28,6 +29,12 @@ const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
+const { y: scrollY } = useWindowScroll()
+const isMediumOrUpScreen = useMediaQuery(`(min-width: 768px)`)
+// maybe these values should be calculated automatically by measuring on the position of the main header
+// or something instead of hardcoding them here, but this works for now
+const showHeaderAfter = computed(() => isMediumOrUpScreen.value ? 374 : 68)
+const showHeader = computed(() => scrollY.value > showHeaderAfter.value)
 
 useHead(headMetadata)
 
@@ -88,6 +95,20 @@ const getGalleryLink = computed(() => {
       />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
+    <ScrollTracker
+      scrollTarget=".article-body"
+      v-slot="scrollTrackerProps"
+    >
+      <ArticlePageHeader
+        :class="`article-page-header ${showHeader ? '' : 'js-hidden'}`"
+        :donateUrlBase="config.donateUrlBase"
+        utmCampaign="goth_header"
+        :progress="scrollTrackerProps.scrollPercentage"
+        :title="article?.title"
+        :shareUrl="article.url"
+        :shareTitle="article.socialTitle"
+      />
+    </ScrollTracker>
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
@@ -153,8 +174,9 @@ const getGalleryLink = computed(() => {
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
             </div>
-            <article-donation-CTA />
+            <article-donation-CTA :donateUrlBase="$config.donateUrlBase" utmCampaign="article-top" />
             <v-streamfield
+              class="article-body"
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
@@ -218,6 +240,7 @@ const getGalleryLink = computed(() => {
     width: 100%;
     max-width: $col-fixed-width-330;
   }
+
   .view-gallery-button {
     position: absolute;
     top: 1rem;
@@ -228,6 +251,15 @@ const getGalleryLink = computed(() => {
         background: map-get($colors, 'soybeanhover');
       }
     }
+  }
+
+ .article-page-header {
+    transition: opacity 0.4s ease-in;
+  }
+  .article-page-header.js-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-in, visibility 0s 0.4s;
   }
 }
 </style>
