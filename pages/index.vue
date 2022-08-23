@@ -87,8 +87,11 @@ onMounted(() => {
           </div>
         </template>
         <boroughs class="mb-6" />
+        <!-- Center Feature -->
+        <center-feature class="mb-6" />
         <!-- river -->
         <template v-if="articles">
+          <hr class="mb-4 black" />
           <div id="latest" class="grid gutter-x-xl">
             <div class="col-12 xxl:col-1 type-label3">LATEST</div>
             <div class="col">

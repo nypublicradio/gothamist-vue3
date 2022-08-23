@@ -106,12 +106,19 @@ const articlesSm = ref([
 
           <horizontal-drag :articles="articlesSm" v-slot="slotProps">
             <v-card
-              class="article-sm mod-horizontal mod-small mb-3 tag-small"
-              :title="slotProps.article.listingTitle"
+              class="mod-horizontal mod-left mod-small mb-3 tag-small"
+              :image="useImageUrl(slotProps.article.listingImage)"
+              :width="158"
+              :height="106"
+              :sizes="[1]"
+              :title="slotProps.article.listingTitle || slotProps.article.title"
               :titleLink="slotProps.article.link"
+              :maxWidth="slotProps.article.listingImage?.width"
+              :maxHeight="slotProps.article.listingImage?.height"
+              :quality="80"
             >
               <v-card-metadata
-                :article="slotProps.article"
+                :slotProps.article="article"
                 :showComments="false"
               />
             </v-card>
