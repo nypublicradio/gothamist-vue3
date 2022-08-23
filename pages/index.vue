@@ -163,9 +163,9 @@ onMounted(() => {
       padding: 0 1rem 1.5rem 1rem;
     }
   }
-  .v-card .card-details .card-slot {
-    flex-grow: 0;
-  }
+  // .v-card .card-details .card-slot {
+  //   flex-grow: 0;
+  // }
 }
 .v-card.featured-article {
   .card-details {

@@ -67,6 +67,7 @@ const latestArticles = computed(() => props.articles.slice(1))
           :maxHeight="article.listingImage?.height"
           :quality="80"
         >
+          <div></div>
           <v-card-metadata :article="article" :showComments="false" />
         </v-card>
       </div>
