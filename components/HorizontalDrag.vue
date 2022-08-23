@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { Draggable } from '~/assets/gsap/Draggable.js'
 import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
+import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 
 const props = defineProps({
   articles: {
@@ -11,19 +12,25 @@ const props = defineProps({
   },
 })
 
+const dragContentRef = ref(null)
+const dragBoundsRef = ref(null)
 const isMobile = ref(false)
+const numArticles = props.articles.length
+const unitMinWidth = 320
+const toDragWidth = unitMinWidth * numArticles
+const toDragWidthPx = toDragWidth + 'px'
 
 onMounted(() => {
   // draggable setup
-  if (window.innerWidth < 768 && articles) {
+  if (window.innerWidth < breakpoint.xl && props.articles) {
     isMobile.value = true
     setTimeout(() => {
       gsap.registerPlugin(InertiaPlugin)
       gsap.registerPlugin(Draggable)
-      Draggable.create('.horz-scroll-content', {
+      Draggable.create(dragContentRef.value, {
         type: 'x',
         edgeResistance: 0.45,
-        bounds: '.horz-scroll',
+        bounds: dragBoundsRef.value,
         inertia: true,
       })
     }, 1000)
@@ -32,34 +39,29 @@ onMounted(() => {
 onBeforeUnmount(() => {
   // kill draggable
   if (isMobile.value) {
-    Draggable.get('.horz-scroll-content').kill()
+    Draggable.get(dragContentRef.value).kill()
   }
 })
 </script>
 
 <template>
   <div>
-    <hr
-      class="my-5"
-      :class="isMobile ? 'block xl:hidden' : 'hidden sm:block xl:hidden'"
-    />
     <div class="horz-scroll-holder" :class="[{ mobile: isMobile }]">
-      <div class="horz-scroll">
-        <div class="grid gutter-x-xl keep-gutter horz-scroll-content">
+      <div ref="dragBoundsRef" class="horz-scroll">
+        <div
+          ref="dragContentRef"
+          class="grid gutter-x-xl keep-gutter horz-scroll-content"
+        >
           <div
-            v-for="article in articles"
+            v-for="article in props.articles"
             :key="article.id"
-            class="v-hr flex"
+            class="flex"
             :class="
               isMobile
-                ? ' col-4 xl:col-12 xl:flex-column'
-                : 'col-12 sm:col-4 xl:col-12 flex-column sm:flex-row xl:flex-column'
+                ? 'col xl:col-12 xl:flex-column v-hr'
+                : 'col-12 xl:col-12 flex-column xl:flex-row xl:flex-column unit'
             "
           >
-            <hr
-              class="w-full mb-3"
-              :class="isMobile ? 'hidden xl:block' : 'block sm:hidden xl:block'"
-            />
             <slot :isMobile="isMobile" :article="article" />
           </div>
         </div>
@@ -69,53 +71,107 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss">
-.horz-scroll-holder.mobile {
-  position: relative;
-  @include media('<md') {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    &:after {
-      content: '';
-      z-index: 1;
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      right: 0;
-      display: block;
-      height: 100%;
-      width: 100%;
-      background: -moz-linear-gradient(
-        left,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0) 10%,
-        rgba(255, 255, 255, 0) 65%,
-        rgba(255, 255, 255, 1) 100%
-      );
-      background: -webkit-linear-gradient(
-        left,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0) 10%,
-        rgba(255, 255, 255, 0) 65%,
-        rgba(255, 255, 255, 1) 100%
-      );
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0) 10%,
-        rgba(255, 255, 255, 0) 65%,
-        rgba(255, 255, 255, 1) 100%
-      );
+.horz-scroll-holder {
+  // overwrite image size here from base rule for this components v-cards
+  .v-card.mod-small .image-with-caption {
+    width: $img-width-mobile !important;
+  }
+  &.mobile {
+    position: relative;
+    @include media('<xl') {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      &:after {
+        content: '';
+        z-index: 1;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        height: 100%;
+        width: 100%;
+        background: -moz-linear-gradient(
+          left,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 5%,
+          rgba(255, 255, 255, 0) 85%,
+          rgba(255, 255, 255, 1) 100%
+        );
+        background: -webkit-linear-gradient(
+          left,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 5%,
+          rgba(255, 255, 255, 0) 85%,
+          rgba(255, 255, 255, 1) 100%
+        );
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 5%,
+          rgba(255, 255, 255, 0) 85%,
+          rgba(255, 255, 255, 1) 100%
+        );
+      }
+    }
+    @include media('<md') {
+      &:after {
+        content: '';
+        background: -moz-linear-gradient(
+          left,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 10%,
+          rgba(255, 255, 255, 0) 65%,
+          rgba(255, 255, 255, 1) 100%
+        );
+        background: -webkit-linear-gradient(
+          left,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 10%,
+          rgba(255, 255, 255, 0) 65%,
+          rgba(255, 255, 255, 1) 100%
+        );
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0) 10%,
+          rgba(255, 255, 255, 0) 65%,
+          rgba(255, 255, 255, 1) 100%
+        );
+      }
+    }
+    .horz-scroll {
+      overflow-x: hidden;
+      @include media('<xl') {
+        .horz-scroll-content {
+          padding: 0 24px;
+          //width: 1024px;
+          width: v-bind(toDragWidthPx);
+        }
+      }
+    }
+    .v-hr:not(:last-child) {
+      @include media('<xl') {
+        border-right: 1px solid #ebebeb !important;
+      }
+      @include media('>=xl') {
+        .v-card {
+          padding-bottom: 1rem;
+          border-bottom: 1px solid var(--black300);
+        }
+        &:last-child .v-card {
+          border-bottom: none;
+        }
+      }
     }
   }
-  .horz-scroll {
-    overflow-x: hidden;
-    @include media('<md') {
-      //overflow-x: scroll;
-
-      .horz-scroll-content {
-        padding: 0 24px;
-        width: 733px;
-      }
+  .unit {
+    .v-card {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--black300);
+    }
+    &:last-child .v-card {
+      border-bottom: none;
     }
   }
 }

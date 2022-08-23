@@ -40,7 +40,7 @@ const props = defineProps({
 
     <!-- alt design blurb, byline w/photos and comments -->
     <template v-else>
-      <div class="grid w-full gutter-x-xxl">
+      <div class="grid w-full gutter-x-xxl flex-grow-1">
         <div class="col-12 md:col-6 separator">
           <p class="desc">
             {{ props.article.description }}

@@ -56,10 +56,11 @@ const latestArticles = computed(() => props.articles.slice(1))
       </v-flexible-link>
       <div v-for="article in latestArticles" :key="article.uuid">
         <v-card
-          class="mod-horizontal mod-left mod-small mb-3 tag-small"
+          class="mod-horizontal mod-left mod-mobile mb-3 tag-small"
           :image="useImageUrl(article.listingImage)"
-          :width="158"
+          :width="106"
           :height="106"
+          :ratio="[1.1]"
           :sizes="[1]"
           :title="article.listingTitle || article.title"
           :titleLink="article.link"

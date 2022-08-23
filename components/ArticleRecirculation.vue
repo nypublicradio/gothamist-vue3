@@ -103,7 +103,7 @@ const articlesSm = ref([
             </p>
             <v-card-metadata :article="articleMd" />
           </v-card>
-
+          <hr class="my-3" />
           <horizontal-drag :articles="articlesSm" v-slot="slotProps">
             <v-card
               class="article-sm mod-horizontal mod-small mb-3 tag-small"
