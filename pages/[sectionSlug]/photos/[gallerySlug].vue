@@ -23,7 +23,6 @@ onMounted(() => {
   $analytics.sendPageView({ page_type: 'gallery' })
   $htlbid.setTargeting(adTargetingData)
 })
-console.log('gallery = ', gallery)
 onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
 })
