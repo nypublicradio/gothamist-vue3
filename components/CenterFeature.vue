@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
-// this component is used in the articleSlug at the bottom of the article page, and also as the topper in the section index page
+import { ref } from 'vue'
 
 const props = defineProps({
   // the article to filter out from the results if it exists
@@ -17,6 +15,7 @@ const props = defineProps({
 })
 const routeSectionSlug = ref(props.slug)
 
+// @KIM I took this code from the index page, but was unable to understand what we are trying to do to get the articles.
 const centerFeatureCollections = []
 const centerFeatureCollectionItems = await findPage(
   routeSectionSlug.value as string
@@ -223,7 +222,6 @@ const articlesSm = ref([
               @include font-config($type-header5);
             }
           }
-
           .v-tag {
             margin-top: -4px;
           }
