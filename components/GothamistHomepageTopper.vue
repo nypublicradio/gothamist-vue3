@@ -45,6 +45,7 @@ const latestArticles = computed(() => props.articles.slice(1))
       </v-card>
     </div>
     <div class="col-12 xl:col-4 flex flex-column justify-content-end">
+      <div id="ntv-launch-sponsor"></div>
       <hr class="black mb-1" />
       <v-flexible-link class="mb-3 -ml-3" to="#latest" raw>
         <Button
@@ -54,8 +55,9 @@ const latestArticles = computed(() => props.articles.slice(1))
           label="LATEST"
         />
       </v-flexible-link>
-      <div v-for="article in latestArticles" :key="article.uuid">
+      <div v-for="(article, index) in latestArticles" :key="article.uuid">
         <v-card
+          :id="index === 4 ? 'ntv-latest-1' : ''"
           class="mod-horizontal mod-left mod-small mb-3 tag-small"
           :image="useImageUrl(article.listingImage)"
           :width="158"
