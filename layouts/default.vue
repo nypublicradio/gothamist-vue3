@@ -101,7 +101,7 @@ watch(route, (value) => {
       :navigation="navigation"
       :showLogo="route.name !== 'index'"
       :donateUrlBase="config.donateUrlBase"
-      utmCampaign="goth_header"
+      utmCampaign="homepage-header"
     />
     <Sidebar 
       v-model:visible="sidebarOpen"
