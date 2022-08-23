@@ -187,10 +187,10 @@ const getGalleryLink = computed(() => {
         <p v-if="article?.section" class="type-label3 mt-2 mb-4">
           MORE {{ article.section.slug }}
         </p>
-        <!-- <article-recirculation
+        <article-recirculation
           :slug="String(route.params.sectionSlug)"
           :article="article"
-        /> -->
+        />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent('footer')" />
