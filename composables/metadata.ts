@@ -149,7 +149,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
         { name: 'og:image', content: useImageUrl(article.socialImage, {width: 1200, height: 650, quality: 85}) },
         { name: 'og:image:width', content: '1200' },
         { name: 'og:image:height', content: '650' },
-        { name: 'og:image:alt', content: article.socialImage.alt },
+        { name: 'og:image:alt', content: article.socialImage?.alt },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'article:published_time', content: article.publicationDate?.toISOString() },
         { name: 'article:modified_time', content: article.updatedDate?.toISOString() || ''},
@@ -173,7 +173,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
         { name: 'og:image', content: useImageUrl(gallery.socialImage, {width: 1200, height: 650, quality: 85}) },
         { name: 'og:image:width', content: '1200' },
         { name: 'og:image:height', content: '650' },
-        { name: 'og:image:alt', content: gallery.socialImage.alt },
+        { name: 'og:image:alt', content: gallery.socialImage?.alt },
         { name: 'twitter:card', content: 'summary_large_image' },
       ]}
     return metadata
