@@ -26,6 +26,8 @@ workflows:
     jobs:
       - build:
           <<: *filter_all
+      - test_nginx:
+          <<: *filter_all  
       - test:
           <<: *filter_all
           requires:
@@ -72,6 +74,19 @@ jobs:
             npx nuxi prepare
             npm run test      
 
+  test_nginx:
+    docker:
+      - image: nginx
+    steps:
+      - checkout
+      - run:
+          command: |
+            apt-get update && \
+            apt-get install -y nginx-extras
+            mkdir -p /app/nginx 
+            cp ./nginx/*.conf /etc/nginx/
+            nginx -t
+
   deploy:
     docker: 
       - image: circleci/python:3.6
@@ -112,8 +127,7 @@ jobs:
               --task-role=$ROLE \
               --environment=$ENV \
               --tag=$TAG \
-              --wait=300 \
-              --enable-execute-command
+              --wait=300 
 
 commands:
   setup_npmrc:
