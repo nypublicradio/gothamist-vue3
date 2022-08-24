@@ -77,9 +77,20 @@ jobs:
   test_nginx:
     docker:
       - image: nginx
+    parameters:
+      env:
+        type: enum
+        default: "demo"
+        enum: ["demo", "prod"]
+      tag:
+        type: string
+        default: ""
     steps:
       - checkout
       - run:
+          name: Test NGINX
+          environment:
+            ENV: <<parameters.env>>
           command: |
             apt-get update && \
             apt-get install -y nginx-extras
