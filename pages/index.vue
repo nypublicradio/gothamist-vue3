@@ -55,38 +55,40 @@ onMounted(() => {
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent" />
         </div>
-        <!-- home page collections - only implementing the single story feature layout for now -->
-        <template v-if="homePageCollections && homePageCollections.length > 0">
-          <div v-for="collection in homePageCollections" :key="collection.id">
-            <v-card
-              v-if="collection.layout === 'single-story-feature'"
-              class="mod-large mb-3 lg:mb-6 tag-small single-story-feature"
-              data-style-mode="dark"
-              :image="useImageUrl(collection.data.listingImage)"
-              :ratio="[3, 2]"
-              :width="1053"
-              :height="708"
-              :sizes="[1]"
-              :quality="80"
-              :title="collection.data.listingTitle"
-              :titleLink="collection.data.link"
-              :maxWidth="collection.data.listingImage?.width"
-              :maxHeight="collection.data.listingImage?.height"
-              :tags="[
-                {
-                  name: collection.data.section.name,
-                  slug: collection.data.section.slug,
-                },
-              ]"
-            >
-              <p class="desc">
-                {{ collection.data.description }}
-              </p>
-              <v-card-metadata :article="collection.data" />
-            </v-card>
-          </div>
-        </template>
-        <boroughs class="mb-6" />
+      </div>
+      <!-- home page collections - only implementing the single story feature layout for now -->
+      <template v-if="homePageCollections && homePageCollections.length > 0">
+        <div v-for="collection in homePageCollections" :key="collection.id">
+          <v-card
+            v-if="collection.layout === 'single-story-feature'"
+            class="mod-large mb-3 lg:mb-6 tag-small single-story-feature"
+            data-style-mode="dark"
+            :image="useImageUrl(collection.data.listingImage)"
+            :ratio="[3, 2]"
+            :width="1053"
+            :height="708"
+            :sizes="[1]"
+            :quality="80"
+            :title="collection.data.listingTitle"
+            :titleLink="collection.data.link"
+            :maxWidth="collection.data.listingImage?.width"
+            :maxHeight="collection.data.listingImage?.height"
+            :tags="[
+              {
+                name: collection.data.section.name,
+                slug: collection.data.section.slug,
+              },
+            ]"
+          >
+            <p class="desc">
+              {{ collection.data.description }}
+            </p>
+            <v-card-metadata :article="collection.data" />
+          </v-card>
+        </div>
+      </template>
+      <boroughs class="mb-6" />
+      <div class="content">
         <!-- river -->
         <template v-if="articles">
           <div id="latest" class="grid gutter-x-xl">
