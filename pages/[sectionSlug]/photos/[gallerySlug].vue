@@ -163,9 +163,9 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
-.sectionSlug-photos-gallerySlug header,
+.sectionSlug-photos-gallerySlug .gothamist-header,
 .sectionSlug-photos-gallerySlug .gothamist-footer {
-  display: none;
+  display: none !important;
 }
 
 .sectionSlug-photos-gallerySlug {
