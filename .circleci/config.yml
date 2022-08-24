@@ -133,7 +133,7 @@ jobs:
               --memory-reservation=2048 \
               --ecr-repository=gothamist-vue3 \
               --ecs-cluster=gothamist-vue3 \
-              --ports=3000 \
+              --ports=80 \
               --execution-role=$ROLE \
               --task-role=$ROLE \
               --environment=$ENV \
