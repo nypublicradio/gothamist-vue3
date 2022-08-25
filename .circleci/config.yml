@@ -39,6 +39,7 @@ workflows:
           tag: demo
           requires:
             - test
+            - test_nginx
       - deploy:
           name: Deploy (prod)
           context: "AWS Deploy"
@@ -46,6 +47,7 @@ workflows:
           <<: *filter_prod
           requires:
             - test
+            - test_nginx
 
 jobs: 
   # Note (allie): This is its own job because I don't 
