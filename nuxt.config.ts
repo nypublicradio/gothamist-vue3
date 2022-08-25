@@ -73,8 +73,8 @@ export default defineNuxtConfig({
   publicRuntimeConfig: {
     SENTRY_DSN: process.env['SENTRY_DSN'] || 'https://531d9ce2b7a14759a35f95f3dd1ee743@o557978.ingest.sentry.io/6537168',
     SENTRY_ENV: process.env['SENTRY_ENV'] || 'development',
-    HTL_CSS: process.env['HTL_CSS'] || 'https://htlbid.com/stage/v3/gothamist.com/htlbid.css',
-    HTL_JS: process.env['HTL_JS'] || 'https://htlbid.com/stage/v3/gothamist.com/htlbid.js',
+    HTL_CSS: process.env['HTL_CSS'] || 'https://htlbid.com/stage/v3/gothamistv3.com/htlbid.css',
+    HTL_JS: process.env['HTL_JS'] || 'https://htlbid.com/stage/v3/gothamistv3.com/htlbid.js',
     HTL_IS_TESTING: process.env['HTL_IS_TESTING'] || 'yes',
     API_URL: process.env['API_URL'] || 'https://cms.demo.nypr.digital/api/v2',
     IMAGE_BASE_URL: process.env['IMAGE_BASE_URL'] || 'https://cms.demo.nypr.digital/images/',
