@@ -310,6 +310,17 @@ $img-height-mobile: 106px;
 .v-card:not([data-style-mode='dark']) .v-tag .flexible-link .p-button {
   background: transparent;
 }
+.v-card[data-style-mode='dark'] .v-tag .flexible-link .p-button {
+  background: transparent;
+  border: solid 1px var(--white);
+  color: var(--white);
+  &:hover{
+    background: var(--white);
+    .p-button-label {
+      color: var(--black) !important;
+    }
+  }
+}
 .v-card.mod-left .card-image-wrapper {
   display: contents;
 }

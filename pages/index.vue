@@ -57,7 +57,10 @@ onMounted(() => {
         </div>
         <!-- home page collections - only implementing the single story feature layout for now -->
         <template v-if="homePageCollections && homePageCollections.length > 0">
-          <div v-for="(collection, index) in homePageCollections" :key="collection.id">
+          <div
+            v-for="(collection, index) in homePageCollections"
+            :key="collection.id"
+          >
             <v-card
               v-if="collection.layout === 'single-story-feature'"
               class="mod-large mb-3 lg:mb-6 tag-small single-story-feature"
@@ -79,10 +82,11 @@ onMounted(() => {
                 },
               ]"
             >
-              <p class="desc">
-                {{ collection.data.description }}
-              </p>
-              <v-card-metadata :article="collection.data" />
+              <byline
+                class="mb-3 pt-4"
+                :article="collection.data"
+                :show-social="false"
+              />
             </v-card>
             <div v-if="index === 1" id="ntv-stream-2"></div>
           </div>
