@@ -33,8 +33,8 @@ const emit = defineEmits(['menu-list-click'])
       </v-share-tools>
       <hr class="white mb-3" />
       <div class="flex mb-3">
-        <div class="mr-2">Replace this message with a thing about being non profit, member funded local news.</div>
-        <div>
+        <div class="sidebar-contents-property-description mr-2" v-html="navigation.propertyDescription"></div>
+        <div class="sidebar-contents-logo">
           <LogoNypr />
         </div>
       </div>
@@ -72,6 +72,14 @@ const emit = defineEmits(['menu-list-click'])
   @include media('>sm') {
     font-size: 32px;
   }
+}
+
+.sidebar-contents-property-description * {
+  @include font-config($type-fineprint);
+}
+
+.sidebar-contents-logo {
+  min-width: 75px;
 }
 
 .sidebar-button-send-a-story.p-button {

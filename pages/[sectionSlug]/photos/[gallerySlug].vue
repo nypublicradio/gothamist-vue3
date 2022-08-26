@@ -23,7 +23,6 @@ onMounted(() => {
   $analytics.sendPageView({ page_type: 'gallery' })
   $htlbid.setTargeting(adTargetingData)
 })
-
 onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
 })
@@ -142,7 +141,9 @@ onUnmounted(() => {
             :alt-text="slide.image.alt"
             :maxWidth="slide.image.width"
             :maxHeight="slide.image.height"
-            :credit="`Photo by ${slide.image.credit}`"
+            :credit="
+              slide.image.credit ? `Photo by ${slide.image.credit}` : null
+            "
             :credit-url="slide.image.creditLink"
             :description="slide.title || slide.image.caption"
             :quality="80"
@@ -191,11 +192,14 @@ onUnmounted(() => {
   background: var(--black-400);
 }
 
-.sectionSlug-photos-gallerySlug .image-with-caption-credit-link,
-.sectionSlug-photos-gallerySlug .image-with-caption-credit-link .footer {
-  font-size: var(--font-size-4);
-  color: var(--black-100);
-  font-weight: normal;
-  text-decoration: none;
+.sectionSlug-photos-gallerySlug .image-with-caption-description {
+  @include font-config($type-paragraph3);
+  margin-top: 1rem;
+}
+
+.sectionSlug-photos-gallerySlug .image-with-caption-credit-link {
+  @include font-config($type-fineprint);
+  color: var(--black400) !important;
+  margin-top: 0.5rem;
 }
 </style>
