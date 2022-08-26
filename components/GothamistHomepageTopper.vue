@@ -105,4 +105,10 @@ const latestArticles = computed(() => props.articles.slice(1))
 .homepage-topper-logo {
   height: auto;
 }
+
+.v-card.featured-article {
+  .card-details {
+    padding: 0.75rem 0;
+  }
+}
 </style>
