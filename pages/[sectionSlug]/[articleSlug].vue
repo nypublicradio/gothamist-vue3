@@ -63,7 +63,7 @@ function useInsertAd(targetElement) {
   if (article && !sensitiveContent.value) {
     const adDiv = document.createElement('DIV')
     adDiv.classList.add(
-      'htlad-interior_midpage_1',
+      'gothamist_interior_midpage_repeating',
       'ad-div',
       'mod-break-margins',
       'mod-ad-disclosure',
@@ -183,14 +183,7 @@ const getGalleryLink = computed(() => {
             />
           </div>
           <div class="col-fixed hidden lg:block">
-            <!-- <div class="htlad-index_rectangle_1" /> -->
-            <img
-              src="https://fakeimg.pl/300x250/?text=AD Here"
-              style="width: 100%; max-width: 300px"
-              width="300"
-              height="250"
-              alt="advertisement"
-            />
+            <HtlAd layout="rectangle" slot="gothamist_interior_rectangle_topper" />
             <p class="type-fineprint">
               Gothamist is funded by sponsors and member donations
             </p>

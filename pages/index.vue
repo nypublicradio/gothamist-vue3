@@ -2,9 +2,6 @@
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
-
-const sensitiveContent = useSensitiveContent()
-
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = await findPage('/').then(({ data }) =>
   normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
@@ -18,7 +15,10 @@ const articles = await findArticlePages('').then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
 
-const articlesToShow = ref(6)
+const riverStoryCount = ref(6)
+const riverAdOffset = ref(2)
+const riverAdRepeatRate = ref(6)
+
 
 const homePageCollections = []
 const homePageCollectionItems = await findPage('/').then(({ data }) =>
@@ -96,7 +96,7 @@ onMounted(() => {
             <div class="col-12 xxl:col-1 type-label3">LATEST</div>
             <div class="col">
               <div
-                v-for="article in articles.slice(0, articlesToShow)"
+                v-for="(article, index) in articles.slice(0, riverStoryCount)"
                 :key="article.uuid"
               >
                 <v-card
@@ -123,17 +123,21 @@ onMounted(() => {
                   <v-card-metadata :article="article" />
                 </v-card>
                 <hr class="mb-5" />
+                <div v-if="(index + riverAdOffset) % riverAdRepeatRate === 0" class="xl:hidden">
+                  <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
+                  <hr class="mb-5" />
+                </div>
               </div>
               <Button
-                v-if="articlesToShow < articles.length"
+                v-if="riverStoryCount < articles.length"
                 class="p-button-rounded"
                 label="Load More"
-                @click="articlesToShow += 6"
+                @click="riverStoryCount += 6"
               >
               </Button>
             </div>
             <div class="col-fixed hidden xl:block mx-auto">
-              <div v-if="!sensitiveContent" class="htlad-gothamist_index_river"></div>
+                  <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
             </div>
           </div>
         </template>
