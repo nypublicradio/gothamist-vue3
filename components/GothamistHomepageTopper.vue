@@ -70,7 +70,7 @@ const latestArticles = computed(() => props.articles.slice(1))
           <v-card-metadata :article="article" :showComments="false" />
         </v-card>
       </div>
-      <div v-if="!sensitiveContent" class="htlad-gothamist_index_leaderboard_2"></div>
+      <div v-if="!sensitiveContent" class="htlad-gothamist_index_topper"></div>
       <p class="type-fineprint">
         Gothamist is funded by sponsors and member donations
       </p>

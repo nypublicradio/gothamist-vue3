@@ -133,7 +133,7 @@ onMounted(() => {
               </Button>
             </div>
             <div class="col-fixed hidden xl:block mx-auto">
-              <div v-if="!sensitiveContent" class="htlad-gothamist_index_midpage_1"></div>
+              <div v-if="!sensitiveContent" class="htlad-gothamist_index_river"></div>
             </div>
           </div>
         </template>
