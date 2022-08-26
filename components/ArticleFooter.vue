@@ -9,6 +9,7 @@ const props = defineProps({
 })
 
 const { $analytics } = useNuxtApp()
+const sensitiveContent = useSensitiveContent()
 const tags = ref(props.article.tags)
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const isDisableComments = ref(props.article?.disableComments || false)
@@ -42,14 +43,7 @@ const onTagClicked = (tag) => {
           class="mb-4 md:mb-6"
         />
         <div class="block mx-auto block lg:hidden mb-6" style="width: 300px">
-          <!-- <div class="htlad-index_rectangle_1" /> -->
-          <img
-            src="https://fakeimg.pl/300x250/?text=AD Here"
-            style="width: 100%; max-width: 300px"
-            width="300"
-            height="250"
-            alt="advertisement"
-          />
+          <div v-if="!sensitiveContent" class="htlad-gothamist_index_midpage_2" />
           <p class="type-fineprint">
             Gothamist is funded by sponsors and member donations
           </p>
@@ -60,14 +54,7 @@ const onTagClicked = (tag) => {
         </div>
       </div>
       <div class="col-fixed mx-auto hidden lg:block">
-        <!-- <div class="htlad-index_rectangle_1" /> -->
-        <img
-          src="https://fakeimg.pl/300x250/?text=AD Here"
-          style="width: 100%; max-width: 300px"
-          width="300"
-          height="250"
-          alt="advertisement"
-        />
+        <div v-if="!sensitiveContent" class="htlad-gothamist_index_midpage_3" />
         <p class="type-fineprint">
           Gothamist is funded by sponsors and member donations
         </p>

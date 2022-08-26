@@ -2,6 +2,9 @@
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
+
+const sensitiveContent = useSensitiveContent()
+
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = await findPage('/').then(({ data }) =>
   normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
@@ -130,14 +133,7 @@ onMounted(() => {
               </Button>
             </div>
             <div class="col-fixed hidden xl:block mx-auto">
-              <img
-                class="mb-4 xl:mb-7"
-                src="https://fakeimg.pl/300x600/?text=AD Here"
-                style="max-width: 100%"
-                width="300"
-                height="600"
-                alt="advertisement"
-              />
+              <div v-if="!sensitiveContent" class="htlad-gothamist_index_midpage_1"></div>
             </div>
           </div>
         </template>

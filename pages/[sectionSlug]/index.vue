@@ -2,6 +2,7 @@
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 
 const route = useRoute()
+const sensitiveContent = useSensitiveContent()
 
 const { title: sectionTitle, id: sectionId } = await findPage(
   route.params.sectionSlug as string
@@ -75,11 +76,7 @@ const newsletterSubmitEvent = () => {
           </div>
 
           <div class="col-fixed mx-auto">
-            <img
-              class="mb-4 xl:mb-7"
-              src="https://fakeimg.pl/300x600/?text=AD Here"
-              style="max-width: 100%"
-            />
+            <div v-if="!sensitiveContent" class="htl-gothamist_interior_midpage_1"></div>
           </div>
         </div>
         <!-- newsletter -->

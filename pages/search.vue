@@ -8,6 +8,7 @@ const route = useRoute()
 const { $analytics } = useNuxtApp()
 const querySlug = route.query.q
 const query = ref(querySlug || '')
+const sensitiveContent = useSensitiveContent()
 
 let articles = ref(
   await searchArticlePages({ q: querySlug }).then(({ data }) =>
@@ -123,14 +124,7 @@ const newsletterSubmitEvent = () => {
                 </Button>
               </div>
               <div class="col-fixed hidden xl:block mx-auto">
-                <img
-                  class="mb-4 xl:mb-7"
-                  src="https://fakeimg.pl/300x600/?text=AD Here"
-                  style="max-width: 100%"
-                  width="300"
-                  height="600"
-                  alt="advertisement"
-                />
+                <div v-if="!sensitiveContent" class="htlad-gothamist_index_midpage_repeating" />
               </div>
             </div>
           </template>

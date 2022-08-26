@@ -9,7 +9,7 @@ const props = defineProps<{
   articles: ArticlePage[]
   navigation: Navigation
 }>()
-
+const sensitiveContent = useSensitiveContent()
 const featuredArticle = computed(() => props.articles[0])
 const latestArticles = computed(() => props.articles.slice(1))
 </script>
@@ -70,14 +70,7 @@ const latestArticles = computed(() => props.articles.slice(1))
           <v-card-metadata :article="article" :showComments="false" />
         </v-card>
       </div>
-      <img
-        class="mb-1"
-        src="https://fakeimg.pl/450x250/?text=AD Here"
-        style="max-width: 100%"
-        width="450"
-        height="250"
-        alt="advertisement"
-      />
+      <div v-if="!sensitiveContent" class="htlad-gothamist_index_leaderboard_2"></div>
       <p class="type-fineprint">
         Gothamist is funded by sponsors and member donations
       </p>
