@@ -2,7 +2,7 @@
 // const HEADER_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5']
 const EMBED_TAGS = ['iframe', 'embed', 'video',
   'twitter-widget', 'center', 'div']
-const TEXT_CLASS = 'o-rte-text'
+const TEXT_CLASS = 'rte-text'
 // a `div` tag in MT article markup is probably from an embed
 const EMBED_WEIGHT = 50
 

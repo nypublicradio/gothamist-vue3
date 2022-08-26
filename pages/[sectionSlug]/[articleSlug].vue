@@ -52,9 +52,12 @@ onUnmounted(() => {
 
 // handle ads when the article is mounted
 function handleArticleMounted(el) {
-  const landmarks = useStreamfieldLandmarks(el.value)
-  const adTarget = landmarks[Math.min(landmarks.length - 1, 5)].node
-  useInsertAd(adTarget)
+  let landmarks = useStreamfieldLandmarks(el.value)
+  do {
+    const adTarget = landmarks[Math.min(landmarks.length - 1, 5)].node
+    useInsertAd(adTarget)
+    landmarks = landmarks.slice(6)
+  } while (landmarks.length > 6)
 }
 
 // insert ads into the target element
@@ -63,10 +66,7 @@ function useInsertAd(targetElement) {
   if (article && !sensitiveContent.value) {
     const adDiv = document.createElement('DIV')
     adDiv.classList.add(
-      'gothamist_interior_midpage_repeating',
-      'ad-div',
-      'mod-break-margins',
-      'mod-ad-disclosure',
+      'htlad-gothamist_interior_midpage_repeating',
       'mb-5'
     )
     useInsertAfterElement(adDiv, targetElement)
