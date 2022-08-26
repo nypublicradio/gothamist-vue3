@@ -15,9 +15,8 @@ const props = defineProps({
 const dragContentRef = ref(null)
 const dragBoundsRef = ref(null)
 const isMobile = ref(false)
-const numArticles = ref(props.articles.length)
 const unitMinWidth = 320
-const toDragWidth = unitMinWidth * numArticles
+const toDragWidth = unitMinWidth * props.articles.length
 const toDragWidthPx = toDragWidth + 'px'
 
 onMounted(() => {
