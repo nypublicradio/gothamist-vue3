@@ -7,6 +7,7 @@ import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const { $analytics, $htlbid } = useNuxtApp()
 const article = (await findPage(
@@ -174,7 +175,7 @@ const getGalleryLink = computed(() => {
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
             </div>
-            <article-donation-CTA :donateUrlBase="$config.donateUrlBase" utmCampaign="article-top" />
+            <article-donation-CTA :donateUrlBase="config.donateUrlBase" utmCampaign="article-top" />
             <v-streamfield
               class="article-body"
               :streamfield-blocks="article.body"

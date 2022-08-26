@@ -44,10 +44,12 @@ onMounted(() => {
     is_testing: config.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
+  PostRelease.Start();
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
+  PostRelease.Start();
 })
 </script>
 
@@ -58,6 +60,12 @@ watch(route, (value) => {
         <Link rel="preconnect" :href="config.API_URL" />
         <Script
           :src="`https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`"
+          async
+        />
+        <Script
+          type="text/javascript"
+          src="https://s.ntv.io/serve/load.js"
+          data-ntv-set-no-auto-start
           async
         />
         <Link rel="stylesheet" :href="config.HTL_CSS" type="text/css" />
@@ -101,7 +109,7 @@ watch(route, (value) => {
       :navigation="navigation"
       :showLogo="route.name !== 'index'"
       :donateUrlBase="config.donateUrlBase"
-      utmCampaign="goth_header"
+      utmCampaign="homepage-header"
     />
     <Sidebar 
       v-model:visible="sidebarOpen"
