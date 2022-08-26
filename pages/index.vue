@@ -2,11 +2,6 @@
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
-// the home page featured article should display only the first story in the home page content collection
-const featuredArticle = await findPage('/').then(({ data }) =>
-  normalizeArticlePage(data.value.pageCollectionRelationship?.[0].pages?.[0])
-)
-
 const latestArticles = await findArticlePages({
   limit: 4,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
@@ -16,8 +11,13 @@ const articles = await findArticlePages('').then(({ data }) =>
 )
 const articlesToShow = ref(6)
 
+let featuredArticle
 const homePageCollections = []
-const homePageCollectionItems = await findPage('/').then(({ data }) =>
+const homePageCollectionItems = await findPage('/').then(({ data }) => {
+  // the home page featured article should display only the first story in the home page content collection
+  featuredArticle = normalizeArticlePage(
+    data.value.pageCollectionRelationship?.[0].pages?.[0]
+  )
   data.value.pageCollectionRelationship.forEach((collection) => {
     homePageCollections.push({
       id: collection.id,
@@ -25,7 +25,7 @@ const homePageCollectionItems = await findPage('/').then(({ data }) =>
       data: collection.pages,
     })
   })
-)
+})
 
 const { $analytics } = useNuxtApp()
 const newsletterSubmitEvent = () => {
