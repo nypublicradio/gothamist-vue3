@@ -57,7 +57,7 @@ const latestArticles = computed(() => props.articles.slice(1))
       </v-flexible-link>
       <div v-for="(article, index) in latestArticles" :key="article.uuid">
         <v-card
-          :id="index === 4 ? 'ntv-latest-1' : ''"
+          :id="index === 3 ? 'ntv-latest-1' : ''"
           class="mod-horizontal mod-left mod-small mb-3 tag-small"
           :image="useImageUrl(article.listingImage)"
           :width="158"
