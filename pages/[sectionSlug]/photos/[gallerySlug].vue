@@ -126,15 +126,6 @@ onUnmounted(() => {
           :class="{ 'xl:col-6': index % 3 !== 0 }"
           :key="index"
         >
-          <template v-if="index % 3 === 0 && index !== 0">
-            <img
-              class="mb-4 xl:mb-7"
-              src="https://fakeimg.pl/300x250/?text=AD Here"
-              width="300"
-              height="250"
-              alt="advertisement"
-            />
-          </template>
           <v-image-with-caption
             v-if="slide.image"
             :image="useImageUrl(slide.image)"
@@ -151,6 +142,10 @@ onUnmounted(() => {
             :allow-preview="true"
           />
           <hr class="mt-4 xl:mt-4 mb-2 xl:mb-4" />
+          <template v-if="index == 2 || index % 6 === 0">
+            <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_repeating" />
+            <hr class="mt-4 xl:mt-4 mb-2 xl:mb-4" />
+          </template>
         </div>
       </div>
       <div class="text-right mt-2">

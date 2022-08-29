@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { TagPage } from '../../composables/types/Page'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 
 const { $analytics, $htlbid } = useNuxtApp()
@@ -64,6 +63,7 @@ const newsletterSubmitEvent = () => {
           :streamfield-blocks="curatedTagPage.topPageZone"
           class="pt-4 lg:pt-6"
         />
+        <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
       </div>
     </section>
     <section v-if="articles">
@@ -116,14 +116,7 @@ const newsletterSubmitEvent = () => {
             </Button>
           </div>
           <div class="col-fixed mx-auto">
-            <img
-              class="mb-4 xl:mb-7"
-              src="https://fakeimg.pl/300x600/?text=AD Here"
-              style="max-width: 100%"
-              width="300"
-              height="600"
-              alt="advertisement"
-            />
+            <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_repeating" />
           </div>
         </div>
         <!-- newsletter -->

@@ -105,27 +105,14 @@ onUnmounted(() => {
           </div>
           <p v-else class="col">No articles available</p>
           <div class="col-fixed col-fixed-width-330 hidden xl:block">
-            <img
-              src="https://fakeimg.pl/300x600/?text=AD Here"
-              style="width: 100%; max-width: 300px"
-              width="300"
-              height="600"
-              alt="advertisement"
-            />
+            <HtlAd layout="rectangle" slot="htl-gothamist_interior_midpage_1" />
             <p class="type-fineprint">
               Gothamist is funded by sponsors and member donations
             </p>
           </div>
         </div>
         <div class="block xl:hidden mb-4">
-          <img
-            src="https://fakeimg.pl/300x250/?text=AD Here"
-            class="block m-auto"
-            style="width: 100%; max-width: 300px"
-            width="300"
-            height="250"
-            alt="advertisement"
-          />
+          <HtlAd layout="rectangle" slot="htl-gothamist_interior_midpage_2" />
           <p class="type-fineprint text-center">
             Gothamist is funded by sponsors and member donations
           </p>
