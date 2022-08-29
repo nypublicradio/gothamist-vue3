@@ -74,13 +74,7 @@ const articlesSm = ref([
           </p>
           <v-card-metadata :article="articleMd" />
         </v-card>
-        <img
-          class="hidden lg:block mb-4 xl:mb-7"
-          src="https://fakeimg.pl/300x250/?text=AD Here"
-          width="300"
-          height="250"
-          alt="advertisement"
-        />
+        <HtlAd layout="rectangle" slot="htlad-gothamist_index_midpage_1"/>
       </div>
       <div class="col flex-order-1 lg:flex-order-2">
         <v-card
@@ -132,13 +126,7 @@ const articlesSm = ref([
             />
           </v-card>
         </horizontal-drag>
-        <img
-          class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6"
-          src="https://fakeimg.pl/300x250/?text=AD Here"
-          width="300"
-          height="250"
-          alt="advertisement"
-        />
+        <HtlAd layout="rectangle" slot="htlad-gothamist_index_midpage_1"/>
       </div>
     </div>
   </div>

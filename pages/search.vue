@@ -124,7 +124,7 @@ const newsletterSubmitEvent = () => {
                 </Button>
               </div>
               <div class="col-fixed hidden xl:block mx-auto">
-                <div v-if="!sensitiveContent" class="htlad-gothamist_index_midpage_repeating" />
+                <div v-if="!sensitiveContent" class="htlad-gothamist_interior_midpage_repeating" />
               </div>
             </div>
           </template>
