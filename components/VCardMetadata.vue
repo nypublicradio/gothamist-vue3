@@ -21,48 +21,46 @@ const props = defineProps({
 </script>
 
 <template>
-  <div>
-    <div
-      v-if="props.article"
-      class="article-metadata v-card-metadata"
-      :class="[{ stack: props.stack }, { 'alt-design': props.altDesign }]"
-    >
-      <!-- default byline and comments -->
-      <template v-if="!props.altDesign">
-        <span>
-          <v-byline
-            :authors="props.article.authors || props.article.relatedAuthors"
+  <div
+    v-if="props.article"
+    class="article-metadata v-card-metadata"
+    :class="[{ stack: props.stack }, { 'alt-design': props.altDesign }]"
+  >
+    <!-- default byline and comments -->
+    <template v-if="!props.altDesign">
+      <span>
+        <v-byline
+          :authors="props.article.authors || props.article.relatedAuthors"
+        />
+      </span>
+      <span class="comments" v-if="!props.article.comments && showComments">
+        {{ props.article.comments || '##' }} Comments
+      </span>
+    </template>
+
+    <!-- alt design blurb, byline w/photos and comments -->
+    <template v-else>
+      <div class="grid w-full gutter-x-xxl flex-grow-1">
+        <div class="col-12 md:col-6 separator">
+          <p class="desc">
+            {{ props.article.description }}
+          </p>
+        </div>
+        <div class="col-12 md:col-6">
+          <byline
+            :article="props.article"
+            :showSocial="false"
+            :showComments="false"
           />
-        </span>
-        <span class="comments" v-if="!props.article.comments && showComments">
+        </div>
+        <span
+          class="col-12 comments"
+          v-if="!props.article.comments && showComments"
+        >
           {{ props.article.comments || '##' }} Comments
         </span>
-      </template>
-
-      <!-- alt design blurb, byline w/photos and comments -->
-      <template v-else>
-        <div class="grid w-full gutter-x-xxl">
-          <div class="col-12 md:col-6 separator">
-            <p class="desc">
-              {{ props.article.description }}
-            </p>
-          </div>
-          <div class="col-12 md:col-6">
-            <byline
-              :article="props.article"
-              :showSocial="false"
-              :showComments="false"
-            />
-          </div>
-          <span
-            class="col-12 comments"
-            v-if="!props.article.comments && showComments"
-          >
-            {{ props.article.comments || '##' }} Comments
-          </span>
-        </div>
-      </template>
-    </div>
+      </div>
+    </template>
   </div>
 </template>
 

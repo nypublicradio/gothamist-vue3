@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { gsap } from 'gsap'
-import { Draggable } from '~/assets/gsap/Draggable.js'
-import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 
 // this component is used in the articleSlug at the bottom of the article page, and also as the topper in the section index page
 
@@ -19,7 +16,6 @@ const props = defineProps({
   },
 })
 
-const route = useRoute()
 const routeSectionSlug = ref(props.slug)
 const { title: sectionTitle, id: sectionId } = await findPage(
   routeSectionSlug.value as string
@@ -42,30 +38,6 @@ const articlesSm = ref([
   articlesFiltered[3],
   articlesFiltered[4],
 ])
-const isMobile = ref(false)
-
-onMounted(() => {
-  // draggable setup
-  if (window.innerWidth < 768 && articles) {
-    isMobile.value = true
-    setTimeout(() => {
-      gsap.registerPlugin(InertiaPlugin)
-      gsap.registerPlugin(Draggable)
-      Draggable.create('.horz-scroll-content', {
-        type: 'x',
-        edgeResistance: 0.45,
-        bounds: '.horz-scroll',
-        inertia: true,
-      })
-    }, 1000)
-  }
-})
-onBeforeUnmount(() => {
-  // kill draggable
-  if (isMobile.value) {
-    Draggable.get('.horz-scroll-content').kill()
-  }
-})
 </script>
 
 <template>
@@ -131,43 +103,19 @@ onBeforeUnmount(() => {
             </p>
             <v-card-metadata :article="articleMd" />
           </v-card>
-          <hr
-            class="my-5"
-            :class="isMobile ? 'block xl:hidden' : 'hidden sm:block xl:hidden'"
-          />
-          <div class="horz-scroll-holder" :class="[{ mobile: isMobile }]">
-            <div class="horz-scroll">
-              <div class="grid gutter-x-xl keep-gutter horz-scroll-content">
-                <div
-                  v-for="articleSm in articlesSm"
-                  :key="articleSm?.id"
-                  class="v-hr flex"
-                  :class="
-                    isMobile
-                      ? ' col-4 xl:col-12 xl:flex-column'
-                      : 'col-12 sm:col-4 xl:col-12 flex-column sm:flex-row xl:flex-column'
-                  "
-                >
-                  <hr
-                    class="w-full mb-3"
-                    :class="
-                      isMobile ? 'hidden xl:block' : 'block sm:hidden xl:block'
-                    "
-                  />
-                  <v-card
-                    class="article-sm mod-horizontal mod-small mb-3 tag-small"
-                    :title="articleSm?.listingTitle"
-                    :titleLink="articleSm?.link"
-                  >
-                    <v-card-metadata
-                      :article="articleSm"
-                      :showComments="false"
-                    />
-                  </v-card>
-                </div>
-              </div>
-            </div>
-          </div>
+          <hr class="my-3" />
+          <horizontal-drag :articles="articlesSm" v-slot="slotProps">
+            <v-card
+              class="article-sm mod-horizontal mod-small mb-3 tag-small"
+              :title="slotProps.article.listingTitle"
+              :titleLink="slotProps.article.link"
+            >
+              <v-card-metadata
+                :article="slotProps.article"
+                :showComments="false"
+              />
+            </v-card>
+          </horizontal-drag>
         </div>
       </div>
     </div>
@@ -193,56 +141,6 @@ onBeforeUnmount(() => {
   .v-hr:not(:last-child) {
     @include media('<xl') {
       border-right: 1px solid #ebebeb !important;
-    }
-  }
-  .horz-scroll-holder.mobile {
-    position: relative;
-    @include media('<md') {
-      margin-left: -1.5rem;
-      margin-right: -1.5rem;
-      &:after {
-        content: '';
-        z-index: 1;
-        pointer-events: none;
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: block;
-        height: 100%;
-        width: 100%;
-        background: -moz-linear-gradient(
-          left,
-          rgba(255, 255, 255, 1) 0%,
-          rgba(255, 255, 255, 0) 10%,
-          rgba(255, 255, 255, 0) 65%,
-          rgba(255, 255, 255, 1) 100%
-        );
-        background: -webkit-linear-gradient(
-          left,
-          rgba(255, 255, 255, 1) 0%,
-          rgba(255, 255, 255, 0) 10%,
-          rgba(255, 255, 255, 0) 65%,
-          rgba(255, 255, 255, 1) 100%
-        );
-        background: linear-gradient(
-          to right,
-          rgba(255, 255, 255, 1) 0%,
-          rgba(255, 255, 255, 0) 10%,
-          rgba(255, 255, 255, 0) 65%,
-          rgba(255, 255, 255, 1) 100%
-        );
-      }
-    }
-    .horz-scroll {
-      overflow-x: hidden;
-      @include media('<md') {
-        //overflow-x: scroll;
-
-        .horz-scroll-content {
-          padding: 0 24px;
-          width: 733px;
-        }
-      }
     }
   }
 }

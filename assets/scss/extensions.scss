@@ -306,10 +306,11 @@ $img-height-mobile: 106px;
     gap: 1rem !important;
   }
 }
-.v-card:not([data-style-mode='dark']),
-.v-card:not([data-style-mode='dark']) .v-tag .flexible-link .p-button {
-  background: transparent;
-}
+// this was messing up the hover of the tags
+// .v-card:not([data-style-mode='dark']),
+// .v-card:not([data-style-mode='dark']) .v-tag .flexible-link .p-button {
+//   background: transparent;
+// }
 .v-card.mod-left .card-image-wrapper {
   display: contents;
 }
@@ -426,7 +427,20 @@ $img-height-mobile: 106px;
     //line-height: var(--font-size-8);
     // fixes safari render issue
     line-height: 21px;
-    font-weight: 400;
+    font-weight: 500;
+  }
+}
+.v-card.mod-mobile {
+  .image-with-caption {
+    width: $img-width-mobile !important;
+  }
+  .card-details .card-title,
+  .card-details .card-title .h2 {
+    font-size: var(--font-size-6);
+    //line-height: var(--font-size-8);
+    // fixes safari render issue
+    line-height: 21px;
+    font-weight: 500;
   }
 }
 .v-card.mod-small.mod-left {
