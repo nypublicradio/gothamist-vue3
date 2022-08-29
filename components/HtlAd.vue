@@ -8,8 +8,8 @@ const sensitiveContent = useSensitiveContent()
 </script>
 
 <template>
-<div :class="`ad-wrapper ${layout}`">
-    <div v-if="sensitiveContent" :class="slot"></div>
+<div :class="`ad-wrapper ${sensitiveContent ? '' : layout}`">
+    <div v-if="!sensitiveContent" :class="slot"></div>
 </div>
 
 </template>
