@@ -62,8 +62,7 @@ function handleArticleMounted(el) {
 
 // insert ads into the target element
 function useInsertAd(targetElement) {
-  const sensitiveContent = useSensitiveContent()
-  if (article && !sensitiveContent.value) {
+  if (article && !article.sensitiveContent) {
     const adDiv = document.createElement('DIV')
     adDiv.classList.add(
       'htlad-gothamist_interior_midpage_repeating',
@@ -183,10 +182,10 @@ const getGalleryLink = computed(() => {
             />
           </div>
           <div class="col-fixed hidden lg:block">
-            <HtlAd layout="rectangle" slot="gothamist_interior_rectangle_topper" />
-            <p class="type-fineprint">
-              Gothamist is funded by sponsors and member donations
-            </p>
+            <HtlAd
+              layout="rectangle"
+              slot="gothamist_interior_rectangle_topper"
+              fineprint="Gothamist is funded by sponsors and member donations"/>
           </div>
         </div>
       </div>

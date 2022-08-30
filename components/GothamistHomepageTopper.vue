@@ -78,10 +78,11 @@ const latestArticles = computed(() => props.articles.slice(1))
         </v-card>
       </horizontal-drag>
       <div class="mb-1 mx-auto block">
-        <HtlAd slot="htlad-gothamist_index_topper" layout="rectangle" />
-        <p class="type-fineprint">
-          Gothamist is funded by sponsors and member donations
-        </p>
+        <HtlAd
+          slot="htlad-gothamist_index_topper"
+            layout="rectangle"
+            fineprint="Gothamist is funded by sponsors and member donations"
+          />
       </div>
     </div>
   </div>

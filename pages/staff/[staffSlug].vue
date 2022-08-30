@@ -105,17 +105,19 @@ onUnmounted(() => {
           </div>
           <p v-else class="col">No articles available</p>
           <div class="col-fixed col-fixed-width-330 hidden xl:block">
-            <HtlAd layout="rectangle" slot="htl-gothamist_interior_midpage_1" />
-            <p class="type-fineprint">
-              Gothamist is funded by sponsors and member donations
-            </p>
+            <HtlAd
+              layout="rectangle"
+              slot="htl-gothamist_interior_midpage_1"
+              fineprint="Gothamist is funded by sponsors and member donations"
+            />
           </div>
         </div>
         <div class="block xl:hidden mb-4">
-          <HtlAd layout="rectangle" slot="htl-gothamist_interior_midpage_2" />
-          <p class="type-fineprint text-center">
-            Gothamist is funded by sponsors and member donations
-          </p>
+          <HtlAd
+            layout="rectangle"
+            slot="htl-gothamist_interior_midpage_2"
+            fineprint="Gothamist is funded by sponsors and member donations"
+          />
         </div>
         <Button
           v-if="articles && articlesToShow < articles.length"
