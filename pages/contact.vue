@@ -4,16 +4,10 @@ import { InformationPage } from '../composables/types/Page'
 const route = useRoute()
 const { $analytics } = useNuxtApp()
 
-const pageSlug = route.params.pageSlug
-
-const page = await findPage(String(pageSlug)).then(
+const page = await findPage('contact').then(
   ({ data }) =>
     data?.value && (normalizeFindPageResponse(data) as InformationPage)
 )
-
-if (!page) {
-  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
-}
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'information_page' })
@@ -51,7 +45,7 @@ const newsletterSubmitEvent = () => {
 </template>
 
 <style lang="scss">
-.pageSlug {
+.page.contact {
   background: linear-gradient(
     180deg,
     #f3f3e4 0,

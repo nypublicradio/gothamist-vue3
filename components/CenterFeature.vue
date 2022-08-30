@@ -23,6 +23,10 @@ const articlesSm = ref([
 
 <template>
   <div v-if="articleLg && articleMd && articlesSm" class="center-feature">
+    <template v-if="collection.label">
+      <hr class="mb-2 black" />
+      <div class="type-label3 mb-5">{{ collection.label }}</div>
+    </template>
     <div class="grid gutter-x-30">
       <div class="col-fixed flex-order-2 lg:flex-order-1">
         <!-- md article desktop  -->

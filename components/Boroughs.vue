@@ -4,7 +4,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 <template>
   <div class="boroughs p-4 xl:p-6 pb-6 xl:pb-8" data-style-mode="dark">
     <div class="boroughs-header mb-5 xl:mb-7 py-2">WNYC Presents</div>
-    <div>
+    <div class="boroughs-content">
       We cover stories that make New York work for New Yorkers. Browse
       <v-flexible-link to="/tags/manhattan" class="tag-large">
         Manhattan
@@ -39,6 +39,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 
 <style lang="scss">
 .boroughs {
+  width: 100%;
   background: var(--black);
   text-align: center;
   font-size: var(--font-size-10);
@@ -74,6 +75,11 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
     font-size: var(--font-size-6);
     line-height: var(--font-size-6);
   }
+}
+.boroughs .boroughs-content {
+  width: 1150px;
+  max-width: 100%;
+  margin: auto;
 }
 .boroughs .boroughs-footer {
   font-size: var(--font-size-5);
