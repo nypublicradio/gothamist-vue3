@@ -24,6 +24,7 @@ await findPage('/').then(({ data }) => {
     homePageCollections.push({
       id: collection.id,
       layout: collection.layout,
+      label: collection.label,
       data: collection.pages,
     })
   })

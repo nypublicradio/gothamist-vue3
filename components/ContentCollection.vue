@@ -4,28 +4,37 @@ import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCar
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
-defineProps<{
-  articles: ArticlePage[]
-}>()
+const props = defineProps({
+  articles: {
+    type: Array,
+    default: [],
+  },
+})
+
+const articleData = []
+//loop through articles and normalize data for each one
+props.articles.forEach((article) => {
+  articleData.push(normalizeArticlePage(article))
+})
 </script>
 <template>
   <div>
     <div class="grid gutter-x-30 justify-content-center">
       <div
-        v-for="article in articles"
+        v-for="article in articleData"
         :key="article.uuid"
         class="col-12 md:col-6 xl:col-4 flex"
       >
         <v-card
           class="mod-vertical mod-large mb-3 lg:mb-5 tag-small"
-          :image="useImageUrl(article.leadAsset[0].value.image)"
+          :image="useImageUrl(article.listingImage)"
           :width="318"
           :height="212"
           :sizes="[1]"
           :title="article.listingTitle || article.title"
           :titleLink="article.link"
-          :maxWidth="article.leadAsset[0].value.image?.width"
-          :maxHeight="article.leadAsset[0].value.image?.height"
+          :maxWidth="article.listingImage?.width"
+          :maxHeight="article.listingImage?.height"
         >
           <p class="desc">
             {{ article.description }}
