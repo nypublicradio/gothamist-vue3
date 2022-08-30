@@ -130,8 +130,8 @@ const articlesSm = ref([
             />
           </v-card>
         </horizontal-drag>
-        <HtlAd layout="rectangle" slot="htlad-gothamist_index_midpage_1"/>
       </div>
+      <HtlAd layout="rectangle" slot="htlad-gothamist_index_midpage_1"/>
     </div>
   </div>
 </template>
