@@ -26,6 +26,8 @@ workflows:
     jobs:
       - build:
           <<: *filter_all
+      - test_nginx:
+          <<: *filter_all  
       - test:
           <<: *filter_all
           requires:
@@ -37,6 +39,7 @@ workflows:
           tag: demo
           requires:
             - test
+            - test_nginx
       - deploy:
           name: Deploy (prod)
           context: "AWS Deploy"
@@ -44,6 +47,7 @@ workflows:
           <<: *filter_prod
           requires:
             - test
+            - test_nginx
 
 jobs: 
   # Note (allie): This is its own job because I don't 
@@ -72,9 +76,33 @@ jobs:
             npx nuxi prepare
             npm run test      
 
+  test_nginx:
+    docker:
+      - image: nginx
+    parameters:
+      env:
+        type: enum
+        default: "demo"
+        enum: ["demo", "prod"]
+      tag:
+        type: string
+        default: ""
+    steps:
+      - checkout
+      - run:
+          name: Test NGINX
+          environment:
+            ENV: <<parameters.env>>
+          command: |
+            apt-get update && \
+            apt-get install -y nginx-extras
+            mkdir -p /app/nginx 
+            cp ./nginx/*.conf /etc/nginx/
+            nginx -t
+
   deploy:
     docker: 
-      - image: circleci/python:3.6
+      - image: circleci/python:3.8
     parameters:
       env:
         type: enum
@@ -107,13 +135,12 @@ jobs:
               --memory-reservation=2048 \
               --ecr-repository=gothamist-vue3 \
               --ecs-cluster=gothamist-vue3 \
-              --ports=3000 \
+              --ports=80 \
               --execution-role=$ROLE \
               --task-role=$ROLE \
               --environment=$ENV \
               --tag=$TAG \
-              --wait=300 \
-              --enable-execute-command
+              --wait=300 
 
 commands:
   setup_npmrc:

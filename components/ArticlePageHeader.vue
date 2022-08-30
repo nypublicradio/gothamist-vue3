@@ -123,7 +123,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
             "
           />
         </v-share-tools>
-        <v-flexible-link :to="`${donateUrlBase}&utm_campaign={utmCampaign}`" raw class="pr-2">
+        <v-flexible-link :to="`${donateUrlBase}&utm_campaign=${utmCampaign}`" raw class="pr-2">
             <Button class="article-page-header-donate-button p-button-rounded"> 
                 <span class="p-button-label">Donate</span>
             </Button>
