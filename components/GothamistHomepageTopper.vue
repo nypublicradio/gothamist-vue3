@@ -72,17 +72,13 @@ const latestArticles = computed(() => props.articles.slice(1))
           <v-card-metadata :article="article" :showComments="false" />
         </v-card>
       </div>
-      <img
-        class="mb-1"
-        src="https://fakeimg.pl/450x250/?text=AD Here"
-        style="max-width: 100%"
-        width="450"
-        height="250"
-        alt="advertisement"
-      />
-      <p class="type-fineprint">
-        Gothamist is funded by sponsors and member donations
-      </p>
+      <div class="mb-1">
+        <HtlAd
+        layout="rect"
+        slot="htlad-gothamist_index_topper"
+        fineprint="Gothamist is funded by sponsors and member donations"
+        />
+      </div>
     </div>
   </div>
 </template>
