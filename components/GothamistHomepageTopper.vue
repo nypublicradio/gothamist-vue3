@@ -30,6 +30,7 @@ const latestArticles = computed(() => props.articles.slice(1))
         :sizes="[1]"
         :width="897"
         :height="598"
+        :quality="90"
         :title="featuredArticle.listingTitle || featuredArticle.title"
         :titleLink="featuredArticle.link"
         :maxWidth="featuredArticle.listingImage?.width"
