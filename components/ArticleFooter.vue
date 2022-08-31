@@ -44,7 +44,7 @@ const onTagClicked = (tag) => {
         <div class="block mx-auto block lg:hidden mb-6" style="width: 300px">
           <HtlAd
             layout="rectangle"
-            slot="gothamist_interior_rectangle_article_bio"
+            slot="htlad-gothamist_interior_rectangle_article_bio"
             fineprint="Gothamist is funded by sponsors and member donations"
           />
         </div>
@@ -56,7 +56,7 @@ const onTagClicked = (tag) => {
       <div class="col-fixed mx-auto hidden lg:block">
         <HtlAd
           layout="rectangle"
-          slot="gothamist_interior_rectangle_article_bio"
+          slot="htlad-gothamist_interior_rectangle_article_bio"
           fineprint="Gothamist is funded by sponsors and member donations"
         />
       </div>
