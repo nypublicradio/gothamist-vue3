@@ -34,7 +34,7 @@ const { y: scrollY } = useWindowScroll()
 const isMediumOrUpScreen = useMediaQuery(`(min-width: 768px)`)
 // maybe these values should be calculated automatically by measuring on the position of the main header
 // or something instead of hardcoding them here, but this works for now
-const showHeaderAfter = computed(() => isMediumOrUpScreen.value ? 374 : 68)
+const showHeaderAfter = computed(() => (isMediumOrUpScreen.value ? 374 : 68))
 const showHeader = computed(() => scrollY.value > showHeaderAfter.value)
 
 useHead(headMetadata)
@@ -95,10 +95,7 @@ const getGalleryLink = computed(() => {
       />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
-    <ScrollTracker
-      scrollTarget=".article-body"
-      v-slot="scrollTrackerProps"
-    >
+    <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
       <ArticlePageHeader
         :class="`article-page-header ${showHeader ? '' : 'js-hidden'}`"
         :donateUrlBase="config.donateUrlBase"
@@ -156,6 +153,7 @@ const getGalleryLink = computed(() => {
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
+                :quality="90"
               />
               <v-flexible-link
                 v-if="gallery"
@@ -174,7 +172,10 @@ const getGalleryLink = computed(() => {
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
             </div>
-            <article-donation-CTA :donateUrlBase="config.donateUrlBase" utmCampaign="article-top" />
+            <article-donation-CTA
+              :donateUrlBase="config.donateUrlBase"
+              utmCampaign="article-top"
+            />
             <v-streamfield
               class="article-body"
               :streamfield-blocks="article.body"
@@ -246,7 +247,7 @@ const getGalleryLink = computed(() => {
     }
   }
 
- .article-page-header {
+  .article-page-header {
     transition: opacity 0.4s ease-in;
   }
   .article-page-header.js-hidden {
