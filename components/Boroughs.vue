@@ -56,7 +56,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
   margin: 0 0.15rem 0.25rem 0.25rem;
   margin-top: 0.5rem !important;
   text-decoration: none;
-  display: block;
+  display: inline-block;
   width: fit-content;
   margin: auto;
   @include media('>lg') {
