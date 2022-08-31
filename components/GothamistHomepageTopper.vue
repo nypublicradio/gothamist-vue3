@@ -56,40 +56,29 @@ const latestArticles = computed(() => props.articles.slice(1))
           label="LATEST"
         />
       </v-flexible-link>
-
-      <horizontal-drag
-        :articles="latestArticles"
-        v-slot="slotProps"
-        class="mb-4"
-      >
+      <div v-for="(article, index) in latestArticles" :key="article.uuid">
         <v-card
-          class="mod-horizontal mod-left mod-small mb-0"
-          :image="useImageUrl(slotProps.article.listingImage)"
-          :width="106"
+          :id="index === 3 ? 'ntv-latest-1' : ''"
+          class="mod-horizontal mod-left mod-small mb-3 tag-small"
+          :image="useImageUrl(article.listingImage)"
+          :width="158"
           :height="106"
-          :ratio="[1, 1]"
-          :sizes="[2]"
-          :title="slotProps.article.listingTitle || slotProps.article.title"
-          :titleLink="slotProps.article.link"
-          :maxWidth="slotProps.article.listingImage?.width"
-          :maxHeight="slotProps.article.listingImage?.height"
+          :sizes="[1]"
+          :title="article.listingTitle || article.title"
+          :titleLink="article.link"
+          :maxWidth="article.listingImage?.width"
+          :maxHeight="article.listingImage?.height"
           :quality="80"
         >
-          <div></div>
-          <v-card-metadata :article="slotProps.article" :showComments="false" />
+          <v-card-metadata :article="article" :showComments="false" />
         </v-card>
-      </horizontal-drag>
-      <div class="mb-1 mx-auto block">
-        <img
-          src="https://fakeimg.pl/450x250/?text=AD Here"
-          style="max-width: 100%"
-          width="450"
-          height="250"
-          alt="advertisement"
+      </div>
+      <div class="mb-1">
+        <HtlAd
+        layout="rectangle"
+        slot="htlad-gothamist_index_topper"
+        fineprint="Gothamist is funded by sponsors and member donations"
         />
-        <p class="type-fineprint">
-          Gothamist is funded by sponsors and member donations
-        </p>
       </div>
     </div>
   </div>
@@ -105,11 +94,5 @@ const latestArticles = computed(() => props.articles.slice(1))
 
 .homepage-topper-logo {
   height: auto;
-}
-
-.v-card.featured-article {
-  .card-details {
-    padding: 0.75rem 0;
-  }
 }
 </style>

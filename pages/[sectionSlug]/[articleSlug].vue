@@ -52,21 +52,20 @@ onUnmounted(() => {
 
 // handle ads when the article is mounted
 function handleArticleMounted(el) {
-  const landmarks = useStreamfieldLandmarks(el.value)
-  const adTarget = landmarks[Math.min(landmarks.length - 1, 5)].node
-  useInsertAd(adTarget)
+  let landmarks = useStreamfieldLandmarks(el.value)
+  do {
+    const adTarget = landmarks[Math.min(landmarks.length - 1, 5)].node
+    useInsertAd(adTarget)
+    landmarks = landmarks.slice(6)
+  } while (landmarks.length > 6)
 }
 
 // insert ads into the target element
 function useInsertAd(targetElement) {
-  const sensitiveContent = useSensitiveContent()
-  if (article && !sensitiveContent.value) {
+  if (article && !article.sensitiveContent) {
     const adDiv = document.createElement('DIV')
     adDiv.classList.add(
-      'htlad-interior_midpage_1',
-      'ad-div',
-      'mod-break-margins',
-      'mod-ad-disclosure',
+      'htlad-gothamist_interior_midpage_repeating',
       'mb-5'
     )
     useInsertAfterElement(adDiv, targetElement)
@@ -184,17 +183,10 @@ const getGalleryLink = computed(() => {
             />
           </div>
           <div class="col-fixed hidden lg:block">
-            <!-- <div class="htlad-index_rectangle_1" /> -->
-            <img
-              src="https://fakeimg.pl/300x250/?text=AD Here"
-              style="width: 100%; max-width: 300px"
-              width="300"
-              height="250"
-              alt="advertisement"
-            />
-            <p class="type-fineprint">
-              Gothamist is funded by sponsors and member donations
-            </p>
+            <HtlAd
+              layout="rectangle"
+              slot="htlad-gothamist_interior_rectangle_topper"
+              fineprint="Gothamist is funded by sponsors and member donations"/>
           </div>
         </div>
       </div>

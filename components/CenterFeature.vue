@@ -23,10 +23,6 @@ const articlesSm = ref([
 
 <template>
   <div v-if="articleLg && articleMd && articlesSm" class="center-feature">
-    <template v-if="collection.label">
-      <hr class="mb-2 black" />
-      <div class="type-label3 mb-5">{{ collection.label }}</div>
-    </template>
     <div class="grid gutter-x-30">
       <div class="col-fixed flex-order-2 lg:flex-order-1">
         <!-- md article desktop  -->
@@ -78,13 +74,12 @@ const articlesSm = ref([
           </p>
           <v-card-metadata :article="articleMd" />
         </v-card>
-        <img
-          class="hidden lg:block mb-4 xl:mb-7"
-          src="https://fakeimg.pl/300x250/?text=AD Here"
-          width="300"
-          height="250"
-          alt="advertisement"
-        />
+        <div class="hidden lg:block mb-4 xl:mb-7">
+          <HtlAd
+            layout="rectangle"
+            slot="htlad-gothamist_index_topper"
+          />
+        </div>
       </div>
       <div class="col flex-order-1 lg:flex-order-2">
         <v-card
@@ -136,13 +131,12 @@ const articlesSm = ref([
             />
           </v-card>
         </horizontal-drag>
-        <img
-          class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6"
-          src="https://fakeimg.pl/300x250/?text=AD Here"
-          width="300"
-          height="250"
-          alt="advertisement"
-        />
+        <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
+          <HtlAd
+            layout="rectangle"
+            slot="htlad-gothamist_index_topper"
+          />
+        </div>
       </div>
     </div>
   </div>

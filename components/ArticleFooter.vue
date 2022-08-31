@@ -42,17 +42,11 @@ const onTagClicked = (tag) => {
           class="mb-4 md:mb-6"
         />
         <div class="block mx-auto block lg:hidden mb-6" style="width: 300px">
-          <!-- <div class="htlad-index_rectangle_1" /> -->
-          <img
-            src="https://fakeimg.pl/300x250/?text=AD Here"
-            style="width: 100%; max-width: 300px"
-            width="300"
-            height="250"
-            alt="advertisement"
+          <HtlAd
+            layout="rectangle"
+            slot="htlad-gothamist_interior_rectangle_article_bio"
+            fineprint="Gothamist is funded by sponsors and member donations"
           />
-          <p class="type-fineprint">
-            Gothamist is funded by sponsors and member donations
-          </p>
         </div>
         <div v-if="!isDisableComments" id="comments" class="mb-4 md:mb-6">
           <hr class="black mb-4 md:mb-6" />
@@ -60,17 +54,11 @@ const onTagClicked = (tag) => {
         </div>
       </div>
       <div class="col-fixed mx-auto hidden lg:block">
-        <!-- <div class="htlad-index_rectangle_1" /> -->
-        <img
-          src="https://fakeimg.pl/300x250/?text=AD Here"
-          style="width: 100%; max-width: 300px"
-          width="300"
-          height="250"
-          alt="advertisement"
+        <HtlAd
+          layout="rectangle"
+          slot="htlad-gothamist_interior_rectangle_article_bio"
+          fineprint="Gothamist is funded by sponsors and member donations"
         />
-        <p class="type-fineprint">
-          Gothamist is funded by sponsors and member donations
-        </p>
       </div>
     </div>
   </div>

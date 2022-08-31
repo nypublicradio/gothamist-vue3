@@ -9,11 +9,13 @@ const latestArticles = await findArticlePages({
 const articles = await findArticlePages('').then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
-const articlesToShow = ref(6)
+const riverStoryCount = ref(6)
+const riverAdOffset = ref(2)
+const riverAdRepeatRate = ref(6)
 
 let featuredArticle
 const homePageCollections = []
-const homePageCollectionItems = await findPage('/').then(({ data }) => {
+await findPage('/').then(({ data }) => {
   // the home page featured article should display only the first story in the home page content collection
   featuredArticle = normalizeArticlePage(
     data.value.pageCollectionRelationship?.[0].pages?.[0]
@@ -81,8 +83,8 @@ onMounted(() => {
             <div class="col-12 xxl:col-1 type-label3">LATEST</div>
             <div class="col">
               <div
-                v-for="(article, index) in articles.slice(0, articlesToShow)"
-                :key="index"
+                v-for="(article, index) in articles.slice(0, riverStoryCount)"
+                :key="article.uuid"
               >
                 <v-card
                   id="index === 1 ? 'ntv-stream-3' : ''"
@@ -109,24 +111,21 @@ onMounted(() => {
                   <v-card-metadata :article="article" />
                 </v-card>
                 <hr class="mb-5" />
+                <div v-if="(index + riverAdOffset) % riverAdRepeatRate === 0" class="xl:hidden">
+                  <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
+                  <hr class="mb-5" />
+                </div>
               </div>
               <Button
-                v-if="articlesToShow < articles.length"
+                v-if="riverStoryCount < articles.length"
                 class="p-button-rounded"
                 label="Load More"
-                @click="articlesToShow += 6"
+                @click="riverStoryCount += 6"
               >
               </Button>
             </div>
             <div class="col-fixed hidden xl:block mx-auto">
-              <img
-                class="mb-4 xl:mb-7"
-                src="https://fakeimg.pl/300x600/?text=AD Here"
-                style="max-width: 100%"
-                width="300"
-                height="600"
-                alt="advertisement"
-              />
+                  <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
             </div>
           </div>
         </template>
