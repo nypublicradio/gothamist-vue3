@@ -306,11 +306,21 @@ $img-height-mobile: 106px;
     gap: 1rem !important;
   }
 }
-// this was messing up the hover of the tags
-// .v-card:not([data-style-mode='dark']),
-// .v-card:not([data-style-mode='dark']) .v-tag .flexible-link .p-button {
-//   background: transparent;
-// }
+.v-card:not([data-style-mode='dark']),
+.v-card:not([data-style-mode='dark']) .v-tag .flexible-link .p-button {
+  background: transparent;
+}
+.v-card[data-style-mode='dark'] .v-tag .flexible-link .p-button {
+  background: transparent;
+  border: solid 1px var(--white);
+  color: var(--white);
+  &:hover{
+    background: var(--white);
+    .p-button-label {
+      color: var(--black) !important;
+    }
+  }
+}
 .v-card.mod-left .card-image-wrapper {
   display: contents;
 }
