@@ -17,6 +17,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  showDescription: {
+    type: Boolean,
+    default: true,
+  },
 })
 </script>
 
@@ -41,12 +45,12 @@ const props = defineProps({
     <!-- alt design blurb, byline w/photos and comments -->
     <template v-else>
       <div class="grid w-full gutter-x-xxl flex-grow-1">
-        <div class="col-12 md:col-6 separator">
+        <div v-if="showDescription" class="col-12 md:col-6 separator">
           <p class="desc">
             {{ props.article.description }}
           </p>
         </div>
-        <div class="col-12 md:col-6">
+        <div :class="showDescription ? 'col-12 md:col-6' : 'col-12'">
           <byline
             :article="props.article"
             :showSocial="false"
