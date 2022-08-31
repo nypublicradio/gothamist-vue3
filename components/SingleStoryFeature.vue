@@ -36,18 +36,16 @@ const article = normalizeArticlePage(props.collection.data[0])
       },
     ]"
   >
-    <p class="desc">
-      {{ article.description }}
-    </p>
-    <v-card-metadata :article="article" />
+    <p class="desc">{{ article.description }} kim</p>
+    <v-card-metadata :article="article" alt-design :show-description="false" />
   </v-card>
 </template>
 
 <style lang="scss">
 .v-card.single-story-feature .card-details {
-  justify-content: flex-end;
+  align-self: flex-end !important;
   @include media('<xl') {
-    padding: 0 1rem 1.5rem 1rem;
+    padding: 0 1rem 1.5rem !important;
   }
 }
 </style>
