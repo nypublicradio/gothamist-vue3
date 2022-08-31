@@ -74,7 +74,7 @@ const latestArticles = computed(() => props.articles.slice(1))
       </div>
       <div class="mb-1">
         <HtlAd
-        layout="rect"
+        layout="rectangle"
         slot="htlad-gothamist_index_topper"
         fineprint="Gothamist is funded by sponsors and member donations"
         />
