@@ -184,7 +184,7 @@ const getGalleryLink = computed(() => {
           <div class="col-fixed hidden lg:block">
             <HtlAd
               layout="rectangle"
-              slot="gothamist_interior_rectangle_topper"
+              slot="htlad-gothamist_interior_rectangle_topper"
               fineprint="Gothamist is funded by sponsors and member donations"/>
           </div>
         </div>
