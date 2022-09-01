@@ -275,6 +275,7 @@ const getGalleryLink = computed(() => {
       width: calc(100% -  330px - 15px);
     }
     .article-body > *.wide-module,
+    .article-body > streamfield-pull-quote,
     .article-body > *.rte-text > *.wide-module {
       width: 100%;
     }
