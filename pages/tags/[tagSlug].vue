@@ -116,7 +116,7 @@ const newsletterSubmitEvent = () => {
             </Button>
           </div>
           <div class="col-fixed mx-auto">
-            <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_repeating" />
+            <HtlAd layout="rectangle" slot="htlad-gothamist_interior_river" />
           </div>
         </div>
         <!-- newsletter -->
