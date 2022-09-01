@@ -12,6 +12,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  pinStartTopOffset: {
+    type: String,
+    default: '68px', // height of the header
+  },
 })
 const newsletterElm = ref(null)
 const emit = defineEmits(['submit'])
@@ -22,7 +26,7 @@ const initScrollTrigger = () => {
     trigger: `#${props.triggerID}`,
     id: 'pinnedNewsletterID',
     pin: true,
-    start: '1px top',
+    start: `1px ${props.pinStartTopOffset}`,
     endTrigger: `#${props.pinEndTriggerID}`,
     end: `top 0%+=${newsletterElm.value.offsetHeight + 40}px`,
     //markers: true,
