@@ -271,11 +271,11 @@ const getGalleryLink = computed(() => {
     .article-body > *.rte-text {
       width: 100%;
     }
-    .article-body > *.rte-text * {
+    .article-body > *.rte-text > * {
       width: calc(100% -  330px - 15px);
     }
     .article-body > *.wide-module,
-    .article-body > *.rte-text *.wide-module {
+    .article-body > *.rte-text > *.wide-module {
       width: 100%;
     }
   }
