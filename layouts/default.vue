@@ -102,7 +102,7 @@ watch(route, (value) => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <div class="leaderboard-ad-wrapper flex justify-content-center">
+    <div class="leaderboard-ad-wrapper flex justify-content-center align-items-center">
       <HtlAd
         v-if="route.name === 'index'"
         layout="leaderboard"

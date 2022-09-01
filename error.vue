@@ -110,7 +110,7 @@ const newsletterSubmitEvent = () => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <div class="leaderboard-ad-wrapper flex justify-content-center">
+    <div class="leaderboard-ad-wrapper flex justify-content-center align-items-center">
       <div v-if="!sensitiveContent" class="htlad-index_leaderboard_1"></div>
     </div>
     <GothamistMainHeader
