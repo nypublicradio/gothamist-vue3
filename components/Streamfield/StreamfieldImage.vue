@@ -18,5 +18,6 @@ defineProps<{
     :credit="`Photo by ${block.value.image.credit}`"
     :credit-url="block.value.image.creditLink"
     :sizes="[1, 2]"
+    :ratio="[block.value.image.width, block.value.image.height]"
   />
 </template>

@@ -58,25 +58,28 @@ onMounted(() => {
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent" />
         </div>
-        <!-- home page collections -->
-        <template v-if="homePageCollections && homePageCollections.length > 0">
-          <div
-            v-for="(collection, index) in homePageCollections"
-            :key="collection.id"
-          >
-            <single-story-feature
-              v-if="collection.layout === 'single-story-feature'"
-              :collection="collection"
-            />
-            <div v-if="index === 1" id="ntv-stream-2"></div>
-            <center-feature
-              v-if="collection.layout === 'center-feature'"
-              :collection="collection"
-            />
-          </div>
-        </template>
-        <boroughs class="mb-5 lg:mb-8" />
-        <!-- river -->
+      </div>
+      <!-- home page collections -->
+      <template v-if="homePageCollections && homePageCollections.length > 0">
+        <div
+          v-for="(collection, index) in homePageCollections"
+          :key="collection.id"
+        >
+          <single-story-feature
+            v-if="collection.layout === 'single-story-feature'"
+            :collection="collection"
+          />
+          <div v-if="index === 1" id="ntv-stream-2"></div>
+          <center-feature
+            v-if="collection.layout === 'center-feature'"
+            :collection="collection"
+          />
+        </div>
+      </template>
+      <boroughs class="mb-5 lg:mb-8" />
+      <!-- river -->
+
+      <div class="content">
         <template v-if="articles">
           <hr class="mb-4 black" />
           <div id="latest" class="grid gutter-x-xl">
@@ -111,8 +114,14 @@ onMounted(() => {
                   <v-card-metadata :article="article" />
                 </v-card>
                 <hr class="mb-5" />
-                <div v-if="(index + riverAdOffset) % riverAdRepeatRate === 0" class="xl:hidden">
-                  <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
+                <div
+                  v-if="(index + riverAdOffset) % riverAdRepeatRate === 0"
+                  class="xl:hidden"
+                >
+                  <HtlAd
+                    slot="htlad-gothamist_index_river"
+                    layout="rectangle"
+                  />
                   <hr class="mb-5" />
                 </div>
               </div>
@@ -125,7 +134,7 @@ onMounted(() => {
               </Button>
             </div>
             <div class="col-fixed hidden xl:block mx-auto">
-                  <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
+              <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
             </div>
           </div>
         </template>

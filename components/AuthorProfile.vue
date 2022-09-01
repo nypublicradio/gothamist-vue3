@@ -51,7 +51,8 @@ const imageSizePx = ref(imageSize.value + 'px')
         <v-flexible-link :to="profileLink" class="no-underline">
           <h5>{{ profile.name }}</h5>
         </v-flexible-link>
-        <span v-if="!profile.social">
+        <!-- profile.social is not supported in the response yet. This will be updated as part of a CMS ticket -->
+        <span v-if="profile.social">
           <v-share-tools class="">
             <v-share-tools-item service="facebook" username="gothamist" />
             <v-share-tools-item service="twitter" username="gothamist" />

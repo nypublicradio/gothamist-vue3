@@ -117,7 +117,7 @@ const getGalleryLink = computed(() => {
               :name="article.section.name"
               :slug="`/${article.section.slug}`"
             />
-            <h2 class="mt-4 mb-3">{{ article.title }}</h2>
+            <h1 class="mt-4 mb-3 h2">{{ article.title }}</h1>
           </div>
           <div class="col-fixed hidden lg:block"></div>
         </div>
@@ -182,7 +182,8 @@ const getGalleryLink = computed(() => {
             <HtlAd
               layout="rectangle"
               slot="htlad-gothamist_interior_rectangle_topper"
-              fineprint="Gothamist is funded by sponsors and member donations"/>
+              fineprint="Gothamist is funded by sponsors and member donations"
+            />
           </div>
         </div>
         <div class="grid gutter-x-30">
