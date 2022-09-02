@@ -15,7 +15,7 @@ const props = defineProps({
   },
   showComments: {
     type: Boolean,
-    default: true,
+    default: false, // setting to false untill we have support for comment counts
   },
   showDescription: {
     type: Boolean,

@@ -43,8 +43,11 @@ const imageSizePx = ref(imageSize.value + 'px')
 </script>
 
 <template>
-  <div class="author-profile grid" :class="[{ staffPage: props.staffPage }]">
-    <div class="col md:pr-4 flex flex-column gap-2">
+  <div
+    class="author-profile grid grid-nogutter"
+    :class="[{ staffPage: props.staffPage }]"
+  >
+    <div class="col flex flex-column gap-2">
       <div
         class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"
       >
@@ -97,11 +100,11 @@ const imageSizePx = ref(imageSize.value + 'px')
 <style lang="scss">
 .author-profile {
   gap: 1rem;
-  @include media('<md') {
-    gap: 0;
-  }
   .col-fixed {
     max-width: v-bind(imageSizePx) !important;
+    @include media('<md') {
+      max-width: v-bind(profileImageSizeSm) !important;
+    }
     .profile {
       box-sizing: content-box;
       width: v-bind(imageSizePx);
