@@ -64,6 +64,7 @@ onMounted(() => {
         <div
           v-for="(collection, index) in homePageCollections"
           :key="collection.id"
+          class="w-full"
         >
           <single-story-feature
             v-if="collection.layout === 'single-story-feature'"

@@ -193,7 +193,7 @@ const getGalleryLink = computed(() => {
       <div id="pinned-newsletter-end" class="content">
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
-          <div class="col">
+          <div class="col w-full">
             <article-footer v-if="article" :article="article" />
           </div>
         </div>
