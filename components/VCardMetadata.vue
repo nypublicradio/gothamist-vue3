@@ -15,7 +15,7 @@ const props = defineProps({
   },
   showComments: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   showDescription: {
     type: Boolean,
