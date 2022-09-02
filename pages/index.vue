@@ -61,10 +61,9 @@ onMounted(() => {
       </div>
       <!-- home page collections -->
       <template v-if="homePageCollections && homePageCollections.length > 0">
-        <div
+        <template
           v-for="(collection, index) in homePageCollections"
           :key="collection.id"
-          class="w-full"
         >
           <single-story-feature
             v-if="collection.layout === 'single-story-feature'"
@@ -75,7 +74,7 @@ onMounted(() => {
             v-if="collection.layout === 'center-feature'"
             :collection="collection"
           />
-        </div>
+        </template>
       </template>
       <boroughs class="mb-5 lg:mb-8" />
       <!-- river -->
