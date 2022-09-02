@@ -16,7 +16,6 @@ function countMountedBlock() {
     emit('allBlocksMounted', el)
   }
 }
-console.log('props.streamfieldBlocks', props.streamfieldBlocks)
 </script>
 
 <template>
