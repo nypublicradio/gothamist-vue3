@@ -37,8 +37,8 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
 
 <template>
 <header class="article-page-header">
-  <div class="article-page-header-progress">
-    <div class="article-page-header-contents py-3 px-4 md:px-5 flex align-items-center justify-content-between">
+  <section class="article-page-header-progress">
+    <div class="article-page-header-contents content py-0 my-3 flex align-items-center justify-content-between">
       <div class="article-page-header-left">
         <v-flexible-link to="/" raw>
           <LogoGothamist class="article-page-header-logo" />
@@ -131,7 +131,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
         <Button icon="pi pi-bars" class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2" @click="openSidebar" />
       </div>
     </div>
-  </div>
+  </section>
 </header>
 </template>
 
