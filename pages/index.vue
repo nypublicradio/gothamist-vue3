@@ -60,21 +60,22 @@ onMounted(() => {
         </div>
       </div>
       <!-- home page collections -->
-      <template
-        v-if="homePageCollections && homePageCollections.length > 0"
-        v-for="(collection, index) in homePageCollections"
-        :key="collection.id"
-      >
-        <single-story-feature
-          v-if="collection.layout === 'single-story-feature'"
-          :collection="collection"
-        />
-        <div v-if="index === 1" id="ntv-stream-2"></div>
-        <center-feature
-          class="content"
-          v-if="collection.layout === 'center-feature'"
-          :collection="collection"
-        />
+      <template v-if="homePageCollections && homePageCollections.length > 0">
+        <template
+          v-for="(collection, index) in homePageCollections"
+          :key="collection.id"
+        >
+          <single-story-feature
+            v-if="collection.layout === 'single-story-feature'"
+            :collection="collection"
+          />
+          <div v-if="index === 1" id="ntv-stream-2"></div>
+          <center-feature
+            class="content"
+            v-if="collection.layout === 'center-feature'"
+            :collection="collection"
+          />
+        </template>
       </template>
       <boroughs class="mb-5 lg:mb-8" />
       <!-- river -->
