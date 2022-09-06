@@ -22,6 +22,7 @@ const productBanners = await findProductBanners().then(({ data }) =>
 )
 const sensitiveContent = useSensitiveContent()
 const sidebarOpen = useSidebarIsOpen()
+const isSponsored = route.name === 'sponsored'
 const closeSidebar = () => sidebarOpen.value = false;
 
 const trackSidebarClick = (label) => {
@@ -75,6 +76,9 @@ watch(route, (value) => {
           name="description"
           content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
         />
+      </Head>
+
+      <Head v-if="!isSponsored">
         <Meta
           name="og:site_name"
           content="Gothamist: New York City Local News, Food, Arts & Events"
@@ -99,6 +103,10 @@ watch(route, (value) => {
         <Meta name="fb:app_id" content="151261804904925" />
         <Meta name="twitter:card" content="summary_large_image" />
         <Meta name="twitter:site" content="@gothamist" />
+      </Head>
+
+      <Head v-if="isSponsored">
+        <Meta name="Googlebot-News" content="noindex, nofollow" />
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
