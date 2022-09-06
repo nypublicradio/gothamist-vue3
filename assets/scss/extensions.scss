@@ -294,6 +294,14 @@ $img-height: 212px;
 $img-width-small: 158px;
 $img-width-mobile: 106px;
 $img-height-mobile: 106px;
+.image-with-caption {
+  .image-with-caption-description {
+    @include font-config($type-paragraph3);
+  }
+  .image-with-caption-credit-link {
+    @include font-config($type-caption);
+  }
+}
 .v-card .image-with-caption {
   width: $img-width !important;
   @include media(#{$mobileBreakpoint}) {
@@ -314,7 +322,7 @@ $img-height-mobile: 106px;
   background: transparent;
   border: solid 1px var(--white);
   color: var(--white);
-  &:hover{
+  &:hover {
     background: var(--white);
     .p-button-label {
       color: var(--black) !important;
@@ -592,7 +600,6 @@ $img-height-mobile: 106px;
 }
 
 .v-card-metadata {
-
 }
 .v-byline,
 .comments {

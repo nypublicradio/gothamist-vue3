@@ -70,14 +70,16 @@ const latestArticles = computed(() => props.articles.slice(1))
           :maxHeight="article.listingImage?.height"
           :quality="80"
         >
+          <div></div>
           <v-card-metadata :article="article" :showComments="false" />
         </v-card>
+        <hr v-if="index < latestArticles.length - 1" class="my-3 block" />
       </div>
       <div class="mb-1">
         <HtlAd
-        layout="rectangle"
-        slot="htlad-gothamist_index_topper"
-        fineprint="Gothamist is funded by sponsors and member donations"
+          layout="rectangle"
+          slot="htlad-gothamist_index_topper"
+          fineprint="Gothamist is funded by sponsors and member donations"
         />
       </div>
     </div>

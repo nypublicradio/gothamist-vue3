@@ -127,7 +127,7 @@ const getGalleryLink = computed(() => {
             <byline class="mb-3 pt-4" :article="article" />
             <div>
               <div id="pinned-newsletter" style="min-width: 300px">
-                <hr class="black mb-4" />
+                <hr class="mb-4" />
                 <newsletter-article
                   class="pb-8"
                   triggerID="pinned-newsletter"
@@ -164,7 +164,7 @@ const getGalleryLink = computed(() => {
               >
                 <Button
                   class="p-button-rounded p-button-sm p-button-raised p-button-secondary"
-                  :label="`View all (${galleryLength})`"
+                  :label="`View all ${galleryLength}`"
                 />
               </v-flexible-link>
             </div>
@@ -190,10 +190,10 @@ const getGalleryLink = computed(() => {
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col overflow-hidden article-column">
             <v-streamfield
-                class="article-body"
-                :streamfield-blocks="article.body"
-                @all-blocks-mounted="handleArticleMounted"
-              />
+              class="article-body"
+              :streamfield-blocks="article.body"
+              @all-blocks-mounted="handleArticleMounted"
+            />
           </div>
         </div>
       </div>
@@ -267,13 +267,13 @@ const getGalleryLink = computed(() => {
       flex-grow: 1;
       flex-basis: 0;
       padding: 0.5rem;
-      width: calc(100% -  330px - 15px);
+      width: calc(100% - 330px - 15px);
     }
     .article-body > *.rte-text {
       width: 100%;
     }
     .article-body > *.rte-text > * {
-      width: calc(100% -  330px - 15px);
+      width: calc(100% - 330px - 15px);
     }
     .article-body > *.wide-module,
     .article-body > streamfield-pull-quote,
