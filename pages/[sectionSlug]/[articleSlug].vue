@@ -64,7 +64,11 @@ function handleArticleMounted(el) {
 function useInsertAd(targetElement) {
   if (article && !article.sensitiveContent) {
     const adDiv = document.createElement('DIV')
-    adDiv.classList.add('htlad-gothamist_interior_midpage_repeating', 'mb-5')
+    adDiv.classList.add(
+      'htlad-gothamist_interior_midpage_repeating',
+      'wide-module',
+      'mb-5'
+    )
     useInsertAfterElement(adDiv, targetElement)
   }
 }
@@ -173,11 +177,6 @@ const getGalleryLink = computed(() => {
               :donateUrlBase="config.donateUrlBase"
               utmCampaign="article-top"
             />
-            <v-streamfield
-              class="article-body"
-              :streamfield-blocks="article.body"
-              @all-blocks-mounted="handleArticleMounted"
-            />
           </div>
           <div class="col-fixed hidden lg:block">
             <HtlAd
@@ -185,6 +184,16 @@ const getGalleryLink = computed(() => {
               slot="htlad-gothamist_interior_rectangle_topper"
               fineprint="Gothamist is funded by sponsors and member donations"
             />
+          </div>
+        </div>
+        <div class="grid gutter-x-30">
+          <div class="col-fixed hidden xxl:block"></div>
+          <div class="col overflow-hidden article-column">
+            <v-streamfield
+                class="article-body"
+                :streamfield-blocks="article.body"
+                @all-blocks-mounted="handleArticleMounted"
+              />
           </div>
         </div>
       </div>
@@ -252,6 +261,26 @@ const getGalleryLink = computed(() => {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.4s ease-in, visibility 0s 0.4s;
+  }
+  @include media('>lg') {
+    .article-body > * {
+      flex-grow: 1;
+      flex-basis: 0;
+      padding: 0.5rem;
+      width: calc(100% -  330px - 15px);
+    }
+    .article-body > *.rte-text {
+      width: 100%;
+    }
+    .article-body > *.rte-text > * {
+      width: calc(100% -  330px - 15px);
+    }
+    .article-body > *.wide-module,
+    .article-body > streamfield-pull-quote,
+    .article-body > streamfield-pull-quote-author,
+    .article-body > *.rte-text > *.wide-module {
+      width: 100%;
+    }
   }
 }
 </style>

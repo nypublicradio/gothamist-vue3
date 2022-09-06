@@ -76,7 +76,7 @@ const newsletterSubmitEvent = () => {
           </div>
 
           <div class="col-fixed mx-auto">
-            <div v-if="!sensitiveContent" class="htl-gothamist_interior_midpage_1"></div>
+            <div v-if="!sensitiveContent" class="htl-gothamist_interior_river"></div>
           </div>
         </div>
         <!-- newsletter -->

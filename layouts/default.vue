@@ -102,11 +102,16 @@ watch(route, (value) => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <div class="leaderboard-ad-wrapper flex justify-content-center">
+    <div class="leaderboard-ad-wrapper flex justify-content-center align-items-center">
       <HtlAd
+        v-if="route.name === 'index'"
         layout="leaderboard"
-        :key="route.name"
-        :slot="`htlad-gothamist_${route.name === 'index' ? 'index' : 'interior'}_leaderboard_1`"
+        slot="htlad-gothamist_index_leaderboard_1"
+      />
+      <HtlAd
+        v-else
+        layout="leaderboard"
+        slot="htlad-gothamist_interior_leaderboard_1"
       />
     </div>
     <GothamistMainHeader 
