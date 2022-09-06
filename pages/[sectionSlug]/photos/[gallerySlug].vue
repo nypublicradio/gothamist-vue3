@@ -141,10 +141,13 @@ onUnmounted(() => {
             :ratio="[slide.image.width, slide.image.height]"
             :allow-preview="true"
           />
-          <hr class="mt-4 xl:mt-4 mb-2 xl:mb-4" />
+          <hr class="my-3" />
           <template v-if="index == 2 || index % 6 === 0">
-            <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_repeating" />
-            <hr class="mt-4 xl:mt-4 mb-2 xl:mb-4" />
+            <HtlAd
+              layout="rectangle"
+              slot="htlad-gothamist_interior_midpage_repeating"
+            />
+            <hr class="my-3" />
           </template>
         </div>
       </div>
@@ -187,12 +190,15 @@ onUnmounted(() => {
   background: var(--black-400);
 }
 
-.sectionSlug-photos-gallerySlug .image-with-caption-description {
-  @include font-config($type-paragraph3);
+.sectionSlug-photos-gallerySlug
+  .image-with-caption
+  .image-with-caption-description {
   margin-top: 1rem;
 }
 
-.sectionSlug-photos-gallerySlug .image-with-caption-credit-link {
+.sectionSlug-photos-gallerySlug
+  .image-with-caption
+  .image-with-caption-credit-link {
   @include font-config($type-fineprint);
   color: var(--black400) !important;
   margin-top: 0.5rem;
