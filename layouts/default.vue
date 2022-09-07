@@ -2,7 +2,7 @@
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import { ref, onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
-import { useSidebarIsOpen } from '~~/composables/states.js';
+import { useSidebarIsOpen } from '~~/composables/states.js'
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -22,7 +22,8 @@ const productBanners = await findProductBanners().then(({ data }) =>
 )
 const sensitiveContent = useSensitiveContent()
 const sidebarOpen = useSidebarIsOpen()
-const closeSidebar = () => sidebarOpen.value = false;
+const strapline = await useStrapline()
+const closeSidebar = () => (sidebarOpen.value = false)
 
 const trackSidebarClick = (label) => {
   //emitted mobile menu click event
@@ -44,12 +45,12 @@ onMounted(() => {
     is_testing: config.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
-  PostRelease.Start();
+  PostRelease.Start()
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
-  PostRelease.Start();
+  PostRelease.Start()
 })
 </script>
 
@@ -102,7 +103,9 @@ watch(route, (value) => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <div class="leaderboard-ad-wrapper flex justify-content-center align-items-center">
+    <div
+      class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
+    >
       <HtlAd
         v-if="route.name === 'index'"
         layout="leaderboard"
@@ -114,38 +117,41 @@ watch(route, (value) => {
         slot="htlad-gothamist_interior_leaderboard_1"
       />
     </div>
-    <GothamistMainHeader 
+    <GothamistMainHeader
       :navigation="navigation"
       :showLogo="route.name !== 'index'"
       :donateUrlBase="config.donateUrlBase"
       utmCampaign="homepage-header"
     />
-    <Sidebar 
+    <Sidebar
       v-model:visible="sidebarOpen"
       :baseZIndex="5000"
       position="right"
       data-style-mode="dark"
-      class="gothamist-sidebar px-3 md:px-4">
+      class="gothamist-sidebar px-3 md:px-4"
+    >
       <template v-slot:header>
-          <div class="gothamist-sidebar-header flex md:hidden">
-              <v-flexible-link to="/" raw @click="trackSidebarClick('sidebar logo')">
-                  <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
-              </v-flexible-link>
-              <div class="gothamist-sidebar-header-tagline">
-                  News for New Yorkers
-              </div>
-          </div>
+        <div class="gothamist-sidebar-header flex md:hidden">
+          <v-flexible-link
+            to="/"
+            raw
+            @click="trackSidebarClick('sidebar logo')"
+          >
+            <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
+          </v-flexible-link>
+          <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
+        </div>
       </template>
       <template v-slot:default>
-          <GothamistSidebarContents
-              :navigation="navigation" 
-              :donateUrlBase="config.donateUrlBase"
-              @menuListClick="trackSidebarClick($event)"
-              utmCampaign="goth_hamburger"
-              class="mt-3"
-          />
+        <GothamistSidebarContents
+          :navigation="navigation"
+          :donateUrlBase="config.donateUrlBase"
+          @menuListClick="trackSidebarClick($event)"
+          utmCampaign="goth_hamburger"
+          class="mt-3"
+        />
       </template>
-    </SideBar>
+    </Sidebar>
     <main>
       <slot />
     </main>
@@ -155,31 +161,31 @@ watch(route, (value) => {
 </template>
 
 <style lang="scss">
-  .leaderboard-ad-wrapper {
-    background: #111111;
-    @include media('<md') {
-      height: 116px;
-      padding: 8px auto;
-      position: sticky;
-      top: 0;
-      z-index: 5000;
-    }
-    @include media('>=md') {
-      height: 306px;
-      padding: 28px auto;
-    }
+.leaderboard-ad-wrapper {
+  background: #111111;
+  @include media('<md') {
+    height: 116px;
+    padding: 8px auto;
+    position: sticky;
+    top: 0;
+    z-index: 5000;
   }
+  @include media('>=md') {
+    height: 306px;
+    padding: 28px auto;
+  }
+}
 
-  .gothamist-sidebar.p-sidebar-right {
-    background-color: var(--black-500);
-    width: 100vw;
-    @include media('>sm') {
-      width: 480px;
-    }
-    .p-sidebar-close {
-      color: white;
-    }
+.gothamist-sidebar.p-sidebar-right {
+  background-color: var(--black-500);
+  width: 100vw;
+  @include media('>sm') {
+    width: 480px;
   }
+  .p-sidebar-close {
+    color: white;
+  }
+}
 
 .gothamist-sidebar .p-sidebar-header {
   justify-content: space-between;
@@ -187,24 +193,15 @@ watch(route, (value) => {
 }
 
 .gothamist-sidebar .p-sidebar-header {
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .gothamist-sidebar-header-logo {
   width: 120px;
-  padding-bottom: 3px;
   height: auto;
   * {
     fill: white;
   }
-}
-
-.gothamist-sidebar-header-tagline {
-  width: 71px;
-  font-family: var(--font-family-header);
-  font-size: 12px;
-  line-height: var(--font-size-5);
-  color: white;
 }
 
 .gothamist-sidebar .p-sidebar-content {
@@ -216,10 +213,16 @@ watch(route, (value) => {
 }
 
 .gothamist-sidebar-header-tagline {
-  width: 71px;
+  max-width: 160px;
   font-family: var(--font-family-header);
   font-size: 12px;
   line-height: var(--font-size-5);
   color: white;
+  align-self: flex-end;
+  padding-right: 1rem;
+  @include media('<375px') {
+    font-size: 10px;
+    line-height: var(--font-size-4);
+  }
 }
 </style>
