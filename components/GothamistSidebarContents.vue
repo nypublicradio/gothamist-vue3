@@ -15,11 +15,16 @@ const emit = defineEmits(['menu-list-click'])
 <template>
   <div class="sidebar-contents pt-3">
     <div class="sidebar-contents-top pb-5">
-      <menu-list :navLinks="props.navigation.primaryNavigation" @menuListClick="emit('menu-list-click', $event)" />
+      <menu-list
+        :navLinks="props.navigation.primaryNavigation"
+        @menuListClick="emit('menu-list-click', $event)"
+      />
     </div>
     <div class="sidebar-contents-bottom mb-5 md:mb-6">
       <v-flexible-link to="mailto:tips@gothamist.com" raw>
-        <Button class="sidebar-button-send-a-story p-button-rounded mb-5 w-full">
+        <Button
+          class="sidebar-button-send-a-story p-button-rounded mb-5 w-full"
+        >
           <span class="p-button-label">Send a story idea</span>
         </Button>
       </v-flexible-link>
@@ -29,11 +34,17 @@ const emit = defineEmits(['menu-list-click'])
         <v-share-tools-item service="facebook" username="gothamist" />
         <v-share-tools-item service="twitter" username="gothamist" />
         <v-share-tools-item service="instagram" username="gothamist" />
-        <v-share-tools-item service="youtube" username="UCY_2VeS5Q9_sMZRhtvF0c5Q" />
+        <v-share-tools-item
+          service="youtube"
+          username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
+        />
       </v-share-tools>
       <hr class="white mb-3" />
       <div class="flex mb-3">
-        <div class="sidebar-contents-property-description mr-2" v-html="navigation.propertyDescription"></div>
+        <div
+          class="sidebar-contents-property-description mr-2"
+          v-html="navigation.propertyDescription"
+        ></div>
         <div class="sidebar-contents-logo">
           <LogoNypr />
         </div>
@@ -60,7 +71,7 @@ const emit = defineEmits(['menu-list-click'])
 }
 
 .sidebar-contents .menu-list {
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .sidebar-contents .menu-list a.flexible-link {
@@ -68,9 +79,11 @@ const emit = defineEmits(['menu-list-click'])
   text-transform: none;
   font-weight: 600;
   font-size: 26px;
+  line-height: 23px;
 
   @include media('>sm') {
     font-size: 32px;
+    line-height: 30px;
   }
 }
 

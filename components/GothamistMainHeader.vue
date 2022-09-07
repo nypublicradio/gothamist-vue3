@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import Navigation from "~~/composables/types/Navigation";
+import Navigation from '~~/composables/types/Navigation'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 defineProps<{
-    showLogo: boolean,
-    navigation: Navigation
-    donateUrlBase: string
-    utmCampaign: string
+  showLogo: boolean
+  navigation: Navigation
+  donateUrlBase: string
+  utmCampaign: string
 }>()
 const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
-const openSidebar = () => { sidebarIsOpen.value = true }
+const strapline = await useStrapline()
+const openSidebar = () => {
+  sidebarIsOpen.value = true
+}
 
 const trackClick = (category, label) => {
   //emitted mobile menu click event
@@ -25,16 +28,19 @@ const trackClick = (category, label) => {
 <template>
   <header class="gothamist-header flex justify-content-between">
     <div class="gothamist-header-left">
-      <v-flexible-link to="/" raw @click="trackClick('Click Tracking - Header', 'header logo')">
+      <v-flexible-link
+        to="/"
+        raw
+        @click="trackClick('Click Tracking - Header', 'header logo')"
+      >
         <LogoGothamist v-if="showLogo" class="gothamist-header-logo pr-2" />
       </v-flexible-link>
       <div
         :class="`gothamist-header-tagline ${
           showLogo ? 'hidden' : 'block'
         } md:block`"
-      >
-        News for New Yorkers
-      </div>
+        v-html="strapline"
+      />
     </div>
     <div class="gothamist-header-right align-items-center">
       <v-flexible-link
@@ -90,8 +96,13 @@ const trackClick = (category, label) => {
   line-height: var(--font-size-6);
   font-weight: 600;
   color: black;
-  width: 86px;
+  max-width: 200px;
   align-self: flex-end;
+  padding-right: 1rem;
+  @include media('<375px') {
+    font-size: 12px;
+    line-height: var(--font-size-5);
+    align-self: center;
+  }
 }
-
 </style>

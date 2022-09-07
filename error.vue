@@ -8,6 +8,7 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const { $htlbid, $analytics } = useNuxtApp()
 const atTop = ref(true)
+const strapline = await useStrapline()
 
 const props = defineProps({
   error: {
@@ -110,7 +111,9 @@ const newsletterSubmitEvent = () => {
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <div class="leaderboard-ad-wrapper flex justify-content-center align-items-center">
+    <div
+      class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
+    >
       <div v-if="!sensitiveContent" class="htlad-index_leaderboard_1"></div>
     </div>
     <GothamistMainHeader
@@ -135,9 +138,7 @@ const newsletterSubmitEvent = () => {
           >
             <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
           </v-flexible-link>
-          <div class="gothamist-sidebar-header-tagline">
-            News for New Yorkers
-          </div>
+          <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
         </div>
       </template>
       <template v-slot:default>
@@ -151,8 +152,8 @@ const newsletterSubmitEvent = () => {
       </template>
     </Sidebar>
     <main>
-      <section>
-        <div class="error-page-header p-6">
+      <section class="error-page-header">
+        <div class="content">
           <div class="error-page-error pt-2">
             {{ error.statusCode }} Error - {{ error.statusMessage }}
           </div>
@@ -165,6 +166,8 @@ const newsletterSubmitEvent = () => {
             out our latest stories below.
           </h2>
         </div>
+      </section>
+      <section>
         <div class="content">
           <!-- featured area -->
           <article-recirculation />
