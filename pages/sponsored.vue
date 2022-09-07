@@ -176,7 +176,7 @@ const newsletterSubmitEvent = (e) => {
 </template>
 
 <style lang="scss">
-.page.sectionSlug-articleSlug {
+.page.sponsored {
   background: linear-gradient(
     180deg,
     #f3f3e4 0,
@@ -192,6 +192,7 @@ const newsletterSubmitEvent = (e) => {
   .col-fixed {
     width: 100%;
     max-width: $col-fixed-width-330;
+    min-width: $col-fixed-width-330;
   }
 
   .article-page-header {
