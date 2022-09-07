@@ -34,12 +34,9 @@ export default defineNuxtPlugin(() => {
         })
     }
     const clearAds = () => {
-      document.querySelectorAll('.htl-ad').forEach(function (el) {
-        el.remove()
-      })
-      document.querySelectorAll('.htl-ad-gpt').forEach(function (el) {
-        el.remove()
-      })
+        htlbid.cmd.push(() => {
+            htlbid.forceRefresh()
+        })
     }
     return {
         provide: {
