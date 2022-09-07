@@ -57,18 +57,33 @@ const newsletterSubmitEvent = () => {
         :ratio="[5, 1]"
       />
     </section>
-    <section v-if="curatedTagPage?.topPageZone" class="tag-page-top-zone">
+    <section
+      v-if="curatedTagPage?.topPageZone.length"
+      class="tag-page-top-zone"
+    >
       <div class="content mt-0 lg:mt-3">
-        <v-streamfield
-          :streamfield-blocks="curatedTagPage.topPageZone"
-          class="pt-4 lg:pt-6"
-        />
+        <div class="grid gutter-x-30">
+          <div class="col">
+            <v-streamfield
+              :streamfield-blocks="curatedTagPage.topPageZone"
+              class="pt-4 lg:pt-6"
+            />
+          </div>
+          <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
+        </div>
+      </div>
+    </section>
+    <section class="block xl:hidden">
+      <div
+        class="content"
+        :class="curatedTagPage?.topPageZone.length ? 'py-0' : 'pb-0'"
+      >
         <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
       </div>
     </section>
     <section v-if="articles">
       <div class="content">
-        <div class="grid gutter-x-xl">
+        <div class="grid gutter-x-30">
           <div class="col">
             <div
               v-for="(article, index) in articles.slice(0, articlesToShow)"
@@ -115,7 +130,7 @@ const newsletterSubmitEvent = () => {
             >
             </Button>
           </div>
-          <div class="col-fixed mx-auto">
+          <div class="col-fixed mx-auto hidden xl:block">
             <HtlAd layout="rectangle" slot="htlad-gothamist_interior_river" />
           </div>
         </div>
@@ -132,14 +147,6 @@ const newsletterSubmitEvent = () => {
 <style lang="scss">
 .tag-page-header {
   background: var(--black);
-}
-
-.tag-page-top-zone {
-  width: 100%;
-  margin: auto;
-  @include media('>lg') {
-    width: 80%;
-  }
 }
 
 .tag-page-top-zone .streamfield {

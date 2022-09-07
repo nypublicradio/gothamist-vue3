@@ -314,10 +314,11 @@ $img-height-mobile: 106px;
     gap: 1rem !important;
   }
 }
-.v-card:not([data-style-mode='dark']),
-.v-card:not([data-style-mode='dark']) .v-tag .flexible-link .p-button {
-  background: transparent;
-}
+//@Kim the following breaks the hover on the regulat tags, so I commented it out.
+// .v-card:not([data-style-mode='dark']),
+// .v-card:not([data-style-mode='dark']) .v-tag .flexible-link .p-button {
+//   background: transparent;
+// }
 .v-card[data-style-mode='dark'] .v-tag .flexible-link .p-button {
   background: transparent;
   border: solid 1px var(--white);
