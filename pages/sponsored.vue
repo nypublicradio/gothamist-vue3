@@ -107,7 +107,7 @@ const newsletterSubmitEvent = (e) => {
               <v-image-with-caption
                 v-if="topImage"
                 loading="eager"
-                image="https://images.unsplash.com/photo-1662476894382-088ef55f059c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1721&q=80"
+                image=""
                 :imageUrl="article.imageLink"
                 :width="728"
                 :height="485"
