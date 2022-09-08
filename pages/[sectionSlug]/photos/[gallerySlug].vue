@@ -126,7 +126,7 @@ onUnmounted(() => {
           :class="{ 'xl:col-6': index % 3 !== 0 }"
           :key="index"
         >
-          <template v-if="index === 3 || index % 6 === 0">
+          <template v-if="index === 3 || (index > 0 && index % 6 === 0)">
               <HtlAd
                 layout="rectangle"
                 slot="htlad-gothamist_interior_midpage_repeating"
