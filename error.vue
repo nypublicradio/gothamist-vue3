@@ -100,7 +100,7 @@ const newsletterSubmitEvent = () => {
         <Meta name="og:description" content="Investigating a strange world." />
         <Meta
           name="og:image"
-          content="https://gothamist.com/static-images/home_og_1200x650.png"
+          :content="config.OG_IMAGE"
         />
         <Meta name="og:locale" content="en_US" />
         <Meta name="og:image:width" content="1200" />
