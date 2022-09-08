@@ -1,5 +1,4 @@
 import { ArticlePage, GalleryPage } from './types/Page'
-
   // Get tracking values for GA for an article
   function useArticlePageTrackingData(article: ArticlePage): Record<string, string> {
     return {
@@ -139,14 +138,15 @@ import { ArticlePage, GalleryPage } from './types/Page'
   // Get <head> metadata values (for use with useHead) for an article
   function useArticlePageHeadMetadata(article: ArticlePage)
     :{ title: string, meta: {name: string, content: string}[] }
-  {
+  {   
+    const config = useRuntimeConfig()
     const metadata = {
       title: `${article.seoTitle} - Gothamist`,
       meta: [
         { name: 'og:title', content: article.socialTitle },
         { name: 'og:description', content: article.socialDescription },
         { name: 'og:url', content: article.url },
-        { name: 'og:image', content: useImageUrl(article.socialImage, {width: 1200, height: 650, quality: 85}) },
+        { name: 'og:image', content: useImageUrl(article.socialImage, {width: 1200, height: 650, quality: 85}) || config.public.OG_IMAGE },
         { name: 'og:image:width', content: '1200' },
         { name: 'og:image:height', content: '650' },
         { name: 'og:image:alt', content: article.socialImage?.alt },
@@ -165,12 +165,13 @@ import { ArticlePage, GalleryPage } from './types/Page'
 
   // Get <head> metadata values (for use with useHead) for a gallery
   function useGalleryPageHeadMetadata(gallery: GalleryPage) {
+    const config = useRuntimeConfig()
     const metadata = {
       meta: [
         { name: 'og:title', content: `${gallery.socialTitle} - Photo Gallery - Gothamist` },
         { name: 'og:description', content: gallery.socialDescription },
         { name: 'og:url', content: gallery.url },
-        { name: 'og:image', content: useImageUrl(gallery.socialImage, {width: 1200, height: 650, quality: 85}) },
+        { name: 'og:image', content: useImageUrl(gallery.socialImage, {width: 1200, height: 650, quality: 85}) || config.public.OG_IMAGE },
         { name: 'og:image:width', content: '1200' },
         { name: 'og:image:height', content: '650' },
         { name: 'og:image:alt', content: gallery.socialImage?.alt },
