@@ -138,6 +138,7 @@ onUnmounted(() => {
             :credit-url="slide.image.creditLink"
             :description="slide.title || slide.image.caption"
             :quality="80"
+            :sizes="[1,2]"
             :ratio="[slide.image.width, slide.image.height]"
             :allow-preview="true"
           />

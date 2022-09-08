@@ -119,7 +119,7 @@ const newsletterSubmitEvent = (e) => {
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
-                :quality="90"
+                :quality="80"
               />
             </div>
             <div class="block xxl:hidden mb-5">

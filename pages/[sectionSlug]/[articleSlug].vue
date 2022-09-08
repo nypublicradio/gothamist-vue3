@@ -154,7 +154,7 @@ const getGalleryLink = computed(() => {
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
-                :quality="90"
+                :quality="80"
               />
               <v-flexible-link
                 v-if="gallery"

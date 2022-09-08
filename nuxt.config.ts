@@ -31,7 +31,6 @@ export default defineNuxtConfig({
       }
     ],
   },
-  //buildModules: [],
   css: [
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/fonts/fonts.css',
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/gothamist.min.css',
