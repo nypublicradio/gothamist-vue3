@@ -110,6 +110,11 @@ watch(route, (value) => {
         <Meta name="Googlebot-News" content="noindex, nofollow" />
       </Head>
     </Html>
+
+    <!-- Google Tag Manager (noscript) -->
+    <div v-html='`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${config.GTM_ID}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`' />
+    <!-- End Google Tag Manager (noscript) -->
     <div v-if="!sensitiveContent" class="htlad-skin" />
     <div
       class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
