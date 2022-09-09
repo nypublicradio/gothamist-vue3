@@ -72,13 +72,13 @@ const newsletterSubmitEvent = () => {
           <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
         </div>
       </div>
+      <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
     </section>
     <section class="block xl:hidden">
       <div
         class="content"
         :class="curatedTagPage?.topPageZone.length ? 'py-0' : 'pb-0'"
       >
-        <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
       </div>
     </section>
     <section v-if="articles">

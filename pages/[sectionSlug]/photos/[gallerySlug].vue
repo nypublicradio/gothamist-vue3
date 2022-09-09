@@ -126,6 +126,13 @@ onUnmounted(() => {
           :class="{ 'xl:col-6': index % 3 !== 0 }"
           :key="index"
         >
+          <template v-if="index === 3 || (index > 0 && index % 6 === 0)">
+              <HtlAd
+                layout="rectangle"
+                slot="htlad-gothamist_interior_midpage_repeating"
+              />
+              <hr class="my-3" />
+          </template>
           <v-image-with-caption
             v-if="slide.image"
             :image="useImageUrl(slide.image)"
@@ -143,13 +150,6 @@ onUnmounted(() => {
             :allow-preview="true"
           />
           <hr class="my-3" />
-          <template v-if="index == 2 || index % 6 === 0">
-            <HtlAd
-              layout="rectangle"
-              slot="htlad-gothamist_interior_midpage_repeating"
-            />
-            <hr class="my-3" />
-          </template>
         </div>
       </div>
       <div class="text-right mt-2">
