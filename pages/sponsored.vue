@@ -20,7 +20,7 @@ const article = {
   body: [],
   tags: [],
   authors: [],
-  disableComments: true
+  disableComments: true,
 }
 const topImage = {
   id: 33,
@@ -29,7 +29,7 @@ const topImage = {
   width: 728,
   height: 485,
   credit: '',
-  creditLink: ''
+  creditLink: '',
 }
 const topCaption = ''
 
@@ -42,7 +42,7 @@ const showHeaderAfter = computed(() => (isMediumOrUpScreen.value ? 374 : 68))
 const showHeader = computed(() => scrollY.value > showHeaderAfter.value)
 
 onMounted(() => {
-  $analytics.sendPageView({page_type: 'sponosored_article'})
+  $analytics.sendPageView({ page_type: 'sponosored_article' })
   sensitiveContent.value = true
 })
 
@@ -119,7 +119,7 @@ const newsletterSubmitEvent = (e) => {
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
-                :quality="80"
+                :quality="70"
               />
             </div>
             <div class="block xxl:hidden mb-5">
@@ -160,12 +160,8 @@ const newsletterSubmitEvent = (e) => {
           </div>
         </div>
         <hr class="black" />
-        <p v-if="article?.section" class="type-label3 mt-2 mb-4">
-          MORE NEWS
-        </p>
-        <article-recirculation
-          slug="news"
-        />
+        <p v-if="article?.section" class="type-label3 mt-2 mb-4">MORE NEWS</p>
+        <article-recirculation slug="news" />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent('footer')" />
@@ -225,4 +221,3 @@ const newsletterSubmitEvent = (e) => {
   }
 }
 </style>
-    
