@@ -116,10 +116,9 @@ const newsletterSubmitEvent = (e) => {
                 :maxHeight="topImage?.height"
                 :credit="topImage?.credit && `Photo by ${topImage?.credit}`"
                 :credit-url="topImage?.creditLink"
-                :sizes="[1, 2]"
+                :sizes="[2]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
-                :quality="70"
               />
             </div>
             <div class="block xxl:hidden mb-5">

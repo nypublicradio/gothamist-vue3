@@ -65,7 +65,7 @@ const articlesSm = ref([
           :sizes="[1]"
           :maxWidth="articleMd.listingImage?.width"
           :maxHeight="articleMd.listingImage?.height"
-          loading="eager"
+          loading="lazy"
           :tags="[
             {
               name: articleMd.section.name,
@@ -93,7 +93,7 @@ const articlesSm = ref([
           :titleLink="articleLg.link"
           :maxWidth="articleLg.listingImage?.width"
           :maxHeight="articleLg.listingImage?.height"
-          loading="eager"
+          loading="lazy"
           :tags="[
             {
               name: articleLg.section.name,
@@ -118,7 +118,7 @@ const articlesSm = ref([
             :width="106"
             :height="106"
             :ratio="[1, 1]"
-            :sizes="[1, 2]"
+            :sizes="[2]"
             :title="slotProps.article.listingTitle || slotProps.article.title"
             :titleLink="slotProps.article.link"
             :maxWidth="slotProps.article.listingImage?.width"
