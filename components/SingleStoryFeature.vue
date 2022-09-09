@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
+import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
+import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import { ref } from 'vue'
 
 const props = defineProps({
@@ -20,11 +22,11 @@ const article = normalizeArticlePage(props.collection.data[0])
     class="mod-large mb-5 lg:mb-8 tag-small single-story-feature"
     data-style-mode="dark"
     :image="useImageUrl(article.listingImage)"
+    :width="1427"
+    :height="952"
     :ratio="[3, 2]"
-    :width="1440"
-    :height="968"
     :sizes="[1]"
-    :quality="75"
+    :quality="70"
     :title="article.listingTitle"
     :titleLink="article.link"
     :maxWidth="article.listingImage?.width"

@@ -211,7 +211,7 @@ const getGalleryLink = computed(() => {
           MORE {{ article.section.slug }}
         </p>
         <article-recirculation
-          :slug="String(route.params.sectionSlug)"
+          :slug="String(route?.params?.sectionSlug)"
           :article="article"
         />
         <div class="mt-6 mb-5">

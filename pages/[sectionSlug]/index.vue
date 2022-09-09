@@ -5,7 +5,7 @@ const route = useRoute()
 const sensitiveContent = useSensitiveContent()
 
 const { title: sectionTitle, id: sectionId } = await findPage(
-  route.params.sectionSlug as string
+  route?.params?.sectionSlug as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
@@ -36,7 +36,7 @@ const newsletterSubmitEvent = () => {
         <hr class="black" />
         <!-- featured area -->
         <article-recirculation
-          :slug="String(route.params.sectionSlug)"
+          :slug="(route?.params?.sectionSlug as string)"
           id="article-recirculation"
           class="my-6"
         />
@@ -76,7 +76,10 @@ const newsletterSubmitEvent = () => {
           </div>
 
           <div class="col-fixed mx-auto">
-            <div v-if="!sensitiveContent" class="htl-gothamist_interior_river"></div>
+            <div
+              v-if="!sensitiveContent"
+              class="htl-gothamist_interior_river"
+            ></div>
           </div>
         </div>
         <!-- newsletter -->
