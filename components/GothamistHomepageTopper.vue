@@ -63,7 +63,7 @@ const latestArticles = computed(() => props.articles.slice(1))
           :image="useImageUrl(article.listingImage)"
           :width="158"
           :height="106"
-          :sizes="[1]"
+          :sizes="[1, 2]"
           :title="article.listingTitle || article.title"
           :titleLink="article.link"
           :maxWidth="article.listingImage?.width"
