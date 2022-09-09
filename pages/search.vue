@@ -123,8 +123,8 @@ const newsletterSubmitEvent = () => {
                 >
                 </Button>
               </div>
-              <div class="col-fixed hidden xl:block mx-auto">
-                <div v-if="!sensitiveContent" class="htlad-gothamist_interior_midpage_repeating" />
+              <div class="col-fixed mx-auto hidden xl:block">
+                <HtlAd layout="rectangle" slot="htlad-gothamist_interior_river" />
               </div>
             </div>
           </template>
