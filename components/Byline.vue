@@ -45,11 +45,11 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
             :src="useImageUrl({ id: sponsor?.logo })"
             :width="60"
             :height="60"
-            :sizes="[1, 2]"
+            :sizes="[2]"
             :ratio="[1, 1]"
             alt="Sponsor's image"
           />
-          <img v-else src="/avatar.svg" alt="Sponsor's image" />
+          <img v-else src="/avatar.svg" alt="Sponsor's image" loading="lazy" />
         </v-flexible-link>
       </div>
       <div class="flex flex-column gap-125">
@@ -85,11 +85,11 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
               :src="useImageUrl({ id: author.photoID })"
               :width="60"
               :height="60"
-              :sizes="[1, 2]"
+              :sizes="[2]"
               :ratio="[1, 1]"
               alt="Author's image"
             />
-            <img v-else src="/avatar.svg" alt="Author's image" />
+            <img v-else src="/avatar.svg" alt="Author's image" loading="lazy" />
           </v-flexible-link>
         </div>
       </div>

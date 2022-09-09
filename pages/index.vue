@@ -91,7 +91,7 @@ onMounted(() => {
                 :key="article.uuid"
               >
                 <v-card
-                  id="index === 1 ? 'ntv-stream-3' : ''"
+                  :id="index === 1 ? 'ntv-stream-3' : ''"
                   class="mod-horizontal mb-3 lg:mb-5 tag-small"
                   :image="useImageUrl(article.listingImage)"
                   :width="318"
