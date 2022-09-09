@@ -22,10 +22,8 @@ const article = normalizeArticlePage(props.collection.data[0])
     class="mod-large mb-5 lg:mb-8 tag-small single-story-feature"
     data-style-mode="dark"
     :image="useImageUrl(article.listingImage)"
-    :width="1427"
-    :height="952"
     :ratio="[3, 2]"
-    :sizes="[1]"
+    :sizes="[1, 2]"
     :quality="70"
     :title="article.listingTitle"
     :titleLink="article.link"
@@ -44,10 +42,18 @@ const article = normalizeArticlePage(props.collection.data[0])
 </template>
 
 <style lang="scss">
-.v-card.single-story-feature .card-details {
-  align-self: flex-end !important;
-  @include media('<xl') {
-    padding: 0 1rem 1.5rem !important;
+.v-card.single-story-feature {
+  .card-image-wrapper {
+    @include media('<xxl') {
+      flex-basis: 65%;
+    }
+  }
+  .card-details {
+    align-self: flex-end !important;
+    padding: 0 1rem 1rem 0rem !important;
+    @include media('<lg') {
+      padding: 0 1rem 1rem 1rem !important;
+    }
   }
 }
 </style>
