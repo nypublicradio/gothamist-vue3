@@ -47,6 +47,9 @@ const article = normalizeArticlePage(props.collection.data[0])
     @include media('<xxl') {
       flex-basis: 65%;
     }
+    @include media('<lg') {
+      margin-bottom: 0;
+    }
   }
   .card-details {
     align-self: flex-end !important;
