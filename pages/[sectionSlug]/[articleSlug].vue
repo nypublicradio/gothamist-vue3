@@ -154,7 +154,7 @@ const getGalleryLink = computed(() => {
                 :sizes="[1, 2]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
-                :quality="90"
+                :quality="70"
               />
               <v-flexible-link
                 v-if="gallery"
@@ -211,7 +211,7 @@ const getGalleryLink = computed(() => {
           MORE {{ article.section.slug }}
         </p>
         <article-recirculation
-          :slug="String(route.params.sectionSlug)"
+          :slug="(route?.params?.sectionSlug as string)"
           :article="article"
         />
         <div class="mt-6 mb-5">

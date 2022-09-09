@@ -4,7 +4,7 @@ import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCar
 const route = useRoute()
 
 const { title: sectionTitle, id: sectionId } = await findPage(
-  route.params.sectionSlug as string
+  route?.params?.sectionSlug as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
@@ -35,7 +35,7 @@ const newsletterSubmitEvent = () => {
         <hr class="black" />
         <!-- featured area -->
         <article-recirculation
-          :slug="String(route.params.sectionSlug)"
+          :slug="(route?.params?.sectionSlug as string)"
           id="article-recirculation"
           class="my-6"
         />

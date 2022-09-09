@@ -158,6 +158,7 @@ const submitForm = () => {
               role="checkbox"
               aria-label="Toggle agreement to the terms"
               :aria-checked="checked"
+              aria-toggle-field-name="agree to receive communications from New York Public Radio checkbox"
               v-model="checked"
               :disabled="props.isSubmitting"
               :binary="true"

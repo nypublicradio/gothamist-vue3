@@ -127,11 +127,11 @@ onUnmounted(() => {
           :key="index"
         >
           <template v-if="index === 3 || (index > 0 && index % 6 === 0)">
-              <HtlAd
-                layout="rectangle"
-                slot="htlad-gothamist_interior_midpage_repeating"
-              />
-              <hr class="my-3" />
+            <HtlAd
+              layout="rectangle"
+              slot="htlad-gothamist_interior_midpage_repeating"
+            />
+            <hr class="my-3" />
           </template>
           <v-image-with-caption
             v-if="slide.image"
@@ -144,7 +144,8 @@ onUnmounted(() => {
             "
             :credit-url="slide.image.creditLink"
             :description="slide.title || slide.image.caption"
-            :quality="80"
+            :quality="70"
+            :sizes="[1, 2]"
             :ratio="[slide.image.width, slide.image.height]"
             :allow-preview="true"
           />
