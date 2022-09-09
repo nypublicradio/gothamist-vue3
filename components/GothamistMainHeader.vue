@@ -55,6 +55,7 @@ const trackClick = (category, label) => {
       <Button
         icon="pi pi-bars"
         class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
+        aria-label="menu button"
         @click="openSidebar"
       />
     </div>

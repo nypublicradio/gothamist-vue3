@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import { ref } from 'vue'
-
 const props = defineProps({
   collection: {
     type: Object,
@@ -21,10 +19,8 @@ const article = normalizeArticlePage(props.collection.data[0])
     data-style-mode="dark"
     :image="useImageUrl(article.listingImage)"
     :ratio="[3, 2]"
-    :width="1440"
-    :height="968"
-    :sizes="[1]"
-    :quality="90"
+    :sizes="[1, 2]"
+    :quality="70"
     :title="article.listingTitle"
     :titleLink="article.link"
     :maxWidth="article.listingImage?.width"
@@ -42,10 +38,21 @@ const article = normalizeArticlePage(props.collection.data[0])
 </template>
 
 <style lang="scss">
-.v-card.single-story-feature .card-details {
-  align-self: flex-end !important;
-  @include media('<xl') {
-    padding: 0 1rem 1.5rem !important;
+.v-card.single-story-feature {
+  .card-image-wrapper {
+    @include media('<xxl') {
+      flex-basis: 65%;
+    }
+    @include media('<lg') {
+      margin-bottom: 0;
+    }
+  }
+  .card-details {
+    align-self: flex-end !important;
+    padding: 0 1rem 1rem 0rem !important;
+    @include media('<lg') {
+      padding: 0 1rem 1rem 1rem !important;
+    }
   }
 }
 </style>
