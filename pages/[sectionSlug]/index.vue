@@ -39,6 +39,9 @@ const newsletterSubmitEvent = () => {
           id="article-recirculation"
           class="my-6"
         />
+        <div class="mb-6">
+          <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
+        </div>
         <!-- articles -->
         <div v-if="articles" class="grid gutter-x-xl">
           <div class="col-1 hidden xl:block"></div>
