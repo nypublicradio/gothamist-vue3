@@ -165,9 +165,23 @@ onUnmounted(() => {
 .sectionSlug-photos-gallerySlug .gothamist-footer {
   display: none !important;
 }
+//scrollTopBtn overrides to render correctly in dark mode
+.sectionSlug-photos-gallerySlug .scrollTopBtn {
+  position: fixed !important;
+  .p-scrolltop.p-link {
+    background: var(--white);
+    .p-scrolltop-icon {
+      color: var(--black);
+    }
+  }
+}
 
 .sectionSlug-photos-gallerySlug {
   background: var(--black);
+}
+
+.sectionSlug-photos-gallerySlug .content {
+  padding-bottom: 140px;
 }
 
 .sectionSlug-photos-gallerySlug .pi-times {

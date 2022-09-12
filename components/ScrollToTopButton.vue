@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { onMounted, onBeforeUnmount } from 'vue'
@@ -17,11 +18,13 @@ const props = defineProps({
   },
 })
 
+const scrollTopBtn = ref(null)
+
 // init func for the scrollTrigger on the footer
 const initScrollTrigger = () => {
   if (!props.hide) {
     gsapScrollTrigger = gsap.timeline()
-    gsapScrollTrigger.to('#scrollTopBtn', {
+    gsapScrollTrigger.to(scrollTopBtn.value, {
       scrollTrigger: {
         id: 'scrollToTopButtonID',
         trigger: '#gothamist-footer',
@@ -41,7 +44,7 @@ watch(route, () => {
     gsapScrollTrigger = null
     setTimeout(() => {
       initScrollTrigger()
-    }, 1000)
+    }, 2000)
   }
 })
 
@@ -49,7 +52,7 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   setTimeout(() => {
     initScrollTrigger()
-  }, 1000)
+  }, 2000)
 })
 
 onBeforeUnmount(() => {
@@ -61,7 +64,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div v-if="!hide" class="relative">
-    <div id="scrollTopBtn">
+    <div ref="scrollTopBtn" class="scrollTopBtn">
       <ScrollTop
         :threshold="threshold"
         icon="pi pi-arrow-up"
@@ -73,7 +76,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss">
-#scrollTopBtn {
+.scrollTopBtn {
   position: fixed;
   width: 68px;
   height: 68px;
@@ -96,7 +99,7 @@ onBeforeUnmount(() => {
       height: 45px;
     }
     &.p-link {
-      background: var(--black);
+      background: var(--button-bg);
     }
     .p-scrolltop-icon {
       font-size: 1.3rem;
