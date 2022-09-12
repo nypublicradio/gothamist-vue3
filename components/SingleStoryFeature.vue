@@ -18,6 +18,7 @@ const article = normalizeArticlePage(props.collection.data[0])
     class="mod-large mb-5 lg:mb-8 tag-small single-story-feature"
     data-style-mode="dark"
     :image="useImageUrl(article.listingImage)"
+    :alt="article.listingImage?.alt"
     :ratio="[3, 2]"
     :sizes="[2]"
     :title="article.listingTitle"

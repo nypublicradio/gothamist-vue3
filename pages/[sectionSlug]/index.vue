@@ -53,6 +53,7 @@ const newsletterSubmitEvent = () => {
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
+                :alt="article.listingImage?.alt"
                 :title="article.listingTitle"
                 :titleLink="article.link"
                 :ratio="[3, 2]"

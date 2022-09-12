@@ -81,6 +81,7 @@ onUnmounted(() => {
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
+                :alt="article.listingImage?.alt"
                 :title="article.listingTitle || article.title"
                 :titleLink="article.link"
                 :ratio="[3, 2]"

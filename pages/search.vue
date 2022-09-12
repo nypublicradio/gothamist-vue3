@@ -93,6 +93,7 @@ const newsletterSubmitEvent = () => {
                   <v-card
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
                     :image="useImageUrl(article.listingImage)"
+                    :alt="article.listingImage?.alt"
                     :width="318"
                     :height="212"
                     :sizes="[1]"
@@ -124,7 +125,10 @@ const newsletterSubmitEvent = () => {
                 </Button>
               </div>
               <div class="col-fixed mx-auto hidden xl:block">
-                <HtlAd layout="rectangle" slot="htlad-gothamist_interior_river" />
+                <HtlAd
+                  layout="rectangle"
+                  slot="htlad-gothamist_interior_river"
+                />
               </div>
             </div>
           </template>
