@@ -78,8 +78,7 @@ const newsletterSubmitEvent = () => {
       <div
         class="content"
         :class="curatedTagPage?.topPageZone.length ? 'py-0' : 'pb-0'"
-      >
-      </div>
+      ></div>
     </section>
     <section v-if="articles">
       <div class="content">
@@ -92,6 +91,7 @@ const newsletterSubmitEvent = () => {
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
+                :alt="article.listingImage?.alt"
                 :title="article.listingTitle"
                 :titleLink="article.link"
                 :ratio="[3, 2]"

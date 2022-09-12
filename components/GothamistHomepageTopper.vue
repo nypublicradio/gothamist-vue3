@@ -27,6 +27,7 @@ const latestArticles = computed(() => props.articles.slice(1))
       <v-card
         class="featured-article mod-vertical mod-featured mod-large"
         :image="useImageUrl(featuredArticle.listingImage)"
+        :alt="featuredArticle.listingImage?.alt"
         :sizes="[1]"
         :width="897"
         :height="598"
@@ -61,6 +62,7 @@ const latestArticles = computed(() => props.articles.slice(1))
           :id="index === 3 ? 'ntv-latest-1' : ''"
           class="mod-horizontal mod-left mod-small mb-3 tag-small"
           :image="useImageUrl(article.listingImage)"
+          :alt="article.listingImage?.alt"
           :width="158"
           :height="106"
           :sizes="[2]"
