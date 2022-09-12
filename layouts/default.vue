@@ -7,7 +7,6 @@ import { useSidebarIsOpen } from '~~/composables/states.js'
 const config = useRuntimeConfig()
 const route = useRoute()
 const { $htlbid, $analytics } = useNuxtApp()
-const atTop = ref(true)
 const navigation = await findNavigation().then(({ data }) =>
   normalizeFindNavigationResponse(data)
 )
@@ -37,10 +36,6 @@ const trackSidebarClick = (label) => {
 }
 
 onMounted(() => {
-  document.addEventListener('scroll', (e) => {
-    atTop.value = window.scrollY > 0 ? false : true
-    //atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
-  })
   $htlbid.init()
   $htlbid.setTargeting({
     is_testing: config.HTL_IS_TESTING,
@@ -94,10 +89,7 @@ watch(route, (value) => {
           content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
         />
         <Meta name="og:description" content="Investigating a strange world." />
-        <Meta
-          name="og:image"
-          :content="config.OG_IMAGE"
-        />
+        <Meta name="og:image" :content="config.OG_IMAGE" />
         <Meta name="og:locale" content="en_US" />
         <Meta name="og:image:width" content="1200" />
         <Meta name="og:image:height" content="650" />
@@ -112,8 +104,12 @@ watch(route, (value) => {
     </Html>
 
     <!-- Google Tag Manager (noscript) -->
-    <div v-html='`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${config.GTM_ID}"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`' />
+    <div
+      v-html="
+        `<noscript><iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.GTM_ID}&quot;
+    height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe></noscript>`
+      "
+    />
     <!-- End Google Tag Manager (noscript) -->
     <div v-if="!sensitiveContent" class="htlad-skin" />
     <div
