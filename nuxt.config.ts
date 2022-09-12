@@ -36,7 +36,6 @@ export default defineNuxtConfig({
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/gothamist.min.css',
     'primevue/resources/primevue.min.css',
     'primeicons/primeicons.css',
-    'mosha-vue-toastify/dist/style.css',
   ],
   vite: {
     css: {
@@ -66,7 +65,6 @@ export default defineNuxtConfig({
   build: {
     transpile: [
       'primevue',
-      'mosha-vue-toastify',
       'gsap'
     ]
   },
