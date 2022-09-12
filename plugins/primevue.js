@@ -1,16 +1,16 @@
 import { defineNuxtPlugin } from '#app'
-import PrimeVue from 'primevue/config/config.esm.js'
-import Divider from 'primevue/divider/divider.esm.js'
 import Button from 'primevue/button/button.esm.js'
 import Checkbox from 'primevue/checkbox/checkbox.esm.js'
+import Divider from 'primevue/divider/divider.esm.js'
 import InputText from 'primevue/inputtext/inputtext.esm.js'
-import Skeleton from 'primevue/skeleton/skeleton.esm.js'
-import Menubar from 'primevue/menubar/menubar.esm.js'
 import Menu from 'primevue/menu/menu.esm.js'
+import Menubar from 'primevue/menubar/menubar.esm.js'
 import MegaMenu from 'primevue/megamenu/megamenu.esm.js'
-import Sidebar from 'primevue/sidebar/sidebar.esm.js'
 import Paginator from 'primevue/paginator/paginator.esm.js'
+import PrimeVue from 'primevue/config/config.esm.js'
 import ScrollTop from 'primevue/scrolltop/scrolltop.esm.js'
+import Sidebar from 'primevue/sidebar/sidebar.esm.js'
+import Skeleton from 'primevue/skeleton/skeleton.esm.js'
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true })
