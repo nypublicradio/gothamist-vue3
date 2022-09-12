@@ -248,7 +248,7 @@ const getGalleryLink = computed(() => {
     .p-button {
       background: #ffffff;
       &:hover {
-        background: map-get($colors, 'soybeanhover');
+        background: var(--soybeanHover);
       }
     }
   }
