@@ -134,7 +134,7 @@ watch(route, (value) => {
     />
     <Sidebar
       v-model:visible="sidebarOpen"
-      :baseZIndex="5000"
+      :baseZIndex="6000"
       position="right"
       data-style-mode="dark"
       class="gothamist-sidebar px-3 md:px-4"
