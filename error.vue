@@ -98,10 +98,7 @@ const newsletterSubmitEvent = () => {
           content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
         />
         <Meta name="og:description" content="Investigating a strange world." />
-        <Meta
-          name="og:image"
-          :content="config.OG_IMAGE"
-        />
+        <Meta name="og:image" :content="config.OG_IMAGE" />
         <Meta name="og:locale" content="en_US" />
         <Meta name="og:image:width" content="1200" />
         <Meta name="og:image:height" content="650" />
@@ -124,7 +121,7 @@ const newsletterSubmitEvent = () => {
     />
     <Sidebar
       v-model:visible="sidebarOpen"
-      :baseZIndex="5000"
+      :baseZIndex="6000"
       position="right"
       data-style-mode="dark"
       class="gothamist-sidebar px-3 md:px-4"
