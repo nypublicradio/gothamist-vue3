@@ -28,7 +28,6 @@ props.articles.forEach((article) => {
         <v-card
           class="mod-vertical mod-large mb-3 lg:mb-5 tag-small"
           :image="useImageUrl(article.listingImage)"
-          :alt="article.listingImage?.alt"
           :width="318"
           :height="212"
           :sizes="[1]"
