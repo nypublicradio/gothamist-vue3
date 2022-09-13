@@ -118,7 +118,8 @@ const submitForm = (email) => {
       >
         By submitting your information, you're agreeing to receive
         communications from New York Public Radio in accordance with our
-        <v-flexible-link to="/terms">Terms</v-flexible-link>.
+        <v-flexible-link to="https://www.wnyc.org/terms/">Terms</v-flexible-link
+        >.
       </email-collector-form>
     </div>
   </div>
