@@ -48,7 +48,6 @@ const articlesSm = ref([
           <v-card
             class="article-lg mod-vertical mod-featured2 mod-large mb-4"
             :image="useImageUrl(articleLg?.listingImage)"
-            :alt="articleLg?.listingImage?.alt"
             :sizes="[1]"
             :width="897"
             :height="598"
@@ -71,7 +70,6 @@ const articlesSm = ref([
           <v-card
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
             :image="useImageUrl(articleMd?.listingImage)"
-            :alt="articleMd?.listingImage?.alt"
             :title="articleMd?.listingTitle"
             :titleLink="articleMd?.link"
             :ratio="[3, 2]"
@@ -92,7 +90,6 @@ const articlesSm = ref([
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
             :image="useImageUrl(articleMd?.listingImage)"
             :title="articleMd?.listingTitle"
-            :alt="articleMd?.listingImage?.alt"
             :titleLink="articleMd?.link"
             :width="318"
             :height="212"

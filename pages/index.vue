@@ -94,7 +94,6 @@ onMounted(() => {
                   :id="index === 1 ? 'ntv-stream-3' : ''"
                   class="mod-horizontal mb-3 lg:mb-5 tag-small"
                   :image="useImageUrl(article.listingImage)"
-                  :alt="article.listingImage?.alt"
                   :width="318"
                   :height="212"
                   :sizes="[1]"
