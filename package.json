@@ -32,6 +32,7 @@
     "primevue": "^3.12.1",
     "sass": "^1.49.9",
     "vitest": "^0.10.2",
+    "vue-adblock-detector": "^1.2.4",
     "vue-social-sharing": "^4.0.0-alpha4"
   }
 }

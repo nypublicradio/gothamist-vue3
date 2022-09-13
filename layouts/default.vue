@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { ref, onMounted } from 'vue'
+import vueAdblockDetector from 'vue-adblock-detector'
+import { ref, onMounted, onBeforeMount } from 'vue'
 import { useRuntimeConfig } from '#app'
 import { useSidebarIsOpen } from '~~/composables/states.js'
 
@@ -21,6 +22,7 @@ const productBanners = await findProductBanners().then(({ data }) =>
 )
 const sensitiveContent = useSensitiveContent()
 const sidebarOpen = useSidebarIsOpen()
+const blockerDetected = useBlockerDetected()
 const isSponsored = route.name === 'sponsored'
 const closeSidebar = () => (sidebarOpen.value = false)
 const strapline = await useStrapline()
@@ -34,6 +36,16 @@ const trackSidebarClick = (label) => {
   })
   closeSidebar()
 }
+
+onBeforeMount(() => {
+  vueAdblockDetector.detectAnyAdblocker().then((detected) => {
+    if (detected) {
+      blockerDetected.value = true
+    } else {
+      blockerDetected.value = false
+    }
+  })
+})
 
 onMounted(() => {
   $htlbid.init()
@@ -112,20 +124,22 @@ watch(route, (value) => {
     />
     <!-- End Google Tag Manager (noscript) -->
     <div v-if="!sensitiveContent" class="htlad-skin" />
-    <div
-      class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
-    >
-      <HtlAd
-        v-if="route.name === 'index'"
-        layout="leaderboard"
-        slot="htlad-gothamist_index_leaderboard_1"
-      />
-      <HtlAd
-        v-else
-        layout="leaderboard"
-        slot="htlad-gothamist_interior_leaderboard_1"
-      />
-    </div>
+    <HtlAdHolder>
+      <div
+        class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
+      >
+        <HtlAd
+          v-if="route.name === 'index'"
+          layout="leaderboard"
+          slot="htlad-gothamist_index_leaderboard_1"
+        />
+        <HtlAd
+          v-else
+          layout="leaderboard"
+          slot="htlad-gothamist_interior_leaderboard_1"
+        />
+      </div>
+    </HtlAdHolder>
     <GothamistMainHeader
       :navigation="navigation"
       :showLogo="route.name !== 'index'"
