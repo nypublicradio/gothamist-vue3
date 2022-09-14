@@ -27,10 +27,8 @@ const sidebarOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const closeSidebar = () => {
   sidebarOpen.value = false
-  if (sidebarOpenedFrom.value?.focus) {
-    sidebarOpenedFrom.value.focus()
-  }
 }
+
 let sidebarElements = undefined
 let firstElement = undefined
 let lastElement = undefined
@@ -39,6 +37,12 @@ const handleSidebarShown = () => {
   sidebarElements = Array.from(document.querySelectorAll('.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])')).filter(element => element.clientWidth + element.clientHeight !== 0)
   firstElement = sidebarElements[0]
   lastElement = sidebarElements[sidebarElements.length - 1]
+}
+
+const handleSidebarHidden = () => {
+  if (sidebarOpenedFrom.value?.focus) {
+    sidebarOpenedFrom.value.focus()
+  }
 }
 
 const handleSidebarTab = (e) => {
@@ -179,6 +183,7 @@ watch(route, (value) => {
     ariaCloseLabel="close the navigation menu"
     class="gothamist-sidebar px-3 md:px-4"
     @show="handleSidebarShown"
+    @hide="handleSidebarHidden"
     @keydown.esc="closeSidebar"
     @keydown.tab="handleSidebarTab"
     @keydown.shift.tab="handleSidebarShiftTab"
