@@ -10,11 +10,12 @@ const sensitiveContent = useSensitiveContent()
 </script>
 
 <template>
-<div :class="`ad-wrapper ${sensitiveContent ? '' : layout}`">
-    <div v-if="!sensitiveContent" :class="slot"></div>
-    <p v-if="fineprint && !sensitiveContent" :class="`type-fineprint ${fineprintClass || ''}`">{{fineprint}}</p>
-</div>
-
+    <div>
+        <div :class="`ad-wrapper ${sensitiveContent ? '' : layout}`">
+            <div v-if="!sensitiveContent" :class="slot"></div>
+        </div>
+        <p v-if="fineprint && !sensitiveContent" :class="`type-fineprint ${fineprintClass || ''}`">{{fineprint}}</p>
+    </div>
 </template>
 <style lang="scss">
 .ad-wrapper.leaderboard {
