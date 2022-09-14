@@ -142,7 +142,7 @@ watch(route, (value) => {
       "
     />
     <!-- End Google Tag Manager (noscript) -->
-    <div :aria-hidden="sidebarOpen ? 'true' : 'false'">
+    <div>
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div
         class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
