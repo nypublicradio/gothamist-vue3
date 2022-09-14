@@ -31,10 +31,12 @@ const props = defineProps({
   },
 })
 const sidebarIsOpen = useSidebarIsOpen()
+const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = await useStrapline()
 const progressPercentage = computed(() => `${props.progress}%`)
-const openSidebar = () => {
+const openSidebar = (e) => {
   sidebarIsOpen.value = true
+  sidebarOpenedFrom.value = e.target
 }
 </script>
 
@@ -140,6 +142,8 @@ const openSidebar = () => {
           <Button
             icon="pi pi-bars"
             class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
+            aria-label="Open the navigation menu"
+            aria-expanded="false"
             @click="openSidebar"
           />
         </div>

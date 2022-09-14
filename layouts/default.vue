@@ -2,7 +2,6 @@
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import { ref, onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
-import { useSidebarIsOpen } from '~~/composables/states.js'
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -19,11 +18,47 @@ const breakingNews = await findBreakingNews().then(({ data }) =>
 const productBanners = await findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
+const isSponsored = route.name === 'sponsored'
+const strapline = await useStrapline()
+
+
 const sensitiveContent = useSensitiveContent()
 const sidebarOpen = useSidebarIsOpen()
-const isSponsored = route.name === 'sponsored'
-const closeSidebar = () => (sidebarOpen.value = false)
-const strapline = await useStrapline()
+const sidebarOpenedFrom = useSidebarOpenedFrom()
+const closeSidebar = () => {
+  sidebarOpen.value = false
+}
+
+let sidebarElements = undefined
+let firstElement = undefined
+let lastElement = undefined
+
+const handleSidebarShown = () => {
+  sidebarElements = Array.from(document.querySelectorAll('.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])')).filter(element => element.clientWidth + element.clientHeight !== 0)
+  firstElement = sidebarElements[0]
+  lastElement = sidebarElements[sidebarElements.length - 1]
+}
+
+const handleSidebarHidden = () => {
+  if (sidebarOpenedFrom.value?.focus) {
+    sidebarOpenedFrom.value.focus()
+  }
+}
+
+const handleSidebarTab = (e) => {
+  if (!e.shiftKey && document.activeElement === lastElement) {
+      firstElement.focus()
+      e.preventDefault()
+  }
+}
+
+const handleSidebarShiftTab = (e) => {
+  if (document.activeElement === firstElement) {
+    lastElement.focus();
+    e.preventDefault()
+  }
+}
+
 
 const trackSidebarClick = (label) => {
   //emitted mobile menu click event
@@ -111,62 +146,70 @@ watch(route, (value) => {
       "
     />
     <!-- End Google Tag Manager (noscript) -->
-    <div v-if="!sensitiveContent" class="htlad-skin" />
-    <div
-      class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
-    >
-      <HtlAd
-        v-if="route.name === 'index'"
-        layout="leaderboard"
-        slot="htlad-gothamist_index_leaderboard_1"
-      />
-      <HtlAd
-        v-else
-        layout="leaderboard"
-        slot="htlad-gothamist_interior_leaderboard_1"
-      />
-    </div>
-    <GothamistMainHeader
-      :navigation="navigation"
-      :showLogo="route.name !== 'index'"
-      :donateUrlBase="config.donateUrlBase"
-      utmCampaign="homepage-header"
-    />
-    <Sidebar
-      v-model:visible="sidebarOpen"
-      :baseZIndex="6000"
-      position="right"
-      data-style-mode="dark"
-      class="gothamist-sidebar px-3 md:px-4"
-    >
-      <template v-slot:header>
-        <div class="gothamist-sidebar-header flex md:hidden">
-          <v-flexible-link
-            to="/"
-            raw
-            @click="trackSidebarClick('sidebar logo')"
-          >
-            <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
-          </v-flexible-link>
-          <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
-        </div>
-      </template>
-      <template v-slot:default>
-        <GothamistSidebarContents
-          :navigation="navigation"
-          :donateUrlBase="config.donateUrlBase"
-          @menuListClick="trackSidebarClick($event)"
-          utmCampaign="goth_hamburger"
-          class="mt-3"
+    <div>
+      <div v-if="!sensitiveContent" class="htlad-skin" />
+      <div
+        class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
+      >
+        <HtlAd
+          v-if="route.name === 'index'"
+          layout="leaderboard"
+          slot="htlad-gothamist_index_leaderboard_1"
         />
-      </template>
-    </Sidebar>
-    <main>
-      <slot />
-    </main>
-    <scroll-to-top-button />
-    <gothamist-footer :navigation="navigation" />
+        <HtlAd
+          v-else
+          layout="leaderboard"
+          slot="htlad-gothamist_interior_leaderboard_1"
+        />
+      </div>
+      <GothamistMainHeader
+        :navigation="navigation"
+        :showLogo="route.name !== 'index'"
+        :donateUrlBase="config.donateUrlBase"
+        utmCampaign="homepage-header"
+      />
+      <main>
+        <slot />
+      </main>
+      <scroll-to-top-button />
+      <gothamist-footer :navigation="navigation" />
+    </div>
   </div>
+  <Sidebar
+    v-model:visible="sidebarOpen"
+    :baseZIndex="6000"
+    position="right"
+    data-style-mode="dark"
+    ariaCloseLabel="close the navigation menu"
+    class="gothamist-sidebar px-3 md:px-4"
+    @show="handleSidebarShown"
+    @hide="handleSidebarHidden"
+    @keydown.esc="closeSidebar"
+    @keydown.tab="handleSidebarTab"
+    @keydown.shift.tab="handleSidebarShiftTab"
+  >
+    <template v-slot:header>
+      <div class="gothamist-sidebar-header flex md:hidden">
+        <v-flexible-link
+          to="/"
+          raw
+          @click="trackSidebarClick('sidebar logo')"
+        >
+          <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
+        </v-flexible-link>
+        <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
+      </div>
+    </template>
+    <template v-slot:default>
+      <GothamistSidebarContents
+        :navigation="navigation"
+        :donateUrlBase="config.donateUrlBase"
+        @menuListClick="trackSidebarClick($event)"
+        utmCampaign="goth_hamburger"
+        class="mt-3"
+      />
+    </template>
+  </Sidebar>
 </template>
 
 <style lang="scss">

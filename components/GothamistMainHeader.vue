@@ -10,9 +10,11 @@ defineProps<{
 }>()
 const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
+const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = await useStrapline()
-const openSidebar = () => {
+const openSidebar = (e) => {
   sidebarIsOpen.value = true
+  sidebarOpenedFrom.value = e.target
 }
 
 const trackClick = (category, label) => {
@@ -55,7 +57,8 @@ const trackClick = (category, label) => {
       <Button
         icon="pi pi-bars"
         class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
-        aria-label="menu button"
+        aria-label="Open the navigation menu"
+        aria-expanded="false"
         @click="openSidebar"
       />
     </div>

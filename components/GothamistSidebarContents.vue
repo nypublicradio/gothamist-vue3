@@ -21,13 +21,9 @@ const emit = defineEmits(['menu-list-click'])
       />
     </div>
     <div class="sidebar-contents-bottom mb-5 md:mb-6">
-      <v-flexible-link to="mailto:tips@gothamist.com" raw>
-        <Button
-          class="sidebar-button-send-a-story p-button-rounded mb-5 w-full"
-        >
-          <span class="p-button-label">Send a story idea</span>
-        </Button>
-      </v-flexible-link>
+      <a class="sidebar-button-send-a-story mod-button p-button p-button-rounded mb-5 w-full" href="mailto:tips@gothamist.com" target="_blank" rel="noopener noreferrer">
+        <span class="p-button-label">Send a story idea</span>
+      </a>
       <hr class="white mb-3" />
       <v-share-tools class="mb-3">
         <span>Follow Us</span>
@@ -49,14 +45,12 @@ const emit = defineEmits(['menu-list-click'])
           <LogoNypr />
         </div>
       </div>
-      <v-flexible-link :to="`${donateUrlBase}&utm_campaign=${utmCampaign}`" raw>
-        <Button class="p-button-rounded w-full">
-          <span class="p-button-label">
-            <span class="pi pi-heart-fill"></span>
-            Support us today
-          </span>
-        </Button>
-      </v-flexible-link>
+      <a class="mod-button p-button p-button-rounded mb-5 w-full" :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`" target="_blank" rel="noopener noreferrer">
+        <span class="p-button-label">
+          <span class="pi pi-heart-fill"></span>
+          Support us today
+        </span>
+      </a>
     </div>
   </div>
 </template>
@@ -98,5 +92,33 @@ const emit = defineEmits(['menu-list-click'])
 .sidebar-button-send-a-story.p-button {
   background: var(--black-300);
   color: var(--text-color);
+}
+
+
+a.mod-button.pi {
+    padding: 8px 6px 7px 6px !important;
+}
+
+a.mod-button {
+  display:block;
+  text-decoration: none;
+}
+
+a.mod-button:hover {
+  text-decoration: none;
+  color: var(--button-text-hover-color) !important;
+  background: var(--button-hover-bg);
+  border-color: var(--button-hover-border-color);
+}
+
+a.mod-button:active {
+  background: var(--button-active-bg);
+  color: var(--button-text-active-color);
+}
+
+a.mod-button:focus {
+  box-shadow: 0 0 0 0.2rem #d8d7af;
+  outline: 0 none;
+  outline-offset: 0;
 }
 </style>
