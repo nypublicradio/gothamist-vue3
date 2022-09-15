@@ -32,7 +32,7 @@ const props = defineProps({
 })
 const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
-const strapline = await useStrapline()
+const strapline = useStrapline()
 const progressPercentage = computed(() => `${props.progress}%`)
 const openSidebar = (e) => {
   sidebarIsOpen.value = true
