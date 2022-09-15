@@ -21,8 +21,9 @@ const productBannersPromise = findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
 
-const [navigation, breakingNews, productBanners] = await
-  Promise.all([navigationPromise, breakingNewsPromise, productBannersPromise])
+const [navigation, breakingNews, productBanners] = await Promise.all(
+  [navigationPromise, breakingNewsPromise, productBannersPromise]
+)
 
 const isSponsored = route.name === 'sponsored'
 const strapline = useStrapline()
