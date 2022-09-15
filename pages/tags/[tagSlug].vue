@@ -6,15 +6,16 @@ import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/com
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
 const tagSlug = route.params.tagSlug
-const curatedTagPage = await findPage(`tags/${tagSlug}`).then(
+const curatedTagPagePromise = await findPage(`tags/${tagSlug}`).then(
   ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
 )
-
-const articlesToShow = ref(10)
-
-const articles = await findArticlePages({
+const articlesPromise = await findArticlePages({
   tag_slug: tagSlug,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
+
+const [curatedTagPage, articles] = await Promise.all([curatedTagPagePromise, articlesPromise])
+
+const articlesToShow = ref(10)
 
 const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
