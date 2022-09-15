@@ -64,7 +64,6 @@ const handleSidebarShiftTab = (e) => {
   }
 }
 
-
 const trackSidebarClick = (label) => {
   //emitted mobile menu click event
   $analytics.sendEvent('click_tracking', {
