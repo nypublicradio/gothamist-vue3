@@ -1,27 +1,32 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
 
 const config = useRuntimeConfig()
 const route = useRoute()
 const { $htlbid, $analytics } = useNuxtApp()
-const navigation = await findNavigation().then(({ data }) =>
-  normalizeFindNavigationResponse(data)
-)
-const navigationState = useNavigation()
-navigationState.value = navigation
 
-const breakingNews = await findBreakingNews().then(({ data }) =>
+const navigationState = useNavigation()
+const navigationPromise = findNavigation().then(({ data }) => {
+  const navigationData = normalizeFindNavigationResponse(data)
+  navigationState.value = navigationData
+  return navigationData
+})
+
+const breakingNewsPromise = findBreakingNews().then(({ data }) =>
   normalizeFindBreakingNewsResponse(data)
 )
-const productBanners = await findProductBanners().then(({ data }) =>
+const productBannersPromise = findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
+
+const [navigation, breakingNews, productBanners] = await Promise.all(
+  [navigationPromise, breakingNewsPromise, productBannersPromise]
+)
+
 const isSponsored = route.name === 'sponsored'
-const strapline = await useStrapline()
-
-
+const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
 const sidebarOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
@@ -58,7 +63,6 @@ const handleSidebarShiftTab = (e) => {
     e.preventDefault()
   }
 }
-
 
 const trackSidebarClick = (label) => {
   //emitted mobile menu click event

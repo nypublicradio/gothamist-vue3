@@ -7,8 +7,6 @@ import { useSidebarIsOpen } from '~~/composables/states.js'
 const config = useRuntimeConfig()
 const route = useRoute()
 const { $htlbid, $analytics } = useNuxtApp()
-const atTop = ref(true)
-const strapline = await useStrapline()
 
 const props = defineProps({
   error: {
@@ -17,21 +15,62 @@ const props = defineProps({
   },
 })
 
-const navigation = await findNavigation().then(({ data }) =>
-  normalizeFindNavigationResponse(data)
-)
 const navigationState = useNavigation()
-navigationState.value = navigation
+const navigationPromise = findNavigation().then(({ data }) => {
+  const navigationData = normalizeFindNavigationResponse(data)
+  navigationState.value = navigationData
+  return navigationData
+})
 
-const breakingNews = await findBreakingNews().then(({ data }) =>
+const breakingNewsPromise = findBreakingNews().then(({ data }) =>
   normalizeFindBreakingNewsResponse(data)
 )
-const productBanners = await findProductBanners().then(({ data }) =>
+const productBannersPromise = findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
+
+const [navigation, breakingNews, productBanners] = await Promise.all(
+  [navigationPromise, breakingNewsPromise, productBannersPromise]
+)
+
+const atTop = ref(true)
+const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
 const sidebarOpen = useSidebarIsOpen()
-const closeSidebar = () => (sidebarOpen.value = false)
+const sidebarOpenedFrom = useSidebarOpenedFrom()
+const closeSidebar = () => {
+  sidebarOpen.value = false
+}
+
+const handleSidebarHidden = () => {
+  if (sidebarOpenedFrom.value?.focus) {
+    sidebarOpenedFrom.value.focus()
+  }
+}
+
+const handleSidebarTab = (e) => {
+  if (!e.shiftKey && document.activeElement === lastElement) {
+      firstElement.focus()
+      e.preventDefault()
+  }
+}
+
+const handleSidebarShiftTab = (e) => {
+  if (document.activeElement === firstElement) {
+    lastElement.focus();
+    e.preventDefault()
+  }
+}
+
+let sidebarElements = undefined
+let firstElement = undefined
+let lastElement = undefined
+
+const handleSidebarShown = () => {
+  sidebarElements = Array.from(document.querySelectorAll('.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])')).filter(element => element.clientWidth + element.clientHeight !== 0)
+  firstElement = sidebarElements[0]
+  lastElement = sidebarElements[sidebarElements.length - 1]
+}
 
 const trackSidebarClick = (label) => {
   //emitted mobile menu click event
@@ -55,6 +94,7 @@ onMounted(() => {
   })
   $htlbid.setTargetingForRoute(route)
 })
+
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
@@ -124,7 +164,13 @@ const newsletterSubmitEvent = () => {
       :baseZIndex="6000"
       position="right"
       data-style-mode="dark"
+      ariaCloseLabel="close the navigation menu"
       class="gothamist-sidebar px-3 md:px-4"
+      @show="handleSidebarShown"
+      @hide="handleSidebarHidden"
+      @keydown.esc="closeSidebar"
+      @keydown.tab="handleSidebarTab"
+      @keydown.shift.tab="handleSidebarShiftTab"
     >
       <template v-slot:header>
         <div class="gothamist-sidebar-header flex md:hidden">

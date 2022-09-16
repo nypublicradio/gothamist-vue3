@@ -2,33 +2,36 @@
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
-const latestArticles = await findArticlePages({
-  limit: 4,
-}).then(({ data }) => normalizeFindArticlePagesResponse(data))
-
-const articles = await findArticlePages('').then(({ data }) =>
+const articlesPromise = findArticlePages('').then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
-const riverStoryCount = ref(6)
-const riverAdOffset = ref(2)
-const riverAdRepeatRate = ref(6)
 
-let featuredArticle
-const homePageCollections = []
-await findPage('/').then(({ data }) => {
-  // the home page featured article should display only the first story in the home page content collection
-  featuredArticle = normalizeArticlePage(
-    data.value.pageCollectionRelationship?.[0].pages?.[0]
-  )
-  data.value.pageCollectionRelationship.forEach((collection) => {
-    homePageCollections.push({
+const homePageCollectionsPromise = findPage('/').then(({ data }) => {
+  return data.value.pageCollectionRelationship.map((collection) => {
+    return {
       id: collection.id,
       layout: collection.layout,
       label: collection.label,
       data: collection.pages,
-    })
+    }
   })
 })
+
+const [articles, homePageCollections] = await Promise.all(
+  [articlesPromise, homePageCollectionsPromise]
+)
+
+// the latest 4 articles
+const latestArticles = articles.slice(0,4)
+
+// the home page featured article should display only the first story in the home page content collection
+const featuredArticle = normalizeArticlePage(
+  homePageCollections?.[0].data?.[0]
+)
+
+const riverStoryCount = ref(6)
+const riverAdOffset = ref(2)
+const riverAdRepeatRate = ref(6)
 
 const { $analytics } = useNuxtApp()
 const newsletterSubmitEvent = () => {
