@@ -92,6 +92,7 @@ onBeforeUnmount(() => {
     bottom: 0;
     right: 0;
     box-shadow: none;
+    z-index: 999 !important;
     width: 68px;
     height: 68px;
     @include media('<lg') {
