@@ -6,23 +6,23 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
     <div class="boroughs-header mb-5 xl:mb-7 py-2">WNYC Presents</div>
     <div class="boroughs-content">
       We cover stories that make New York work for New Yorkers. Browse
-      <v-flexible-link to="/tags/manhattan" class="tag-large">
-        Manhattan
+      <v-flexible-link to="/tags/manhattan" raw rawHover="underline">
+        <div class="tag-large">Manhattan</div>
       </v-flexible-link>
-      <v-flexible-link to="/tags/brooklyn" class="tag-large">
-        Brooklyn
+      <v-flexible-link to="/tags/brooklyn" raw rawHover="underline">
+        <div class="tag-large">Brooklyn</div>
       </v-flexible-link>
-      <v-flexible-link to="/tags/the-bronx" class="tag-large">
-        The Bronx
+      <v-flexible-link to="/tags/the-bronx" raw rawHover="underline">
+        <div class="tag-large">The Bronx</div>
       </v-flexible-link>
-      <v-flexible-link to="/tags/staten-island" class="tag-large">
-        Staten Island
+      <v-flexible-link to="/tags/staten-island" raw rawHover="underline">
+        <div class="tag-large">Staten Island</div>
       </v-flexible-link>
-      <v-flexible-link to="/tags/queens" class="tag-large">
-        Queens
+      <v-flexible-link to="/tags/queens" raw rawHover="underline">
+        <div class="tag-large">Queens</div>
       </v-flexible-link>
-      <v-flexible-link to="/tags/new-jersey" class="tag-large">
-        New Jersey
+      <v-flexible-link to="/tags/new-jersey" raw rawHover="underline">
+        <div class="tag-large">New Jersey</div>
       </v-flexible-link>
     </div>
     <div class="boroughs-footer mt-4 xl:mt-5">
@@ -59,6 +59,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
   display: inline-block;
   width: fit-content;
   margin: auto;
+  font-weight: 600;
   @include media('>lg') {
     margin: 0 0.25rem 0.5rem;
     display: inline-block;
