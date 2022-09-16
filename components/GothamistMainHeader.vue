@@ -81,6 +81,10 @@ const trackClick = (category, label) => {
 .gothamist-header-logo {
   height: 34px;
   width: auto;
+  @include media('<xs') {
+    height: 25px;
+    align-self: center;
+  }
 }
 
 .gothamist-header-left,
