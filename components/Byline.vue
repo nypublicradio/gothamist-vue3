@@ -87,9 +87,9 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
               :height="60"
               :sizes="[2]"
               :ratio="[1, 1]"
-              alt="Author's image"
+              :alt="author.name"
             />
-            <img v-else src="/avatar.svg" alt="Author's image" loading="lazy" />
+            <img v-else src="/avatar.svg" alt="author.name" loading="lazy" />
           </v-flexible-link>
         </div>
       </div>
