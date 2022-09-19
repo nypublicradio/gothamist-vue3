@@ -122,6 +122,7 @@ const submitForm = () => {
                 :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
                 iconPos="right"
                 :label="submitButtonIcon ? null : props.submitButtonText"
+                :aria-label="submitButtonText"
               >
                 <i v-if="props.isSubmitting" class="pi pi-spin pi-spinner" />
               </Button>

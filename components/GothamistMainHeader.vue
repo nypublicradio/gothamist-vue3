@@ -31,11 +31,12 @@ const trackClick = (category, label) => {
   <header class="gothamist-header flex justify-content-between">
     <div class="gothamist-header-left">
       <v-flexible-link
+        v-if="showLogo"
         to="/"
         raw
         @click="trackClick('Click Tracking - Header', 'header logo')"
       >
-        <LogoGothamist v-if="showLogo" class="gothamist-header-logo pr-2" />
+        <LogoGothamist class="gothamist-header-logo pr-2" />
       </v-flexible-link>
       <div
         :class="`gothamist-header-tagline ${
