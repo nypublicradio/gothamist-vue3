@@ -206,7 +206,7 @@ const getGalleryLink = computed(() => {
           </div>
         </div>
         <hr class="black" />
-        <p v-if="article?.section" class="type-label3 mt-2 mb-4">
+        <p role="heading" aria-level="2" v-if="article?.section" class="type-label3 mt-2 mb-4">
           MORE {{ article.section.slug }}
         </p>
         <article-recirculation

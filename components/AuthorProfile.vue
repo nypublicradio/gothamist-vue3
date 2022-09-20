@@ -52,7 +52,7 @@ const imageSizePx = ref(imageSize.value + 'px')
         class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"
       >
         <v-flexible-link :to="profileLink" class="no-underline">
-          <h5>{{ profile.name }}</h5>
+          <div class="h5">{{ profile.name }}</div>
         </v-flexible-link>
         <!-- profile.social is not supported in the response yet. This will be updated as part of a CMS ticket -->
         <span v-if="profile.social">
