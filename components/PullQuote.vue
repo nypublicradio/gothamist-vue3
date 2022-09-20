@@ -7,9 +7,9 @@ defineProps<{
 
 <template>
   <blockquote class="streamfield-pull-quote pt-4 pb-3">
-    <h3>
+    <div class="h3">
       {{ quote }}
-    </h3>
+    </div>
   </blockquote>
   <span class="streamfield-pull-quote-author pb-4 mb-5" v-if="author">
     {{ author }}
