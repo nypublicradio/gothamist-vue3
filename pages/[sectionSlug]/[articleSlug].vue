@@ -34,7 +34,7 @@ const { y: scrollY } = useWindowScroll()
 const isMediumOrUpScreen = useMediaQuery(`(min-width: 768px)`)
 // maybe these values should be calculated automatically by measuring on the position of the main header
 // or something instead of hardcoding them here, but this works for now
-const showHeaderAfter = computed(() => (isMediumOrUpScreen.value ? 374 : 68))
+const showHeaderAfter = computed(() => (isMediumOrUpScreen.value ? 374 : 50))
 const showHeader = computed(() => scrollY.value > showHeaderAfter.value)
 
 useHead(headMetadata)
