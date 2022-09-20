@@ -31,7 +31,7 @@ const onTagClick = (tag) => {
 <template>
   <div class="article-footer">
     <!-- tags -->
-    <article-tags :tags="tags" @tag-click="onTagClick" />
+    <article-tags v-if="tags.length" :tags="tags" @tag-click="onTagClick" />
     <!-- profile & comments-->
     <hr class="black mb-4 md:mb-6" />
     <div class="grid gutter-x-30">

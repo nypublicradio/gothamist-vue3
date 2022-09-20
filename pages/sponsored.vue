@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { onMounted, computed } from 'vue'
 import { useMediaQuery, useWindowScroll } from '@vueuse/core'
-import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
-import { ArticlePage } from '../composables/types/Page'
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 const config = useRuntimeConfig()
 const { $analytics } = useNuxtApp()
@@ -22,16 +19,6 @@ const article = {
   authors: [],
   disableComments: true,
 }
-const topImage = {
-  id: 33,
-  alt: '',
-  caption: '',
-  width: 728,
-  height: 485,
-  credit: '',
-  creditLink: '',
-}
-const topCaption = ''
 
 const sensitiveContent = useSensitiveContent()
 const { y: scrollY } = useWindowScroll()
@@ -50,13 +37,6 @@ onUnmounted(() => {
   sensitiveContent.value = false
 })
 
-const newsletterSubmitEvent = (e) => {
-  $analytics.sendEvent('click_tracking', {
-    event_category: `Click Tracking - ${e} - Newsletter`,
-    component: e,
-    event_label: 'Newsletter',
-  })
-}
 </script>
 
 <template>
@@ -90,36 +70,9 @@ const newsletterSubmitEvent = (e) => {
           <div class="col-fixed hidden xxl:block">
             <hr class="black" />
             <byline class="mb-3 pt-4" :article="article" />
-            <div>
-              <div id="pinned-newsletter" style="min-width: 300px">
-                <hr class="mb-4" />
-                <newsletter-article
-                  class="pb-8"
-                  triggerID="pinned-newsletter"
-                  pinEndTriggerID="pinned-newsletter-end"
-                  @submit="newsletterSubmitEvent('pinned')"
-                />
-              </div>
-            </div>
           </div>
           <div class="col overflow-hidden" v-if="article">
             <div class="mb-4 xxl:mb-6 relative">
-              <v-image-with-caption
-                v-if="topImage"
-                loading="eager"
-                image=""
-                :imageUrl="article.imageLink"
-                :width="728"
-                :height="485"
-                :alt-text="topImage?.alt"
-                :maxWidth="topImage?.width"
-                :maxHeight="topImage?.height"
-                :credit="topImage?.credit && `Photo by ${topImage?.credit}`"
-                :credit-url="topImage?.creditLink"
-                :sizes="[2]"
-                :ratio="[3, 2]"
-                :caption="topCaption"
-              />
             </div>
             <div class="block xxl:hidden mb-5">
               <hr class="black" />
@@ -151,7 +104,7 @@ const newsletterSubmitEvent = (e) => {
       </div>
     </section>
     <section>
-      <div id="pinned-newsletter-end" class="content">
+      <div class="content">
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col w-full">
