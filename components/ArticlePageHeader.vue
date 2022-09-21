@@ -133,7 +133,7 @@ const openSidebar = (e) => {
           <a class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
             :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
             target="_blank"
-            ref="noopener noreferrer"
+            rel="noopener noreferrer"
           >
             <span class="p-button-label">Donate</span>
           </a>
