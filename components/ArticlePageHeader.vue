@@ -158,7 +158,7 @@ const openSidebar = (e) => {
   height: 68px;
   position: fixed;
   z-index: 1000;
-  top: 116px;
+  top: 50px;
   background: white;
   @include media('>md') {
     top: 0px;

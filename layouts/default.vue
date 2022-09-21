@@ -220,8 +220,8 @@ watch(route, (value) => {
 .leaderboard-ad-wrapper {
   background: #111111;
   @include media('<md') {
-    height: 116px;
-    padding: 8px auto;
+    height: 50px;
+    padding: 0px auto;
     position: sticky;
     top: 0;
     z-index: 5000;
