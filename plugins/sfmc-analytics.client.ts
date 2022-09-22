@@ -1,20 +1,18 @@
 export default defineNuxtPlugin((nuxtApp) => {
-    const { $gtm, $cookies } = nuxtApp;
-
     const memberStatusCookie = '_gothamistNyprMember'
     const maxAge = 60 * 60 * 24 * 30 * 6 // about 6 months
     const membershipStatus = useMembershipStatus()
-    
+    const cookie = useCookie(memberStatusCookie, { path: '/', maxAge })
 
     // Set the cookie and data layer status for an active member
     const setActiveMember = function () {
-      $cookies.set(memberStatusCookie, 'True', { path: '/', maxAge })
+      cookie.value = 'True'
       membershipStatus.value = 'active-member'
     }
   
     // Set the cookie and data layer status for an inactive member
     const setInactiveMember = function () {
-      $cookies.set(memberStatusCookie, 'False', { path: '/', maxAge })
+      cookie.value = 'False'
       membershipStatus.value = 'inactive-member'
     }
   
@@ -38,7 +36,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       }
     }
   
-    switch ($cookies.get(memberStatusCookie)) {
+    switch (cookie.value) {
       case 'True':
         setActiveMember()
         break

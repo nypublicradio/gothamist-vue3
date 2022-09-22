@@ -178,42 +178,42 @@ watch(route, (value) => {
       <scroll-to-top-button />
       <gothamist-footer :navigation="navigation" />
     </div>
+    <Sidebar
+      v-model:visible="sidebarOpen"
+      :baseZIndex="6000"
+      position="right"
+      data-style-mode="dark"
+      ariaCloseLabel="close the navigation menu"
+      class="gothamist-sidebar px-3 md:px-4"
+      @show="handleSidebarShown"
+      @hide="handleSidebarHidden"
+      @keydown.esc="closeSidebar"
+      @keydown.tab="handleSidebarTab"
+      @keydown.shift.tab="handleSidebarShiftTab"
+    >
+      <template v-slot:header>
+        <div class="gothamist-sidebar-header flex md:hidden">
+          <v-flexible-link
+            to="/"
+            raw
+            @click="trackSidebarClick('sidebar logo')"
+          >
+            <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
+          </v-flexible-link>
+          <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
+        </div>
+      </template>
+      <template v-slot:default>
+        <GothamistSidebarContents
+          :navigation="navigation"
+          :donateUrlBase="config.donateUrlBase"
+          @menuListClick="trackSidebarClick($event)"
+          utmCampaign="goth_hamburger"
+          class="mt-3"
+        />
+      </template>
+    </Sidebar>
   </div>
-  <Sidebar
-    v-model:visible="sidebarOpen"
-    :baseZIndex="6000"
-    position="right"
-    data-style-mode="dark"
-    ariaCloseLabel="close the navigation menu"
-    class="gothamist-sidebar px-3 md:px-4"
-    @show="handleSidebarShown"
-    @hide="handleSidebarHidden"
-    @keydown.esc="closeSidebar"
-    @keydown.tab="handleSidebarTab"
-    @keydown.shift.tab="handleSidebarShiftTab"
-  >
-    <template v-slot:header>
-      <div class="gothamist-sidebar-header flex md:hidden">
-        <v-flexible-link
-          to="/"
-          raw
-          @click="trackSidebarClick('sidebar logo')"
-        >
-          <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
-        </v-flexible-link>
-        <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
-      </div>
-    </template>
-    <template v-slot:default>
-      <GothamistSidebarContents
-        :navigation="navigation"
-        :donateUrlBase="config.donateUrlBase"
-        @menuListClick="trackSidebarClick($event)"
-        utmCampaign="goth_hamburger"
-        class="mt-3"
-      />
-    </template>
-  </Sidebar>
 </template>
 
 <style lang="scss">
