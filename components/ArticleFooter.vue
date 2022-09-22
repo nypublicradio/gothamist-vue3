@@ -17,19 +17,21 @@ const profileData = isSponsored.value
   : props.article.authors
 
 // function attached to the emit of the article-tags when clicked
-const onTagClicked = (tag) => {
-  $analytics.sendEvent('click_tracking', {
-    event_category: 'Click Tracking',
-    component: 'Article Tags',
-    event_label: tag.name,
-  })
+const onTagClick = (tag) => {
+  if (tag) {
+    $analytics.sendEvent('click_tracking', {
+      event_category: 'Click Tracking',
+      component: 'Article Tags',
+      event_label: tag.name,
+    })
+  }
 }
 </script>
 
 <template>
   <div class="article-footer">
     <!-- tags -->
-    <article-tags :tags="tags" @tag-clicked="onTagClicked" />
+    <article-tags :tags="tags" @tag-click="onTagClick" />
     <!-- profile & comments-->
     <hr class="black mb-4 md:mb-6" />
     <div class="grid gutter-x-30">

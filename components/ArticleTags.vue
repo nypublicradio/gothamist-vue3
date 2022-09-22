@@ -10,7 +10,7 @@ const props = defineProps({
     default: 'Tagged',
   },
 })
-const emit = defineEmits(['tag-clicked'])
+const emit = defineEmits(['tag-click'])
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const emit = defineEmits(['tag-clicked'])
         :name="tag.name"
         :slug="`/tags/${tag.slug}`"
         :key="tag.name"
-        @click="emit('tag-clicked', tag)"
+        @click="emit('tag-click', tag)"
       />
     </div>
   </div>

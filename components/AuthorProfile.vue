@@ -88,13 +88,13 @@ const imageSizePx = ref(imageSize.value + 'px')
             :height="imageSize"
             :sizes="[2]"
             :ratio="[1, 1]"
-            :alt="author.name"
+            :alt="profile.name"
             :loading="props.staffPage ? 'eager' : 'lazy'"
           />
           <img
             v-else
             src="/avatar.svg"
-            :alt="author.name"
+            :alt="profile.name"
             :loading="props.staffPage ? 'eager' : 'lazy'"
           />
         </v-flexible-link>
