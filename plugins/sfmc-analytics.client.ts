@@ -1,4 +1,4 @@
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
     const memberStatusCookie = '_gothamistNyprMember'
     const maxAge = 60 * 60 * 24 * 30 * 6 // about 6 months
     const membershipStatus = useMembershipStatus()
