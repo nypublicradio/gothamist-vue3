@@ -80,6 +80,7 @@ onUnmounted(() => {
               <hr class="mt-3 mb-5" />
             </div>
             <article-donation-CTA
+              title="Gothamist is funded by sponsors and member donations"
               :donateUrlBase="config.donateUrlBase"
               utmCampaign="article-top"
             />

@@ -5,6 +5,10 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 const config = useRuntimeConfig()
 
 const props = defineProps({
+  title: {
+    type: String,
+    default: "We rely on your support to make local news available to all"
+  },
   donateUrlBase: {
     type: String,
     required: true
@@ -26,7 +30,7 @@ const emit = defineEmits(['donate-click'])
 
 <template>
   <div class="article-donation-CTA">
-    <div class="h6">We rely on your support to make local news available to all</div>
+    <div class="h6">{{title}}</div>
     <p class="type-textlink2 no-underline">
       Make your contribution now and help Gothamist thrive in 2022.
       <v-flexible-link
