@@ -31,11 +31,12 @@ const trackClick = (category, label) => {
   <header class="gothamist-header flex justify-content-between">
     <div class="gothamist-header-left">
       <v-flexible-link
+        v-if="showLogo"
         to="/"
         raw
         @click="trackClick('Click Tracking - Header', 'header logo')"
       >
-        <LogoGothamist v-if="showLogo" class="gothamist-header-logo pr-2" />
+        <LogoGothamist class="gothamist-header-logo pr-2" />
       </v-flexible-link>
       <div
         :class="`gothamist-header-tagline ${
@@ -45,15 +46,13 @@ const trackClick = (category, label) => {
       />
     </div>
     <div class="gothamist-header-right align-items-center">
-      <v-flexible-link
-        :to="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
-        raw
-        class="pr-2"
+      <a class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
+        :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <Button class="gothamist-header-donate-button p-button-rounded">
-          <span class="p-button-label">Donate</span>
-        </Button>
-      </v-flexible-link>
+        <span class="p-button-label">Donate</span>
+      </a>
       <Button
         icon="pi pi-bars"
         class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"

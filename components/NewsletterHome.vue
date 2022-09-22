@@ -89,6 +89,7 @@ const submitForm = (email) => {
   >
     <Button
       v-if="props.showX"
+      aria-label="Dismiss newsletter signup form"
       class="closer-x p-button-rounded p-button-sm p-button-text"
       icon="pi pi-times"
       @click="hideComp"

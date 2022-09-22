@@ -93,3 +93,31 @@ table tr.totalline {
 .p-image-mask {
   z-index: 5010 !important;
 }
+
+// styles to help make links looks like buttons
+a.mod-button {
+  display:inline-flex;
+  text-decoration: none;
+}
+
+a.mod-button:hover {
+  text-decoration: none;
+  color: var(--button-text-hover-color) !important;
+  background: var(--button-hover-bg);
+  border-color: var(--button-hover-border-color);
+}
+
+a.mod-button:active {
+  background: var(--button-active-bg);
+  color: var(--button-text-active-color);
+}
+
+a.mod-button:focus {
+  box-shadow: 0 0 0 0.2rem #d8d7af;
+  outline: 0 none;
+  outline-offset: 0;
+}
+
+a.mod-button.pi {
+  padding: 8px 6px 7px 6px !important;
+}

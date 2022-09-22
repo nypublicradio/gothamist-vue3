@@ -26,7 +26,7 @@ const emit = defineEmits(['donate-click'])
 
 <template>
   <div class="article-donation-CTA">
-    <h6>We rely on your support to make local news available to all</h6>
+    <div class="h6">We rely on your support to make local news available to all</div>
     <p class="type-textlink2 no-underline">
       Make your contribution now and help Gothamist thrive in 2022.
       <v-flexible-link

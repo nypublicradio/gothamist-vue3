@@ -68,7 +68,7 @@ onUnmounted(() => {
               :showCta="false"
               staffPage
             />
-            <h5 v-else>{{ getAuthorNameFromSlug() }}</h5>
+            <div class="h5" v-else>{{ getAuthorNameFromSlug() }}</div>
           </div>
           <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
         </div>

@@ -2,7 +2,6 @@
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
 import Navigation from '~~/composables/types/Navigation.js'
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 const props = defineProps<{
   navigation: Navigation
@@ -92,33 +91,5 @@ const emit = defineEmits(['menu-list-click'])
 .sidebar-button-send-a-story.p-button {
   background: var(--black-300);
   color: var(--text-color);
-}
-
-
-a.mod-button.pi {
-    padding: 8px 6px 7px 6px !important;
-}
-
-a.mod-button {
-  display:block;
-  text-decoration: none;
-}
-
-a.mod-button:hover {
-  text-decoration: none;
-  color: var(--button-text-hover-color) !important;
-  background: var(--button-hover-bg);
-  border-color: var(--button-hover-border-color);
-}
-
-a.mod-button:active {
-  background: var(--button-active-bg);
-  color: var(--button-text-active-color);
-}
-
-a.mod-button:focus {
-  box-shadow: 0 0 0 0.2rem #d8d7af;
-  outline: 0 none;
-  outline-offset: 0;
 }
 </style>

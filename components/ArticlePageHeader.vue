@@ -130,15 +130,13 @@ const openSidebar = (e) => {
               "
             />
           </v-share-tools>
-          <v-flexible-link
-            :to="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
-            raw
-            class="pr-2"
+          <a class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
+            :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Button class="article-page-header-donate-button p-button-rounded">
-              <span class="p-button-label">Donate</span>
-            </Button>
-          </v-flexible-link>
+            <span class="p-button-label">Donate</span>
+          </a>
           <Button
             icon="pi pi-bars"
             class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
