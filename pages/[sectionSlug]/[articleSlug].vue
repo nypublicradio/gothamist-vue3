@@ -280,6 +280,11 @@ const getGalleryLink = computed(() => {
     .article-body > *.rte-text > *.wide-module {
       width: 100%;
     }
+
+    .article-body .htlad-gothamist_interior_midpage_repeating {
+      justify-content: flex-start;
+      min-height: 90px;
+    }
   }
 }
 </style>
