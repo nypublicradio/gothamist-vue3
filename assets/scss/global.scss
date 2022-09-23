@@ -121,3 +121,13 @@ a.mod-button:focus {
 a.mod-button.pi {
   padding: 8px 6px 7px 6px !important;
 }
+
+// Screen reader only, visually hidden text
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}

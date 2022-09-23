@@ -110,6 +110,7 @@ onUnmounted(() => {
         <div class="col-6 text-right">
           <NuxtLink :to="gallery.articleLink">
             <i class="pi pi-times" />
+            <span class="sr-only">Return to Article</span>
           </NuxtLink>
         </div>
       </div>
