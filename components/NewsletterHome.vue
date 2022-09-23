@@ -98,7 +98,7 @@ const submitForm = (email) => {
       class="col-12 lg:col-3 pr-3 pb-2"
       :class="props.showX ? 'pr-6' : 'pr-3'"
     >
-      <h4>{{ titleText }}</h4>
+      <div class="h4">{{ titleText }}</div>
     </div>
     <div class="col-12 lg:col-7 xl:col-5 col-offset-0 xl:col-offset-1">
       <p v-if="showBlurb" class="type-paragraph2 pr-0 lg:pr-8 xl:pr-0">
