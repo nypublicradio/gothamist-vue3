@@ -38,6 +38,7 @@ const newsletterSubmitEvent = () => {
           :slug="(route?.params?.sectionSlug as string)"
           id="article-recirculation"
           class="my-6"
+          accessible-heading="Featured Stories"
         />
         <div class="mb-6">
           <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
