@@ -14,13 +14,6 @@ const props = defineProps({
     type: String,
     default: 'news',
   },
-  // A heading for the accessibility tree. Invisible in the design but will label this
-  // section for screen readers. Only needed if you're not already providing a heading
-  // to this section in the layout where you put this component
-  accessibleHeading: {
-    type: String,
-    default: null
-  },
 })
 
 const routeSectionSlug = ref(props.slug)
@@ -52,7 +45,6 @@ const articlesSm = ref([
     <div v-if="articles" class="recirculation">
       <div class="grid gutter-x-30">
         <div class="col-12 xl:col-8">
-          <h2 v-if="accessibleHeading" class="sr-only">{{accessibleHeading}}</h2>
           <v-card
             class="article-lg mod-vertical mod-featured2 mod-large mb-4"
             :image="useImageUrl(articleLg?.listingImage)"
