@@ -152,7 +152,7 @@ const newsletterSubmitEvent = () => {
   background: var(--black);
   .header-text {
     text-transform: uppercase;
-    padding: 0.2rem 1.25rem;
+    padding: 0.2rem 0rem;
     font-size: var(--font-size-16);
     line-height: var(--font-size-17);
     color: var(--soybean);
