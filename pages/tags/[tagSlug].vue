@@ -13,7 +13,10 @@ const articlesPromise = findArticlePages({
   tag_slug: tagSlug,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
-const [curatedTagPage, articles] = await Promise.all([curatedTagPagePromise, articlesPromise])
+const [curatedTagPage, articles] = await Promise.all([
+  curatedTagPagePromise,
+  articlesPromise,
+])
 
 const articlesToShow = ref(10)
 
@@ -41,7 +44,7 @@ const newsletterSubmitEvent = () => {
 <template>
   <div>
     <section class="tag-page-header py-1">
-      <h1 class="m-3 lg:m-5 tag-large">
+      <h1 class="m-3 lg:m-5 header-text">
         {{ curatedTagPage?.title || tagName }}
       </h1>
     </section>
@@ -147,6 +150,19 @@ const newsletterSubmitEvent = () => {
 <style lang="scss">
 .tag-page-header {
   background: var(--black);
+  .header-text {
+    text-transform: uppercase;
+    padding: 0.2rem 1.25rem;
+    font-size: var(--font-size-16);
+    line-height: var(--font-size-17);
+    color: var(--soybean);
+    white-space: normal;
+    text-align: center;
+    @include media('<md') {
+      font-size: var(--font-size-10);
+      line-height: var(--font-size-10);
+    }
+  }
 }
 
 .tag-page-top-zone .streamfield {
