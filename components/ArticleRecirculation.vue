@@ -14,6 +14,14 @@ const props = defineProps({
     type: String,
     default: 'news',
   },
+  heading: {
+    type: String,
+    default: 'Featured Stories'
+  },
+  headingLevel: {
+    type: Number,
+    default: 2
+  }
 })
 
 const routeSectionSlug = ref(props.slug)
@@ -45,6 +53,7 @@ const articlesSm = ref([
     <div v-if="articles" class="recirculation">
       <div class="grid gutter-x-30">
         <div class="col-12 xl:col-8">
+          <div role="heading" :aria-level="headingLevel" class="sr-only">{{heading}}</div>
           <v-card
             class="article-lg mod-vertical mod-featured2 mod-large mb-4"
             :image="useImageUrl(articleLg?.listingImage)"
