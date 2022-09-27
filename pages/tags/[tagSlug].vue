@@ -87,6 +87,7 @@ const newsletterSubmitEvent = () => {
     <section v-if="articles">
       <div class="content">
         <div class="grid gutter-x-30">
+          <h2 class="sr-only">Latest Articles Tagged "{{tagName}}"</h2>
           <div class="col">
             <div
               v-for="(article, index) in articles.slice(0, articlesToShow)"

@@ -113,7 +113,7 @@ onUnmounted(() => {
           </div>
         </div>
         <hr class="black" />
-        <p v-if="article?.section" class="type-label3 mt-2 mb-4">MORE NEWS</p>
+        <p role="heading" aria-level="2" v-if="article?.section" class="type-label3 mt-2 mb-4">MORE NEWS</p>
         <article-recirculation slug="news" />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
