@@ -130,7 +130,7 @@ const openSidebar = (e) => {
               "
             />
           </v-share-tools>
-          <a class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
+          <a class="article-page-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
             :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
             target="_blank"
             rel="noopener noreferrer"
