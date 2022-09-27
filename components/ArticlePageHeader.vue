@@ -222,5 +222,6 @@ const openSidebar = (e) => {
 
 .article-page-header-donate-button {
   max-height: 36px;
+  transform: translate3d(0,0,0);
 }
 </style>
