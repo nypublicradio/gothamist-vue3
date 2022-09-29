@@ -16,7 +16,7 @@ const getArticleTagsString = () => {
 const getArticleUrl = () => {
   // force the data-post-url to match the beta.gothamist.com url of the article
   // TODO: REMOVE REPLACE WHEN WE GO LIVE
-  var url = props.article.url.replace('gothamist.com', config.betaUrl)
+  var url = props.article.url.replace('//gothamist.com', config.betaUrl)
   return url
 }
 useHead({
