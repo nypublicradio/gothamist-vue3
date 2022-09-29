@@ -87,6 +87,7 @@ export default defineNuxtConfig({
     navigationId: 1,
     systemMessagesId: 2,
     sitewideComponentsId: 2,
+    betaUrl: '//beta.gothamist.com',
   },
   typescript: {
     strict: true
