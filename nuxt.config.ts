@@ -82,7 +82,7 @@ export default defineNuxtConfig({
     NEWSLETTER_LIST_ID: '65dbec786b',
     DEBUG: process.env['DEBUG'] || 'false',
     donateUrlBase: 'https://pledge.wnyc.org/support/gothamist/?utm_medium=partnersite&utm_source=gothamist',
-    OPENWEB_SPOT_ID: process.env['OPENWEB_SPOT_ID'] || 'sp_U3rk7ZAf',
+    OPENWEB_SPOT_ID: process.env['OPENWEB_SPOT_ID'] || 'sp_6X1qAIKA',
     OG_IMAGE: process.env['OG_IMAGE'] || 'https://gothamist-vue3demo.gothamist.com/gothamist_og.png',
     navigationId: 1,
     systemMessagesId: 2,
