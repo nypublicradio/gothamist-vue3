@@ -2,7 +2,7 @@
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
-const articlesPromise = findArticlePages('').then(({ data }) =>
+const articlesPromise = findArticlePages({}).then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
 
