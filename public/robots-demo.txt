@@ -1,0 +1,9 @@
+# Allow Twitterbot so we can use the Twitter card validator
+User-agent: Twitterbot
+Disallow:
+
+User-agent: *
+Disallow: /
+
+Sitemap: https://gothamist-vue3demo.gothamist.com/sitemap.xml
+Sitemap: https://gothamist-vue3demo.gothamist.com/sitemap-news.xml
