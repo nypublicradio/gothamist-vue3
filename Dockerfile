@@ -44,6 +44,7 @@ RUN pip install supervisor
 COPY scripts/entrypoint.sh ./scripts/entrypoint.sh
 
 COPY nginx/*.conf /etc/nginx/
+COPY public/robots* ./public/
 
 COPY --from=build /code/.output/ ./.output/
 COPY --from=build /code/.nuxt/ ./.nuxt/
