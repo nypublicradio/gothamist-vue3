@@ -227,8 +227,8 @@ watch(route, (value) => {
     z-index: 5000;
   }
   @include media('>=md') {
-    height: 306px;
-    padding: 28px auto;
+    height: 92px;
+    padding: 1px auto;
   }
 }
 
