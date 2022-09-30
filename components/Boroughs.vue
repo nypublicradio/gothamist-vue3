@@ -53,12 +53,10 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
   }
 }
 .boroughs .tag-large {
-  margin: 0 0.15rem 0.25rem 0.25rem;
-  margin-top: 0.5rem !important;
+  margin: 0.25rem 0.15rem 0.25rem 0.25rem;
   text-decoration: none;
   display: inline-block;
   width: fit-content;
-  margin: auto;
   font-weight: 600;
   @include media('>lg') {
     margin: 0 0.25rem 0.5rem;

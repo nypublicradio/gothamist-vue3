@@ -13,6 +13,12 @@ const getArticleTagsString = () => {
   const tags = props.article.tags || []
   return tags.map((tag) => tag.name).join(', ')
 }
+const getArticleUrl = () => {
+  // force the data-post-url to match the beta.gothamist.com url of the article
+  // TODO: REMOVE REPLACE WHEN WE GO LIVE
+  var url = props.article.url.replace('//gothamist.com', config.betaUrl)
+  return url
+}
 useHead({
   script: [
     {
@@ -28,7 +34,7 @@ useHead({
   <div class="comments-section">
     <div
       data-spotim-module="conversation"
-      :data-post-url="article.url"
+      :data-post-url="getArticleUrl()"
       :data-article-tags="getArticleTagsString()"
       :data-post-id="String(article.legacyId || article.uuid)"
     ></div>
