@@ -151,7 +151,7 @@ onMounted(() => {
 .page.index {
   background: linear-gradient(
     180deg,
-    #f3f3e4 0,
+    #f3f3e4 120px,
     rgba(255, 255, 255, 0) 615px,
     rgba(255, 255, 255, 0) 100%
   );
