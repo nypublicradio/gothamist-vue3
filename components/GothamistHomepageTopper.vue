@@ -22,7 +22,7 @@ const latestArticles = computed(() => props.articles.slice(1))
         :navLinks="navigation.primaryNavigation"
       />
       <LogoGothamist class="homepage-topper-logo col p-0"></LogoGothamist>
-      <div class="hidden xl:block" style="width: 34%"></div>
+      <div class="hidden xl:block blank-right"></div>
     </div>
     <div class="col-12 xl:col-8">
       <v-card
@@ -89,11 +89,19 @@ const latestArticles = computed(() => props.articles.slice(1))
 </template>
 
 <style lang="scss">
-.homepage-topper-navigation {
-  width: 220px;
-}
-
-.homepage-topper-logo {
-  height: auto;
+.homepage-topper {
+  .homepage-topper-navigation,
+  .blank-right {
+    width: 268px;
+    @include media('<lg') {
+      width: 220px;
+    }
+    @include media('<840px') {
+      width: 180px;
+    }
+  }
+  .homepage-topper-logo {
+    height: auto;
+  }
 }
 </style>

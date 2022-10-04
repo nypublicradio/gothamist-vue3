@@ -50,7 +50,7 @@ onMounted(() => {
 <template>
   <div>
     <section>
-      <div class="content pt-2">
+      <div class="content pt-4">
         <gothamist-homepage-topper
           :articles="[featuredArticle, ...latestArticles]"
           :navigation="navigation"
