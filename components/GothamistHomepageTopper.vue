@@ -46,6 +46,7 @@ const latestArticles = computed(() => props.articles.slice(1))
       </v-card>
     </div>
     <div class="col-12 xl:col-4 flex flex-column justify-content-end">
+      <hr class="black mb-3 lg:hidden" />
       <SponsorPlacement />
       <hr class="black mb-1" />
       <v-flexible-link class="mb-3 -ml-3" to="#latest" raw>
