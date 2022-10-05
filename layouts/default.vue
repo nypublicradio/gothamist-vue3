@@ -109,14 +109,13 @@ watch(route, (value) => {
         <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
         <Meta
           name="description"
-          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
+          content="Gothamist is a non-profit local newsroom, powered by WNYC."
         />
       </Head>
-
       <Head v-if="!isSponsored">
         <Meta
           name="og:site_name"
-          content="Gothamist: New York City Local News, Food, Arts & Events"
+          content="Gothamist"
         />
         <Meta name="og:type" content="website" />
         <Meta
@@ -125,9 +124,9 @@ watch(route, (value) => {
         />
         <Meta
           name="og:title"
-          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
+          content="Gothamist: New York City Local News, Food, Arts & Events"
         />
-        <Meta name="og:description" content="Investigating a strange world." />
+        <Meta name="og:description" content="Gothamist is a non-profit local newsroom, powered by WNYC." />
         <Meta name="og:image" :content="config.OG_IMAGE" />
         <Meta name="og:locale" content="en_US" />
         <Meta name="og:image:width" content="1200" />
@@ -227,8 +226,8 @@ watch(route, (value) => {
     z-index: 5000;
   }
   @include media('>=md') {
-    height: 306px;
-    padding: 28px auto;
+    height: 92px;
+    padding: 1px auto;
   }
 }
 
