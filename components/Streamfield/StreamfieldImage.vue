@@ -14,7 +14,7 @@ defineProps<{
     :alt-text="block.value.image.alt"
     :maxWidth="block.value.image.width"
     :maxHeight="block.value.image.height"
-    :description="block.value.image.caption"
+    :description="block.value.caption || block.value.image.caption"
     :credit="`Photo by ${block.value.image.credit}`"
     :credit-url="block.value.image.creditLink"
     :sizes="[2]"

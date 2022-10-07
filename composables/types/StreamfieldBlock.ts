@@ -34,7 +34,7 @@ export type HeadingBlock = {
 export type ImageBlock = {
     id: string;
     type: 'image';
-    value: { image: Image };  
+    value: { image: Image, caption: string };  
 }
 
 export type ParagraphBlock = {
