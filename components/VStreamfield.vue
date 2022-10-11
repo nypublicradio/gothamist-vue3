@@ -13,9 +13,6 @@ let blocksMounted = 0
 function countMountedBlock() {
   blocksMounted++
   if (blocksMounted === props.streamfieldBlocks.length) {
-    if (window.twttr) {
-      window.twttr.widgets?.load(el.value)
-    }
     emit('allBlocksMounted', el)
   }
 }
