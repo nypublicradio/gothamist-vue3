@@ -26,7 +26,7 @@ onMounted(() => {
             // remove the original blockquote if the tweet embed was created succesfully
             const original = el.value?.querySelector('blockquote.twitter-tweet')
             if (createdTweetEmbed && original) {
-                el.value.removeChild(original)
+                original.parentNode.removeChild(original)
             }
         })
     }
