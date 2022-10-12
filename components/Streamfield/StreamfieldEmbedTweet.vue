@@ -19,7 +19,6 @@ const tweetId = computed(() => {
 onMounted(() => {
     el.value.innerHTML = props.block.value.embed
     if (window.twttr) {
-        console.log('tweet', tweetId.value, el.value)
         window.twttr.widgets.createTweet(tweetId.value, el.value, {theme: isDark.value ? 'dark' : 'light'})
     }
 })
