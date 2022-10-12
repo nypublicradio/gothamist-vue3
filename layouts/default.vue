@@ -80,12 +80,10 @@ onMounted(() => {
     is_testing: config.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
-  PostRelease.Start()
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
-  PostRelease.Start()
 })
 </script>
 
