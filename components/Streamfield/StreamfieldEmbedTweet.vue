@@ -26,6 +26,10 @@ onMounted(() => {
                 el.value.innerHTML = props.block.value.embed
             }
         })
+    } else {
+        // uh oh, the twitter api script 'window.twttr' hasn't loaded, just
+        // use the original markup, it's all we can do
+        el.value.innerHTML = props.block.value.embed
     }
 })
 </script>
