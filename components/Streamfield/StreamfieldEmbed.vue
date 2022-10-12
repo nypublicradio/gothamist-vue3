@@ -4,7 +4,6 @@ import { EmbedBlock } from '../../composables/types/StreamfieldBlock'
 const props = defineProps<{
   block: EmbedBlock
 }>()
-const el = ref(null)
 
 const embedType = computed(() => {
   if (props.block.value.embed.includes('blockquote class="twitter-tweet"')) {
@@ -30,15 +29,3 @@ const embedType = computed(() => {
     :block="block"
   />
 </template>
-
-<style lang="scss">
-.streamfield-embed {
-  &.youtube {
-    iframe {
-      aspect-ratio: 16 / 9 !important;
-      width: 100% !important;
-      height: 100% !important;
-    }
-  }
-}
-</style>
