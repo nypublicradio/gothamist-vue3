@@ -18,9 +18,17 @@ const tweetId = computed(() => {
 })
 
 onMounted(() => {
+    // start with the original
     el.value.innerHTML = props.block.value.embed
     if (window.twttr) {
         window.twttr.widgets.createTweet(tweetId.value, el.value, {theme: isDark.value ? 'dark' : 'light'})
+        .then(() => {
+            // remove the original blockquote if the tweet embed was created succesfully
+            const original = el.value?.querySelector('blockquote.twitter-tweet')
+            if (original) {
+                el.value.removeChild(original)
+            }
+        })
     }
 })
 </script>
