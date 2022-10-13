@@ -9,6 +9,8 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['stream-button-click'])
+
 const isEpisodePlaying = useIsEpisodePlaying()
 const togglePlayTrigger = useTogglePlayTrigger()
 
@@ -19,10 +21,9 @@ const togglePlay = async () => {
     await getLiveStream()
     gotStream = true
   }
+  emit('stream-button-click')
   togglePlayTrigger.value = !togglePlayTrigger.value
 }
-
-//const emit = defineEmits(["change", "click"]);
 
 // lifecycle hooks
 onMounted(() => {})

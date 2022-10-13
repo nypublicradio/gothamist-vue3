@@ -48,7 +48,7 @@ const trackClick = (category, label) => {
     <div class="gothamist-header-right align-items-center gap-2">
       <ListenLiveButton />
       <a
-        class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
+        class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded"
         :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
         target="_blank"
         rel="noopener noreferrer"
