@@ -21,9 +21,11 @@ const productBannersPromise = findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
 
-const [navigation, breakingNews, productBanners] = await Promise.all(
-  [navigationPromise, breakingNewsPromise, productBannersPromise]
-)
+const [navigation, breakingNews, productBanners] = await Promise.all([
+  navigationPromise,
+  breakingNewsPromise,
+  productBannersPromise,
+])
 
 const isSponsored = route.name === 'sponsored'
 const strapline = useStrapline()
@@ -39,7 +41,11 @@ let firstElement = undefined
 let lastElement = undefined
 
 const handleSidebarShown = () => {
-  sidebarElements = Array.from(document.querySelectorAll('.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])')).filter(element => element.clientWidth + element.clientHeight !== 0)
+  sidebarElements = Array.from(
+    document.querySelectorAll(
+      '.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])'
+    )
+  ).filter((element) => element.clientWidth + element.clientHeight !== 0)
   firstElement = sidebarElements[0]
   lastElement = sidebarElements[sidebarElements.length - 1]
 }
@@ -52,14 +58,14 @@ const handleSidebarHidden = () => {
 
 const handleSidebarTab = (e) => {
   if (!e.shiftKey && document.activeElement === lastElement) {
-      firstElement.focus()
-      e.preventDefault()
+    firstElement.focus()
+    e.preventDefault()
   }
 }
 
 const handleSidebarShiftTab = (e) => {
   if (document.activeElement === firstElement) {
-    lastElement.focus();
+    lastElement.focus()
     e.preventDefault()
   }
 }
@@ -113,10 +119,7 @@ watch(route, (value) => {
         />
       </Head>
       <Head v-if="!isSponsored">
-        <Meta
-          name="og:site_name"
-          content="Gothamist"
-        />
+        <Meta name="og:site_name" content="Gothamist" />
         <Meta name="og:type" content="website" />
         <Meta
           name="og:url"
@@ -126,7 +129,10 @@ watch(route, (value) => {
           name="og:title"
           content="Gothamist: New York City Local News, Food, Arts & Events"
         />
-        <Meta name="og:description" content="Gothamist is a non-profit local newsroom, powered by WNYC." />
+        <Meta
+          name="og:description"
+          content="Gothamist is a non-profit local newsroom, powered by WNYC."
+        />
         <Meta name="og:image" :content="config.OG_IMAGE" />
         <Meta name="og:locale" content="en_US" />
         <Meta name="og:image:width" content="1200" />
@@ -194,11 +200,7 @@ watch(route, (value) => {
   >
     <template v-slot:header>
       <div class="gothamist-sidebar-header flex md:hidden">
-        <v-flexible-link
-          to="/"
-          raw
-          @click="trackSidebarClick('sidebar logo')"
-        >
+        <v-flexible-link to="/" raw @click="trackSidebarClick('sidebar logo')">
           <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
         </v-flexible-link>
         <div class="gothamist-sidebar-header-tagline" v-html="strapline" />

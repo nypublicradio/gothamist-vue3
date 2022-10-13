@@ -47,13 +47,6 @@ const trackClick = (category, label) => {
     </div>
     <div class="gothamist-header-right align-items-center gap-2">
       <ListenLiveButton />
-      <!-- <Button class="p-button-rounded p-button-danger" @click="togglePlay">
-        <img src="play.svg" class="mr-2"/>
-        <img src="pause.svg" class="mr-2"/>
-        <img src="wnyc-logo-white.svg" class="mr-2"/>
-        Listen Live
-      </Button> -->
-
       <a
         class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
         :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"

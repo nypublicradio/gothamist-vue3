@@ -88,6 +88,7 @@ export default defineNuxtConfig({
     systemMessagesId: 2,
     sitewideComponentsId: 2,
     betaUrl: '//beta.gothamist.com',
+    LIVESTREAM_URL: process.env['LIVESTREAM_URL'] || 'https://api.demo.nypr.digital/api/v4/whats_on/',
   },
   typescript: {
     strict: true
