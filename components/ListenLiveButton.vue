@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { useIsEpisodePlaying } from '~/composables/states'
+import { useIsEpisodePlaying, useTogglePlayTrigger } from '~/composables/states'
 import { getLiveStream } from '~~/composables/data/liveStream'
 const props = defineProps({
   label: {
@@ -10,11 +10,16 @@ const props = defineProps({
 })
 
 const isEpisodePlaying = useIsEpisodePlaying()
+const togglePlayTrigger = useTogglePlayTrigger()
 
-const togglePlay = () => {
-  console.log('togglePlay', getLiveStream())
+let gotStream = false
 
-  //isEpisodePlaying.value = !isEpisodePlaying.value
+const togglePlay = async () => {
+  if (!gotStream) {
+    await getLiveStream()
+    gotStream = true
+  }
+  togglePlayTrigger.value = !togglePlayTrigger.value
 }
 
 //const emit = defineEmits(["change", "click"]);
@@ -25,16 +30,21 @@ onMounted(() => {})
 
 <template>
   <div class="listen-live-button">
-    <Button class="p-button-rounded p-button-danger w-full" @click="togglePlay">
-      <img
-        v-if="isEpisodePlaying"
-        alt="pause icon"
-        src="pause.svg"
-        class="mr-2"
-      />
-      <img v-else alt="play icon" src="play.svg" class="mr-2" />
-      <img alt="WNYC logo" src="wnyc-logo-white.svg" class="mr-2" />
-      {{ props.label }}
+    <Button
+      class="p-button-rounded p-button-danger w-full flex justify-content-center"
+      @click="togglePlay"
+    >
+      <div class="flex align-items-center">
+        <img
+          v-if="isEpisodePlaying"
+          alt="pause icon"
+          src="pause.svg"
+          class="mr-2"
+        />
+        <img v-else alt="play icon" src="play.svg" class="mr-2" />
+        <img alt="WNYC logo" src="wnyc-logo-white.svg" class="mr-2" />
+        {{ props.label }}
+      </div>
     </Button>
   </div>
 </template>
