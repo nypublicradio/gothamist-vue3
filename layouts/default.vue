@@ -176,6 +176,7 @@ watch(route, (value) => {
       </main>
       <scroll-to-top-button />
       <gothamist-footer :navigation="navigation" />
+      <audio-player />
     </div>
   </div>
   <Sidebar

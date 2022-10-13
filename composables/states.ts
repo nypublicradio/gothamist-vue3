@@ -17,3 +17,23 @@ export const useNavigation = () => useState<Navigation>('navigation', () => ({
 export const useStrapline = () => useState<string>('strapline', () => 'A non-profit newsroom, powered by WNYC.')
 
 
+// audio player globals
+//const currentEpisodeObj = null
+const currentEpisodeObj = null
+/**
+ * Global state for the current episode object. Will save in local storage in the future
+ */
+export const useCurrentEpisode = () => useState('useCurrentEpisode', () => currentEpisodeObj)
+
+const isEpisodePlaying = false
+/**
+ * Global state for the current Howler sound playing.
+ */
+export const useIsEpisodePlaying = () => useState('useIsEpisodePlaying', () => isEpisodePlaying)
+
+const togglePlayTrigger = false
+/**
+ * Global state for the current play toggle for player play-toggle prop.
+ */
+export const useTogglePlayTrigger = () => useState('useTogglePlayTrigger', () => togglePlayTrigger)
+

@@ -45,7 +45,14 @@ const trackClick = (category, label) => {
         v-html="strapline"
       />
     </div>
-    <div class="gothamist-header-right align-items-center">
+    <div class="gothamist-header-right align-items-center gap-2">
+      <Button class="p-button-rounded p-button-danger">
+        <img src="play.svg" class="mr-2"/>
+        <img src="pause.svg" class="mr-2"/>
+        <img src="wnyc-logo-white.svg" class="mr-2"/>
+        Listen Live
+      </Button>
+      
       <a class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
         :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
         target="_blank"
@@ -94,7 +101,7 @@ const trackClick = (category, label) => {
 }
 
 .gothamist-header-donate-button {
-  max-height: 36px;
+  // max-height: 36px;
 }
 
 .gothamist-header-tagline {
