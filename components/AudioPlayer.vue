@@ -70,10 +70,15 @@ watch(togglePlayTrigger, () => {
   .play-button {
     background-color: transparent;
     border: 1px solid var(--white);
+    border-radius: 50%;
+    min-width: unset !important;
   }
 
   * {
     color: var(--white) !important;
+    :not(.pi) {
+      font-family: var(--font-family-header);
+    }
   }
 
   .flexible-link {
