@@ -31,7 +31,7 @@ const article = normalizeArticlePage(props.collection.data[0])
       },
     ]"
   >
-    <p class="desc">{{ article.description }} kim</p>
+    <p class="desc">{{ article.description }}</p>
     <v-card-metadata :article="article" alt-design :show-description="false" />
   </v-card>
 </template>
