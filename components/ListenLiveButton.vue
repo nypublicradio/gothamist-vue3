@@ -7,6 +7,10 @@ const props = defineProps({
     type: String,
     default: 'Listen Live',
   },
+  slug: {
+    type: String,
+    default: 'wnyc-fm939',
+  },
 })
 
 const emit = defineEmits(['stream-button-click'])
@@ -18,7 +22,7 @@ let gotStream = false
 
 const togglePlay = async () => {
   if (!gotStream) {
-    await getLiveStream()
+    await getLiveStream(props.slug)
     gotStream = true
   }
   emit('stream-button-click')
@@ -37,13 +41,17 @@ onMounted(() => {})
     >
       <div class="flex align-items-center">
         <img
-          v-if="isEpisodePlaying"
-          alt="pause icon"
-          src="pause.svg"
+          v-if="!isEpisodePlaying"
+          alt="play icon"
+          src="play.svg"
           class="mr-2"
         />
-        <img v-else alt="play icon" src="play.svg" class="mr-2" />
-        <img alt="WNYC logo" src="wnyc-logo-white.svg" class="mr-2" />
+        <img v-else alt="pause icon" src="pause.svg" class="mr-2" />
+        <img
+          alt="WNYC"
+          :src="`live-stream-logos-white/${props.slug}.svg`"
+          class="mr-2"
+        />
         {{ props.label }}
       </div>
     </Button>

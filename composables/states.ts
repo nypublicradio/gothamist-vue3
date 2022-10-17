@@ -18,12 +18,17 @@ export const useStrapline = () => useState<string>('strapline', () => 'A non-pro
 
 
 // audio player globals
-//const currentEpisodeObj = null
 const currentEpisodeObj = null
 /**
- * Global state for the current episode object. Will save in local storage in the future
+ * Global state for the current episode object. 
  */
 export const useCurrentEpisode = () => useState('useCurrentEpisode', () => currentEpisodeObj)
+
+const allCurrentEpisodesObj = null
+/**
+ * Global state for ALL the current episodes object. 
+ */
+export const useAllCurrentEpisodes = () => useState('useAllCurrentEpisodes', () => allCurrentEpisodesObj)
 
 const isEpisodePlaying = false
 /**

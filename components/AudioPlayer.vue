@@ -18,6 +18,8 @@ const playerRef = ref()
 const updateUseIsEpisodePlaying = (e) => {
   isEpisodePlaying.value = e
 }
+
+// data vars to pass to VPersistentPlayer
 const currentEpisodeData = computed(
   () => currentEpisode.value.data[0].attributes
 )
@@ -31,6 +33,7 @@ const currentEpisodeShow = computed(
     currentEpisode.value.included.find((include) => include.type === 'show')
       .attributes
 )
+
 let delay = 0
 // function that handles the logic for the persistent player to show and hide when the user changes the episode
 const switchEpisode = () => {

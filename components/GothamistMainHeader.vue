@@ -46,6 +46,7 @@ const trackClick = (category, label) => {
       />
     </div>
     <div class="gothamist-header-right align-items-center gap-2">
+      <ListenAllLiveButton />
       <ListenLiveButton />
       <a
         class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded"
