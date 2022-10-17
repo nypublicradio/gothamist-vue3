@@ -80,12 +80,10 @@ onMounted(() => {
     is_testing: config.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
-  PostRelease.Start()
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
-  PostRelease.Start()
 })
 </script>
 
@@ -109,14 +107,13 @@ watch(route, (value) => {
         <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
         <Meta
           name="description"
-          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
+          content="Gothamist is a non-profit local newsroom, powered by WNYC."
         />
       </Head>
-
       <Head v-if="!isSponsored">
         <Meta
           name="og:site_name"
-          content="Gothamist: New York City Local News, Food, Arts & Events"
+          content="Gothamist"
         />
         <Meta name="og:type" content="website" />
         <Meta
@@ -125,9 +122,9 @@ watch(route, (value) => {
         />
         <Meta
           name="og:title"
-          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
+          content="Gothamist: New York City Local News, Food, Arts & Events"
         />
-        <Meta name="og:description" content="Investigating a strange world." />
+        <Meta name="og:description" content="Gothamist is a non-profit local newsroom, powered by WNYC." />
         <Meta name="og:image" :content="config.OG_IMAGE" />
         <Meta name="og:locale" content="en_US" />
         <Meta name="og:image:width" content="1200" />
@@ -140,6 +137,22 @@ watch(route, (value) => {
       <Head v-if="isSponsored">
         <Meta name="Googlebot-News" content="noindex, nofollow" />
       </Head>
+      <Script children="window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+      }(document, 'script', 'twitter-wjs'));" />
     </Html>
 
     <!-- Google Tag Manager (noscript) -->
@@ -227,8 +240,8 @@ watch(route, (value) => {
     z-index: 5000;
   }
   @include media('>=md') {
-    height: 306px;
-    padding: 28px auto;
+    height: 92px;
+    padding: 1px auto;
   }
 }
 

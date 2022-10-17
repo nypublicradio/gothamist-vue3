@@ -1,20 +1,25 @@
 <script setup lang="ts">
-import { CodeBlock } from '../../composables/types/StreamfieldBlock'
-defineProps<{
+import { CodeBlock, EmbedBlock } from '../../composables/types/StreamfieldBlock'
+const props = defineProps<{
   block: CodeBlock
 }>()
+
+// code blocks and embed blocks are both just blocks
+// of html and they're sometime used interchangably for things
+// in the CMS, so we're making this a proxy for the embed block
+// so we don't need to handle special cases (like twitter embeds)
+// in two places
+// Yes, this is kind of a hack
+const embedBlock: EmbedBlock = {
+  id: props.block.id,
+  type: 'embed',
+  value: {
+    embed: props.block.value.code
+  }
+}
 </script>
 
 <template>
-  <div class="streamfield-code mb-7" v-html="block.value.code" />
+  <StreamfieldEmbed :block="embedBlock" />
 </template>
 
-<style lang="scss">
-.streamfield-code {
-  .instagram-media {
-    @include media('<lg') {
-      margin: auto !important;
-    }
-  }
-}
-</style>
