@@ -18,7 +18,7 @@ let gotStream = false
 
 const togglePlay = async () => {
   if (!gotStream) {
-    await getLiveStream('wnyc-fm939')
+    await getLiveStream()
     gotStream = true
   }
   emit('stream-button-click')

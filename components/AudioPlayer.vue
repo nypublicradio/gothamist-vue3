@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import VPersistentPlayer from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VPersistentPlayer.vue'
 import {
   useCurrentEpisode,
@@ -18,7 +18,19 @@ const playerRef = ref()
 const updateUseIsEpisodePlaying = (e) => {
   isEpisodePlaying.value = e
 }
-
+const currentEpisodeData = computed(
+  () => currentEpisode.value.data[0].attributes
+)
+const currentEpisodeImage = computed(
+  () =>
+    currentEpisode.value.included.find((include) => include.type === 'image')
+      .attributes
+)
+const currentEpisodeShow = computed(
+  () =>
+    currentEpisode.value.included.find((include) => include.type === 'show')
+      .attributes
+)
 let delay = 0
 // function that handles the logic for the persistent player to show and hide when the user changes the episode
 const switchEpisode = () => {
@@ -46,12 +58,15 @@ watch(togglePlayTrigger, () => {
         v-if="showPlayer"
         :auto-play="true"
         :livestream="true"
-        :title="currentEpisode.title"
-        :title-link="currentEpisode.episodeLink"
-        :station="currentEpisode.name"
-        :description="currentEpisode['short-description']"
-        :image="currentEpisode['image-logo']"
-        :file="currentEpisode.mp3"
+        :title="currentEpisodeShow.title"
+        :title-link="currentEpisodeShow.url"
+        :station="currentEpisodeData.name"
+        :description="
+          currentEpisodeShow.featured.title ||
+          currentEpisodeData['short-description']
+        "
+        :image="currentEpisodeImage.url || currentEpisodeData['image-logo']"
+        :file="currentEpisodeData.mp3"
         :show-skip="false"
         :can-minimize="true"
         :showTrack="false"
@@ -77,11 +92,19 @@ watch(togglePlayTrigger, () => {
   * {
     color: var(--white) !important;
     :not(.pi) {
-      font-family: var(--font-family-header);
+      font-family: var(--font-family-header) !important;
     }
   }
+  .track-info-description {
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+  .track-info-livestream-station {
+    font-weight: normal;
+  }
 
-  .flexible-link {
+  .flexible-link,
+  .flexible-link:not(.raw):not(.null) {
     &:hover {
       color: var(--white) !important;
     }
