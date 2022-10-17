@@ -61,10 +61,7 @@ watch(togglePlayTrigger, () => {
         :title="currentEpisodeShow.title"
         :title-link="currentEpisodeShow.url"
         :station="currentEpisodeData.name"
-        :description="
-          currentEpisodeShow.featured.title ||
-          currentEpisodeData['short-description']
-        "
+        :description="currentEpisodeShow?.featured?.title"
         :image="currentEpisodeImage.url || currentEpisodeData['image-logo']"
         :file="currentEpisodeData.mp3"
         :show-skip="false"
@@ -107,6 +104,13 @@ watch(togglePlayTrigger, () => {
   .flexible-link:not(.raw):not(.null) {
     &:hover {
       color: var(--white) !important;
+    }
+  }
+  .track-info-livestream-indicator {
+    background: var(--white) !important;
+    .track-info-livestream-indicator-text {
+      color: #111111 !important;
+      line-height: normal;
     }
   }
 
