@@ -50,8 +50,8 @@ const newsletterSubmitEvent = () => {
           <div class="col">
             <div
               v-for="(article, index) in articles.slice(0, articlesToShow)"
-              :key="index"
-            >
+              :key="`${article.id}-${index}`"
+            >            
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"

@@ -17,17 +17,16 @@ const homePageCollectionsPromise = findPage('/').then(({ data }) => {
   })
 })
 
-const [articles, homePageCollections] = await Promise.all(
-  [articlesPromise, homePageCollectionsPromise]
-)
+const [articles, homePageCollections] = await Promise.all([
+  articlesPromise,
+  homePageCollectionsPromise,
+])
 
 // the latest 4 articles
-const latestArticles = articles.slice(0,4)
+const latestArticles = articles.slice(0, 4)
 
 // the home page featured article should display only the first story in the home page content collection
-const featuredArticle = normalizeArticlePage(
-  homePageCollections?.[0].data?.[0]
-)
+const featuredArticle = normalizeArticlePage(homePageCollections?.[0].data?.[0])
 
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
@@ -77,7 +76,7 @@ const nativoSectionLoaded = (name) => {
       <template v-if="homePageCollections && homePageCollections.length > 0">
         <template
           v-for="(collection, index) in homePageCollections"
-          :key="collection.id"
+          :key="`${collection.id}-${collection.data[0].id}`"
         >
           <single-story-feature
             v-if="collection.layout === 'single-story-feature'"

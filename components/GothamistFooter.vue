@@ -2,7 +2,7 @@
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import Navigation from '~~/composables/types/Navigation.js';
+import Navigation from '~~/composables/types/Navigation.js'
 
 const props = defineProps<{
   navigation: Navigation
@@ -56,7 +56,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
             <v-flexible-link
               v-for="(item, index) in legalLinks"
               :to="item.value.url"
-              :key="`legalLinks-${index}`"
+              :key="`legalLinks-${item.value.title}-${index}`"
             >
               {{ item.value.title }}
             </v-flexible-link>
