@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-
+import { useUpdateCommentCounts } from '~~/composables/comments';
 const route = useRoute()
 
 const { title: sectionTitle, id: sectionId } = await findPage(
@@ -14,14 +14,9 @@ const articles = await findArticlePages({
 const articlesToShow = ref(6)
 
 const { $analytics } = useNuxtApp()
-onMounted(async () => {
+onMounted(() => {
   $analytics.sendPageView({ page_type: 'section_page' })
-  const commentCounts = useCommentCounts()
-  const commentIds = articles.map(article => String(article.legacyId || article.uuid))
-  const commentCountData = await useFetchCommentCounts(commentIds)
-  Object.entries(commentCountData).forEach(([key, value]) => {
-    commentCounts.value[key] =  value
-  })
+  useUpdateCommentCounts(articles)
 })
 
 const newsletterSubmitEvent = () => {
