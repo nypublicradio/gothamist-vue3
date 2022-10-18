@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useUpdateCommentCounts } from '~~/composables/comments';
 
 // this component is used in the articleSlug at the bottom of the article page, and also as the topper in the section index page
 
@@ -38,6 +39,11 @@ const articlesSm = ref([
   articlesFiltered[3],
   articlesFiltered[4],
 ])
+
+onMounted(async () => {
+  await useUpdateCommentCounts(articles)
+})
+
 </script>
 
 <template>

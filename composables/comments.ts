@@ -1,4 +1,6 @@
 import { hash } from 'ohash'
+import { ArticlePage } from './types/Page'
+import { useCommentCounts } from '~~/composables/states';
 
 export const useFetchCommentCounts = async function(commentIds:string[]) {
     const config = useRuntimeConfig()
@@ -21,4 +23,13 @@ export const useFetchCommentCounts = async function(commentIds:string[]) {
         })
     }
     return counts
+}
+
+export const useUpdateCommentCounts = async function(articles:ArticlePage[]) {
+    const commentCounts = useCommentCounts()
+    const commentIds = articles.map(article => String(article.legacyId || article.uuid))
+    const commentCountData = await useFetchCommentCounts(commentIds)
+    Object.entries(commentCountData).forEach(([key, value]) => {
+        commentCounts.value[key] =  value
+    })
 }
