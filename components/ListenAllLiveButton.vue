@@ -42,18 +42,21 @@ onBeforeMount(async () => {
     //console.log('allCurrentEpisodes.value', allCurrentEpisodes.value)
     allCurrentEpisodes.value.data.forEach((stream) => {
       //console.log('stream', stream)
-      streamItems.value.push({
-        label: stream.attributes.name,
-        icon: 'icon',
-        slug: stream.attributes.slug,
-        image: stream.attributes['image-logo'],
-        command: async () => {
-          //console.log('command - ', stream.attributes.slug)
-          slug.value = stream.attributes.slug
-          await getLiveStream(stream.attributes.slug)
-          gotStream = true
-        },
-      })
+      // conditional to check what shows are currently running
+      if (stream.relationships['current-show'].data !== null) {
+        streamItems.value.push({
+          label: stream.attributes.name,
+          icon: 'icon',
+          slug: stream.attributes.slug,
+          image: stream.attributes['image-logo'],
+          command: async () => {
+            //console.log('command - ', stream.attributes.slug)
+            slug.value = stream.attributes.slug
+            await getLiveStream(stream.attributes.slug)
+            gotStream = true
+          },
+        })
+      }
     })
   })
 })
