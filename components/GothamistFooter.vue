@@ -3,11 +3,11 @@ import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/component
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import Navigation from '~~/composables/types/Navigation.js'
-import { audioPlayerHeight, useIsEpisodePlaying } from '~/composables/states'
+import { audioPlayerHeight, useCurrentEpisode } from '~/composables/states'
 const props = defineProps<{
   navigation: Navigation
 }>()
-const isEpisodePlaying = useIsEpisodePlaying()
+const currentEpisode = useCurrentEpisode()
 const legalLinks = ref(props.navigation.legalLinks)
 const propertyDescription = ref(props.navigation.propertyDescription)
 const copyrightYear = ref(props.navigation.copyrightYear)
@@ -22,7 +22,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
     <div
       class="content"
       :style="`padding-bottom:${
-        isEpisodePlaying ? audioPlayerHeight + 25 + 'px' : '25px'
+        currentEpisode ? audioPlayerHeight + 25 + 'px' : '25px'
       }`"
     >
       <div class="top grid">
