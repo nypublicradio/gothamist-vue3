@@ -1,6 +1,8 @@
 <script setup>
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import { computed, ref } from 'vue'
+import { useCommentCounts } from '~~/composables/comments'
+
 const props = defineProps({
   article: {
     type: Object,
