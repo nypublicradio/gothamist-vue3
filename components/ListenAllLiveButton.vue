@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onBeforeMount } from 'vue'
+import { SlowBuffer } from 'buffer'
+import { ref, onBeforeMount, computed } from 'vue'
 import {
   useIsEpisodePlaying,
   useTogglePlayTrigger,
@@ -39,58 +40,24 @@ const toggleMenu = (event) => {
 // lifecycle hooks
 onBeforeMount(async () => {
   getAllLiveStreams().then(() => {
-    console.log('allCurrentEpisodes.value', allCurrentEpisodes.value)
+    //console.log('allCurrentEpisodes.value', allCurrentEpisodes.value)
     allCurrentEpisodes.value.data.forEach((stream) => {
-      console.log('stream', stream)
+      //console.log('stream', stream)
       streamItems.value.push({
         label: stream.attributes.name,
-        icon: `icon ${stream.attributes.slug}-icon`,
+        icon: 'icon',
         slug: stream.attributes.slug,
+        image: stream.attributes['image-logo'],
+        command: async () => {
+          //console.log('command - ', stream.attributes.slug)
+          slug.value = stream.attributes.slug
+          await getLiveStream(stream.attributes.slug)
+          gotStream = true
+        },
       })
     })
   })
 })
-
-const items = ref([
-  {
-    label: 'Update',
-    icon: 'pi pi-refresh',
-    command: () => {
-      toast.add({
-        severity: 'success',
-        summary: 'Updated',
-        detail: 'Data Updated',
-        life: 3000,
-      })
-    },
-  },
-  {
-    label: 'Delete',
-    icon: 'pi pi-times',
-    command: () => {
-      toast.add({
-        severity: 'warn',
-        summary: 'Delete',
-        detail: 'Data Deleted',
-        life: 3000,
-      })
-    },
-  },
-  {
-    label: 'Vue Website',
-    icon: 'pi pi-external-link',
-    command: () => {
-      window.location.href = 'https://vuejs.org/'
-    },
-  },
-  {
-    label: 'Upload',
-    icon: 'pi pi-upload',
-    command: () => {
-      window.location.hash = '/fileupload'
-    },
-  },
-])
 
 const togglePlay = async () => {
   if (!gotStream) {
@@ -118,11 +85,11 @@ const togglePlay = async () => {
           />
           <img v-else alt="pause icon" src="pause.svg" class="mr-2" />
           <img
-            alt="WNYC"
+            class="logo mr-2"
+            alt="show-logo"
             :src="`live-stream-logos-white/${slug}.svg`"
-            class="mr-2"
           />
-          {{ props.label }}
+          <span>{{ props.label }}</span>
         </div>
       </Button>
       <Button
@@ -139,12 +106,11 @@ const togglePlay = async () => {
       class="streamsMenu"
     >
       <template #item="{ item }">
-        <div class="stream-item flex gap-2" @click="setStream(item.slug)">
-          <img
-            :src="`live-stream-logos/${item.slug}.svg`"
-            alt="-"
-            class="image"
-          />
+        <div
+          class="stream-item flex gap-2 align-items-center"
+          @click="item.command()"
+        >
+          <img :src="item.image" alt="-" class="image" />
           <p class="label">{{ item.label }}</p>
         </div>
       </template>
@@ -167,22 +133,30 @@ const togglePlay = async () => {
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
       padding-right: 5px;
+      .logo {
+        max-height: 16px;
+        width: 50px;
+      }
     }
   }
 }
 .streamsMenu {
-  padding: 1rem;
   ul {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    //gap: 1rem;
     .stream-item {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #f5f5f5;
+      }
       .image {
         width: 36px;
         height: auto;
       }
       .label {
-        font-size: 1rem;
+        font-size: 0.85rem;
         line-height: normal;
         font-family: var(--font-family-header);
       }
