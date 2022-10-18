@@ -17,17 +17,16 @@ const homePageCollectionsPromise = findPage('/').then(({ data }) => {
   })
 })
 
-const [articles, homePageCollections] = await Promise.all(
-  [articlesPromise, homePageCollectionsPromise]
-)
+const [articles, homePageCollections] = await Promise.all([
+  articlesPromise,
+  homePageCollectionsPromise,
+])
 
 // the latest 4 articles
-const latestArticles = articles.slice(0,4)
+const latestArticles = articles.slice(0, 4)
 
 // the home page featured article should display only the first story in the home page content collection
-const featuredArticle = normalizeArticlePage(
-  homePageCollections?.[0].data?.[0]
-)
+const featuredArticle = normalizeArticlePage(homePageCollections?.[0].data?.[0])
 
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
@@ -46,6 +45,16 @@ const navigation = useNavigation()
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'home_page' })
 })
+
+const loadedNativoElements = []
+const nativoSectionLoaded = (name) => {
+  loadedNativoElements.push(name)
+  if (loadedNativoElements.includes('ntv-stream-3') && 
+  loadedNativoElements.includes('ntv-latest-1')) {
+    loadedNativoElements.length = 0
+    PostRelease.Start()
+  }
+}
 </script>
 
 <template>
@@ -55,6 +64,7 @@ onMounted(() => {
         <gothamist-homepage-topper
           :articles="[featuredArticle, ...latestArticles]"
           :navigation="navigation"
+          @vue:mounted="nativoSectionLoaded('ntv-latest-1')"
         />
         <!-- newsletter -->
         <div class="my-8">
@@ -66,20 +76,22 @@ onMounted(() => {
       <template v-if="homePageCollections && homePageCollections.length > 0">
         <template
           v-for="(collection, index) in homePageCollections"
-          :key="collection.id"
+          :key="`${collection.id}-${collection.data[0].id}`"
         >
           <single-story-feature
             v-if="collection.layout === 'single-story-feature'"
             :collection="collection"
           />
-          <div v-if="index === 1" id="ntv-stream-2"></div>
           <center-feature
             class="content"
             v-if="collection.layout === 'center-feature'"
             :collection="collection"
           />
+          <div v-if="index === 0" id="ntv-stream-2"></div>
         </template>
       </template>
+      <!-- If no homepage collections still include the nativo div -->
+      <div v-else id="ntv-stream-2"></div>
       <boroughs class="mb-5 lg:mb-8" />
       <!-- river -->
 
@@ -111,6 +123,7 @@ onMounted(() => {
                       slug: `/${article.section.slug}`,
                     },
                   ]"
+                  @vue:mounted="index === 1 && nativoSectionLoaded('ntv-stream-3')"
                 >
                   <p class="desc">
                     {{ article.description }}

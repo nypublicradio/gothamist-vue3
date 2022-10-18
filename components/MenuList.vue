@@ -13,7 +13,7 @@ const emit = defineEmits(['menu-list-click'])
     <v-flexible-link
       v-for="(item, index) in navLinks"
       :to="item.value.url"
-      :key="`primaryFooterLinks-${index}`"
+      :key="`primaryFooterLinks-${item.value.title}-${index}`"
       @click="emit('menu-list-click', item.value.title)"
     >
       {{ item.value.title }}

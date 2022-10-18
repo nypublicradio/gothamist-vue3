@@ -125,7 +125,7 @@ onUnmounted(() => {
           v-for="(slide, index) in gallery.slides"
           class="col-12"
           :class="{ 'xl:col-6': index % 3 !== 0 }"
-          :key="index"
+          :key="`${slide.image.id}-${index}`"
         >
           <template v-if="index === 3 || (index > 0 && index % 6 === 0)">
             <HtlAd
