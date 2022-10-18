@@ -65,7 +65,7 @@ const submitForm = (email) => {
   $fetch(config.NEWSLETTER_API, {
     method: 'POST',
     body: {
-      list: config.NEWSLETTER_LIST_ID,
+      list: config.NEWSLETTER_MULTI_LIST_IDS,
       email: email,
     },
   })
