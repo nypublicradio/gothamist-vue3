@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
+import { useFetchCommentCounts } from '~~/composables/comments';
+import { useCommentCounts } from '~~/composables/states';
 import useImageUrl from '~~/composables/useImageUrl'
 
 const articlesPromise = findArticlePages({}).then(({ data }) =>
@@ -42,8 +44,16 @@ const newsletterSubmitEvent = () => {
 }
 const navigation = useNavigation()
 
-onMounted(() => {
+onMounted(async () => {
   $analytics.sendPageView({ page_type: 'home_page' })
+  const commentCounts = useCommentCounts()
+  const collectionArticles = homePageCollections.reduce((pages, collection) => [...pages, ...collection.data],[])
+  const allArticles = [...articles, ...collectionArticles]
+  const commentIds = allArticles.map(article => String(article.legacyId || article.uuid))
+  const commentCountData = await useFetchCommentCounts(commentIds)
+  Object.entries(commentCountData).forEach(([key, value]) => {
+    commentCounts.value[key] =  value
+  })
 })
 
 const loadedNativoElements = []

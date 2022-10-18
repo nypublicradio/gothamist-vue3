@@ -14,8 +14,14 @@ const articles = await findArticlePages({
 const articlesToShow = ref(6)
 
 const { $analytics } = useNuxtApp()
-onMounted(() => {
+onMounted(async () => {
   $analytics.sendPageView({ page_type: 'section_page' })
+  const commentCounts = useCommentCounts()
+  const commentIds = articles.map(article => String(article.legacyId || article.uuid))
+  const commentCountData = await useFetchCommentCounts(commentIds)
+  Object.entries(commentCountData).forEach(([key, value]) => {
+    commentCounts.value[key] =  value
+  })
 })
 
 const newsletterSubmitEvent = () => {
