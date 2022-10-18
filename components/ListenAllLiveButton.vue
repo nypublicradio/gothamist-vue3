@@ -1,6 +1,5 @@
 <script setup>
-import { SlowBuffer } from 'buffer'
-import { ref, onBeforeMount, computed } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import {
   useIsEpisodePlaying,
   useTogglePlayTrigger,
@@ -80,14 +79,14 @@ const togglePlay = async () => {
           <img
             v-if="!isEpisodePlaying"
             alt="play icon"
-            src="play.svg"
+            src="/play.svg"
             class="mr-2"
           />
-          <img v-else alt="pause icon" src="pause.svg" class="mr-2" />
+          <img v-else alt="pause icon" src="/pause.svg" class="mr-2" />
           <img
             class="logo mr-2"
             alt="show-logo"
-            :src="`live-stream-logos-white/${slug}.svg`"
+            :src="`/live-stream-logos-white/${slug}.svg`"
           />
           <span>{{ props.label }}</span>
         </div>
