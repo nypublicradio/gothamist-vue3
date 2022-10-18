@@ -78,7 +78,7 @@ watch(togglePlayTrigger, () => {
 
 <style lang="scss">
 .persistent-player {
-  //border-top: 1px solid var(--blue-300);
+  border-top: 1px solid var(--white);
   position: fixed;
   background-color: var(--black);
 

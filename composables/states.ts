@@ -42,3 +42,7 @@ const togglePlayTrigger = false
  */
 export const useTogglePlayTrigger = () => useState('useTogglePlayTrigger', () => togglePlayTrigger)
 
+/**
+ * Global var for the height of the audio player
+ */
+export const audioPlayerHeight = 100
