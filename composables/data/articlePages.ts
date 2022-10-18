@@ -98,6 +98,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 
         // for comments
         disableComments: article.disableComments,
+        commentId: String(article.legacyId || article.uuid)
     }
 }
 

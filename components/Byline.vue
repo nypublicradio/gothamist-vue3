@@ -29,9 +29,12 @@ const shareUrl = ref(props.article?.url)
 const shareTitle = ref(props.article?.title)
 const isMultipleAuthors = ref(props.article?.authors.length > 1)
 const isDisableComments = ref(props.article?.disableComments || false)
-const comments = ref(props.article?.comments || 'Go to')
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
+const commentCounts = ref(useCommentCounts())
+const commentCount = computed(() => {
+  return commentCounts.value[props.article?.commentId]
+})
 </script>
 
 <template>
@@ -63,7 +66,7 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
           to="#comments"
           class="type-textlink2"
         >
-          {{ comments }} comments
+          {{ commentCount }} comments
         </v-flexible-link>
       </div>
     </div>
@@ -97,7 +100,7 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
           to="#comments"
           class="type-textlink2"
         >
-          {{ comments }} comments
+          {{ commentCount }} comments
         </v-flexible-link>
       </div>
     </div>
