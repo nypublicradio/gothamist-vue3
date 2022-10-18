@@ -43,13 +43,13 @@ onMounted(() => {})
         <img
           v-if="!isEpisodePlaying"
           alt="play icon"
-          src="play.svg"
+          src="/play.svg"
           class="mr-2"
         />
-        <img v-else alt="pause icon" src="pause.svg" class="mr-2" />
+        <img v-else alt="pause icon" src="/pause.svg" class="mr-2" />
         <img
           alt="WNYC"
-          :src="`live-stream-logos-white/${props.slug}.svg`"
+          :src="`/live-stream-logos-white/${props.slug}.svg`"
           class="mr-2"
         />
         {{ props.label }}
