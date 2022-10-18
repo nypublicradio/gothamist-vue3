@@ -53,6 +53,7 @@ export interface ArticlePage extends Page {
     searchDescription?: string;
 
     disableComments?: string;
+    commentId: string;
 
 }
 

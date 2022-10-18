@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { TagPage } from '../../composables/types/Page'
+import { StreamfieldBlock, ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 
@@ -31,9 +32,28 @@ const articlesToShow = ref(10)
 const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
 
-onMounted(() => {
+onMounted(async () => {
   $analytics.sendPageView({ page_type: 'tag_page' })
   $htlbid.setTargeting({ Template: 'Tag' })
+
+  function getPagesFromZone(zone: StreamfieldBlock[]) {
+    if (!zone) {
+      return []
+    }
+    return zone.filter(block => block.type === "content_collection")
+    .reduce((pages, collection: ContentCollectionBlock) => [...pages, ...collection.value.pages], [])
+  }
+
+  const commentCounts = useCommentCounts()
+  const topPageArticles = getPagesFromZone(curatedTagPage?.topPageZone)
+  const midPageArticles = getPagesFromZone(curatedTagPage?.midPageZone)
+
+  const allArticles = [...articles, ...topPageArticles, ...midPageArticles]
+  const commentIds = allArticles.map(article => String(article.legacyId || article.uuid))
+  const commentCountData = await useFetchCommentCounts(commentIds)
+  Object.entries(commentCountData).forEach(([key, value]) => {
+    commentCounts.value[key] =  value
+  })
 })
 
 onUnmounted(() => {
