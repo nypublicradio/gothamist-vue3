@@ -22,8 +22,8 @@ const [articles, homePageCollections] = await Promise.all([
   homePageCollectionsPromise,
 ])
 
-// the latest 4 articles
-const latestArticles = articles.slice(0, 4)
+// the latest articles
+const latestArticles = articles
 
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = normalizeArticlePage(homePageCollections?.[0].data?.[0])
