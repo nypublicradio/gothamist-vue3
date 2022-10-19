@@ -9,7 +9,7 @@ const el = ref(null)
 
 const isDark = usePreferredDark()
 
-const tweetRegExp = /<blockquote class=\"twitter-tweet.*\/status\/(\d+)\?.*\/blockquote>/g
+const tweetRegExp = /<blockquote class="twitter-tweet.*\/status\/(\d+)\?.*\/blockquote>/g
 const tweetIds = computed(() => {
     return [...props.block.value.embed.matchAll(tweetRegExp)].map(matches => matches[1])
 })
@@ -17,7 +17,7 @@ const tweetIds = computed(() => {
 // Remove tweet scripts included with blocks in the cms payload so they can't
 // interfere, we're handling this manually
 function stripTweetScripts(stringToStrip) {
-    const tweetScriptMatcher = /<script*.src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"><\/script>/g
+    const tweetScriptMatcher = /<script*.src=\"https:\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/g
     return stringToStrip.replaceAll(tweetScriptMatcher, '')
 }
 
