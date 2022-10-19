@@ -15,7 +15,6 @@ const togglePlayTrigger = useTogglePlayTrigger()
 const showPlayer = ref(false)
 const playerRef = ref()
 const playerHeight = ref(audioPlayerHeight + 'px')
-console.log('playerHeight = ', playerHeight.value)
 /*function that updated the global useIsEpisodePlaying */
 const updateUseIsEpisodePlaying = (e) => {
   isEpisodePlaying.value = e
