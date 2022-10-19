@@ -32,7 +32,6 @@ function replaceTweet(tweetId) {
         const originalTweetElement = findTweetElement(tweetId)
         const newTweetDiv = document.createElement('DIV')
         originalTweetElement.parentNode.insertBefore(newTweetDiv, originalTweetElement)
-        console.log('TWET', tweetId, originalTweetElement)
         window.twttr.widgets.createTweet(tweetId, newTweetDiv, {theme: isDark.value ? 'dark' : 'light'})
         .then(createdTweet => {
             if (createdTweet) {
