@@ -1,5 +1,4 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
 import {
   useIsEpisodePlaying,
   useTogglePlayTrigger,
@@ -22,7 +21,6 @@ const emit = defineEmits(['stream-button-click'])
 const isEpisodePlaying = useIsEpisodePlaying()
 const togglePlayTrigger = useTogglePlayTrigger()
 const currentEpisode = useCurrentEpisode()
-let gotStream = false
 
 const togglePlay = async () => {
   if (!currentEpisode.value) {
@@ -31,9 +29,6 @@ const togglePlay = async () => {
   emit('stream-button-click')
   togglePlayTrigger.value = !togglePlayTrigger.value
 }
-
-// lifecycle hooks
-onMounted(() => {})
 </script>
 
 <template>

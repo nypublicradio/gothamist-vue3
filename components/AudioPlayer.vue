@@ -5,6 +5,7 @@ import {
   useCurrentEpisode,
   useIsEpisodePlaying,
   useTogglePlayTrigger,
+  audioPlayerHeight,
 } from '~/composables/states'
 // had to install howler.js locally and add this import to stop it from breaking the build
 import { Howl, Howler } from 'howler'
@@ -13,7 +14,8 @@ const isEpisodePlaying = useIsEpisodePlaying()
 const togglePlayTrigger = useTogglePlayTrigger()
 const showPlayer = ref(false)
 const playerRef = ref()
-
+const playerHeight = ref(audioPlayerHeight + 'px')
+console.log('playerHeight = ', playerHeight.value)
 /*function that updated the global useIsEpisodePlaying */
 const updateUseIsEpisodePlaying = (e) => {
   isEpisodePlaying.value = e
@@ -176,6 +178,6 @@ watch(togglePlayTrigger, () => {
 
 .player-enter-from,
 .player-leave-to {
-  transform: translateY(var(--player-height));
+  transform: translateY(v-bind(playerHeight));
 }
 </style>
