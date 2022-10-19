@@ -1,6 +1,10 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { useIsEpisodePlaying, useTogglePlayTrigger } from '~/composables/states'
+import {
+  useIsEpisodePlaying,
+  useTogglePlayTrigger,
+  useCurrentEpisode,
+} from '~/composables/states'
 import { getLiveStream } from '~~/composables/data/liveStream'
 const props = defineProps({
   label: {
@@ -17,13 +21,12 @@ const emit = defineEmits(['stream-button-click'])
 
 const isEpisodePlaying = useIsEpisodePlaying()
 const togglePlayTrigger = useTogglePlayTrigger()
-
+const currentEpisode = useCurrentEpisode()
 let gotStream = false
 
 const togglePlay = async () => {
-  if (!gotStream) {
+  if (!currentEpisode.value) {
     await getLiveStream(props.slug)
-    gotStream = true
   }
   emit('stream-button-click')
   togglePlayTrigger.value = !togglePlayTrigger.value

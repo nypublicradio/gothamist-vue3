@@ -20,10 +20,10 @@ const emit = defineEmits(['menu-list-click'])
       />
     </div>
     <div class="sidebar-contents-bottom mb-5 md:mb-6">
-      <ListenAllLiveButton
+      <!-- <ListenAllLiveButton
         @streamButtonClick="emit('menu-list-click', $event)"
-      />
-      <!-- <ListenLiveButton @streamButtonClick="emit('menu-list-click', $event)" /> -->
+      /> -->
+      <ListenLiveButton @streamButtonClick="emit('menu-list-click', $event)" />
       <a
         class="sidebar-button-send-a-story mod-button p-button p-button-rounded mb-5 mt-3 w-full"
         href="mailto:tips@gothamist.com"

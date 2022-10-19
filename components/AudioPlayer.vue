@@ -83,10 +83,36 @@ watch(togglePlayTrigger, () => {
   background-color: var(--black);
 
   .play-button {
-    background-color: transparent;
-    border: 1px solid var(--white);
+    background-color: var(--red);
+    //border: 1px solid var(--white);
     border-radius: 50%;
-    min-width: unset !important;
+    min-width: 41px !important;
+    width: 41px;
+    height: 41px;
+    &:hover {
+      border: none;
+      background-color: var(--danger-light-color);
+    }
+    .pi-play {
+      &:before {
+        content: '';
+        border-color: transparent transparent transparent #ffffff;
+        width: 10px;
+        height: 6px;
+        position: relative;
+        /* background: #ffffff; */
+        display: block;
+        box-sizing: border-box;
+        border-width: 6px 0px 6px 10px;
+        border-style: solid;
+      }
+    }
+  }
+
+  .minimize-btn {
+    right: 0;
+    left: 0;
+    margin: auto;
   }
 
   * {
