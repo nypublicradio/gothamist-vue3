@@ -9,27 +9,43 @@ const el = ref(null)
 
 const isDark = usePreferredDark()
 
-const tweetId = computed(() => {
-    const matches = props.block.value.embed.match(/\/status\/(\d+)/)
-    if (matches?.length > 1) {
-    return matches[1]
-    }
-    return ''
+const tweetRegExp = /<blockquote class=\"twitter-tweet.*\/status\/(\d+)\?.*\/blockquote>/g
+const tweetIds = computed(() => {
+    return [...props.block.value.embed.matchAll(tweetRegExp)].map(matches => matches[1])
 })
 
-onMounted(() => {
+// Remove tweet scripts included with blocks in the cms payload so they can't
+// interfere, we're handling this manually
+function stripTweetScripts(stringToStrip) {
+    const tweetScriptMatcher = /<script*.src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"><\/script>/g
+    return stringToStrip.replaceAll(tweetScriptMatcher, '')
+}
+
+// find the blockquote element for an unexpanded tweet embed
+function findTweetElement(tweetId) {
+    return [...document.querySelectorAll('blockquote.twitter-tweet')].filter(tweet => tweet.outerHTML.includes(tweetId))[0]
+}
+
+// replace a tweet blockquote with the expanded embed
+function replaceTweet(tweetId) {
     if (window.twttr) {
-        window.twttr.widgets.createTweet(tweetId.value, el.value, {theme: isDark.value ? 'dark' : 'light'})
-        .then((createdTweetEmbed) => {
-            if (!createdTweetEmbed) {
-                // fallback to original markup if tweet embed creation fails
-                el.value.innerHTML = props.block.value.embed
+        const originalTweetElement = findTweetElement(tweetId)
+        const newTweetDiv = document.createElement('DIV')
+        originalTweetElement.parentNode.insertBefore(newTweetDiv, originalTweetElement)
+        console.log('TWET', tweetId, originalTweetElement)
+        window.twttr.widgets.createTweet(tweetId, newTweetDiv, {theme: isDark.value ? 'dark' : 'light'})
+        .then(createdTweet => {
+            if (createdTweet) {
+                originalTweetElement.parentNode.removeChild(originalTweetElement)
             }
         })
-    } else {
-        // uh oh, the twitter api script 'window.twttr' hasn't loaded, just
-        // use the original markup, it's all we can do
-        el.value.innerHTML = props.block.value.embed
+    }
+}
+
+onMounted(() => {
+    el.value.innerHTML = stripTweetScripts(props.block.value.embed)
+    if (window.twttr) {
+        tweetIds.value.forEach(replaceTweet)
     }
 })
 </script>
