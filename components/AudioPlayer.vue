@@ -5,6 +5,7 @@ import {
   useCurrentEpisode,
   useIsEpisodePlaying,
   useTogglePlayTrigger,
+  useIsPlayerMinimized,
   audioPlayerHeight,
 } from '~/composables/states'
 // had to install howler.js locally and add this import to stop it from breaking the build
@@ -12,12 +13,17 @@ import { Howl, Howler } from 'howler'
 const currentEpisode = useCurrentEpisode()
 const isEpisodePlaying = useIsEpisodePlaying()
 const togglePlayTrigger = useTogglePlayTrigger()
+const isPlayerMinimized = useIsPlayerMinimized()
 const showPlayer = ref(false)
 const playerRef = ref()
 const playerHeight = ref(audioPlayerHeight + 'px')
 /*function that updated the global useIsEpisodePlaying */
 const updateUseIsEpisodePlaying = (e) => {
   isEpisodePlaying.value = e
+}
+/*function that updated the global useIsPlayerMinimized */
+const updateUseIsPlayerMinimized = (e) => {
+  isPlayerMinimized.value = e
 }
 
 // data vars to pass to VPersistentPlayer
@@ -72,6 +78,7 @@ watch(togglePlayTrigger, () => {
         :can-minimize="true"
         :showTrack="false"
         @togglePlay="updateUseIsEpisodePlaying"
+        @is-minimized="updateUseIsPlayerMinimized"
       />
     </transition>
   </div>
@@ -148,12 +155,20 @@ watch(togglePlayTrigger, () => {
     background: var(--red);
   }
 
-  .maximize-btn-holder .maximize-btn.p-button {
-    background-color: var(--black);
-    border: 1px solid var(--black100);
-
-    &:hover {
-      background-color: var(--black100);
+  .maximize-btn-holder {
+    left: 0;
+    right: 0;
+    margin: auto;
+    .maximize-btn.p-button {
+      background-color: var(--black);
+      border: 1px solid var(--black100);
+      height: 30px;
+      &.show {
+        top: 10px;
+      }
+      &:hover {
+        background-color: var(--black100);
+      }
     }
   }
 

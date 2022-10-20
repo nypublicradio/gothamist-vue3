@@ -3,7 +3,11 @@ import { ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { onMounted, onBeforeUnmount } from 'vue'
-
+import {
+  useCurrentEpisode,
+  useIsPlayerMinimized,
+  audioPlayerHeight,
+} from '~/composables/states'
 const route = useRoute()
 
 let gsapScrollTrigger = null
@@ -19,6 +23,9 @@ const props = defineProps({
 })
 
 const scrollTopBtn = ref(null)
+const currentEpisode = useCurrentEpisode()
+const isPlayerMinimized = useIsPlayerMinimized()
+const playerHeight = audioPlayerHeight + 'px'
 
 // init func for the scrollTrigger on the footer
 const initScrollTrigger = () => {
@@ -30,6 +37,7 @@ const initScrollTrigger = () => {
         trigger: '#gothamist-footer',
         start: '0% 100%',
         toggleActions: 'play none none reset',
+        toggleClass: { targets: scrollTopBtn.value, className: 'pinned' },
         //markers: true,
       },
       position: 'absolute', // new
@@ -64,7 +72,16 @@ onBeforeUnmount(() => {
 
 <template>
   <div v-if="!hide" class="relative">
-    <div ref="scrollTopBtn" class="scrollTopBtn">
+    <div
+      ref="scrollTopBtn"
+      class="scrollTopBtn"
+      :class="[
+        {
+          'player-present': currentEpisode,
+          'is-minimized': isPlayerMinimized,
+        },
+      ]"
+    >
       <ScrollTop
         :threshold="threshold"
         icon="pi pi-arrow-up"
@@ -80,12 +97,20 @@ onBeforeUnmount(() => {
   position: fixed;
   width: 68px;
   height: 68px;
+  transition: margin-bottom 0.25s;
+  -webkit-transition: margin-bottom 0.25s;
   @include media('<lg') {
     width: 45px;
     height: 45px;
   }
   bottom: 20px;
   right: 20px;
+  &.player-present:not(.pinned) {
+    margin-bottom: v-bind(playerHeight);
+  }
+  &.is-minimized {
+    margin-bottom: 0 !important;
+  }
 
   .p-scrolltop {
     position: relative;

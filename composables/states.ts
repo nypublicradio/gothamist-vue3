@@ -36,6 +36,12 @@ const isEpisodePlaying = false
  */
 export const useIsEpisodePlaying = () => useState('useIsEpisodePlaying', () => isEpisodePlaying)
 
+const isPlayerMinimized = false
+/**
+ * Global state for the audio player minimize.
+ */
+export const useIsPlayerMinimized = () => useState('useIsPlayerMinimized', () => isPlayerMinimized)
+
 const togglePlayTrigger = false
 /**
  * Global state for the current play toggle for player play-toggle prop.
