@@ -50,7 +50,7 @@ watch(currentEpisode, () => {
 })
 
 watch(togglePlayTrigger, () => {
-  playerRef.value.togglePlay()
+  if (playerRef.value) playerRef.value.togglePlay()
 })
 </script>
 
