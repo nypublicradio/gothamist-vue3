@@ -37,7 +37,6 @@ function replaceTweet(tweetId) {
             window.twttr.widgets.createTweet(tweetId, newTweetDiv, {theme: isDark.value ? 'dark' : 'light'})
             .then(createdTweet => {
                 if (createdTweet) {
-                    console.log('SUCCESS', tweetId)
                     originalTweetElement.parentNode.removeChild(originalTweetElement)
                 }
             })
@@ -50,7 +49,6 @@ function replaceTweet(tweetId) {
 onMounted(() => {
     el.value.innerHTML = stripTweetScripts(props.block.value.embed)
     if (window.twttr) {
-        console.log(tweetIds.value)
         const promises = tweetIds.value.map(id => {return replaceTweet(id)})
         Promise.all(promises)
     }
