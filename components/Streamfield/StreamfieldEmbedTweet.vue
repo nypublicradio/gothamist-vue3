@@ -24,7 +24,7 @@ function stripTweetScripts(stringToStrip) {
 
 // find the blockquote element for an unexpanded tweet embed
 function findTweetElement(tweetId) {
-    return [...document.querySelectorAll('blockquote.twitter-tweet')].filter(tweet => tweet.outerHTML.includes(tweetId))[0]
+    return [...el.value.querySelectorAll('blockquote.twitter-tweet')].filter(tweet => tweet.outerHTML.includes(tweetId))[0]
 }
 
 // replace a tweet blockquote with the expanded embed
@@ -32,6 +32,10 @@ function replaceTweet(tweetId) {
     return new Promise((resolve) => {
         if (window.twttr) {
             const originalTweetElement = findTweetElement(tweetId)
+            if (!originalTweetElement) {
+               resolve('error finding tweet element')
+               return;
+            }
             const newTweetDiv = document.createElement('DIV')
             originalTweetElement.parentNode.insertBefore(newTweetDiv, originalTweetElement)
             originalTweetElement.parentNode.removeChild(originalTweetElement);
@@ -47,9 +51,10 @@ function replaceTweet(tweetId) {
     })
 }
 
-onMounted(() => {
+onMounted(async () => {
     el.value.innerHTML = stripTweetScripts(props.block.value.embed)
     if (window.twttr) {
+        await nextTick()
         const promises = tweetIds.value.map(id => {return replaceTweet(id)})
         Promise.all(promises)
     }
