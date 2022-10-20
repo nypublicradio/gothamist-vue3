@@ -2,6 +2,7 @@
 import { usePreferredDark } from '@vueuse/core';
 import { EmbedBlock } from '~~/composables/types/StreamfieldBlock';
 import { computed, ref } from 'vue'
+
 const props = defineProps<{
     block: EmbedBlock
 }>()
@@ -9,7 +10,7 @@ const el = ref(null)
 
 const isDark = usePreferredDark()
 
-const tweetRegExp = /<blockquote class="twitter-tweet.*\/status\/(\d+)\?.*\/blockquote>/g
+const tweetRegExp = /<blockquote class="twitter-tweet.*?\/status\/(\d+)\?.*?\/blockquote>/g
 const tweetIds = computed(() => {
     return [...props.block.value.embed.matchAll(tweetRegExp)].map(matches => matches[1])
 })
@@ -17,7 +18,7 @@ const tweetIds = computed(() => {
 // Remove tweet scripts included with blocks in the cms payload so they can't
 // interfere, we're handling this manually
 function stripTweetScripts(stringToStrip) {
-    const tweetScriptMatcher = /<script*.src=\"https:\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/g
+    const tweetScriptMatcher = /<script.*?src="https:\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/g
     return stringToStrip.replaceAll(tweetScriptMatcher, '')
 }
 
@@ -28,23 +29,30 @@ function findTweetElement(tweetId) {
 
 // replace a tweet blockquote with the expanded embed
 function replaceTweet(tweetId) {
-    if (window.twttr) {
-        const originalTweetElement = findTweetElement(tweetId)
-        const newTweetDiv = document.createElement('DIV')
-        originalTweetElement.parentNode.insertBefore(newTweetDiv, originalTweetElement)
-        window.twttr.widgets.createTweet(tweetId, newTweetDiv, {theme: isDark.value ? 'dark' : 'light'})
-        .then(createdTweet => {
-            if (createdTweet) {
-                originalTweetElement.parentNode.removeChild(originalTweetElement)
-            }
-        })
-    }
+    return new Promise((resolve) => {
+        if (window.twttr) {
+            const originalTweetElement = findTweetElement(tweetId)
+            const newTweetDiv = document.createElement('DIV')
+            originalTweetElement.parentNode.insertBefore(newTweetDiv, originalTweetElement)
+            window.twttr.widgets.createTweet(tweetId, newTweetDiv, {theme: isDark.value ? 'dark' : 'light'})
+            .then(createdTweet => {
+                if (createdTweet) {
+                    console.log('SUCCESS', tweetId)
+                    originalTweetElement.parentNode.removeChild(originalTweetElement)
+                }
+            })
+            .catch(e => resolve(e))
+            .finally(resolve(newTweetDiv))
+        }
+    })
 }
 
 onMounted(() => {
     el.value.innerHTML = stripTweetScripts(props.block.value.embed)
     if (window.twttr) {
-        tweetIds.value.forEach(replaceTweet)
+        console.log(tweetIds.value)
+        const promises = tweetIds.value.map(id => {return replaceTweet(id)})
+        Promise.all(promises)
     }
 })
 </script>
