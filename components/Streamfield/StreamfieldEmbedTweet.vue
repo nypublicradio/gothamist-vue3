@@ -18,7 +18,7 @@ const tweetIds = computed(() => {
 // Remove tweet scripts included with blocks in the cms payload so they can't
 // interfere, we're handling this manually
 function stripTweetScripts(stringToStrip) {
-    const tweetScriptMatcher = /<script.*?src="https:\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/g
+    const tweetScriptMatcher = /<script async(="")? src="https:\/\/platform.twitter.com\/widgets.js" charset="utf-8"><\/script>/g
     return stringToStrip.replaceAll(tweetScriptMatcher, '')
 }
 
