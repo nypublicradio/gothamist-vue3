@@ -84,9 +84,3 @@ watch(togglePlayTrigger, () => {
     </transition>
   </div>
 </template>
-
-<style lang="scss">
-// .persistent-player {
-
-// }
-</style>
