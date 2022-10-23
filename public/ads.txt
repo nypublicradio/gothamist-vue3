@@ -324,7 +324,7 @@ appnexus.com, 9393, DIRECT #Insticator
 ssp.ynxs.io, 185, RESELLER #Insticator
 districtm.io, 100812, DIRECT #districtm
 
-#OpenWeb
+#OpenWeb - Ads.txt 
 spotim.market, pub_Trxq3D4EgFnW, DIRECT, 077e5f709d15bdbb
 spotim.market, sp_AYL2022, DIRECT, 077e5f709d15bdbb
 google.com, pub-5616046187545019, RESELLER, f08c47fec0942fa0
