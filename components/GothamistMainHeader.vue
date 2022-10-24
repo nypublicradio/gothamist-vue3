@@ -54,15 +54,7 @@ const trackClick = (category, label) => {
       >
         <span class="p-button-label">Donate</span>
       </a>
-      <nuxt-link to="/search" style="text-decoration: none">
-        <Button
-          icon="pi pi-search"
-          class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
-          aria-label="Go to search page"
-          aria-expanded="false"
-        />
-      </nuxt-link>
-
+      <SearchButton />
       <Button
         icon="pi pi-bars"
         class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"

@@ -14,13 +14,23 @@ const emit = defineEmits(['menu-list-click'])
 <template>
   <div class="sidebar-contents pt-3">
     <div class="sidebar-contents-top pb-5">
+      <SearchButton
+        expanded
+        class="mb-6"
+        @onSearch="emit('menu-list-click', $event)"
+      />
       <menu-list
         :navLinks="props.navigation.primaryNavigation"
         @menuListClick="emit('menu-list-click', $event)"
       />
     </div>
     <div class="sidebar-contents-bottom mb-5 md:mb-6">
-      <a class="sidebar-button-send-a-story mod-button p-button p-button-rounded mb-5 w-full" href="mailto:tips@gothamist.com" target="_blank" rel="noopener noreferrer">
+      <a
+        class="sidebar-button-send-a-story mod-button p-button p-button-rounded mb-5 w-full"
+        href="mailto:tips@gothamist.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <span class="p-button-label">Send a story idea</span>
       </a>
       <hr class="white mb-3" />
@@ -44,7 +54,12 @@ const emit = defineEmits(['menu-list-click'])
           <LogoNypr />
         </div>
       </div>
-      <a class="mod-button p-button p-button-rounded mb-5 w-full" :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`" target="_blank" rel="noopener noreferrer">
+      <a
+        class="mod-button p-button p-button-rounded mb-5 w-full"
+        :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <span class="p-button-label">
           <span class="pi pi-heart-fill"></span>
           Support us today
