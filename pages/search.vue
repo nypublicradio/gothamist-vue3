@@ -51,7 +51,7 @@ const newsletterSubmitEvent = () => {
       <section>
         <div class="content">
           <div class="grid gutter-x-xl">
-            <div class="col-1 hidden xl:block"></div>
+            <div class="col-1 hidden xxl:block"></div>
             <div class="col">
               <div class="search-page-results pt-2">
                 <span v-if="articles">
@@ -90,7 +90,7 @@ const newsletterSubmitEvent = () => {
         </div> -->
           <template v-if="articles">
             <div class="grid gutter-x-xl">
-              <div class="col-1 hidden xl:block"></div>
+              <div class="col-1 hidden xxl:block"></div>
               <div class="col">
                 <div
                   v-for="article in articles.slice(0, articlesToShow)"
