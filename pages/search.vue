@@ -20,8 +20,7 @@ const articlesToShow = ref(10)
 const isSearching = ref(false)
 
 async function getSearchResults() {
-  console.log('querySlug.value = ', query.value)
-  router.push({ query: { q: query.value } })
+  if (query.value) router.push({ query: { q: query.value } })
   isSearching.value = true
   articles.value = await searchArticlePages({ q: query.value }).then(
     ({ data }) => normalizeSearchArticlePagesResponse(data)
@@ -34,8 +33,8 @@ onMounted(() => {
   getSearchResults()
 })
 
+// watch for a route change coming from the SearchButton component.
 watch(route, (value) => {
-  console.log('watching..')
   query.value = value.query.q
   getSearchResults()
 })

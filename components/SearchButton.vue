@@ -13,6 +13,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['onSearch'])
+const route = useRoute()
 const router = useRouter()
 
 // lifecycle hooks
@@ -48,7 +49,13 @@ const onSearch = () => {
         @keypress.enter="onSearch"
       />
     </span>
-    <v-flexible-link v-else to="/search" raw aria-hidden="true" tabindex="-1">
+    <v-flexible-link
+      v-else
+      :to="route.query.q ? '' : '/search'"
+      raw
+      aria-hidden="true"
+      tabindex="-1"
+    >
       <Button
         icon="pi pi-search"
         class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
