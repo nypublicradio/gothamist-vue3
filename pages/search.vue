@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
 const route = useRoute()
@@ -9,7 +8,6 @@ const router = useRouter()
 const { $analytics } = useNuxtApp()
 const querySlug = ref(route.query.q)
 const query = ref(querySlug.value || '')
-const sensitiveContent = useSensitiveContent()
 
 let articles = ref(
   await searchArticlePages({ q: querySlug.value }).then(({ data }) =>

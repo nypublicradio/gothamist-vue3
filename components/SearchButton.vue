@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 const props = defineProps({
   placeholder: {
@@ -15,9 +15,6 @@ const props = defineProps({
 const emit = defineEmits(['onSearch'])
 const route = useRoute()
 const router = useRouter()
-
-// lifecycle hooks
-onMounted(() => {})
 
 const searchTerm = ref('')
 const onSearch = () => {
@@ -69,6 +66,7 @@ const onSearch = () => {
 <style lang="scss">
 .search-button {
   .p-inputtext {
+    font-size: 1rem;
     text-transform: uppercase;
   }
 }
