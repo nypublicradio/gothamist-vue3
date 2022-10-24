@@ -161,6 +161,9 @@ const newsletterSubmitEvent = () => {
     width: 100%;
     position: relative;
   }
+  .v-card {
+    background: transparent;
+  }
   .search-page-input {
     border: none;
     border-bottom: solid 2px var(--black);
