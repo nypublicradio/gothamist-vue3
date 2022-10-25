@@ -109,9 +109,6 @@ onUnmounted(() => {
       <div class="content">
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
-          <div class="col w-full">
-            <article-footer v-if="article" :article="article" />
-          </div>
         </div>
         <hr class="black" />
         <p role="heading" aria-level="2" v-if="article?.section" class="type-label3 mt-2 mb-4">MORE NEWS</p>
