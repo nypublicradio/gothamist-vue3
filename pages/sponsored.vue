@@ -31,6 +31,7 @@ const showHeader = computed(() => scrollY.value > showHeaderAfter.value)
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponosored_article' })
   sensitiveContent.value = true
+  PostRelease.Start()
 })
 
 onUnmounted(() => {
