@@ -1,8 +1,10 @@
 <script setup>
+import { onBeforeMount } from 'vue'
 import {
   useIsEpisodePlaying,
   useTogglePlayTrigger,
   useCurrentEpisode,
+  useCurrentEpisodeHolder,
 } from '~/composables/states'
 import { getLiveStream } from '~~/composables/data/liveStream'
 const props = defineProps({
@@ -16,15 +18,20 @@ const props = defineProps({
   },
 })
 
+onBeforeMount(() => {
+  getLiveStream(props.slug)
+})
+
 const emit = defineEmits(['stream-button-click'])
 
 const isEpisodePlaying = useIsEpisodePlaying()
 const togglePlayTrigger = useTogglePlayTrigger()
 const currentEpisode = useCurrentEpisode()
+const currentEpisodeHolder = useCurrentEpisodeHolder()
 
 const togglePlay = () => {
   if (!currentEpisode.value) {
-    getLiveStream(props.slug)
+    currentEpisode.value = currentEpisodeHolder.value
   }
   emit('stream-button-click')
   togglePlayTrigger.value = !togglePlayTrigger.value
@@ -35,11 +42,16 @@ const togglePlay = () => {
   <div class="listen-live-button">
     <Button
       class="p-button-rounded p-button-danger w-full flex justify-content-center"
-      @click="togglePlay"
+      @click="currentEpisodeHolder ? togglePlay() : null"
     >
       <div class="flex align-items-center">
+        <i
+          v-if="!currentEpisodeHolder"
+          class="pi pi-spin pi-spinner mr-2"
+          style="font-size: 1rem"
+        ></i>
         <img
-          v-if="!isEpisodePlaying"
+          v-else-if="!isEpisodePlaying"
           alt="play icon"
           src="/play.svg"
           class="mr-2"

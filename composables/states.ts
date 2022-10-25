@@ -24,6 +24,12 @@ const currentEpisodeObj = null
  */
 export const useCurrentEpisode = () => useState('useCurrentEpisode', () => currentEpisodeObj)
 
+const currentEpisodeHolderObj = null
+/**
+ * Global state for the current episode object. 
+ */
+export const useCurrentEpisodeHolder = () => useState('useCurrentEpisodeHolder', () => currentEpisodeHolderObj)
+
 const allCurrentEpisodesObj = null
 /**
  * Global state for ALL the current episodes object. 
