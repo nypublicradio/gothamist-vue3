@@ -22,9 +22,9 @@ const isEpisodePlaying = useIsEpisodePlaying()
 const togglePlayTrigger = useTogglePlayTrigger()
 const currentEpisode = useCurrentEpisode()
 
-const togglePlay = async () => {
+const togglePlay = () => {
   if (!currentEpisode.value) {
-    await getLiveStream(props.slug)
+    getLiveStream(props.slug)
   }
   emit('stream-button-click')
   togglePlayTrigger.value = !togglePlayTrigger.value
