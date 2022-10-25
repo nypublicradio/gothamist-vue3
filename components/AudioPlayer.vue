@@ -84,3 +84,19 @@ watch(togglePlayTrigger, () => {
     </transition>
   </div>
 </template>
+
+<style lang="scss">
+// slide in from bottom to top
+.player-enter-active {
+  transition: transform calc(var(--transition-duration) * 2) ease-out;
+}
+
+.player-leave-active {
+  transition: transform calc(var(--transition-duration) * 2) ease-in;
+}
+
+.player-enter-from,
+.player-leave-to {
+  transform: translateY(v-bind(playerHeight));
+}
+</style>
