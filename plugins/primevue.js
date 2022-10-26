@@ -11,6 +11,7 @@ import PrimeVue from 'primevue/config/config.esm.js'
 import ScrollTop from 'primevue/scrolltop/scrolltop.esm.js'
 import Sidebar from 'primevue/sidebar/sidebar.esm.js'
 import Skeleton from 'primevue/skeleton/skeleton.esm.js'
+import TieredMenu from 'primevue/tieredmenu/tieredmenu.esm.js'
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true })
@@ -25,5 +26,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('Sidebar', Sidebar)
     nuxtApp.vueApp.component('Paginator', Paginator)
     nuxtApp.vueApp.component('ScrollTop', ScrollTop)
+    nuxtApp.vueApp.component('TieredMenu', TieredMenu)
     //other components that you need
 })

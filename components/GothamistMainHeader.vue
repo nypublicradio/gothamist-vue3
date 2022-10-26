@@ -45,9 +45,11 @@ const trackClick = (category, label) => {
         v-html="strapline"
       />
     </div>
-    <div class="gothamist-header-right align-items-center">
+    <div class="gothamist-header-right align-items-center gap-2">
+      <!-- <ListenAllLiveButton class="hidden md:block" /> -->
+      <ListenLiveButton class="hidden md:block" />
       <a
-        class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
+        class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded"
         :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
         target="_blank"
         rel="noopener noreferrer"
@@ -96,7 +98,7 @@ const trackClick = (category, label) => {
 }
 
 .gothamist-header-donate-button {
-  max-height: 36px;
+  // max-height: 36px;
 }
 
 .gothamist-header-tagline {
