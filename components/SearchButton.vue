@@ -26,7 +26,7 @@ const onSearch = () => {
 <template>
   <div class="search-button">
     <span v-if="expanded" class="p-input-icon-right w-full">
-      <i style="top: 6px">
+      <i style="top: 14px">
         <v-flexible-link raw aria-hidden="true" tabindex="-1" @click="onSearch">
           <Button
             icon="pi pi-search"
@@ -66,7 +66,8 @@ const onSearch = () => {
 <style lang="scss">
 .search-button {
   .p-inputtext {
-    font-size: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
     text-transform: uppercase;
   }
 }
