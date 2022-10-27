@@ -46,6 +46,7 @@ onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
+  useUpdateCommentCounts([article])
 })
 
 onUnmounted(() => {
