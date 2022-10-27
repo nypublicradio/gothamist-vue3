@@ -23,7 +23,10 @@ if (article.leadGallery) {
 
 const topImage = article.leadImage || gallery?.slides?.[0]?.image || null
 const topCaption =
-  article.leadImageCaption || gallery?.slides?.[0]?.image.title || null
+  article.leadImageCaption ||
+  topImage.caption ||
+  gallery?.slides?.[0]?.image.caption ||
+  null
 const galleryLength = gallery?.slides?.length || 0
 
 const trackingData = useArticlePageTrackingData(article)
@@ -206,7 +209,12 @@ const getGalleryLink = computed(() => {
           </div>
         </div>
         <hr class="black" />
-        <p role="heading" aria-level="2" v-if="article?.section" class="type-label3 mt-2 mb-4">
+        <p
+          role="heading"
+          aria-level="2"
+          v-if="article?.section"
+          class="type-label3 mt-2 mb-4"
+        >
           MORE {{ article.section.slug }}
         </p>
         <article-recirculation
