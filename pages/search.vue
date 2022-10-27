@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import useImageUrl from '~~/composables/useImageUrl'
 
 const route = useRoute()
+const router = useRouter()
 const { $analytics } = useNuxtApp()
-const querySlug = route.query.q
-const query = ref(querySlug || '')
-const sensitiveContent = useSensitiveContent()
+const querySlug = ref(route.query.q)
+const query = ref(querySlug.value || '')
 
 let articles = ref(
-  await searchArticlePages({ q: querySlug }).then(({ data }) =>
+  await searchArticlePages({ q: querySlug.value }).then(({ data }) =>
     normalizeSearchArticlePagesResponse(data)
   )
 )
@@ -19,6 +18,7 @@ const articlesToShow = ref(10)
 const isSearching = ref(false)
 
 async function getSearchResults() {
+  if (query.value) router.push({ query: { q: query.value } })
   isSearching.value = true
   articles.value = await searchArticlePages({ q: query.value }).then(
     ({ data }) => normalizeSearchArticlePagesResponse(data)
@@ -28,6 +28,12 @@ async function getSearchResults() {
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'search_page' })
+  getSearchResults()
+})
+
+// watch for a route change coming from the SearchButton component.
+watch(route, (value) => {
+  query.value = value.query.q
   getSearchResults()
 })
 
@@ -45,7 +51,7 @@ const newsletterSubmitEvent = () => {
       <section>
         <div class="content">
           <div class="grid gutter-x-xl">
-            <div class="col-1 hidden xl:block"></div>
+            <div class="col-1 hidden xxl:block"></div>
             <div class="col">
               <div class="search-page-results pt-2">
                 <span v-if="articles">
@@ -84,7 +90,7 @@ const newsletterSubmitEvent = () => {
         </div> -->
           <template v-if="articles">
             <div class="grid gutter-x-xl">
-              <div class="col-1 hidden xl:block"></div>
+              <div class="col-1 hidden xxl:block"></div>
               <div class="col">
                 <div
                   v-for="article in articles.slice(0, articlesToShow)"
@@ -154,6 +160,9 @@ const newsletterSubmitEvent = () => {
     max-width: 894px;
     width: 100%;
     position: relative;
+  }
+  .v-card {
+    background: transparent;
   }
   .search-page-input {
     border: none;

@@ -56,6 +56,7 @@ const trackClick = (category, label) => {
       >
         <span class="p-button-label">Donate</span>
       </a>
+      <SearchButton />
       <Button
         icon="pi pi-bars"
         class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
@@ -109,7 +110,7 @@ const trackClick = (category, label) => {
   max-width: 200px;
   align-self: flex-end;
   padding-right: 1rem;
-  @include media('<375px') {
+  @include media('<376px') {
     font-size: 12px;
     line-height: var(--font-size-5);
     align-self: center;

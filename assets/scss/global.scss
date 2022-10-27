@@ -96,7 +96,7 @@ table tr.totalline {
 
 // styles to help make links looks like buttons
 a.mod-button {
-  display:inline-flex;
+  display: inline-flex;
   text-decoration: none;
 }
 
@@ -124,10 +124,10 @@ a.mod-button.pi {
 
 // Screen reader only, visually hidden text
 .sr-only {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }

@@ -14,6 +14,11 @@ const emit = defineEmits(['menu-list-click'])
 <template>
   <div class="sidebar-contents pt-3">
     <div class="sidebar-contents-top pb-5">
+      <SearchButton
+        expanded
+        class="mb-6"
+        @onSearch="emit('menu-list-click', $event)"
+      />
       <menu-list
         :navLinks="props.navigation.primaryNavigation"
         @menuListClick="emit('menu-list-click', $event)"
