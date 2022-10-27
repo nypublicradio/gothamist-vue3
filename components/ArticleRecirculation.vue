@@ -118,7 +118,7 @@ onMounted(async () => {
             >
               <v-card-metadata
                 :article="slotProps.article"
-                :showComments="false"
+                :showComments="true"
               />
             </v-card>
           </horizontal-drag>
