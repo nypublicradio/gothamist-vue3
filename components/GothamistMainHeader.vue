@@ -47,16 +47,24 @@ const trackClick = (category, label) => {
     </div>
     <div class="gothamist-header-right align-items-center gap-2">
       <!-- <ListenAllLiveButton class="hidden md:block" /> -->
-      <ListenLiveButton class="hidden md:block" />
+      <ListenLiveButton
+        class="hidden md:block"
+        @stream-button-click="
+          trackClick('Click Tracking - Header', 'Listen Live button')
+        "
+      />
       <a
         class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded"
         :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
         target="_blank"
         rel="noopener noreferrer"
+        @click="trackClick('Click Tracking - Header', 'donate button')"
       >
         <span class="p-button-label">Donate</span>
       </a>
-      <SearchButton />
+      <SearchButton
+        @onNavigate="trackClick('Click Tracking - Header', 'search button')"
+      />
       <Button
         icon="pi pi-bars"
         class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
