@@ -70,17 +70,25 @@ watch(togglePlayTrigger, () => {
   if (playerRef.value) playerRef.value.togglePlay()
 })
 let timer = null
-watch(isEpisodePlaying, (e) => {
+let isInitialPing = true
+const pingEvent = () => {
   const station = currentEpisodeData.value.name
   const title = currentEpisodeShow.value.title
+  $analytics.sendEvent('event_tracking', {
+    event_category: 'Ping',
+    component: 'Audio Player',
+    event_label: `${station} - ${title}`,
+  })
+}
+watch(isEpisodePlaying, (e) => {
+  if (isInitialPing) {
+    pingEvent()
+    isInitialPing = false
+  }
   if (e) {
     timer = setInterval(() => {
-      $analytics.sendEvent('event_tracking', {
-        event_category: 'Ping',
-        component: 'Audio Player',
-        event_label: `${station} - ${title}`,
-      })
-    }, 60000)
+      pingEvent()
+    }, 6000)
   } else {
     clearInterval(timer)
     timer = null
