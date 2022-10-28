@@ -88,7 +88,7 @@ watch(isEpisodePlaying, (e) => {
   if (e) {
     timer = setInterval(() => {
       pingEvent()
-    }, 6000)
+    }, 60000)
   } else {
     clearInterval(timer)
     timer = null
