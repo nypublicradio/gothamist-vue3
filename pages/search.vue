@@ -23,6 +23,11 @@ async function getSearchResults() {
   articles.value = await searchArticlePages({ q: query.value }).then(
     ({ data }) => normalizeSearchArticlePagesResponse(data)
   )
+  $analytics.sendEvent('event_tracking', {
+    event_category: 'search query',
+    component: 'search page',
+    event_label: `${query.value}`,
+  })
   isSearching.value = false
 }
 

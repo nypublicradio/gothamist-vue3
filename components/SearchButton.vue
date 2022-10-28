@@ -11,8 +11,7 @@ const props = defineProps({
     default: false,
   },
 })
-
-const emit = defineEmits(['onSearch'])
+const emit = defineEmits(['onSearch', 'onNavigate'])
 const route = useRoute()
 const router = useRouter()
 
@@ -52,6 +51,7 @@ const onSearch = () => {
       raw
       aria-hidden="true"
       tabindex="-1"
+      @click="emit('onNavigate')"
     >
       <Button
         icon="pi pi-search"
