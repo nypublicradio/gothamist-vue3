@@ -79,6 +79,11 @@ const trackSidebarClick = (label) => {
   })
   closeSidebar()
 }
+const scrollTo = function(hash) {
+  setTimeout(() => {
+    location.href = hash
+  }, 1)
+}
 
 onMounted(() => {
   $htlbid.init()
@@ -86,11 +91,19 @@ onMounted(() => {
     is_testing: config.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
+  if (route.hash) {
+      setTimeout(() => scrollTo(route.hash), 1)
+  }
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
+  if (route.hash) {
+      setTimeout(() => scrollTo(route.hash), 1)
+  }
 })
+
+
 </script>
 
 <template>
