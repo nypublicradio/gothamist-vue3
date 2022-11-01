@@ -15,7 +15,6 @@ export const useNavigation = () => useState<Navigation>('navigation', () => ({
     propertyDescription: ''
 }))
 export const useStrapline = () => useState<string>('strapline', () => 'A non-profit newsroom, powered by WNYC.')
-export const useCommentCounts = () => useState<Record<string,number>>('commentCounts', () => ({}))
 
 
 // audio player globals
