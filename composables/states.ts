@@ -58,3 +58,11 @@ export const useTogglePlayTrigger = () => useState('useTogglePlayTrigger', () =>
  * Global var for the height of the audio player
  */
 export const audioPlayerHeight = 100
+
+
+// CMS preview globals
+const previewData = null
+/**
+ * Global state for the current episode object. 
+ */
+export const usePreviewData = () => useState('usePreviewData', () => previewData)
