@@ -10,8 +10,9 @@ export const useFetchCommentCounts = async function(commentIds:string[]) {
     const baseURL = 'https://open-api.spot.im'
     const path = '/v1/messages-count'
     const counts = {}
-    let ids = commentIds.slice(0)
+    const  ids = commentIds.slice(0)
     // OpenWeb API  comment count api limits requests to 30 counts at a time
+    const requests = [];
     while (ids.length) {
         const idList = ids.splice(0, 30).join(',')
         const options = {
@@ -21,11 +22,15 @@ export const useFetchCommentCounts = async function(commentIds:string[]) {
             }
         }
         const key = hash(['comments', path, options, Number(new Date())])
-        const { data } = await useFetch(path, {baseURL, key, ...options})
+        requests.push(useFetch(path, {baseURL, key, ...options})) 
+    }
+    const responses = await Promise.all(requests)
+    responses.forEach(response => {
+        const data = response.data;
         Object.entries(data.value["messages_count"]).forEach(([key, value]) => {
             counts[key] = value
         })
-    }
+    })
     return counts
 }
 
