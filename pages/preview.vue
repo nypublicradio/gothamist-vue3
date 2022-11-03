@@ -13,19 +13,61 @@ const identifier = route.query.identifier
 const identifierId = identifier.slice(3)
 const token = route.query.token
 
-const handlePreviewData = async () => {
-  const { data, error } = useFetch(
-    `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
-  )
+const formatData = (data) => {
   const transformedData = transformResponseData(data)
   const normalizedDataData = normalizeFindPageResponse(
     transformedData
   ) as ArticlePage
-  previewData.value = { data: normalizedDataData, error }
+  return normalizedDataData
+}
 
-  router.push(
-    `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
+const handlePreviewData = async () => {
+  const { data, error } = useFetch(
+    `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
   )
+
+  switch (data?.value.meta.type) {
+    case 'news.ArticlePage':
+      if (
+        data.value.lead_asset.length > 0 &&
+        data.value.lead_asset[0].type === 'lead_gallery'
+      ) {
+        const galleryData = await useFetch(
+          `${config.API_URL}/pages/${data.value.lead_asset[0].value.gallery}`
+        )
+        console.log('galleryData = ', galleryData.data.value)
+        data.value.gallery = galleryData.data.value
+      }
+
+      console.log('data.value = ', data.value)
+      previewData.value = { data: formatData(data), error }
+      console.log('previewData.value = ', previewData.value)
+      router.push(
+        `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
+      )
+      break
+    case 'tagpages.TagPage':
+      break
+    case 'standardpages.InformationPage':
+      break
+    default:
+      break
+  }
+
+  //   if (
+  //     data.value.lead_asset.length > 0 &&
+  //     data.value.lead_asset[0].type === 'lead_gallery'
+  //   ) {
+  //     const { galleryData, error } = await useFetch(
+  //       `${config.API_URL}/pages/${data.value.lead_asset[0].value.gallery}`
+  //     )
+  //     data.value.gallery = galleryData
+  //   }
+
+  //   previewData.value = { data: formatData(data), error }
+  //   router.push(
+  //     `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
+  //   )
 }
 
 handlePreviewData()

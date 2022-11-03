@@ -12,7 +12,6 @@ import { usePreviewData } from '~/composables/states'
 const previewData = usePreviewData()
 const route = useRoute()
 const isPreview = route.query.preview ? true : false
-
 /* preview */
 
 const config = useRuntimeConfig()
@@ -23,7 +22,7 @@ const article = isPreview
       `${route.params.sectionSlug}/${route.params.articleSlug}`
     ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage)
 
-console.log('article = ', article)
+//console.log('article = ', article)
 
 let gallery
 if (article.leadGallery) {

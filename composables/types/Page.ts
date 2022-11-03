@@ -23,6 +23,7 @@ export interface ArticlePage extends Page {
     leadImage?: Image;
     leadGallery?: any;
     gallerySlides?: any[];
+    gallery?: any[];
     legacyId: string;
     publicationDate: Date;
     updatedDate: Date | null;
