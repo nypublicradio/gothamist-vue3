@@ -63,11 +63,11 @@ const commentCount = computed(() => {
         </v-flexible-link>
         <date-published :article="props.article" />
         <v-flexible-link
-          v-if="!isDisableComments && props.showComments"
+          v-if="!isDisableComments && props.showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
-          {{ commentCount }} comments
+          {{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}
         </v-flexible-link>
       </div>
     </div>
@@ -97,11 +97,11 @@ const commentCount = computed(() => {
         <v-byline :authors="authors" prefix="By" />
         <date-published :article="props.article" />
         <v-flexible-link
-          v-if="!isDisableComments && props.showComments"
+          v-if="!isDisableComments && props.showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
-          {{ commentCount }} comments
+          {{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}
         </v-flexible-link>
       </div>
     </div>
