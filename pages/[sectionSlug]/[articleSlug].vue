@@ -7,12 +7,19 @@ import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
-const config = useRuntimeConfig()
+/* preview */
+import { usePreviewData } from '~/composables/states'
 const route = useRoute()
+const previewData = usePreviewData()
+/* preview */
+
+const config = useRuntimeConfig()
 const { $analytics, $htlbid } = useNuxtApp()
-const article = (await findPage(
-  `${route.params.sectionSlug}/${route.params.articleSlug}`
-).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage
+const article =
+  previewData.value ||
+  ((await findPage(
+    `${route.params.sectionSlug}/${route.params.articleSlug}`
+  ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage)
 
 let gallery
 if (article.leadGallery) {

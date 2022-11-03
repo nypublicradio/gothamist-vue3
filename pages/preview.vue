@@ -1,27 +1,18 @@
-<script setup>
-import { ref, computed, onMounted } from 'vue'
+<script setup lang="ts">
 import { transformResponseData } from '~~/composables/useAviary'
 import { normalizeFindPageResponse } from '~~/composables/data'
+import { ArticlePage } from '~~/composables/types/Page'
 
 import { usePreviewData } from '~/composables/states'
 const config = useRuntimeConfig()
-const props = defineProps({
-  //   propVar: {
-  //     type: Boolean,
-  //     default: false,
-  //   },
-})
 
 const route = useRoute()
+const router = useRouter()
 const previewData = usePreviewData()
 
 //const emit = defineEmits(["change", "click"]);
-
-///page_preview/?identifier=${route.query.identifier}&token=${route.query.token}
-
-//https://cms.demo.nypr.digital/preview?identifier=id%3D151233&token=0ab8874a-0c44-4a6a-b566-fc5f71cf2e34
-
 const identifier = route.query.identifier
+const identifierId = identifier.slice(3)
 const token = route.query.token
 
 console.log('route = ', route)
@@ -32,22 +23,30 @@ const handlePreviewData = async () => {
   const { data, error } = useFetch(
     `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
   )
-  // DONT FORGET TO NORMALIZE THE DATA
   const transformedData = transformResponseData(data)
-  const normalizedDataData = normalizeFindPageResponse(transformedData)
-  previewData.value = { data: transformedData, error }
+  const normalizedDataData = normalizeFindPageResponse(
+    transformedData
+  ) as ArticlePage
+  previewData.value = { data: normalizedDataData, error }
   console.log('previewData.value = ', previewData.value)
-  //console.log('previewData.value = ', previewData.value)
+  router.push(
+    `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
+  )
 }
 
 // lifecycle hooks
 handlePreviewData()
-onMounted(() => {})
 </script>
 
 <template>
   <div>
-    <div class="preview">Preview page</div>
+    <div class="preview text-center bold py-8 text-5xl">
+      <i
+        class="pi pi-spin pi-spinner lnline-block mr-3"
+        style="font-size: 2rem"
+      ></i>
+      <h3 class="inline-block">Building preview...</h3>
+    </div>
   </div>
 </template>
 
