@@ -2,22 +2,16 @@
 import { transformResponseData } from '~~/composables/useAviary'
 import { normalizeFindPageResponse } from '~~/composables/data'
 import { ArticlePage } from '~~/composables/types/Page'
-
 import { usePreviewData } from '~/composables/states'
-const config = useRuntimeConfig()
 
+const config = useRuntimeConfig()
 const route = useRoute()
 const router = useRouter()
 const previewData = usePreviewData()
 
-//const emit = defineEmits(["change", "click"]);
 const identifier = route.query.identifier
 const identifierId = identifier.slice(3)
 const token = route.query.token
-
-console.log('route = ', route)
-console.log('identifier = ', identifier)
-console.log('token = ', token)
 
 const handlePreviewData = async () => {
   const { data, error } = useFetch(
@@ -28,13 +22,12 @@ const handlePreviewData = async () => {
     transformedData
   ) as ArticlePage
   previewData.value = { data: normalizedDataData, error }
-  console.log('previewData.value = ', previewData.value)
+
   router.push(
     `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
   )
 }
 
-// lifecycle hooks
 handlePreviewData()
 </script>
 
