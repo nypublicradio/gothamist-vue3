@@ -95,7 +95,12 @@ const newsletterSubmitEvent = (e) => {
 }
 
 const getGalleryLink = computed(() => {
-  return gallery.url.replace(/^https:\/\/[^/]*/, '')
+  const identifierId = route.params.articleSlug
+  console.log('identifierId', identifierId)
+  const galleryRoute = `/${previewData.value?.data.section.slug}/photos/${identifierId}?preview=true`
+  console.log('galleryRoute', galleryRoute)
+  return isPreview ? galleryRoute : gallery.url.replace(/^https:\/\/[^/]*/, '')
+  //return gallery.url.replace(/^https:\/\/[^/]*/, '')
 })
 </script>
 

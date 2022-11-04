@@ -47,9 +47,11 @@ const initScrollTrigger = () => {
 
 watch(route, () => {
   if (!props.hide) {
-    gsapScrollTrigger.pause(0).kill(true)
-    ScrollTrigger.getById('scrollToTopButtonID').kill(true)
-    gsapScrollTrigger = null
+    if (gsapScrollTrigger) {
+      gsapScrollTrigger.pause(0).kill(true)
+      ScrollTrigger.getById('scrollToTopButtonID').kill(true)
+      gsapScrollTrigger = null
+    }
     setTimeout(() => {
       initScrollTrigger()
     }, 2000)

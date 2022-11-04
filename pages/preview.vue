@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { transformResponseData } from '~~/composables/useAviary'
 import { normalizeFindPageResponse } from '~~/composables/data'
-import { ArticlePage } from '~~/composables/types/Page'
+import { ArticlePage, GalleryPage } from '~~/composables/types/Page'
 import { usePreviewData } from '~/composables/states'
 
 const config = useRuntimeConfig()
@@ -15,10 +15,10 @@ const token = route.query.token
 
 const formatData = (data) => {
   const transformedData = transformResponseData(data)
-  const normalizedDataData = normalizeFindPageResponse(
+  const normalizedData = normalizeFindPageResponse(
     transformedData
   ) as ArticlePage
-  return normalizedDataData
+  return normalizedData
 }
 
 const handlePreviewData = async () => {
@@ -28,20 +28,8 @@ const handlePreviewData = async () => {
 
   switch (data?.value.meta.type) {
     case 'news.ArticlePage':
-      if (
-        data.value.lead_asset.length > 0 &&
-        data.value.lead_asset[0].type === 'lead_gallery'
-      ) {
-        const galleryData = await useFetch(
-          `${config.API_URL}/pages/${data.value.lead_asset[0].value.gallery}`
-        )
-        console.log('galleryData = ', galleryData.data.value)
-        data.value.gallery = galleryData.data.value
-      }
-
-      console.log('data.value = ', data.value)
       previewData.value = { data: formatData(data), error }
-      console.log('previewData.value = ', previewData.value)
+      //console.log('previewData.value = ', previewData.value)
       router.push(
         `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
       )
@@ -53,21 +41,6 @@ const handlePreviewData = async () => {
     default:
       break
   }
-
-  //   if (
-  //     data.value.lead_asset.length > 0 &&
-  //     data.value.lead_asset[0].type === 'lead_gallery'
-  //   ) {
-  //     const { galleryData, error } = await useFetch(
-  //       `${config.API_URL}/pages/${data.value.lead_asset[0].value.gallery}`
-  //     )
-  //     data.value.gallery = galleryData
-  //   }
-
-  //   previewData.value = { data: formatData(data), error }
-  //   router.push(
-  //     `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
-  //   )
 }
 
 handlePreviewData()
