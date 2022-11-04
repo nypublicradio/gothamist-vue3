@@ -104,7 +104,7 @@ watch(route, (value) => {
         />
         <Script 
           type="text/javascript"
-          :src="`/newrelic-${config.SENTRY_ENV}.js`"
+          :src="`/${config.NEWRELIC_AGENT}`"
           async
         />
         <Script
