@@ -2,7 +2,7 @@ import Navigation from "./types/Navigation"
 
 export const useSensitiveContent = () => useState<boolean>('sensitiveContent', () => false)
 export const useSidebarIsOpen = () => useState<boolean>('sidebarIsOpen', () => false)
-export const useSidebarOpenedFrom = () => useState<HTMLElement>('sidebarOpenedFrom', () => undefined)
+export const useSidebarOpenedFrom = () => useState<HTMLElement>('sidebarOpenedFrom', () => null)
 export const useMembershipStatus = () => useState<string>('membershipStatus', () => 'status-unknown')
 export const useNavigation = () => useState<Navigation>('navigation', () => ({
     id: 0,
