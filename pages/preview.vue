@@ -23,9 +23,9 @@ const formatData = (data) => {
 
 const handlePreviewData = async () => {
   const { data, error } = useFetch(
-    `https://cms.demo.nypr.digital/api/v2/page_preview/?identifier=${identifier}&token=${token}`
+    `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
   )
-
+  console.log('data = ', data)
   switch (data.value.meta.type) {
     case 'news.ArticlePage':
       previewData.value = { data: formatData(data), error }
