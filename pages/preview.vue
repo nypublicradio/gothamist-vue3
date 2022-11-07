@@ -22,25 +22,32 @@ const formatData = (data) => {
 }
 
 const handlePreviewData = async () => {
-  const { data, error } = useFetch(
+  useFetch(
     `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
-  )
-  console.log('data = ', data)
-  switch (data.value.meta.type) {
-    case 'news.ArticlePage':
-      previewData.value = { data: formatData(data), error }
-      //console.log('previewData.value = ', previewData.value)
-      router.push(
-        `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
-      )
-      break
-    case 'tagpages.TagPage':
-      break
-    case 'standardpages.InformationPage':
-      break
-    default:
-      break
-  }
+  ).then((res) => {
+    console.log('res.data = ', res.data)
+    console.log(
+      'url = ',
+      `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
+    )
+    switch (res.data.value.meta.type) {
+      case 'news.ArticlePage':
+        previewData.value = { data: formatData(res.data), error: res.error }
+        console.log('previewData.value = ', previewData.value)
+        setTimeout(() => {
+          router.push(
+            `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
+          )
+        }, 1000)
+        break
+      case 'tagpages.TagPage':
+        break
+      case 'standardpages.InformationPage':
+        break
+      default:
+        break
+    }
+  })
 }
 
 handlePreviewData()
