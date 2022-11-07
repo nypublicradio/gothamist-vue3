@@ -2,7 +2,7 @@ export default defineNuxtPlugin(() => {
   /* eslint-disable */
   (function() {
     /** CONFIGURATION START **/
-    let _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
+    const _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
     _sf_async_config.uid = 16246; //CHANGE THIS TO YOUR ACCOUNT ID
     _sf_async_config.domain = 'gothamist.com'; //CHANGE THIS TO YOUR SITE ID
     _sf_async_config.useCanonical = true;
@@ -11,8 +11,8 @@ export default defineNuxtPlugin(() => {
     _sf_async_config.authors = ''; //SET PAGE AUTHOR(S)
     /** CONFIGURATION END **/
     function loadChartbeat() {
-      let e = document.createElement('script');
-      let n = document.getElementsByTagName('script')[0];
+      const e = document.createElement('script');
+      const n = document.getElementsByTagName('script')[0];
       e.type = 'text/javascript';
       e.async = true;
       e.src = '//static.chartbeat.com/js/chartbeat.js';
