@@ -25,7 +25,7 @@ const handlePreviewData = async () => {
   const { data, error } = useFetch(
     `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
   )
-  //console.log('data = ', data)
+  console.log('data = ', data)
   switch (data.value.meta.type) {
     case 'news.ArticlePage':
       previewData.value = { data: formatData(data), error }
