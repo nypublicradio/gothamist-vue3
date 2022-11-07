@@ -1,5 +1,6 @@
-/* eslint-disable */
-(function() {
+export default defineNuxtPlugin(() => {
+  /* eslint-disable */
+  (function() {
     /** CONFIGURATION START **/
     var _sf_async_config = window._sf_async_config = (window._sf_async_config || {});
     _sf_async_config.uid = 16246; //CHANGE THIS TO YOUR ACCOUNT ID
@@ -19,3 +20,4 @@
     }
     loadChartbeat();
   })();
+})
