@@ -1,7 +1,7 @@
 import humps from 'humps'
 import { hash } from 'ohash'
 
-function transformResponseData(data: Record<string, any>): Record<string, any> {
+export function transformResponseData(data: Record<string, any>): Record<string, any> {
     return humps.camelizeKeys(data)
 }
 
