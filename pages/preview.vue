@@ -27,6 +27,8 @@ const handlePreviewData = () => {
   ).then((res) => {
     fetchData = res.data
     previewData.value = { data: formatData(res.data), error: res.error }
+    // add slug to data for the Tags pages
+    previewData.value.slug = fetchData.value.meta.slug
   })
 }
 
@@ -38,6 +40,7 @@ watch(previewData, (res) => {
       )
       break
     case 'tagpages.TagPage':
+      router.push(`/tags/${identifierId}?preview=true`)
       break
     case 'standardpages.InformationPage':
       break
