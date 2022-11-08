@@ -70,7 +70,7 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
     <!-- authors -->
     <div
       v-else
-      class="author flex"
+      class="author flex flex-wrap"
       :class="isMultipleAuthors ? 'multiple-authors' : 'one-author'"
     >
       <div class="author-images flex">
