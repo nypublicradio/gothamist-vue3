@@ -12,12 +12,15 @@ const props = defineProps<{
 
 const featuredArticle = computed(() => props.articles[0])
 const latestArticles = computed(() => {
-  return props.articles.slice(1)
-    // remove the manually curated featured article
-    // from the list of latest articles so it
-    // doesn't show up twice in this module
-    .filter(article => article.uuid !== featuredArticle.value.uuid)
-    .slice(0,4)
+  return (
+    props.articles
+      .slice(1)
+      // remove the manually curated featured article
+      // from the list of latest articles so it
+      // doesn't show up twice in this module
+      .filter((article) => article.uuid !== featuredArticle.value.uuid)
+      .slice(0, 4)
+  )
 })
 </script>
 
@@ -54,7 +57,7 @@ const latestArticles = computed(() => {
     </div>
     <div class="col-12 xl:col-4 flex flex-column justify-content-end">
       <hr class="black mb-3 xl:hidden" />
-      <SponsorPlacement />
+      <!-- <SponsorPlacement /> -->
       <hr class="black mb-1" />
       <v-flexible-link class="mb-3 -ml-3" to="#latest" raw>
         <Button
