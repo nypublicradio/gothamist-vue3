@@ -10,7 +10,7 @@ const el = ref(null)
 
 const isDark = usePreferredDark()
 
-const tweetRegExp = /<blockquote class="twitter-tweet.*?\/status\/(\d+)\?.*?\/blockquote>/g
+const tweetRegExp = /<blockquote class="twitter-tweet.*?\/status\/(\d+)?.*?\/blockquote>/g
 const tweetIds = computed(() => {
     return [...props.block.value.embed.matchAll(tweetRegExp)].map(matches => matches[1])
 })
@@ -63,7 +63,7 @@ onMounted(async () => {
 
 <template>
     <div
-    class="streamfield-embed streamfield-embed-tweet mb-7"
+    class="streamfield-embed streamfield-embed-tweet streamfield-paragraph mb-7"
     ref="el"
     />
 </template>

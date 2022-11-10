@@ -9,7 +9,7 @@ const el = ref(null)
 
 <template>
   <div
-    class="streamfield-embed streamfield-embed-defualt mb-7"
+    class="streamfield-embed streamfield-embed-defualt streamfield-paragraph mb-7"
     v-html="block.value.embed"
     ref="el"
   />
