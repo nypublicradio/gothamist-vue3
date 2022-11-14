@@ -102,7 +102,7 @@ watch(route, (value) => {
           :src="`https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`"
           async
         />
-        <Script 
+        <Script
           type="text/javascript"
           :src="`/${config.NEWRELIC_AGENT}`"
           async
@@ -148,7 +148,8 @@ watch(route, (value) => {
       <Head v-if="isSponsored">
         <Meta name="Googlebot-News" content="noindex, nofollow" />
       </Head>
-      <Script children="window.twttr = (function(d, s, id) {
+      <Script
+        children="window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
           t = window.twttr || {};
         if (d.getElementById(id)) return t;
@@ -163,7 +164,8 @@ watch(route, (value) => {
         };
 
         return t;
-      }(document, 'script', 'twitter-wjs'));" />
+      }(document, 'script', 'twitter-wjs'));"
+      />
     </Html>
 
     <!-- Google Tag Manager (noscript) -->
@@ -199,7 +201,6 @@ watch(route, (value) => {
       <main>
         <slot />
       </main>
-      <scroll-to-top-button />
       <gothamist-footer :navigation="navigation" />
       <audio-player />
     </div>
