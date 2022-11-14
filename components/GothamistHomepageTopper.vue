@@ -26,13 +26,13 @@ const latestArticles = computed(() => {
 
 <template v-if="featuredArticle && latestArticles">
   <div class="homepage-topper grid mb-6 gutter-x-30">
-    <div class="col-12 flex align-items-end mb-2">
+    <!--  <div class="col-12 flex align-items-end mb-2">
       <menu-list
         class="homepage-topper-navigation hidden md:flex col-fixed p-0"
         :navLinks="navigation.primaryNavigation"
       />
       <LogoGothamist class="homepage-topper-logo col p-0"></LogoGothamist>
-    </div>
+    </div> -->
     <div class="col-12 xl:col-8">
       <v-card
         class="featured-article mod-vertical mod-featured mod-large"
