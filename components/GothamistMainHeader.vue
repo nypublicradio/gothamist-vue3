@@ -67,7 +67,7 @@ const trackClick = (category, label) => {
       />
       <Button
         icon="pi pi-bars"
-        class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
+        class="hamburger p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
         aria-label="Open the navigation menu"
         aria-expanded="false"
         @click="openSidebar"
@@ -103,6 +103,17 @@ const trackClick = (category, label) => {
 .gothamist-header-right {
   align-items: flex-end;
   display: flex;
+}
+
+.gothamist-header-right {
+  .p-button {
+    .pi-bars {
+      font-size: 1.25rem;
+    }
+    .pi-search {
+      font-weight: bold;
+    }
+  }
 }
 
 .gothamist-header-donate-button {
