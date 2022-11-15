@@ -29,30 +29,29 @@ const trackClick = (category, label) => {
 
 <template>
   <header class="gothamist-header">
-    <div class="top flex justify-content-between align-items-end">
+    <div
+      class="top flex justify-content-between align-items-center sm:align-items-end"
+    >
       <div class="gothamist-header-left">
         <v-flexible-link
-          v-if="showLogo"
+          class="block lg:hidden"
           to="/"
           raw
           @click="trackClick('Click Tracking - Header', 'header logo')"
         >
           <LogoGothamist class="gothamist-header-logo pr-2" />
         </v-flexible-link>
-        <div
-          :class="`gothamist-header-tagline ${
-            showLogo ? 'hidden' : 'block'
-          } md:block`"
-          v-html="strapline"
-        />
+        <div class="gothamist-header-tagline-holder hidden sm:block">
+          <div class="gothamist-header-tagline" v-html="strapline" />
+        </div>
       </div>
       <v-flexible-link
-        class=""
+        class="hidden lg:block"
         to="/"
         raw
         @click="trackClick('Click Tracking - Header', 'header logo')"
       >
-        <LogoGothamist class="gothamist-header-center-logo pr-2" />
+        <LogoGothamist class="gothamist-header-center-logo" />
       </v-flexible-link>
       <div class="gothamist-header-right align-items-center gap-2">
         <!-- <ListenAllLiveButton class="hidden md:block" /> -->
@@ -63,7 +62,7 @@ const trackClick = (category, label) => {
           "
         />
         <a
-          class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded"
+          class="gothamist-header-donate-button mod-button p-component p-button-rounded p-button"
           :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
           target="_blank"
           rel="noopener noreferrer"
@@ -90,7 +89,6 @@ const trackClick = (category, label) => {
           isHeader
           :navLinks="navigation.primaryNavigation"
         />
-        <!-- <LogoGothamist class="homepage-topper-logo col p-0"></LogoGothamist> -->
       </div>
     </div>
   </header>
@@ -134,9 +132,6 @@ const trackClick = (category, label) => {
 .gothamist-header-center-logo {
   height: 66px;
   width: auto;
-  @include media('<xl') {
-    display: none;
-  }
 }
 
 .gothamist-header-left,
@@ -158,22 +153,31 @@ const trackClick = (category, label) => {
 }
 
 .gothamist-header-donate-button {
-  // max-height: 36px;
+  @include media('<xs') {
+    font-size: 0.875rem;
+    padding: 8.75px 13.125px;
+  }
 }
 
-.gothamist-header-tagline {
-  font-family: var(--font-family-header);
-  font-size: 14px;
-  line-height: var(--font-size-6);
-  font-weight: 600;
-  color: black;
-  max-width: 200px;
-  align-self: flex-end;
-  padding-right: 1rem;
-  @include media('<376px') {
-    font-size: 12px;
-    line-height: var(--font-size-5);
-    align-self: center;
+.gothamist-header-tagline-holder {
+  width: 345px;
+  @include media('<xl') {
+    max-width: 185px;
+  }
+  .gothamist-header-tagline {
+    font-family: var(--font-family-header);
+    font-size: 14px;
+    line-height: var(--font-size-6);
+    font-weight: 600;
+    color: black;
+    align-self: flex-end;
+    padding-right: 1rem;
+    max-width: 200px;
+    @include media('<376px') {
+      font-size: 12px;
+      line-height: var(--font-size-5);
+      align-self: center;
+    }
   }
 }
 </style>

@@ -130,7 +130,8 @@ const openSidebar = (e) => {
               "
             />
           </v-share-tools>
-          <a class="article-page-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
+          <a
+            class="article-page-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
             :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
             target="_blank"
             rel="noopener noreferrer"
@@ -199,7 +200,7 @@ const openSidebar = (e) => {
 }
 
 .article-page-header-left {
-  min-width: 180px;
+  //min-width: 180px;
 }
 
 .article-page-header-right {
@@ -212,6 +213,10 @@ const openSidebar = (e) => {
 .article-page-header-logo {
   width: auto;
   height: 34px;
+  @include media('<xs') {
+    height: 25px;
+    align-self: center;
+  }
 }
 
 .article-page-header-center {
@@ -222,6 +227,10 @@ const openSidebar = (e) => {
 
 .article-page-header-donate-button {
   max-height: 36px;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
+  @include media('<xs') {
+    font-size: 0.875rem;
+    padding: 8.75px 13.125px;
+  }
 }
 </style>

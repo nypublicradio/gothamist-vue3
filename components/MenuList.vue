@@ -41,6 +41,7 @@ const isHomePage = computed(() => route.path == '/')
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    flex-wrap: wrap;
     @include media('<md') {
       gap: 1rem;
     }
