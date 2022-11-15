@@ -28,65 +28,86 @@ const trackClick = (category, label) => {
 </script>
 
 <template>
-  <header class="gothamist-header flex justify-content-between">
-    <div class="gothamist-header-left">
-      <v-flexible-link
-        v-if="showLogo"
-        to="/"
-        raw
-        @click="trackClick('Click Tracking - Header', 'header logo')"
-      >
-        <LogoGothamist class="gothamist-header-logo pr-2" />
-      </v-flexible-link>
-      <div
-        :class="`gothamist-header-tagline ${
-          showLogo ? 'hidden' : 'block'
-        } md:block`"
-        v-html="strapline"
-      />
+  <header class="gothamist-header">
+    <div class="top flex justify-content-between">
+      <div class="gothamist-header-left">
+        <v-flexible-link
+          v-if="showLogo"
+          to="/"
+          raw
+          @click="trackClick('Click Tracking - Header', 'header logo')"
+        >
+          <LogoGothamist class="gothamist-header-logo pr-2" />
+        </v-flexible-link>
+        <div
+          :class="`gothamist-header-tagline ${
+            showLogo ? 'hidden' : 'block'
+          } md:block`"
+          v-html="strapline"
+        />
+      </div>
+      <div class="gothamist-header-right align-items-center gap-2">
+        <!-- <ListenAllLiveButton class="hidden md:block" /> -->
+        <ListenLiveButton
+          class="hidden md:block"
+          @stream-button-click="
+            trackClick('Click Tracking - Header', 'Listen Live button')
+          "
+        />
+        <a
+          class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded"
+          :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
+          target="_blank"
+          rel="noopener noreferrer"
+          @click="trackClick('Click Tracking - Header', 'donate button')"
+        >
+          <span class="p-button-label">Donate</span>
+        </a>
+        <SearchButton
+          @onNavigate="trackClick('Click Tracking - Header', 'search button')"
+        />
+        <Button
+          icon="pi pi-bars"
+          class="hamburger p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
+          aria-label="Open the navigation menu"
+          aria-expanded="false"
+          @click="openSidebar"
+        />
+      </div>
     </div>
-    <div class="gothamist-header-right align-items-center gap-2">
-      <!-- <ListenAllLiveButton class="hidden md:block" /> -->
-      <ListenLiveButton
-        class="hidden md:block"
-        @stream-button-click="
-          trackClick('Click Tracking - Header', 'Listen Live button')
-        "
-      />
-      <a
-        class="gothamist-header-donate-button mod-button p-component p-button p-button-rounded"
-        :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"
-        target="_blank"
-        rel="noopener noreferrer"
-        @click="trackClick('Click Tracking - Header', 'donate button')"
-      >
-        <span class="p-button-label">Donate</span>
-      </a>
-      <SearchButton
-        @onNavigate="trackClick('Click Tracking - Header', 'search button')"
-      />
-      <Button
-        icon="pi pi-bars"
-        class="hamburger p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
-        aria-label="Open the navigation menu"
-        aria-expanded="false"
-        @click="openSidebar"
-      />
+    <div class="bottom">
+      <div class="col-12 p-0">
+        <menu-list
+          class="header hidden md:block p-0"
+          :navLinks="navigation.primaryNavigation"
+        />
+        <!-- <LogoGothamist class="homepage-topper-logo col p-0"></LogoGothamist> -->
+      </div>
     </div>
   </header>
 </template>
 
 <style lang="scss">
 .gothamist-header {
-  width: 100%;
-  height: 68px;
-  max-width: $contentWidth;
-  margin: auto;
-  padding: 1rem 1.5rem;
-  @include media('>=lg') {
-    padding: 1rem 2.5rem;
+  .top,
+  .bottom {
+    width: 100%;
+    max-width: $contentWidth;
+    margin: auto;
+    padding: 1rem 1.5rem;
+    @include media('>=lg') {
+      padding: 1rem 2.5rem;
+    }
+    display: flex;
   }
-  display: flex;
+  .top {
+    height: 68px;
+  }
+  .bottom {
+    /*  .homepage-topper-logo {
+      height: auto;
+    } */
+  }
 }
 
 .gothamist-header-logo {
