@@ -29,7 +29,7 @@ const trackClick = (category, label) => {
 
 <template>
   <header class="gothamist-header">
-    <div class="top flex justify-content-between">
+    <div class="top flex justify-content-between align-items-end">
       <div class="gothamist-header-left">
         <v-flexible-link
           v-if="showLogo"
@@ -46,6 +46,14 @@ const trackClick = (category, label) => {
           v-html="strapline"
         />
       </div>
+      <v-flexible-link
+        class=""
+        to="/"
+        raw
+        @click="trackClick('Click Tracking - Header', 'header logo')"
+      >
+        <LogoGothamist class="gothamist-header-center-logo pr-2" />
+      </v-flexible-link>
       <div class="gothamist-header-right align-items-center gap-2">
         <!-- <ListenAllLiveButton class="hidden md:block" /> -->
         <ListenLiveButton
@@ -78,7 +86,8 @@ const trackClick = (category, label) => {
     <div class="bottom">
       <div class="col-12 p-0">
         <menu-list
-          class="header hidden md:block p-0"
+          class="hidden md:block p-0"
+          isHeader
           :navLinks="navigation.primaryNavigation"
         />
         <!-- <LogoGothamist class="homepage-topper-logo col p-0"></LogoGothamist> -->
@@ -94,16 +103,20 @@ const trackClick = (category, label) => {
     width: 100%;
     max-width: $contentWidth;
     margin: auto;
-    padding: 1rem 1.5rem;
-    @include media('>=lg') {
-      padding: 1rem 2.5rem;
-    }
     display: flex;
   }
   .top {
-    height: 68px;
+    padding: 1.25rem 1.5rem 1rem 1.5rem;
+    @include media('>=lg') {
+      padding: 1.25rem 2.5rem 1rem 2.5rem;
+    }
+    //height: 68px;
   }
   .bottom {
+    padding: 0rem 1.5rem 1rem 1.5rem;
+    @include media('>=lg') {
+      padding: 0rem 2.5rem 1rem 2.5rem;
+    }
     /*  .homepage-topper-logo {
       height: auto;
     } */
@@ -116,6 +129,13 @@ const trackClick = (category, label) => {
   @include media('<xs') {
     height: 25px;
     align-self: center;
+  }
+}
+.gothamist-header-center-logo {
+  height: 66px;
+  width: auto;
+  @include media('<xl') {
+    display: none;
   }
 }
 
