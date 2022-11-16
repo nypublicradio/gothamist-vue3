@@ -140,9 +140,7 @@ onUnmounted(() => {
             :alt-text="slide.image.alt"
             :maxWidth="slide.image.width"
             :maxHeight="slide.image.height"
-            :credit="
-              slide.image.credit ? `Photo by ${slide.image.credit}` : null
-            "
+            :credit="slide.image.credit"
             :credit-url="slide.image.creditLink"
             :description="slide.title || slide.image.caption"
             :sizes="[2]"
