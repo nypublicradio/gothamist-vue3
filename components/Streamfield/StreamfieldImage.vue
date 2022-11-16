@@ -15,7 +15,7 @@ defineProps<{
     :maxWidth="block.value.image.width"
     :maxHeight="block.value.image.height"
     :description="block.value.caption || block.value.image.caption"
-    :credit="`Photo by ${block.value.image.credit}`"
+    :credit="block.value.image.credit"
     :credit-url="block.value.image.creditLink"
     :sizes="[2]"
     :ratio="[block.value.image.width, block.value.image.height]"
