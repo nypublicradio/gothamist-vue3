@@ -146,7 +146,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
         { name: 'og:title', content: article.socialTitle },
         { name: 'og:description', content: article.socialDescription },
         { name: 'og:url', content: article.url },
-        { name: 'og:image', content: article.image?.file || config.public.OG_IMAGE},
+        { name: 'og:image', content: useImageUrl(article.socialImage, {width: 1200, height: 650, quality: 85}) || config.public.OG_IMAGE },
         { name: 'og:image:width', content: '1200' },
         { name: 'og:image:height', content: '650' },
         { name: 'og:image:alt', content: article.socialImage?.alt },
