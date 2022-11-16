@@ -161,7 +161,7 @@ const newsletterSubmitEvent = () => {
     </div>
     <GothamistMainHeader
       :navigation="navigation"
-      :showLogo="route.name !== 'index'"
+      :isMinimized="route.name !== 'index'"
       :donateUrlBase="config.donateUrlBase"
       utmCampaign="goth_header"
     />

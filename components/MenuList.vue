@@ -15,8 +15,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['menu-list-click'])
-const route = useRoute()
-const isHomePage = computed(() => route.path == '/')
 </script>
 
 <template>

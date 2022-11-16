@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import useImageUrl from '~~/composables/useImageUrl'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 
+const route = useRoute()
+const config = useRuntimeConfig()
 const articlesPromise = findArticlePages({}).then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
@@ -44,13 +49,38 @@ const navigation = useNavigation()
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'home_page' })
+
+  // header fade in
+  gsap.registerPlugin(ScrollTrigger)
+  // for somre reason, I needed a slight delay to get this to work when returning to the home page from another page
+  setTimeout(() => {
+    gsap.to('.fixed-header', {
+      duration: 0.4,
+      opacity: 1,
+      display: 'block',
+      ease: 'linear',
+      scrollTrigger: {
+        trigger: '.homepage-topper',
+        id: 'fixedHeaderScrollTriggerID',
+        //markers: true,
+        start: 'top 12%',
+        toggleActions: 'restart complete reverse reverse',
+      },
+    })
+  }, 100)
+})
+
+onBeforeUnmount(() => {
+  ScrollTrigger.getById('fixedHeaderScrollTriggerID').kill()
 })
 
 const loadedNativoElements = []
 const nativoSectionLoaded = (name) => {
   loadedNativoElements.push(name)
-  if (loadedNativoElements.includes('ntv-stream-3') && 
-  loadedNativoElements.includes('ntv-latest-1')) {
+  if (
+    loadedNativoElements.includes('ntv-stream-3') &&
+    loadedNativoElements.includes('ntv-latest-1')
+  ) {
     loadedNativoElements.length = 0
     PostRelease.Start()
   }
@@ -59,6 +89,15 @@ const nativoSectionLoaded = (name) => {
 
 <template>
   <div>
+    <GothamistMainHeader
+      class="fixed-header"
+      :navigation="navigation"
+      :isMinimized="route.name === 'index'"
+      isFixed
+      :donateUrlBase="config.donateUrlBase"
+      utmCampaign="homepage-header"
+    />
+
     <section>
       <div class="content">
         <gothamist-homepage-topper
@@ -123,7 +162,9 @@ const nativoSectionLoaded = (name) => {
                       slug: `/${article.section.slug}`,
                     },
                   ]"
-                  @vue:mounted="index === 1 && nativoSectionLoaded('ntv-stream-3')"
+                  @vue:mounted="
+                    index === 1 && nativoSectionLoaded('ntv-stream-3')
+                  "
                 >
                   <p class="desc">
                     {{ article.description }}

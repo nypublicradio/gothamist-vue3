@@ -194,7 +194,7 @@ watch(route, (value) => {
       </div>
       <GothamistMainHeader
         :navigation="navigation"
-        :showLogo="route.name !== 'index'"
+        :isMinimized="route.name !== 'index'"
         :donateUrlBase="config.donateUrlBase"
         utmCampaign="homepage-header"
       />

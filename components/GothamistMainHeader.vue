@@ -3,7 +3,8 @@ import Navigation from '~~/composables/types/Navigation'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 defineProps<{
-  showLogo: boolean
+  isMinimized: boolean
+  isFixed?: boolean
   navigation: Navigation
   donateUrlBase: string
   utmCampaign: string
@@ -16,7 +17,6 @@ const openSidebar = (e) => {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target
 }
-
 const trackClick = (category, label) => {
   //emitted mobile menu click event
   $analytics.sendEvent('click_tracking', {
@@ -28,13 +28,14 @@ const trackClick = (category, label) => {
 </script>
 
 <template>
-  <header class="gothamist-header">
+  <header class="gothamist-header" :class="[{ 'is-fixed': isFixed }]">
     <div
       class="top flex justify-content-between align-items-center sm:align-items-end"
     >
       <div class="gothamist-header-left">
         <v-flexible-link
-          class="block lg:hidden"
+          class="block"
+          :class="isMinimized ? 'hidden' : 'xl:hidden'"
           to="/"
           raw
           @click="trackClick('Click Tracking - Header', 'header logo')"
@@ -46,7 +47,8 @@ const trackClick = (category, label) => {
         </div>
       </div>
       <v-flexible-link
-        class="hidden lg:block"
+        class="hidden"
+        :class="isMinimized ? 'xl:hidden' : 'xl:block'"
         to="/"
         raw
         @click="trackClick('Click Tracking - Header', 'header logo')"
@@ -82,7 +84,7 @@ const trackClick = (category, label) => {
         />
       </div>
     </div>
-    <div class="bottom">
+    <div v-if="!isMinimized" class="bottom">
       <div class="col-12 p-0">
         <menu-list
           class="hidden md:block p-0"
@@ -96,6 +98,19 @@ const trackClick = (category, label) => {
 
 <style lang="scss">
 .gothamist-header {
+  &.is-fixed {
+    opacity: 0;
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: var(--soybean200);
+    top: 50px;
+    @include media('>md') {
+      top: 0px;
+    }
+  }
   .top,
   .bottom {
     width: 100%;
@@ -104,9 +119,9 @@ const trackClick = (category, label) => {
     display: flex;
   }
   .top {
-    padding: 1.25rem 1.5rem 1rem 1.5rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
     @include media('>=lg') {
-      padding: 1.25rem 2.5rem 1rem 2.5rem;
+      padding: 1rem 2.5rem 1rem 2.5rem;
     }
     //height: 68px;
   }
