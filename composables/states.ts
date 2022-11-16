@@ -2,7 +2,7 @@ import Navigation from "./types/Navigation"
 
 export const useSensitiveContent = () => useState<boolean>('sensitiveContent', () => false)
 export const useSidebarIsOpen = () => useState<boolean>('sidebarIsOpen', () => false)
-export const useSidebarOpenedFrom = () => useState<HTMLElement>('sidebarOpenedFrom', () => undefined)
+export const useSidebarOpenedFrom = () => useState<HTMLElement>('sidebarOpenedFrom', () => null)
 export const useMembershipStatus = () => useState<string>('membershipStatus', () => 'status-unknown')
 export const useNavigation = () => useState<Navigation>('navigation', () => ({
     id: 0,
@@ -58,3 +58,11 @@ export const useTogglePlayTrigger = () => useState('useTogglePlayTrigger', () =>
  * Global var for the height of the audio player
  */
 export const audioPlayerHeight = 100
+
+
+// CMS preview globals
+const previewData = null
+/**
+ * Global state for the current episode object. 
+ */
+export const usePreviewData = () => useState('usePreviewData', () => previewData)

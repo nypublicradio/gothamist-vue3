@@ -3,12 +3,20 @@ import { TagPage } from '../../composables/types/Page'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 
-const { $analytics, $htlbid } = useNuxtApp()
+/* preview */
+import { usePreviewData } from '~/composables/states'
+const previewData = usePreviewData()
 const route = useRoute()
-const tagSlug = route.params.tagSlug
-const curatedTagPagePromise = findPage(`tags/${tagSlug}`).then(
-  ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
-)
+const isPreview = route.query.preview ? true : false
+/* preview */
+
+const { $analytics, $htlbid } = useNuxtApp()
+const tagSlug = isPreview ? previewData.value.slug : route.params.tagSlug
+const curatedTagPagePromise = isPreview
+  ? previewData.value.data
+  : findPage(`tags/${tagSlug}`).then(
+      ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
+    )
 const articlesPromise = findArticlePages({
   tag_slug: tagSlug,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
@@ -87,7 +95,7 @@ const newsletterSubmitEvent = () => {
     <section v-if="articles">
       <div class="content">
         <div class="grid gutter-x-30">
-          <h2 class="sr-only">Latest Articles Tagged "{{tagName}}"</h2>
+          <h2 class="sr-only">Latest Articles Tagged "{{ tagName }}"</h2>
           <div class="col">
             <div
               v-for="(article, index) in articles.slice(0, articlesToShow)"
