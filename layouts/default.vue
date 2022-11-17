@@ -3,7 +3,11 @@ import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import { onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+import { useCurrentHeaderAdHeight } from '~/composables/states'
 
+const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const config = useRuntimeConfig()
 const route = useRoute()
 const { $htlbid, $analytics } = useNuxtApp()
@@ -87,6 +91,34 @@ onMounted(() => {
     is_testing: config.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
+
+  // header fade in
+  gsap.registerPlugin(ScrollTrigger)
+  // for somre reason, I needed a slight delay to get this to work when returning to the home page from another page
+  setTimeout(() => {
+    gsap.to('.fixed-header', {
+      duration: 0.4,
+      opacity: 1,
+      display: 'block',
+      ease: 'linear',
+      scrollTrigger: {
+        trigger: '.homepage-topper',
+        id: 'fixedHeaderScrollTriggerID',
+        //markers: true,
+        start: () => `top ${currentHeaderAdHeight.value}px`,
+        toggleActions: 'restart complete pause reverse',
+      },
+    })
+  }, 100)
+
+  setTimeout(() => {
+    leaderboardAdWrapperRef.value.style.height = '500px'
+    currentHeaderAdHeight.value = 500
+    ScrollTrigger.getById('fixedHeaderScrollTriggerID').refresh()
+  }, 8000)
+})
+onBeforeUnmount(() => {
+  ScrollTrigger.getById('fixedHeaderScrollTriggerID').kill()
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
@@ -195,6 +227,14 @@ watch(route, (value) => {
         />
       </div>
       <GothamistMainHeader
+        class="fixed-header"
+        :navigation="navigation"
+        :isMinimized="true"
+        isFixed
+        :donateUrlBase="config.donateUrlBase"
+        utmCampaign="homepage-header"
+      />
+      <GothamistMainHeader
         :navigation="navigation"
         :isMinimized="route.name !== 'index'"
         :donateUrlBase="config.donateUrlBase"
@@ -256,7 +296,7 @@ watch(route, (value) => {
   }
   // TEMP fake AD height here
   .htl-ad {
-    height: 222px;
+    //height: 222px;
   }
 }
 
