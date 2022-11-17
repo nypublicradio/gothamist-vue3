@@ -3,10 +3,17 @@ import { onMounted } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import useImageUrl from '~~/composables/useImageUrl'
+import { ArticlePage } from '~~/composables/types/Page';
+import { computed, ref } from 'vue'
 
-const articlesPromise = findArticlePages({}).then(({ data }) =>
+const riverStoryCount = ref(6)
+const riverAdOffset = ref(2)
+const riverAdRepeatRate = ref(6)
+
+const articlesPromise = findArticlePages({limit: riverStoryCount.value}).then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
+
 
 const homePageCollectionsPromise = findPage('/').then(({ data }) => {
   return data.value.pageCollectionRelationship.map((collection) => {
@@ -25,14 +32,19 @@ const [articles, homePageCollections] = await Promise.all([
 ])
 
 // the latest articles
-const latestArticles = articles
+const latestArticles = ref([...articles])
 
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = normalizeArticlePage(homePageCollections?.[0].data?.[0])
 
-const riverStoryCount = ref(6)
-const riverAdOffset = ref(2)
-const riverAdRepeatRate = ref(6)
+const riverSegments = computed(() => {
+  let riverCopy = latestArticles.value.slice()
+  const segments = [] as ArticlePage[][]
+  while (riverCopy.length) {
+    segments.push(riverCopy.splice(0, riverStoryCount.value))
+  }
+  return segments
+})
 
 const { $analytics } = useNuxtApp()
 const newsletterSubmitEvent = () => {
@@ -65,6 +77,16 @@ const nativoSectionLoaded = (name) => {
     PostRelease.Start()
   }
 }
+
+const loadMoreComments = async () => {
+  const limit = riverStoryCount.value
+  const offset = latestArticles.value.length
+  const newArticles =  await findArticlePages({limit, offset}).then(({ data }) =>
+    normalizeFindArticlePagesResponse(data)
+  )
+  latestArticles.value.push(...newArticles)
+}
+
 </script>
 
 <template>
@@ -110,9 +132,9 @@ const nativoSectionLoaded = (name) => {
           <hr class="mb-4 black" />
           <div id="latest" class="grid gutter-x-xl">
             <div class="col-12 xxl:col-1 type-label3">LATEST</div>
-            <div class="col">
+            <div v-for="riverSegment in riverSegments" class="col col-12">
               <div
-                v-for="(article, index) in articles.slice(0, riverStoryCount)"
+                v-for="(article, index) in riverSegment.slice(0, riverStoryCount)"
                 :key="article.uuid"
               >
                 <v-card
@@ -154,12 +176,13 @@ const nativoSectionLoaded = (name) => {
                   <hr class="mb-5" />
                 </div>
               </div>
+            </div>
+            <div class="col col-12">
               <Button
-                v-if="riverStoryCount < articles.length"
-                class="p-button-rounded"
-                label="Load More"
-                @click="riverStoryCount += 6"
-              >
+                  class="p-button-rounded"
+                  label="Load More"
+                  @click="loadMoreComments"
+                >
               </Button>
             </div>
             <div class="col-fixed hidden xl:block mx-auto">
