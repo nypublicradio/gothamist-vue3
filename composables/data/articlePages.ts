@@ -27,9 +27,7 @@ function getArticleLink(articleData): string {
     else if (articleData.path) {
         return articleData.path.replace('/home/', '/')
     }
-    else {
-        return '/'
-    }
+    return '/'
 }
 
 // Transform author data from the API into a simpler and typed format
