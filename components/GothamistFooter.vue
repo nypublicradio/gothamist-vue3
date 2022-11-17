@@ -67,7 +67,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
             </v-flexible-link>
           </div>
           <div class="type-fineprint copyright">
-            ©{{ copyrightYear }} New York Public Radio. All rights reserved.
+            ©{{ copyrightYear }} New York Public Radio. All rights reserved. Kareem
           </div>
         </div>
       </div>
