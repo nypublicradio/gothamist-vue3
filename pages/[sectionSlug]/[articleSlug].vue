@@ -162,7 +162,7 @@ const getGalleryLink = computed(() => {
                 :alt-text="topImage?.alt"
                 :maxWidth="topImage?.width"
                 :maxHeight="topImage?.height"
-                :credit="topImage?.credit && `Photo by ${topImage?.credit}`"
+                :credit="topImage?.credit"
                 :credit-url="topImage?.creditLink"
                 :sizes="[2]"
                 :ratio="[3, 2]"
