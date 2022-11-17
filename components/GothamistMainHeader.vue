@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Navigation from '~~/composables/types/Navigation'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+import { useCurrentHeaderAdHeight } from '~/composables/states'
 
 defineProps<{
   isMinimized: boolean
@@ -13,6 +14,7 @@ const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = await useStrapline()
+const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const openSidebar = (e) => {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target
@@ -28,7 +30,11 @@ const trackClick = (category, label) => {
 </script>
 
 <template>
-  <header class="gothamist-header" :class="[{ 'is-fixed': isFixed }]">
+  <header
+    class="gothamist-header"
+    :class="[{ 'is-fixed': isFixed }]"
+    :style="isFixed ? `top:${currentHeaderAdHeight}px;` : ``"
+  >
     <div
       class="top flex justify-content-between align-items-center sm:align-items-end"
     >
@@ -84,10 +90,10 @@ const trackClick = (category, label) => {
         />
       </div>
     </div>
-    <div v-if="!isMinimized" class="bottom">
+    <div v-if="!isMinimized" class="bottom hidden md:block">
       <div class="col-12 p-0">
         <menu-list
-          class="hidden md:block p-0"
+          class="p-0"
           isHeader
           :navLinks="navigation.primaryNavigation"
         />
@@ -106,9 +112,10 @@ const trackClick = (category, label) => {
     right: 0;
     z-index: 100;
     background-color: var(--soybean200);
-    top: 50px;
+    // dynamic height of the AD needed below
+    top: 90px;
     @include media('>md') {
-      top: 0px;
+      top: 0px !important;
     }
   }
   .top,

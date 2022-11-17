@@ -62,8 +62,8 @@ onMounted(() => {
       scrollTrigger: {
         trigger: '.homepage-topper',
         id: 'fixedHeaderScrollTriggerID',
-        //markers: true,
-        start: 'top 12%',
+        markers: true,
+        start: 'top 60px',
         toggleActions: 'restart complete reverse reverse',
       },
     })

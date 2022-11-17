@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import { onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
@@ -26,7 +27,7 @@ const [navigation, breakingNews, productBanners] = await Promise.all([
   breakingNewsPromise,
   productBannersPromise,
 ])
-
+const leaderboardAdWrapperRef = ref(null)
 const isSponsored = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
@@ -179,6 +180,7 @@ watch(route, (value) => {
     <div>
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div
+        ref="leaderboardAdWrapperRef"
         class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
       >
         <HtlAd
@@ -242,15 +244,19 @@ watch(route, (value) => {
 .leaderboard-ad-wrapper {
   background: #111111;
   @include media('<md') {
-    height: 50px;
+    min-height: 50px;
     padding: 0px auto;
     position: sticky;
     top: 0;
     z-index: 5000;
   }
   @include media('>=md') {
-    height: 92px;
+    min-height: 92px;
     padding: 1px auto;
+  }
+  // TEMP fake AD height here
+  .htl-ad {
+    height: 222px;
   }
 }
 

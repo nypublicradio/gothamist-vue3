@@ -59,6 +59,15 @@ export const useTogglePlayTrigger = () => useState('useTogglePlayTrigger', () =>
  */
 export const audioPlayerHeight = 100
 
+/**
+ * Global var for the height of the header AD
+ */
+const currentHeaderAdHeight = 222
+/**
+ * Global state for the current AD height. 
+ */
+export const useCurrentHeaderAdHeight = () => useState('useCurrentHeaderAdHeight', () => currentHeaderAdHeight)
+
 
 // CMS preview globals
 const previewData = null
