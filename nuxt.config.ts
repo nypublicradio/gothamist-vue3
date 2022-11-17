@@ -78,7 +78,7 @@ export default defineNuxtConfig({
     IMAGE_BASE_URL: process.env['IMAGE_BASE_URL'] || 'https://cms.demo.nypr.digital/images/',
     GA_MEASUREMENT_ID: process.env['GA_MEASUREMENT_ID'] || 'G-3Y8891NN3P',
     GTM_ID: process.env['GTM_ID'] || 'GTM-W6RXBNS',
-    NPR_GA_MEASUREMENT_ID: process.env['NPR_GA_MEASUREMENT_ID'] || 'G-XGZ99F1SED',
+    NPR_GA_MEASUREMENT_ID: process.env['NPR_GA_MEASUREMENT_ID'] || 'G-QQ8DTZD401',
     NEWSLETTER_API: process.env['NEWSLETTER_API'] || 'https://api.demo.nypr.digital/email-proxy/subscribe',
     NEWSLETTER_LIST_ID: '65dbec786b',
     DEBUG: process.env['DEBUG'] || 'false',
