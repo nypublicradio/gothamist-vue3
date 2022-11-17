@@ -9,6 +9,7 @@ export default defineNuxtPlugin(() => {
     _sf_async_config.useCanonicalDomain = true;
     _sf_async_config.sections = ''; //SET PAGE SECTION(S)
     _sf_async_config.authors = ''; //SET PAGE AUTHOR(S)
+    _sf_async_config.title = document.title; //SET PAGE TITLE
     /** CONFIGURATION END **/
     function loadChartbeat() {
       const e = document.createElement('script');
