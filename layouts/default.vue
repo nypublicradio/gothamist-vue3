@@ -91,6 +91,8 @@ watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
 })
+
+
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
+import { useUpdateCommentCounts } from '~~/composables/comments';
 import useImageUrl from '~~/composables/useImageUrl'
 
 const articlesPromise = findArticlePages({}).then(({ data }) =>
@@ -44,6 +45,9 @@ const navigation = useNavigation()
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'home_page' })
+  const collectionArticles = homePageCollections.reduce((pages, collection) => [...pages, ...collection.data],[])
+  const allArticles = [...articles, ...collectionArticles]
+  useUpdateCommentCounts(allArticles)
 })
 
 const loadedNativoElements = []

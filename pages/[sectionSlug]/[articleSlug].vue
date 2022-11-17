@@ -56,6 +56,7 @@ onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
+  useUpdateCommentCounts([article])
 })
 
 onUnmounted(() => {
@@ -215,7 +216,7 @@ const getGalleryLink = computed(() => {
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col w-full">
-            <article-footer v-if="article" :article="article" />
+            <article-footer :article="article" />
           </div>
         </div>
         <hr class="black" />
