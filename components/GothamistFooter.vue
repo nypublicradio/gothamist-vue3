@@ -18,6 +18,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
     id="gothamist-footer"
     class="gothamist-footer"
     data-style-mode="dark"
+    aria-label="gothamist footer"
   >
     <div
       class="content"
@@ -67,7 +68,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
             </v-flexible-link>
           </div>
           <div class="type-fineprint copyright">
-            ©{{ copyrightYear }} New York Public Radio. All rights reserved. Kareem
+            ©{{ copyrightYear }} New York Public Radio. All rights reserved.
           </div>
         </div>
       </div>
