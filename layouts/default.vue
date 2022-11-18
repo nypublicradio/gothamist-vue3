@@ -109,9 +109,9 @@ onMounted(() => {
       display: 'block',
       ease: 'linear',
       scrollTrigger: {
-        trigger: '.homepage-topper',
+        trigger: '.main',
         id: 'fixedHeaderScrollTriggerID',
-        //markers: true,
+        markers: true,
         start: () =>
           `top ${smallerThanMd.value ? currentHeaderAdHeight.value : '90'}px`,
         toggleActions: 'restart complete pause reverse',
@@ -246,7 +246,6 @@ watch(route, (value) => {
           slot="htlad-gothamist_interior_leaderboard_1"
         />
       </div>
-      smallerThanMd: {{ smallerThanMd }}
       <GothamistMainHeader
         class="fixed-header"
         :navigation="navigation"
@@ -261,7 +260,7 @@ watch(route, (value) => {
         :donateUrlBase="config.donateUrlBase"
         utmCampaign="homepage-header"
       />
-      <main>
+      <main class="main">
         <slot />
       </main>
       <gothamist-footer :navigation="navigation" />
@@ -309,7 +308,7 @@ watch(route, (value) => {
     padding: 0px auto;
     position: sticky;
     top: 0;
-    z-index: 5000;
+    //z-index: 5000;
   }
   @include media('>=md') {
     min-height: 92px;
