@@ -6,14 +6,18 @@ import { useRuntimeConfig } from '#app'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { useElementSize, useBreakpoints } from '@vueuse/core'
-import { useCurrentHeaderAdHeight } from '~/composables/states'
+import {
+  useCurrentHeaderAdHeight,
+  useIsArticleHeader,
+} from '~/composables/states'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 const breakpoints = useBreakpoints({
   md: Number(breakpoint.md),
 })
 const smallerThanMd = breakpoints.smaller('md')
-
+const isArticleHeader = useIsArticleHeader()
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
+
 const config = useRuntimeConfig()
 const route = useRoute()
 const { $htlbid, $analytics } = useNuxtApp()
@@ -248,6 +252,9 @@ watch(route, (value) => {
       </div>
       <GothamistMainHeader
         class="fixed-header"
+        :style="`${
+          isArticleHeader ? 'visibility: hidden; pointer-events:none;' : ''
+        }`"
         :navigation="navigation"
         :isMinimized="true"
         isFixed

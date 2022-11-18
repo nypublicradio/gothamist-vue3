@@ -68,6 +68,12 @@ const currentHeaderAdHeight = 90
  */
 export const useCurrentHeaderAdHeight = () => useState('useCurrentHeaderAdHeight', () => currentHeaderAdHeight)
 
+const isArticleHeader = false
+/**
+ * Global state for the current AD height. 
+ */
+export const useIsArticleHeader = () => useState('useIsArticleHeader', () => isArticleHeader)
+
 
 // CMS preview globals
 const previewData = null
