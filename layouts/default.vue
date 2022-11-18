@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-
 import { useRuntimeConfig } from '#app'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
@@ -107,7 +106,7 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   // for somre reason, I needed a slight delay to get this to work when returning to the home page from another page
   setTimeout(() => {
-    gsap.to('.fixed-header', {
+    gsap.to(['.fixed-header', '.article-page-header'], {
       duration: 0.4,
       opacity: 1,
       display: 'block',
@@ -115,7 +114,7 @@ onMounted(() => {
       scrollTrigger: {
         trigger: '.main',
         id: 'fixedHeaderScrollTriggerID',
-        markers: true,
+        //markers: true,
         start: () =>
           `top ${smallerThanMd.value ? currentHeaderAdHeight.value : '90'}px`,
         toggleActions: 'restart complete pause reverse',
@@ -123,7 +122,7 @@ onMounted(() => {
     })
   }, 100)
 
-  // mock AD change with different height
+  // TEMP mock AD change with different height
   setTimeout(() => {
     leaderboardAdWrapperRef.value.style.height = '500px'
   }, 4000)
@@ -315,7 +314,7 @@ watch(route, (value) => {
     padding: 0px auto;
     position: sticky;
     top: 0;
-    //z-index: 5000;
+    z-index: 5000;
   }
   @include media('>=md') {
     min-height: 92px;

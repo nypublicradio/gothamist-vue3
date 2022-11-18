@@ -2,7 +2,10 @@
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
-import { useIsArticleHeader } from '~/composables/states'
+import {
+  useIsArticleHeader,
+  useCurrentHeaderAdHeight,
+} from '~/composables/states'
 const { $analytics } = useNuxtApp()
 
 const props = defineProps({
@@ -36,6 +39,7 @@ const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = useStrapline()
 const progressPercentage = computed(() => `${props.progress}%`)
 const isArticleHeader = useIsArticleHeader()
+const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const openSidebar = (e) => {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target
@@ -49,7 +53,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header class="article-page-header">
+  <header
+    class="article-page-header"
+    :style="`top: ${currentHeaderAdHeight}px;`"
+  >
     <section class="article-page-header-progress">
       <div
         class="article-page-header-contents content py-0 my-3 flex align-items-center justify-content-between"
@@ -161,14 +168,16 @@ onBeforeUnmount(() => {
 
 <style lang="scss">
 .article-page-header {
+  opacity: 0;
+  display: none;
   width: 100%;
   height: 68px;
   position: fixed;
   z-index: 1000;
   top: 50px;
   background: white;
-  @include media('>md') {
-    top: 0px;
+  @include media('>=md') {
+    top: 0px !important;
   }
 }
 .article-page-header-progress {
