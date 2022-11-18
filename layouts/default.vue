@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { onMounted } from 'vue'
+
 import { useRuntimeConfig } from '#app'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+import { useElementSize, useBreakpoints } from '@vueuse/core'
 import { useCurrentHeaderAdHeight } from '~/composables/states'
+import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
+const breakpoints = useBreakpoints({
+  md: Number(breakpoint.md),
+})
+const smallerThanMd = breakpoints.smaller('md')
 
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const config = useRuntimeConfig()
@@ -32,6 +38,7 @@ const [navigation, breakingNews, productBanners] = await Promise.all([
   productBannersPromise,
 ])
 const leaderboardAdWrapperRef = ref(null)
+const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
 const isSponsored = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
@@ -105,20 +112,33 @@ onMounted(() => {
         trigger: '.homepage-topper',
         id: 'fixedHeaderScrollTriggerID',
         //markers: true,
-        start: () => `top ${currentHeaderAdHeight.value}px`,
+        start: () =>
+          `top ${smallerThanMd.value ? currentHeaderAdHeight.value : '90'}px`,
         toggleActions: 'restart complete pause reverse',
       },
     })
   }, 100)
 
+  // mock AD change with different height
   setTimeout(() => {
     leaderboardAdWrapperRef.value.style.height = '500px'
-    currentHeaderAdHeight.value = 500
-    ScrollTrigger.getById('fixedHeaderScrollTriggerID').refresh()
-  }, 8000)
+  }, 4000)
 })
+
 onBeforeUnmount(() => {
   ScrollTrigger.getById('fixedHeaderScrollTriggerID').kill()
+})
+const refreshScrollTrigger = () => {
+  const scrollTriggerSelector = ScrollTrigger.getById(
+    'fixedHeaderScrollTriggerID'
+  )
+  if (scrollTriggerSelector) {
+    scrollTriggerSelector.refresh()
+  }
+}
+watch(leaderboardAdToWatch.height, (height) => {
+  currentHeaderAdHeight.value = height
+  refreshScrollTrigger()
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
@@ -226,6 +246,7 @@ watch(route, (value) => {
           slot="htlad-gothamist_interior_leaderboard_1"
         />
       </div>
+      smallerThanMd: {{ smallerThanMd }}
       <GothamistMainHeader
         class="fixed-header"
         :navigation="navigation"
@@ -293,10 +314,6 @@ watch(route, (value) => {
   @include media('>=md') {
     min-height: 92px;
     padding: 1px auto;
-  }
-  // TEMP fake AD height here
-  .htl-ad {
-    //height: 222px;
   }
 }
 
