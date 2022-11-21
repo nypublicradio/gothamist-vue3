@@ -2,10 +2,7 @@
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
-import {
-  useIsArticleHeader,
-  useCurrentHeaderAdHeight,
-} from '~/composables/states'
+import { useCurrentHeaderAdHeight } from '~/composables/states'
 const { $analytics } = useNuxtApp()
 
 const props = defineProps({
@@ -38,18 +35,11 @@ const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = useStrapline()
 const progressPercentage = computed(() => `${props.progress}%`)
-const isArticleHeader = useIsArticleHeader()
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const openSidebar = (e) => {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target
 }
-onMounted(() => {
-  isArticleHeader.value = true
-})
-onBeforeUnmount(() => {
-  isArticleHeader.value = false
-})
 </script>
 
 <template>

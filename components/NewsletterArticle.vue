@@ -2,6 +2,7 @@
 import { onMounted, onBeforeUnmount } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+import { useCurrentHeaderAdHeight } from '~/composables/states'
 
 const props = defineProps({
   triggerID: {
@@ -14,17 +15,20 @@ const props = defineProps({
   },
   pinStartTopOffset: {
     type: String,
-    default: '68px', // height of the header
+    default: `73px`, // height of the header
   },
 })
+
 const newsletterElm = ref(null)
+const currentHeaderAdHeight = useCurrentHeaderAdHeight()
+const uid = 'pinnedNewsletterID'
 const emit = defineEmits(['submit'])
 
 // init func for the scrollTrigger on the newsletter
 const initScrollTrigger = () => {
   ScrollTrigger.create({
     trigger: `#${props.triggerID}`,
-    id: 'pinnedNewsletterID',
+    id: uid,
     pin: true,
     start: `1px ${props.pinStartTopOffset}`,
     endTrigger: `#${props.pinEndTriggerID}`,
@@ -42,7 +46,16 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  ScrollTrigger.getById('pinnedNewsletterID').kill()
+  ScrollTrigger.getById(uid).kill()
+})
+const refreshScrollTrigger = () => {
+  const scrollTriggerSelector = ScrollTrigger.getById(uid)
+  if (scrollTriggerSelector) {
+    scrollTriggerSelector.refresh()
+  }
+}
+watch(currentHeaderAdHeight, (height) => {
+  refreshScrollTrigger()
 })
 </script>
 

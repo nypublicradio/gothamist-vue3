@@ -1,21 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import { useRuntimeConfig } from '#app'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
-import { useElementSize, useBreakpoints } from '@vueuse/core'
+import { useElementSize } from '@vueuse/core'
 import {
   useCurrentHeaderAdHeight,
-  useIsArticleHeader,
+  useIsArticlePage,
 } from '~/composables/states'
-import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
-const breakpoints = useBreakpoints({
-  md: Number(breakpoint.md),
-})
-const smallerThanMd = breakpoints.smaller('md')
-const isArticleHeader = useIsArticleHeader()
+const leaderboardAdWrapperRef = ref(null)
+const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
+const isArticlePage = useIsArticlePage()
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -40,8 +34,6 @@ const [navigation, breakingNews, productBanners] = await Promise.all([
   breakingNewsPromise,
   productBannersPromise,
 ])
-const leaderboardAdWrapperRef = ref(null)
-const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
 const isSponsored = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
@@ -102,50 +94,19 @@ onMounted(() => {
   })
   $htlbid.setTargetingForRoute(route)
 
-  // header fade in
-  gsap.registerPlugin(ScrollTrigger)
-  // for somre reason, I needed a slight delay to get this to work when returning to the home page from another page
-  setTimeout(() => {
-    gsap.to(['.fixed-header', '.article-page-header'], {
-      duration: 0.4,
-      opacity: 1,
-      display: 'block',
-      ease: 'linear',
-      scrollTrigger: {
-        trigger: '.main',
-        id: 'fixedHeaderScrollTriggerID',
-        //markers: true,
-        start: () =>
-          `top ${smallerThanMd.value ? currentHeaderAdHeight.value : '90'}px`,
-        toggleActions: 'restart complete pause reverse',
-      },
-    })
-  }, 100)
-
-  // TEMP mock AD change with different height
-  setTimeout(() => {
-    leaderboardAdWrapperRef.value.style.height = '500px'
-  }, 4000)
-})
-
-onBeforeUnmount(() => {
-  ScrollTrigger.getById('fixedHeaderScrollTriggerID').kill()
-})
-const refreshScrollTrigger = () => {
-  const scrollTriggerSelector = ScrollTrigger.getById(
-    'fixedHeaderScrollTriggerID'
-  )
-  if (scrollTriggerSelector) {
-    scrollTriggerSelector.refresh()
-  }
-}
-watch(leaderboardAdToWatch.height, (height) => {
-  currentHeaderAdHeight.value = height
-  refreshScrollTrigger()
+  //TEMP mock AD change with different height
+  // setTimeout(() => {
+  //   var ad = document.querySelectorAll('.htl-ad')
+  //   ad[0].style.height = '500px'
+  //   //leaderboardAdWrapperRef.value.style.height = '500px'
+  // }, 4000)
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
+})
+watch(leaderboardAdToWatch.height, (height) => {
+  currentHeaderAdHeight.value = height
 })
 </script>
 
@@ -236,7 +197,7 @@ watch(route, (value) => {
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div
         ref="leaderboardAdWrapperRef"
-        class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
+        class="leaderboard-ad-wrapper flex justify-content-center align-items-center flex-column"
       >
         <HtlAd
           v-if="route.name === 'index'"
@@ -249,17 +210,16 @@ watch(route, (value) => {
           slot="htlad-gothamist_interior_leaderboard_1"
         />
       </div>
-      <GothamistMainHeader
-        class="fixed-header"
-        :style="`${
-          isArticleHeader ? 'visibility: hidden; pointer-events:none;' : ''
-        }`"
-        :navigation="navigation"
-        :isMinimized="true"
-        isFixed
-        :donateUrlBase="config.donateUrlBase"
-        utmCampaign="homepage-header"
-      />
+      <HeaderScrollTrigger :isHidden="isArticlePage">
+        <GothamistMainHeader
+          class="fixed-header"
+          :navigation="navigation"
+          :isMinimized="true"
+          isFixed
+          :donateUrlBase="config.donateUrlBase"
+          utmCampaign="homepage-header"
+        />
+      </HeaderScrollTrigger>
       <GothamistMainHeader
         :navigation="navigation"
         :isMinimized="route.name !== 'index'"

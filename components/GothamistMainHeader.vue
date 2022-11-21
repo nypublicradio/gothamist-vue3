@@ -112,7 +112,6 @@ const trackClick = (category, label) => {
     right: 0;
     z-index: 100;
     background-color: var(--soybean200);
-    // dynamic height of the AD needed below
     top: 90px;
     @include media('>=md') {
       top: 0px !important;

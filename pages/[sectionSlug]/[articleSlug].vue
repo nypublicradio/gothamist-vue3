@@ -7,7 +7,8 @@ import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 /* preview */
-import { usePreviewData } from '~/composables/states'
+import { usePreviewData, useIsArticlePage } from '~/composables/states'
+const isArticlePage = useIsArticlePage()
 const previewData = usePreviewData()
 const route = useRoute()
 const isPreview = route.query.preview ? true : false
@@ -45,15 +46,25 @@ const headMetadata = useArticlePageHeadMetadata(article)
 
 useHead(headMetadata)
 
+onBeforeMount(() => {
+  isArticlePage.value = true
+})
 onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
+
+  //TEMP mock AD change with different height
+  setTimeout(() => {
+    var ad = document.querySelectorAll('.htl-ad')
+    ad[0].style.height = '500px'
+  }, 40000)
 })
 
 onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
   sensitiveContent.value = false
+  isArticlePage.value = false
 })
 
 // handle ads when the article is mounted
@@ -102,17 +113,19 @@ const getGalleryLink = computed(() => {
       />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
-    <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
-      <ArticlePageHeader
-        class="article-page-header"
-        :donateUrlBase="config.donateUrlBase"
-        utmCampaign="goth_header"
-        :progress="scrollTrackerProps.scrollPercentage"
-        :title="article?.title"
-        :shareUrl="article.url"
-        :shareTitle="article.socialTitle"
-      />
-    </ScrollTracker>
+    <HeaderScrollTrigger header-class="article-page-header">
+      <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
+        <ArticlePageHeader
+          class="article-page-header"
+          :donateUrlBase="config.donateUrlBase"
+          utmCampaign="goth_header"
+          :progress="scrollTrackerProps.scrollPercentage"
+          :title="article?.title"
+          :shareUrl="article.url"
+          :shareTitle="article.socialTitle"
+        />
+      </ScrollTracker>
+    </HeaderScrollTrigger>
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
