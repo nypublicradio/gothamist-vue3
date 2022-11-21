@@ -6,6 +6,7 @@ import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/sr
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
+import { useCommentCounts } from '~~/composables/comments'
 
 const props = defineProps({
   article: {
@@ -29,9 +30,12 @@ const shareUrl = ref(props.article?.url)
 const shareTitle = ref(props.article?.title)
 const isMultipleAuthors = ref(props.article?.authors.length > 1)
 const isDisableComments = ref(props.article?.disableComments || false)
-const comments = ref(props.article?.comments || 'Go to')
 const isSponsored = ref(props.article?.sponsoredContent || false)
 const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
+const commentCounts = ref(useCommentCounts())
+const commentCount = computed(() => {
+  return commentCounts.value[props.article?.commentId]
+})
 </script>
 
 <template>
@@ -59,11 +63,11 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
         </v-flexible-link>
         <date-published :article="props.article" />
         <v-flexible-link
-          v-if="!isDisableComments && props.showComments"
+          v-if="!isDisableComments && props.showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
-          {{ comments }} comments
+          {{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}
         </v-flexible-link>
       </div>
     </div>
@@ -93,11 +97,11 @@ const sponsor = ref(props.article?.sponsors ? props.article?.sponsors[0] : null)
         <v-byline :authors="authors" prefix="By" />
         <date-published :article="props.article" />
         <v-flexible-link
-          v-if="!isDisableComments && props.showComments"
+          v-if="!isDisableComments && props.showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
-          {{ comments }} comments
+          {{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}
         </v-flexible-link>
       </div>
     </div>
