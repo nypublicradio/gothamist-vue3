@@ -211,7 +211,7 @@ watch(leaderboardAdToWatch.height, (height) => {
           :isMinimized="true"
           isFixed
           :donateUrlBase="config.donateUrlBase"
-          utmCampaign="fixed-header"
+          utmCampaign="homepage-header"
         />
       </HeaderScrollTrigger>
       <GothamistMainHeader
