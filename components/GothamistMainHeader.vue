@@ -111,7 +111,7 @@ const trackClick = (category, label) => {
     left: 0;
     right: 0;
     z-index: 100;
-    background-color: var(--soybean200);
+    background-color: var(--white);
     top: 90px;
     @include media('>=md') {
       top: 0px !important;

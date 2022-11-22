@@ -31,7 +31,7 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   setTimeout(() => {
     gsap.to(`.${props.headerClass}`, {
-      duration: 0.4,
+      duration: 0.25,
       opacity: 1,
       display: 'block',
       ease: 'linear',
