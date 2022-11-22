@@ -23,13 +23,12 @@ const route = useRoute()
 const breakpoints = useBreakpoints({
   md: Number(breakpoint.md),
 })
-const uid = 'scrollTriggerID' + Math.floor(Math.random() * 100001)
+const uid = `scrollTriggerID${Math.floor(Math.random() * 100001)}`
 const smallerThanMd = breakpoints.smaller('md')
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-  // for somre reason, I needed a slight delay to get this to work when returning to the home page from another page
   setTimeout(() => {
     gsap.to(`.${props.headerClass}`, {
       duration: 0.4,

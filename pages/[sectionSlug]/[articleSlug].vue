@@ -58,7 +58,7 @@ onMounted(() => {
   setTimeout(() => {
     var ad = document.querySelectorAll('.htl-ad')
     ad[0].style.height = '500px'
-  }, 40000)
+  }, 4000)
 })
 
 onUnmounted(() => {

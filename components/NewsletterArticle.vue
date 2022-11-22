@@ -15,7 +15,7 @@ const props = defineProps({
   },
   pinStartTopOffset: {
     type: String,
-    default: `73px`, // height of the header
+    default: `68px`, // height of the header-ish
   },
 })
 
@@ -24,25 +24,21 @@ const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const uid = 'pinnedNewsletterID'
 const emit = defineEmits(['submit'])
 
-// init func for the scrollTrigger on the newsletter
-const initScrollTrigger = () => {
-  ScrollTrigger.create({
-    trigger: `#${props.triggerID}`,
-    id: uid,
-    pin: true,
-    start: `1px ${props.pinStartTopOffset}`,
-    endTrigger: `#${props.pinEndTriggerID}`,
-    end: `top 0%+=${newsletterElm.value.offsetHeight + 40}px`,
-    //markers: true,
-    pinSpacing: false,
-  })
-}
-
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   setTimeout(() => {
-    initScrollTrigger()
-  }, 1000)
+    // func for the scrollTrigger PIN on the newsletter
+    ScrollTrigger.create({
+      trigger: `#${props.triggerID}`,
+      id: uid,
+      pin: true,
+      start: `1px ${props.pinStartTopOffset}`,
+      endTrigger: `#${props.pinEndTriggerID}`,
+      end: `top 0%+=${newsletterElm.value.offsetHeight + 40}px`,
+      //markers: true,
+      pinSpacing: false,
+    })
+  }, 100)
 })
 
 onBeforeUnmount(() => {

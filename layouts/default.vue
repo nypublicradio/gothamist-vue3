@@ -93,18 +93,12 @@ onMounted(() => {
     is_testing: config.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
-
-  //TEMP mock AD change with different height
-  // setTimeout(() => {
-  //   var ad = document.querySelectorAll('.htl-ad')
-  //   ad[0].style.height = '500px'
-  //   //leaderboardAdWrapperRef.value.style.height = '500px'
-  // }, 4000)
 })
 watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
 })
+// watch ads for height changes & update the global variable
 watch(leaderboardAdToWatch.height, (height) => {
   currentHeaderAdHeight.value = height
 })
@@ -217,7 +211,7 @@ watch(leaderboardAdToWatch.height, (height) => {
           :isMinimized="true"
           isFixed
           :donateUrlBase="config.donateUrlBase"
-          utmCampaign="homepage-header"
+          utmCampaign="fixed-header"
         />
       </HeaderScrollTrigger>
       <GothamistMainHeader
