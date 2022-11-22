@@ -18,6 +18,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
     id="gothamist-footer"
     class="gothamist-footer"
     data-style-mode="dark"
+    aria-label="gothamist footer"
   >
     <div
       class="content"
