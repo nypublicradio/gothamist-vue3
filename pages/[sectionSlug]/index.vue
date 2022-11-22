@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-
+import { useUpdateCommentCounts } from '~~/composables/comments';
 const route = useRoute()
 
 const { title: sectionTitle, id: sectionId } = await findPage(
@@ -16,6 +16,7 @@ const articlesToShow = ref(6)
 const { $analytics } = useNuxtApp()
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'section_page' })
+  useUpdateCommentCounts(articles)
 })
 
 const newsletterSubmitEvent = () => {

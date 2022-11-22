@@ -1,5 +1,8 @@
 <script setup>
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
+import { computed, ref } from 'vue'
+import { useCommentCounts } from '~~/composables/comments'
+
 const props = defineProps({
   article: {
     type: Object,
@@ -15,12 +18,17 @@ const props = defineProps({
   },
   showComments: {
     type: Boolean,
-    default: false, // setting to false untill we have support for comment counts
+    default: true, // setting to false untill we have support for comment counts
   },
   showDescription: {
     type: Boolean,
     default: true,
   },
+})
+
+const commentCounts = ref(useCommentCounts())
+const commentCount = computed(() => {
+  return commentCounts.value[props.article.commentId]
 })
 </script>
 
@@ -37,8 +45,8 @@ const props = defineProps({
           :authors="props.article.authors || props.article.relatedAuthors"
         />
       </span>
-      <span class="comments" v-if="!props.article.comments && showComments">
-        {{ props.article.comments || '##' }} Comments
+      <span class="comments" v-if="!props.article.comments && showComments && commentCount">
+        <NuxtLink :to="{ path: props.article.link, hash: '#comments' }">{{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}</NuxtLink>
       </span>
     </template>
 
@@ -59,9 +67,11 @@ const props = defineProps({
         </div>
         <span
           class="col-12 comments"
-          v-if="!props.article.comments && showComments"
+          v-if="!props.article.comments && showComments && commentCount"
         >
-          {{ props.article.comments || '##' }} Comments
+        <NuxtLink :to="{ path: props.article.link, hash: '#comments' }">
+          {{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}
+        </NuxtLink>
         </span>
       </div>
     </template>
@@ -105,6 +115,12 @@ const props = defineProps({
   }
   .v-byline {
     line-height: normal;
+  }
+  @include media('<md') {
+    .gutter-x-xxl > .comments {
+      display: inline-block;
+      padding: 0 0.5rem;
+    }
   }
 }
 </style>

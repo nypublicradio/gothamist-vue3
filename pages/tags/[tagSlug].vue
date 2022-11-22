@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { TagPage } from '../../composables/types/Page'
+import { StreamfieldBlock, ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
+import { useUpdateCommentCounts } from '~~/composables/comments';
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 
@@ -34,6 +36,18 @@ const tagName =
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'tag_page' })
   $htlbid.setTargeting({ Template: 'Tag' })
+
+  function getPagesFromZone(zone: StreamfieldBlock[]) {
+    if (!zone) {
+      return []
+    }
+    return zone.filter(block => block.type === "content_collection")
+    .reduce((pages, collection: ContentCollectionBlock) => [...pages, ...collection.value.pages], [])
+  }
+  const topPageArticles = getPagesFromZone(curatedTagPage?.topPageZone)
+  const midPageArticles = getPagesFromZone(curatedTagPage?.midPageZone)
+  const allArticles = [...articles, ...topPageArticles, ...midPageArticles]
+  useUpdateCommentCounts(allArticles)
 })
 
 onUnmounted(() => {
