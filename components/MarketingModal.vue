@@ -4,19 +4,14 @@ import { gsap } from 'gsap'
 const { $analytics } = useNuxtApp()
 const displayModal = ref(false)
 const localStorageKey = 'gothamist-marketing-modal'
+let tl = null
 const isMoreThan24HourAgo = (date) => {
   const twentyFourHrInMs = 24 * 60 * 60 * 1000
   const twentyFourHoursAgo = Date.now() - twentyFourHrInMs
-  //   console.log('twentyFourHoursAgo = ', twentyFourHoursAgo)
-  //   console.log('date = ', Number(date))
-  //   console.log(
-  //     'Number(date) < twentyFourHoursAgo = ',
-  //     Number(date) < twentyFourHoursAgo
-  //   )
   return Number(date) < twentyFourHoursAgo
 }
 const closeResponsive = () => {
-  console.log('dismiss')
+  tl.pause()
   // set local storage timer
   localStorage.setItem(localStorageKey, Date.now())
   displayModal.value = false
@@ -36,7 +31,6 @@ const donating = () => {
   displayModal.value = false
 }
 
-let tl = null
 const shirtAnimation = () => {
   setTimeout(() => {
     tl = gsap.timeline({ repeat: -1 })
