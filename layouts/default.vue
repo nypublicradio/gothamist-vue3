@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import { getLiveStream } from '~~/composables/data/liveStream'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { onMounted } from 'vue'
 import { useRuntimeConfig } from '#app'
+import { useElementSize } from '@vueuse/core'
+import {
+  useCurrentHeaderAdHeight,
+  useIsArticlePage,
+  useCurrentSteamStation,
+} from '~/composables/states'
+const leaderboardAdWrapperRef = ref(null)
+const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
+const currentHeaderAdHeight = useCurrentHeaderAdHeight()
+const isArticlePage = useIsArticlePage()
+const currentSteamStation = useCurrentSteamStation()
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -26,7 +37,6 @@ const [navigation, breakingNews, productBanners] = await Promise.all([
   breakingNewsPromise,
   productBannersPromise,
 ])
-
 const isSponsored = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
@@ -79,7 +89,10 @@ const trackSidebarClick = (label) => {
   })
   closeSidebar()
 }
-
+// load the life stream
+onBeforeMount(() => {
+  getLiveStream(currentSteamStation.value)
+})
 onMounted(() => {
   $htlbid.init()
   $htlbid.setTargeting({
@@ -91,8 +104,10 @@ watch(route, (value) => {
   $htlbid.setTargetingForRoute(value)
   $htlbid.clearAds()
 })
-
-
+// watch ads for height changes & update the global variable
+watch(leaderboardAdToWatch.height, (height) => {
+  currentHeaderAdHeight.value = height
+})
 </script>
 
 <template>
@@ -104,7 +119,7 @@ watch(route, (value) => {
           :src="`https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`"
           async
         />
-        <Script 
+        <Script
           type="text/javascript"
           :src="`/${config.NEWRELIC_AGENT}`"
           async
@@ -150,7 +165,8 @@ watch(route, (value) => {
       <Head v-if="isSponsored">
         <Meta name="Googlebot-News" content="noindex, nofollow" />
       </Head>
-      <Script children="window.twttr = (function(d, s, id) {
+      <Script
+        children="window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
           t = window.twttr || {};
         if (d.getElementById(id)) return t;
@@ -165,7 +181,8 @@ watch(route, (value) => {
         };
 
         return t;
-      }(document, 'script', 'twitter-wjs'));" />
+      }(document, 'script', 'twitter-wjs'));"
+      />
     </Html>
 
     <!-- Google Tag Manager (noscript) -->
@@ -179,7 +196,8 @@ watch(route, (value) => {
     <div>
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div
-        class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
+        ref="leaderboardAdWrapperRef"
+        class="leaderboard-ad-wrapper flex justify-content-center align-items-center flex-column"
       >
         <HtlAd
           v-if="route.name === 'index'"
@@ -192,16 +210,25 @@ watch(route, (value) => {
           slot="htlad-gothamist_interior_leaderboard_1"
         />
       </div>
+      <HeaderScrollTrigger :isHidden="isArticlePage">
+        <GothamistMainHeader
+          class="fixed-header"
+          :navigation="navigation"
+          :isMinimized="true"
+          isFixed
+          :donateUrlBase="config.donateUrlBase"
+          utmCampaign="homepage-header"
+        />
+      </HeaderScrollTrigger>
       <GothamistMainHeader
         :navigation="navigation"
-        :showLogo="route.name !== 'index'"
+        :isMinimized="route.name !== 'index'"
         :donateUrlBase="config.donateUrlBase"
         utmCampaign="homepage-header"
       />
-      <main>
+      <main class="main">
         <slot />
       </main>
-      <scroll-to-top-button />
       <gothamist-footer :navigation="navigation" />
       <audio-player />
     </div>
@@ -243,14 +270,14 @@ watch(route, (value) => {
 .leaderboard-ad-wrapper {
   background: #111111;
   @include media('<md') {
-    height: 50px;
+    min-height: 50px;
     padding: 0px auto;
     position: sticky;
     top: 0;
     z-index: 5000;
   }
   @include media('>=md') {
-    height: 92px;
+    min-height: 92px;
     padding: 1px auto;
   }
 }

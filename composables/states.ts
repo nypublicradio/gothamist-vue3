@@ -59,6 +59,27 @@ export const useTogglePlayTrigger = () => useState('useTogglePlayTrigger', () =>
  */
 export const audioPlayerHeight = 100
 
+/**
+ * Global var for the height of the header AD
+ */
+const currentHeaderAdHeight = 90
+/**
+ * Global state for the current AD height. 
+ */
+export const useCurrentHeaderAdHeight = () => useState('useCurrentHeaderAdHeight', () => currentHeaderAdHeight)
+
+const isArticlePage = false
+/**
+ * Global state for the current AD height. 
+ */
+export const useIsArticlePage = () => useState('useIsArticlePage', () => isArticlePage)
+
+const currentSteamStation = 'wnyc-fm939'
+/**
+ * Global state for the current streaming station. 
+ */
+export const useCurrentSteamStation = () => useState('useCurrentSteamStation', () => currentSteamStation)
+
 
 // CMS preview globals
 const previewData = null

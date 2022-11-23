@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import { useUpdateCommentCounts } from '~~/composables/comments';
+import { useUpdateCommentCounts } from '~~/composables/comments'
 import useImageUrl from '~~/composables/useImageUrl'
 
 const articlesPromise = findArticlePages({}).then(({ data }) =>
@@ -45,7 +46,10 @@ const navigation = useNavigation()
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'home_page' })
-  const collectionArticles = homePageCollections.reduce((pages, collection) => [...pages, ...collection.data],[])
+  const collectionArticles = homePageCollections.reduce(
+    (pages, collection) => [...pages, ...collection.data],
+    []
+  )
   const allArticles = [...articles, ...collectionArticles]
   useUpdateCommentCounts(allArticles)
 })
@@ -53,8 +57,10 @@ onMounted(() => {
 const loadedNativoElements = []
 const nativoSectionLoaded = (name) => {
   loadedNativoElements.push(name)
-  if (loadedNativoElements.includes('ntv-stream-3') && 
-  loadedNativoElements.includes('ntv-latest-1')) {
+  if (
+    loadedNativoElements.includes('ntv-stream-3') &&
+    loadedNativoElements.includes('ntv-latest-1')
+  ) {
     loadedNativoElements.length = 0
     PostRelease.Start()
   }
@@ -64,7 +70,7 @@ const nativoSectionLoaded = (name) => {
 <template>
   <div>
     <section>
-      <div class="content">
+      <div class="content pt-1">
         <gothamist-homepage-topper
           :articles="[featuredArticle, ...latestArticles]"
           :navigation="navigation"
@@ -127,7 +133,9 @@ const nativoSectionLoaded = (name) => {
                       slug: `/${article.section.slug}`,
                     },
                   ]"
-                  @vue:mounted="index === 1 && nativoSectionLoaded('ntv-stream-3')"
+                  @vue:mounted="
+                    index === 1 && nativoSectionLoaded('ntv-stream-3')
+                  "
                 >
                   <p class="desc">
                     {{ article.description }}
