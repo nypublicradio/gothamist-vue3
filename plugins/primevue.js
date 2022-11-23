@@ -2,6 +2,7 @@ import { defineNuxtPlugin } from '#app'
 import Button from 'primevue/button/button.esm.js'
 import Checkbox from 'primevue/checkbox/checkbox.esm.js'
 import Divider from 'primevue/divider/divider.esm.js'
+import Dialog from 'primevue/dialog/dialog.esm.js'
 import InputText from 'primevue/inputtext/inputtext.esm.js'
 import Menu from 'primevue/menu/menu.esm.js'
 import Menubar from 'primevue/menubar/menubar.esm.js'
@@ -13,6 +14,7 @@ import TieredMenu from 'primevue/tieredmenu/tieredmenu.esm.js'
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, { ripple: true })
+    nuxtApp.vueApp.component('Dialog', Dialog)
     nuxtApp.vueApp.component('Divider', Divider)
     nuxtApp.vueApp.component('Button', Button)
     nuxtApp.vueApp.component('Checkbox', Checkbox)

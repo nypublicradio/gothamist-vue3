@@ -231,6 +231,7 @@ watch(leaderboardAdToWatch.height, (height) => {
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
+      <MarketingModal />
     </div>
   </div>
   <Sidebar
