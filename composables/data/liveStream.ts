@@ -3,7 +3,7 @@ import { useCurrentEpisodeHolder, useAllCurrentEpisodes } from '~/composables/st
 export async function getLiveStream(slug) {
     const config = useRuntimeConfig()
     const currentEpisodeHolder = useCurrentEpisodeHolder()
-    const { data = null } = await useFetch(`${config['LIVESTREAM_URL']}?filter[slug]=${slug}&include=current-airing.image,current-show.show.image,current-episode.segments`, {
+    const { data } = await useFetch(`${config['LIVESTREAM_URL']}?filter[slug]=${slug}&include=current-airing.image,current-show.show.image,current-episode.segments`, {
         initialCache: false,
     })
     currentEpisodeHolder.value = data.value
