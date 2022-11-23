@@ -86,30 +86,30 @@ onBeforeUnmount(() => {
           <img
             id="shirt1"
             class="shirt"
-            src="/marketing-modal/shirt-gray.png"
+            src="/marketing-modal/shirt-gray.webp"
             alt="gray shirt"
           />
           <img
             id="shirt2"
             class="shirt"
-            src="/marketing-modal/shirt-red.png"
+            src="/marketing-modal/shirt-red.webp"
             alt="red shirt"
           />
           <img
             id="shirt3"
             class="shirt"
-            src="/marketing-modal/shirt-white.png"
+            src="/marketing-modal/shirt-white.webp"
             alt="white shirt"
           />
           <img
             id="shirt4"
             class="shirt"
-            src="/marketing-modal/shirt-green.png"
+            src="/marketing-modal/shirt-green.webp"
             alt="green shirt"
           />
           <img
             class="placeholder"
-            src="/marketing-modal/shirt-gray.png"
+            src="/marketing-modal/shirt-gray.webp"
             alt="gray shirt"
           />
         </div>
