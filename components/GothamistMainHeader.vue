@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import Navigation from '~~/composables/types/Navigation'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { useCurrentHeaderAdHeight } from '~/composables/states'
+import {
+  useCurrentHeaderAdHeight,
+  useCurrentSteamStation,
+} from '~/composables/states'
 
 defineProps<{
   isMinimized: boolean
@@ -10,6 +13,7 @@ defineProps<{
   donateUrlBase: string
   utmCampaign: string
 }>()
+const currentSteamStation = useCurrentSteamStation()
 const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
@@ -65,6 +69,7 @@ const trackClick = (category, label) => {
         <!-- <ListenAllLiveButton class="hidden md:block" /> -->
         <ListenLiveButton
           class="hidden md:block"
+          :slug="currentSteamStation"
           @stream-button-click="
             trackClick('Click Tracking - Header', 'Listen Live button')
           "

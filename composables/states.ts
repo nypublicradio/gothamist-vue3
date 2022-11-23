@@ -74,6 +74,12 @@ const isArticlePage = false
  */
 export const useIsArticlePage = () => useState('useIsArticlePage', () => isArticlePage)
 
+const currentSteamStation = 'wnyc-fm939'
+/**
+ * Global state for the current streaming station. 
+ */
+export const useCurrentSteamStation = () => useState('useCurrentSteamStation', () => currentSteamStation)
+
 
 // CMS preview globals
 const previewData = null

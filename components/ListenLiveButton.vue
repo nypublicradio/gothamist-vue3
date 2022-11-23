@@ -1,12 +1,10 @@
 <script setup>
-import { onBeforeMount } from 'vue'
 import {
   useIsEpisodePlaying,
   useTogglePlayTrigger,
   useCurrentEpisode,
   useCurrentEpisodeHolder,
 } from '~/composables/states'
-import { getLiveStream } from '~~/composables/data/liveStream'
 const props = defineProps({
   label: {
     type: String,
@@ -16,10 +14,6 @@ const props = defineProps({
     type: String,
     default: 'wnyc-fm939',
   },
-})
-
-onBeforeMount(() => {
-  getLiveStream(props.slug)
 })
 
 const emit = defineEmits(['stream-button-click'])
