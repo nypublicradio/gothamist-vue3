@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { onMounted, computed } from 'vue'
-import { useMediaQuery, useWindowScroll } from '@vueuse/core'
+import { onMounted } from 'vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
-
+import { useIsArticlePage } from '~/composables/states'
 const config = useRuntimeConfig()
 const { $analytics } = useNuxtApp()
+const isArticlePage = useIsArticlePage()
 const article = {
   title: '',
   socialTitle: '',
@@ -21,13 +21,9 @@ const article = {
 }
 
 const sensitiveContent = useSensitiveContent()
-const { y: scrollY } = useWindowScroll()
-const isMediumOrUpScreen = useMediaQuery(`(min-width: 768px)`)
-// maybe these values should be calculated automatically by measuring on the position of the main header
-// or something instead of hardcoding them here, but this works for now
-const showHeaderAfter = computed(() => (isMediumOrUpScreen.value ? 374 : 68))
-const showHeader = computed(() => scrollY.value > showHeaderAfter.value)
-
+onBeforeMount(() => {
+  isArticlePage.value = true
+})
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponosored_article' })
   sensitiveContent.value = true
@@ -36,23 +32,25 @@ onMounted(() => {
 
 onUnmounted(() => {
   sensitiveContent.value = false
+  isArticlePage.value = false
 })
-
 </script>
 
 <template>
   <div>
-    <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
-      <ArticlePageHeader
-        :class="`article-page-header ${showHeader ? '' : 'js-hidden'}`"
-        :donateUrlBase="config.donateUrlBase"
-        utmCampaign="goth_header"
-        :progress="scrollTrackerProps.scrollPercentage"
-        :title="article?.title"
-        :shareUrl="article?.url"
-        :shareTitle="article?.socialTitle"
-      />
-    </ScrollTracker>
+    <HeaderScrollTrigger header-class="article-page-header">
+      <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
+        <ArticlePageHeader
+          class="article-page-header"
+          :donateUrlBase="config.donateUrlBase"
+          utmCampaign="goth_header"
+          :progress="scrollTrackerProps.scrollPercentage"
+          :title="article?.title"
+          :shareUrl="article.url"
+          :shareTitle="article.socialTitle"
+        />
+      </ScrollTracker>
+    </HeaderScrollTrigger>
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
@@ -73,8 +71,7 @@ onUnmounted(() => {
             <byline class="mb-3 pt-4" :article="article" />
           </div>
           <div class="col overflow-hidden" v-if="article">
-            <div class="mb-4 xxl:mb-6 relative">
-            </div>
+            <div class="mb-4 xxl:mb-6 relative"></div>
             <div class="block xxl:hidden mb-5">
               <hr class="black" />
               <byline class="pt-4" :article="article" />
@@ -111,7 +108,14 @@ onUnmounted(() => {
           <div class="col-fixed hidden xxl:block"></div>
         </div>
         <hr class="black" />
-        <p role="heading" aria-level="2" v-if="article?.section" class="type-label3 mt-2 mb-4">MORE NEWS</p>
+        <p
+          role="heading"
+          aria-level="2"
+          v-if="article?.section"
+          class="type-label3 mt-2 mb-4"
+        >
+          MORE NEWS
+        </p>
         <article-recirculation slug="news" />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
@@ -140,15 +144,6 @@ onUnmounted(() => {
     width: 100%;
     max-width: $col-fixed-width-330;
     min-width: $col-fixed-width-330;
-  }
-
-  .article-page-header {
-    transition: opacity 0.4s ease-in;
-  }
-  .article-page-header.js-hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.4s ease-in, visibility 0s 0.4s;
   }
   @include media('>lg') {
     .article-body > * {
