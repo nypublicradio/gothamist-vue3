@@ -19,13 +19,13 @@ const closeResponsive = () => {
 const donating = () => {
   //GA here
   $analytics.sendEvent('click_tracking', {
-    event_category: 'Click Tracking - Giving Tuesday Adhesion',
+    event_category: 'Click Tracking - Radiolab Shirts Adhesion',
     component: 'header',
     event_label: 'Donate button',
   })
   // link here
   window.open(
-    'https://pledge.wnyc.org/support/gothamist/?utm_medium=adhesion&utm_source=gothamist-dot-com&utm_campaign=giving_tuesday_adhesion',
+    'https://pledge.wnyc.org/support/gothamist/?utm_medium=adhesion&utm_source=gothamist-dot-com&utm_campaign=radiolab_shirts_adhesion',
     '_blank'
   )
   displayModal.value = false
@@ -72,6 +72,7 @@ onBeforeUnmount(() => {
         :draggable="false"
         :modal="true"
         :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+        :baseZIndex="10000"
         @hide="closeResponsive"
       >
         <LogoGothamist class="gothamist-logo mb-3 md:mb-5" />
