@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 const { $analytics } = useNuxtApp()
 const displayModal = ref(false)
-const localStorageKey = 'gothamist-marketing-modal'
+const localStorageKey = 'gothamist-marketing-modal-shirts'
 let tl = null
 const isMoreThan24HourAgo = (date) => {
   const twentyFourHrInMs = 24 * 60 * 60 * 1000
@@ -19,7 +19,7 @@ const closeResponsive = () => {
 const donating = () => {
   //GA here
   $analytics.sendEvent('click_tracking', {
-    event_category: 'Click Tracking - Giving_Tuesday_Adhesion',
+    event_category: 'Click Tracking - Giving Tuesday Adhesion',
     component: 'header',
     event_label: 'Donate button',
   })
@@ -126,6 +126,7 @@ onBeforeUnmount(() => {
 }
 .marketing-modal.p-dialog {
   width: 60vw;
+  max-width: 800px;
   background: #56a09c;
   > div {
     background: transparent;
