@@ -39,7 +39,7 @@ onUnmounted(() => {
 <template>
   <div>
     <HeaderScrollTrigger header-class="article-page-header">
-      <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
+      <ScrollTracker scrollTarget=".article-column" v-slot="scrollTrackerProps">
         <ArticlePageHeader
           class="article-page-header"
           :donateUrlBase="config.donateUrlBase"
