@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
           >
             <img
               class="giving-tuesday-logo"
-              src="marketing-modal/giving-tuesday.svg"
+              src="/marketing-modal/giving-tuesday.svg"
               alt="Giving Tuesday logo"
             />
             <div class="white-box flex flex-column align-items-center">
