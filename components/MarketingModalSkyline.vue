@@ -1,17 +1,24 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import consolaGlobalInstance from 'consola'
 const { $analytics } = useNuxtApp()
-const displayModal = ref(false)
+const displayModal = ref(true)
 const localStorageKey = 'gothamist-marketing-modal-giving-tuesday'
 let tl = null
+
+//https://www.epochconverter.com/
+//Start of day: 	1669698000	Tuesday, November 29, 2022 12:00:00 AM GMT-05:00
+const startDate = '1669698000'
+//End of day: 	1669784399	Tuesday, November 29, 2022 11:59:59 PM GMT-05:00
+const endDate = '1669784399'
+
 const isMoreThan24HourAgo = (date) => {
   const twentyFourHrInMs = 24 * 60 * 60 * 1000
   const twentyFourHoursAgo = Date.now() - twentyFourHrInMs
   return Number(date) < twentyFourHoursAgo
 }
 const closeResponsive = () => {
-  tl.pause()
   // set local storage timer
   localStorage.setItem(localStorageKey, Date.now())
   displayModal.value = false
@@ -47,12 +54,18 @@ const initAnimation = () => {
 
 // lifecycle hooks
 onMounted(() => {
-  if (
-    localStorage.getItem(localStorageKey) == null ||
-    isMoreThan24HourAgo(localStorage.getItem(localStorageKey))
-  ) {
-    displayModal.value = true
-    initAnimation()
+  // current time
+  const nowUnixTimeStamp = Math.floor(Date.now() / 1000)
+  // time window check
+  if (nowUnixTimeStamp > startDate && nowUnixTimeStamp < endDate) {
+    //local storage check
+    if (
+      localStorage.getItem(localStorageKey) == null ||
+      isMoreThan24HourAgo(localStorage.getItem(localStorageKey))
+    ) {
+      displayModal.value = true
+      initAnimation()
+    }
   }
 })
 onBeforeUnmount(() => {
@@ -88,14 +101,16 @@ onBeforeUnmount(() => {
               src="/marketing-modal/giving-tuesday.svg"
               alt="Giving Tuesday logo"
             />
-            <div class="white-box flex flex-column align-items-center">
+            <div
+              class="white-box flex flex-column align-items-center"
+              @click="donating"
+            >
               <h4 class="support">
                 Your support makes local news available to all.
               </h4>
               <Button
                 class="giving-tuesday-donate-btn p-button-rounded mt-4 px-5 py-2"
                 label="Donate"
-                @click="donating"
               />
             </div>
           </div>

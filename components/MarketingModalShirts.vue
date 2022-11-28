@@ -11,7 +11,6 @@ const isMoreThan24HourAgo = (date) => {
   return Number(date) < twentyFourHoursAgo
 }
 const closeResponsive = () => {
-  tl.pause()
   // set local storage timer
   localStorage.setItem(localStorageKey, Date.now())
   displayModal.value = false
