@@ -8,6 +8,8 @@ import {
   useIsArticlePage,
   useCurrentSteamStation,
 } from '~/composables/states'
+// marketing banners imports
+import MarketingModalShirts from '~/components/marketing-banners/MarketingModalShirts.vue'
 const leaderboardAdWrapperRef = ref(null)
 const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
@@ -49,6 +51,16 @@ const closeSidebar = () => {
 let sidebarElements = undefined
 let firstElement = undefined
 let lastElement = undefined
+
+// marketing banner data fetch
+const {
+  data: productBannerData,
+  pending,
+  error,
+  refresh,
+} = await useFetch(`${config.API_URL}/system_messages/2/`, {
+  key: 'marketing-module',
+})
 
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
@@ -231,8 +243,14 @@ watch(leaderboardAdToWatch.height, (height) => {
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
-      <MarketingModalSkyline />
-      <!-- <MarketingModalShirts /> -->
+      <!-- <MarketingModalSkyline
+        v-if="productBannerData"
+        :data="productBannerData"
+      /> -->
+      <MarketingModalShirts
+        v-if="productBannerData"
+        :data="productBannerData"
+      />
     </div>
   </div>
   <Sidebar

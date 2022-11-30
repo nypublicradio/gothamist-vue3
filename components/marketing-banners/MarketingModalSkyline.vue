@@ -1,32 +1,31 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
-const config = useRuntimeConfig()
+import useImageUrl from '~~/composables/useImageUrl'
+
+const props = defineProps({
+  data: {
+    type: Object,
+    default: null,
+    required: true,
+  },
+})
 const { $analytics } = useNuxtApp()
 const displayModal = ref(true)
 const localStorageKey = 'gothamist-marketing-modal-giving-tuesday'
 let tl = null
 
-const {
-  data: productBannerAPI,
-  pending,
-  error,
-  refresh,
-} = await useFetch(`${config.API_URL}/system_messages/2/`, {
-  key: 'marketing-module',
-})
-
-console.log(
-  'productBannerAPI = ',
-  productBannerAPI.value.product_banners[0]?.value
+const bannerData = props.data.product_banners[0].value
+const bgImageId = bannerData?.description.replace(/(<([^>]+)>)/gi, '')
+const bgImageURL = ref(
+  `url('${useImageUrl(
+    { id: bgImageId },
+    { width: 800, height: 800, quality: 80 }
+  )}')`
 )
 
-const data = productBannerAPI.value
-const bannerData = data.product_banners[0].value
-const frequencyHours = Number(bannerData.frequency)
-
 const isMoreThanFrequencyHourAgo = (date) => {
-  const frequencyHrInMs = frequencyHours * 60 * 60 * 1000
+  const frequencyHrInMs = Number(bannerData?.frequency) * 60 * 60 * 1000
   const frequencyHoursAgo = Date.now() - frequencyHrInMs
   return Number(date) < frequencyHoursAgo
 }
@@ -43,10 +42,7 @@ const donating = () => {
     event_label: 'Donate button',
   })
   // link here
-  window.open(
-    'https://pledge.wnyc.org/support/gothamist/?utm_medium=adhesion&utm_source=gothamist-dot-com&utm_campaign=giving_tuesday_adhesion',
-    '_blank'
-  )
+  window.open(bannerData?.button_link, '_blank')
   displayModal.value = false
 }
 
@@ -66,16 +62,13 @@ const initAnimation = () => {
 
 // lifecycle hooks
 onMounted(() => {
-  // check if within the time window
-  if (data) {
-    //local storage check
-    if (
-      localStorage.getItem(localStorageKey) == null ||
-      isMoreThanFrequencyHourAgo(localStorage.getItem(localStorageKey))
-    ) {
-      displayModal.value = true
-      initAnimation()
-    }
+  //local storage check
+  if (
+    localStorage.getItem(localStorageKey) == null ||
+    isMoreThanFrequencyHourAgo(localStorage.getItem(localStorageKey))
+  ) {
+    displayModal.value = true
+    initAnimation()
   }
 })
 onBeforeUnmount(() => {
@@ -87,7 +80,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div v-if="data">
+  <div>
     <div class="marketing-modal-holder">
       <Dialog
         class="marketing-modal"
@@ -99,6 +92,7 @@ onBeforeUnmount(() => {
         :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
         :baseZIndex="10000"
         @hide="closeResponsive"
+        :style="`background-image: ${bgImageURL};`"
       >
         <div
           class="holder flex flex-column justify-content-between align-items-center"
@@ -117,7 +111,7 @@ onBeforeUnmount(() => {
               class="white-box flex flex-column align-items-center"
               @click="donating"
             >
-              <h4 class="support">
+              <h4 class="title">
                 {{ bannerData?.title }}
               </h4>
               <Button
@@ -136,7 +130,8 @@ onBeforeUnmount(() => {
 .marketing-modal.p-dialog {
   width: 60vw;
   max-width: 800px;
-  background-image: url('/marketing-modal/skyline_800.webp');
+  //background-image: url('/marketing-modal/skyline_800.webp');
+  background: transparent;
   background-size: cover;
   @include media('<md') {
     background-position-x: 37%;
@@ -187,19 +182,17 @@ onBeforeUnmount(() => {
   }
   .white-box {
     background-color: #ffffffbf;
-    padding: 1.5rem;
+    padding: 1.5rem 2.5rem;
     border-radius: 40px;
     width: 100%;
     max-width: 450px;
     text-align: center;
     @include media('<md') {
-      padding: 1rem;
+      padding: 1rem 2rem;
     }
-    .support {
-      width: 260px;
+    .title {
       @include media('<md') {
         font-size: 1.5rem;
-        width: 200px;
         line-height: normal;
       }
     }
