@@ -181,7 +181,7 @@ onBeforeUnmount(() => {
     }
   }
   .p-dialog-content {
-    overflow: scroll-y;
+    overflow-y: auto;
     padding: 0 2rem 5rem 2rem;
     @include media('<md') {
       padding: 0 1.5rem 3rem 1.5rem;

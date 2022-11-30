@@ -94,11 +94,13 @@ onBeforeUnmount(() => {
         @hide="closeResponsive"
         :style="`background-image: ${bgImageURL};`"
       >
+        <template #header>
+          <LogoGothamist class="gothamist-logo" />
+        </template>
         <div
           class="holder flex flex-column justify-content-between align-items-center"
         >
-          <LogoGothamist class="gothamist-logo mb-3 md:mb-5" />
-
+          <div></div>
           <div
             class="giving-tuesday-content-anim flex flex-column align-items-center w-auto md:w-full"
           >
@@ -144,30 +146,24 @@ onBeforeUnmount(() => {
       background: transparent !important;
     }
   }
+  .gothamist-logo {
+    align-self: flex-start;
+    width: 100%;
+    height: auto;
+    max-width: 220px;
+    @include media('<md') {
+      max-width: 150px;
+    }
+  }
   .p-dialog-content {
-    overflow: visible;
     padding: 0 2rem 5rem 2rem;
     @include media('<md') {
       padding: 0 1.5rem 3rem 1.5rem;
     }
     .holder {
-      max-height: 570px;
-      min-height: 330px;
-      height: 70vh;
-      @include media('<md') {
-        max-height: 380px;
-        min-height: 300px;
-      }
-      .gothamist-logo {
-        align-self: flex-start;
-        margin-top: -50px;
-        width: 100%;
-        height: auto;
-        max-width: 220px;
-        @include media('<md') {
-          max-width: 150px;
-          margin-top: -60px;
-        }
+      min-height: 550px;
+      @media (max-height: 805px) {
+        min-height: 68vh;
       }
     }
   }
@@ -187,6 +183,7 @@ onBeforeUnmount(() => {
     width: 100%;
     max-width: 450px;
     text-align: center;
+    cursor: pointer;
     @include media('<md') {
       padding: 1rem 2rem;
     }
@@ -199,7 +196,7 @@ onBeforeUnmount(() => {
     .p-button {
       background-color: #9b152b;
       .p-button-label {
-        font-size: 22px;
+        font-size: 2.25rem;
         @include media('<md') {
           font-size: inherit;
         }

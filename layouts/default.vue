@@ -243,14 +243,14 @@ watch(leaderboardAdToWatch.height, (height) => {
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
-      <!-- <MarketingModalSkyline
-        v-if="productBannerData"
-        :data="productBannerData"
-      /> -->
-      <MarketingModalShirts
+      <MarketingModalSkyline
         v-if="productBannerData"
         :data="productBannerData"
       />
+      <!-- <MarketingModalShirts
+        v-if="productBannerData"
+        :data="productBannerData"
+      /> -->
     </div>
   </div>
   <Sidebar
