@@ -8,8 +8,6 @@ import {
   useIsArticlePage,
   useCurrentSteamStation,
 } from '~/composables/states'
-// marketing banners imports
-import MarketingModalShirts from '~/components/marketing-banners/MarketingModalShirts.vue'
 const leaderboardAdWrapperRef = ref(null)
 const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
