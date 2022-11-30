@@ -2,11 +2,16 @@
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import useImageUrl from '~~/composables/useImageUrl'
-
+import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
 const props = defineProps({
   data: {
     type: Object,
     default: null,
+    required: true,
+  },
+  gaCategory: {
+    type: String,
+    default: 'Adhesion Modal',
     required: true,
   },
 })
@@ -23,12 +28,9 @@ const bgImageURL = ref(
     { width: 800, height: 800, quality: 80 }
   )}')`
 )
+const buttonText = bannerData?.button_text
+const title = bannerData?.title
 
-const isMoreThanFrequencyHourAgo = (date) => {
-  const frequencyHrInMs = Number(bannerData?.frequency) * 60 * 60 * 1000
-  const frequencyHoursAgo = Date.now() - frequencyHrInMs
-  return Number(date) < frequencyHoursAgo
-}
 const closeResponsive = () => {
   // set local storage timer
   localStorage.setItem(localStorageKey, Date.now())
@@ -37,9 +39,9 @@ const closeResponsive = () => {
 const donating = () => {
   //GA here
   $analytics.sendEvent('click_tracking', {
-    event_category: 'Click Tracking - Giving Tuesday Adhesion',
-    component: 'header',
-    event_label: 'Donate button',
+    event_category: `Click Tracking - ${props.gaCategory}`,
+    component: 'modal',
+    event_label: `${buttonText} button`,
   })
   // link here
   window.open(bannerData?.button_link, '_blank')
@@ -65,7 +67,10 @@ onMounted(() => {
   //local storage check
   if (
     localStorage.getItem(localStorageKey) == null ||
-    isMoreThanFrequencyHourAgo(localStorage.getItem(localStorageKey))
+    isMoreThanFrequencyHoursAgo(
+      localStorage.getItem(localStorageKey),
+      bannerData?.frequency
+    )
   ) {
     displayModal.value = true
     initAnimation()
@@ -114,11 +119,11 @@ onBeforeUnmount(() => {
               @click="donating"
             >
               <h4 class="title">
-                {{ bannerData?.title }}
+                {{ title }}
               </h4>
               <Button
                 class="giving-tuesday-donate-btn p-button-rounded mt-4 px-5 py-2"
-                :label="bannerData?.button_text"
+                :label="buttonText"
               />
             </div>
           </div>

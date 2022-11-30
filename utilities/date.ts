@@ -34,3 +34,10 @@ export const formatDateForByline = function (date) {
   }
   return null
 }
+
+// formats a date in the format of ShortMonthName DD, YYYY
+export const isMoreThanFrequencyHoursAgo = (date, frequency) => {
+  const frequencyHrInMs = Number(frequency) * 60 * 60 * 1000
+  const frequencyHoursAgo = Date.now() - frequencyHrInMs
+  return Number(date) < frequencyHoursAgo
+}

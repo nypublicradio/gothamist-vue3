@@ -2,11 +2,16 @@
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import useImageUrl from '~~/composables/useImageUrl'
-
+import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
 const props = defineProps({
   data: {
     type: Object,
     default: null,
+    required: true,
+  },
+  gaCategory: {
+    type: String,
+    default: 'Adhesion Modal',
     required: true,
   },
 })
@@ -16,20 +21,16 @@ const localStorageKey = 'gothamist-marketing-modal-giving-tuesday'
 let tl = null
 
 const bannerData = props.data.product_banners[0].value
-//console.log('bannerData = ', bannerData)
 const bgImageId = bannerData?.description.replace(/(<([^>]+)>)/gi, '')
 const bgImageURL = ref(
-  `url('${useImageUrl({ id: bgImageId })
-    .replace('%width%', '800')
-    .replace('%height%', '800')
-    .replace('%quality%', '80')}')`
+  `url('${useImageUrl(
+    { id: bgImageId },
+    { width: 800, height: 800, quality: 80 }
+  )}')`
 )
+const buttonText = bannerData?.button_text
+const title = bannerData?.title
 
-const isMoreThanFrequencyHourAgo = (date) => {
-  const frequencyHrInMs = Number(bannerData?.frequency) * 60 * 60 * 1000
-  const frequencyHoursAgo = Date.now() - frequencyHrInMs
-  return Number(date) < frequencyHoursAgo
-}
 const closeResponsive = () => {
   // set local storage timer
   localStorage.setItem(localStorageKey, Date.now())
@@ -38,9 +39,9 @@ const closeResponsive = () => {
 const donating = () => {
   //GA here
   $analytics.sendEvent('click_tracking', {
-    event_category: 'Click Tracking - Radiolab Shirts Adhesion',
-    component: 'header',
-    event_label: 'Give Now button',
+    event_category: `Click Tracking - ${props.gaCategory}`,
+    component: 'modal',
+    event_label: `${buttonText} button`,
   })
   // link here
   window.open(bannerData?.button_link, '_blank')
@@ -67,7 +68,10 @@ onMounted(() => {
   initAnimation()
   if (
     localStorage.getItem(localStorageKey) == null ||
-    isMoreThanFrequencyHourAgo(localStorage.getItem(localStorageKey))
+    isMoreThanFrequencyHoursAgo(
+      localStorage.getItem(localStorageKey),
+      bannerData?.frequency
+    )
   ) {
     displayModal.value = true
     initAnimation()
@@ -108,11 +112,11 @@ onBeforeUnmount(() => {
               @click="donating"
             >
               <h2 class="title">
-                {{ bannerData?.title }}
+                {{ title }}
               </h2>
               <Button
                 class="giving-tuesday-donate-btn p-button-rounded my-3 md:my-5 px-5 py-2"
-                :label="bannerData?.button_text"
+                :label="buttonText"
               />
               <div class="shirts">
                 <img
