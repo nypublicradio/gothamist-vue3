@@ -36,7 +36,7 @@ const closeResponsive = () => {
   localStorage.setItem(localStorageKey, Date.now())
   displayModal.value = false
 }
-const donating = () => {
+const onCtaClick = () => {
   //GA here
   $analytics.sendEvent('click_tracking', {
     event_category: `Click Tracking - ${props.gaCategory}`,
@@ -54,7 +54,7 @@ const initAnimation = () => {
     tl.from('.giving-tuesday-content-anim', {
       opacity: 0,
       scale: 0.8,
-    }).to('.giving-tuesday-donate-btn', {
+    }).to('.cta-btn', {
       scale: 0.95,
       yoyo: true,
       repeat: -1,
@@ -116,13 +116,13 @@ onBeforeUnmount(() => {
             />
             <div
               class="white-box flex flex-column align-items-center"
-              @click="donating"
+              @click="onCtaClick"
             >
               <h4 class="title">
                 {{ title }}
               </h4>
               <Button
-                class="giving-tuesday-donate-btn p-button-rounded mt-4 px-5 py-2"
+                class="cta-btn p-button-rounded mt-4 px-5 py-2"
                 :label="buttonText"
               />
             </div>

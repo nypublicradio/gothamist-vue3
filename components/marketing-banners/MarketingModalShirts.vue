@@ -36,7 +36,7 @@ const closeResponsive = () => {
   localStorage.setItem(localStorageKey, Date.now())
   displayModal.value = false
 }
-const donating = () => {
+const onCtaClick = () => {
   //GA here
   $analytics.sendEvent('click_tracking', {
     event_category: `Click Tracking - ${props.gaCategory}`,
@@ -109,13 +109,13 @@ onBeforeUnmount(() => {
           <div class="flex flex-column align-items-center w-auto md:w-full">
             <div
               class="white-box flex flex-column align-items-center"
-              @click="donating"
+              @click="onCtaClick"
             >
               <h2 class="title">
                 {{ title }}
               </h2>
               <Button
-                class="giving-tuesday-donate-btn p-button-rounded my-3 md:my-5 px-5 py-2"
+                class="cta-btn p-button-rounded my-3 md:my-5 px-5 py-2"
                 :label="buttonText"
               />
               <div class="shirts">
