@@ -18,9 +18,9 @@ export const fuzzyDateTime = function (time: Date): string {
     return `${hours} hour${hours > 1 ? 's' : ''} ago`
   } else if (getYear(time) === getYear(now)) {
     return format(time, TIMESTAMP_FORMAT_NO_YEAR)
-  } else {
-    return format(time, TIMESTAMP_FORMAT)
   }
+  return format(time, TIMESTAMP_FORMAT)
+
 }
 
 // formats a date in the format of ShortMonthName DD, YYYY

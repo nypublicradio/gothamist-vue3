@@ -17,19 +17,19 @@ const props = defineProps({
 })
 const { $analytics } = useNuxtApp()
 const displayModal = ref(true)
-const localStorageKey = 'gothamist-marketing-modal-giving-tuesday'
+const localStorageKey = `gothamist-marketing-modal-${gaCategory}`
 let tl = null
 
-const bannerData = props.data.product_banners[0].value
-const bgImageId = bannerData?.description.replace(/(<([^>]+)>)/gi, '')
+const bannerData = ref(props.data.product_banners[0].value)
+const bgImageId = bannerData.value.description.replace(/(<([^>]+)>)/gi, '')
 const bgImageURL = ref(
   `url('${useImageUrl(
     { id: bgImageId },
     { width: 800, height: 800, quality: 80 }
   )}')`
 )
-const buttonText = bannerData?.button_text
-const title = bannerData?.title
+const buttonText = ref(bannerData.value.button_text)
+const title = ref(bannerData.value.title)
 
 const closeResponsive = () => {
   // set local storage timer
@@ -41,10 +41,10 @@ const donating = () => {
   $analytics.sendEvent('click_tracking', {
     event_category: `Click Tracking - ${props.gaCategory}`,
     component: 'modal',
-    event_label: `${buttonText} button`,
+    event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData?.button_link, '_blank')
+  window.open(bannerData.value.button_link, '_blank')
   displayModal.value = false
 }
 
@@ -70,7 +70,7 @@ onMounted(() => {
     localStorage.getItem(localStorageKey) == null ||
     isMoreThanFrequencyHoursAgo(
       localStorage.getItem(localStorageKey),
-      bannerData?.frequency
+      bannerData.value.frequency
     )
   ) {
     displayModal.value = true
