@@ -17,7 +17,7 @@ const props = defineProps({
 })
 const { $analytics } = useNuxtApp()
 const displayModal = ref(true)
-const localStorageKey = `gothamist-marketing-modal-${gaCategory}`
+const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
 let tl = null
 
 const bannerData = ref(props.data.product_banners[0].value)

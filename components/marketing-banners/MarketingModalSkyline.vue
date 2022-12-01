@@ -17,7 +17,7 @@ const props = defineProps({
 })
 const { $analytics } = useNuxtApp()
 const displayModal = ref(true)
-const localStorageKey = 'gothamist-marketing-modal-giving-tuesday'
+const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
 let tl = null
 
 const bannerData = ref(props.data.product_banners[0].value)
@@ -200,6 +200,9 @@ onBeforeUnmount(() => {
     }
     .p-button {
       background-color: #9b152b;
+      &:focus {
+        box-shadow: 0 0 0 0.2rem var(--black);
+      }
       .p-button-label {
         font-size: 2.25rem;
         @include media('<md') {
