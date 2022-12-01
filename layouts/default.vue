@@ -241,16 +241,16 @@ watch(leaderboardAdToWatch.height, (height) => {
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
-      <MarketingModalSkyline
+      <!-- <MarketingModalSkyline
         v-if="productBannerData"
         :data="productBannerData"
         ga-category="Giving Tuesday Adhesion"
-      />
-      <!-- <MarketingModalShirts
+      /> -->
+      <MarketingModalShirts
         v-if="productBannerData"
         :data="productBannerData"
         ga-category="Radiolab Shirts Adhesion"
-      /> -->
+      />
     </div>
   </div>
   <Sidebar
