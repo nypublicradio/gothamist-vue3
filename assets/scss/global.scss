@@ -131,3 +131,10 @@ a.mod-button.pi {
   height: 1px;
   overflow: hidden;
 }
+
+.v-card:not([data-style-mode='dark']) {
+  background: transparent;
+}
+.v-card-metadata.article-metadata .comments {
+  min-width: 110px;
+}
