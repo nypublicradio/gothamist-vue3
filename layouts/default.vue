@@ -247,7 +247,7 @@ watch(leaderboardAdToWatch.height, (height) => {
         ga-category="Giving Tuesday Adhesion"
       /> -->
       <MarketingModalShirts
-        v-if="productBannerData"
+        v-if="productBannerData.product_banners.length > 0"
         :data="productBannerData"
         ga-category="Radiolab Shirts Adhesion"
       />
