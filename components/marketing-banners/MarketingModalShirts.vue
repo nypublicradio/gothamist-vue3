@@ -65,7 +65,6 @@ const initAnimation = () => {
 // lifecycle hooks
 onMounted(() => {
   //local storage check
-  initAnimation()
   if (
     localStorage.getItem(localStorageKey) == null ||
     isMoreThanFrequencyHoursAgo(
