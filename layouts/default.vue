@@ -291,14 +291,14 @@ watch(leaderboardAdToWatch.height, (height) => {
   background: #111111;
   @include media('<md') {
     min-height: 50px;
-    padding: 0px auto;
+    padding: 0;
     position: sticky;
     top: 0;
     z-index: 5000;
   }
   @include media('>=md') {
     min-height: 92px;
-    padding: 1px auto;
+    padding: 1px 0;
   }
 }
 
