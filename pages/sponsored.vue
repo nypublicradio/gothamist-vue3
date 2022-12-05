@@ -20,6 +20,9 @@ const article = {
   disableComments: true,
 }
 
+const titleRef = ref(null)
+const loadedTitle = ref(null)
+
 const sensitiveContent = useSensitiveContent()
 onBeforeMount(() => {
   isArticlePage.value = true
@@ -28,6 +31,11 @@ onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponosored_article' })
   sensitiveContent.value = true
   PostRelease.Start()
+
+  // getting title from element after the sponsored content loads
+  setTimeout(() => {
+    loadedTitle.value = titleRef.value.innerText
+  }, 1000)
 })
 
 onUnmounted(() => {
@@ -38,14 +46,14 @@ onUnmounted(() => {
 
 <template>
   <div>
-    <HeaderScrollTrigger header-class="article-page-header">
+    <HeaderScrollTrigger v-if="article" header-class="article-page-header">
       <ScrollTracker scrollTarget=".article-column" v-slot="scrollTrackerProps">
         <ArticlePageHeader
           class="article-page-header"
           :donateUrlBase="config.donateUrlBase"
           utmCampaign="goth_header"
           :progress="scrollTrackerProps.scrollPercentage"
-          :title="article?.title"
+          :title="loadedTitle"
           :shareUrl="article.url"
           :shareTitle="article.socialTitle"
         />
@@ -61,7 +69,7 @@ onUnmounted(() => {
               :name="article.section.name"
               :slug="`/${article.section.slug}`"
             />
-            <h1 class="mt-4 mb-3 h2">{{ article.title }}</h1>
+            <h1 ref="titleRef" class="mt-4 mb-3 h2">{{ article.title }}</h1>
           </div>
           <div class="col-fixed hidden lg:block"></div>
         </div>
