@@ -50,7 +50,7 @@ let sidebarElements = undefined
 let firstElement = undefined
 let lastElement = undefined
 
-// marketing banner data fetch
+//marketing banner data fetch
 const {
   data: productBannerData,
   pending,
@@ -242,7 +242,7 @@ watch(leaderboardAdToWatch.height, (height) => {
       <gothamist-footer :navigation="navigation" />
       <audio-player />
       <!-- <MarketingModalSkyline
-        v-if="productBannerData"
+        v-if="productBannerData.product_banners.length > 0"
         :data="productBannerData"
         ga-category="Giving Tuesday Adhesion"
       /> -->
