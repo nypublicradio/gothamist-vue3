@@ -50,6 +50,16 @@ let sidebarElements = undefined
 let firstElement = undefined
 let lastElement = undefined
 
+//marketing banner data fetch
+const {
+  data: productBannerData,
+  pending,
+  error,
+  refresh,
+} = await useFetch(`${config.API_URL}/system_messages/2/`, {
+  key: 'marketing-module',
+})
+
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
     document.querySelectorAll(
@@ -231,8 +241,16 @@ watch(leaderboardAdToWatch.height, (height) => {
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
-      <MarketingModalSkyline />
-      <!-- <MarketingModalShirts /> -->
+      <!-- <MarketingModalSkyline
+        v-if="productBannerData.product_banners.length > 0"
+        :data="productBannerData"
+        ga-category="Giving-Tuesday-Adhesion"
+      /> -->
+      <MarketingModalShirts
+        v-if="productBannerData.product_banners.length > 0"
+        :data="productBannerData"
+        ga-category="Radiolab-Shirts-Adhesion"
+      />
     </div>
   </div>
   <Sidebar
