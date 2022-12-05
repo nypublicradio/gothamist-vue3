@@ -244,12 +244,12 @@ watch(leaderboardAdToWatch.height, (height) => {
       <!-- <MarketingModalSkyline
         v-if="productBannerData.product_banners.length > 0"
         :data="productBannerData"
-        ga-category="Giving Tuesday Adhesion"
+        ga-category="Giving-Tuesday-Adhesion"
       /> -->
       <MarketingModalShirts
         v-if="productBannerData.product_banners.length > 0"
         :data="productBannerData"
-        ga-category="Radiolab Shirts Adhesion"
+        ga-category="Radiolab-Shirts-Adhesion"
       />
     </div>
   </div>
