@@ -104,6 +104,7 @@ const trackClick = (category, label) => {
         />
       </div>
     </div>
+    <div class="scrollTriggerStart"></div>
   </header>
 </template>
 

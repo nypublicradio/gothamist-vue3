@@ -38,13 +38,18 @@ onMounted(() => {
       scrollTrigger: {
         trigger: `.${props.triggerClass}`,
         id: uid,
-        //markers: true,
+        markers: true,
         start: () =>
-          `top ${smallerThanMd.value ? currentHeaderAdHeight.value : '90'}px`,
+          `top ${smallerThanMd.value ? currentHeaderAdHeight.value : '0'}px`,
         toggleActions: 'restart complete pause reverse',
       },
     })
   }, 100)
+  //TEMP mock AD change with different height
+  // setTimeout(() => {
+  //   var ad = document.querySelectorAll('.htl-ad')
+  //   ad[0].style.height = '500px'
+  // }, 4000)
 })
 
 onBeforeUnmount(() => {
