@@ -116,7 +116,6 @@ watch(route, (value) => {
 })
 // watch ads for height changes & update the global variable
 watch(leaderboardAdToWatch.height, (height) => {
-  console.log('height = ', height)
   currentHeaderAdHeight.value = height
 })
 </script>
