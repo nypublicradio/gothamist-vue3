@@ -38,7 +38,7 @@ onMounted(() => {
       scrollTrigger: {
         trigger: `.${props.triggerClass}`,
         id: uid,
-        markers: true,
+        //markers: true,
         start: () =>
           `top ${smallerThanMd.value ? currentHeaderAdHeight.value : '0'}px`,
         toggleActions: 'restart complete pause reverse',
