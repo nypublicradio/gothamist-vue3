@@ -8,7 +8,7 @@ const props = defineProps({
   },
   gaCategory: {
     type: String,
-    default: 'Article top marketing banner',
+    default: 'Article bottom marketing banner',
   },
 })
 
@@ -28,6 +28,7 @@ const onCtaClick = () => {
   })
   // link here
   window.open(bannerData?.button_link, '_blank')
+  emit('donate-click')
 }
 
 const emit = defineEmits(['donate-click'])

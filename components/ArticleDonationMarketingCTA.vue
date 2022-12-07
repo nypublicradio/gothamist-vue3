@@ -26,6 +26,7 @@ const onCtaClick = () => {
   })
   // link here
   window.open(bannerData?.button_link, '_blank')
+  emit('donate-click')
 }
 
 const emit = defineEmits(['donate-click'])
