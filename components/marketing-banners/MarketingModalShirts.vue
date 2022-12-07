@@ -24,8 +24,6 @@ const description = bannerData?.description
 const buttonText = ref(bannerData?.button_text)
 const title = ref(bannerData?.title)
 
-const shirtsAnimationRef = ref()
-
 const closeResponsive = () => {
   // set local storage timer
   localStorage.setItem(localStorageKey, Date.now())
@@ -54,9 +52,6 @@ onMounted(async () => {
     )
   ) {
     displayModal.value = true
-    // the exposed method is not available until the next tick
-    await nextTick()
-    shirtsAnimationRef.value.initAnimation()
   }
 })
 </script>
@@ -98,7 +93,7 @@ onMounted(async () => {
               v-html="description"
               class="description my-2 md:mb-4 mb:mt-3"
             ></div>
-            <ShirtsAnimation ref="shirtsAnimationRef" />
+            <ShirtsAnimation />
             <Button
               class="cta-btn p-button-rounded my-4 md:my-5 px-4 py-3"
               :label="buttonText"

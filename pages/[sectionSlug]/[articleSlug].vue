@@ -7,9 +7,14 @@ import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 /* preview */
-import { usePreviewData, useIsArticlePage } from '~/composables/states'
+import {
+  usePreviewData,
+  useIsArticlePage,
+  useMarketingBannerData,
+} from '~/composables/states'
 const isArticlePage = useIsArticlePage()
 const previewData = usePreviewData()
+const marketingBannerData = useMarketingBannerData()
 const route = useRoute()
 const isPreview = route.query.preview ? true : false
 /* preview */
@@ -192,7 +197,13 @@ const getGalleryLink = computed(() => {
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
             </div>
+
+            <article-donation-marketing-CTA
+              v-if="marketingBannerData.product_banners.length > 0"
+              :data="marketingBannerData"
+            />
             <article-donation-CTA
+              v-else
               :donateUrlBase="config.donateUrlBase"
               utmCampaign="article-top"
             />
@@ -212,6 +223,11 @@ const getGalleryLink = computed(() => {
               class="article-body"
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
+            />
+            <article-donation-marketing-bottom-CTA
+              v-if="marketingBannerData.product_banners.length > 0"
+              class="below-body"
+              :data="marketingBannerData"
             />
           </div>
         </div>
@@ -296,6 +312,9 @@ const getGalleryLink = computed(() => {
     .article-body > streamfield-pull-quote-author,
     .article-body > *.rte-text > *.wide-module {
       width: 100%;
+    }
+    .below-body {
+      width: calc(100% - 330px - 15px);
     }
   }
 }

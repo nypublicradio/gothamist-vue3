@@ -1,0 +1,80 @@
+<script setup>
+const props = defineProps({
+  data: {
+    type: Object,
+    default: null,
+    required: true,
+  },
+  gaCategory: {
+    type: String,
+    default: 'Article top marketing banner',
+  },
+})
+const { $analytics } = useNuxtApp()
+
+const bannerData = props.data?.product_banners[0].value
+const title = ref(bannerData?.title)
+const description = bannerData?.description
+const buttonText = ref(bannerData?.button_text)
+
+const onCtaClick = () => {
+  //GA here
+  $analytics.sendEvent('click_tracking', {
+    event_category: `Click Tracking - ${props.gaCategory}`,
+    component: 'article top banner',
+    event_label: `${buttonText.value} button`,
+  })
+  // link here
+  window.open(bannerData?.button_link, '_blank')
+}
+
+const emit = defineEmits(['donate-click'])
+</script>
+
+<template>
+  <div
+    class="article-donation-marketing-CTA flex justify-content-between align-items-center gap-3 flex-column sm:flex-row"
+  >
+    <div class="flex flex-row justify-content-center">
+      <img class="gift mr-2" src="/marketing-modal/gift.gif" alt="gift icon" />
+      <div class="flex flex-column justify-content-center">
+        <h6 class="title">{{ title }}</h6>
+        <div class="description" v-html="description"></div>
+      </div>
+    </div>
+    <Button
+      class="flex-none cta-btn p-button-rounded px-3 py-2 mx-auto sm:mx-0"
+      :label="buttonText"
+      @click="onCtaClick"
+    />
+  </div>
+</template>
+
+<style lang="scss">
+.article-donation-marketing-CTA {
+  background-color: var(--alert-yellow);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 2.5rem;
+  @include media('<sm') {
+  }
+  .gift {
+    width: 56px;
+    height: 56px;
+  }
+  .description {
+    margin-top: 5px;
+    * {
+      font-family: var(--font-family-header);
+      font-size: 0.85rem;
+      line-height: normal;
+    }
+  }
+  .cta-btn {
+    height: 40px;
+    .p-button-label {
+      font-size: 0.85rem;
+    }
+  }
+}
+</style>

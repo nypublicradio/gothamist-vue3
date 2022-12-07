@@ -1,5 +1,13 @@
 <script setup>
 import { gsap } from 'gsap'
+
+const props = defineProps({
+  shadow: {
+    type: Boolean,
+    default: false,
+  },
+})
+
 let tl = null
 const initAnimation = () => {
   console.log('running')
@@ -15,6 +23,10 @@ const initAnimation = () => {
       .to('#shirt1', { opacity: 1 }, '-=0.5')
   }, 500)
 }
+onMounted(async () => {
+  await nextTick()
+  initAnimation()
+})
 onBeforeUnmount(() => {
   if (tl) {
     tl.pause()
@@ -26,7 +38,7 @@ defineExpose({ initAnimation })
 
 <template>
   <div>
-    <div class="shirts">
+    <div class="shirts" :class="[{ shadow: props.shadow }]">
       <img
         id="shirt1"
         class="shirt"
@@ -63,8 +75,10 @@ defineExpose({ initAnimation })
 <style lang="scss">
 .shirts {
   position: relative;
-  -webkit-filter: drop-shadow(0px 0px 5px rgb(117, 117, 117));
-  filter: drop-shadow(0px 0px 5px rgb(117, 117, 117));
+  &.shadow {
+    -webkit-filter: drop-shadow(0px 0px 5px rgb(117, 117, 117));
+    filter: drop-shadow(0px 0px 5px rgb(117, 117, 117));
+  }
   img {
     position: absolute;
     opacity: 0;
