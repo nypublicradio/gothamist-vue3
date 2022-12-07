@@ -96,7 +96,7 @@ onMounted(async () => {
             </h2>
             <div
               v-html="description"
-              class="description my-3 md:mb-4 mb:mt-3"
+              class="description my-2 md:mb-4 mb:mt-3"
             ></div>
             <ShirtsAnimation ref="shirtsAnimationRef" />
             <Button
@@ -117,6 +117,7 @@ onMounted(async () => {
   max-width: 800px;
   background: transparent;
   background-size: cover;
+  max-height: 97%;
   > div {
     background: #f3ed5a;
   }
@@ -162,10 +163,10 @@ onMounted(async () => {
         line-height: normal;
       }
     }
-    .description {
-      font-size: 1.75rem;
+    .description * {
+      font-size: 1.8rem;
       @include media('<md') {
-        font-size: 1rem;
+        font-size: 1.15rem;
       }
     }
     .p-button {
