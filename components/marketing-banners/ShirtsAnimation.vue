@@ -1,18 +1,8 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
 import { gsap } from 'gsap'
-
-const props = defineProps({
-  //   propVar: {
-  //     type: Boolean,
-  //     default: false,
-  //   },
-})
-
-//const emit = defineEmits(["change", "click"]);
-
-// lifecycle hooks
+let tl = null
 const initAnimation = () => {
+  console.log('running')
   setTimeout(() => {
     tl = gsap.timeline({ repeat: -1 })
     tl.to('#shirt1', { delay: 1, opacity: 0 })
@@ -25,6 +15,12 @@ const initAnimation = () => {
       .to('#shirt1', { opacity: 1 }, '-=0.5')
   }, 500)
 }
+onBeforeUnmount(() => {
+  if (tl) {
+    tl.pause()
+    tl.kill()
+  }
+})
 defineExpose({ initAnimation })
 </script>
 

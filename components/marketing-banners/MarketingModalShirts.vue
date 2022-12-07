@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { gsap } from 'gsap'
+import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
 import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
 const props = defineProps({
   data: {
@@ -17,13 +17,14 @@ const props = defineProps({
 const { $analytics } = useNuxtApp()
 const displayModal = ref(false)
 const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
-let tl = null
 
 const bannerData = props.data?.product_banners[0].value
 const description = bannerData?.description
 
 const buttonText = ref(bannerData?.button_text)
 const title = ref(bannerData?.title)
+
+const shirtsAnimationRef = ref()
 
 const closeResponsive = () => {
   // set local storage timer
@@ -42,22 +43,8 @@ const onCtaClick = () => {
   displayModal.value = false
 }
 
-const initAnimation = () => {
-  setTimeout(() => {
-    tl = gsap.timeline({ repeat: -1 })
-    tl.to('#shirt1', { delay: 1, opacity: 0 })
-      .to('#shirt2', { opacity: 1 }, '-=0.5')
-      .to('#shirt2', { delay: 1, opacity: 0 })
-      .to('#shirt3', { opacity: 1 }, '-=0.5')
-      .to('#shirt3', { delay: 1, opacity: 0 })
-      .to('#shirt4', { opacity: 1 }, '-=0.5')
-      .to('#shirt4', { delay: 1, opacity: 0 })
-      .to('#shirt1', { opacity: 1 }, '-=0.5')
-  }, 500)
-}
-
 // lifecycle hooks
-onMounted(() => {
+onMounted(async () => {
   //local storage check
   if (
     localStorage.getItem(localStorageKey) == null ||
@@ -67,13 +54,9 @@ onMounted(() => {
     )
   ) {
     displayModal.value = true
-    initAnimation()
-  }
-})
-onBeforeUnmount(() => {
-  if (tl) {
-    tl.pause()
-    tl.kill()
+    // the exposed method is not available until the next tick
+    await nextTick()
+    shirtsAnimationRef.value.initAnimation()
   }
 })
 </script>
@@ -115,38 +98,7 @@ onBeforeUnmount(() => {
               v-html="description"
               class="description my-3 md:mb-4 mb:mt-3"
             ></div>
-            <ShirtsAnimation />
-            <div class="shirts">
-              <img
-                id="shirt1"
-                class="shirt"
-                src="/marketing-modal/shirt-gray.webp"
-                alt="gray shirt"
-              />
-              <img
-                id="shirt2"
-                class="shirt"
-                src="/marketing-modal/shirt-red.webp"
-                alt="red shirt"
-              />
-              <img
-                id="shirt3"
-                class="shirt"
-                src="/marketing-modal/shirt-white.webp"
-                alt="white shirt"
-              />
-              <img
-                id="shirt4"
-                class="shirt"
-                src="/marketing-modal/shirt-green.webp"
-                alt="green shirt"
-              />
-              <img
-                class="placeholder"
-                src="/marketing-modal/shirt-gray.webp"
-                alt="gray shirt"
-              />
-            </div>
+            <ShirtsAnimation ref="shirtsAnimationRef" />
             <Button
               class="cta-btn p-button-rounded my-4 md:my-5 px-4 py-3"
               :label="buttonText"
@@ -196,26 +148,6 @@ onBeforeUnmount(() => {
     @include media('<md') {
       padding: 1rem 1.5rem 1.5rem 1.5rem;
     }
-    .holder {
-      .shirts {
-        position: relative;
-        -webkit-filter: drop-shadow(0px 0px 5px rgb(117, 117, 117));
-        filter: drop-shadow(0px 0px 5px rgb(117, 117, 117));
-        img {
-          position: absolute;
-          opacity: 0;
-          width: 100%;
-          max-width: 400px;
-          &:first-child {
-            opacity: 1;
-          }
-          &.placeholder {
-            position: relative;
-            opacity: 0;
-          }
-        }
-      }
-    }
   }
   .white-box {
     width: 100%;
@@ -236,15 +168,6 @@ onBeforeUnmount(() => {
         font-size: 1rem;
       }
     }
-    /* .p-button {
-      background-color: #9b152b;
-      .p-button-label {
-        font-size: 2.25rem;
-        @include media('<md') {
-          font-size: inherit;
-        }
-      }
-    } */
   }
 }
 </style>
