@@ -144,7 +144,7 @@ onMounted(async () => {
   }
   .p-dialog-content {
     overflow-y: auto;
-    padding: 5rem 2rem 2rem 2rem;
+    padding: 3rem 2rem 2rem 2rem;
     @include media('<md') {
       padding: 1rem 1.5rem 1.5rem 1.5rem;
     }
@@ -166,6 +166,14 @@ onMounted(async () => {
       font-size: 1.75rem;
       @include media('<md') {
         font-size: 1rem;
+      }
+    }
+    .p-button {
+      .p-button-label {
+        font-size: 1.375rem;
+        @include media('<md') {
+          font-size: 1rem;
+        }
       }
     }
   }
