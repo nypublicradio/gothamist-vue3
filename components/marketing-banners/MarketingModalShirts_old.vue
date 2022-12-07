@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import useImageUrl from '~~/composables/useImageUrl'
 import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
 const props = defineProps({
   data: {
@@ -19,11 +20,16 @@ const displayModal = ref(false)
 const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
 let tl = null
 
-const bannerData = props.data?.product_banners[0].value
-const description = bannerData?.description
-
-const buttonText = ref(bannerData?.button_text)
-const title = ref(bannerData?.title)
+const bannerData = ref(props.data.product_banners[0].value)
+const bgImageId = bannerData.value.description.replace(/(<([^>]+)>)/gi, '')
+const bgImageURL = ref(
+  `url('${useImageUrl(
+    { id: bgImageId },
+    { width: 800, height: 800, quality: 80 }
+  )}')`
+)
+const buttonText = ref(bannerData.value.button_text)
+const title = ref(bannerData.value.title)
 
 const closeResponsive = () => {
   // set local storage timer
@@ -38,7 +44,7 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData?.button_link, '_blank')
+  window.open(bannerData.value.button_link, '_blank')
   displayModal.value = false
 }
 
@@ -63,7 +69,7 @@ onMounted(() => {
     localStorage.getItem(localStorageKey) == null ||
     isMoreThanFrequencyHoursAgo(
       localStorage.getItem(localStorageKey),
-      bannerData?.frequency
+      bannerData.value.frequency
     )
   ) {
     displayModal.value = true
@@ -79,83 +85,74 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div v-if="bannerData" class="marketing-modal-holder">
-    <Dialog
-      class="marketing-modal"
-      header=" "
-      v-model:visible="displayModal"
-      dismissableMask
-      :draggable="false"
-      :modal="true"
-      :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
-      :baseZIndex="10000"
-      @hide="closeResponsive"
-    >
-      <template #header>
-        <div class="corner-banner">
-          <img
-            class="banner"
-            src="/marketing-modal/corner-banner.svg"
-            alt="Free t-shirt corner banner"
-          />
-        </div>
-      </template>
-      <div
-        class="holder flex flex-column justify-content-between align-items-center"
+  <div>
+    <div class="marketing-modal-holder">
+      <Dialog
+        class="marketing-modal"
+        header=" "
+        v-model:visible="displayModal"
+        dismissableMask
+        :draggable="false"
+        :modal="true"
+        :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+        :baseZIndex="10000"
+        @hide="closeResponsive"
+        :style="`background-image: ${bgImageURL};`"
       >
-        <div class="flex flex-column align-items-center w-auto md:w-full">
-          <div
-            class="white-box flex flex-column align-items-center"
-            @click="onCtaClick"
-          >
-            <h2 class="title">
-              {{ title }}
-            </h2>
+        <template #header>
+          <LogoGothamist class="gothamist-logo" />
+        </template>
+        <div
+          class="holder flex flex-column justify-content-between align-items-center"
+        >
+          <div class="flex flex-column align-items-center w-auto md:w-full">
             <div
-              v-html="description"
-              class="description my-3 md:mb-4 mb:mt-3"
-            ></div>
-            <ShirtsAnimation />
-            <div class="shirts">
-              <img
-                id="shirt1"
-                class="shirt"
-                src="/marketing-modal/shirt-gray.webp"
-                alt="gray shirt"
+              class="white-box flex flex-column align-items-center"
+              @click="onCtaClick"
+            >
+              <h2 class="title">
+                {{ title }}
+              </h2>
+              <Button
+                class="cta-btn p-button-rounded my-3 md:my-5 px-5 py-2"
+                :label="buttonText"
               />
-              <img
-                id="shirt2"
-                class="shirt"
-                src="/marketing-modal/shirt-red.webp"
-                alt="red shirt"
-              />
-              <img
-                id="shirt3"
-                class="shirt"
-                src="/marketing-modal/shirt-white.webp"
-                alt="white shirt"
-              />
-              <img
-                id="shirt4"
-                class="shirt"
-                src="/marketing-modal/shirt-green.webp"
-                alt="green shirt"
-              />
-              <img
-                class="placeholder"
-                src="/marketing-modal/shirt-gray.webp"
-                alt="gray shirt"
-              />
+              <div class="shirts">
+                <img
+                  id="shirt1"
+                  class="shirt"
+                  src="/marketing-modal/shirt-gray.webp"
+                  alt="gray shirt"
+                />
+                <img
+                  id="shirt2"
+                  class="shirt"
+                  src="/marketing-modal/shirt-red.webp"
+                  alt="red shirt"
+                />
+                <img
+                  id="shirt3"
+                  class="shirt"
+                  src="/marketing-modal/shirt-white.webp"
+                  alt="white shirt"
+                />
+                <img
+                  id="shirt4"
+                  class="shirt"
+                  src="/marketing-modal/shirt-green.webp"
+                  alt="green shirt"
+                />
+                <img
+                  class="placeholder"
+                  src="/marketing-modal/shirt-gray.webp"
+                  alt="gray shirt"
+                />
+              </div>
             </div>
-            <Button
-              class="cta-btn p-button-rounded my-4 md:my-5 px-4 py-3"
-              :label="buttonText"
-            />
-            <LogoGothamist class="gothamist-logo" />
           </div>
         </div>
-      </div>
-    </Dialog>
+      </Dialog>
+    </div>
   </div>
 </template>
 
@@ -163,38 +160,34 @@ onBeforeUnmount(() => {
 .marketing-modal.p-dialog {
   width: 60vw;
   max-width: 800px;
+  //background-image: url('/marketing-modal/skyline_800.webp');
   background: transparent;
   background-size: cover;
+  @include media('<md') {
+    background-position-x: 37%;
+  }
   > div {
-    background: #f3ed5a;
+    background: transparent;
   }
   .p-dialog-header-icon {
     &:hover {
       background: transparent !important;
     }
   }
-  .corner-banner {
-    .banner {
-      position: absolute;
-      width: 297px;
-      height: auto;
-      top: 0;
-      left: 0;
-      @include media('<md') {
-        width: 200px;
-      }
-    }
-  }
   .gothamist-logo {
+    align-self: flex-start;
     width: 100%;
     height: auto;
-    max-width: 104px;
+    max-width: 220px;
+    @include media('<md') {
+      max-width: 150px;
+    }
   }
   .p-dialog-content {
     overflow-y: auto;
-    padding: 5rem 2rem 2rem 2rem;
+    padding: 0 2rem 5rem 2rem;
     @include media('<md') {
-      padding: 1rem 1.5rem 1.5rem 1.5rem;
+      padding: 0 1.5rem 3rem 1.5rem;
     }
     .holder {
       .shirts {
@@ -222,7 +215,7 @@ onBeforeUnmount(() => {
     text-align: center;
     cursor: pointer;
     @include media('<md') {
-      padding: 1rem 0rem;
+      padding: 1rem 2rem;
     }
     .title {
       @include media('<md') {
@@ -230,13 +223,7 @@ onBeforeUnmount(() => {
         line-height: normal;
       }
     }
-    .description {
-      font-size: 1.75rem;
-      @include media('<md') {
-        font-size: 1rem;
-      }
-    }
-    /* .p-button {
+    .p-button {
       background-color: #9b152b;
       .p-button-label {
         font-size: 2.25rem;
@@ -244,7 +231,7 @@ onBeforeUnmount(() => {
           font-size: inherit;
         }
       }
-    } */
+    }
   }
 }
 </style>
