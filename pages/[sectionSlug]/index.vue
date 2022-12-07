@@ -65,7 +65,7 @@ const newsletterSubmitEvent = () => {
             <div
               v-for="(article, index) in articles"
               :key="`${article.id}-${index}`"
-            >            
+            >
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
