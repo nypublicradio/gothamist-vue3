@@ -203,7 +203,6 @@ const getGalleryLink = computed(() => {
               :data="marketingBannerData"
             />
             <article-donation-CTA
-              v-else
               :donateUrlBase="config.donateUrlBase"
               utmCampaign="article-top"
             />
