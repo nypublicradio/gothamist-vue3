@@ -10,12 +10,13 @@ const props = defineProps({
     default: 'Article top marketing banner',
   },
 })
+const emit = defineEmits(['donate-click'])
 const { $analytics } = useNuxtApp()
 
-const bannerData = props.data?.product_banners[0].value
-const title = ref(bannerData?.title)
-const description = bannerData?.description
-const buttonText = ref(bannerData?.button_text)
+const bannerData = ref(props.data?.product_banners[0].value)
+const title = ref(bannerData.value?.title)
+const description = bannerData.value?.description
+const buttonText = ref(bannerData.value?.button_text)
 
 const onCtaClick = () => {
   //GA here
@@ -25,11 +26,9 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData?.button_link, '_blank')
+  window.open(bannerData.value?.button_link, '_blank')
   emit('donate-click')
 }
-
-const emit = defineEmits(['donate-click'])
 </script>
 
 <template>

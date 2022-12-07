@@ -18,11 +18,11 @@ const { $analytics } = useNuxtApp()
 const displayModal = ref(false)
 const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
 
-const bannerData = props.data?.product_banners[0].value
-const description = bannerData?.description
+const bannerData = ref(props.data?.product_banners[0].value)
+const description = bannerData.value?.description
 
-const buttonText = ref(bannerData?.button_text)
-const title = ref(bannerData?.title)
+const buttonText = ref(bannerData.value?.button_text)
+const title = ref(bannerData.value?.title)
 
 const closeResponsive = () => {
   // set local storage timer
@@ -37,7 +37,7 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData?.button_link, '_blank')
+  window.open(bannerData.value?.button_link, '_blank')
   displayModal.value = false
 }
 
@@ -48,7 +48,7 @@ onMounted(async () => {
     localStorage.getItem(localStorageKey) == null ||
     isMoreThanFrequencyHoursAgo(
       localStorage.getItem(localStorageKey),
-      bannerData?.frequency
+      bannerData.value?.frequency
     )
   ) {
     displayModal.value = true
