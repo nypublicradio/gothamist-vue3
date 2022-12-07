@@ -34,7 +34,7 @@ if (article.leadGallery) {
 const topImage = article.leadImage || gallery?.slides?.[0]?.image || null
 const topCaption =
   article.leadImageCaption ||
-  topImage.caption ||
+  topImage?.caption ||
   gallery?.slides?.[0]?.image.caption ||
   null
 const galleryLength = gallery?.slides?.length || 0
