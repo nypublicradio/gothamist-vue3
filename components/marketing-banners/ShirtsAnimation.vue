@@ -10,7 +10,6 @@ const props = defineProps({
 
 let tl = null
 const initAnimation = () => {
-  console.log('running')
   setTimeout(() => {
     tl = gsap.timeline({ repeat: -1 })
     tl.to('#shirt1', { delay: 1, opacity: 0 })
