@@ -41,23 +41,32 @@ const emit = defineEmits(['donate-click'])
       <div class="flex flex-column justify-content-center">
         <h5 class="title my-2">{{ title }}</h5>
         <div class="description">
-          <p class="mb-1">Your support makes local news available to all.</p>
+          <p class="mb-1 hidden sm:block">
+            Your support makes local news available to all.
+          </p>
           <div v-html="description"></div>
           <Button
-            class="flex-none cta-btn p-button-rounded px-3 py-2 mt-3"
+            class="flex-none cta-btn p-button-rounded px-3 py-2 mt-3 hidden sm:block"
             :label="buttonText"
             @click="onCtaClick"
           />
         </div>
       </div>
     </div>
-    <div class="flex align-items-start">
+    <div
+      class="flex flex-none relative sm:align-items-start flex-column sm:flex-row"
+    >
       <img
-        class="star mr-2"
+        class="star absolute mr-2 -ml-2"
         src="/marketing-modal/free-star.svg"
         alt="free star icon"
       />
       <ShirtsAnimation />
+      <Button
+        class="cta-btn p-button-rounded px-3 py-2 mt-3 sm:hidden"
+        :label="buttonText"
+        @click="onCtaClick"
+      />
     </div>
   </div>
 </template>
@@ -89,6 +98,13 @@ const emit = defineEmits(['donate-click'])
     height: 40px;
     .p-button-label {
       font-size: 0.85rem;
+    }
+  }
+  .star {
+    z-index: 2;
+    @include media('<sm') {
+      width: 45px;
+      position: absolute;
     }
   }
   .shirts {
