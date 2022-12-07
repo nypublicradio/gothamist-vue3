@@ -129,51 +129,56 @@ const nativoSectionLoaded = (name) => {
       <div class="content">
         <template v-if="articles">
           <hr class="mb-4 black" />
-          <div id="latest" class="grid gutter-x-xl">
-            <div class="col-12 xxl:col-1 type-label3">LATEST</div>
-            <div v-for="riverSegment in riverSegments" class="col col-12">
-              <div
-                v-for="(article, index) in riverSegment.slice(0, riverStoryCount)"
-                :key="article.uuid"
-              >
-                <v-card
-                  :id="index === 1 ? 'ntv-stream-3' : ''"
-                  class="mod-horizontal mb-3 lg:mb-5 tag-small"
-                  :image="useImageUrl(article.listingImage)"
-                  :width="318"
-                  :height="212"
-                  :sizes="[1]"
-                  :quality="80"
-                  :title="article.listingTitle"
-                  :titleLink="article.link"
-                  :maxWidth="article.image?.width"
-                  :maxHeight="article.image?.height"
-                  :tags="[
-                    {
-                      name: article.section.name,
-                      slug: `/${article.section.slug}`,
-                    },
-                  ]"
-                  @vue:mounted="
-                    index === 1 && nativoSectionLoaded('ntv-stream-3')
-                  "
-                >
-                  <p class="desc">
-                    {{ article.description }}
-                  </p>
-                  <v-card-metadata :article="article" />
-                </v-card>
-                <hr class="mb-5" />
+          <div id="latest">
+            <div v-for="(riverSegment, segmentIndex) in riverSegments" class="grid gutter-x-xl">
+              <div class="col-12 xxl:col-1 type-label3">{{segmentIndex === 0 ? "LATEST" : ""}}</div>
+              <div class="col">
                 <div
-                  v-if="(index + riverAdOffset) % riverAdRepeatRate === 0"
-                  class="xl:hidden"
+                  v-for="(article, itemIndex) in riverSegment.slice(0, riverStoryCount)"
+                  :key="article.uuid"
                 >
-                  <HtlAd
-                    slot="htlad-gothamist_index_river"
-                    layout="rectangle"
-                  />
+                  <v-card
+                    :id="itemIndex === 1 ? 'ntv-stream-3' : ''"
+                    class="mod-horizontal mb-3 lg:mb-5 tag-small"
+                    :image="useImageUrl(article.listingImage)"
+                    :width="318"
+                    :height="212"
+                    :sizes="[1]"
+                    :quality="80"
+                    :title="article.listingTitle"
+                    :titleLink="article.link"
+                    :maxWidth="article.image?.width"
+                    :maxHeight="article.image?.height"
+                    :tags="[
+                      {
+                        name: article.section.name,
+                        slug: `/${article.section.slug}`,
+                      },
+                    ]"
+                    @vue:mounted="
+                      itemIndex === 1 && nativoSectionLoaded('ntv-stream-3')
+                    "
+                  >
+                    <p class="desc">
+                      {{ article.description }}
+                    </p>
+                    <v-card-metadata :article="article" />
+                  </v-card>
                   <hr class="mb-5" />
+                  <div
+                    v-if="(itemIndex + riverAdOffset) % riverAdRepeatRate === 0"
+                    class="xl:hidden"
+                  >
+                    <HtlAd
+                      slot="htlad-gothamist_index_river"
+                      layout="rectangle"
+                    />
+                    <hr class="mb-5" />
+                  </div>
                 </div>
+              </div>
+              <div class="col-fixed hidden xl:block mx-auto">
+                <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
               </div>
             </div>
             <div class="col col-12">
@@ -183,9 +188,6 @@ const nativoSectionLoaded = (name) => {
                   @click="loadMoreArticles"
                 >
               </Button>
-            </div>
-            <div class="col-fixed hidden xl:block mx-auto">
-              <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
             </div>
           </div>
         </template>
