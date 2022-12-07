@@ -46,6 +46,14 @@ const riverSegments = computed(() => {
   return segments
 })
 
+const loadMoreArticles = async () => {
+  const newArticles = await useLoadMoreArticles({
+    limit: riverStoryCount.value,
+    offset: latestArticles.value.length
+  })
+  latestArticles.value.push(...newArticles)
+}
+
 const { $analytics } = useNuxtApp()
 const newsletterSubmitEvent = () => {
   $analytics.sendEvent('click_tracking', {
@@ -76,15 +84,6 @@ const nativoSectionLoaded = (name) => {
     loadedNativoElements.length = 0
     PostRelease.Start()
   }
-}
-
-const loadMoreComments = async () => {
-  const limit = riverStoryCount.value
-  const offset = latestArticles.value.length
-  const newArticles =  await findArticlePages({limit, offset}).then(({ data }) =>
-    normalizeFindArticlePagesResponse(data)
-  )
-  latestArticles.value.push(...newArticles)
 }
 
 </script>
@@ -181,7 +180,7 @@ const loadMoreComments = async () => {
               <Button
                   class="p-button-rounded"
                   label="Load More"
-                  @click="loadMoreComments"
+                  @click="loadMoreArticles"
                 >
               </Button>
             </div>
