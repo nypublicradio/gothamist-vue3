@@ -58,6 +58,7 @@ const {
   refresh,
 } = await useFetch(`${config.API_URL}/system_messages/2/`, {
   key: 'marketing-module',
+  initialCache: false,
 })
 
 const handleSidebarShown = () => {
