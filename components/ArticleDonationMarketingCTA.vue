@@ -33,7 +33,7 @@ const onCtaClick = () => {
 
 <template>
   <div
-    class="article-donation-marketing-CTA flex justify-content-between align-items-start gap-3 flex-column sm:flex-row"
+    class="article-donation-marketing-CTA flex justify-content-between align-items-start sm:align-items-center gap-3 flex-column sm:flex-row"
   >
     <div class="flex flex-row justify-content-center">
       <img class="gift mr-2" src="/marketing-modal/gift.gif" alt="gift icon" />
