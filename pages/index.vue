@@ -130,7 +130,11 @@ const nativoSectionLoaded = (name) => {
         <template v-if="articles">
           <hr class="mb-4 black" />
           <div id="latest">
-            <div v-for="(riverSegment, segmentIndex) in riverSegments" class="grid gutter-x-xl">
+            <div
+              v-for="(riverSegment, segmentIndex) in riverSegments"
+              :key="riverSegment.map(article => article.uuid).join('-')"
+              class="grid gutter-x-xl"
+            >
               <div class="col-12 xxl:col-1 type-label3">{{segmentIndex === 0 ? "LATEST" : ""}}</div>
               <div class="col">
                 <div
