@@ -11,13 +11,28 @@ const staffSlug = route.params.staffSlug
 //   ({ data }) => data?.value && (normalizeFindPageResponse(data) as StaffPage)
 // )
 
-const articlesToShow = ref(6)
+const initialStoryCount = ref(12)
+const loadMoreStoryCount = ref(12)
 
-const articles = await findArticlePages({
+const initialArticles = await findArticlePages({
   author_slug: staffSlug,
-  //  limit: 12,
+  limit: initialStoryCount.value,
   offset: 0,
-}).then(({ data }) => normalizeFindArticlePagesResponse(data))
+}).then(({ data }) => ({
+  articles: normalizeFindArticlePagesResponse(data),
+  count: data.value && Number(data.value.meta.totalCount)
+}))
+const articleTotal = ref(initialArticles.count)
+const articles = ref(initialArticles.articles)
+
+const loadMoreArticles = async () => {
+  const newArticles = await useLoadMoreArticles({
+    author_slug: staffSlug,
+    limit: loadMoreStoryCount.value,
+    offset: articles.value.length
+  })
+  articles.value.push(...newArticles)
+}
 
 // find a match of the slug in the articles' authors array and return the matched author's data
 const authorProfileData = articles[1]?.authors.find((author) => {
@@ -75,7 +90,7 @@ onUnmounted(() => {
         <div class="grid gutter-x-30">
           <div v-if="articles" class="col">
             <div
-              v-for="article in articles.slice(0, articlesToShow)"
+              v-for="article in articles"
               :key="article.uuid"
             >
               <v-card
@@ -120,10 +135,10 @@ onUnmounted(() => {
           />
         </div>
         <Button
-          v-if="articles && articlesToShow < articles.length"
+          v-if="articles.length < articleTotal"
           class="p-button-rounded"
           label="Load More"
-          @click="articlesToShow += 6"
+          @click="loadMoreArticles"
         >
         </Button>
 
