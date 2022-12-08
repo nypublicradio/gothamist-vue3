@@ -185,13 +185,16 @@ const nativoSectionLoaded = (name) => {
                 <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
               </div>
             </div>
-            <div class="col col-12">
-              <Button
-                  class="p-button-rounded"
-                  label="Load More"
-                  @click="loadMoreArticles"
-                >
-              </Button>
+            <div class="grid gutter-x-xl">
+              <div class="col-12 xxl:col-1"></div>
+              <div class="col">
+                <Button
+                    class="p-button-rounded"
+                    label="Load More"
+                    @click="loadMoreArticles"
+                  >
+                </Button>
+              </div>
             </div>
           </div>
         </template>
