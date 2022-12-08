@@ -107,6 +107,13 @@ const newsletterSubmitEvent = (e) => {
 const getGalleryLink = computed(() => {
   return gallery.url.replace(/^https:\/\/[^/]*/, '')
 })
+
+const showMarketingBanner = computed(() => {
+  return (
+    marketingBannerData.value.product_banners.length > 0 &&
+    marketingBannerData.value.product_banners[0].value.location === 'BOTTOM'
+  )
+})
 </script>
 
 <template>
@@ -199,10 +206,11 @@ const getGalleryLink = computed(() => {
             </div>
 
             <article-donation-marketing-CTA
-              v-if="marketingBannerData.product_banners.length > 0"
+              v-if="showMarketingBanner"
               :data="marketingBannerData"
             />
             <article-donation-CTA
+              v-else
               :donateUrlBase="config.donateUrlBase"
               utmCampaign="article-top"
             />
@@ -224,7 +232,7 @@ const getGalleryLink = computed(() => {
               @all-blocks-mounted="handleArticleMounted"
             />
             <article-donation-marketing-bottom-CTA
-              v-if="marketingBannerData.product_banners.length > 0"
+              v-if="showMarketingBanner"
               class="below-body"
               :data="marketingBannerData"
             />
