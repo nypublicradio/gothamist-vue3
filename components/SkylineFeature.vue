@@ -19,15 +19,12 @@ const smallerThanMd = ref(breakpoints.smaller('md'))
 // Note: the skyline feature should display the first 3 stories in the content collection
 const articleLg = ref(normalizeArticlePage(props.collection.data[0]))
 const articleMd = ref(normalizeArticlePage(props.collection.data[1]))
-//const articleSm = ref(normalizeArticlePage(props.collection.data[2]))
+const articleSm = ref(normalizeArticlePage(props.collection.data[2]))
 //const articleMd = ref(null)
-const articleSm = ref(null)
+//const articleSm = ref(null)
 
 const featureLable = ref(props.collection.label)
-
 const isOneOnly = !articleMd.value && !articleSm.value
-
-console.log('isOneOnly  = ', isOneOnly)
 </script>
 
 <template v-if="articleLg">
