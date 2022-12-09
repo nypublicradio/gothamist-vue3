@@ -35,7 +35,7 @@ const loadMoreArticles = async () => {
 }
 
 // find a match of the slug in the articles' authors array and return the matched author's data
-const authorProfileData = articles[1]?.authors.find((author) => {
+const authorProfileData = articles.value[1]?.authors.find((author) => {
   if (author.slug === staffSlug) return author
 })
 
