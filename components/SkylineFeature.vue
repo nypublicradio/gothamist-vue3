@@ -19,14 +19,18 @@ const smallerThanMd = ref(breakpoints.smaller('md'))
 // Note: the skyline feature should display the first 3 stories in the content collection
 const articleLg = ref(normalizeArticlePage(props.collection.data[0]))
 const articleMd = ref(normalizeArticlePage(props.collection.data[1]))
-const articleSm = ref(normalizeArticlePage(props.collection.data[2]))
+//const articleSm = ref(normalizeArticlePage(props.collection.data[2]))
+//const articleMd = ref(null)
+const articleSm = ref(null)
 
 const featureLable = ref(props.collection.label)
 
-//console.log('collection  = ', props.collection)
+const isOneOnly = !articleMd.value && !articleSm.value
+
+console.log('isOneOnly  = ', isOneOnly)
 </script>
 
-<template>
+<template v-if="articleLg">
   <div>
     <div v-if="props.collection" class="skyline-feature">
       <hr class="black" />
@@ -38,14 +42,18 @@ const featureLable = ref(props.collection.label)
       >
         {{ featureLable }}
       </p>
-      <div class="grid gutter-x-30">
-        <div class="col-12 lg:col-12 xl:col-6 flex-order-0 xl:flex-order-3">
+      <div class="grid gutter-x-30 justify-content-center">
+        <div
+          class="col-12 lg:col-12 flex-order-0 xl:flex-order-3"
+          :class="isOneOnly ? 'xl:col-12' : 'xl:col-6'"
+        >
           <v-card
             class="primary article-lg mod-vertical mod-featured2 mod-large mb-4"
             :image="useImageUrl(articleLg?.listingImage)"
             :sizes="[1]"
-            :width="897"
-            :height="598"
+            :ratio="isOneOnly ? [6, 2] : [3, 2]"
+            :width="isOneOnly ? 1360 : 665"
+            :height="isOneOnly ? 453 : 443"
             :title="articleLg?.listingTitle"
             :titleLink="articleLg?.link"
             :maxWidth="articleLg?.listingImage?.width"
@@ -68,7 +76,10 @@ const featureLable = ref(props.collection.label)
         </div>
         <!-- need to wrap in ClientOnly for breakpoint to initially work -->
         <ClientOnly>
-          <div class="col-12 md:col-6 xl:col-3 flex-order-1 lg:flex-order-0">
+          <div
+            v-if="articleMd"
+            class="col-12 md:col-6 xl:col-3 flex-order-1 lg:flex-order-0"
+          >
             <!-- md article desktop  -->
             <v-card
               class="secondary article-md mb-5 tag-small"
@@ -100,7 +111,10 @@ const featureLable = ref(props.collection.label)
               <v-card-metadata stack :article="articleMd" />
             </v-card>
           </div>
-          <div class="col-12 md:col-6 xl:col-3 flex-order-2 lg:flex-order-1">
+          <div
+            v-if="articleSm"
+            class="col-12 md:col-6 xl:col-3 flex-order-2 lg:flex-order-1"
+          >
             <!-- sm article desktop  -->
 
             <v-card
