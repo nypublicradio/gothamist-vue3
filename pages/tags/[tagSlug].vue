@@ -14,21 +14,36 @@ const isPreview = route.query.preview ? true : false
 
 const { $analytics, $htlbid } = useNuxtApp()
 const tagSlug = isPreview ? previewData.value.slug : route.params.tagSlug
+const initialStoryCount = ref(10)
+const loadMoreStoryCount = ref(10)
 const curatedTagPagePromise = isPreview
   ? previewData.value.data
   : findPage(`tags/${tagSlug}`).then(
       ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
     )
 const articlesPromise = findArticlePages({
+  limit: initialStoryCount.value,
   tag_slug: tagSlug,
-}).then(({ data }) => normalizeFindArticlePagesResponse(data))
+}).then(({ data }) => ({
+  articles: normalizeFindArticlePagesResponse(data),
+  count: data.value && Number(data.value.meta.totalCount)
+}))
 
-const [curatedTagPage, articles] = await Promise.all([
+const [curatedTagPage, {articles: initialArticles, count: initalCount}] = await Promise.all([
   curatedTagPagePromise,
   articlesPromise,
 ])
+const articleTotal = ref(initalCount)
+const articles = ref(initialArticles)
 
-const articlesToShow = ref(10)
+const loadMoreArticles = async () => {
+  const newArticles = await useLoadMoreArticles({
+    limit: loadMoreStoryCount.value,
+    offset: articles.value.length,
+    tag_slug: tagSlug,
+  })
+  articles.value.push(...newArticles)
+}
 
 const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
@@ -46,7 +61,7 @@ onMounted(() => {
   }
   const topPageArticles = getPagesFromZone(curatedTagPage?.topPageZone)
   const midPageArticles = getPagesFromZone(curatedTagPage?.midPageZone)
-  const allArticles = [...articles, ...topPageArticles, ...midPageArticles]
+  const allArticles = [...articles.value, ...topPageArticles, ...midPageArticles]
   useUpdateCommentCounts(allArticles)
 })
 
@@ -112,7 +127,7 @@ const newsletterSubmitEvent = () => {
           <h2 class="sr-only">Latest Articles Tagged "{{ tagName }}"</h2>
           <div class="col">
             <div
-              v-for="(article, index) in articles.slice(0, articlesToShow)"
+              v-for="(article, index) in articles"
               :key="`${article.id}-${index}`"
             >
               <v-card
@@ -149,10 +164,10 @@ const newsletterSubmitEvent = () => {
               </div>
             </div>
             <Button
-              v-if="articlesToShow < articles.length"
+              v-if="articles.length < articleTotal"
               class="p-button-rounded"
               label="Load More"
-              @click="articlesToShow += 10"
+              @click="loadMoreArticles"
             >
             </Button>
           </div>

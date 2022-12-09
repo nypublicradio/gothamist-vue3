@@ -7,16 +7,29 @@ const { title: sectionTitle, id: sectionId } = await findPage(
   route?.params?.sectionSlug as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
-const articles = await findArticlePages({
+const initialStoryCount = ref(10)
+const loadMoreStoryCount = ref(10)
+const featuredStoryCount = ref(5)
+
+const initialArticles = await findArticlePages({
   descendant_of: sectionId,
-  offset: 5,
+  offset: featuredStoryCount.value,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
-const articlesToShow = ref(6)
+const articles = ref(initialArticles)
+
+const loadMoreArticles = async () => {
+  const newArticles = await useLoadMoreArticles({
+    limit: loadMoreStoryCount.value,
+    offset: articles.value.length + featuredStoryCount.value,
+    descendant_of: sectionId,
+  })
+  articles.value.push(...newArticles)
+}
 
 const { $analytics } = useNuxtApp()
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'section_page' })
-  useUpdateCommentCounts(articles)
+  useUpdateCommentCounts(articles.value)
 })
 
 const newsletterSubmitEvent = () => {
@@ -50,9 +63,9 @@ const newsletterSubmitEvent = () => {
           <div class="col-1 hidden xl:block"></div>
           <div class="col">
             <div
-              v-for="(article, index) in articles.slice(0, articlesToShow)"
+              v-for="(article, index) in articles"
               :key="`${article.id}-${index}`"
-            >            
+            >
               <v-card
                 class="mod-horizontal mb-5"
                 :image="useImageUrl(article.listingImage)"
@@ -72,10 +85,9 @@ const newsletterSubmitEvent = () => {
               <hr class="mb-5" />
             </div>
             <Button
-              v-if="articlesToShow < articles.length"
               class="p-button-rounded mb-8"
               label="Load More"
-              @click="articlesToShow += 10"
+              @click="loadMoreArticles"
             >
             </Button>
           </div>

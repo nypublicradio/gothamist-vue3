@@ -3,10 +3,17 @@ import { onMounted } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import useImageUrl from '~~/composables/useImageUrl'
+import { ArticlePage } from '~~/composables/types/Page';
+import { computed, ref } from 'vue'
 
-const articlesPromise = findArticlePages({}).then(({ data }) =>
+const riverStoryCount = ref(6)
+const riverAdOffset = ref(2)
+const riverAdRepeatRate = ref(6)
+
+const articlesPromise = findArticlePages({limit: riverStoryCount.value}).then(({ data }) =>
   normalizeFindArticlePagesResponse(data)
 )
+
 
 const homePageCollectionsPromise = findPage('/').then(({ data }) => {
   return data.value.pageCollectionRelationship.map((collection) => {
@@ -25,14 +32,27 @@ const [articles, homePageCollections] = await Promise.all([
 ])
 
 // the latest articles
-const latestArticles = articles
+const latestArticles = ref([...articles])
 
 // the home page featured article should display only the first story in the home page content collection
 const featuredArticle = normalizeArticlePage(homePageCollections?.[0].data?.[0])
 
-const riverStoryCount = ref(6)
-const riverAdOffset = ref(2)
-const riverAdRepeatRate = ref(6)
+const riverSegments = computed(() => {
+  let riverCopy = latestArticles.value.slice()
+  const segments = [] as ArticlePage[][]
+  while (riverCopy.length) {
+    segments.push(riverCopy.splice(0, riverStoryCount.value))
+  }
+  return segments
+})
+
+const loadMoreArticles = async () => {
+  const newArticles = await useLoadMoreArticles({
+    limit: riverStoryCount.value,
+    offset: latestArticles.value.length
+  })
+  latestArticles.value.push(...newArticles)
+}
 
 const { $analytics } = useNuxtApp()
 const newsletterSubmitEvent = () => {
@@ -65,6 +85,7 @@ const nativoSectionLoaded = (name) => {
     PostRelease.Start()
   }
 }
+
 </script>
 
 <template>
@@ -108,62 +129,72 @@ const nativoSectionLoaded = (name) => {
       <div class="content">
         <template v-if="articles">
           <hr class="mb-4 black" />
-          <div id="latest" class="grid gutter-x-xl">
-            <div class="col-12 xxl:col-1 type-label3">LATEST</div>
-            <div class="col">
-              <div
-                v-for="(article, index) in articles.slice(0, riverStoryCount)"
-                :key="article.uuid"
-              >
-                <v-card
-                  :id="index === 1 ? 'ntv-stream-3' : ''"
-                  class="mod-horizontal mb-3 lg:mb-5 tag-small"
-                  :image="useImageUrl(article.listingImage)"
-                  :width="318"
-                  :height="212"
-                  :sizes="[1]"
-                  :quality="80"
-                  :title="article.listingTitle"
-                  :titleLink="article.link"
-                  :maxWidth="article.image?.width"
-                  :maxHeight="article.image?.height"
-                  :tags="[
-                    {
-                      name: article.section.name,
-                      slug: `/${article.section.slug}`,
-                    },
-                  ]"
-                  @vue:mounted="
-                    index === 1 && nativoSectionLoaded('ntv-stream-3')
-                  "
-                >
-                  <p class="desc">
-                    {{ article.description }}
-                  </p>
-                  <v-card-metadata :article="article" />
-                </v-card>
-                <hr class="mb-5" />
+          <div id="latest">
+            <div
+              v-for="(riverSegment, segmentIndex) in riverSegments"
+              :key="riverSegment.map(article => article.uuid).join('-')"
+              class="grid gutter-x-xl"
+            >
+              <div class="col-12 xxl:col-1 type-label3">{{segmentIndex === 0 ? "LATEST" : ""}}</div>
+              <div class="col">
                 <div
-                  v-if="(index + riverAdOffset) % riverAdRepeatRate === 0"
-                  class="xl:hidden"
+                  v-for="(article, itemIndex) in riverSegment.slice(0, riverStoryCount)"
+                  :key="article.uuid"
                 >
-                  <HtlAd
-                    slot="htlad-gothamist_index_river"
-                    layout="rectangle"
-                  />
+                  <v-card
+                    :id="itemIndex === 1 ? 'ntv-stream-3' : ''"
+                    class="mod-horizontal mb-3 lg:mb-5 tag-small"
+                    :image="useImageUrl(article.listingImage)"
+                    :width="318"
+                    :height="212"
+                    :sizes="[1]"
+                    :quality="80"
+                    :title="article.listingTitle"
+                    :titleLink="article.link"
+                    :maxWidth="article.image?.width"
+                    :maxHeight="article.image?.height"
+                    :tags="[
+                      {
+                        name: article.section.name,
+                        slug: `/${article.section.slug}`,
+                      },
+                    ]"
+                    @vue:mounted="
+                      itemIndex === 1 && nativoSectionLoaded('ntv-stream-3')
+                    "
+                  >
+                    <p class="desc">
+                      {{ article.description }}
+                    </p>
+                    <v-card-metadata :article="article" />
+                  </v-card>
                   <hr class="mb-5" />
+                  <div
+                    v-if="(itemIndex + riverAdOffset) % riverAdRepeatRate === 0"
+                    class="xl:hidden"
+                  >
+                    <HtlAd
+                      slot="htlad-gothamist_index_river"
+                      layout="rectangle"
+                    />
+                    <hr class="mb-5" />
+                  </div>
                 </div>
               </div>
-              <Button
-                v-if="riverStoryCount < articles.length"
-                class="p-button-rounded"
-                label="Load More"
-                @click="riverStoryCount += 6"
-              >
-              </Button>
+              <div class="col-fixed hidden xl:block mx-auto">
+                <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
+              </div>
             </div>
-            <div class="col-fixed hidden xl:block mx-auto">
-              <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
+            <div class="grid gutter-x-xl">
+              <div class="col-12 xxl:col-1"></div>
+              <div class="col">
+                <Button
+                    class="p-button-rounded"
+                    label="Load More"
+                    @click="loadMoreArticles"
+                  >
+                </Button>
+              </div>
             </div>
           </div>
         </template>
