@@ -97,6 +97,8 @@ onMounted(async () => {
             <Button
               class="cta-btn p-button-rounded my-4 md:my-5 px-4 py-3"
               :label="buttonText"
+              icon="pi pi-arrow-right"
+              iconPos="right"
             />
             <LogoGothamist class="gothamist-logo" />
           </div>
@@ -170,6 +172,9 @@ onMounted(async () => {
         @include media('<md') {
           font-size: 1rem;
         }
+      }
+      .p-button-icon-right {
+        margin-left: 1rem;
       }
     }
   }

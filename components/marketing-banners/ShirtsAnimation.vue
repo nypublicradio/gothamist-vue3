@@ -7,20 +7,22 @@ const props = defineProps({
     default: false,
   },
 })
+const shirt1 = ref(null)
+const shirt2 = ref(null)
+const shirt3 = ref(null)
+const shirt4 = ref(null)
 
 let tl = null
 const initAnimation = () => {
-  setTimeout(() => {
-    tl = gsap.timeline({ repeat: -1 })
-    tl.to('#shirt1', { delay: 1, opacity: 0 })
-      .to('#shirt2', { opacity: 1 }, '-=0.5')
-      .to('#shirt2', { delay: 1, opacity: 0 })
-      .to('#shirt3', { opacity: 1 }, '-=0.5')
-      .to('#shirt3', { delay: 1, opacity: 0 })
-      .to('#shirt4', { opacity: 1 }, '-=0.5')
-      .to('#shirt4', { delay: 1, opacity: 0 })
-      .to('#shirt1', { opacity: 1 }, '-=0.5')
-  }, 500)
+  tl = gsap.timeline({ delay: 0.5, repeat: -1 })
+  tl.to(shirt1.value, { delay: 1.5, opacity: 0 })
+    .to(shirt2.value, { opacity: 1 }, '-=1')
+    .to(shirt2.value, { delay: 1.5, opacity: 0 })
+    .to(shirt3.value, { opacity: 1 }, '-=1')
+    .to(shirt3.value, { delay: 1.5, opacity: 0 })
+    .to(shirt4.value, { opacity: 1 }, '-=1')
+    .to(shirt4.value, { delay: 1.5, opacity: 0 })
+    .to(shirt1.value, { opacity: 1 }, '-=1')
 }
 onMounted(async () => {
   await nextTick()
@@ -39,25 +41,25 @@ defineExpose({ initAnimation })
   <div>
     <div class="shirts" :class="[{ shadow: props.shadow }]">
       <img
-        id="shirt1"
+        ref="shirt1"
         class="shirt"
         src="/marketing-modal/shirt-gray.webp"
         alt="gray shirt"
       />
       <img
-        id="shirt2"
+        ref="shirt2"
         class="shirt"
         src="/marketing-modal/shirt-red.webp"
         alt="red shirt"
       />
       <img
-        id="shirt3"
+        ref="shirt3"
         class="shirt"
         src="/marketing-modal/shirt-white.webp"
         alt="white shirt"
       />
       <img
-        id="shirt4"
+        ref="shirt4"
         class="shirt"
         src="/marketing-modal/shirt-green.webp"
         alt="green shirt"

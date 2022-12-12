@@ -37,16 +37,18 @@ const onCtaClick = () => {
     class="article-donation-marketing-bottom-CTA flex justify-content-between align-items-center gap-3 flex-column sm:flex-row"
   >
     <div class="flex flex-row justify-content-center">
-      <div class="flex flex-column justify-content-center">
+      <div
+        class="flex flex-column justify-content-center text-center sm:text-left"
+      >
         <h5 class="title my-2">{{ title }}</h5>
         <div class="description">
-          <p class="mb-1 hidden sm:block">
-            Your support makes local news available to all.
-          </p>
+          <p class="mb-1">Your support makes local news available to all.</p>
           <div v-html="description"></div>
           <Button
-            class="flex-none cta-btn p-button-rounded px-3 py-2 mt-3 hidden sm:block"
+            class="flex-none cta-btn p-button-rounded px-3 py-2 mt-3 hidden sm:flex"
             :label="buttonText"
+            icon="pi pi-arrow-right"
+            iconPos="right"
             @click="onCtaClick"
           />
         </div>
@@ -56,7 +58,7 @@ const onCtaClick = () => {
       class="flex flex-none relative sm:align-items-start flex-column sm:flex-row"
     >
       <img
-        class="star absolute mr-2 -ml-2"
+        class="star"
         src="/marketing-modal/free-star.svg"
         alt="free star icon"
       />
@@ -64,6 +66,8 @@ const onCtaClick = () => {
       <Button
         class="cta-btn p-button-rounded px-3 py-2 mt-3 sm:hidden"
         :label="buttonText"
+        icon="pi pi-arrow-right"
+        iconPos="right"
         @click="onCtaClick"
       />
     </div>
@@ -77,6 +81,7 @@ const onCtaClick = () => {
   border-radius: 5px;
   margin-bottom: 2.5rem;
   @include media('<sm') {
+    padding: 16px;
   }
   .gift {
     width: 56px;
@@ -87,10 +92,13 @@ const onCtaClick = () => {
   }
   .description {
     margin-top: 5px;
-    * {
+    p {
       font-family: var(--font-family-header);
       font-size: 1rem;
       line-height: normal;
+      @include media('<sm') {
+        font-size: 14px;
+      }
     }
   }
   .cta-btn {
@@ -98,12 +106,16 @@ const onCtaClick = () => {
     .p-button-label {
       font-size: 0.85rem;
     }
+    .p-button-icon-right {
+      margin-left: 1rem;
+    }
   }
   .star {
     z-index: 2;
     @include media('<sm') {
-      width: 45px;
+      width: 50px;
       position: absolute;
+      left: -40px;
     }
   }
   .shirts {

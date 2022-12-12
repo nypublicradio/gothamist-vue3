@@ -36,15 +36,29 @@ const onCtaClick = () => {
     class="article-donation-marketing-CTA flex justify-content-between align-items-start sm:align-items-center gap-3 flex-column sm:flex-row"
   >
     <div class="flex flex-row justify-content-center">
-      <img class="gift mr-2" src="/marketing-modal/gift.gif" alt="gift icon" />
+      <img
+        @click="onCtaClick"
+        class="gift mr-2"
+        src="/marketing-modal/gift.gif"
+        alt="gift icon"
+      />
       <div class="flex flex-column justify-content-center">
         <h6 class="title">{{ title }}</h6>
-        <div class="description" v-html="description"></div>
+        <!-- <div
+          class="description"
+          v-html="`${description} <span><p>Donate now</p></span>`"
+        ></div> -->
+        <div class="description">
+          <p>{{ description.replace(/(&lt;([^>]+)>)/gi, '') }}&nbsp;</p>
+          <p class="inline-link sm:hidden" @click="onCtaClick">Donate now</p>
+        </div>
       </div>
     </div>
     <Button
-      class="flex-none cta-btn p-button-rounded px-3 py-2 mx-auto sm:mx-0"
+      class="hidden sm:flex flex-none cta-btn p-button-rounded px-3 py-2 mx-auto sm:mx-0"
       :label="buttonText"
+      icon="pi pi-arrow-right"
+      iconPos="right"
       @click="onCtaClick"
     />
   </div>
@@ -57,23 +71,36 @@ const onCtaClick = () => {
   border-radius: 5px;
   margin-bottom: 2.5rem;
   @include media('<sm') {
+    padding-right: 1.4rem;
+  }
+  @include media('<xs') {
+    padding-right: 1.25rem;
   }
   .gift {
     width: 56px;
     height: 56px;
+    cursor: pointer;
   }
   .description {
     margin-top: 5px;
-    * {
+    p {
       font-family: var(--font-family-header);
       font-size: 0.85rem;
       line-height: normal;
+      display: inline;
+    }
+    .inline-link {
+      cursor: pointer;
+      text-decoration: underline;
     }
   }
   .cta-btn {
     height: 40px;
     .p-button-label {
       font-size: 0.85rem;
+    }
+    .p-button-icon-right {
+      margin-left: 1rem;
     }
   }
 }
