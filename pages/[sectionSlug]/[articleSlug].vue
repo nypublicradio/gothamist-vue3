@@ -2,6 +2,8 @@
 import { onMounted, computed } from 'vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
+import ArticleDonationMarketingCTA from '~/components/marketing-banners/ArticleDonationMarketingCTA.vue'
+import ArticleDonationMarketingBottomCTA from '~/components/marketing-banners/ArticleDonationMarketingBottomCTA.vue'
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
@@ -205,7 +207,7 @@ const showMarketingBanner = computed(() => {
               <hr class="mt-3 mb-5" />
             </div>
 
-            <article-donation-marketing-CTA
+            <ArticleDonationMarketingCTA
               v-if="showMarketingBanner"
               :data="marketingBannerData"
             />
@@ -231,7 +233,7 @@ const showMarketingBanner = computed(() => {
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
-            <article-donation-marketing-bottom-CTA
+            <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"
               class="below-body"
               :data="marketingBannerData"
