@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import { useUpdateCommentCounts } from '~~/composables/comments';
+import { useUpdateCommentCounts } from '~~/composables/comments'
 const route = useRoute()
 
 const { title: sectionTitle, id: sectionId } = await findPage(
@@ -106,14 +106,6 @@ const newsletterSubmitEvent = () => {
 </template>
 
 <style lang="scss">
-.page.sectionSlug {
-  background: linear-gradient(
-    180deg,
-    #f3f3e4 0,
-    rgba(255, 255, 255, 0) 720px,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
 .section-page .v-card {
   background-color: transparent;
 }

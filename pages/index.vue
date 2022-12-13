@@ -3,17 +3,16 @@ import { onMounted } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import useImageUrl from '~~/composables/useImageUrl'
-import { ArticlePage } from '~~/composables/types/Page';
+import { ArticlePage } from '~~/composables/types/Page'
 import { computed, ref } from 'vue'
 
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
 const riverAdRepeatRate = ref(6)
 
-const articlesPromise = findArticlePages({limit: riverStoryCount.value}).then(({ data }) =>
-  normalizeFindArticlePagesResponse(data)
+const articlesPromise = findArticlePages({ limit: riverStoryCount.value }).then(
+  ({ data }) => normalizeFindArticlePagesResponse(data)
 )
-
 
 const homePageCollectionsPromise = findPage('/').then(({ data }) => {
   return data.value.pageCollectionRelationship.map((collection) => {
@@ -49,7 +48,7 @@ const riverSegments = computed(() => {
 const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({
     limit: riverStoryCount.value,
-    offset: latestArticles.value.length
+    offset: latestArticles.value.length,
   })
   latestArticles.value.push(...newArticles)
 }
@@ -85,7 +84,6 @@ const nativoSectionLoaded = (name) => {
     PostRelease.Start()
   }
 }
-
 </script>
 
 <template>
@@ -132,13 +130,18 @@ const nativoSectionLoaded = (name) => {
           <div id="latest">
             <div
               v-for="(riverSegment, segmentIndex) in riverSegments"
-              :key="riverSegment.map(article => article.uuid).join('-')"
+              :key="riverSegment.map((article) => article.uuid).join('-')"
               class="grid gutter-x-xl"
             >
-              <div class="col-12 xxl:col-1 type-label3">{{segmentIndex === 0 ? "LATEST" : ""}}</div>
+              <div class="col-12 xxl:col-1 type-label3">
+                {{ segmentIndex === 0 ? 'LATEST' : '' }}
+              </div>
               <div class="col">
                 <div
-                  v-for="(article, itemIndex) in riverSegment.slice(0, riverStoryCount)"
+                  v-for="(article, itemIndex) in riverSegment.slice(
+                    0,
+                    riverStoryCount
+                  )"
                   :key="article.uuid"
                 >
                   <v-card
@@ -189,10 +192,10 @@ const nativoSectionLoaded = (name) => {
               <div class="col-12 xxl:col-1"></div>
               <div class="col">
                 <Button
-                    class="p-button-rounded"
-                    label="Load More"
-                    @click="loadMoreArticles"
-                  >
+                  class="p-button-rounded"
+                  label="Load More"
+                  @click="loadMoreArticles"
+                >
                 </Button>
               </div>
             </div>
@@ -202,14 +205,3 @@ const nativoSectionLoaded = (name) => {
     </section>
   </div>
 </template>
-
-<style lang="scss">
-.page.index {
-  background: linear-gradient(
-    180deg,
-    #f3f3e4 0,
-    rgba(255, 255, 255, 0) 615px,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
-</style>
