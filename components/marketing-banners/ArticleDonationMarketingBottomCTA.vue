@@ -58,9 +58,9 @@ const onCtaClick = () => {
       class="flex flex-none relative sm:align-items-start flex-column sm:flex-row"
     >
       <img
-        class="star"
-        src="/marketing-modal/free-star.svg"
-        alt="free star icon"
+        class="burst"
+        src="/marketing-modal/free-burst.svg"
+        alt="free burst icon"
       />
       <ShirtsAnimation />
       <Button
@@ -110,7 +110,7 @@ const onCtaClick = () => {
       margin-left: 1rem;
     }
   }
-  .star {
+  .burst {
     z-index: 2;
     @include media('<sm') {
       width: 50px;

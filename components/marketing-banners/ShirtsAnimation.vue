@@ -6,11 +6,17 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  maxWidth: {
+    type: Number,
+    default: 400,
+  },
 })
 const shirt1 = ref(null)
 const shirt2 = ref(null)
 const shirt3 = ref(null)
 const shirt4 = ref(null)
+
+const shirtMaxWidth = ref(`${props.maxWidth}px`)
 
 let tl = null
 const initAnimation = () => {
@@ -84,7 +90,7 @@ defineExpose({ initAnimation })
     position: absolute;
     opacity: 0;
     width: 100%;
-    max-width: 400px;
+    max-width: v-bind(shirtMaxWidth);
     &:first-child {
       opacity: 1;
     }

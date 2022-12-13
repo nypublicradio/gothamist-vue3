@@ -44,14 +44,13 @@ const onCtaClick = () => {
       />
       <div class="flex flex-column justify-content-center">
         <h6 class="title">{{ title }}</h6>
-        <!-- <div
+        <div
           class="description"
-          v-html="`${description} <span><p>Donate now</p></span>`"
-        ></div> -->
-        <div class="description">
-          <p>{{ description.replace(/(&lt;([^>]+)>)/gi, '') }}&nbsp;</p>
-          <p class="inline-link sm:hidden" @click="onCtaClick">Donate now</p>
-        </div>
+          @click="onCtaClick"
+          v-html="
+            `${description} <span class='cursor-pointer underline inline sm:hidden'><p>Donate now</p></span>`
+          "
+        ></div>
       </div>
     </div>
     <Button

@@ -70,11 +70,11 @@ onMounted(async () => {
       @hide="closeResponsive"
     >
       <template #header>
-        <div class="corner-banner">
+        <div class="corner-burst">
           <img
-            class="banner"
-            src="/marketing-modal/corner-banner.svg"
-            alt="Free t-shirt corner banner"
+            class="burst"
+            src="/marketing-modal/free-burst.svg"
+            alt="free burst icon"
           />
         </div>
       </template>
@@ -93,9 +93,9 @@ onMounted(async () => {
               v-html="description"
               class="description my-2 md:mb-4 mb:mt-3"
             ></div>
-            <ShirtsAnimation />
+            <ShirtsAnimation :max-width="300" />
             <Button
-              class="cta-btn p-button-rounded my-4 md:my-5 px-4 py-3"
+              class="cta-btn p-button-rounded my-4 px-4 py-3"
               :label="buttonText"
               icon="pi pi-arrow-right"
               iconPos="right"
@@ -123,16 +123,13 @@ onMounted(async () => {
       background: transparent !important;
     }
   }
-  .corner-banner {
-    .banner {
+  .corner-burst {
+    position: relative;
+    .burst {
       position: absolute;
-      width: 297px;
-      height: auto;
       top: 0;
-      left: 0;
-      @include media('<md') {
-        width: 200px;
-      }
+      bottom: 0;
+      margin: auto;
     }
   }
   .gothamist-logo {
@@ -142,18 +139,15 @@ onMounted(async () => {
   }
   .p-dialog-content {
     overflow-y: auto;
-    padding: 3rem 2rem 2rem 2rem;
+    padding: 0rem 2rem 2rem 2rem;
     @include media('<md') {
-      padding: 1rem 1.5rem 1.5rem 1.5rem;
+      padding: 0rem 1.5rem 1.5rem 1.5rem;
     }
   }
   .white-box {
     width: 100%;
     text-align: center;
     cursor: pointer;
-    @include media('<md') {
-      padding: 1rem 0rem;
-    }
     .title {
       @include media('<md') {
         font-size: 1.5rem;
