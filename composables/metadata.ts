@@ -155,7 +155,11 @@ import { ArticlePage, GalleryPage } from './types/Page'
         { name: 'article:modified_time', content: article.updatedDate?.toISOString() || ''},
         { name: 'article:section', content: article.section.name },
         { name: 'article:tag', content: article.tags.map(tag => tag.slug).join(',') },
-      ]
+      ],
+      script: [{
+        type: 'application/ld+json',
+        children: JSON.stringify(useArticlePageStructuredData(article))
+      }]
     }
     for (const author of article.authors) {
       metadata.meta.push( { name: 'article:author', content: `https://gothamist.com${author.url}` })
