@@ -102,16 +102,19 @@ const newsletterSubmitEvent = (e) => {
 const getGalleryLink = computed(() => {
   return gallery.url.replace(/^https:\/\/[^/]*/, '')
 })
+
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    children: `if (article) { JSON.stringify(useArticlePageStructuredData(article)) }`
+  }]
+})
+
 </script>
 
 <template>
   <div>
     <Head>
-      <Script
-        v-if="article"
-        type="application/ld+json"
-        :children="JSON.stringify(useArticlePageStructuredData(article))"
-      />
       <Link rel="canonical" v-if="article" :href="article.url" />
     </Head>
     <HeaderScrollTrigger header-class="article-page-header">
