@@ -62,7 +62,7 @@ onMounted(() => {
 
 // function to check if the email is a valid format and to set the error text
 const validateEmail = () => {
-  const validRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/
+  const validRegex = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,3}$/
   emailErrorText.value = null
   if (validRegex.test(email.value)) {
     return true
