@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRuntimeConfig } from '#app'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+import { sourceContentFor } from '@jridgewell/trace-mapping';
 
 const config = useRuntimeConfig()
 
@@ -9,6 +10,11 @@ const props = defineProps({
   showNoThanks: {
     type: Boolean,
     default: false,
+  },
+  // This "source" field is to capture the location and site as part of the record in the CRM
+  source: {
+    type: String,
+    default: 'gothamist'
   },
   altDesign: {
     type: Boolean,
@@ -65,6 +71,7 @@ const submitForm = (email) => {
   $fetch(config.NEWSLETTER_API, {
     method: 'POST',
     body: {
+      source: props.source,
       list: config.NEWSLETTER_MULTI_LIST_IDS,
       email: email,
     },
