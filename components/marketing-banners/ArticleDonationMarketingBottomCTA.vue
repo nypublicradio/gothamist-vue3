@@ -35,6 +35,7 @@ const onCtaClick = () => {
 <template>
   <div
     class="article-donation-marketing-bottom-CTA flex justify-content-between align-items-center gap-3 flex-column sm:flex-row"
+    @click="onCtaClick"
   >
     <div class="flex flex-row justify-content-center">
       <div
@@ -49,7 +50,6 @@ const onCtaClick = () => {
             :label="buttonText"
             icon="pi pi-arrow-right"
             iconPos="right"
-            @click="onCtaClick"
           />
         </div>
       </div>
@@ -68,7 +68,6 @@ const onCtaClick = () => {
         :label="buttonText"
         icon="pi pi-arrow-right"
         iconPos="right"
-        @click="onCtaClick"
       />
     </div>
   </div>
@@ -80,6 +79,7 @@ const onCtaClick = () => {
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 2.5rem;
+  cursor: pointer;
   @include media('<sm') {
     padding: 16px;
   }

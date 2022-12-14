@@ -34,19 +34,14 @@ const onCtaClick = () => {
 <template>
   <div
     class="article-donation-marketing-CTA flex justify-content-between align-items-start sm:align-items-center gap-3 flex-column sm:flex-row"
+    @click="onCtaClick"
   >
     <div class="flex flex-row justify-content-center">
-      <img
-        @click="onCtaClick"
-        class="gift mr-2"
-        src="/marketing-modal/gift.gif"
-        alt="gift icon"
-      />
+      <img class="gift mr-2" src="/marketing-modal/gift.gif" alt="gift icon" />
       <div class="flex flex-column justify-content-center">
         <h6 class="title">{{ title }}</h6>
         <div
           class="description"
-          @click="onCtaClick"
           v-html="
             `${description} <span class='cursor-pointer underline inline sm:hidden'><p>Donate now</p></span>`
           "
@@ -58,7 +53,6 @@ const onCtaClick = () => {
       :label="buttonText"
       icon="pi pi-arrow-right"
       iconPos="right"
-      @click="onCtaClick"
     />
   </div>
 </template>
@@ -69,6 +63,7 @@ const onCtaClick = () => {
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 2.5rem;
+  cursor: pointer;
   @include media('<sm') {
     padding-right: 1.4rem;
   }
@@ -78,7 +73,6 @@ const onCtaClick = () => {
   .gift {
     width: 56px;
     height: 56px;
-    cursor: pointer;
   }
   .description {
     margin-top: 5px;
