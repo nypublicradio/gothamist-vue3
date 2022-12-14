@@ -6,7 +6,7 @@ const redirects =
     { from: '/tags/Sets%20&%20the%20City%20profile', to: '/tags/sets-and-the-city-profile' }
   ]
 
-export default (req, res, next) => {
+export default fromNodeMiddleware((req, res, next) => {
   // const host = req.headers.host
   // const fullUrl = req.url
   const url = req.url.split('?')[0]
@@ -30,4 +30,4 @@ export default (req, res, next) => {
   } else {
     next()
   }
-}
+})
