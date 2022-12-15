@@ -18,7 +18,7 @@ const articlesToShow = ref(10)
 const isSearching = ref(false)
 
 async function getSearchResults() {
-  if (query.value) router.push({ query: { q: query.value } })
+  if (query.value) await navigateTo({ query: { q: query.value } })
   isSearching.value = true
   articles.value = await searchArticlePages({ q: query.value }).then(
     ({ data }) => normalizeSearchArticlePagesResponse(data)

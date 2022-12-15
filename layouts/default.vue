@@ -231,7 +231,7 @@ useHead({
         <slot />
       </main>
       <gothamist-footer :navigation="navigation" />
-      <audio-player />
+      <!-- <audio-player /> -->
       <MarketingModalShirts
         v-if="productBanners.length > 0"
         :banners="productBanners"

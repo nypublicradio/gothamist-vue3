@@ -13,12 +13,11 @@ const props = defineProps({
 })
 const emit = defineEmits(['onSearch', 'onNavigate'])
 const route = useRoute()
-const router = useRouter()
 
 const searchTerm = ref('')
 const onSearch = () => {
   emit('onSearch', searchTerm.value)
-  router.push({ path: '/search', query: { q: searchTerm.value } })
+  return navigateTo({ path: '/search', query: { q: searchTerm.value } })
 }
 </script>
 
