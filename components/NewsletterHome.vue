@@ -36,7 +36,7 @@ const props = defineProps({
   },
   titleText: {
     type: String,
-    default: 'Get the news New Yorkers need in your inbox',
+    default: 'Never miss a story',
   },
   submitButtonIcon: {
     type: String,
@@ -65,7 +65,7 @@ const submitForm = (email) => {
   $fetch(config.NEWSLETTER_API, {
     method: 'POST',
     body: {
-      list: config.NEWSLETTER_LIST_ID,
+      list: config.NEWSLETTER_MULTI_LIST_IDS,
       email: email,
     },
   })
@@ -102,8 +102,8 @@ const submitForm = (email) => {
     </div>
     <div class="col-12 lg:col-7 xl:col-5 col-offset-0 xl:col-offset-1">
       <p v-if="showBlurb" class="type-paragraph2 pr-0 lg:pr-8 xl:pr-0">
-        Catch up on the most important headlines of the day with a roundup of
-        essential NYC news, delivered to your inbox every day at 5pm.
+        Catch up on the most important headlines with a roundup of essential
+        NYC stories, delivered to your inbox daily.
       </p>
       <email-collector-form
         @noThanksClick="hideComp"
