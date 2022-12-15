@@ -65,7 +65,6 @@ export default defineNuxtConfig({
       'composables/*/index.{ts,js,mjs,mts}' // one level directories's index.js,
     ]
   },
-  components: true,
   build: {
     transpile: [
       'primevue',
