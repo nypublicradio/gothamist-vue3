@@ -22,11 +22,7 @@ npm install npm@8.6.0 -g
 
 ```bash
 npm install
-npm i nuxt@3.0.0-rc.6
 ```
-
-For more info on the nuxt release candidates see https://github.com/nuxt/framework/releases
-
 in VS Code, use the following plugin for formatting. Be sure to install the older version 0.33.10:
 https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar
 
