@@ -27,7 +27,8 @@ export const useFetchCommentCounts = async function(commentIds:string[]) {
     const responses = await Promise.all(requests)
     responses.forEach(response => {
         const data = response.data;
-        Object.entries(data.value["messages_count"]).forEach(([key, value]) => {
+        const counts = data.value ? Object.entries(data.value["messages_count"]) : []
+        counts.forEach(([key, value]) => {
             counts[key] = value
         })
     })

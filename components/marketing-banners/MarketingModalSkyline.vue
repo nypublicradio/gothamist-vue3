@@ -4,7 +4,7 @@ import { gsap } from 'gsap'
 import useImageUrl from '~~/composables/useImageUrl'
 import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
 const props = defineProps({
-  data: {
+  banners: {
     type: Object,
     default: null,
     required: true,
@@ -20,7 +20,7 @@ const displayModal = ref(false)
 const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
 let tl = null
 
-const bannerData = ref(props.data.product_banners[0].value)
+const bannerData = ref(banners[0].value)
 const bgImageId = bannerData.value.description.replace(/(<([^>]+)>)/gi, '')
 const bgImageURL = ref(
   `url('${useImageUrl(
@@ -28,7 +28,7 @@ const bgImageURL = ref(
     { width: 800, height: 800, quality: 80 }
   )}')`
 )
-const buttonText = ref(bannerData.value.button_text)
+const buttonText = ref(bannerData.value.buttonText)
 const title = ref(bannerData.value.title)
 
 const closeResponsive = () => {
@@ -44,7 +44,7 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData.value.button_link, '_blank')
+  window.open(bannerData.value.buttonLink, '_blank')
   displayModal.value = false
 }
 

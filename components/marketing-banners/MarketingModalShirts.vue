@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
 import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
 const props = defineProps({
-  data: {
+  banners: {
     type: Object,
     default: null,
     required: true,
@@ -18,11 +18,17 @@ const { $analytics } = useNuxtApp()
 const displayModal = ref(false)
 const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
 
-const bannerData = ref(props.data?.product_banners[0].value)
+const bannerData = ref(props.banners[0])
 const description = bannerData.value?.description
-
-const buttonText = ref(bannerData.value?.button_text)
-const title = ref(bannerData.value?.title)
+const bgImageId = bannerData.value?.description.replace(/(<([^>]+)>)/gi, '')
+const bgImageURL = ref(
+  `url('${useImageUrl(
+    { id: bgImageId },
+    { width: 800, height: 800, quality: 80 }
+  )}')`
+)
+const buttonText = ref(bannerData.value.buttonText)
+const title = ref(bannerData.value.title)
 
 const closeResponsive = () => {
   // set local storage timer
@@ -37,7 +43,7 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData.value?.button_link, '_blank')
+  window.open(bannerData.value?.buttonLink, '_blank')
   displayModal.value = false
 }
 
