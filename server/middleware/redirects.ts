@@ -12,7 +12,7 @@ export default (req, res, next) => {
   const url = req.url.split('?')[0]
   let urlParams = null
   if (req.url.includes('?')) {
-    urlParams = '?' + req.url.split('?')[1]
+    urlParams = `?${req.url.split('?')[1]}`
   }
 
   const redirect = redirects.find(r => r.from === url)

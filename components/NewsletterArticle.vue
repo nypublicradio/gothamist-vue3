@@ -58,6 +58,7 @@ watch(currentHeaderAdHeight, (height) => {
 <template>
   <div ref="newsletterElm" class="newsletter-article">
     <newsletter-home
+      source='gothamist_articleBody'
       @submit="emit('submit')"
       small
       :showBlurb="false"

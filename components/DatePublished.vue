@@ -38,9 +38,7 @@ const createDateLine = (date, prefix) => {
       return `${prefix}${formatDateForByline(date)}`
     }
   }
-  {
-    return null
-  }
+  return null
 }
 const prefix = ref(props.showPrefix ? props.prefix : '')
 const prefixModified = ref(props.showPrefix ? props.prefixModified : '')
