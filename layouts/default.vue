@@ -52,18 +52,6 @@ let sidebarElements = undefined
 let firstElement = undefined
 let lastElement = undefined
 
-//marketing banner data fetch
-const {
-  data: cmsData,
-  pending,
-  error,
-  refresh,
-} = await useFetch(`${config.API_URL}/system_messages/2/`, {
-  key: 'marketing-module',
-  initialCache: false,
-})
-marketingBannerData.value = cmsData.value
-
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
     document.querySelectorAll(
@@ -248,14 +236,9 @@ useHead({
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
-      <!-- <MarketingModalSkyline
-        v-if="productBannerData.product_banners.length > 0"
-        :data="productBannerData"
-        ga-category="Giving-Tuesday-Adhesion"
-      /> -->
       <MarketingModalShirts
-        v-if="marketingBannerData.product_banners.length > 0"
-        :data="marketingBannerData"
+        v-if="productBanners.length > 0"
+        :banners="productBanners"
         ga-category="Radiolab-Shirts-Adhesion"
       />
     </div>
