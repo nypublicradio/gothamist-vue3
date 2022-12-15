@@ -1,16 +1,5 @@
 # Gothamist Web Client
 
-## IMPORTANT
-if you get this error, or any other error:
-"nuxi requires @nuxt/kit to be installed in your project. Try installing nuxt3 or @nuxt/bridge"
-
-first run this install to fix it:
-```bash
-npm i nuxt@3.0.0-rc.3
-```
-
-We recommend to look at the [Nuxt 3 documentation](https://v3.nuxtjs.org).
-
 ## Setup
 
 This project expects 
@@ -20,13 +9,13 @@ npm version 8.6.0
 to install the npm version, run the following
 npm install npm@8.6.0 -g
 
-in VS Code, use the following plugin for formatting. Be sure to install the older version 0.33.10:
+in VS Code, use the following plugins for formatting:
 https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar
+https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin
 
-## Create .env and .npmrc files
+## Create .npmrc file
 
 ```bash
-cp .env.sample .env
 cp .npmrc.sample .npmrc
 ```
 
