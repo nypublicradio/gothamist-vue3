@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useRuntimeConfig } from '#app'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { sourceContentFor } from '@jridgewell/trace-mapping';
 
 const config = useRuntimeConfig()
 
