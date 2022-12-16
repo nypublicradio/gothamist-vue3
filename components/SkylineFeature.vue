@@ -17,28 +17,35 @@ const breakpoints = useBreakpoints({
 })
 const smallerThanMd = ref(breakpoints.smaller('md'))
 // Note: the skyline feature should display the first 3 stories in the content collection
-const articleLg = ref(normalizeArticlePage(props.collection.data[0]))
-const articleMd = ref(normalizeArticlePage(props.collection.data[1]))
-const articleSm = ref(normalizeArticlePage(props.collection.data[2]))
-//const articleMd = ref(null)
-//const articleSm = ref(null)
+const articleLg = ref(
+  props.collection.data[0]
+    ? normalizeArticlePage(props.collection.data[0])
+    : null
+)
+const articleMd = ref(
+  props.collection.data[1]
+    ? normalizeArticlePage(props.collection.data[1])
+    : null
+)
+const articleSm = ref(
+  props.collection.data[2]
+    ? normalizeArticlePage(props.collection.data[2])
+    : null
+)
 
-const featureLable = ref(props.collection.label)
+const featureLabel = ref(props.collection.label)
 const isOneOnly = !articleMd.value && !articleSm.value
 </script>
 
-<template v-if="articleLg">
-  <div>
-    <div v-if="props.collection" class="skyline-feature">
-      <hr class="black" />
-      <p
-        role="heading"
-        aria-level="2"
-        v-if="featureLable"
-        class="type-label3 mt-2 mb-4"
-      >
-        {{ featureLable }}
-      </p>
+<template>
+  <div v-if="articleLg">
+    <div class="skyline-feature">
+      <template v-if="featureLabel">
+        <hr class="black" />
+        <p role="heading" aria-level="2" class="type-label3 mt-2 mb-4">
+          {{ featureLabel }}
+        </p>
+      </template>
       <div class="grid gutter-x-30 justify-content-center">
         <div
           class="col-12 lg:col-12 flex-order-0 xl:flex-order-3"
