@@ -95,7 +95,7 @@ const nativoSectionLoaded = (name) => {
           @vue:mounted="nativoSectionLoaded('ntv-latest-1')"
         />
         <!-- newsletter -->
-        <div class="my-8">
+        <div class="mt-8">
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent" />
         </div>

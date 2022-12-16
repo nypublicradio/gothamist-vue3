@@ -45,8 +45,14 @@ const commentCount = computed(() => {
           :authors="props.article.authors || props.article.relatedAuthors"
         />
       </span>
-      <span class="comments" v-if="!props.article.comments && showComments && commentCount">
-        <NuxtLink :to="{ path: props.article.link, hash: '#comments' }">{{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}</NuxtLink>
+      <span
+        class="comments"
+        v-if="!props.article.comments && showComments && commentCount"
+      >
+        <NuxtLink :to="{ path: props.article.link, hash: '#comments' }"
+          >{{ String(Number(commentCount)) }}
+          {{ commentCount === 1 ? 'comment' : 'comments' }}</NuxtLink
+        >
       </span>
     </template>
 
@@ -69,9 +75,10 @@ const commentCount = computed(() => {
           class="col-12 comments"
           v-if="!props.article.comments && showComments && commentCount"
         >
-        <NuxtLink :to="{ path: props.article.link, hash: '#comments' }">
-          {{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}
-        </NuxtLink>
+          <NuxtLink :to="{ path: props.article.link, hash: '#comments' }">
+            {{ String(Number(commentCount)) }}
+            {{ commentCount === 1 ? 'comment' : 'comments' }}
+          </NuxtLink>
         </span>
       </div>
     </template>
