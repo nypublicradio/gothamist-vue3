@@ -265,7 +265,7 @@ const showMarketingBanner = computed(() => {
         />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent('footer')" />
+          <newsletter-home source="gothamist_footer" @submit="newsletterSubmitEvent('footer')" />
         </div>
       </div>
     </section>
