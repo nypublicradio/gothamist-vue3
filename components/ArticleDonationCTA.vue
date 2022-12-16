@@ -7,15 +7,15 @@ const config = useRuntimeConfig()
 const props = defineProps({
   title: {
     type: String,
-    default: "We rely on your support to make local news available to all"
+    default: 'We rely on your support to make local news available to all',
   },
   donateUrlBase: {
     type: String,
-    required: true
+    required: true,
   },
   utmCampaign: {
     type: String,
-    required: true
+    required: true,
   },
 })
 
@@ -25,14 +25,17 @@ const donateUrl = ref(
   }`
 )
 
+const getCurrentYear = () => new Date().getFullYear()
+
 const emit = defineEmits(['donate-click'])
 </script>
 
 <template>
   <div class="article-donation-CTA">
-    <div class="h6">{{title}}</div>
+    <div class="h6">{{ title }}</div>
     <p class="type-textlink2 no-underline">
-      Make your contribution now and help Gothamist thrive in 2022.
+      Make your contribution now and help Gothamist thrive in
+      {{ getCurrentYear() }}.
       <v-flexible-link
         :to="donateUrl"
         @click="emit('donate-click', donateUrl)"
