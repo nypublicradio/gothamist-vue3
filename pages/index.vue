@@ -97,7 +97,7 @@ const nativoSectionLoaded = (name) => {
         <!-- newsletter -->
         <div class="mt-8">
           <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
+          <newsletter-home source="gothamist_home" @submit="newsletterSubmitEvent" />
         </div>
       </div>
       <!-- home page collections -->

@@ -10,6 +10,11 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  // This "source" field is to capture the location and site as part of the record in the CRM
+  source: {
+    type: String,
+    default: 'gothamist'
+  },
   altDesign: {
     type: Boolean,
     default: false,
@@ -65,6 +70,7 @@ const submitForm = (email) => {
   $fetch(config.NEWSLETTER_API, {
     method: 'POST',
     body: {
+      source: props.source,
       list: config.NEWSLETTER_MULTI_LIST_IDS,
       email: email,
     },
