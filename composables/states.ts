@@ -62,7 +62,7 @@ export const audioPlayerHeight = 100
 /**
  * Global var for the height of the header AD
  */
-const currentHeaderAdHeight = 90
+const currentHeaderAdHeight = 0
 /**
  * Global state for the current AD height. 
  */

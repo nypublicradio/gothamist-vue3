@@ -63,10 +63,10 @@ onMounted(() => {
   useUpdateCommentCounts([article])
 
   //TEMP mock AD change with different height
-  /*   setTimeout(() => {
-    var ad = document.querySelectorAll('.htl-ad')
-    ad[0].style.height = '500px'
-  }, 4000) */
+  // setTimeout(() => {
+  //   var ad = document.querySelectorAll('.htl-ad')
+  //   ad[0].style.height = '500px'
+  // }, 4000)
 })
 
 onUnmounted(() => {
