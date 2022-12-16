@@ -62,7 +62,7 @@ export const audioPlayerHeight = 100
 /**
  * Global var for the height of the header AD
  */
-const currentHeaderAdHeight = 90
+const currentHeaderAdHeight = 0
 /**
  * Global state for the current AD height. 
  */
@@ -87,3 +87,7 @@ const previewData = null
  * Global state for the current episode object. 
  */
 export const usePreviewData = () => useState('usePreviewData', () => previewData)
+
+// CMS product Banner Data globals
+const marketingBannerData = null
+export const useMarketingBannerData = () => useState('useMarketingBannerData', () => marketingBannerData)
