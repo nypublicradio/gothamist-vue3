@@ -10,6 +10,10 @@ const props = defineProps({
     type: Array,
     default: [],
   },
+  isVertical: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const dragContentRef = ref(null)
@@ -73,7 +77,8 @@ onBeforeUnmount(() => {
 .horz-scroll-holder {
   // overwrite image size here from base rule for this components v-cards
   .v-card.mod-small .image-with-caption {
-    width: var(--img-width-mobile) !important;
+    //width: var(--img-width-mobile) !important;
+    width: 205px !important;
   }
   &.mobile {
     position: relative;

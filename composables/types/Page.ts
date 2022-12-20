@@ -30,6 +30,7 @@ export interface ArticlePage extends Page {
     sensitiveContent: boolean;
     provocativeContent: boolean;
     sponsoredContent: boolean;
+    relatedLinks: any[];
     tags: Tag[];
     url: string;
     uuid: string;

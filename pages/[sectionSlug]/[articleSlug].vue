@@ -233,6 +233,9 @@ const showMarketingBanner = computed(() => {
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
+
+            <RelatedArticles :article="article" class="below-body" />
+
             <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"
               class="below-body"
@@ -265,7 +268,10 @@ const showMarketingBanner = computed(() => {
         />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
-          <newsletter-home source="gothamist_footer" @submit="newsletterSubmitEvent('footer')" />
+          <newsletter-home
+            source="gothamist_footer"
+            @submit="newsletterSubmitEvent('footer')"
+          />
         </div>
       </div>
     </section>

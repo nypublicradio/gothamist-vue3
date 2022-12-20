@@ -6,48 +6,67 @@ import { ArticlePage } from '~~/composables/types/Page.js'
 import Navigation from '~~/composables/types/Navigation.js'
 
 const props = defineProps<{
-  articles: ArticlePage[]
+  article: ArticlePage[]
   navigation: Navigation
 }>()
 
-const relatedArticles = computed(() => {
-  return props.articles
+const relatedLinksLimit = 3
+const relatedLinksArr = ref([])
+const relatedLinksPropArr = props.article.relatedLinks
+
+// get article data by id
+const pushArticleDataToArray = async (item) => {
+  const articleData = await useAviary(`pages/${item.value.page}`)
+  relatedLinksArr.value.push({
+    id: item.id,
+    type: item.type,
+    article: articleData,
+    titleOverride: item.value.titleOverride,
+  })
+  console.log('relatedLinksArr = ', relatedLinksArr.value)
+}
+
+// loop through related links and push to array
+relatedLinksPropArr.map((item, index) => {
+  console.log('index = ', index)
+  console.log('item = ', item)
+  if (index >= relatedLinksLimit) return
+  pushArticleDataToArray(item)
 })
 </script>
 
-<template>
-  <div class="related-articles">
-    <div class="col-12 xl:col-4 flex flex-row justify-content-end">
-      <hr class="black mb-1" />
-      <p>
-        More from
-        <v-flexible-link class="mb-3 -ml-3" to="#latest" raw>
-          <Button
-            class="p-button-text p-button-rounded button-pill-icon"
-            label="BROOKLYN"
-          />
-        </v-flexible-link>
-      </p>
-      <div v-for="(article, index) in relatedArticles" :key="article.uuid">
-        <v-card
-          :id="index === 3 ? 'ntv-latest-1' : ''"
-          class="mod-horizontal mod-left mod-small mb-3 tag-small"
-          :image="useImageUrl(article.listingImage)"
-          :width="158"
-          :height="106"
-          :sizes="[2]"
-          :title="article.listingTitle || article.title"
-          :titleLink="article.link"
-          :maxWidth="article.listingImage?.width"
-          :maxHeight="article.listingImage?.height"
-          :quality="80"
-        >
-          <!--           <div></div>
-          <v-card-metadata :article="article" :showComments="false" /> -->
-        </v-card>
-        <hr class="my-3 block" />
-      </div>
-    </div>
+<template v-if="relatedLinksArr">
+  <div class="related-articles mb-7">
+    <hr class="black mb-2" />
+    <div class="type-label3 mb-4">Related stories</div>
+
+    <horizontal-drag :articles="relatedLinksArr" v-slot="slotProps" isVertical>
+      <v-card
+        class="mod-vertical mod-small"
+        :image="
+          useImageUrl(
+            slotProps.article.article.data.value.leadAsset[0].value.image
+          )
+        "
+        :width="218"
+        :height="145"
+        :sizes="[2]"
+        :title="
+          slotProps.article.titleOverride ||
+          slotProps.article.article.data.value.listingTitle ||
+          slotProps.article.article.data.value.title
+        "
+        :titleLink="slotProps.article.article.data.value.link"
+        :maxWidth="
+          slotProps.article.article.data.value.leadAsset[0].value.image?.width
+        "
+        :maxHeight="
+          slotProps.article.article.data.value.leadAsset[0].value.image?.height
+        "
+        :quality="80"
+      >
+      </v-card>
+    </horizontal-drag>
   </div>
 </template>
 

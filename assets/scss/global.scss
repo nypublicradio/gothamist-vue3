@@ -4,12 +4,16 @@ $contentWidth: 1440px;
 $mobileBreakpoint: '<lg';
 $col-fixed-width-330: 330px;
 $col-fixed-width-316: 316px;
+$col-fixed-width-232: 232px;
 
 .col-fixed-width-330 {
   width: $col-fixed-width-330;
 }
 .col-fixed-width-316 {
   width: $col-fixed-width-316;
+}
+.col-fixed-width-232 {
+  width: $col-fixed-width-232 !important;
 }
 
 @import './gutters.scss';

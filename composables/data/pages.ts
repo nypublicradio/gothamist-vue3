@@ -5,7 +5,7 @@ import { Page, ArticlePage, TagPage, InformationPage } from "../types/Page"
 
 export async function findPage(htmlPath: string) {
     const params = { html_path: htmlPath }
-    return await useAviary('/pages/find', {params})
+    return await useAviary('/pages/find', { params })
 }
 
 // Get a page by it's cms id
@@ -32,6 +32,7 @@ export function normalizeInformationPage(page: Record<string, any>): Information
 
 export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page | ArticlePage | TagPage {
     const pageType = pageResponse.value?.meta?.type
+    console.log('pageResponse.value = ', pageResponse.value)
     switch (pageType) {
         case 'news.ArticlePage':
             return normalizeArticlePage(pageResponse.value)
