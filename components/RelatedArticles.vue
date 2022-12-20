@@ -11,6 +11,7 @@ const props = defineProps<{
 }>()
 
 const relatedLinksLimit = 3
+const relatedLinks = ref([])
 const relatedLinksArr = ref([])
 const relatedLinksPropArr = props.article.relatedLinks
 
@@ -48,13 +49,19 @@ relatedLinksPropArr.map((item, index) => {
     pushLinkDataToArray(item)
   }
 })
+
+onMounted(async () => {
+  await Promise.all(relatedLinksArr.value).then((data) => {
+    relatedLinks.value = data
+  })
+})
 </script>
 
-<template v-if="relatedLinksArr">
-  <div class="related-articles mb-7">
+<template>
+  <div v-if="relatedLinks.length > 0" class="related-articles mb-7">
     <hr class="black mb-2" />
     <div class="type-label3 mb-4">Related stories</div>
-    <horizontal-drag :articles="relatedLinksArr" v-slot="slotProps" isVertical>
+    <horizontal-drag :articles="relatedLinks" v-slot="slotProps" isVertical>
       <v-card
         v-if="slotProps.article.type === 'cms_page'"
         class="mod-horizontal mod-left mod-small mb-0"
@@ -63,8 +70,8 @@ relatedLinksPropArr.map((item, index) => {
             slotProps.article.article.data.value.leadAsset[0].value.image
           )
         "
-        :width="286"
-        :height="192"
+        :width="106"
+        :height="70"
         :sizes="[2]"
         :title="
           slotProps.article.titleOverride ||

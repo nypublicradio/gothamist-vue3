@@ -15,9 +15,9 @@ const props = defineProps({
 const dragContentRef = ref(null)
 const dragBoundsRef = ref(null)
 const isMobile = ref(false)
-const unitMinWidth = 320
-const toDragWidth = unitMinWidth * props.articles.length
-const toDragWidthPx = toDragWidth + 'px'
+const unitMinWidth = 310
+const toDragWidth = ref(unitMinWidth * props.articles.length)
+const toDragWidthPx = ref(toDragWidth.value + 'px')
 
 onMounted(() => {
   // draggable setup
