@@ -2,14 +2,21 @@
 import { onMounted, computed } from 'vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
+import ArticleDonationMarketingCTA from '~/components/marketing-banners/ArticleDonationMarketingCTA.vue'
+import ArticleDonationMarketingBottomCTA from '~/components/marketing-banners/ArticleDonationMarketingBottomCTA.vue'
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 /* preview */
-import { usePreviewData, useIsArticlePage } from '~/composables/states'
+import {
+  usePreviewData,
+  useIsArticlePage,
+  useMarketingBannerData,
+} from '~/composables/states'
 const isArticlePage = useIsArticlePage()
 const previewData = usePreviewData()
+const marketingBannerData = useMarketingBannerData()
 const route = useRoute()
 const isPreview = route.query.preview ? true : false
 /* preview */
@@ -56,10 +63,10 @@ onMounted(() => {
   useUpdateCommentCounts([article])
 
   //TEMP mock AD change with different height
-  /*   setTimeout(() => {
-    var ad = document.querySelectorAll('.htl-ad')
-    ad[0].style.height = '500px'
-  }, 4000) */
+  // setTimeout(() => {
+  //   var ad = document.querySelectorAll('.htl-ad')
+  //   ad[0].style.height = '500px'
+  // }, 4000)
 })
 
 onUnmounted(() => {
@@ -101,6 +108,13 @@ const newsletterSubmitEvent = (e) => {
 
 const getGalleryLink = computed(() => {
   return gallery.url.replace(/^https:\/\/[^/]*/, '')
+})
+
+const showMarketingBanner = computed(() => {
+  return (
+    marketingBannerData.value.product_banners.length > 0 &&
+    marketingBannerData.value.product_banners[0].value.location === 'BOTTOM'
+  )
 })
 </script>
 
@@ -192,7 +206,13 @@ const getGalleryLink = computed(() => {
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
             </div>
+
+            <ArticleDonationMarketingCTA
+              v-if="showMarketingBanner"
+              :data="marketingBannerData"
+            />
             <article-donation-CTA
+              v-else
               :donateUrlBase="config.donateUrlBase"
               utmCampaign="article-top"
             />
@@ -212,6 +232,11 @@ const getGalleryLink = computed(() => {
               class="article-body"
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
+            />
+            <ArticleDonationMarketingBottomCTA
+              v-if="showMarketingBanner"
+              class="below-body"
+              :data="marketingBannerData"
             />
           </div>
         </div>
@@ -240,7 +265,7 @@ const getGalleryLink = computed(() => {
         />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent('footer')" />
+          <newsletter-home source="gothamist_footer" @submit="newsletterSubmitEvent('footer')" />
         </div>
       </div>
     </section>
@@ -290,6 +315,9 @@ const getGalleryLink = computed(() => {
     .article-body > streamfield-pull-quote-author,
     .article-body > *.rte-text > *.wide-module {
       width: 100%;
+    }
+    .below-body {
+      width: calc(100% - 330px - 15px);
     }
   }
 }

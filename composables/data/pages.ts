@@ -4,7 +4,7 @@ import { normalizeTagPage } from './tagPages'
 import { Page, ArticlePage, TagPage, InformationPage } from "../types/Page"
 
 export async function findPage(htmlPath: string) {
-    let params = { html_path: htmlPath }
+    const params = { html_path: htmlPath }
     return await useAviary('/pages/find', {params})
 }
 

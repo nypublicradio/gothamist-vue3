@@ -29,7 +29,6 @@ const [articles, homePageCollections] = await Promise.all([
   articlesPromise,
   homePageCollectionsPromise,
 ])
-
 // the latest articles
 const latestArticles = ref([...articles])
 
@@ -96,9 +95,9 @@ const nativoSectionLoaded = (name) => {
           @vue:mounted="nativoSectionLoaded('ntv-latest-1')"
         />
         <!-- newsletter -->
-        <div class="my-8">
+        <div class="mt-8">
           <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
+          <newsletter-home source="gothamist_home" @submit="newsletterSubmitEvent" />
         </div>
       </div>
       <!-- home page collections -->
@@ -114,6 +113,11 @@ const nativoSectionLoaded = (name) => {
           <center-feature
             class="content"
             v-if="collection.layout === 'center-feature'"
+            :collection="collection"
+          />
+          <skyline-feature
+            class="content"
+            v-if="collection.layout === 'skyline'"
             :collection="collection"
           />
           <div v-if="index === 0" id="ntv-stream-2"></div>

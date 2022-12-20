@@ -42,7 +42,7 @@ const commentCount = computed(() => {
   <div class="byline">
     <!-- sponsored -->
     <div v-if="isSponsored" class="sponsored flex align-items-center">
-      <div class="author-image">
+      <div class="author-image flex-none">
         <v-flexible-link :to="sponsor?.link" raw>
           <v-simple-responsive-image
             v-if="sponsor?.logo"
@@ -67,7 +67,8 @@ const commentCount = computed(() => {
           to="#comments"
           class="type-textlink2"
         >
-          {{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}
+          {{ String(Number(commentCount)) }}
+          {{ commentCount === 1 ? 'comment' : 'comments' }}
         </v-flexible-link>
       </div>
     </div>
@@ -101,7 +102,8 @@ const commentCount = computed(() => {
           to="#comments"
           class="type-textlink2"
         >
-          {{ String(Number(commentCount)) }} {{commentCount === 1 ? 'comment' : 'comments'}}
+          {{ String(Number(commentCount)) }}
+          {{ commentCount === 1 ? 'comment' : 'comments' }}
         </v-flexible-link>
       </div>
     </div>

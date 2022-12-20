@@ -99,6 +99,12 @@ table tr.totalline {
 
 /* below will eventually go in the theme extentions.scss*/
 
+// marketing alert yellow colors
+$alert-yellow: #f3ed5a;
+:root {
+  --alert-yellow: #{$alert-yellow};
+}
+
 // enlarge image modal zindex to be on top of the AD and below the side menu
 .p-image-mask {
   z-index: 5010 !important;

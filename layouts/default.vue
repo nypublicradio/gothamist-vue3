@@ -7,12 +7,14 @@ import {
   useCurrentHeaderAdHeight,
   useIsArticlePage,
   useCurrentSteamStation,
+  useMarketingBannerData,
 } from '~/composables/states'
 const leaderboardAdWrapperRef = ref(null)
 const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const isArticlePage = useIsArticlePage()
 const currentSteamStation = useCurrentSteamStation()
+const marketingBannerData = useMarketingBannerData()
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -52,7 +54,7 @@ let lastElement = undefined
 
 //marketing banner data fetch
 const {
-  data: productBannerData,
+  data: cmsData,
   pending,
   error,
   refresh,
@@ -60,6 +62,7 @@ const {
   key: 'marketing-module',
   initialCache: false,
 })
+marketingBannerData.value = cmsData.value
 
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
@@ -250,8 +253,8 @@ watch(leaderboardAdToWatch.height, (height) => {
         ga-category="Giving-Tuesday-Adhesion"
       /> -->
       <MarketingModalShirts
-        v-if="productBannerData.product_banners.length > 0"
-        :data="productBannerData"
+        v-if="marketingBannerData.product_banners.length > 0"
+        :data="marketingBannerData"
         ga-category="Radiolab-Shirts-Adhesion"
       />
     </div>
