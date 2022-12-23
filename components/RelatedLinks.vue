@@ -44,7 +44,10 @@ props.article.relatedLinks.slice(0, props.limit).map(async (item, index) => {
 })
 
 watch(relatedLinksArr.value, (val) => {
-  relatedLinks.value = val
+  if (val.length === props.limit) {
+    relatedLinks.value = val
+    console.log('relatedLinks.value = ', relatedLinks.value)
+  }
 })
 </script>
 
