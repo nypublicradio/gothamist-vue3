@@ -234,7 +234,7 @@ const showMarketingBanner = computed(() => {
               @all-blocks-mounted="handleArticleMounted"
             />
 
-            <RelatedLinks :article="article" :limit="3" class="below-body" />
+            <RelatedLinks :article="article" class="below-body" />
 
             <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"

@@ -1,6 +1,5 @@
 <script async setup>
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-//import { getRelatedLinks } from '~/composables/data/relatedLinks'
 const props = defineProps({
   article: {
     type: Object,
@@ -46,7 +45,7 @@ props.article.relatedLinks.slice(0, props.limit).map(async (item, index) => {
 watch(relatedLinksArr.value, (val) => {
   if (val.length === props.limit) {
     relatedLinks.value = val
-    console.log('relatedLinks.value = ', relatedLinks.value)
+    //console.log('relatedLinks.value = ', relatedLinks.value)
   }
 })
 </script>
