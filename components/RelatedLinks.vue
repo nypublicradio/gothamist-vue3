@@ -1,22 +1,20 @@
-<script setup lang="ts">
-import { computed } from 'vue'
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+<script async setup>
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import { ArticlePage } from '~~/composables/types/Page.js'
-import Navigation from '~~/composables/types/Navigation.js'
-
-const props = defineProps<{
-  article: ArticlePage[]
-  navigation: Navigation
-}>()
-
-const relatedLinksLimit = 3
-const relatedLinks = ref([])
+//import { getRelatedLinks } from '~/composables/data/relatedLinks'
+const props = defineProps({
+  article: {
+    type: Object,
+    default: {},
+  },
+  limit: {
+    type: Number,
+    default: 3,
+  },
+})
+const relatedLinks = ref(null)
 const relatedLinksArr = ref([])
-const relatedLinksPropArr = props.article.relatedLinks
-
-// get article data by id
 const pushArticleDataToArray = async (item) => {
+  // get article data by id
   const articleData = await useAviary(`pages/${item.value.page}`)
   relatedLinksArr.value.push({
     id: item.id,
@@ -24,10 +22,9 @@ const pushArticleDataToArray = async (item) => {
     article: articleData,
     titleOverride: item.value.titleOverride,
   })
-  console.log('relatedLinksArr = ', relatedLinksArr.value)
+  //console.log('relatedLinksArr = ', relatedLinksArr.value)
 }
-// get article data by id
-const pushLinkDataToArray = async (item) => {
+const pushLinkDataToArray = (item) => {
   relatedLinksArr.value.push({
     id: item.id,
     type: item.type,
@@ -35,33 +32,27 @@ const pushLinkDataToArray = async (item) => {
     titleOverride: item.value.title,
     url: item.value.url,
   })
-  console.log('relatedLinksArr = ', relatedLinksArr.value)
+  //console.log('relatedLinksArr = ', relatedLinksArr.value)
 }
 
-// loop through related links and push to array
-relatedLinksPropArr.map((item, index) => {
-  console.log('index = ', index)
-  console.log('item = ', item)
-  if (index >= relatedLinksLimit) return
+props.article.relatedLinks.slice(0, props.limit).map(async (item, index) => {
   if (item.type === 'cms_page') {
-    pushArticleDataToArray(item)
+    await pushArticleDataToArray(item)
   } else if (item.type === 'external_link') {
-    pushLinkDataToArray(item)
+    await pushLinkDataToArray(item)
   }
 })
 
-onMounted(async () => {
-  await Promise.all(relatedLinksArr.value).then((data) => {
-    relatedLinks.value = data
-  })
+watch(relatedLinksArr.value, (val) => {
+  relatedLinks.value = val
 })
 </script>
 
 <template>
-  <div v-if="relatedLinks.length > 0" class="related-articles mb-7">
+  <div v-if="relatedLinks" class="related-links mb-7">
     <hr class="black mb-2" />
     <div class="type-label3 mb-4">Related stories</div>
-    <horizontal-drag :articles="relatedLinks" v-slot="slotProps" isVertical>
+    <horizontal-drag :articles="relatedLinks" v-slot="slotProps">
       <v-card
         v-if="slotProps.article.type === 'cms_page'"
         class="mod-horizontal mod-left mod-small mb-0"
@@ -94,18 +85,19 @@ onMounted(async () => {
         />
       </v-card>
       <v-card
-        v-else="slotProps.article.type === 'external_link'"
+        v-else-if="slotProps.article.type === 'external_link'"
         class="mod-horizontal mod-left mod-small mb-0"
         :image="useImageUrl(slotProps.article.image)"
         :title="slotProps.article.titleOverride"
         :titleLink="slotProps.article.url"
       >
       </v-card>
+      <div v-else>we dont know</div>
     </horizontal-drag>
   </div>
 </template>
 
 <style lang="scss">
-.related-articles {
+.related-links {
 }
 </style>

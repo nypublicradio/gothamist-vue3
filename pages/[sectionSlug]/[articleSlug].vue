@@ -7,7 +7,6 @@ import ArticleDonationMarketingBottomCTA from '~/components/marketing-banners/Ar
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-
 /* preview */
 import {
   usePreviewData,
@@ -141,6 +140,7 @@ const showMarketingBanner = computed(() => {
         />
       </ScrollTracker>
     </HeaderScrollTrigger>
+    {{ relatedLinks }}
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
@@ -234,7 +234,7 @@ const showMarketingBanner = computed(() => {
               @all-blocks-mounted="handleArticleMounted"
             />
 
-            <RelatedArticles :article="article" class="below-body" />
+            <RelatedLinks :article="article" :limit="3" class="below-body" />
 
             <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"
