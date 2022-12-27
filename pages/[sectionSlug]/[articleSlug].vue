@@ -178,14 +178,14 @@ const showMarketingBanner = computed(() => {
                 loading="eager"
                 :image="useImageUrl(topImage)"
                 :imageUrl="article.imageLink"
-                :width="728"
-                :height="485"
+                :width="700"
+                :height="467"
                 :alt-text="topImage?.alt"
                 :maxWidth="topImage?.width"
                 :maxHeight="topImage?.height"
                 :credit="topImage?.credit"
                 :credit-url="topImage?.creditLink"
-                :sizes="[2]"
+                :sizes="[1]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
               />
@@ -265,7 +265,10 @@ const showMarketingBanner = computed(() => {
         />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
-          <newsletter-home source="gothamist_footer" @submit="newsletterSubmitEvent('footer')" />
+          <newsletter-home
+            source="gothamist_footer"
+            @submit="newsletterSubmitEvent('footer')"
+          />
         </div>
       </div>
     </section>
