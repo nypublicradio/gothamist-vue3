@@ -140,7 +140,6 @@ const showMarketingBanner = computed(() => {
         />
       </ScrollTracker>
     </HeaderScrollTrigger>
-    {{ relatedLinks }}
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
