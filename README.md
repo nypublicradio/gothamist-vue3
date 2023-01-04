@@ -6,7 +6,7 @@ if you get this error, or any other error:
 
 first run this install to fix it:
 ```bash
-npm i nuxt@3.0.0-rc.3
+npm i nuxt@3.0.0-rc.6
 ```
 
 We recommend to look at the [Nuxt 3 documentation](https://v3.nuxtjs.org).
@@ -20,6 +20,9 @@ npm version 8.6.0
 to install the npm version, run the following
 npm install npm@8.6.0 -g
 
+```bash
+npm install
+```
 in VS Code, use the following plugin for formatting. Be sure to install the older version 0.33.10:
 https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar
 

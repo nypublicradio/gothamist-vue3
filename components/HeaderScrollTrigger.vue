@@ -11,7 +11,7 @@ const props = defineProps({
   },
   triggerClass: {
     type: String,
-    default: 'main',
+    default: 'default-slot-holder',
   },
   isHidden: {
     type: Boolean,

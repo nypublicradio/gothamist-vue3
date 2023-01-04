@@ -274,12 +274,6 @@ const showMarketingBanner = computed(() => {
 
 <style lang="scss">
 .page.sectionSlug-articleSlug {
-  background: linear-gradient(
-    180deg,
-    #f3f3e4 0,
-    rgba(255, 255, 255, 0) 720px,
-    rgba(255, 255, 255, 0) 100%
-  );
   .v-tag .p-button {
     background: transparent;
     &:hover {
