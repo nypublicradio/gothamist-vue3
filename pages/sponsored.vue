@@ -30,7 +30,9 @@ onBeforeMount(() => {
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponosored_article' })
   sensitiveContent.value = true
-  PostRelease.Start()
+  if (typeof PostRelease !== "undefined") {
+    PostRelease.Start()
+  }
 
   // getting title from element after the sponsored content loads
   setTimeout(() => {

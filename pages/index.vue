@@ -80,7 +80,9 @@ const nativoSectionLoaded = (name) => {
     loadedNativoElements.includes('ntv-latest-1')
   ) {
     loadedNativoElements.length = 0
-    PostRelease.Start()
+    if (typeof PostRelease !== "undefined") {
+      PostRelease.Start()
+    }
   }
 }
 </script>
