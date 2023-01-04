@@ -64,7 +64,7 @@ const latestArticles = computed(() => {
           class="mod-horizontal mod-left mod-small mb-3 tag-small"
           :image="useImageUrl(article.listingImage)"
           :width="158"
-          :height="106"
+          :height="105"
           :sizes="[2]"
           :title="article.listingTitle || article.title"
           :titleLink="article.link"

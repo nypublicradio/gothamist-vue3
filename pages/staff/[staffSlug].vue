@@ -100,9 +100,10 @@ onUnmounted(() => {
                 :titleLink="article.link"
                 :ratio="[3, 2]"
                 :width="318"
-                :height="214"
+                :height="212"
                 :maxWidth="article.listingImage?.width"
                 :maxHeight="article.listingImage?.height"
+                :sizes="[1]"
                 :tags="[
                   {
                     name: article.section.name,
