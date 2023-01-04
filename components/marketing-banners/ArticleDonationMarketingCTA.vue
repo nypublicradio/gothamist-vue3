@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
-  data: {
+  banners: {
     type: Object,
     default: null,
     required: true,
@@ -13,7 +13,7 @@ const props = defineProps({
 const emit = defineEmits(['donate-click'])
 const { $analytics } = useNuxtApp()
 
-const bannerData = ref(props.data?.product_banners[0].value)
+const bannerData = ref(props.banners[0].value)
 const title = ref(bannerData.value?.title)
 const description = bannerData.value?.description
 const buttonText = ref(bannerData.value?.button_text)

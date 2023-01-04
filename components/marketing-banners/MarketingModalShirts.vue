@@ -1,7 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
 import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
+import ProductBanner from '~~/composables/types/ProductBanner';
 const props = defineProps({
   banners: {
     type: Object,
@@ -18,21 +19,21 @@ const { $analytics } = useNuxtApp()
 const displayModal = ref(false)
 const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
 
-const bannerData = ref(props.banners[0])
-const description = bannerData.value?.description
-const bgImageId = bannerData.value?.description.replace(/(<([^>]+)>)/gi, '')
+const bannerData = ref(props.banners[0].value) as ProductBanner
+const description = bannerData.description
+const bgImageId = Number(bannerData.description.replace(/(<([^>]+)>)/gi, ''))
 const bgImageURL = ref(
   `url('${useImageUrl(
     { id: bgImageId },
     { width: 800, height: 800, quality: 80 }
   )}')`
 )
-const buttonText = ref(bannerData.value.buttonText)
-const title = ref(bannerData.value.title)
+const buttonText = ref(bannerData.buttonText)
+const title = ref(bannerData.title)
 
 const closeResponsive = () => {
   // set local storage timer
-  localStorage.setItem(localStorageKey, Date.now())
+  localStorage.setItem(localStorageKey, String(Date.now()))
   displayModal.value = false
 }
 const onCtaClick = () => {
@@ -43,7 +44,7 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData.value?.buttonLink, '_blank')
+  window.open(bannerData.buttonLink, '_blank')
   displayModal.value = false
 }
 
@@ -54,7 +55,7 @@ onMounted(async () => {
     localStorage.getItem(localStorageKey) == null ||
     isMoreThanFrequencyHoursAgo(
       localStorage.getItem(localStorageKey),
-      bannerData.value?.frequency
+      bannerData.frequencyInHours
     )
   ) {
     displayModal.value = true

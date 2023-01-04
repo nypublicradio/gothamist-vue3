@@ -112,8 +112,8 @@ const getGalleryLink = computed(() => {
 
 const showMarketingBanner = computed(() => {
   return (
-    marketingBannerData.value.product_banners.length > 0 &&
-    marketingBannerData.value.product_banners[0].value.location === 'BOTTOM'
+    marketingBannerData.value.length > 0 &&
+    marketingBannerData.value[0].value.location === 'BOTTOM'
   )
 })
 </script>
@@ -204,7 +204,7 @@ const showMarketingBanner = computed(() => {
 
             <ArticleDonationMarketingCTA
               v-if="showMarketingBanner"
-              :data="marketingBannerData"
+              :banners="marketingBannerData"
             />
             <article-donation-CTA
               v-else
@@ -231,7 +231,7 @@ const showMarketingBanner = computed(() => {
             <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"
               class="below-body"
-              :data="marketingBannerData"
+              :banners="marketingBannerData"
             />
           </div>
         </div>
