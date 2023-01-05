@@ -3,8 +3,8 @@ import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
 import ProductBanner from '~~/composables/types/ProductBanner';
 const props = defineProps({
   banners: {
-    type: Object,
-    default: null,
+    type: Array,
+    default: () => [],
     required: true,
   },
   gaCategory: {
@@ -15,7 +15,7 @@ const props = defineProps({
 const emit = defineEmits(['donate-click'])
 const { $analytics } = useNuxtApp()
 
-const bannerData = ref(props.banners[0].value) as ProductBanner
+const bannerData = ref(props.banners[0])?.value as ProductBanner
 const title = ref(bannerData.title)
 const description = bannerData.description
 const buttonText = ref(bannerData.buttonText)
