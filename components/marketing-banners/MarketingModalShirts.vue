@@ -5,8 +5,8 @@ import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
 import ProductBanner from '~~/composables/types/ProductBanner';
 const props = defineProps({
   banners: {
-    type: Object,
-    default: null,
+    type: Array,
+    default: () => [],
     required: true,
   },
   gaCategory: {
@@ -19,7 +19,7 @@ const { $analytics } = useNuxtApp()
 const displayModal = ref(false)
 const localStorageKey = `gothamist-marketing-modal-${props.gaCategory}`
 
-const bannerData = ref(props.banners[0].value) as ProductBanner
+const bannerData = ref(props.banners[0])?.value as ProductBanner
 const description = bannerData.description
 const bgImageId = Number(bannerData.description.replace(/(<([^>]+)>)/gi, ''))
 const bgImageURL = ref(
