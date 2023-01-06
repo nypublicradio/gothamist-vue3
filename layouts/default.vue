@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getLiveStream } from '~~/composables/data/liveStream'
+import { updateLiveStream } from '~~/composables/data/liveStream'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import { useRuntimeConfig } from '#app'
 import { useElementSize } from '@vueuse/core'
@@ -93,7 +93,7 @@ const trackSidebarClick = (label) => {
 }
 // load the life stream
 onBeforeMount(() => {
-  getLiveStream(currentSteamStation.value)
+  updateLiveStream(currentSteamStation.value)
 })
 onMounted(() => {
   $htlbid.init()
@@ -235,7 +235,7 @@ useHead({
         </div>
       </main>
       <gothamist-footer :navigation="navigation" />
-      <!-- <audio-player /> -->
+      <audio-player />
       <MarketingModalShirts
         v-if="productBanners.length > 0"
         :banners="productBanners"
