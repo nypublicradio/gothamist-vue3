@@ -40,11 +40,11 @@ export function normalizeGalleryPage(page: Record<string, any>):GalleryPage {
 
         listingTitle: page.listingTitle || page.title,
         listingDescription: page.listingSummary || page.description,
-        listingImage: page.listingImage || useImageFromSlideData(page.slides[0]),
+        listingImage: page.listingImage || page.slides[0] && useImageFromSlideData(page.slides[0]),
 
         socialTitle: page.socialTitle || page.title,
         socialDescription: page.socialText || page.description,
-        socialImage:  page.socialImage || useImageFromSlideData(page.slides[0]),
+        socialImage:  page.socialImage || page.slides[0] && useImageFromSlideData(page.slides[0]),
 
         seoTitle: page.meta.seoTitle,
         searchDescription: page.meta.searchDescription
