@@ -51,6 +51,7 @@ props.article.relatedLinks.slice(0, theLimit.value).map(async (item, index) => {
 watch(relatedLinksArr.value, (val) => {
   if (val.length === theLimit.value) {
     relatedLinks.value = val
+    //console.log('relatedLinks.value = ', relatedLinks.value)
   }
 })
 </script>
@@ -61,10 +62,12 @@ watch(relatedLinksArr.value, (val) => {
       <hr class="black mb-2" />
       <div class="type-label3 mb-4">Related stories</div>
       <horizontal-drag :articles="relatedLinks" v-slot="slotProps">
+        <!-- article page -->
         <v-card
           v-if="
             slotProps.article.type === 'cms_page' &&
-            !slotProps.article.article.data.value.slides
+            slotProps.article.article.data.value.meta.type ===
+              'news.ArticlePage'
           "
           class="mod-horizontal mod-left mod-small mb-0"
           :image="
@@ -72,23 +75,12 @@ watch(relatedLinksArr.value, (val) => {
               slotProps.article.article.data.value.leadAsset[0].value.image
             )
           "
-          :width="106"
-          :height="70"
-          :sizes="[2]"
           :title="
             slotProps.article.titleOverride ||
             slotProps.article.article.data.value.listingTitle ||
             slotProps.article.article.data.value.title
           "
           :titleLink="slotProps.article.article.data.value.meta.slug"
-          :maxWidth="
-            slotProps.article.article.data.value.leadAsset[0].value.image?.width
-          "
-          :maxHeight="
-            slotProps.article.article.data.value.leadAsset[0].value.image
-              ?.height
-          "
-          :quality="80"
         >
           <div></div>
           <v-card-metadata
@@ -96,6 +88,33 @@ watch(relatedLinksArr.value, (val) => {
             :showComments="false"
           />
         </v-card>
+        <!-- gallery page -->
+        <v-card
+          v-else-if="
+            slotProps.article.type === 'cms_page' &&
+            slotProps.article.article.data.value.meta.type ===
+              'gallery.GalleryPage'
+          "
+          class="mod-horizontal mod-left mod-small mb-0"
+          :image="
+            useImageUrl(
+              slotProps.article.article.data.value.slides[0].value.slideImage
+                .image
+            )
+          "
+          :title="
+            slotProps.article.titleOverride ||
+            slotProps.article.article.data.value.listingTitle ||
+            slotProps.article.article.data.value.title
+          "
+          :titleLink="slotProps.article.article.data.value.url"
+        >
+          <div></div>
+          <v-card-metadata
+            :article="slotProps.article.article.data.value"
+            :showComments="false"
+        /></v-card>
+        <!-- external link -->
         <v-card
           v-else-if="slotProps.article.type === 'external_link'"
           class="mod-horizontal mod-left mod-small mb-0"
