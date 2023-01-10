@@ -1,0 +1,605 @@
+{
+    "meta": {
+        "total_count": 137062
+    },
+    "items": [
+        {
+            "id": 151262,
+            "meta": {
+                "first_published_at": "2022-12-13T15:44:31.352300-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151262/",
+                "html_url": "http://cms.prod.nypr.digital/news/byline-debugging-doug-gordon/",
+                "slug": "byline-debugging-doug-gordon"
+            },
+            "title": "Byline debugging - Doug Gordon",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "74c26bb4-30b6-40ec-b149-0a9c0df6810a",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/byline-debugging-doug-gordon",
+            "publication_date": "2022-12-13T15:44:31.352300-05:00",
+            "updated_date": null,
+            "description": "",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329929,
+                            "title": "cute-dog.jpg",
+                            "width": 5031,
+                            "height": 3179,
+                            "created_at": "2022-08-03T22:43:08.403206-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2307557,
+                            "file_hash": "e4df1a48ef1b60300c6b7d2716f6227739766344",
+                            "alt": "cute dog",
+                            "caption": "",
+                            "credit": "Unsplash",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/rebecca-campbell-w40Eig2e4Qg-unsplash.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 83
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "6aa6e8e1-1b2c-43d4-a635-e51e1f0b9dcf"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 487,
+                    "first_name": "Doug",
+                    "last_name": "Gordon",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "doug-gordon"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "test",
+                    "slug": "test"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151261,
+            "meta": {
+                "first_published_at": "2022-12-13T13:53:36.508249-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151261/",
+                "html_url": "http://cms.prod.nypr.digital/news/december-test-tae-yoon/",
+                "slug": "december-test-tae-yoon"
+            },
+            "title": "December Test - Tae Yoon",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "75679ccc-4d7c-42c5-9fa0-39afc2704229",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/december-test-tae-yoon",
+            "publication_date": "2022-12-13T13:53:36.508249-05:00",
+            "updated_date": null,
+            "description": "Author byline issue test",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329924,
+                            "title": "tennis.jpg",
+                            "width": 2047,
+                            "height": 1536,
+                            "created_at": "2022-03-25T09:13:07.035782-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1222532,
+                            "file_hash": "50a28eb7feaff05725d908d41172ffeeb8064c82",
+                            "alt": "tennis courts in Queens",
+                            "caption": "",
+                            "credit": "Shalom Stavsky",
+                            "credit_link": "https://flickr.com/photos/shalomstavsky/51958393791/in/pool-gothamist/",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/tennis.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "559fa49d-f165-4c91-bd5d-dd91cb359f9d"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 229,
+                    "first_name": "Tae",
+                    "last_name": "Yoon",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "tae-yoon"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "test",
+                    "slug": "test"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151260,
+            "meta": {
+                "first_published_at": "2022-12-13T13:20:54.173165-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151260/",
+                "html_url": "http://cms.prod.nypr.digital/news/another-december-test-article-annie-nova/",
+                "slug": "another-december-test-article-annie-nova"
+            },
+            "title": "Another December Test Article - Annie Nova",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "449eeaee-56a7-4f7c-83ff-eb17e5197a30",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/another-december-test-article-annie-nova",
+            "publication_date": "2022-12-13T13:20:54.173165-05:00",
+            "updated_date": null,
+            "description": "",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329928,
+                            "title": "dogs.jpg",
+                            "width": 4183,
+                            "height": 2793,
+                            "created_at": "2022-08-03T22:39:54.650187-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1264164,
+                            "file_hash": "1dd1905a2fbaba120c455080907e77d2b4893cdf",
+                            "alt": "dogs",
+                            "caption": "Unsplash",
+                            "credit": "",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/alvan-nee-73flblFUksY-unsplash.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 83
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "b980d783-7e78-4612-900d-2a6ef0af2bf5"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 204,
+                    "first_name": "Annie",
+                    "last_name": "Nova",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "annie-nova"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "test",
+                    "slug": "test"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151259,
+            "meta": {
+                "first_published_at": "2022-12-13T12:59:26.688886-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151259/",
+                "html_url": "http://cms.prod.nypr.digital/news/december-test-article/",
+                "slug": "december-test-article"
+            },
+            "title": "December Test Article",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "643d9dd4-84df-40f2-a9dc-efe2ed9fd5d6",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/december-test-article",
+            "publication_date": "2022-12-13T12:59:26.688886-05:00",
+            "updated_date": null,
+            "description": "1 2 3",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329914,
+                            "title": "US District Court_DO NOT REUSE_shutterstock_2060911532.jpg",
+                            "width": 6016,
+                            "height": 4000,
+                            "created_at": "2022-03-24T12:37:59.381870-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 16868520,
+                            "file_hash": "920363f90bd8211e9356b2a1e83e789163495a4b",
+                            "alt": "U.S. District Court of the Eastern District of New York in Brooklyn.",
+                            "caption": "U.S. District Court of the Eastern District of New York in Brooklyn.",
+                            "credit": "Ameer Mussard-Afcari via Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/US_District_Court_DO_NOT_REUSE_shutterstock_2060911532.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 106
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "d20b2e44-acc5-46ea-9d70-eaf551aca418"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 425,
+                    "first_name": "Ben",
+                    "last_name": "Muessig",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "ben-muessig"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "test",
+                    "slug": "test"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151258,
+            "meta": {
+                "first_published_at": "2022-12-13T12:43:39.448242-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151258/",
+                "html_url": "http://cms.prod.nypr.digital/news/test-article-1-aurora-ferrer/",
+                "slug": "test-article-1-aurora-ferrer"
+            },
+            "title": "Test Article 1 - Aurora Ferrer",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "5f6eb194-48dd-4ded-a562-8d0c9db1c52a",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/test-article-1-aurora-ferrer",
+            "publication_date": "2022-12-13T12:43:39.448242-05:00",
+            "updated_date": null,
+            "description": "",
+            "lead_asset": [],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 46,
+                    "first_name": "Aurora",
+                    "last_name": "Ferrer ",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "aurora-ferrer"
+                }
+            ],
+            "tags": [],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151257,
+            "meta": {
+                "first_published_at": "2022-12-13T12:13:46.237348-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151257/",
+                "html_url": "http://cms.prod.nypr.digital/news/yet-another-test-article/",
+                "slug": "yet-another-test-article"
+            },
+            "title": "Yet Another Test Article",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "06108539-69de-462d-ab21-53be12949f52",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/yet-another-test-article",
+            "publication_date": "2022-12-13T12:13:46.237348-05:00",
+            "updated_date": null,
+            "description": "Bagels",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329927,
+                            "title": "bagel-zone.jpg",
+                            "width": 6000,
+                            "height": 4000,
+                            "created_at": "2022-08-03T22:31:05.887974-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 4530217,
+                            "file_hash": "635db857231480d4ea6a85801819ad7a29cbb18f",
+                            "alt": "bagel zone",
+                            "caption": "",
+                            "credit": "",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/ryan-darin-viqQ-eDLRVI-unsplash.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 83
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "90138265-3f2c-4958-b8a8-dc3067cabb70"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 173,
+                    "first_name": "Rebeca",
+                    "last_name": "Ibarra",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "rebeca-ibarra"
+                },
+                {
+                    "id": 371,
+                    "first_name": "Sophie",
+                    "last_name": "Kleeman",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "sophie-kleeman"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "bagels",
+                    "slug": "bagels"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        }
+    ]
+}

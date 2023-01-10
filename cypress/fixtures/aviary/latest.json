@@ -1,0 +1,720 @@
+{
+    "meta": {
+        "total_count": 139750
+    },
+    "items": [
+        {
+            "id": 154111,
+            "meta": {
+                "first_published_at": "2023-01-10T16:18:29.851275-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154111/",
+                "html_url": "http://cms.prod.nypr.digital/news/oculus-transportation-hub-evacuated-after-suspicious-package-alert-in-lower-manhattan/",
+                "slug": "oculus-transportation-hub-evacuated-after-suspicious-package-alert-in-lower-manhattan"
+            },
+            "title": "Oculus transportation hub evacuated after suspicious package alert in Lower Manhattan",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "38d2198b-7206-42d3-a8f8-5caf7939395b",
+            "url": "https://gothamist.com/news/oculus-transportation-hub-evacuated-after-suspicious-package-alert-in-lower-manhattan",
+            "publication_date": "2023-01-10T16:18:00-05:00",
+            "updated_date": null,
+            "description": "PATH trains resumed service shortly after 4 p.m. with delays, officials said.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 336036,
+                            "title": "Oculus",
+                            "width": 2048,
+                            "height": 1536,
+                            "created_at": "2023-01-10T16:29:52.196818-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 183288,
+                            "file_hash": "95d2c9dcb0dba877aa09d30f7e7d878ddc665ef5",
+                            "alt": "The call came in around 2:15 p.m. and led to PATH train service suspensions as well as the evacuation of the Oculus transportation hub at the World Trade Center, police said.",
+                            "caption": "The call came in around 2:15 p.m. and led to PATH train service suspensions as well as the evacuation of the Oculus transportation hub at the World Trade Center, police said.",
+                            "credit": "Janon Fisher",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/PXL_20230110_212946013_exported_1369_1673386201822.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 129
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "bcc2d9e8-c06d-49a5-a15c-04e0f482cb91"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 150887,
+                    "first_name": "Phil",
+                    "last_name": "Corso",
+                    "photo": 334535,
+                    "job_title": "News Editor",
+                    "biography": "Phil Corso is the evening news editor at WNYC/Gothamist.",
+                    "website": "",
+                    "email": "pcorso@nypublicradio.org",
+                    "slug": "phil-corso"
+                },
+                {
+                    "id": 151052,
+                    "first_name": "Janon",
+                    "last_name": "Fisher",
+                    "job_title": "Reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "janon-fisher"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154110,
+            "meta": {
+                "first_published_at": "2023-01-10T16:09:10.212229-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154110/",
+                "html_url": "http://cms.prod.nypr.digital/news/extra-extra-extreme-weather-events-are-very-expensive-to-clean-up-after/",
+                "slug": "extra-extra-extreme-weather-events-are-very-expensive-to-clean-up-after"
+            },
+            "title": "Extra Extra: Extreme weather events are very expensive to clean up after",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "dd02ba44-320b-4705-8d25-71ac628fb437",
+            "url": "https://gothamist.com/news/extra-extra-extreme-weather-events-are-very-expensive-to-clean-up-after",
+            "publication_date": "2023-01-10T16:09:10.212229-05:00",
+            "updated_date": null,
+            "description": "Because climate change is making it worse, here are your end-of-day links: Asian New Yorkers voting Republican, made-up job titles, they're trying to bring gelatin back and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 336034,
+                            "title": "riv.jpg",
+                            "width": 2048,
+                            "height": 1360,
+                            "created_at": "2023-01-10T15:54:11.648463-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 659307,
+                            "file_hash": "a1ab177cdd65e6150da5e6981d7d6d0117a22020",
+                            "alt": "no people or cars in front of a Riverside Drive apartment building",
+                            "caption": "",
+                            "credit": "BMerrillGarcia",
+                            "credit_link": "https://flickr.com/photos/93470530@N03/52618122019/in/pool-gothamist/",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/riv.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "32184722-840b-4d43-8e1a-ec70e3c68bf7"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 35,
+                    "first_name": "James",
+                    "last_name": "Ramsay",
+                    "photo": 327650,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "james-ramsay"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "extra extra",
+                    "slug": "extra-extra"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154109,
+            "meta": {
+                "first_published_at": "2023-01-10T16:01:24.557045-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154109/",
+                "html_url": "http://cms.prod.nypr.digital/news/hochul-punts-on-new-mta-revenue-source-amid-threat-of-big-fare-hikes/",
+                "slug": "hochul-punts-on-new-mta-revenue-source-amid-threat-of-big-fare-hikes"
+            },
+            "title": "Hochul punts on new MTA revenue source amid threat of big fare hikes",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "f6e23713-ae2f-42c1-8d90-8a43c7b7445c",
+            "url": "https://gothamist.com/news/hochul-punts-on-new-mta-revenue-source-amid-threat-of-big-fare-hikes",
+            "publication_date": "2023-01-10T16:01:00-05:00",
+            "updated_date": "2023-01-10T16:15:00-05:00",
+            "description": "The governor’s office said additional funding details for the MTA will be revealed in her executive budget due Feb. 1.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 336031,
+                            "title": "52000924953_83d4c0fb9a_o.jpg",
+                            "width": 4625,
+                            "height": 3393,
+                            "created_at": "2023-01-10T14:36:00.396652-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2036843,
+                            "file_hash": "35cf1f86d54e6c2dcca48cd3c021623c5dd0d740",
+                            "alt": "Gov. Hochul and MTA Chairman Janno Lieber ride the subway.",
+                            "caption": "Gov. Kathy Hochul  needs to find new funding for the MTA or else the agency's Chairman Janno Lieber must cut mass transit service.",
+                            "credit": "Marc A. Hermann/MTA",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/52000924953_83d4c0fb9a_o.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 139
+                        },
+                        "caption": "Gov. Kathy Hochul (center) needs to find new funding for the MTA or else the agency's Chairman Janno Lieber (right) must cut mass transit service.",
+                        "image_link": ""
+                    },
+                    "id": "ad0523ac-4517-4761-8693-639268a23751"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 29,
+                    "first_name": "Stephen",
+                    "last_name": "Nessen",
+                    "photo": 327485,
+                    "job_title": "Transportation Reporter",
+                    "biography": "Stephen Nessen covers transportation. Since 2008 he has reported on everything from Occupy Wall Street, the rebuilding of the World Trade Center site, Hurricane Sandy, to Trump’s campaign for president. His transportation reporting has taken him everywhere from the MTA’s secret Rail Control Center to the gleaming subways of Seoul.",
+                    "website": "",
+                    "email": "snessen@wnyc.org",
+                    "slug": "stephen-nessen"
+                },
+                {
+                    "id": 153522,
+                    "first_name": "Clayton",
+                    "last_name": "Guse",
+                    "job_title": "Assistant Editor, NYC Accountability",
+                    "biography": "",
+                    "website": "",
+                    "email": "cguse@nypublicradio.org",
+                    "slug": "clayton-guse"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "MTA",
+                    "slug": "mta"
+                },
+                {
+                    "name": "transportation",
+                    "slug": "transportation"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "state of the state",
+                    "slug": "state-of-the-state"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154108,
+            "meta": {
+                "first_published_at": "2023-01-10T14:53:28.509057-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154108/",
+                "html_url": "http://cms.prod.nypr.digital/news/gov-murphy-proposes-ending-njs-cap-on-liquor-licenses-for-a-single-town/",
+                "slug": "gov-murphy-proposes-ending-njs-cap-on-liquor-licenses-for-a-single-town"
+            },
+            "title": "Gov. Murphy proposes ending NJ's cap on liquor licenses for a single town",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "b8804a5b-5a5e-40e0-ba71-0a00b320f4d9",
+            "url": "https://gothamist.com/news/gov-murphy-proposes-ending-njs-cap-on-liquor-licenses-for-a-single-town",
+            "publication_date": "2023-01-10T14:53:00-05:00",
+            "updated_date": "2023-01-10T16:34:00-05:00",
+            "description": "Right now, a town can only award one license per 3,000 residents. Liquor licenses go for more than $1 million in some communities",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 336032,
+                            "title": "Capture.JPG",
+                            "width": 3149,
+                            "height": 1780,
+                            "created_at": "2023-01-10T14:40:53.901390-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 351718,
+                            "file_hash": "02285afc5a37a5143d7edc9ef556443309b02789",
+                            "alt": "New Jersey Gov. Phil Murphy delivers his State of the State address for 2023, the first such address live at the Statehouse in three years because of the coronavirus pandemic.",
+                            "caption": "New Jersey Gov. Phil Murphy delivers his State of the State address for 2023, the first such address delivered live at the State House in three years because of the coronavirus pandemic.",
+                            "credit": "From video stream by New Jersey Gov. Phil Murphy's Office",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Capture_JL4pHwd.JPG",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 134
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "db20d817-8b3b-4e16-bbf0-d410120d7521"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 152305,
+                    "first_name": "Louis C.",
+                    "last_name": "Hochman",
+                    "photo": 332883,
+                    "job_title": "New Jersey & Suburbs Editor",
+                    "biography": "After about two decades in (mostly) New Jersey-focused commercial print, digital and digital-but-radio-adjacent news, Lou stumbled into member-supported news in early 2021, as the editor and CEO of Montclair Local. There, he (hopes he) expanded enterprise, brought more sophistication to digital storytelling and moved the nonprofit newsroom closer to long-term financial sustainability. He helped lead the Local to its fourth consecutive General Excellence award from the New Jersey Press Association — the NJPA's highest honor  with judges noting the paper's work to strip away layers of government opacity, to hold power to account, to make news accessible for more members of the community, to share the stories and concerns of more facets of the community and to tell compelling stories across multiple media.\r\n\r\nHe's excited to continue the same ethic — news as a public service — at NYPR as the New Jersey and suburbs editor, drawing on the extraordinary talents of reporters including Karen Yi and Nancy Solomon. Lou lives in Philly (that commute!) with his partner and their two cats, about whom and about which he speaks incessantly.",
+                    "website": "",
+                    "email": "",
+                    "slug": "louis-c-hochman"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "new jersey",
+                    "slug": "new-jersey"
+                },
+                {
+                    "name": "economy",
+                    "slug": "economy"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154107,
+            "meta": {
+                "first_published_at": "2023-01-10T14:27:58.799172-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154107/",
+                "html_url": "http://cms.prod.nypr.digital/news/nyc-nurses-strike-day-2-montefiore-makes-staffing-offers-while-mount-sinai-leaders-stay-quiet/",
+                "slug": "nyc-nurses-strike-day-2-montefiore-makes-staffing-offers-while-mount-sinai-leaders-stay-quiet"
+            },
+            "title": "NYC nurses' strike day 2: Montefiore makes staffing offers, while Mount Sinai leaders stay quiet",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "0169f6bd-6179-4864-9492-469db09698ad",
+            "url": "https://gothamist.com/news/nyc-nurses-strike-day-2-montefiore-makes-staffing-offers-while-mount-sinai-leaders-stay-quiet",
+            "publication_date": "2023-01-10T14:27:58.799172-05:00",
+            "updated_date": null,
+            "description": "Montefiore representatives said the hospital had put new offers on the table in an effort to reach a contract agreement with the New York State Nurses Association.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 336029,
+                            "title": "nurse strike_GettyImages-1246117059.jpg",
+                            "width": 5112,
+                            "height": 3810,
+                            "created_at": "2023-01-10T13:47:23.381258-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 13215090,
+                            "file_hash": "400d3306798feee81668f3aecfb6cbf182f2e92c",
+                            "alt": "More than 7,000 nurses from Mount Sinai Hospital and at three locations of the Bronx's Montefiore Medical Center go on strike Jan. 9, 2023.",
+                            "caption": "More than 7,000 nurses from Mount Sinai Hospital and at three locations of the Bronx's Montefiore Medical Center went on strike on Jan. 9, 2023.",
+                            "credit": "Selcuk Acar/Anadolu Agency via Getty Images",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/nurse_strike_GettyImages-1246117059.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 106
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "aa96a3c9-df7e-4446-a0bf-ef537ba4184d"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 22,
+                    "first_name": "Caroline",
+                    "last_name": "Lewis",
+                    "photo": 334520,
+                    "job_title": "Health Reporter",
+                    "biography": "Caroline Lewis is on the health care beat for WNYC and Gothamist — and also covers cannabis, both with an eye towards equity and accountability. She was previously a health care reporter for Crain’s New York Business. Lewis has a degree from the CUNY Graduate School of Journalism and is a native New Yorker, although she has left occasionally. She did a Fulbright in Chile in 2011 and is fluent in Spanish. She now resides in Brooklyn.",
+                    "website": "",
+                    "email": "",
+                    "slug": "caroline-lewis"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Health and Science",
+                    "slug": "health-and-science"
+                },
+                {
+                    "name": "Nurses Strike 2023",
+                    "slug": "nurses-strike-2023"
+                },
+                {
+                    "name": "health care",
+                    "slug": "health-care"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154102,
+            "meta": {
+                "first_published_at": "2023-01-10T13:48:56.649403-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154102/",
+                "html_url": "http://cms.prod.nypr.digital/news/gov-hochul-proposes-town-by-town-housing-production-targets-to-boost-development/",
+                "slug": "gov-hochul-proposes-town-by-town-housing-production-targets-to-boost-development"
+            },
+            "title": "Gov. Hochul proposes town-by-town housing production targets to boost development",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "c2e55596-5327-454d-bbaf-d81edbe53f61",
+            "url": "https://gothamist.com/news/gov-hochul-proposes-town-by-town-housing-production-targets-to-boost-development",
+            "publication_date": "2023-01-10T13:48:00-05:00",
+            "updated_date": "2023-01-10T14:08:00-05:00",
+            "description": "Hochul released details of a plan to supercharge housing production, including targets for every municipality in the state.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 336023,
+                            "title": "GettyImages-1244526727.jpg",
+                            "width": 5500,
+                            "height": 3667,
+                            "created_at": "2023-01-10T11:39:33.469365-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 8278885,
+                            "file_hash": "6aef2d3788ad39ff800a02184276370603207593",
+                            "alt": "A profile of Gov. Kathy Hochul against of backdrop of the New York state seal",
+                            "caption": "Both Gov. Kathy Hochul and Mayor Eric Adams have made spurring housing development a key goal of their terms.",
+                            "credit": "David Dee Delgado/Getty Images",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/GettyImages-1244526727.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 138
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "3026d5ed-dd76-4d54-b6a5-532d182cc9f7"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 212,
+                    "first_name": "David",
+                    "last_name": "Brand",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "david-brand"
+                }
+            ],
+            "tags": [
+                {
+                    "name": "homeless",
+                    "slug": "homeless"
+                },
+                {
+                    "name": "eric adams",
+                    "slug": "eric-adams"
+                },
+                {
+                    "name": "state of the state",
+                    "slug": "state-of-the-state"
+                },
+                {
+                    "name": "economy",
+                    "slug": "economy"
+                },
+                {
+                    "name": "housing",
+                    "slug": "housing"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "Kathy Hochul",
+                    "slug": "kathy-hochul"
+                },
+                {
+                    "name": "new york state",
+                    "slug": "new-york-state"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        }
+    ]
+}
