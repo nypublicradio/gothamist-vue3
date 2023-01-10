@@ -224,24 +224,26 @@ watch(leaderboardAdToWatch.height, (height) => {
           slot="htlad-gothamist_interior_leaderboard_1"
         />
       </div>
-      <HeaderScrollTrigger :isHidden="isArticlePage">
+      <main class="main">
+        <HeaderScrollTrigger :isHidden="isArticlePage">
+          <GothamistMainHeader
+            class="fixed-header"
+            :navigation="navigation"
+            :isMinimized="true"
+            isFixed
+            :donateUrlBase="config.donateUrlBase"
+            utmCampaign="homepage-header"
+          />
+        </HeaderScrollTrigger>
         <GothamistMainHeader
-          class="fixed-header"
           :navigation="navigation"
-          :isMinimized="true"
-          isFixed
+          :isMinimized="route.name !== 'index'"
           :donateUrlBase="config.donateUrlBase"
           utmCampaign="homepage-header"
         />
-      </HeaderScrollTrigger>
-      <GothamistMainHeader
-        :navigation="navigation"
-        :isMinimized="route.name !== 'index'"
-        :donateUrlBase="config.donateUrlBase"
-        utmCampaign="homepage-header"
-      />
-      <main class="main">
-        <slot />
+        <div class="default-slot-holder">
+          <slot />
+        </div>
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
@@ -303,6 +305,15 @@ watch(leaderboardAdToWatch.height, (height) => {
   @include media('>=md') {
     min-height: 92px;
     padding: 1px 0;
+  }
+}
+
+.main {
+  @include page-top-gradient;
+}
+.sectionSlug-photos-gallerySlug {
+  .main {
+    background: none;
   }
 }
 

@@ -177,14 +177,14 @@ const showMarketingBanner = computed(() => {
                 loading="eager"
                 :image="useImageUrl(topImage)"
                 :imageUrl="article.imageLink"
-                :width="728"
-                :height="485"
+                :width="700"
+                :height="467"
                 :alt-text="topImage?.alt"
                 :maxWidth="topImage?.width"
                 :maxHeight="topImage?.height"
                 :credit="topImage?.credit"
                 :credit-url="topImage?.creditLink"
-                :sizes="[2]"
+                :sizes="[1]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
               />
@@ -277,12 +277,6 @@ const showMarketingBanner = computed(() => {
 
 <style lang="scss">
 .page.sectionSlug-articleSlug {
-  background: linear-gradient(
-    180deg,
-    #f3f3e4 0,
-    rgba(255, 255, 255, 0) 720px,
-    rgba(255, 255, 255, 0) 100%
-  );
   .v-tag .p-button {
     background: transparent;
     &:hover {
