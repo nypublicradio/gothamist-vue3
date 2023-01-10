@@ -227,13 +227,12 @@ const showMarketingBanner = computed(() => {
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col overflow-hidden article-column">
-            <RelatedLinks :article="article" class="below-body" />
             <v-streamfield
               class="article-body"
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
-
+            <RelatedLinks :article="article" class="below-body" />
             <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"
               class="below-body"
