@@ -147,6 +147,7 @@ export function normalizeSearchResults(results: Record<string, any>): ArticlePag
 
         // for comments
         disableComments: results.result.disableComments,
+        commentId: String(results.result.legacyId || results.result.uuid)
     }
 }
 
