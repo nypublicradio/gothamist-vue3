@@ -75,6 +75,11 @@ onBeforeUnmount(() => {
   .v-card.mod-small .image-with-caption {
     width: var(--img-width-mobile) !important;
   }
+  @include media('<sm') {
+    .v-card.mod-small .image-with-caption {
+      width: 66px !important;
+    }
+  }
   &.mobile {
     position: relative;
     @include media('<xl') {

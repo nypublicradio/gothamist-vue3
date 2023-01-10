@@ -12,6 +12,12 @@ const props = defineProps({
 })
 const relatedLinks = ref(null)
 const relatedLinksArr = ref([])
+const theLimit = ref(
+  props.article.relatedLinks.length < props.limit
+    ? props.article.relatedLinks.length
+    : props.limit
+)
+
 const pushArticleDataToArray = async (item) => {
   // get article data by id
   const articleData = await useAviary(`pages/${item.value.page}`)
@@ -34,7 +40,7 @@ const pushLinkDataToArray = (item) => {
   //console.log('relatedLinksArr = ', relatedLinksArr.value)
 }
 
-props.article.relatedLinks.slice(0, props.limit).map(async (item, index) => {
+props.article.relatedLinks.slice(0, theLimit.value).map(async (item, index) => {
   if (item.type === 'cms_page') {
     await pushArticleDataToArray(item)
   } else if (item.type === 'external_link') {
@@ -43,59 +49,63 @@ props.article.relatedLinks.slice(0, props.limit).map(async (item, index) => {
 })
 
 watch(relatedLinksArr.value, (val) => {
-  if (val.length === props.limit) {
+  if (val.length === theLimit.value) {
     relatedLinks.value = val
-    //console.log('relatedLinks.value = ', relatedLinks.value)
   }
 })
 </script>
 
 <template>
-  <div v-if="relatedLinks" class="related-links mb-7">
-    <hr class="black mb-2" />
-    <div class="type-label3 mb-4">Related stories</div>
-    <horizontal-drag :articles="relatedLinks" v-slot="slotProps">
-      <v-card
-        v-if="slotProps.article.type === 'cms_page'"
-        class="mod-horizontal mod-left mod-small mb-0"
-        :image="
-          useImageUrl(
+  <div>
+    <div v-if="relatedLinks" class="related-links mb-7">
+      <hr class="black mb-2" />
+      <div class="type-label3 mb-4">Related stories</div>
+      <horizontal-drag :articles="relatedLinks" v-slot="slotProps">
+        <v-card
+          v-if="
+            slotProps.article.type === 'cms_page' &&
+            !slotProps.article.article.data.value.slides
+          "
+          class="mod-horizontal mod-left mod-small mb-0"
+          :image="
+            useImageUrl(
+              slotProps.article.article.data.value.leadAsset[0].value.image
+            )
+          "
+          :width="106"
+          :height="70"
+          :sizes="[2]"
+          :title="
+            slotProps.article.titleOverride ||
+            slotProps.article.article.data.value.listingTitle ||
+            slotProps.article.article.data.value.title
+          "
+          :titleLink="slotProps.article.article.data.value.meta.slug"
+          :maxWidth="
+            slotProps.article.article.data.value.leadAsset[0].value.image?.width
+          "
+          :maxHeight="
             slotProps.article.article.data.value.leadAsset[0].value.image
-          )
-        "
-        :width="106"
-        :height="70"
-        :sizes="[2]"
-        :title="
-          slotProps.article.titleOverride ||
-          slotProps.article.article.data.value.listingTitle ||
-          slotProps.article.article.data.value.title
-        "
-        :titleLink="slotProps.article.article.data.value.meta.slug"
-        :maxWidth="
-          slotProps.article.article.data.value.leadAsset[0].value.image?.width
-        "
-        :maxHeight="
-          slotProps.article.article.data.value.leadAsset[0].value.image?.height
-        "
-        :quality="80"
-      >
-        <div></div>
-        <v-card-metadata
-          :article="slotProps.article.article.data.value"
-          :showComments="false"
-        />
-      </v-card>
-      <v-card
-        v-else-if="slotProps.article.type === 'external_link'"
-        class="mod-horizontal mod-left mod-small mb-0"
-        :image="useImageUrl(slotProps.article.image)"
-        :title="slotProps.article.titleOverride"
-        :titleLink="slotProps.article.url"
-      >
-      </v-card>
-      <div v-else>we dont know</div>
-    </horizontal-drag>
+              ?.height
+          "
+          :quality="80"
+        >
+          <div></div>
+          <v-card-metadata
+            :article="slotProps.article.article.data.value"
+            :showComments="false"
+          />
+        </v-card>
+        <v-card
+          v-else-if="slotProps.article.type === 'external_link'"
+          class="mod-horizontal mod-left mod-small mb-0"
+          :image="useImageUrl(slotProps.article.image)"
+          :title="slotProps.article.titleOverride"
+          :titleLink="slotProps.article.url"
+        >
+        </v-card>
+      </horizontal-drag>
+    </div>
   </div>
 </template>
 
