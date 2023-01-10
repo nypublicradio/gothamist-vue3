@@ -39,6 +39,10 @@ const newsletterSubmitEvent = () => {
     event_label: 'Newsletter',
   })
 }
+
+useHead({
+  title: `${sectionTitle} | Gothamist | News For New Yorkers`
+})
 </script>
 
 <template>
