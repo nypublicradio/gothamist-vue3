@@ -40,8 +40,10 @@ const newsletterSubmitEvent = () => {
   })
 }
 
+const pageTitle = `${sectionTitle} | Gothamist | News For New Yorkers`
 useHead({
-  title: `${sectionTitle} | Gothamist | News For New Yorkers`
+  title: pageTitle,
+  meta: [{ property: 'og:title', content: pageTitle}]
 })
 </script>
 
