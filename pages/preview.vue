@@ -6,7 +6,6 @@ import { usePreviewData } from '~/composables/states'
 
 const config = useRuntimeConfig()
 const route = useRoute()
-const router = useRouter()
 const previewData = usePreviewData()
 
 const identifier = route.query.identifier
@@ -35,13 +34,11 @@ const handlePreviewData = () => {
 watch(previewData, (res) => {
   switch (fetchData.value.meta.type) {
     case 'news.ArticlePage':
-      router.push(
+      return navigateTo(
         `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
       )
-      break
     case 'tagpages.TagPage':
-      router.push(`/tags/${identifierId}?preview=true`)
-      break
+      return navigateTo(`/tags/${identifierId}?preview=true`)
     case 'standardpages.InformationPage':
       break
     default:

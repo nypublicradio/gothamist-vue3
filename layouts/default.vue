@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getLiveStream } from '~~/composables/data/liveStream'
+import { updateLiveStream } from '~~/composables/data/liveStream'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import { useRuntimeConfig } from '#app'
 import { useElementSize } from '@vueuse/core'
@@ -33,12 +33,12 @@ const breakingNewsPromise = findBreakingNews().then(({ data }) =>
 const productBannersPromise = findProductBanners().then(({ data }) =>
   normalizeFindProductBannersResponse(data)
 )
-
 const [navigation, breakingNews, productBanners] = await Promise.all([
   navigationPromise,
   breakingNewsPromise,
   productBannersPromise,
 ])
+marketingBannerData.value = productBanners
 const isSponsored = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
@@ -51,18 +51,6 @@ const closeSidebar = () => {
 let sidebarElements = undefined
 let firstElement = undefined
 let lastElement = undefined
-
-//marketing banner data fetch
-const {
-  data: cmsData,
-  pending,
-  error,
-  refresh,
-} = await useFetch(`${config.API_URL}/system_messages/2/`, {
-  key: 'marketing-module',
-  initialCache: false,
-})
-marketingBannerData.value = cmsData.value
 
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
@@ -105,7 +93,7 @@ const trackSidebarClick = (label) => {
 }
 // load the life stream
 onBeforeMount(() => {
-  getLiveStream(currentSteamStation.value)
+  updateLiveStream(currentSteamStation.value)
 })
 onMounted(() => {
   $htlbid.init()
@@ -122,6 +110,50 @@ watch(route, (value) => {
 watch(leaderboardAdToWatch.height, (height) => {
   currentHeaderAdHeight.value = height
 })
+
+useHead({
+  script: [
+    {
+      src: `https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`,
+      async: true
+    },
+    {
+      src: `/${config.NEWRELIC_AGENT}`,
+      async: true
+    },
+    {
+      src: 'https://s.ntv.io/serve/load.js',
+      async: true,
+      'data-ntv-set-no-auto-start':''
+    },
+    {
+      src: config.HTL_JS,
+      async: true
+    },
+    {
+      children: `window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+      }(document, 'script', 'twitter-wjs'));`
+    }
+  ],
+  noscript: [{
+    children: `<iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.GTM_ID}&quot;
+    height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe>`
+  }]
+})
 </script>
 
 <template>
@@ -129,23 +161,6 @@ watch(leaderboardAdToWatch.height, (height) => {
     <Html lang="en">
       <Head>
         <Link rel="preconnect" :href="config.API_URL" />
-        <Script
-          :src="`https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`"
-          async
-        />
-        <Script
-          type="text/javascript"
-          :src="`/${config.NEWRELIC_AGENT}`"
-          async
-        />
-        <Script
-          type="text/javascript"
-          src="https://s.ntv.io/serve/load.js"
-          data-ntv-set-no-auto-start
-          async
-        />
-        <Link rel="stylesheet" :href="config.HTL_CSS" type="text/css" />
-        <Script :src="config.HTL_JS" async />
         <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
         <Meta
           name="description"
@@ -179,34 +194,8 @@ watch(leaderboardAdToWatch.height, (height) => {
       <Head v-if="isSponsored">
         <Meta name="Googlebot-News" content="noindex, nofollow" />
       </Head>
-      <Script
-        children="window.twttr = (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-          t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://platform.twitter.com/widgets.js';
-        fjs.parentNode.insertBefore(js, fjs);
-
-        t._e = [];
-        t.ready = function(f) {
-          t._e.push(f);
-        };
-
-        return t;
-      }(document, 'script', 'twitter-wjs'));"
-      />
     </Html>
 
-    <!-- Google Tag Manager (noscript) -->
-    <div
-      v-html="
-        `<noscript><iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.GTM_ID}&quot;
-    height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe></noscript>`
-      "
-    />
-    <!-- End Google Tag Manager (noscript) -->
     <div>
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div
@@ -247,14 +236,9 @@ watch(leaderboardAdToWatch.height, (height) => {
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
-      <!-- <MarketingModalSkyline
-        v-if="productBannerData.product_banners.length > 0"
-        :data="productBannerData"
-        ga-category="Giving-Tuesday-Adhesion"
-      /> -->
       <MarketingModalShirts
-        v-if="marketingBannerData.product_banners.length > 0"
-        :data="marketingBannerData"
+        v-if="productBanners.length > 0"
+        :banners="productBanners"
         ga-category="Radiolab-Shirts-Adhesion"
       />
     </div>

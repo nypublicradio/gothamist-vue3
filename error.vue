@@ -113,18 +113,25 @@ const newsletterSubmitEvent = () => {
     event_label: 'Newsletter',
   })
 }
+useHead({
+  script: [
+    {
+      src: `https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`,
+      async: true
+    },
+    {
+      src: config.HTL_JS,
+      async: true
+    },
+  ]
+})
 </script>
 <template>
   <div class="error-page">
     <Html lang="en">
       <Head>
         <Link rel="preconnect" :href="config.API_URL" />
-        <Script
-          :src="`https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`"
-          async
-        />
         <Link rel="stylesheet" :href="config.HTL_CSS" type="text/css" />
-        <Script :src="config.HTL_JS" async />
         <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
         <Meta
           name="description"

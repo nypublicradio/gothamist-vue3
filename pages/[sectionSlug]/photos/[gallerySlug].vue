@@ -11,6 +11,10 @@ const gallery = (await findPage(
   `${route.params.sectionSlug}/photos/${route.params.gallerySlug}`
 ).then(({ data }) => normalizeFindPageResponse(data))) as GalleryPage
 
+if (gallery.slides.length <= 0 && gallery.articleLink) {
+  navigateTo(gallery.articleLink, {replace: true, redirectCode: 301})
+}
+
 const shareUrl = ref(gallery.url)
 const shareTitle = ref(gallery.title)
 

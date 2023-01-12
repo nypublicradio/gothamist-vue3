@@ -1,9 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
+import ProductBanner from '~~/composables/types/ProductBanner';
 const props = defineProps({
-  data: {
-    type: Object,
-    default: null,
+  banners: {
+    type: Array,
+    default: () => [],
     required: true,
   },
   gaCategory: {
@@ -14,10 +15,10 @@ const props = defineProps({
 const emit = defineEmits(['donate-click'])
 const { $analytics } = useNuxtApp()
 
-const bannerData = ref(props.data?.product_banners[0].value)
-const title = ref(bannerData.value?.title)
-const description = bannerData.value?.description
-const buttonText = ref(bannerData.value?.button_text)
+const bannerData = ref(props.banners[0])?.value as ProductBanner
+const title = ref(bannerData.title)
+const description = bannerData.description
+const buttonText = ref(bannerData.buttonText)
 
 const onCtaClick = () => {
   //GA here
@@ -27,7 +28,7 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData.value?.button_link, '_blank')
+  window.open(bannerData.buttonLink, '_blank')
   emit('donate-click')
 }
 </script>
