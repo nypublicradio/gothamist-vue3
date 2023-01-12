@@ -58,7 +58,7 @@ watch(relatedLinksArr.value, (val) => {
 
 <template>
   <div>
-    <div v-if="relatedLinks" class="related-links mb-7">
+    <div v-if="relatedLinks" class="related-links">
       <hr class="black mb-2" />
       <div class="type-label3 mb-4">Related stories</div>
       <horizontal-drag :articles="relatedLinks" v-slot="slotProps">
