@@ -185,7 +185,7 @@ const showMarketingBanner = computed(() => {
                 :caption="topCaption"
               />
               <v-flexible-link
-                v-if="gallery"
+                v-if="galleryLength"
                 class="view-gallery-button"
                 :to="getGalleryLink"
                 raw
