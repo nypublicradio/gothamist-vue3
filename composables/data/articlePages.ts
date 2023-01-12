@@ -75,6 +75,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         sensitiveContent: article.sensitiveContent,
         provocativeContent: article.provocativeContent,
         sponsoredContent: article.sponsoredContent,
+        relatedLinks: article.relatedLinks,
         tags: article.tags,
         url: article.url,
         uuid: article.uuid,

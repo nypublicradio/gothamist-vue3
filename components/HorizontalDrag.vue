@@ -15,9 +15,9 @@ const props = defineProps({
 const dragContentRef = ref(null)
 const dragBoundsRef = ref(null)
 const isMobile = ref(false)
-const unitMinWidth = 320
-const toDragWidth = unitMinWidth * props.articles.length
-const toDragWidthPx = toDragWidth + 'px'
+const unitMinWidth = 310
+const toDragWidth = ref(unitMinWidth * props.articles.length)
+const toDragWidthPx = ref(toDragWidth.value + 'px')
 
 onMounted(() => {
   // draggable setup
@@ -74,6 +74,11 @@ onBeforeUnmount(() => {
   // overwrite image size here from base rule for this components v-cards
   .v-card.mod-small .image-with-caption {
     width: var(--img-width-mobile) !important;
+  }
+  @include media('<sm') {
+    .v-card.mod-small .image-with-caption {
+      width: 66px !important;
+    }
   }
   &.mobile {
     position: relative;

@@ -5,7 +5,7 @@ import { Page, ArticlePage, TagPage, InformationPage } from "../types/Page"
 
 export async function findPage(htmlPath: string) {
     const params = { html_path: htmlPath }
-    return await useAviary('/pages/find', {params})
+    return await useAviary('/pages/find', { params })
 }
 
 // Get a page by it's cms id

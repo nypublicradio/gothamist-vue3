@@ -7,7 +7,6 @@ import ArticleDonationMarketingBottomCTA from '~/components/marketing-banners/Ar
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-
 /* preview */
 import {
   usePreviewData,
@@ -228,6 +227,7 @@ const showMarketingBanner = computed(() => {
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
+            <RelatedLinks :article="article" class="below-body" />
             <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"
               class="below-body"
