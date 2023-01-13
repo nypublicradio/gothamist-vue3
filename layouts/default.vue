@@ -118,10 +118,6 @@ useHead({
       async: true
     },
     {
-      src: `/${config.NEWRELIC_AGENT}`,
-      async: true
-    },
-    {
       src: 'https://s.ntv.io/serve/load.js',
       async: true,
       'data-ntv-set-no-auto-start':''
