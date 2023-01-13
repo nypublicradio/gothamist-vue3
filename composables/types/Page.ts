@@ -10,6 +10,17 @@ export interface Page {
     id: number;
     title: string;
     uuid: string;
+
+    listingTitle: string;
+    listingDescription: string;
+    listingImage: Image;
+
+    socialTitle: string;
+    socialDescription: string;
+    socialImage: Image;
+
+    seoTitle?: string;
+    searchDescription?: string;
 }
 
 export interface ArticlePage extends Page {
@@ -41,17 +52,6 @@ export interface ArticlePage extends Page {
     relatedAuthors?: Author[],
     contributingOrganizations: ContributingOrganization[],
     sponsors: Sponsor[],
-
-    listingTitle: string;
-    listingDescription: string;
-    listingImage: Image;
-
-    socialTitle: string;
-    socialDescription: string;
-    socialImage: Image;
-
-    seoTitle?: string;
-    searchDescription?: string;
 
     disableComments?: string;
     commentId: string;
