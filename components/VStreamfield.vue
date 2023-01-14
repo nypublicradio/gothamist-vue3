@@ -76,6 +76,13 @@ function countMountedBlock() {
         :block="block"
         @vue:mounted="countMountedBlock"
       />
+
+      <StreamfieldFactbox
+        v-else-if="block.type === 'factbox'"
+        :key="`${block.id}-factbox`"
+        :block="block"
+        @vue:mounted="countMountedBlock"
+      />
     </template>
   </div>
 </template>

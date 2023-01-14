@@ -22,31 +22,56 @@ export type ContentCollectionBlock = {
 export type EmbedBlock = {
     id: string;
     type: 'embed';
-    value: { embed: string }; 
+    value: { embed: string };
 }
 
 export type HeadingBlock = {
     id: string;
     type: 'heading';
-    value: string;  
+    value: string;
 }
 
 export type ImageBlock = {
     id: string;
     type: 'image';
-    value: { image: Image, caption: string };  
+    value: { heading: string, image: Image };
 }
 
 export type ParagraphBlock = {
     id: string;
     type: 'paragraph';
-    value: string;  
+    value: string;
 }
 
 export type PullQuoteBlock = {
     id: string;
     type: 'pull_quote';
-    value: { pullQuote: string, attribution: string };  
+    value: { pullQuote: string, attribution: string };
 }
 
-export type StreamfieldBlock = BlockQuoteBlock | CodeBlock | ContentCollectionBlock | EmbedBlock | HeadingBlock | ImageBlock | ParagraphBlock | PullQuoteBlock
+// Factbox blocks
+export type TextBlock = {
+    id: string;
+    type: 'text';
+    value: string;
+}
+
+export type CustomListBlock = {
+    id: string;
+    type: 'custom_list';
+    value: { listItemLabel: string, listItemText: string }[];
+}
+
+export type FactboxBodyBlock = TextBlock | CustomListBlock
+
+export type FactboxBlock = {
+    id: string;
+    type: 'factbox';
+    value: {
+        heading: string,
+        image: { image: Image, caption: string },
+        caption: string, body: FactboxBodyBlock[]
+    };
+}
+
+export type StreamfieldBlock = BlockQuoteBlock | CodeBlock | ContentCollectionBlock | EmbedBlock | HeadingBlock | ImageBlock | ParagraphBlock | PullQuoteBlock | FactboxBlock
