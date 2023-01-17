@@ -3,16 +3,21 @@ import { GalleryPage } from '~/composables/types/Page'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
+import { usePreviewData } from '~/composables/states'
 
+const previewData = usePreviewData()
 const route = useRoute()
 const { $analytics, $htlbid } = useNuxtApp()
+const isPreview = route.query.preview ? true : false
 
-const gallery = (await findPage(
-  `${route.params.sectionSlug}/photos/${route.params.gallerySlug}`
-).then(({ data }) => normalizeFindPageResponse(data))) as GalleryPage
+const gallery = isPreview
+  ? previewData.value.data
+  : ((await findPage(
+      `${route.params.sectionSlug}/photos/${route.params.gallerySlug}`
+    ).then(({ data }) => normalizeFindPageResponse(data))) as GalleryPage)
 
 if (gallery.slides.length <= 0 && gallery.articleLink) {
-  navigateTo(gallery.articleLink, {replace: true, redirectCode: 301})
+  navigateTo(gallery.articleLink, { replace: true, redirectCode: 301 })
 }
 
 const shareUrl = ref(gallery.url)
