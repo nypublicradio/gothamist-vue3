@@ -112,6 +112,17 @@ watch(leaderboardAdToWatch.height, (height) => {
 })
 
 useHead({
+  htmlAttrs: {
+    lang: 'en'
+  },
+  title: 'Gothamist: New York City Local News, Food, Arts & Events',
+  meta: [
+    {name: 'description', content: 'Gothamist is a non-profit local newsroom, powered by WNYC.'}
+  ],
+  link: [
+    { rel: 'stylesheet', href: config.HTL_CSS, type:'text/css' },
+    { rel: 'preconnect', href: config.API_URL }
+  ],
   script: [
     {
       src: `https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`,
@@ -150,48 +161,35 @@ useHead({
     height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe>`
   }]
 })
+if (isSponsored) {
+  useHead({
+    meta: [
+      {name: 'Googlebot-News', content:'noindex, nofollow'}
+    ]
+  })
+} else {
+  useHead({
+    meta: [
+      {property: 'og:site_name', content: 'Gothamist'},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:url', content: `https://www.gothamist.com${route.fullPath}`},
+      {property: 'og:title', content: 'Gothamist: New York City Local News, Food, Arts & Events'},
+      {property: 'og:site_name', content:'Gothamist'},
+      {property: 'og:description', content:'Gothamist is a non-profit local newsroom, powered by WNYC.'},
+      {property: 'og:image', content: config.OG_IMAGE},
+      {property: 'og:locale', content:'en_US'},
+      {property: 'og:image:width', content:'1200'},
+      {property: 'og:image:height', content:'650'},
+      {property: 'fb:app_id', content:'151261804904925'},
+      {name: 'twitter:card', content:'summary_large_image'},
+      {name: 'twitter:site', content:'@gothamist'}
+    ]
+  })
+}
 </script>
 
 <template>
   <div class="page" :class="[`${route.name as string}`]">
-    <Html lang="en">
-      <Head>
-        <Link rel="preconnect" :href="config.API_URL" />
-        <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
-        <Meta
-          name="description"
-          content="Gothamist is a non-profit local newsroom, powered by WNYC."
-        />
-      </Head>
-      <Head v-if="!isSponsored">
-        <Meta name="og:site_name" content="Gothamist" />
-        <Meta name="og:type" content="website" />
-        <Meta
-          name="og:url"
-          :content="`https://www.gothamist.com${route.fullPath}`"
-        />
-        <Meta
-          name="og:title"
-          content="Gothamist: New York City Local News, Food, Arts & Events"
-        />
-        <Meta
-          name="og:description"
-          content="Gothamist is a non-profit local newsroom, powered by WNYC."
-        />
-        <Meta name="og:image" :content="config.OG_IMAGE" />
-        <Meta name="og:locale" content="en_US" />
-        <Meta name="og:image:width" content="1200" />
-        <Meta name="og:image:height" content="650" />
-        <Meta name="fb:app_id" content="151261804904925" />
-        <Meta name="twitter:card" content="summary_large_image" />
-        <Meta name="twitter:site" content="@gothamist" />
-      </Head>
-
-      <Head v-if="isSponsored">
-        <Meta name="Googlebot-News" content="noindex, nofollow" />
-      </Head>
-    </Html>
-
     <div>
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div

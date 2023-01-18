@@ -65,6 +65,13 @@ onMounted(() => {
 onUnmounted(() => {
   $htlbid.clearTargeting({ Template: 'Staff' })
 })
+
+const authorName =  authorProfileData && authorProfileData.name || getAuthorNameFromSlug()
+const pageTitle = `Articles by ${authorName} | Gothamist`
+useHead({
+  title: pageTitle,
+  meta: [{ property: 'og:title', content: pageTitle}]
+})
 </script>
 
 <template>
