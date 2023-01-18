@@ -8,12 +8,6 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const previewData = usePreviewData()
 
-//article
-//https://gothamist-vue3demo.gothamist.com/preview?identifier=id%3D151233&token=6ca4ead4-44e2-416d-bdb6-c185bae8491a
-
-//gallery
-//https://gothamist-vue3demo.gothamist.com/preview?identifier=id%3D151237&token=ffa6c762-5766-4318-bb0c-bf27adf9671c
-
 const identifier = route.query.identifier
 const identifierId = identifier.slice(3)
 const token = route.query.token

@@ -35,6 +35,14 @@ onMounted(() => {
 onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
 })
+
+const goBack = () => {
+  // When in preview mode, and an article is not published, the gallery will not have access to its parent article slug and is just passed "null" (please see galleryPages.ts ~line: 56), so we just use the window history in this case.
+  if (!gallery.articleLink) {
+    window.history.go(-1)
+    return false
+  }
+}
 </script>
 
 <template>
@@ -117,7 +125,7 @@ onUnmounted(() => {
           </v-share-tools>
         </div>
         <div class="col-6 text-right">
-          <NuxtLink :to="gallery.articleLink">
+          <NuxtLink :to="gallery.articleLink" @click="goBack()">
             <i class="pi pi-times" />
             <span class="sr-only">Return to Article</span>
           </NuxtLink>
