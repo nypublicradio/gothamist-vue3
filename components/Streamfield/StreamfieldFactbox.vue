@@ -38,13 +38,15 @@ const caption = props.block.value.image.caption
           v-else-if="bodyBlock.type === 'custom_list'"
           class="factbox-body-table"
         >
-          <tr
-            v-for="listItem of bodyBlock.value"
-            :key="listItem.listItemLabel"
-          >
-            <th>{{ listItem.listItemLabel }}</th>
-            <td v-html="listItem.listItemText" />
-          </tr>
+          <tbody>
+            <tr
+              v-for="listItem of bodyBlock.value"
+              :key="listItem.listItemLabel"
+            >
+              <th>{{ listItem.listItemLabel }}</th>
+              <td v-html="listItem.listItemText" />
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -76,10 +78,12 @@ const caption = props.block.value.image.caption
   padding: 0 0 12px;
   font-size: var(--font-size-6);
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .factbox-heading + .factbox-body {
   border-top: 1px solid rgba(0,0,0,0.2);
+  padding-top: 10px;
 }
 
 .factbox-body-text * {
@@ -90,22 +94,44 @@ const caption = props.block.value.image.caption
 .factbox-body-text ul, .factbox-body-text ol {
   margin-bottom: 1rem;
 }
-
-.factbox-body-text li {
+.factbox-body-text ul li {
   padding: 0;
   line-height: 1.4;
+}
+.factbox-body-text ul li:not(:last-child) {
+  padding-bottom: 0.5rem;
+}
+
+.factbox-body-text ol {
+  counter-reset: item;
+  padding-left: 0;
+}
+.factbox-body-text ol li {
+  position: relative;
+  display: block;
+  padding-left: 1.4rem;
+}
+.factbox-body-text ol li:not(:last-child) {
+  padding-bottom: 0.5rem;
+}
+.factbox-body-text ol li:before {
+  position: absolute;
+  content: counter(item) ". ";
+  counter-increment: item;
+  font-weight: 800;
+  left: 0;
+  width: 1.5rem;
+  display: inline-block;
 }
 
 .factbox-body-table {
   width: 100%;
   border-spacing: 2rem 0;
 }
-
 .factbox-body-table tr  {
   background: none !important;
   border: none !important;
 }
-
 .factbox-body-table tr th, .factbox-body-table tr td {
   vertical-align: top;
   text-align: left;
@@ -113,17 +139,14 @@ const caption = props.block.value.image.caption
   line-height: 1.4;
   padding: 0;
 }
-
 .factbox-body-table tr th {
   padding: 0;
   text-transform: none;
   font-weight: 700;
 }
-
 .factbox-body-table tr:not(:last-child) > td {
   padding-bottom: 1rem;
 }
-
 .factbox-body-table tr td, .factbox-body-table tr td p {
   font-family: var(--font-family-header);
   font-size: var(--font-size-5);
