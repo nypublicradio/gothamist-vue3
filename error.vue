@@ -122,7 +122,22 @@ useHead({
     {
       src: config.HTL_JS,
       async: true
-    },
+    }
+  ],
+  meta: [
+    {property: 'og:site_name', content: 'Gothamist'},
+    {property: 'og:type', content: 'website'},
+    {property: 'og:url', content: `https://www.gothamist.com${route.fullPath}`},
+    {property: 'og:title', content: 'Gothamist: New York City Local News, Food, Arts & Events'},
+    {property: 'og:site_name', content:'Gothamist'},
+    {property: 'og:description', content:'Gothamist is a non-profit local newsroom, powered by WNYC.'},
+    {property: 'og:image', content: config.OG_IMAGE},
+    {property: 'og:locale', content:'en_US'},
+    {property: 'og:image:width', content:'1200'},
+    {property: 'og:image:height', content:'650'},
+    {property: 'fb:app_id', content:'151261804904925'},
+    {name: 'twitter:card', content:'summary_large_image'},
+    {name: 'twitter:site', content:'@gothamist'}
   ]
 })
 </script>
@@ -137,27 +152,6 @@ useHead({
           name="description"
           content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
         />
-        <Meta
-          name="og:site_name"
-          content="Gothamist: New York City Local News, Food, Arts & Events"
-        />
-        <Meta name="og:type" content="website" />
-        <Meta
-          name="og:url"
-          :content="`https://www.gothamist.com${route.fullPath}`"
-        />
-        <Meta
-          name="og:title"
-          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
-        />
-        <Meta name="og:description" content="Investigating a strange world." />
-        <Meta name="og:image" :content="config.OG_IMAGE" />
-        <Meta name="og:locale" content="en_US" />
-        <Meta name="og:image:width" content="1200" />
-        <Meta name="og:image:height" content="650" />
-        <Meta name="fb:app_id" content="151261804904925" />
-        <Meta name="twitter:card" content="summary_large_image" />
-        <Meta name="twitter:site" content="@gothamist" />
       </Head>
     </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />

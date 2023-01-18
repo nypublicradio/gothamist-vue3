@@ -76,6 +76,12 @@ const newsletterSubmitEvent = () => {
     event_label: 'Newsletter',
   })
 }
+
+const pageTitle = `Articles about ${tagName} | Gothamist`
+useHead({
+  title: curatedTagPage?.seoTitle || pageTitle,
+  meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle}]
+})
 </script>
 
 <template>
