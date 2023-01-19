@@ -87,6 +87,11 @@ const props = defineProps<{
 .factbox-body-text * {
   font-family: var(--font-family-header);
   font-size: var(--font-size-5);
+  line-height: 1.4;
+}
+
+.factbox-body-text p {
+  margin-bottom: 1rem;
 }
 
 .factbox-body-text ul, .factbox-body-text ol {
