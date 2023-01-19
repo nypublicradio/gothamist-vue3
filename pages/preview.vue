@@ -39,6 +39,10 @@ watch(previewData, (res) => {
       )
     case 'tagpages.TagPage':
       return navigateTo(`/tags/${identifierId}?preview=true`)
+    case 'gallery.GalleryPage':
+      const url = new URL(previewData.value.data.url)
+      const path = url.pathname
+      return navigateTo(`${path}?preview=true`)
     case 'standardpages.InformationPage':
       break
     default:
