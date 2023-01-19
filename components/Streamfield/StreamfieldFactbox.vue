@@ -4,25 +4,23 @@ import { FactboxBlock } from '../../composables/types/StreamfieldBlock'
 const props = defineProps<{
   block: FactboxBlock
 }>()
-const image = props.block.value.image.image
-const caption = props.block.value.image.caption
 </script>
 
 <template>
   <aside class="factbox">
     <h3 class="factbox-heading">{{ block.value.heading }}</h3>
     <v-image-with-caption
-      v-if="image"
+      v-if="block.value.image.image"
       class="factbox-image-wrapper mb-3"
-      :image="useImageUrl(image)"
-      :alt-text="image.alt"
+      :image="useImageUrl(block.value.image.image)"
+      :alt-text="block.value.image.image.alt"
       :width="320"
       :height="214"
-      :maxWidth="image.width"
-      :maxHeight="image.height"
-      :description="caption || image.caption"
-      :credit="image.credit"
-      :credit-url="image.creditLink"
+      :maxWidth="block.value.image.image.width"
+      :maxHeight="block.value.image.image.height"
+      :description="block.value.image.caption || block.value.image.image.caption"
+      :credit="block.value.image.image.credit"
+      :credit-url="block.value.image.image.creditLink"
       :sizes="[2]"
       :ratio="[4,3]"
     />
