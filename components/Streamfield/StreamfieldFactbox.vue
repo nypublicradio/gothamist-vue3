@@ -64,8 +64,10 @@ const props = defineProps<{
     position: relative;
   }
   .page.sectionSlug-articleSlug .article-body > .factbox {
-    position: absolute;
     max-width: 320px;
+  }
+  .page.sectionSlug-articleSlug .article-body > .factbox:first-of-type {
+    position: absolute;
     right: 0;
     top: 0;
     border-bottom: none;
