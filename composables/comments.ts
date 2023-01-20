@@ -5,7 +5,7 @@ import { ArticlePage } from './types/Page'
 export const useCommentCounts = () => useState<Record<string,number>>('commentCounts', () => ({}))
 
 // Gets comment counts for a list of comment ids
-export const useFetchCommentCounts = async function(commentIds:string[]):Promise<Record<string,number>> {
+const fetchCommentCounts = async function(commentIds:string[]):Promise<Record<string,number>> {
     const config = useRuntimeConfig()
     const baseURL = 'https://open-api.spot.im'
     const path = '/v1/messages-count'
@@ -37,7 +37,7 @@ export const useFetchCommentCounts = async function(commentIds:string[]):Promise
 export const useUpdateCommentCounts = async function(articles:ArticlePage[]) {
     const commentCounts = useCommentCounts()
     const commentIds = articles.map(article => String(article.legacyId || article.uuid))
-    const commentCountData = await useFetchCommentCounts(commentIds)
+    const commentCountData = await fetchCommentCounts(commentIds)
     Object.entries(commentCountData).forEach(([key, value]) => {
         commentCounts.value[key] = value
     })
