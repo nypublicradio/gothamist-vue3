@@ -1,4 +1,3 @@
-import { hash } from 'ohash'
 import { ArticlePage } from './types/Page'
 
 // State to track the map of article ids to comment counts
