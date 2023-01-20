@@ -21,13 +21,11 @@ export const useFetchCommentCounts = async function(commentIds:string[]):Promise
                 "posts_ids": idList            
             }
         }
-        const key = hash(['comments', path, options, Number(new Date())])
-        requests.push(useFetch(path, {baseURL, key, ...options})) 
+        requests.push($fetch(path, {baseURL, ...options}))
     }
     const responses = await Promise.all(requests)
     responses.forEach(response => {
-        const data = response.data;
-        const messageCounts = data.value ? Object.entries(data.value["messages_count"]) : []
+        const messageCounts = response ? Object.entries(response["messages_count"]) : []
         messageCounts.forEach(([key, value]) => {
             counts[key] = value
         })
