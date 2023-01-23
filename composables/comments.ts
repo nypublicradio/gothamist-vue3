@@ -1,11 +1,10 @@
-import { hash } from 'ohash'
 import { ArticlePage } from './types/Page'
 
 // State to track the map of article ids to comment counts
 export const useCommentCounts = () => useState<Record<string,number>>('commentCounts', () => ({}))
 
 // Gets comment counts for a list of comment ids
-export const useFetchCommentCounts = async function(commentIds:string[]):Promise<Record<string,number>> {
+const fetchCommentCounts = async function(commentIds:string[]):Promise<Record<string,number>> {
     const config = useRuntimeConfig()
     const baseURL = 'https://open-api.spot.im'
     const path = '/v1/messages-count'
@@ -21,13 +20,11 @@ export const useFetchCommentCounts = async function(commentIds:string[]):Promise
                 "posts_ids": idList            
             }
         }
-        const key = hash(['comments', path, options, Number(new Date())])
-        requests.push(useFetch(path, {baseURL, key, ...options})) 
+        requests.push($fetch(path, {baseURL, ...options}))
     }
     const responses = await Promise.all(requests)
     responses.forEach(response => {
-        const data = response.data;
-        const messageCounts = data.value ? Object.entries(data.value["messages_count"]) : []
+        const messageCounts = response ? Object.entries(response["messages_count"]) : []
         messageCounts.forEach(([key, value]) => {
             counts[key] = value
         })
@@ -39,7 +36,7 @@ export const useFetchCommentCounts = async function(commentIds:string[]):Promise
 export const useUpdateCommentCounts = async function(articles:ArticlePage[]) {
     const commentCounts = useCommentCounts()
     const commentIds = articles.map(article => String(article.legacyId || article.uuid))
-    const commentCountData = await useFetchCommentCounts(commentIds)
+    const commentCountData = await fetchCommentCounts(commentIds)
     Object.entries(commentCountData).forEach(([key, value]) => {
         commentCounts.value[key] = value
     })
