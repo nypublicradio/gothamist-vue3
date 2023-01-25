@@ -5,6 +5,8 @@ import Image from './Image';
 import Slide from './Slide';
 import Sponsor from './Sponsor';
 import Tag from './Tag';
+import NavigationLink from './NavigationLink'
+
 
 export interface Page {
     id: number;
@@ -41,7 +43,7 @@ export interface ArticlePage extends Page {
     sensitiveContent: boolean;
     provocativeContent: boolean;
     sponsoredContent: boolean;
-    relatedLinks: any[];
+    relatedLinks: NavigationLink[];
     tags: Tag[];
     url: string;
     uuid: string;
