@@ -142,6 +142,9 @@ import { ArticlePage, GalleryPage } from './types/Page'
     const config = useRuntimeConfig()
     const metadata = {
       title: `${article.seoTitle} - Gothamist`,
+      link: [
+        {rel: 'canonical', href: article?.url}
+      ],
       meta: [
         { property: 'og:title', content: article.socialTitle },
         { property: 'og:description', content: article.socialDescription },

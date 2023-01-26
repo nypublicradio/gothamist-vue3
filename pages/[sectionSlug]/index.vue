@@ -12,6 +12,7 @@ const loadMoreStoryCount = ref(10)
 const featuredStoryCount = ref(5)
 
 const initialArticles = await findArticlePages({
+  sponsored_content: false,
   descendant_of: sectionId,
   offset: featuredStoryCount.value,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
@@ -19,6 +20,7 @@ const articles = ref(initialArticles)
 
 const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({
+    sponsored_content: false,
     limit: loadMoreStoryCount.value,
     offset: articles.value.length + featuredStoryCount.value,
     descendant_of: sectionId,

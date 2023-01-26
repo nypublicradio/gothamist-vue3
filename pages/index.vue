@@ -9,7 +9,10 @@ const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
 const riverAdRepeatRate = ref(6)
 
-const articlesPromise = findArticlePages({ limit: riverStoryCount.value }).then(
+const articlesPromise = findArticlePages({
+  limit: riverStoryCount.value,
+  sponsored_content: false
+}).then(
   ({ data }) => normalizeFindArticlePagesResponse(data)
 )
 
@@ -45,6 +48,7 @@ const riverSegments = computed(() => {
 
 const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({
+    sponsored_content: false,
     limit: riverStoryCount.value,
     offset: latestArticles.value.length,
   })

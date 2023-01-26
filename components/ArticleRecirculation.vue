@@ -22,6 +22,7 @@ const { title: sectionTitle, id: sectionId } = await findPage(
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
+  sponsored_content: false,
   descendant_of: sectionId,
   limit: 6,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
