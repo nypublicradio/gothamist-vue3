@@ -39,7 +39,7 @@ const tags = computed(() => {
 
 <template>
     <v-card
-        :class="class"
+        :class="props.class"
         :image="hideImage ? null : useImageUrl(article.listingImage)"
         :title="article.listingTitle"
         :titleLink="article.link"
