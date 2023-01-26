@@ -164,6 +164,11 @@ import { ArticlePage, GalleryPage } from './types/Page'
     for (const author of article.authors) {
       metadata.meta.push( { name: 'article:author', content: `https://gothamist.com${author.url}` })
     }
+    if (article.sponsoredContent) {
+      metadata.meta.push({
+        name: 'robots', content: 'noindex,nofollow'
+      })
+    }
     return metadata
   }
 
