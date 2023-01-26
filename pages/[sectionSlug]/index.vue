@@ -72,23 +72,17 @@ useHead({
               v-for="(article, index) in articles"
               :key="`${article.id}-${index}`"
             >
-              <v-card
+              <gothamist-card
+                :article="article"
                 class="mod-horizontal mb-5"
-                :image="useImageUrl(article.listingImage)"
-                :title="article.listingTitle"
-                :titleLink="article.link"
-                :ratio="[3, 2]"
                 :width="318"
                 :height="212"
-                :maxWidth="article.listingImage?.width"
-                :maxHeight="article.listingImage?.height"
-                :sizes="[1]"
               >
                 <p>
                   {{ article.description }}
                 </p>
                 <v-card-metadata :article="article" />
-              </v-card>
+              </gothamist-card>
               <hr class="mb-5" />
             </div>
             <Button

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import useImageUrl from '~~/composables/useImageUrl'
 import { ArticlePage } from '~~/composables/types/Page'
@@ -150,24 +149,12 @@ const nativoSectionLoaded = (name) => {
                   )"
                   :key="article.uuid"
                 >
-                  <v-card
+                  <gothamist-card
+                    :article="article"
                     :id="itemIndex === 1 ? 'ntv-stream-3' : ''"
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
-                    :image="useImageUrl(article.listingImage)"
                     :width="318"
                     :height="212"
-                    :sizes="[1]"
-                    :quality="80"
-                    :title="article.listingTitle"
-                    :titleLink="article.link"
-                    :maxWidth="article.image?.width"
-                    :maxHeight="article.image?.height"
-                    :tags="[
-                      {
-                        name: article.section.name,
-                        slug: `/${article.section.slug}`,
-                      },
-                    ]"
                     @vue:mounted="
                       itemIndex === 1 && nativoSectionLoaded('ntv-stream-3')
                     "
@@ -176,7 +163,7 @@ const nativoSectionLoaded = (name) => {
                       {{ article.description }}
                     </p>
                     <v-card-metadata :article="article" />
-                  </v-card>
+                  </gothamist-card>
                   <hr class="mb-5" />
                   <div
                     v-if="(itemIndex + riverAdOffset) % riverAdRepeatRate === 0"
