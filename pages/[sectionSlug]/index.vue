@@ -1,114 +1,17 @@
 <script setup lang="ts">
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import { useUpdateCommentCounts } from '~~/composables/comments'
 const route = useRoute()
-
-const { title: sectionTitle, id: sectionId } = await findPage(
+const page = await findPage(
   route?.params?.sectionSlug as string
 ).then(({ data }) => normalizeFindPageResponse(data))
 
-const initialStoryCount = ref(10)
-const loadMoreStoryCount = ref(10)
-const featuredStoryCount = ref(5)
-
-const initialArticles = await findArticlePages({
-  descendant_of: sectionId,
-  offset: featuredStoryCount.value,
-}).then(({ data }) => normalizeFindArticlePagesResponse(data))
-const articles = ref(initialArticles)
-
-const loadMoreArticles = async () => {
-  const newArticles = await useLoadMoreArticles({
-    limit: loadMoreStoryCount.value,
-    offset: articles.value.length + featuredStoryCount.value,
-    descendant_of: sectionId,
-  })
-  articles.value.push(...newArticles)
-}
-
-const { $analytics } = useNuxtApp()
-onMounted(() => {
-  $analytics.sendPageView({ page_type: 'section_page' })
-  useUpdateCommentCounts(articles.value)
-})
-
-const newsletterSubmitEvent = () => {
-  $analytics.sendEvent('click_tracking', {
-    event_category: 'Click Tracking - Footer - Newsletter',
-    component: 'footer',
-    event_label: 'Newsletter',
-  })
-}
-
-const pageTitle = `${sectionTitle} | Gothamist | News For New Yorkers`
-useHead({
-  title: pageTitle,
-  meta: [{ property: 'og:title', content: pageTitle}]
-})
+const pageType = page.body ? 'information' : 'section'
 </script>
 
 <template>
   <div>
-    <section class="section-page">
-      <div class="content">
-        <h1 class="mb-5">{{ sectionTitle }}</h1>
-        <hr class="black" />
-        <!-- featured area -->
-        <h2 class="sr-only">Featured {{ sectionTitle }} Stories</h2>
-        <article-recirculation
-          :slug="(route?.params?.sectionSlug as string)"
-          id="article-recirculation"
-          class="my-6"
-        />
-        <div class="mb-6">
-          <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
-        </div>
-        <!-- articles -->
-        <div v-if="articles" class="grid gutter-x-xl">
-          <h2 class="sr-only">Latest {{ sectionTitle }} Articles</h2>
-          <div class="col-1 hidden xl:block"></div>
-          <div class="col">
-            <div
-              v-for="(article, index) in articles"
-              :key="`${article.id}-${index}`"
-            >
-              <v-card
-                class="mod-horizontal mb-5"
-                :image="useImageUrl(article.listingImage)"
-                :title="article.listingTitle"
-                :titleLink="article.link"
-                :ratio="[3, 2]"
-                :width="318"
-                :height="212"
-                :maxWidth="article.listingImage?.width"
-                :maxHeight="article.listingImage?.height"
-                :sizes="[1]"
-              >
-                <p>
-                  {{ article.description }}
-                </p>
-                <v-card-metadata :article="article" />
-              </v-card>
-              <hr class="mb-5" />
-            </div>
-            <Button
-              class="p-button-rounded mb-8"
-              label="Load More"
-              @click="loadMoreArticles"
-            >
-            </Button>
-          </div>
-          <div class="col-fixed mx-auto hidden xl:block">
-            <HtlAd layout="rectangle" slot="htlad-gothamist_interior_river" />
-          </div>
-        </div>
-        <!-- newsletter -->
-        <div class="mt-8 mb-5">
-          <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent" />
-        </div>
-      </div>
-    </section>
+    <SectionPage v-if="pageType === 'section'" :page="page"/>
+    <InformationPage v-if="pageType === 'information'" :page="page"/>
+
   </div>
 </template>
 

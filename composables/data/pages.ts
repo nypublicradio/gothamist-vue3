@@ -30,7 +30,7 @@ export function normalizeInformationPage(page: Record<string, any>): Information
     }
 }
 
-export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page | ArticlePage | TagPage {
+export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page | ArticlePage | TagPage | InformationPage {
     const pageType = pageResponse.value?.meta?.type
     switch (pageType) {
         case 'news.ArticlePage':
