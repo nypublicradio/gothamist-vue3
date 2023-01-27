@@ -82,6 +82,7 @@ const articlesSm = ref([
             :width="106"
             :height="106"
             :ratio="[1, 1]"
+            :hide-tags="true"
             :sizes="[2]"
           >
             <div></div>
