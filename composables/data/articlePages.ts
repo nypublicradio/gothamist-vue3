@@ -1,4 +1,5 @@
 import { ArticlePage } from "../types/Page"
+import { normalizePage } from "./pages"
 import Author from '../types/Author'
 
 // Get a list of article pages using the Aviary /pages api
@@ -51,9 +52,7 @@ function normalizeAuthor(author: Record<string, any>): Author {
 
 // Transform page data from the API into a simpler and typed format
 export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
-    return {
-        id: article.id,
-        title: article.title,
+    return Object.assign({}, normalizePage(article), {
         description: article.description,
         image: article.leadAsset?.[0]?.value?.image ?? article.leadAsset?.[0]?.value?.defaultImage,
         leadImageCaption: article.leadAsset?.[0]?.value?.caption || article.leadAsset?.[0]?.value?.image?.caption,
@@ -78,27 +77,17 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         relatedLinks: article.relatedLinks,
         tags: article.tags,
         url: article.url,
-        uuid: article.uuid,
         section: { name: article.ancestry?.[0].title, slug: article.ancestry?.[0].slug },
         body: article.body,
 
-        // for listing pages
+        // curated images
         listingImage: article.listingImage || article.leadAsset?.[0]?.value?.image || article.leadAsset?.[0]?.value?.defaultImage,
-        listingTitle: article.listingTitle || article.title,
-        listingDescription: article.listingSummary || article.description,
-
-        // for social/OG metadata
         socialImage: article.socialImage || article.leadAsset?.[0]?.value?.image || article.leadAsset?.[0]?.value?.defaultImage,
-        socialTitle: article.socialTitle || article.title,
-        socialDescription: article.socialText || article.description,
-
-        seoTitle: article.meta?.seoTitle || article.title,
-        searchDescription: article.meta?.searchDescription || article.description,
 
         // for comments
         disableComments: article.disableComments,
         commentId: String(article.legacyId || article.uuid)
-    }
+    })
 }
 
 // Transform page data from the API into a simpler and typed format

@@ -1,6 +1,7 @@
 import { GalleryPage } from "../types/Page"
 import Slide from "../types/Slide"
 import Image from "../types/Image"
+import { normalizePage } from "./pages"
 import { normalizeArticlePage } from "./articlePages"
 
 // Take a slide and return an image, with the caption override applied if it exists
@@ -23,10 +24,7 @@ export function normalizeSlide(slideData: Record<string, any>): Slide {
 
 // Transform gallery page data from the API into a simpler and typed format
 export function normalizeGalleryPage(page: Record<string, any>): GalleryPage {
-    const galleryPage = {
-        id: page.id,
-        uuid: page.uuid,
-        title: page.title,
+    const galleryPage = Object.assign({}, normalizePage(page), {
         description: page.description,
         url: page.url,
 
@@ -38,17 +36,9 @@ export function normalizeGalleryPage(page: Record<string, any>): GalleryPage {
         articleTitle: '',
         articleLink: '',
 
-        listingTitle: page.listingTitle || page.title,
-        listingDescription: page.listingSummary || page.description,
         listingImage: page.listingImage || page.slides[0] && useImageFromSlideData(page.slides[0]),
-
-        socialTitle: page.socialTitle || page.title,
-        socialDescription: page.socialText || page.description,
         socialImage: page.socialImage || page.slides[0] && useImageFromSlideData(page.slides[0]),
-
-        seoTitle: page.meta.seoTitle,
-        searchDescription: page.meta.searchDescription
-    }
+    }) as GalleryPage
     // when an article is not published, it does not included the relatedArticle in the gallery data, so we dont have reference to the parent article. 
     const isRelatedArticles = galleryPage.relatedArticles?.length > 0
 

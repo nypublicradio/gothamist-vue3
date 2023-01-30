@@ -1,17 +1,20 @@
 <script setup lang="ts">
+import { InformationPage } from '../../composables/types/Page'
 const route = useRoute()
-const page = await findPage(
-  route?.params?.sectionSlug as string
-).then(({ data }) => normalizeFindPageResponse(data))
-
-const pageType = page.body ? 'information' : 'section'
+const page = await findPage(route?.params?.sectionSlug as string).then(
+  ({ data }) => normalizeFindPageResponse(data)
+)
 </script>
-
 <template>
   <div>
-    <SectionPage v-if="pageType === 'section'" :page="page"/>
-    <InformationPage v-if="pageType === 'information'" :page="page"/>
-
+    <SectionPageTemplate
+      v-if="page?.type === 'section_page'" 
+      :page="page" 
+    />
+    <InformationPageTemplate
+      v-if="page?.type === 'information_page'"
+      :page="page as InformationPage"
+    />
   </div>
 </template>
 
