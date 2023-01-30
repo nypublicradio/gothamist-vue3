@@ -39,6 +39,7 @@ const tags = computed(() => {
 
 <template>
     <v-card
+        class="gothamist-card"
         :class="props.class"
         :image="hideImage ? null : useImageUrl(article.listingImage)"
         :title="article.listingTitle"
@@ -58,3 +59,19 @@ const tags = computed(() => {
         <slot />
     </v-card>
 </template>
+
+<style lang="scss">
+div.gothamist-card.sponsored {
+    background: var(--soybean200)
+}
+@include media('<lg') {
+    div.gothamist-card.sponsored.mod-horizontal {
+        min-width: 100vw;
+        padding: 0 1.5rem;
+        margin-left: -1.5rem;
+        & .image-with-caption {
+            margin: 2rem 0;
+        }
+    }
+}
+</style>
