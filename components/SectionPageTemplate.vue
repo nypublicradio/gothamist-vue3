@@ -8,18 +8,17 @@ const props = defineProps<{
 }>()
 const route = useRoute()
 
-const { title: sectionTitle, id: sectionId } = props.page
 const initialStoryCount = ref(10)
 const loadMoreStoryCount = ref(10)
 const featuredStoryCount = ref(5)
-const pageTitle = `${sectionTitle} | Gothamist | News For New Yorkers`
+const pageTitle = `${props.page.title} | Gothamist | News For New Yorkers`
 
 useHead({
   title: pageTitle,
   meta: [{ property: 'og:title', content: pageTitle }],
 })
 const initialArticles = await findArticlePages({
-  descendant_of: sectionId,
+  descendant_of: props.page.id,
   offset: featuredStoryCount.value,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 const articles = ref(initialArticles)
@@ -27,7 +26,7 @@ const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({
     limit: loadMoreStoryCount.value,
     offset: articles.value.length + featuredStoryCount.value,
-    descendant_of: sectionId,
+    descendant_of: props.page.id,
   })
   articles.value.push(...newArticles)
 }
@@ -48,10 +47,10 @@ const newsletterSubmitEvent = () => {
 <template>
   <section class="section-page">
     <div class="content">
-      <h1 class="mb-5">{{ sectionTitle }}</h1>
+      <h1 class="mb-5">{{ page.title }}</h1>
       <hr class="black" />
       <!-- featured area -->
-      <h2 class="sr-only">Featured {{ sectionTitle }} Stories</h2>
+      <h2 class="sr-only">Featured {{ page.title }} Stories</h2>
       <article-recirculation
         :slug="(route?.params?.sectionSlug as string)"
         id="article-recirculation"
@@ -62,7 +61,7 @@ const newsletterSubmitEvent = () => {
       </div>
       <!-- articles -->
       <div v-if="articles" class="grid gutter-x-xl">
-        <h2 class="sr-only">Latest {{ sectionTitle }} Articles</h2>
+        <h2 class="sr-only">Latest {{ page.title }} Articles</h2>
         <div class="col-1 hidden xl:block"></div>
         <div class="col">
           <div
