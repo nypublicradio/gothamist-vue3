@@ -39,7 +39,7 @@ const [navigation, breakingNews, productBanners] = await Promise.all([
   productBannersPromise,
 ])
 marketingBannerData.value = productBanners
-const isSponsored = route.name === 'sponsored'
+const isSponsoredRoute = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
 const sidebarOpen = useSidebarIsOpen()
@@ -161,10 +161,10 @@ useHead({
     height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe>`
   }]
 })
-if (isSponsored) {
+if (isSponsoredRoute) {
   useHead({
     meta: [
-      {name: 'Googlebot-News', content:'noindex, nofollow'}
+      {name: 'robots', content:'noindex,nofollow'}
     ]
   })
 } else {

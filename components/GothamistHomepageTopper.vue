@@ -27,26 +27,15 @@ const latestArticles = computed(() => {
 <template v-if="featuredArticle && latestArticles">
   <div class="homepage-topper grid mb-6 gutter-x-30">
     <div class="col-12 xl:col-8">
-      <v-card
+      <gothamist-card
+        :article="featuredArticle"
         class="featured-article mod-vertical mod-featured mod-large"
-        :image="useImageUrl(featuredArticle.listingImage)"
-        :sizes="[1]"
         :width="897"
         :height="598"
-        :title="featuredArticle.listingTitle || featuredArticle.title"
-        :titleLink="featuredArticle.link"
-        :maxWidth="featuredArticle.listingImage?.width"
-        :maxHeight="featuredArticle.listingImage?.height"
-        :tags="[
-          {
-            name: featuredArticle.section.name,
-            slug: `/${featuredArticle.section.slug}`,
-          },
-        ]"
         loading="eager"
       >
         <v-card-metadata altDesign :article="featuredArticle" />
-      </v-card>
+      </gothamist-card>
     </div>
     <div class="col-12 xl:col-4 flex flex-column justify-content-end">
       <hr class="black mb-1" />
@@ -59,22 +48,18 @@ const latestArticles = computed(() => {
         />
       </v-flexible-link>
       <div v-for="(article, index) in latestArticles" :key="article.uuid">
-        <v-card
+        <gothamist-card
+          :article="article"
           :id="index === 3 ? 'ntv-latest-1' : ''"
           class="mod-horizontal mod-left mod-small mb-3 tag-small"
-          :image="useImageUrl(article.listingImage)"
           :width="158"
           :height="105"
           :sizes="[2]"
-          :title="article.listingTitle || article.title"
-          :titleLink="article.link"
-          :maxWidth="article.listingImage?.width"
-          :maxHeight="article.listingImage?.height"
-          :quality="80"
+          :hide-tags="true"
         >
           <div></div>
           <v-card-metadata :article="article" :showComments="false" />
-        </v-card>
+        </gothamist-card>
         <hr class="my-3 block" />
       </div>
       <div class="mb-1">

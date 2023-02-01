@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
+
 const props = defineProps({
   collection: {
     type: Object,
@@ -13,27 +13,16 @@ const article = normalizeArticlePage(props.collection.data[0])
 </script>
 
 <template>
-  <v-card
+  <gothamist-card
+    :article="article"
     v-if="article"
     class="mod-large mb-5 lg:mb-8 tag-small single-story-feature"
     data-style-mode="dark"
-    :image="useImageUrl(article.listingImage)"
-    :ratio="[3, 2]"
     :sizes="[2]"
-    :title="article.listingTitle"
-    :titleLink="article.link"
-    :maxWidth="article.listingImage?.width"
-    :maxHeight="article.listingImage?.height"
-    :tags="[
-      {
-        name: article.section.name,
-        slug: article.section.slug,
-      },
-    ]"
   >
     <p class="desc">{{ article.description }}</p>
     <v-card-metadata :article="article" alt-design :show-description="false" />
-  </v-card>
+  </gothamist-card>
 </template>
 
 <style lang="scss">

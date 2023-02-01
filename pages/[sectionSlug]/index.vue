@@ -12,6 +12,7 @@ const loadMoreStoryCount = ref(10)
 const featuredStoryCount = ref(5)
 
 const initialArticles = await findArticlePages({
+  sponsored_content: false,
   descendant_of: sectionId,
   offset: featuredStoryCount.value,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
@@ -19,6 +20,7 @@ const articles = ref(initialArticles)
 
 const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({
+    sponsored_content: false,
     limit: loadMoreStoryCount.value,
     offset: articles.value.length + featuredStoryCount.value,
     descendant_of: sectionId,
@@ -72,23 +74,17 @@ useHead({
               v-for="(article, index) in articles"
               :key="`${article.id}-${index}`"
             >
-              <v-card
+              <gothamist-card
+                :article="article"
                 class="mod-horizontal mb-5"
-                :image="useImageUrl(article.listingImage)"
-                :title="article.listingTitle"
-                :titleLink="article.link"
-                :ratio="[3, 2]"
                 :width="318"
                 :height="212"
-                :maxWidth="article.listingImage?.width"
-                :maxHeight="article.listingImage?.height"
-                :sizes="[1]"
               >
                 <p>
                   {{ article.description }}
                 </p>
                 <v-card-metadata :article="article" />
-              </v-card>
+              </gothamist-card>
               <hr class="mb-5" />
             </div>
             <Button

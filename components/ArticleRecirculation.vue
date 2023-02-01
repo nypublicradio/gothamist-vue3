@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useUpdateCommentCounts } from '~~/composables/comments';
 
@@ -23,6 +22,7 @@ const { title: sectionTitle, id: sectionId } = await findPage(
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
+  sponsored_content: false,
   descendant_of: sectionId,
   limit: 6,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
@@ -51,16 +51,12 @@ onMounted(async () => {
     <div v-if="articles" class="recirculation">
       <div class="grid gutter-x-30">
         <div class="col-12 xl:col-8">
-          <v-card
+          <gothamist-card
+            :article="articleLg"
             class="article-lg mod-vertical mod-featured2 mod-large mb-4"
-            :image="useImageUrl(articleLg?.listingImage)"
-            :sizes="[1]"
             :width="897"
             :height="598"
-            :title="articleLg?.listingTitle"
-            :titleLink="articleLg?.link"
-            :maxWidth="articleLg?.listingImage?.width"
-            :maxHeight="articleLg?.listingImage?.height"
+            :hideTags="true"
             loading="eager"
           >
             <v-card-metadata
@@ -68,59 +64,50 @@ onMounted(async () => {
               altDesign
               :article="articleLg"
             />
-          </v-card>
+          </gothamist-card>
           <hr class="block xl:hidden mb-3" />
         </div>
         <div class="col-12 xl:col-4">
           <!-- md article desktop  -->
-          <v-card
+          <gothamist-card
+            :article="articleMd"
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
-            :image="useImageUrl(articleMd?.listingImage)"
-            :title="articleMd?.listingTitle"
-            :titleLink="articleMd?.link"
-            :ratio="[3, 2]"
             :width="433"
             :height="289"
-            :sizes="[1]"
-            :maxWidth="articleMd?.listingImage?.width"
-            :maxHeight="articleMd?.listingImage?.height"
+            :hideTags="true"
             loading="eager"
           >
             <p>
               {{ articleMd?.description }}
             </p>
             <v-card-metadata stack :article="articleMd" />
-          </v-card>
+          </gothamist-card>
           <!-- md article mobile  -->
-          <v-card
+          <gothamist-card
+            :article="articleMd"
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
-            :image="useImageUrl(articleMd?.listingImage)"
-            :title="articleMd?.listingTitle"
-            :titleLink="articleMd?.link"
             :width="318"
             :height="212"
-            :sizes="[1]"
-            :maxWidth="articleMd?.listingImage?.width"
-            :maxHeight="articleMd?.listingImage?.height"
             loading="eager"
           >
             <p>
               {{ articleMd?.description }}
             </p>
             <v-card-metadata :article="articleMd" />
-          </v-card>
+          </gothamist-card>
           <hr class="my-3" />
           <horizontal-drag :articles="articlesSm" v-slot="slotProps">
-            <v-card
+            <gothamist-card
+              :article="slotProps.article"
               class="article-sm mod-horizontal mod-small mb-3 tag-small"
-              :title="slotProps.article.listingTitle"
-              :titleLink="slotProps.article.link"
+              :hide-image="true"
+              :hide-tags="true"
             >
               <v-card-metadata
                 :article="slotProps.article"
                 :showComments="true"
               />
-            </v-card>
+            </gothamist-card>
           </horizontal-drag>
         </div>
       </div>

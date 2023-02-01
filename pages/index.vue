@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import useImageUrl from '~~/composables/useImageUrl'
 import { ArticlePage } from '~~/composables/types/Page'
@@ -10,7 +9,10 @@ const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
 const riverAdRepeatRate = ref(6)
 
-const articlesPromise = findArticlePages({ limit: riverStoryCount.value }).then(
+const articlesPromise = findArticlePages({
+  limit: riverStoryCount.value,
+  sponsored_content: false
+}).then(
   ({ data }) => normalizeFindArticlePagesResponse(data)
 )
 
@@ -46,6 +48,7 @@ const riverSegments = computed(() => {
 
 const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({
+    sponsored_content: false,
     limit: riverStoryCount.value,
     offset: latestArticles.value.length,
   })
@@ -150,24 +153,12 @@ const nativoSectionLoaded = (name) => {
                   )"
                   :key="article.uuid"
                 >
-                  <v-card
+                  <gothamist-card
+                    :article="article"
                     :id="itemIndex === 1 ? 'ntv-stream-3' : ''"
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
-                    :image="useImageUrl(article.listingImage)"
                     :width="318"
                     :height="212"
-                    :sizes="[1]"
-                    :quality="80"
-                    :title="article.listingTitle"
-                    :titleLink="article.link"
-                    :maxWidth="article.image?.width"
-                    :maxHeight="article.image?.height"
-                    :tags="[
-                      {
-                        name: article.section.name,
-                        slug: `/${article.section.slug}`,
-                      },
-                    ]"
                     @vue:mounted="
                       itemIndex === 1 && nativoSectionLoaded('ntv-stream-3')
                     "
@@ -176,7 +167,7 @@ const nativoSectionLoaded = (name) => {
                       {{ article.description }}
                     </p>
                     <v-card-metadata :article="article" />
-                  </v-card>
+                  </gothamist-card>
                   <hr class="mb-5" />
                   <div
                     v-if="(itemIndex + riverAdOffset) % riverAdRepeatRate === 0"
