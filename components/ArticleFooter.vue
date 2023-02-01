@@ -76,6 +76,7 @@ const onTagClick = (tag) => {
       flex: 0 0 auto;
       padding: 0.5rem;
       width: 100%;
+      max-width: 730px;
     }
   }
 }
