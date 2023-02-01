@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 //import { StaffPage } from '../../composables/types/Page'
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
@@ -100,29 +98,17 @@ useHead({
               v-for="article in articles"
               :key="article.uuid"
             >
-              <v-card
+              <gothamist-card
+                :article="article"
                 class="mod-horizontal mb-5"
-                :image="useImageUrl(article.listingImage)"
-                :title="article.listingTitle || article.title"
-                :titleLink="article.link"
-                :ratio="[3, 2]"
                 :width="318"
                 :height="212"
-                :maxWidth="article.listingImage?.width"
-                :maxHeight="article.listingImage?.height"
-                :sizes="[1]"
-                :tags="[
-                  {
-                    name: article.section.name,
-                    slug: `/${article.section.slug}`,
-                  },
-                ]"
               >
                 <p>
                   {{ article.description }}
                 </p>
                 <v-card-metadata :article="article" />
-              </v-card>
+              </gothamist-card>
               <hr class="mb-5" />
             </div>
           </div>

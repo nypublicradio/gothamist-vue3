@@ -116,6 +116,7 @@ export function normalizeSearchResults(results: Record<string, any>): ArticlePag
         sensitiveContent: results.result.sensitiveContent,
         provocativeContent: results.result.provocativeContent,
         sponsoredContent: results.result.sponsoredContent,
+        relatedLinks: results.result.relatedLinks,
         tags: results.result.tags,
         url: results.result.url,
         uuid: results.result.uuid,

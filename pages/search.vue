@@ -101,29 +101,17 @@ const newsletterSubmitEvent = () => {
                   v-for="article in articles.slice(0, articlesToShow)"
                   :key="article.uuid"
                 >
-                  <v-card
+                  <gothamist-card
+                    :article="article"
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
-                    :image="useImageUrl(article.listingImage)"
                     :width="318"
                     :height="212"
-                    :sizes="[1]"
-                    :quality="80"
-                    :title="article.listingTitle || article.title"
-                    :titleLink="article.link"
-                    :maxWidth="article.image?.width"
-                    :maxHeight="article.image?.height"
-                    :tags="[
-                      {
-                        name: article.section.name,
-                        slug: `/${article.section.slug}`,
-                      },
-                    ]"
                   >
                     <p class="desc">
                       {{ article.description }}
                     </p>
                     <v-card-metadata :article="article" />
-                  </v-card>
+                  </gothamist-card>
                   <hr class="mb-5" />
                 </div>
                 <Button

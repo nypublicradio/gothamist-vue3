@@ -109,12 +109,8 @@ const showMarketingBanner = computed(() => {
   )
 })
 </script>
-
 <template>
   <div>
-    <Head>
-      <Link rel="canonical" v-if="article" :href="article.url" />
-    </Head>
     <HeaderScrollTrigger header-class="article-page-header">
       <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
         <ArticlePageHeader
