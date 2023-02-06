@@ -12,6 +12,7 @@ export interface Page {
     id: number;
     title: string;
     uuid: string;
+    type: string;
 
     listingTitle: string;
     listingDescription: string;
@@ -57,11 +58,10 @@ export interface ArticlePage extends Page {
 
     disableComments?: string;
     commentId: string;
-
 }
 
 export interface InformationPage extends Page {
-    body: any[];
+    body: StreamfieldBlock[];
 }
 
 export interface StaffPage extends Page {
@@ -88,14 +88,6 @@ export interface GalleryPage extends Page {
     articleTitle: string,
     articleLink: string,
 
-    listingTitle: string;
-    listingDescription: string;
     listingImage: Image;
-
-    socialTitle: string;
-    socialDescription: string;
     socialImage: Image;
-
-    seoTitle: string;
-    searchDescription: string;
 }

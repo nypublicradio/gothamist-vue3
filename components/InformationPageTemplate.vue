@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { createError } from 'h3'
-import { InformationPage } from '../composables/types/Page'
-const route = useRoute()
+import { InformationPage } from '../composables/types/Page';
 const { $analytics } = useNuxtApp()
 
-const page = await findPage('contact').then(
-  ({ data }) =>
-    data?.value && (normalizeFindPageResponse(data) as InformationPage)
-)
+const props = defineProps<{
+  page: InformationPage
+}>()
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'information_page' })
