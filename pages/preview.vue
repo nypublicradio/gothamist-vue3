@@ -32,6 +32,8 @@ const handlePreviewData = () => {
 }
 
 watch(previewData, (res) => {
+  const url = new URL(previewData.value.data?.url || fetchData.value.url)
+  const path = url.pathname
   switch (fetchData.value.meta.type) {
     case 'news.ArticlePage':
       return navigateTo(
@@ -40,11 +42,9 @@ watch(previewData, (res) => {
     case 'tagpages.TagPage':
       return navigateTo(`/tags/${identifierId}?preview=true`)
     case 'gallery.GalleryPage':
-      const url = new URL(previewData.value.data.url)
-      const path = url.pathname
       return navigateTo(`${path}?preview=true`)
     case 'standardpages.InformationPage':
-      break
+      return navigateTo(`${path}?preview=true`)
     default:
       break
   }

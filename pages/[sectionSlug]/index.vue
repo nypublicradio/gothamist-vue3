@@ -1,9 +1,23 @@
 <script setup lang="ts">
 import { InformationPage } from '../../composables/types/Page'
+/* preview */
+import { usePreviewData } from '~/composables/states'
+const previewData = usePreviewData()
 const route = useRoute()
-const page = await findPage(route?.params?.sectionSlug as string).then(
-  ({ data }) => normalizeFindPageResponse(data)
-)
+const isPreview = route.query.preview ? true : false
+/* preview */
+
+let page
+if (isPreview)
+{
+  console.log(previewData)
+  page = previewData.value.data
+}
+else  {
+  page = await findPage(route?.params?.sectionSlug as string).then(
+    ({ data }) => normalizeFindPageResponse(data)
+  )
+}
 </script>
 <template>
   <div>
