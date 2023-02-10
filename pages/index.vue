@@ -62,7 +62,10 @@ const newsletterSubmitEvent = () => {
 const navigation = useNavigation()
 
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'home_page' })
+  $analytics.sendPageView({
+    page_type: 'home_page',
+    content_group: 'homepage'
+  })
   const collectionArticles = homePageCollections.reduce(
     (pages, collection) => [...pages, ...collection.data],
     []

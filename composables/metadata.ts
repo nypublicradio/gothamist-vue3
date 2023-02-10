@@ -3,6 +3,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
   function useArticlePageTrackingData(article: ArticlePage): Record<string, string> {
     return {
       page_type: 'article',
+      content_group: article.sponsoredContent ? 'sponsored-content' : `${article.section.slug}-article`,
       article_authors: article.authors.map(author => author.name).join(','),
       article_publish_date: article.publicationDate?.toISOString(),
       article_updated_date: article.updatedDate?.toISOString(),

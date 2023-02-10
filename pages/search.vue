@@ -25,6 +25,7 @@ async function getSearchResults() {
   )
   $analytics.sendEvent('event_tracking', {
     event_category: 'search query',
+    content_group: 'search',
     component: 'search page',
     event_label: `${query.value}`,
   })
