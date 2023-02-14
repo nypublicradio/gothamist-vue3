@@ -34,6 +34,10 @@ const latestArticles = computed(() => {
         :width="897"
         :height="598"
         loading="eager"
+        :trackClicks="true"
+        trackingComponentLocation="Homepage Topper"
+        trackingComponent="Homepage Topper"
+        trackingComponentPosition="1"
       >
         <v-card-metadata altDesign :article="featuredArticle" />
       </gothamist-card>
@@ -63,6 +67,10 @@ const latestArticles = computed(() => {
           :height="105"
           :sizes="[2]"
           :hide-tags="true"
+          :trackClicks="true"
+          trackingComponentLocation="Homepage Topper"
+          trackingComponent="Homepage Topper"
+          :trackingComponentPosition="String(index + 2)"
         >
           <div></div>
           <v-card-metadata :article="article" :showComments="false" />

@@ -1,16 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { Draggable } from '~/assets/gsap/Draggable.js'
 import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
+import { ArticlePage } from '~~/composables/types/Page.js'
 
-const props = defineProps({
-  articles: {
-    type: Array,
-    default: [],
-  },
-})
+
+const props = defineProps<{
+  articles: ArticlePage[]
+}>()
 
 const dragContentRef = ref(null)
 const dragBoundsRef = ref(null)
@@ -52,7 +51,7 @@ onBeforeUnmount(() => {
           class="grid gutter-x-xl keep-gutter horz-scroll-content"
         >
           <div
-            v-for="article in props.articles"
+            v-for="(article, index) in articles"
             :key="article.id"
             class="flex"
             :class="
@@ -61,7 +60,7 @@ onBeforeUnmount(() => {
                 : 'col-12 xl:col-12 flex-column xl:flex-row xl:flex-column unit'
             "
           >
-            <slot :isMobile="isMobile" :article="article" />
+            <slot :isMobile="isMobile" :article="article" :index="index" />
           </div>
         </div>
       </div>

@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ArticlePage } from '~~/composables/types/Page';
 
-const props = defineProps({
-  collection: {
-    type: Object,
-    default: {},
-    required: true,
-  },
-})
+const props = defineProps<{
+  collection: {label: string, data: ArticlePage[]},
+  trackingComponentLocation: string
+}>()
 
 // Note: the center feature should display the first 6 stories in the content collection
 const articleLg = ref(normalizeArticlePage(props.collection.data[0]))
@@ -35,6 +33,10 @@ const articlesSm = ref([
           :width="433"
           :height="289"
           loading="eager"
+          :trackClicks="true"
+          :trackingComponentLocation="trackingComponentLocation"
+          trackingComponent="Center Feature"
+          trackingComponentPosition="2"
         >
           <p>
             {{ articleMd.description }}
@@ -47,6 +49,10 @@ const articlesSm = ref([
           class="flex lg:hidden article-md mod-horizontal mod-left tag-small"
           :width="318"
           :height="212"
+          :trackClicks="true"
+          :trackingComponentLocation="trackingComponentLocation"
+          trackingComponent="Center Feature"
+          trackingComponentPosition="2"
         >
           <p>
             {{ articleMd.description }}
@@ -64,6 +70,10 @@ const articlesSm = ref([
           :image="useImageUrl(articleLg.listingImage)"
           :width="700"
           :height="467"
+          :trackClicks="true"
+          :trackingComponentLocation="trackingComponentLocation"
+          trackingComponent="Center Feature"
+          trackingComponentPosition="1"
         >
           <v-card-metadata
             class="mt-0 md:mt-2"
@@ -84,6 +94,10 @@ const articlesSm = ref([
             :ratio="[1, 1]"
             :hide-tags="true"
             :sizes="[2]"
+            :trackClicks="true"
+            :trackingComponentLocation="trackingComponentLocation"
+            trackingComponent="Center Feature"
+            :trackingComponentPosition="String(slotProps.index + 3)"
           >
             <div></div>
             <v-card-metadata

@@ -1,15 +1,13 @@
-<script setup>
+<script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 import { ref } from 'vue'
+import { ArticlePage } from '~~/composables/types/Page';
 
-const props = defineProps({
-  collection: {
-    type: Object,
-    default: {},
-    required: true,
-  },
-})
+const props = defineProps<{
+  collection: {label: string, data: ArticlePage[]},
+  trackingComponentLocation: string
+}>()
 
 const breakpoints = useBreakpoints({
   md: Number(breakpoint.md),
@@ -60,6 +58,10 @@ const isOneOnly = !articleMd.value && !articleSm.value
             :height="isOneOnly ? 453 : 443"
             :ratio="isOneOnly ? [6, 2] : [3, 2]"
             loading="eager"
+            :trackClicks="true"
+            :trackingComponentLocation="trackingComponentLocation"
+            trackingComponent="Skyline Feature"
+            trackingComponentPosition="1"
           >
             <v-card-metadata
               class="mt-0 md:mt-2"
@@ -87,6 +89,10 @@ const isOneOnly = !articleMd.value && !articleSm.value
               :height="318"
               :ratio="[1, 1]"
               loading="eager"
+              :trackClicks="true"
+              :trackingComponentLocation="trackingComponentLocation"
+              trackingComponent="Skyline Feature"
+              trackingComponentPosition="2"
             >
               <p>
                 {{ articleMd?.description }}
@@ -110,6 +116,10 @@ const isOneOnly = !articleMd.value && !articleSm.value
               :width="318"
               :height="212"
               loading="eager"
+              :trackClicks="true"
+              :trackingComponentLocation="trackingComponentLocation"
+              trackingComponent="Skyline Feature"
+              trackingComponentPosition="3"
             >
               <p>
                 {{ articleSm?.description }}

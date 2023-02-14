@@ -2,6 +2,7 @@
 import { ArticlePage } from '~~/composables/types/Page';
 import { computed } from 'vue';
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
+const { $analytics } = useNuxtApp()
 const props = withDefaults(defineProps<{ 
     article: ArticlePage
     class: string
@@ -13,6 +14,10 @@ const props = withDefaults(defineProps<{
     hideImage?: boolean
     hideTags?: boolean
     loading?: 'eager' | 'lazy'
+    trackClicks?: boolean
+    trackingComponent?: string
+    trackingComponentLocation?: string
+    trackingComponentPosition?: string
 }>(), {
     width: null,
     height: null,
@@ -21,7 +26,11 @@ const props = withDefaults(defineProps<{
     hideImage: false,
     hideTags: false,
     quality: 80,
-    loading: 'lazy'
+    loading: 'lazy',
+    trackClicks: false,
+    trackingComponent: null,
+    trackingComponentLocation: null,
+    trackingComponentPosition: null
 })
 
 const tags = computed(() => {
@@ -35,6 +44,17 @@ const tags = computed(() => {
         }
     ]
 })
+
+const trackClick = function (targetUrl: string) {
+    if (props.trackClicks) {
+        $analytics.sendEvent('click_tracking', {
+            event_category: `Click Tracking - ${props.trackingComponentLocation}`,
+            component:  props.trackingComponent,
+            component_position: props.trackingComponentPosition,
+            event_label: targetUrl
+        })
+    }
+}
 </script>
 
 <template>
@@ -55,6 +75,10 @@ const tags = computed(() => {
         :tags="tags"
         :loading="loading"
         v-bind="{ ...$props, ...$attrs }"
+        @titleClick="trackClick(article.link)"
+        @imageClick="trackClick(article.link)"
+        @creditClick="trackClick(article.listingImage?.creditLink)"
+        @tagClick="(tag) => trackClick(`tags/${tag?.slug}`)"
     >
         <slot />
     </v-card>

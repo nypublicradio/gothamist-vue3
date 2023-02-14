@@ -115,16 +115,19 @@ const nativoSectionLoaded = (name) => {
         >
           <single-story-feature
             v-if="collection.layout === 'single-story-feature'"
+            :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
           <center-feature
             class="content"
             v-if="collection.layout === 'center-feature'"
+            :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
           <skyline-feature
             class="content"
             v-if="collection.layout === 'skyline'"
+            :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
           <div v-if="index === 0" id="ntv-stream-2"></div>
@@ -170,6 +173,10 @@ const nativoSectionLoaded = (name) => {
                     @vue:mounted="
                       itemIndex === 1 && nativoSectionLoaded('ntv-stream-3')
                     "
+                    :trackClicks="true"
+                    trackingComponentLocation="Homepage River"
+                    trackingComponent="Homepage River"
+                    :trackingComponentPosition="String((segmentIndex + 1) * riverStoryCount + itemIndex + 1)"
                   >
                     <p class="desc">
                       {{ article.description }}
