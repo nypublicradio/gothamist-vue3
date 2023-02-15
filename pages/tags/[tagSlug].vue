@@ -143,6 +143,10 @@ useHead({
                 class="mod-horizontal mb-5"
                 :width="318"
                 :height="212"
+                :trackClicks="true"
+                trackingComponentLocation="Tag Page River"
+                trackingComponent="Tag Page River"
+                :trackingComponentPosition="index + 1"
               >
                 <p>
                   {{ article.description }}

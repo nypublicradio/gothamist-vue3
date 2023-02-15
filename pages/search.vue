@@ -91,15 +91,12 @@ const newsletterSubmitEvent = () => {
       <section>
         <div class="content">
           <!-- search results article river -->
-          <!-- <div v-for="(article, index) in articles" :key="index" class="mb-6">
-          {{ article }}
-        </div> -->
           <template v-if="articles">
             <div class="grid gutter-x-xl">
               <div class="col-1 hidden xxl:block"></div>
               <div class="col">
                 <div
-                  v-for="article in articles.slice(0, articlesToShow)"
+                  v-for="(article, index) in articles.slice(0, articlesToShow)"
                   :key="article.uuid"
                 >
                   <gothamist-card
@@ -107,6 +104,10 @@ const newsletterSubmitEvent = () => {
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
                     :width="318"
                     :height="212"
+                    :trackClicks="true"
+                    trackingComponentLocation="Search Results"
+                    trackingComponent="Search Results"
+                    :trackingComponentPosition="index + 1"
                   >
                     <p class="desc">
                       {{ article.description }}

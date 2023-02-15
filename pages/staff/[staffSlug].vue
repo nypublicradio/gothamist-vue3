@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 //import { StaffPage } from '../../composables/types/Page'
+import { ArticlePage } from '~~/composables/types/Page';
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
@@ -19,7 +20,8 @@ const initialArticles = await findArticlePages({
 }).then(({ data }) => ({
   articles: normalizeFindArticlePagesResponse(data),
   count: data.value && Number(data.value.meta.totalCount)
-}))
+})) as {articles: ArticlePage[], count: number}
+
 const articleTotal = ref(initialArticles.count)
 const articles = ref(initialArticles.articles)
 
@@ -96,7 +98,7 @@ useHead({
         <div class="grid gutter-x-30">
           <div v-if="articles" class="col">
             <div
-              v-for="article in articles"
+              v-for="(article, index) in articles"
               :key="article.uuid"
             >
               <gothamist-card
@@ -104,6 +106,10 @@ useHead({
                 class="mod-horizontal mb-5"
                 :width="318"
                 :height="212"
+                :trackClicks="true"
+                trackingComponentLocation="Author Page River"
+                trackingComponent="Author Page River"
+                :trackingComponentPosition="index + 1"
               >
                 <p>
                   {{ article.description }}

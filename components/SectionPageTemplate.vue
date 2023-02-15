@@ -74,6 +74,10 @@ const newsletterSubmitEvent = () => {
               class="mod-horizontal mb-5"
               :width="318"
               :height="212"
+              :trackClicks="true"
+              trackingComponentLocation="Section Page River"
+              trackingComponent="Section Page River"
+              :trackingComponentPosition="index + 1"
             >
               <p>
                 {{ article.description }}
