@@ -176,7 +176,7 @@ const nativoSectionLoaded = (name) => {
                     :trackClicks="true"
                     trackingComponentLocation="Homepage River"
                     trackingComponent="Homepage River"
-                    :trackingComponentPosition="String((segmentIndex + 1) * riverStoryCount + itemIndex + 1)"
+                    :trackingComponentPosition="(segmentIndex + 1) * riverStoryCount + itemIndex + 1"
                   >
                     <p class="desc">
                       {{ article.description }}

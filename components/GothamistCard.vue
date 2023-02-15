@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<{
     trackClicks?: boolean
     trackingComponent?: string
     trackingComponentLocation?: string
-    trackingComponentPosition?: string
+    trackingComponentPosition?: number
 }>(), {
     width: null,
     height: null,
@@ -50,7 +50,7 @@ const trackClick = function (targetUrl: string) {
         $analytics.sendEvent('click_tracking', {
             event_category: `Click Tracking - ${props.trackingComponentLocation}`,
             component:  props.trackingComponent,
-            component_position: props.trackingComponentPosition,
+            component_position: props.trackingComponentPosition && String(props.trackingComponentPosition),
             event_label: targetUrl
         })
     }

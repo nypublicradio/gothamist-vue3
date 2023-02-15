@@ -36,7 +36,7 @@ const articlesSm = ref([
           :trackClicks="true"
           :trackingComponentLocation="trackingComponentLocation"
           trackingComponent="Center Feature"
-          trackingComponentPosition="2"
+          :trackingComponentPosition="2"
         >
           <p>
             {{ articleMd.description }}
@@ -52,7 +52,7 @@ const articlesSm = ref([
           :trackClicks="true"
           :trackingComponentLocation="trackingComponentLocation"
           trackingComponent="Center Feature"
-          trackingComponentPosition="2"
+          :trackingComponentPosition="2"
         >
           <p>
             {{ articleMd.description }}
@@ -73,7 +73,7 @@ const articlesSm = ref([
           :trackClicks="true"
           :trackingComponentLocation="trackingComponentLocation"
           trackingComponent="Center Feature"
-          trackingComponentPosition="1"
+          :trackingComponentPosition="1"
         >
           <v-card-metadata
             class="mt-0 md:mt-2"
@@ -97,7 +97,7 @@ const articlesSm = ref([
             :trackClicks="true"
             :trackingComponentLocation="trackingComponentLocation"
             trackingComponent="Center Feature"
-            :trackingComponentPosition="String(slotProps.index + 3)"
+            :trackingComponentPosition="slotProps.index + 3"
           >
             <div></div>
             <v-card-metadata

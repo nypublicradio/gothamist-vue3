@@ -21,7 +21,7 @@ const article = normalizeArticlePage(props.collection.data[0])
     :trackClicks="true"
     :trackingComponentLocation="trackingComponentLocation"
     trackingComponent="Single Story Feature"
-    trackingComponentPosition="1"
+    :trackingComponentPosition="1"
   >
     <p class="desc">{{ article.description }}</p>
     <v-card-metadata :article="article" alt-design :show-description="false" />

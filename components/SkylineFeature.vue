@@ -61,7 +61,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
             :trackClicks="true"
             :trackingComponentLocation="trackingComponentLocation"
             trackingComponent="Skyline Feature"
-            trackingComponentPosition="1"
+            :trackingComponentPosition="1"
           >
             <v-card-metadata
               class="mt-0 md:mt-2"
@@ -92,7 +92,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
               :trackClicks="true"
               :trackingComponentLocation="trackingComponentLocation"
               trackingComponent="Skyline Feature"
-              trackingComponentPosition="2"
+              :trackingComponentPosition="2"
             >
               <p>
                 {{ articleMd?.description }}
@@ -119,7 +119,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
               :trackClicks="true"
               :trackingComponentLocation="trackingComponentLocation"
               trackingComponent="Skyline Feature"
-              trackingComponentPosition="3"
+              :trackingComponentPosition="3"
             >
               <p>
                 {{ articleSm?.description }}
