@@ -104,8 +104,7 @@ const getGalleryLink = computed(() => {
 
 const showMarketingBanner = computed(() => {
   return (
-    marketingBannerData.value.length > 0 &&
-    marketingBannerData.value[0].value.location === 'BOTTOM'
+    marketingBannerData.value[0]?.location === 'BOTTOM'
   )
 })
 </script>
