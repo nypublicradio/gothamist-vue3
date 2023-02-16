@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { ArticlePage } from '~~/composables/types/Page';
+import { ArticlePage, GalleryPage } from '~~/composables/types/Page';
 import { computed } from 'vue';
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
+import Image from '~~/composables/types/Image';
+
+type CardData = {
+    listingTitle: string
+    listingImage?: Image
+    link: string
+}
+
 const { $analytics } = useNuxtApp()
 const props = withDefaults(defineProps<{ 
-    article: ArticlePage
+    article?: ArticlePage | GalleryPage | CardData
     class: string
     width?: number
     height?: number
@@ -33,8 +41,15 @@ const props = withDefaults(defineProps<{
     trackingComponentPosition: null
 })
 
+
+const sponsored = computed(() => "sponsoredContent" in props.article && props.article.sponsoredContent)
+const link = computed(() => "link" in props.article && props.article.link || 
+             "url" in props.article && props.article.url)
+
 const tags = computed(() => {
-    if (props.hideTags || props.article.sponsoredContent) {
+    if (props.hideTags 
+        || sponsored
+        || !("section" in props.article)) {
         return []
     }
     return [
@@ -59,14 +74,15 @@ const trackClick = function (targetUrl: string) {
 
 <template>
     <v-card
+        v-if="article"
         class="gothamist-card"
         :class="props.class"
         :image="hideImage ? null : useImageUrl(article.listingImage)"
         :title="article.listingTitle"
-        :titleLink="article.link"
+        :titleLink="link"
         :maxWidth="article.listingImage?.width"
         :maxHeight="article.listingImage?.height"
-        :sponsored="article.sponsoredContent"
+        :sponsored="sponsored"
         :ratio="ratio"
         :width="width"
         :height="height"
@@ -75,8 +91,8 @@ const trackClick = function (targetUrl: string) {
         :tags="tags"
         :loading="loading"
         v-bind="{ ...$props, ...$attrs }"
-        @titleClick="trackClick(article.link)"
-        @imageClick="trackClick(article.link)"
+        @titleClick="trackClick(link)"
+        @imageClick="trackClick(link)"
         @creditClick="trackClick(article.listingImage?.creditLink)"
         @tagClick="(tag) => trackClick(`tags/${tag?.slug}`)"
     >

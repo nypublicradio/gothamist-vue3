@@ -8,7 +8,7 @@ import { ArticlePage } from '~~/composables/types/Page.js'
 
 
 const props = defineProps<{
-  articles: ArticlePage[]
+  articles: any[]
 }>()
 
 const dragContentRef = ref(null)
@@ -51,8 +51,8 @@ onBeforeUnmount(() => {
           class="grid gutter-x-xl keep-gutter horz-scroll-content"
         >
           <div
-            v-for="(article, index) in articles"
-            :key="article.id"
+            v-for="(item, index) in articles"
+            :key="item.id"
             class="flex"
             :class="
               isMobile
@@ -60,7 +60,7 @@ onBeforeUnmount(() => {
                 : 'col-12 xl:col-12 flex-column xl:flex-row xl:flex-column unit'
             "
           >
-            <slot :isMobile="isMobile" :article="article" :index="index" />
+            <slot :isMobile="isMobile" :item="item" :index="index" />
           </div>
         </div>
       </div>
