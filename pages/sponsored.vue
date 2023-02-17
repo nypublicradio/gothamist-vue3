@@ -126,7 +126,7 @@ onUnmounted(() => {
         >
           MORE NEWS
         </p>
-        <article-recirculation slug="news" />
+        <article-recirculation slug="news" trackingComponentLocation="Sponsored Landing Page Recirculation Module"/>
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
           <newsletter-home @submit="newsletterSubmitEvent('footer')" />

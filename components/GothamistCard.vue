@@ -96,7 +96,7 @@ const trackClick = function (targetUrl: string) {
         @creditClick="trackClick(article.listingImage?.creditLink)"
         @tagClick="(tag) => trackClick(`tags/${tag?.slug}`)"
     >
-        <slot />
+        <slot :trackClick="trackClick" />
     </v-card>
 </template>
 

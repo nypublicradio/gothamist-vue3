@@ -5,6 +5,7 @@ const props = defineProps<{
   collection: {label: string, data: ArticlePage[]},
   trackingComponentLocation: string
 }>()
+const trackingComponent = "Single Story Feature"
 
 // Note: the single story feature should only display the first story in the content collection
 const article = normalizeArticlePage(props.collection.data[0])
@@ -20,7 +21,7 @@ const article = normalizeArticlePage(props.collection.data[0])
     :sizes="[2]"
     :trackClicks="true"
     :trackingComponentLocation="trackingComponentLocation"
-    trackingComponent="Single Story Feature"
+    :trackingComponent="trackingComponent"
     :trackingComponentPosition="1"
   >
     <p class="desc">{{ article.description }}</p>

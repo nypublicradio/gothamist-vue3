@@ -6,21 +6,20 @@ import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 import { ArticlePage } from '~~/composables/types/Page.js'
 
-
 const props = defineProps<{
-  articles: any[]
+  items: any[]
 }>()
 
 const dragContentRef = ref(null)
 const dragBoundsRef = ref(null)
 const isMobile = ref(false)
 const unitMinWidth = 310
-const toDragWidth = ref(unitMinWidth * props.articles.length)
+const toDragWidth = ref(unitMinWidth * props.items.length)
 const toDragWidthPx = ref(toDragWidth.value + 'px')
 
 onMounted(() => {
   // draggable setup
-  if (window.innerWidth < breakpoint.xl && props.articles) {
+  if (window.innerWidth < breakpoint.xl && props.items) {
     isMobile.value = true
     setTimeout(() => {
       gsap.registerPlugin(InertiaPlugin)
@@ -51,7 +50,7 @@ onBeforeUnmount(() => {
           class="grid gutter-x-xl keep-gutter horz-scroll-content"
         >
           <div
-            v-for="(item, index) in articles"
+            v-for="(item, index) in items"
             :key="item.id"
             class="flex"
             :class="

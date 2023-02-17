@@ -220,7 +220,7 @@ useHead({
       <section>
         <div class="content">
           <!-- featured area -->
-          <article-recirculation />
+          <article-recirculation trackingComponentLocation="Error Page Recirculation Module" />
           <!-- newsletter -->
           <div class="mt-8 mb-5">
             <hr class="black mb-4" />

@@ -9,6 +9,8 @@ const props = defineProps<{
   articles: ArticlePage[]
   navigation: Navigation
 }>()
+const trackingComponentLocation = "Homepage Topper"
+const trackingComponent = "Homepage Topper"
 
 const featuredArticle = computed(() => props.articles[0])
 const latestArticles = computed(() => {
@@ -35,11 +37,14 @@ const latestArticles = computed(() => {
         :height="598"
         loading="eager"
         :trackClicks="true"
-        trackingComponentLocation="Homepage Topper"
-        trackingComponent="Homepage Topper"
+        :trackingComponentLocation="trackingComponentLocation"
+        :trackingComponent="trackingComponent"
         :trackingComponentPosition="1"
       >
-        <v-card-metadata altDesign :article="featuredArticle" />
+        <v-card-metadata
+          altDesign
+          :article="featuredArticle"
+        />
       </gothamist-card>
     </div>
     <div class="col-12 xl:col-4 flex flex-column justify-content-end">
@@ -68,12 +73,15 @@ const latestArticles = computed(() => {
           :sizes="[2]"
           :hide-tags="true"
           :trackClicks="true"
-          trackingComponentLocation="Homepage Topper"
-          trackingComponent="Homepage Topper"
+          :trackingComponentLocation="trackingComponentLocation"
+          :trackingComponent="trackingComponent"
           :trackingComponentPosition="index + 2"
         >
           <div></div>
-          <v-card-metadata :article="article" :showComments="false" />
+          <v-card-metadata
+            :article="article"
+            :showComments="false"
+          />
         </gothamist-card>
         <hr class="my-3 block" />
       </div>

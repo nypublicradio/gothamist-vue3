@@ -1,20 +1,21 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useUpdateCommentCounts } from '~~/composables/comments';
-
+import { ArticlePage } from '~~/composables/types/Page';
 // this component is used in the articleSlug at the bottom of the article page, and also as the topper in the section index page
 
-const props = defineProps({
+const props = withDefaults(defineProps<{
   // the article to filter out from the results if it exists
-  article: {
-    type: Object,
-    default: {},
-  },
-  slug: {
-    type: String,
-    default: 'news',
-  },
+  article?: ArticlePage
+  slug?: string
+  trackingComponentLocation?: string
+}>(), {
+  article: null,
+  slug: 'news',
+  trackingComponentLocation: "Recirculation Module"
 })
+
+const trackingComponent = "Recirculation Module"
 
 const routeSectionSlug = ref(props.slug)
 const { title: sectionTitle, id: sectionId } = await findPage(
@@ -58,6 +59,10 @@ onMounted(async () => {
             :height="598"
             :hideTags="true"
             loading="eager"
+            :trackClicks="true"
+            :trackingComponent="trackingComponent"
+            :trackingComponentLocation="trackingComponentLocation"
+            :trackingComponentPosition="1"
           >
             <v-card-metadata
               class="mt-0 md:mt-2"
@@ -76,6 +81,10 @@ onMounted(async () => {
             :height="289"
             :hideTags="true"
             loading="eager"
+            :trackClicks="true"
+            :trackingComponent="trackingComponent"
+            :trackingComponentLocation="trackingComponentLocation"
+            :trackingComponentPosition="2"
           >
             <p>
               {{ articleMd?.description }}
@@ -92,19 +101,23 @@ onMounted(async () => {
           >
             <p>
               {{ articleMd?.description }}
-            </p>
+            </p>g
             <v-card-metadata :article="articleMd" />
           </gothamist-card>
           <hr class="my-3" />
-          <horizontal-drag :articles="articlesSm" v-slot="slotProps">
+          <horizontal-drag :items="articlesSm" v-slot="slotProps">
             <gothamist-card
-              :article="slotProps.article"
+              :article="slotProps.item"
               class="article-sm mod-horizontal mod-small mb-3 tag-small"
               :hide-image="true"
               :hide-tags="true"
+              :trackClicks="true"
+              :trackingComponent="trackingComponent"
+              :trackingComponentLocation="trackingComponentLocation"
+              :trackingComponentPosition="slotProps.index + 3"
             >
               <v-card-metadata
-                :article="slotProps.article"
+                :article="slotProps.item"
                 :showComments="true"
               />
             </gothamist-card>

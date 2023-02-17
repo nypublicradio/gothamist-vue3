@@ -115,6 +115,7 @@ useHead({
           <div class="col">
             <v-streamfield
               :streamfield-blocks="curatedTagPage.topPageZone"
+              trackingComponentLocation="Tag Page Top Curated Zone"
               class="pt-4 lg:pt-6"
             />
           </div>
@@ -161,6 +162,7 @@ useHead({
               >
                 <v-streamfield
                   :streamfield-blocks="curatedTagPage.midPageZone"
+                  trackingComponentLocation="Tag Page Middle Curated Zone"
                 />
               </div>
             </div>

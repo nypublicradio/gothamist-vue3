@@ -6,6 +6,7 @@ const props = defineProps<{
   collection: {label: string, data: ArticlePage[]},
   trackingComponentLocation: string
 }>()
+const trackingComponent = "Center Feature"
 
 // Note: the center feature should display the first 6 stories in the content collection
 const articleLg = ref(normalizeArticlePage(props.collection.data[0]))
@@ -51,7 +52,7 @@ const articlesSm = ref([
           :height="212"
           :trackClicks="true"
           :trackingComponentLocation="trackingComponentLocation"
-          trackingComponent="Center Feature"
+          :trackingComponent="trackingComponent"
           :trackingComponentPosition="2"
         >
           <p>
@@ -72,7 +73,7 @@ const articlesSm = ref([
           :height="467"
           :trackClicks="true"
           :trackingComponentLocation="trackingComponentLocation"
-          trackingComponent="Center Feature"
+          :trackingComponent="trackingComponent"
           :trackingComponentPosition="1"
         >
           <v-card-metadata
@@ -85,9 +86,10 @@ const articlesSm = ref([
       </div>
       <div class="col-3 flex-order-3">
         <hr class="my-3 block xl:hidden" />
-        <horizontal-drag :articles="articlesSm" v-slot="slotProps">
+        <horizontal-drag :items="articlesSm" v-slot="slotProps">
           <gothamist-card
-            :article="slotProps.article"
+            v-slot="card"
+            :article="slotProps.item"
             class="mod-horizontal mod-left mod-small mb-0"
             :width="106"
             :height="106"
@@ -96,12 +98,12 @@ const articlesSm = ref([
             :sizes="[2]"
             :trackClicks="true"
             :trackingComponentLocation="trackingComponentLocation"
-            trackingComponent="Center Feature"
+            :trackingComponent="trackingComponent"
             :trackingComponentPosition="slotProps.index + 3"
           >
             <div></div>
             <v-card-metadata
-              :article="slotProps.article"
+              :article="slotProps.item"
               :showComments="false"
             />
           </gothamist-card>

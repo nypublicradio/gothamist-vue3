@@ -55,6 +55,7 @@ const newsletterSubmitEvent = () => {
       <article-recirculation
         :slug="(route?.params?.sectionSlug as string)"
         id="article-recirculation"
+        trackingComponentLocation="Section Page Recirculation Module"
         class="my-6"
       />
       <div class="mb-6">

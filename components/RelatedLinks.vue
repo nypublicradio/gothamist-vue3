@@ -7,9 +7,13 @@ import NavigationLink from '~~/composables/types/NavigationLink';
 const props = withDefaults(defineProps<{
   article: ArticlePage
   limit?: number
+  trackingComponentLocation?: string
 }>(), {
   limit: 3,
+  trackingComponentLocation: "Related Links"
 })
+const trackingComponent = "Related Links"
+
 
 async function getRelatedPage (item) {
   const pageData = await usePageById(item.value.page)
@@ -38,24 +42,24 @@ async function getRelatedItem (item: NavigationLink) {
   }
 }
 
-const theLimit = ref(Math.max(props.article.relatedLinks.length, props.limit))
+const limit = ref(Math.max(props.article.relatedLinks.length, props.limit))
 
-const relatedLinks = await Promise.all(props.article.relatedLinks.slice(0, theLimit.value).map(getRelatedItem))
+const relatedLinks = await Promise.all(props.article.relatedLinks.slice(0, limit.value).map(getRelatedItem))
 </script>
 
 <template>
-  <div>
+  <div v-bind="{...$attrs}">
     <div v-if="relatedLinks" class="related-links">
       <hr class="black mb-2" />
       <div class="type-label3 mb-4">Related stories</div>
-      <horizontal-drag :articles="relatedLinks" v-slot="slotProps">
+      <horizontal-drag :items="relatedLinks" v-slot="slotProps">
         <!-- article page -->
         <gothamist-card
           class="mod-horizontal mod-left mod-small mb-0"
           :article="slotProps.item"
           :trackClicks="true"
-          trackingComponentLocation="Related Links"
-          trackingComponent="Related Links"
+          :trackingComponentLocation="trackingComponentLocation"
+          :trackingComponent="trackingComponent"
           :trackingComponentPosition="slotProps.index + 1"
         >
           <div v-if="'author' in slotProps.item"></div>

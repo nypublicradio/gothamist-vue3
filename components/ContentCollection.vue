@@ -3,9 +3,11 @@ import { ArticlePage } from '../composables/types/Page'
 
 const props = withDefaults(defineProps<{
   articles?: ArticlePage[]
+  trackingComponentLocation: string
 }>(), {
   articles: () => []
 })
+const trackingComponent = "Content Collection"
 
 const articleData = []
 //loop through articles and normalize data for each one
@@ -17,7 +19,7 @@ props.articles.forEach((article) => {
   <div>
     <div class="grid gutter-x-30 justify-content-center">
       <div
-        v-for="article in articleData"
+        v-for="(article, index) in articleData"
         :key="article.uuid"
         class="col-12 md:col-6 xl:col-4 flex"
       >
@@ -27,6 +29,10 @@ props.articles.forEach((article) => {
           :width="318"
           :height="212"
           :sizes="[1]"
+          :trackClicks="true"
+          :trackingComponentLocation="trackingComponentLocation"
+          :trackingComponent="trackingComponent"
+          :trackingComponentPosition="index + 1"
         >
           <p class="desc">
             {{ article.description }}

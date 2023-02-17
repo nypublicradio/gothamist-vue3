@@ -8,6 +8,7 @@ const props = defineProps<{
   collection: {label: string, data: ArticlePage[]},
   trackingComponentLocation: string
 }>()
+const trackingComponent = "Skyline Feature"
 
 const breakpoints = useBreakpoints({
   md: Number(breakpoint.md),
@@ -60,7 +61,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
             loading="eager"
             :trackClicks="true"
             :trackingComponentLocation="trackingComponentLocation"
-            trackingComponent="Skyline Feature"
+            :trackingComponent="trackingComponent"
             :trackingComponentPosition="1"
           >
             <v-card-metadata
@@ -91,7 +92,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
               loading="eager"
               :trackClicks="true"
               :trackingComponentLocation="trackingComponentLocation"
-              trackingComponent="Skyline Feature"
+              :trackingComponent="trackingComponent"
               :trackingComponentPosition="2"
             >
               <p>
@@ -118,7 +119,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
               loading="eager"
               :trackClicks="true"
               :trackingComponentLocation="trackingComponentLocation"
-              trackingComponent="Skyline Feature"
+              :trackingComponent="trackingComponent"
               :trackingComponentPosition="3"
             >
               <p>
