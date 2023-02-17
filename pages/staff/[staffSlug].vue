@@ -41,7 +41,7 @@ const authorProfileData = articles.value[1]?.authors.find((author) => {
 
 // formats the name of the author by manipulating the slug. This is used when authorProfileData returns no data
 const getAuthorNameFromSlug = () => {
-  var splitStr = staffSlug.toLowerCase().split('-')
+  var splitStr = typeof staffSlug === 'string' && staffSlug.toLowerCase().split('-')
   for (var i = 0; i < splitStr.length; i++) {
     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
   }
@@ -102,6 +102,7 @@ useHead({
               :key="article.uuid"
             >
               <gothamist-card
+                v-slot="card"
                 :article="article"
                 class="mod-horizontal mb-5"
                 :width="318"
@@ -114,7 +115,7 @@ useHead({
                 <p>
                   {{ article.description }}
                 </p>
-                <v-card-metadata :article="article" />
+                <v-card-metadata :article="article" :commentsClick="card.trackClick" />
               </gothamist-card>
               <hr class="mb-5" />
             </div>

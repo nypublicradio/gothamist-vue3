@@ -24,6 +24,7 @@ props.articles.forEach((article) => {
         class="col-12 md:col-6 xl:col-4 flex"
       >
         <gothamist-card
+          v-slot="card"
           :article="article"
           class="mod-vertical mod-large mb-3 lg:mb-5 tag-small"
           :width="318"
@@ -37,7 +38,7 @@ props.articles.forEach((article) => {
           <p class="desc">
             {{ article.description }}
           </p>
-          <v-card-metadata :article="article" />
+          <v-card-metadata :article="article" :commentsClick="card.trackClick" />
         </gothamist-card>
         <hr class="mb-5 block md:hidden" />
       </div>

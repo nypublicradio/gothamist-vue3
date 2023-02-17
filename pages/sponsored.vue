@@ -44,6 +44,14 @@ onUnmounted(() => {
   sensitiveContent.value = false
   isArticlePage.value = false
 })
+
+const newsletterSubmitEvent = () => {
+  $analytics.sendEvent('click_tracking', {
+    event_category: 'Click Tracking - Footer - Newsletter',
+    component: 'footer',
+    event_label: 'Newsletter',
+  })
+}
 </script>
 
 <template>
@@ -129,7 +137,7 @@ onUnmounted(() => {
         <article-recirculation slug="news" trackingComponentLocation="Sponsored Landing Page Recirculation Module"/>
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
-          <newsletter-home @submit="newsletterSubmitEvent('footer')" />
+          <newsletter-home @submit="newsletterSubmitEvent()" />
         </div>
       </div>
     </section>

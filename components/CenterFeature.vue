@@ -29,6 +29,7 @@ const articlesSm = ref([
       <div class="col-fixed flex-order-2 lg:flex-order-1">
         <!-- md article desktop  -->
         <gothamist-card
+          v-slot="card"
           :article="articleMd"
           class="hidden lg:flex article-md mod-vertical mod-large mb-5 tag-small"
           :width="433"
@@ -42,10 +43,11 @@ const articlesSm = ref([
           <p>
             {{ articleMd.description }}
           </p>
-          <v-card-metadata stack :article="articleMd" />
+          <v-card-metadata stack :article="articleMd"  :commentsClick="card.trackClick" />
         </gothamist-card>
         <!-- md article mobile  -->
         <gothamist-card
+          v-slot="card"
           :article="articleMd"
           class="flex lg:hidden article-md mod-horizontal mod-left tag-small"
           :width="318"
@@ -58,7 +60,7 @@ const articlesSm = ref([
           <p>
             {{ articleMd.description }}
           </p>
-          <v-card-metadata :article="articleMd" />
+          <v-card-metadata :article="articleMd" :commentsClick="card.trackClick" />
         </gothamist-card>
         <div class="hidden lg:block mb-4 xl:mb-7">
           <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
@@ -66,6 +68,7 @@ const articlesSm = ref([
       </div>
       <div class="col flex-order-1 lg:flex-order-2">
         <gothamist-card
+          v-slot="card"
           :article="articleLg"
           class="article-lg mod-vertical mod-large mb-4"
           :image="useImageUrl(articleLg.listingImage)"
@@ -80,6 +83,7 @@ const articlesSm = ref([
             class="mt-0 md:mt-2"
             altDesign
             :article="articleLg"
+            :commentsClick="card.trackClick"
           />
         </gothamist-card>
         <hr class="block lg:hidden mb-3" />
@@ -105,6 +109,7 @@ const articlesSm = ref([
             <v-card-metadata
               :article="slotProps.item"
               :showComments="false"
+              :commentsClick="card.trackClick"
             />
           </gothamist-card>
         </horizontal-drag>

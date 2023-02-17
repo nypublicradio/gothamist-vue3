@@ -100,6 +100,7 @@ const newsletterSubmitEvent = () => {
                   :key="article.uuid"
                 >
                   <gothamist-card
+                    v-slot="card"
                     :article="article"
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
                     :width="318"
@@ -112,7 +113,7 @@ const newsletterSubmitEvent = () => {
                     <p class="desc">
                       {{ article.description }}
                     </p>
-                    <v-card-metadata :article="article" />
+                    <v-card-metadata :article="article" :commentsClick="card.trackClick" />
                   </gothamist-card>
                   <hr class="mb-5" />
                 </div>

@@ -1,30 +1,26 @@
-<script setup>
+<script setup lang="ts">
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import { computed, ref } from 'vue'
 import { useCommentCounts } from '~~/composables/comments'
+import { ArticlePage } from '~~/composables/types/Page.js'
 
-const props = defineProps({
-  article: {
-    type: Object,
-    default: null,
-  },
-  stack: {
-    type: Boolean,
-    default: false,
-  },
-  altDesign: {
-    type: Boolean,
-    default: false,
-  },
-  showComments: {
-    type: Boolean,
-    default: true, // setting to false untill we have support for comment counts
-  },
-  showDescription: {
-    type: Boolean,
-    default: true,
-  },
+const props = withDefaults(defineProps<{
+  article?: ArticlePage
+  stack?: boolean
+  altDesign?: boolean
+  showComments?: boolean
+  showDescription?: boolean
+}>(), {
+  article: null,
+  stack: false,
+  altDesign: false,
+  showComments: true,
+  showDescription: true
 })
+
+const emit = defineEmits<{
+  (e: 'commentsClick', value: any): void
+}>()
 
 const commentCounts = ref(useCommentCounts())
 const commentCount = computed(() => {
@@ -47,10 +43,12 @@ const commentCount = computed(() => {
       </span>
       <span
         class="comments"
-        v-if="!props.article.comments && showComments && commentCount"
+        v-if="!props.article.disableComments && showComments && commentCount"
       >
-        <NuxtLink :to="{ path: props.article.link, hash: '#comments' }"
-          >{{ String(Number(commentCount)) }}
+        <NuxtLink
+          :to="{ path: props.article.link, hash: '#comments'}"
+          @click="emit('commentsClick', `${props.article.link}#comments`)"
+        >{{ String(Number(commentCount)) }}
           {{ commentCount === 1 ? 'comment' : 'comments' }}</NuxtLink
         >
       </span>
@@ -73,9 +71,12 @@ const commentCount = computed(() => {
         </div>
         <span
           class="col-12 comments"
-          v-if="!props.article.comments && showComments && commentCount"
+          v-if="!props.article.disableComments && showComments && commentCount"
         >
-          <NuxtLink :to="{ path: props.article.link, hash: '#comments' }">
+          <NuxtLink
+            :to="{ path: props.article.link, hash: '#comments' }"
+            @click="emit('commentsClick', `${props.article.link}#comments`)"
+          >
             {{ String(Number(commentCount)) }}
             {{ commentCount === 1 ? 'comment' : 'comments' }}
           </NuxtLink>

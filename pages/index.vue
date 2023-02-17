@@ -165,6 +165,7 @@ const nativoSectionLoaded = (name) => {
                   :key="article.uuid"
                 >
                   <gothamist-card
+                    v-slot="card"
                     :article="article"
                     :id="itemIndex === 1 ? 'ntv-stream-3' : ''"
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
@@ -181,7 +182,7 @@ const nativoSectionLoaded = (name) => {
                     <p class="desc">
                       {{ article.description }}
                     </p>
-                    <v-card-metadata :article="article" />
+                    <v-card-metadata :article="article" :commentsClick="card.trackClick" />
                   </gothamist-card>
                   <hr class="mb-5" />
                   <div

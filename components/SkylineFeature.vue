@@ -53,6 +53,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
           :class="isOneOnly ? 'xl:col-12' : 'xl:col-6'"
         >
           <gothamist-card
+            v-slot="card"
             :article="articleLg"
             class="primary article-lg mod-vertical mod-featured2 mod-large mb-4"
             :width="isOneOnly ? 1360 : 665"
@@ -68,6 +69,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
               class="mt-0 md:mt-2"
               altDesign
               :article="articleLg"
+              :commentsClick="card.trackClick"
             />
           </gothamist-card>
         </div>
@@ -79,6 +81,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
           >
             <!-- md article desktop  -->
             <gothamist-card
+              v-slot="card"
               :article="articleMd"
               class="secondary article-md mb-5 tag-small"
               :class="
@@ -98,7 +101,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
               <p>
                 {{ articleMd?.description }}
               </p>
-              <v-card-metadata stack :article="articleMd" />
+              <v-card-metadata stack :article="articleMd" :commentsClick="card.trackClick" />
             </gothamist-card>
           </div>
           <div
@@ -107,6 +110,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
           >
             <!-- sm article desktop  -->
             <gothamist-card
+              v-slot="card"
               :article="articleSm"
               class="secondary article-sm mb-5 tag-small secondary"
               :class="
@@ -125,7 +129,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
               <p>
                 {{ articleSm?.description }}
               </p>
-              <v-card-metadata stack :article="articleSm" />
+              <v-card-metadata stack :article="articleSm" :commentsClick="card.trackClick" />
             </gothamist-card>
           </div>
         </ClientOnly>

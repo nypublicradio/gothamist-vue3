@@ -53,6 +53,7 @@ onMounted(async () => {
       <div class="grid gutter-x-30">
         <div class="col-12 xl:col-8">
           <gothamist-card
+            v-slot="card"
             :article="articleLg"
             class="article-lg mod-vertical mod-featured2 mod-large mb-4"
             :width="897"
@@ -68,6 +69,7 @@ onMounted(async () => {
               class="mt-0 md:mt-2"
               altDesign
               :article="articleLg"
+              :commentsClick="card.trackClick"
             />
           </gothamist-card>
           <hr class="block xl:hidden mb-3" />
@@ -75,6 +77,7 @@ onMounted(async () => {
         <div class="col-12 xl:col-4">
           <!-- md article desktop  -->
           <gothamist-card
+            v-slot="card"
             :article="articleMd"
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
             :width="433"
@@ -89,10 +92,11 @@ onMounted(async () => {
             <p>
               {{ articleMd?.description }}
             </p>
-            <v-card-metadata stack :article="articleMd" />
+            <v-card-metadata stack :article="articleMd" :commentsClick="card.trackClick" />
           </gothamist-card>
           <!-- md article mobile  -->
           <gothamist-card
+            v-slot="card"
             :article="articleMd"
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
             :width="318"
@@ -102,11 +106,12 @@ onMounted(async () => {
             <p>
               {{ articleMd?.description }}
             </p>g
-            <v-card-metadata :article="articleMd" />
+            <v-card-metadata :article="articleMd" :commentsClick="card.trackClick" />
           </gothamist-card>
           <hr class="my-3" />
           <horizontal-drag :items="articlesSm" v-slot="slotProps">
             <gothamist-card
+              v-slot="card"
               :article="slotProps.item"
               class="article-sm mod-horizontal mod-small mb-3 tag-small"
               :hide-image="true"
@@ -118,7 +123,7 @@ onMounted(async () => {
             >
               <v-card-metadata
                 :article="slotProps.item"
-                :showComments="true"
+                :commentsClick="card.trackClick"
               />
             </gothamist-card>
           </horizontal-drag>

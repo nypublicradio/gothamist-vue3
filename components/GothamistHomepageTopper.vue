@@ -31,6 +31,7 @@ const latestArticles = computed(() => {
     <h2 class="sr-only">Featured Article</h2>
     <div class="col-12 xl:col-8">
       <gothamist-card
+        v-slot="card"
         :article="featuredArticle"
         class="featured-article mod-vertical mod-featured mod-large"
         :width="897"
@@ -44,6 +45,7 @@ const latestArticles = computed(() => {
         <v-card-metadata
           altDesign
           :article="featuredArticle"
+          :commentsClick="card.trackClick"
         />
       </gothamist-card>
     </div>
@@ -65,6 +67,7 @@ const latestArticles = computed(() => {
       </v-flexible-link>
       <div v-for="(article, index) in latestArticles" :key="article.uuid">
         <gothamist-card
+          v-slot="card"
           :article="article"
           :id="index === 3 ? 'ntv-latest-1' : ''"
           class="mod-horizontal mod-left mod-small mb-3 tag-small"
@@ -81,6 +84,7 @@ const latestArticles = computed(() => {
           <v-card-metadata
             :article="article"
             :showComments="false"
+            :commentsClick="card.trackClick"
           />
         </gothamist-card>
         <hr class="my-3 block" />
