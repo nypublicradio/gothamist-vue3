@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
@@ -22,6 +22,10 @@ const props = defineProps({
     default: true,
   },
 })
+
+const emit = defineEmits<{
+  (e: 'link-click', value: any): void
+}>()
 
 const { $analytics } = useNuxtApp()
 
@@ -100,7 +104,12 @@ const commentCount = computed(() => {
         </div>
       </div>
       <div class="flex flex-column gap-125">
-        <v-byline :authors="authors" prefix="By" />
+        <v-byline
+          :authors="authors"
+          prefix="By"
+          @name-click="$event => emit('link-click', $event?.url)"
+          @organization-click="$event => emit('link-click', $event?.url)"
+        />
         <date-published :article="props.article" />
         <v-flexible-link
           v-if="!isDisableComments && props.showComments && commentCount"

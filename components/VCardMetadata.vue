@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<{
 })
 
 const emit = defineEmits<{
-  (e: 'commentsClick', value: any): void
+  (e: 'link-click', value: any): void
 }>()
 
 const commentCounts = ref(useCommentCounts())
@@ -39,6 +39,8 @@ const commentCount = computed(() => {
       <span>
         <v-byline
           :authors="props.article.authors || props.article.relatedAuthors"
+          @name-click="$event => emit('link-click', $event?.url)"
+          @organization-click="$event => emit('link-click', $event?.url)"
         />
       </span>
       <span
@@ -47,7 +49,7 @@ const commentCount = computed(() => {
       >
         <NuxtLink
           :to="{ path: props.article.link, hash: '#comments'}"
-          @click="emit('commentsClick', `${props.article.link}#comments`)"
+          @click="$event => emit('link-click', `${props.article.link}#comments`)"
         >{{ String(Number(commentCount)) }}
           {{ commentCount === 1 ? 'comment' : 'comments' }}</NuxtLink
         >
@@ -67,6 +69,7 @@ const commentCount = computed(() => {
             :article="props.article"
             :showSocial="false"
             :showComments="false"
+            @link-click="$event => emit('link-click', $event)"
           />
         </div>
         <span
@@ -75,7 +78,7 @@ const commentCount = computed(() => {
         >
           <NuxtLink
             :to="{ path: props.article.link, hash: '#comments' }"
-            @click="emit('commentsClick', `${props.article.link}#comments`)"
+            @click="$event => emit('link-click', `${props.article.link}#comments`)"
           >
             {{ String(Number(commentCount)) }}
             {{ commentCount === 1 ? 'comment' : 'comments' }}

@@ -45,7 +45,7 @@ const latestArticles = computed(() => {
         <v-card-metadata
           altDesign
           :article="featuredArticle"
-          :commentsClick="card.trackClick"
+          @link-click="$event => card.trackClick($event)"
         />
       </gothamist-card>
     </div>
@@ -84,7 +84,7 @@ const latestArticles = computed(() => {
           <v-card-metadata
             :article="article"
             :showComments="false"
-            :commentsClick="card.trackClick"
+            @link-click="$event => card.trackClick($event)"
           />
         </gothamist-card>
         <hr class="my-3 block" />
