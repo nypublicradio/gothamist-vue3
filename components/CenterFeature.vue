@@ -43,7 +43,11 @@ const articlesSm = ref([
           <p>
             {{ articleMd.description }}
           </p>
-          <v-card-metadata stack :article="articleMd"  :commentsClick="card.trackClick" />
+          <v-card-metadata
+            stack
+            :article="articleMd"
+            @link-click="$event => card.trackClick($event)"
+          />
         </gothamist-card>
         <!-- md article mobile  -->
         <gothamist-card
@@ -60,7 +64,10 @@ const articlesSm = ref([
           <p>
             {{ articleMd.description }}
           </p>
-          <v-card-metadata :article="articleMd" :commentsClick="card.trackClick" />
+          <v-card-metadata
+            :article="articleMd"
+            @link-click="$event => card.trackClick($event)"
+          />
         </gothamist-card>
         <div class="hidden lg:block mb-4 xl:mb-7">
           <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
@@ -83,7 +90,7 @@ const articlesSm = ref([
             class="mt-0 md:mt-2"
             altDesign
             :article="articleLg"
-            :commentsClick="card.trackClick"
+            @link-click="$event => card.trackClick($event)"
           />
         </gothamist-card>
         <hr class="block lg:hidden mb-3" />
@@ -109,7 +116,7 @@ const articlesSm = ref([
             <v-card-metadata
               :article="slotProps.item"
               :showComments="false"
-              :commentsClick="card.trackClick"
+              @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
         </horizontal-drag>

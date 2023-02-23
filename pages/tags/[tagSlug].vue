@@ -153,7 +153,10 @@ useHead({
                 <p>
                   {{ article.description }}
                 </p>
-                <v-card-metadata :article="article" :commentsClick="card.trackClick" />
+                <v-card-metadata
+                  :article="article"
+                  @link-click="$event => card.trackClick($event)"
+                />
               </gothamist-card>
               <hr class="mb-5" />
               <!-- mid page zone should go after the third article -->

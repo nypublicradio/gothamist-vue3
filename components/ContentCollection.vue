@@ -38,7 +38,10 @@ props.articles.forEach((article) => {
           <p class="desc">
             {{ article.description }}
           </p>
-          <v-card-metadata :article="article" :commentsClick="card.trackClick" />
+          <v-card-metadata
+            :article="article"
+            @link-click="$event => card.trackClick($event)"
+          />
         </gothamist-card>
         <hr class="mb-5 block md:hidden" />
       </div>

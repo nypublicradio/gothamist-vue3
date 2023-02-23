@@ -69,7 +69,7 @@ onMounted(async () => {
               class="mt-0 md:mt-2"
               altDesign
               :article="articleLg"
-              :commentsClick="card.trackClick"
+              @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
           <hr class="block xl:hidden mb-3" />
@@ -92,7 +92,7 @@ onMounted(async () => {
             <p>
               {{ articleMd?.description }}
             </p>
-            <v-card-metadata stack :article="articleMd" :commentsClick="card.trackClick" />
+            <v-card-metadata stack :article="articleMd" @link-click="$event => card.trackClick($event)" />
           </gothamist-card>
           <!-- md article mobile  -->
           <gothamist-card
@@ -106,7 +106,7 @@ onMounted(async () => {
             <p>
               {{ articleMd?.description }}
             </p>g
-            <v-card-metadata :article="articleMd" :commentsClick="card.trackClick" />
+            <v-card-metadata :article="articleMd" @link-click="$event => card.trackClick($event)" />
           </gothamist-card>
           <hr class="my-3" />
           <horizontal-drag :items="articlesSm" v-slot="slotProps">
@@ -123,7 +123,7 @@ onMounted(async () => {
             >
               <v-card-metadata
                 :article="slotProps.item"
-                :commentsClick="card.trackClick"
+                @link-click="$event => card.trackClick($event)"
               />
             </gothamist-card>
           </horizontal-drag>

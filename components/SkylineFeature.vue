@@ -69,7 +69,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
               class="mt-0 md:mt-2"
               altDesign
               :article="articleLg"
-              :commentsClick="card.trackClick"
+              @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
         </div>
@@ -101,7 +101,11 @@ const isOneOnly = !articleMd.value && !articleSm.value
               <p>
                 {{ articleMd?.description }}
               </p>
-              <v-card-metadata stack :article="articleMd" :commentsClick="card.trackClick" />
+              <v-card-metadata
+                stack
+                :article="articleMd"
+                @link-click="$event => card.trackClick($event)"
+              />
             </gothamist-card>
           </div>
           <div
@@ -129,7 +133,11 @@ const isOneOnly = !articleMd.value && !articleSm.value
               <p>
                 {{ articleSm?.description }}
               </p>
-              <v-card-metadata stack :article="articleSm" :commentsClick="card.trackClick" />
+              <v-card-metadata
+                stack
+                :article="articleSm"
+                @link-click="$event => card.trackClick($event)"
+              />
             </gothamist-card>
           </div>
         </ClientOnly>
