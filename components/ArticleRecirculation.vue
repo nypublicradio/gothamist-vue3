@@ -92,7 +92,11 @@ onMounted(async () => {
             <p>
               {{ articleMd?.description }}
             </p>
-            <v-card-metadata stack :article="articleMd" @link-click="$event => card.trackClick($event)" />
+            <v-card-metadata
+              stack
+              :article="articleMd"
+              @link-click="$event => card.trackClick($event)"
+            />
           </gothamist-card>
           <!-- md article mobile  -->
           <gothamist-card
@@ -106,7 +110,10 @@ onMounted(async () => {
             <p>
               {{ articleMd?.description }}
             </p>g
-            <v-card-metadata :article="articleMd" @link-click="$event => card.trackClick($event)" />
+            <v-card-metadata
+              :article="articleMd"
+              @link-click="$event => card.trackClick($event)"
+            />
           </gothamist-card>
           <hr class="my-3" />
           <horizontal-drag :items="articlesSm" v-slot="slotProps">
