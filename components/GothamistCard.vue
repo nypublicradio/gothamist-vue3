@@ -27,6 +27,7 @@ const props = withDefaults(defineProps<{
     trackingComponentLocation?: string
     trackingComponentPosition?: number
 }>(), {
+    article: null,
     width: null,
     height: null,
     ratio: () => [3, 2],
