@@ -1,5 +1,10 @@
 import ContributingOrganization from "./ContributingOrganization";
 
+type SocialMediaProfile =  {
+    id: number
+    service: string
+    profileUrl: string
+}
 export default interface Author {
     id?: number;
     firstName: string;
@@ -9,6 +14,7 @@ export default interface Author {
     url?: string;
     name?: string;
     contributingOrganization?: ContributingOrganization;
+    socialMediaProfile?: SocialMediaProfile[];
     photoID?: number;
     jobTitle?: string;
     biography?: string;

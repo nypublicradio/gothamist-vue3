@@ -40,6 +40,9 @@ const imageSize = ref(
   props.staffPage ? profileImageSizeLg.value : profileImageSizeMd.value
 )
 const imageSizePx = ref(imageSize.value + 'px')
+const accountNameFromUrl = (url) => {
+  return url?.split('/').filter(str => str !== '').slice(-1)[0]
+}
 </script>
 
 <template>
@@ -54,15 +57,13 @@ const imageSizePx = ref(imageSize.value + 'px')
         <v-flexible-link :to="profileLink" class="no-underline">
           <div class="h5">{{ profile.name }}</div>
         </v-flexible-link>
-        <!-- profile.social is not supported in the response yet. This will be updated as part of a CMS ticket -->
-        <span v-if="profile.social">
+        <span v-if="profile.socialMediaProfile">
           <v-share-tools class="">
-            <v-share-tools-item service="facebook" username="gothamist" />
-            <v-share-tools-item service="twitter" username="gothamist" />
-            <v-share-tools-item service="instagram" username="gothamist" />
             <v-share-tools-item
-              service="youtube"
-              username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
+              v-for="account in profile.socialMediaProfile"
+              :key="account.id"
+              :service="account.service"
+              :username="accountNameFromUrl(account.profileUrl)"
             />
           </v-share-tools>
         </span>

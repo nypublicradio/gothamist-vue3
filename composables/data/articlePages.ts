@@ -46,7 +46,8 @@ function normalizeAuthor(author: Record<string, any>): Author {
         website: author.website,
         email: author.email,
         slug: author.slug,
-        url: author.slug && `/staff/${author.slug}`
+        url: author.slug && `/staff/${author.slug}`,
+        socialMediaProfile: author.socialMediaProfile
     }
 }
 
