@@ -50,7 +50,6 @@ const checked = ref(true)
 const submitButtonRef = ref(null)
 const submitButtonWidth = ref(40)
 const emailErrorText = ref(null)
-const rndId = Math.random().toString(5).substring(2, 6)
 onMounted(() => {
   // for some reason the submit button is not always rendered when the component is mounted coming from a route transition, so I have to add a slight delay to make sure it gets access to the button.
   //this is a known bug: https://github.com/nuxt/framework/issues/3587
@@ -192,7 +191,6 @@ const submitForm = () => {
 <style lang="scss">
 .email-collector-form .p-input-icon-right {
   .submit-icon {
-    //margin-top: -1rem;
     .p-button {
       min-height: 41px;
       min-width: 41px;
