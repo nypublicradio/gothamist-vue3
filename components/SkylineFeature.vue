@@ -46,7 +46,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
         </p>
       </template>
       <template v-else>
-        <h2 class="sr-only">Feature</h2>
+        <h2 class="sr-only">Featured</h2>
       </template>
       <div class="grid gutter-x-30 justify-content-center">
         <div
