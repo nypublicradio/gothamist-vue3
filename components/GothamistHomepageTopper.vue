@@ -26,6 +26,7 @@ const latestArticles = computed(() => {
 
 <template v-if="featuredArticle && latestArticles">
   <div class="homepage-topper grid mb-6 gutter-x-30">
+    <h2 class="sr-only">Featured Article</h2>
     <div class="col-12 xl:col-8">
       <gothamist-card
         :article="featuredArticle"
@@ -39,7 +40,13 @@ const latestArticles = computed(() => {
     </div>
     <div class="col-12 xl:col-4 flex flex-column justify-content-end">
       <hr class="black mb-1" />
-      <v-flexible-link class="mb-3 -ml-3" to="#latest" raw>
+      <v-flexible-link
+        class="mb-3 -ml-3"
+        to="#latest"
+        raw
+        role="heading"
+        aria-level="2"
+      >
         <Button
           class="p-button-text p-button-rounded button-pill-icon"
           icon="pi pi-arrow-right ml-2"

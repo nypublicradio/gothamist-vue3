@@ -13,6 +13,7 @@ const article = normalizeArticlePage(props.collection.data[0])
 </script>
 
 <template>
+  <h2 class="sr-only">Feature</h2>
   <gothamist-card
     :article="article"
     v-if="article"

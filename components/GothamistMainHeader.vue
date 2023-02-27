@@ -62,6 +62,8 @@ const trackClick = (category, label) => {
         to="/"
         raw
         @click="trackClick('Click Tracking - Header', 'header logo')"
+        role="heading"
+        aria-level="1"
       >
         <LogoGothamist class="gothamist-header-center-logo" />
       </v-flexible-link>

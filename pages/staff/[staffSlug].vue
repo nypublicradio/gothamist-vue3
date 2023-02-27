@@ -64,7 +64,7 @@ onUnmounted(() => {
   $htlbid.clearTargeting({ Template: 'Staff' })
 })
 
-const authorName =  authorProfileData && authorProfileData.name || getAuthorNameFromSlug()
+const authorName =  authorProfileData?.name || getAuthorNameFromSlug()
 const pageTitle = `Articles by ${authorName} | Gothamist`
 useHead({
   title: pageTitle,
@@ -78,7 +78,8 @@ useHead({
       <div class="content">
         <div class="grid gutter-x-30">
           <div class="col-12">
-            <h2>Articles by</h2>
+            <h1 class="sr-only">{{ authorName }}</h1>
+            <h2>Articles by {{ authorName }}</h2>
             <hr class="black mt-3 md:mt-6 mb-2" />
           </div>
           <div class="col mb-6">

@@ -24,7 +24,7 @@ const articlesSm = ref([
   <div v-if="articleLg && articleMd && articlesSm" class="center-feature">
     <template v-if="collection.label">
       <hr class="black" />
-      <div class="type-label3 mt-2 mb-4">{{ collection.label }}</div>
+      <div class="type-label3 mt-2 mb-4" role="heading" aria-level="2">{{ collection.label }}</div>
     </template>
     <div class="grid gutter-x-30">
       <div class="col-fixed flex-order-2 lg:flex-order-1">
