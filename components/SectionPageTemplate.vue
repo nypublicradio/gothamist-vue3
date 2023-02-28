@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import { Page } from '~~/composables/types/Page'
 import { nextTick } from 'vue'
@@ -9,7 +8,6 @@ const props = defineProps<{
 }>()
 const route = useRoute()
 
-const initialStoryCount = ref(10)
 const loadMoreStoryCount = ref(10)
 const loadMoreContainer = ref('#articleList')
 const featuredStoryCount = ref(5)
