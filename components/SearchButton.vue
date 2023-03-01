@@ -24,6 +24,15 @@ const onSearch = () => {
 <template>
   <div class="search-button">
     <span v-if="expanded" class="p-input-icon-right w-full">
+      <InputText
+        class="w-full alt-design dark"
+        type="text"
+        :placeholder="props.placeholder"
+        :aria-label="props.placeholder"
+        v-model="searchTerm"
+        name="search"
+        @keypress.enter="onSearch"
+      />
       <i style="top: 14px">
         <v-flexible-link raw aria-hidden="true" tabindex="-1" @click="onSearch">
           <Button
@@ -34,15 +43,6 @@ const onSearch = () => {
           />
         </v-flexible-link>
       </i>
-      <InputText
-        class="w-full alt-design dark"
-        type="text"
-        :placeholder="props.placeholder"
-        :aria-label="props.placeholder"
-        v-model="searchTerm"
-        name="search"
-        @keypress.enter="onSearch"
-      />
     </span>
     <v-flexible-link
       v-else
