@@ -13,7 +13,7 @@ const props = defineProps({
   // This "source" field is to capture the location and site as part of the record in the CRM
   source: {
     type: String,
-    default: 'gothamist'
+    default: 'gothamist',
   },
   altDesign: {
     type: Boolean,
@@ -108,8 +108,8 @@ const submitForm = (email) => {
     </div>
     <div class="col-12 lg:col-7 xl:col-5 col-offset-0 xl:col-offset-1">
       <p v-if="showBlurb" class="type-paragraph2 pr-0 lg:pr-8 xl:pr-0">
-        Catch up on the most important headlines with a roundup of essential
-        NYC stories, delivered to your inbox daily.
+        Catch up on the most important headlines with a roundup of essential NYC
+        stories, delivered to your inbox daily.
       </p>
       <email-collector-form
         @noThanksClick="hideComp"

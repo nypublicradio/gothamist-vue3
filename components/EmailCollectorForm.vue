@@ -50,7 +50,6 @@ const checked = ref(true)
 const submitButtonRef = ref(null)
 const submitButtonWidth = ref(40)
 const emailErrorText = ref(null)
-
 onMounted(() => {
   // for some reason the submit button is not always rendered when the component is mounted coming from a route transition, so I have to add a slight delay to make sure it gets access to the button.
   //this is a known bug: https://github.com/nuxt/framework/issues/3587
@@ -122,29 +121,34 @@ const submitForm = () => {
                 :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
                 iconPos="right"
                 :label="submitButtonIcon ? null : props.submitButtonText"
-                :aria-label="submitButtonText"
+                :aria-label="props.submitButtonText"
               >
                 <i v-if="props.isSubmitting" class="pi pi-spin pi-spinner" />
               </Button>
             </i>
-            <InputText
-              :disabled="props.isSubmitting"
-              class="w-full p-inputtext-lg"
-              :class="[
-                { 'p-invalid': emailErrorText },
-                { 'alt-design': props.altDesign },
-                { dark: props.dark },
-              ]"
-              :style="`padding-right: ${submitButtonWidth}px`"
-              type="email"
-              placeholder="your@email.com"
-              aria-label="sign up"
-              aria-describedby="email-address-field"
-              v-model="email"
-              autocomplete="email"
-              name="email"
-              @keypress.enter="submitForm"
-            />
+            <span class="field">
+              <label :class="emailErrorText ? 'p-error' : ''" for="email"
+                >Email address</label
+              >
+              <InputText
+                :disabled="props.isSubmitting"
+                class="w-full p-inputtext-lg"
+                :class="[
+                  { 'p-invalid': emailErrorText },
+                  { 'alt-design': props.altDesign },
+                  { dark: props.dark },
+                ]"
+                :style="`padding-right: ${submitButtonWidth}px`"
+                type="email"
+                placeholder="your@email.com"
+                aria-label="sign up"
+                aria-describedby="email-address-field"
+                v-model="email"
+                autocomplete="email"
+                name="email"
+                @keypress.enter="submitForm"
+              />
+            </span>
           </span>
           <Transition name="fade">
             <small
@@ -187,17 +191,13 @@ const submitForm = () => {
 <style lang="scss">
 .email-collector-form .p-input-icon-right {
   .submit-icon {
-    margin-top: -1.3rem;
     .p-button {
       min-height: 41px;
       min-width: 41px;
       padding: 0px 16px;
-      &:disabled {
-        padding: 0;
-      }
     }
     &.altDesignIcon {
-      margin-top: -0.65rem;
+      margin-top: 0;
       .p-button {
         padding: 0;
         min-height: unset;
