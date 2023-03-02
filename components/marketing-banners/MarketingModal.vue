@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
+import TheGift from './gifts/TheGift.vue'
 import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
-import ProductBanner from '~~/composables/types/ProductBanner';
+import ProductBanner from '~~/composables/types/ProductBanner'
 const props = defineProps({
   banners: {
     type: Array,
@@ -100,7 +100,7 @@ onMounted(async () => {
               v-html="description"
               class="description my-2 md:mb-4 mb:mt-3"
             ></div>
-            <ShirtsAnimation :max-width="300" />
+            <TheGift />
             <Button
               class="cta-btn p-button-rounded my-4 px-4 py-3"
               :label="buttonText"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
-import ProductBanner from '~~/composables/types/ProductBanner';
+import ProductBanner from '~~/composables/types/ProductBanner'
+import TheGift from './gifts/TheGift.vue'
 const props = defineProps({
   banners: {
     type: Array,
@@ -63,7 +63,7 @@ const onCtaClick = () => {
         src="/marketing-modal/free-burst.svg"
         alt="free burst icon"
       />
-      <ShirtsAnimation />
+      <TheGift />
       <Button
         class="cta-btn p-button-rounded px-3 py-2 mt-3 sm:hidden"
         :label="buttonText"
