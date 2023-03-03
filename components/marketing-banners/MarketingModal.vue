@@ -44,7 +44,10 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData.buttonLink, '_blank')
+  window.open(
+    `${bannerData.buttonLink}?utm_medium=product-marketing-banner`,
+    '_blank'
+  )
   displayModal.value = false
 }
 

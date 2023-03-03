@@ -245,7 +245,6 @@ if (isSponsoredRoute) {
       <MarketingModal
         v-if="productBanners.length > 0"
         :banners="productBanners"
-        ga-category="Radiolab-Tote-Adhesion"
       />
     </div>
   </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ProductBanner from '~~/composables/types/ProductBanner';
+import ProductBanner from '~~/composables/types/ProductBanner'
 const props = defineProps({
   banners: {
     type: Array,
@@ -27,7 +27,10 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData.buttonLink, '_blank')
+  window.open(
+    `${bannerData.buttonLink}?utm_medium=article-inline-top`,
+    '_blank'
+  )
   emit('donate-click')
 }
 </script>
