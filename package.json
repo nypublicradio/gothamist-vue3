@@ -32,7 +32,7 @@
     "primeicons": "5.0.0",
     "primevue": "3.21.0",
     "sass": "^1.49.9",
-    "vitest": "^0.10.2",
+    "vitest": "^0.29.2",
     "vue-social-sharing": "^4.0.0-alpha4"
   }
 }
