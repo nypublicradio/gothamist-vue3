@@ -30,7 +30,7 @@
     "howler": "^2.2.3",
     "humps": "^2.0.1",
     "primeicons": "5.0.0",
-    "primevue": "^3.21.0",
+    "primevue": "3.21.0",
     "sass": "^1.49.9",
     "vitest": "^0.10.2",
     "vue-social-sharing": "^4.0.0-alpha4"

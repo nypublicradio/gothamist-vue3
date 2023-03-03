@@ -10,6 +10,14 @@ const props = defineProps({
     default: 'Gothamist tote bag',
     required: true,
   },
+  maxHeight: {
+    type: String,
+    default: '300px',
+  },
+  maxWidth: {
+    type: String,
+    default: '100%',
+  },
 })
 </script>
 
@@ -24,6 +32,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .product-item-image {
   position: relative;
-  max-height: 300px;
+  max-height: v-bind(maxHeight);
+  max-width: v-bind(maxWidth);
 }
 </style>

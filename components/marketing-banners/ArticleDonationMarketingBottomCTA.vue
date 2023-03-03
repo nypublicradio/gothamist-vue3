@@ -66,7 +66,7 @@ const onCtaClick = () => {
         src="/marketing-modal/free-burst.svg"
         alt="free burst icon"
       />
-      <TheGift />
+      <TheGift maxHeight="135px" />
       <Button
         class="cta-btn p-button-rounded px-3 py-2 mt-3 sm:hidden"
         :label="buttonText"
@@ -119,11 +119,8 @@ const onCtaClick = () => {
     @include media('<sm') {
       width: 50px;
       position: absolute;
-      left: -40px;
+      left: -45px;
     }
-  }
-  .shirts {
-    max-width: 150px;
   }
 }
 </style>
