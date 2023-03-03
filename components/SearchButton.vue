@@ -38,7 +38,9 @@ const onSearch = () => {
           <Button
             icon="pi pi-search"
             class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
-            aria-label="Go to search page"
+            :aria-label="
+              searchTerm ? 'See search results' : 'Go to search page'
+            "
             aria-expanded="false"
           />
         </v-flexible-link>
