@@ -1,4 +1,7 @@
 /* Customizations to the designer theme should be defined here */
+:root {
+    --maskbg: rgba(0, 0, 0, 0.8);
+}
 .v-byline {
     .v-byline-unit {
         display: inline-flex;

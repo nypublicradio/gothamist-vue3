@@ -39,7 +39,9 @@ const onSearch = () => {
             icon="pi pi-search"
             class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
             :aria-label="
-              searchTerm ? 'See search results' : 'Go to search page'
+              searchTerm
+                ? `See search results for ${searchTerm}`
+                : 'Go to search page'
             "
             aria-expanded="false"
           />

@@ -113,29 +113,32 @@ watch(leaderboardAdToWatch.height, (height) => {
 
 useHead({
   htmlAttrs: {
-    lang: 'en'
+    lang: 'en',
   },
   title: 'Gothamist: New York City Local News, Food, Arts & Events',
   meta: [
-    {name: 'description', content: 'Gothamist is a non-profit local newsroom, powered by WNYC.'}
+    {
+      name: 'description',
+      content: 'Gothamist is a non-profit local newsroom, powered by WNYC.',
+    },
   ],
   link: [
-    { rel: 'stylesheet', href: config.HTL_CSS, type:'text/css' },
-    { rel: 'preconnect', href: config.API_URL }
+    { rel: 'stylesheet', href: config.HTL_CSS, type: 'text/css' },
+    { rel: 'preconnect', href: config.API_URL },
   ],
   script: [
     {
       src: `https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`,
-      async: true
+      async: true,
     },
     {
       src: 'https://s.ntv.io/serve/load.js',
       async: true,
-      'data-ntv-set-no-auto-start':''
+      'data-ntv-set-no-auto-start': '',
     },
     {
       src: config.HTL_JS,
-      async: true
+      async: true,
     },
     {
       children: `window.twttr = (function(d, s, id) {
@@ -153,37 +156,46 @@ useHead({
         };
 
         return t;
-      }(document, 'script', 'twitter-wjs'));`
-    }
+      }(document, 'script', 'twitter-wjs'));`,
+    },
   ],
-  noscript: [{
-    children: `<iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.GTM_ID}&quot;
-    height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe>`
-  }]
+  noscript: [
+    {
+      children: `<iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.GTM_ID}&quot;
+    height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe>`,
+    },
+  ],
 })
 if (isSponsoredRoute) {
   useHead({
-    meta: [
-      {name: 'robots', content:'noindex,nofollow'}
-    ]
+    meta: [{ name: 'robots', content: 'noindex,nofollow' }],
   })
 } else {
   useHead({
     meta: [
-      {property: 'og:site_name', content: 'Gothamist'},
-      {property: 'og:type', content: 'website'},
-      {property: 'og:url', content: `https://www.gothamist.com${route.fullPath}`},
-      {property: 'og:title', content: 'Gothamist: New York City Local News, Food, Arts & Events'},
-      {property: 'og:site_name', content:'Gothamist'},
-      {property: 'og:description', content:'Gothamist is a non-profit local newsroom, powered by WNYC.'},
-      {property: 'og:image', content: config.OG_IMAGE},
-      {property: 'og:locale', content:'en_US'},
-      {property: 'og:image:width', content:'1200'},
-      {property: 'og:image:height', content:'650'},
-      {property: 'fb:app_id', content:'151261804904925'},
-      {name: 'twitter:card', content:'summary_large_image'},
-      {name: 'twitter:site', content:'@gothamist'}
-    ]
+      { property: 'og:site_name', content: 'Gothamist' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:url',
+        content: `https://www.gothamist.com${route.fullPath}`,
+      },
+      {
+        property: 'og:title',
+        content: 'Gothamist: New York City Local News, Food, Arts & Events',
+      },
+      { property: 'og:site_name', content: 'Gothamist' },
+      {
+        property: 'og:description',
+        content: 'Gothamist is a non-profit local newsroom, powered by WNYC.',
+      },
+      { property: 'og:image', content: config.OG_IMAGE },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '650' },
+      { property: 'fb:app_id', content: '151261804904925' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@gothamist' },
+    ],
   })
 }
 </script>
@@ -295,14 +307,17 @@ if (isSponsoredRoute) {
   }
 }
 
-.gothamist-sidebar.p-sidebar-right {
+.gothamist-sidebar {
   background-color: var(--black-500);
-  width: 100vw;
+  width: 100vw !important;
   @include media('>sm') {
-    width: 480px;
+    width: 480px !important;
   }
   .p-sidebar-close {
-    color: white;
+    color: white !important;
+    &:hover {
+      color: initial !important;
+    }
   }
 }
 
@@ -325,10 +340,6 @@ if (isSponsoredRoute) {
 
 .gothamist-sidebar .p-sidebar-content {
   padding: 0;
-}
-
-.p-sidebar-mask {
-  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .gothamist-sidebar-header-tagline {
