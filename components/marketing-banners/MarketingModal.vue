@@ -12,7 +12,6 @@ const props = defineProps({
   gaCategory: {
     type: String,
     default: 'Adhesion Modal',
-    required: true,
   },
 })
 const { $analytics } = useNuxtApp()
