@@ -1,12 +1,11 @@
 <script setup lang="ts">
+import { ArticlePage } from '~~/composables/types/Page';
 
-const props = defineProps({
-  collection: {
-    type: Object,
-    default: {},
-    required: true,
-  },
-})
+const props = defineProps<{
+  collection: {label: string, data: ArticlePage[]},
+  trackingComponentLocation: string
+}>()
+const trackingComponent = "Single Story Feature"
 
 // Note: the single story feature should only display the first story in the content collection
 const article = normalizeArticlePage(props.collection.data[0])
@@ -20,6 +19,10 @@ const article = normalizeArticlePage(props.collection.data[0])
     class="mod-large mb-5 lg:mb-8 tag-small single-story-feature"
     data-style-mode="dark"
     :sizes="[2]"
+    :trackClicks="true"
+    :trackingComponentLocation="trackingComponentLocation"
+    :trackingComponent="trackingComponent"
+    :trackingComponentPosition="1"
   >
     <p class="desc">{{ article.description }}</p>
     <v-card-metadata :article="article" alt-design :show-description="false" />

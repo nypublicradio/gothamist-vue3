@@ -96,15 +96,19 @@ onBeforeMount(() => {
   updateLiveStream(currentSteamStation.value)
 })
 onMounted(() => {
-  $htlbid.init()
-  $htlbid.setTargeting({
-    is_testing: config.HTL_IS_TESTING,
-  })
-  $htlbid.setTargetingForRoute(route)
+  if (typeof $htlbid !== "undefined") {
+    $htlbid.init()
+    $htlbid.setTargeting({
+      is_testing: config.HTL_IS_TESTING,
+    })
+    $htlbid.setTargetingForRoute(route)
+  }
 })
 watch(route, (value) => {
-  $htlbid.setTargetingForRoute(value)
-  $htlbid.clearAds()
+  if (typeof $htlbid !== "undefined") {
+    $htlbid.setTargetingForRoute(value)
+    $htlbid.clearAds()
+  }
 })
 // watch ads for height changes & update the global variable
 watch(leaderboardAdToWatch.height, (height) => {

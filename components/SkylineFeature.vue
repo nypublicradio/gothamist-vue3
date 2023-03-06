@@ -1,15 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 import { ref } from 'vue'
+import { ArticlePage } from '~~/composables/types/Page';
 
-const props = defineProps({
-  collection: {
-    type: Object,
-    default: {},
-    required: true,
-  },
-})
+const props = defineProps<{
+  collection: {label: string, data: ArticlePage[]},
+  trackingComponentLocation: string
+}>()
+const trackingComponent = "Skyline Feature"
 
 const breakpoints = useBreakpoints({
   md: Number(breakpoint.md),
@@ -54,17 +53,23 @@ const isOneOnly = !articleMd.value && !articleSm.value
           :class="isOneOnly ? 'xl:col-12' : 'xl:col-6'"
         >
           <gothamist-card
+            v-slot="card"
             :article="articleLg"
             class="primary article-lg mod-vertical mod-featured2 mod-large mb-4"
             :width="isOneOnly ? 1360 : 665"
             :height="isOneOnly ? 453 : 443"
             :ratio="isOneOnly ? [6, 2] : [3, 2]"
             loading="eager"
+            :trackClicks="true"
+            :trackingComponentLocation="trackingComponentLocation"
+            :trackingComponent="trackingComponent"
+            :trackingComponentPosition="1"
           >
             <v-card-metadata
               class="mt-0 md:mt-2"
               altDesign
               :article="articleLg"
+              @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
         </div>
@@ -76,6 +81,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
           >
             <!-- md article desktop  -->
             <gothamist-card
+              v-slot="card"
               :article="articleMd"
               class="secondary article-md mb-5 tag-small"
               :class="
@@ -87,11 +93,19 @@ const isOneOnly = !articleMd.value && !articleSm.value
               :height="318"
               :ratio="[1, 1]"
               loading="eager"
+              :trackClicks="true"
+              :trackingComponentLocation="trackingComponentLocation"
+              :trackingComponent="trackingComponent"
+              :trackingComponentPosition="2"
             >
               <p>
                 {{ articleMd?.description }}
               </p>
-              <v-card-metadata stack :article="articleMd" />
+              <v-card-metadata
+                stack
+                :article="articleMd"
+                @link-click="$event => card.trackClick($event)"
+              />
             </gothamist-card>
           </div>
           <div
@@ -100,6 +114,7 @@ const isOneOnly = !articleMd.value && !articleSm.value
           >
             <!-- sm article desktop  -->
             <gothamist-card
+              v-slot="card"
               :article="articleSm"
               class="secondary article-sm mb-5 tag-small secondary"
               :class="
@@ -110,11 +125,19 @@ const isOneOnly = !articleMd.value && !articleSm.value
               :width="318"
               :height="212"
               loading="eager"
+              :trackClicks="true"
+              :trackingComponentLocation="trackingComponentLocation"
+              :trackingComponent="trackingComponent"
+              :trackingComponentPosition="3"
             >
               <p>
                 {{ articleSm?.description }}
               </p>
-              <v-card-metadata stack :article="articleSm" />
+              <v-card-metadata
+                stack
+                :article="articleSm"
+                @link-click="$event => card.trackClick($event)"
+              />
             </gothamist-card>
           </div>
         </ClientOnly>

@@ -1,20 +1,21 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useUpdateCommentCounts } from '~~/composables/comments';
-
+import { ArticlePage } from '~~/composables/types/Page';
 // this component is used in the articleSlug at the bottom of the article page, and also as the topper in the section index page
 
-const props = defineProps({
+const props = withDefaults(defineProps<{
   // the article to filter out from the results if it exists
-  article: {
-    type: Object,
-    default: {},
-  },
-  slug: {
-    type: String,
-    default: 'news',
-  },
+  article?: ArticlePage
+  slug?: string
+  trackingComponentLocation?: string
+}>(), {
+  article: null,
+  slug: 'news',
+  trackingComponentLocation: "Recirculation Module"
 })
+
+const trackingComponent = "Recirculation Module"
 
 const routeSectionSlug = ref(props.slug)
 const { title: sectionTitle, id: sectionId } = await findPage(
@@ -52,17 +53,23 @@ onMounted(async () => {
       <div class="grid gutter-x-30">
         <div class="col-12 xl:col-8">
           <gothamist-card
+            v-slot="card"
             :article="articleLg"
             class="article-lg mod-vertical mod-featured2 mod-large mb-4"
             :width="897"
             :height="598"
             :hideTags="true"
             loading="eager"
+            :trackClicks="true"
+            :trackingComponent="trackingComponent"
+            :trackingComponentLocation="trackingComponentLocation"
+            :trackingComponentPosition="1"
           >
             <v-card-metadata
               class="mt-0 md:mt-2"
               altDesign
               :article="articleLg"
+              @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
           <hr class="block xl:hidden mb-3" />
@@ -70,20 +77,30 @@ onMounted(async () => {
         <div class="col-12 xl:col-4">
           <!-- md article desktop  -->
           <gothamist-card
+            v-slot="card"
             :article="articleMd"
             class="hidden xl:flex article-md mod-vertical mod-large mb-5"
             :width="433"
             :height="289"
             :hideTags="true"
             loading="eager"
+            :trackClicks="true"
+            :trackingComponent="trackingComponent"
+            :trackingComponentLocation="trackingComponentLocation"
+            :trackingComponentPosition="2"
           >
             <p>
               {{ articleMd?.description }}
             </p>
-            <v-card-metadata stack :article="articleMd" />
+            <v-card-metadata
+              stack
+              :article="articleMd"
+              @link-click="$event => card.trackClick($event)"
+            />
           </gothamist-card>
           <!-- md article mobile  -->
           <gothamist-card
+            v-slot="card"
             :article="articleMd"
             class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
             :width="318"
@@ -92,20 +109,28 @@ onMounted(async () => {
           >
             <p>
               {{ articleMd?.description }}
-            </p>
-            <v-card-metadata :article="articleMd" />
+            </p>g
+            <v-card-metadata
+              :article="articleMd"
+              @link-click="$event => card.trackClick($event)"
+            />
           </gothamist-card>
           <hr class="my-3" />
-          <horizontal-drag :articles="articlesSm" v-slot="slotProps">
+          <horizontal-drag :items="articlesSm" v-slot="slotProps">
             <gothamist-card
-              :article="slotProps.article"
+              v-slot="card"
+              :article="slotProps.item"
               class="article-sm mod-horizontal mod-small mb-3 tag-small"
               :hide-image="true"
               :hide-tags="true"
+              :trackClicks="true"
+              :trackingComponent="trackingComponent"
+              :trackingComponentLocation="trackingComponentLocation"
+              :trackingComponentPosition="slotProps.index + 3"
             >
               <v-card-metadata
-                :article="slotProps.article"
-                :showComments="true"
+                :article="slotProps.item"
+                @link-click="$event => card.trackClick($event)"
               />
             </gothamist-card>
           </horizontal-drag>

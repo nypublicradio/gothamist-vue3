@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 //import { StaffPage } from '../../composables/types/Page'
+import { ArticlePage } from '~~/composables/types/Page';
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
@@ -19,7 +20,8 @@ const initialArticles = await findArticlePages({
 }).then(({ data }) => ({
   articles: normalizeFindArticlePagesResponse(data),
   count: data.value && Number(data.value.meta.totalCount)
-}))
+})) as {articles: ArticlePage[], count: number}
+
 const articleTotal = ref(initialArticles.count)
 const articles = ref(initialArticles.articles)
 
@@ -39,7 +41,7 @@ const authorProfileData = articles.value[1]?.authors.find((author) => {
 
 // formats the name of the author by manipulating the slug. This is used when authorProfileData returns no data
 const getAuthorNameFromSlug = () => {
-  var splitStr = staffSlug.toLowerCase().split('-')
+  var splitStr = typeof staffSlug === 'string' && staffSlug.toLowerCase().split('-')
   for (var i = 0; i < splitStr.length; i++) {
     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
   }
@@ -96,19 +98,27 @@ useHead({
         <div class="grid gutter-x-30">
           <div v-if="articles" class="col">
             <div
-              v-for="article in articles"
+              v-for="(article, index) in articles"
               :key="article.uuid"
             >
               <gothamist-card
+                v-slot="card"
                 :article="article"
                 class="mod-horizontal mb-5"
                 :width="318"
                 :height="212"
+                :trackClicks="true"
+                trackingComponentLocation="Author Page River"
+                trackingComponent="Author Page River"
+                :trackingComponentPosition="index + 1"
               >
                 <p>
                   {{ article.description }}
                 </p>
-                <v-card-metadata :article="article" />
+                <v-card-metadata
+                  :article="article"
+                  @link-click="$event => card.trackClick($event)"
+                />
               </gothamist-card>
               <hr class="mb-5" />
             </div>

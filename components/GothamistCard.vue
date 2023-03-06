@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import { ArticlePage } from '~~/composables/types/Page';
+import { ArticlePage, GalleryPage } from '~~/composables/types/Page';
 import { computed } from 'vue';
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
+import Image from '~~/composables/types/Image';
+
+type CardData = {
+    listingTitle: string
+    listingImage?: Image
+    link: string
+}
+
+const { $analytics } = useNuxtApp()
 const props = withDefaults(defineProps<{ 
-    article: ArticlePage
+    article?: ArticlePage | GalleryPage | CardData
     class: string
     width?: number
     height?: number
@@ -13,7 +22,12 @@ const props = withDefaults(defineProps<{
     hideImage?: boolean
     hideTags?: boolean
     loading?: 'eager' | 'lazy'
+    trackClicks?: boolean
+    trackingComponent?: string
+    trackingComponentLocation?: string
+    trackingComponentPosition?: number
 }>(), {
+    article: null,
     width: null,
     height: null,
     ratio: () => [3, 2],
@@ -21,11 +35,22 @@ const props = withDefaults(defineProps<{
     hideImage: false,
     hideTags: false,
     quality: 80,
-    loading: 'lazy'
+    loading: 'lazy',
+    trackClicks: false,
+    trackingComponent: null,
+    trackingComponentLocation: null,
+    trackingComponentPosition: null
 })
 
+
+const sponsored = computed(() => "sponsoredContent" in props.article && props.article.sponsoredContent)
+const link = computed(() => "link" in props.article && props.article.link || 
+             "url" in props.article && props.article.url)
+
 const tags = computed(() => {
-    if (props.hideTags || props.article.sponsoredContent) {
+    if (props.hideTags 
+        || sponsored
+        || !("section" in props.article)) {
         return []
     }
     return [
@@ -35,18 +60,30 @@ const tags = computed(() => {
         }
     ]
 })
+
+const trackClick = function (targetUrl: string) {
+    if (props.trackClicks) {
+        $analytics.sendEvent('click_tracking', {
+            event_category: `Click Tracking - ${props.trackingComponentLocation}`,
+            component:  props.trackingComponent,
+            component_position: props.trackingComponentPosition && String(props.trackingComponentPosition),
+            event_label: targetUrl
+        })
+    }
+}
 </script>
 
 <template>
     <v-card
+        v-if="article"
         class="gothamist-card"
         :class="props.class"
         :image="hideImage ? null : useImageUrl(article.listingImage)"
         :title="article.listingTitle"
-        :titleLink="article.link"
+        :titleLink="link"
         :maxWidth="article.listingImage?.width"
         :maxHeight="article.listingImage?.height"
-        :sponsored="article.sponsoredContent"
+        :sponsored="sponsored"
         :ratio="ratio"
         :width="width"
         :height="height"
@@ -55,8 +92,12 @@ const tags = computed(() => {
         :tags="tags"
         :loading="loading"
         v-bind="{ ...$props, ...$attrs }"
+        @titleClick="trackClick(link)"
+        @imageClick="trackClick(link)"
+        @creditClick="trackClick(article.listingImage?.creditLink)"
+        @tagClick="(tag) => trackClick(`tags/${tag?.slug}`)"
     >
-        <slot />
+        <slot :trackClick="trackClick" />
     </v-card>
 </template>
 

@@ -211,7 +211,11 @@ const showMarketingBanner = computed(() => {
               :streamfield-blocks="article.body"
               @all-blocks-mounted="handleArticleMounted"
             />
-            <RelatedLinks :article="article" class="below-body" />
+            <RelatedLinks
+              :article="article"
+              class="below-body"
+              trackingComponentLocation="Article Page Related Links"
+            />
             <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"
               class="below-body"
@@ -241,6 +245,7 @@ const showMarketingBanner = computed(() => {
         <article-recirculation
           :slug="(route?.params?.sectionSlug as string)"
           :article="article"
+          trackingComponentLocation="Article Page Recirculation Module"
         />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />

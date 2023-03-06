@@ -55,6 +55,7 @@ const newsletterSubmitEvent = () => {
       <article-recirculation
         :slug="(route?.params?.sectionSlug as string)"
         id="article-recirculation"
+        trackingComponentLocation="Section Page Recirculation Module"
         class="my-6"
       />
       <div class="mb-6">
@@ -70,15 +71,23 @@ const newsletterSubmitEvent = () => {
             :key="`${article.id}-${index}`"
           >
             <gothamist-card
+              v-slot="card"
               :article="article"
               class="mod-horizontal mb-5"
               :width="318"
               :height="212"
+              :trackClicks="true"
+              trackingComponentLocation="Section Page River"
+              trackingComponent="Section Page River"
+              :trackingComponentPosition="index + 1"
             >
               <p>
                 {{ article.description }}
               </p>
-              <v-card-metadata :article="article" />
+              <v-card-metadata
+                :article="article"
+                @link-click="$event => card.trackClick($event)"
+              />
             </gothamist-card>
             <hr class="mb-5" />
           </div>

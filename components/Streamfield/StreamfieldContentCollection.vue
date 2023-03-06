@@ -2,6 +2,7 @@
 import { ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
 defineProps<{
   block: ContentCollectionBlock
+  trackingComponentLocation: string
 }>()
 </script>
 
@@ -9,5 +10,6 @@ defineProps<{
   <ContentCollection
     class="streamfield-content-collection mb-5"
     :articles="block.value.pages"
+    :trackingComponentLocation="trackingComponentLocation"
   />
 </template>

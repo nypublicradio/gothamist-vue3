@@ -9,6 +9,8 @@ const props = defineProps<{
   articles: ArticlePage[]
   navigation: Navigation
 }>()
+const trackingComponentLocation = "Homepage Topper"
+const trackingComponent = "Homepage Topper"
 
 const featuredArticle = computed(() => props.articles[0])
 const latestArticles = computed(() => {
@@ -29,13 +31,22 @@ const latestArticles = computed(() => {
     <h2 class="sr-only">Featured Article</h2>
     <div class="col-12 xl:col-8">
       <gothamist-card
+        v-slot="card"
         :article="featuredArticle"
         class="featured-article mod-vertical mod-featured mod-large"
         :width="897"
         :height="598"
         loading="eager"
+        :trackClicks="true"
+        :trackingComponentLocation="trackingComponentLocation"
+        :trackingComponent="trackingComponent"
+        :trackingComponentPosition="1"
       >
-        <v-card-metadata altDesign :article="featuredArticle" />
+        <v-card-metadata
+          altDesign
+          :article="featuredArticle"
+          @link-click="$event => card.trackClick($event)"
+        />
       </gothamist-card>
     </div>
     <div class="col-12 xl:col-4 flex flex-column justify-content-end">
@@ -56,6 +67,7 @@ const latestArticles = computed(() => {
       </v-flexible-link>
       <div v-for="(article, index) in latestArticles" :key="article.uuid">
         <gothamist-card
+          v-slot="card"
           :article="article"
           :id="index === 3 ? 'ntv-latest-1' : ''"
           class="mod-horizontal mod-left mod-small mb-3 tag-small"
@@ -63,9 +75,17 @@ const latestArticles = computed(() => {
           :height="105"
           :sizes="[2]"
           :hide-tags="true"
+          :trackClicks="true"
+          :trackingComponentLocation="trackingComponentLocation"
+          :trackingComponent="trackingComponent"
+          :trackingComponentPosition="index + 2"
         >
           <div></div>
-          <v-card-metadata :article="article" :showComments="false" />
+          <v-card-metadata
+            :article="article"
+            :showComments="false"
+            @link-click="$event => card.trackClick($event)"
+          />
         </gothamist-card>
         <hr class="my-3 block" />
       </div>

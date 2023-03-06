@@ -115,6 +115,7 @@ useHead({
           <div class="col">
             <v-streamfield
               :streamfield-blocks="curatedTagPage.topPageZone"
+              trackingComponentLocation="Tag Page Top Curated Zone"
               class="pt-4 lg:pt-6"
             />
           </div>
@@ -139,15 +140,23 @@ useHead({
               :key="`${article.id}-${index}`"
             >
               <gothamist-card
+                v-slot="card"
                 :article="article"
                 class="mod-horizontal mb-5"
                 :width="318"
                 :height="212"
+                :trackClicks="true"
+                trackingComponentLocation="Tag Page River"
+                trackingComponent="Tag Page River"
+                :trackingComponentPosition="index + 1"
               >
                 <p>
                   {{ article.description }}
                 </p>
-                <v-card-metadata :article="article" />
+                <v-card-metadata
+                  :article="article"
+                  @link-click="$event => card.trackClick($event)"
+                />
               </gothamist-card>
               <hr class="mb-5" />
               <!-- mid page zone should go after the third article -->
@@ -157,6 +166,7 @@ useHead({
               >
                 <v-streamfield
                   :streamfield-blocks="curatedTagPage.midPageZone"
+                  trackingComponentLocation="Tag Page Middle Curated Zone"
                 />
               </div>
             </div>
