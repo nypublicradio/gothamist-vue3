@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
-import ProductBanner from '~~/composables/types/ProductBanner';
+import ProductBanner from '~~/composables/types/ProductBanner'
+import TheGift from './gifts/TheGift.vue'
 const props = defineProps({
   banners: {
     type: Array,
@@ -28,7 +28,10 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData.buttonLink, '_blank')
+  window.open(
+    `${bannerData.buttonLink}?utm_medium=article-inline-bottom`,
+    '_blank'
+  )
   emit('donate-click')
 }
 </script>
@@ -63,7 +66,7 @@ const onCtaClick = () => {
         src="/marketing-modal/free-burst.svg"
         alt="free burst icon"
       />
-      <ShirtsAnimation />
+      <TheGift maxHeight="135px" />
       <Button
         class="cta-btn p-button-rounded px-3 py-2 mt-3 sm:hidden"
         :label="buttonText"
@@ -116,11 +119,8 @@ const onCtaClick = () => {
     @include media('<sm') {
       width: 50px;
       position: absolute;
-      left: -40px;
+      left: -45px;
     }
-  }
-  .shirts {
-    max-width: 150px;
   }
 }
 </style>

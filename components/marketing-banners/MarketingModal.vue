@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import ShirtsAnimation from '~/components/marketing-banners/ShirtsAnimation'
+import TheGift from './gifts/TheGift.vue'
 import { isMoreThanFrequencyHoursAgo } from '~/utilities/date'
-import ProductBanner from '~~/composables/types/ProductBanner';
+import ProductBanner from '~~/composables/types/ProductBanner'
 const props = defineProps({
   banners: {
     type: Array,
@@ -12,7 +12,6 @@ const props = defineProps({
   gaCategory: {
     type: String,
     default: 'Adhesion Modal',
-    required: true,
   },
 })
 const { $analytics } = useNuxtApp()
@@ -44,7 +43,10 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here
-  window.open(bannerData.buttonLink, '_blank')
+  window.open(
+    `${bannerData.buttonLink}?utm_medium=product-marketing-banner`,
+    '_blank'
+  )
   displayModal.value = false
 }
 
@@ -100,7 +102,7 @@ onMounted(async () => {
               v-html="description"
               class="description my-2 md:mb-4 mb:mt-3"
             ></div>
-            <ShirtsAnimation :max-width="300" />
+            <TheGift />
             <Button
               class="cta-btn p-button-rounded my-4 px-4 py-3"
               :label="buttonText"
