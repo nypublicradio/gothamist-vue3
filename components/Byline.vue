@@ -80,7 +80,12 @@ const commentCount = computed(() => {
     >
       <div class="author-images flex flex-wrap">
         <div v-for="author of authors" :key="author.id" class="author-image">
-          <v-flexible-link :to="author.url" raw>
+          <v-flexible-link
+            :to="author.url"
+            raw
+            aria-hidden="true"
+            tabindex="-1"
+          >
             <v-simple-responsive-image
               v-if="author.photoID"
               :src="useImageUrl({ id: author.photoID })"
@@ -88,9 +93,9 @@ const commentCount = computed(() => {
               :height="60"
               :sizes="[2]"
               :ratio="[1, 1]"
-              :alt="author.name"
+              alt=""
             />
-            <img v-else src="/avatar.svg" alt="author.name" loading="lazy" />
+            <img v-else src="/avatar.svg" alt="" loading="lazy" />
           </v-flexible-link>
         </div>
       </div>

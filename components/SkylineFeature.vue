@@ -45,6 +45,9 @@ const isOneOnly = !articleMd.value && !articleSm.value
           {{ featureLabel }}
         </p>
       </template>
+      <template v-else>
+        <h2 class="sr-only">Featured</h2>
+      </template>
       <div class="grid gutter-x-30 justify-content-center">
         <div
           class="col-12 lg:col-12 flex-order-0 xl:flex-order-3"

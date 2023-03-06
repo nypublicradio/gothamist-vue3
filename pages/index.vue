@@ -142,7 +142,13 @@ const nativoSectionLoaded = (name) => {
               class="grid gutter-x-xl"
             >
               <div class="col-12 xxl:col-1 type-label3">
-                {{ segmentIndex === 0 ? 'LATEST' : '' }}
+                <div
+                  v-if="segmentIndex === 0"
+                  role="heading"
+                  aria-level="2"
+                >
+                  LATEST
+                </div>
               </div>
               <div class="col">
                 <div

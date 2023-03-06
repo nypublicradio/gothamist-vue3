@@ -80,7 +80,12 @@ const imageSizePx = ref(imageSize.value + 'px')
     </div>
     <div class="col-fixed profile">
       <div class="author-image">
-        <v-flexible-link :to="profileLink" raw>
+        <v-flexible-link
+          :to="profileLink"
+          raw
+          :aria-hidden="true"
+          :tabindex="-1"
+        >
           <v-simple-responsive-image
             v-if="profileImage"
             :src="useImageUrl({ id: profileImage })"
@@ -88,14 +93,14 @@ const imageSizePx = ref(imageSize.value + 'px')
             :height="imageSize"
             :sizes="[2]"
             :ratio="[1, 1]"
-            :alt="profile.name"
             :loading="props.staffPage ? 'eager' : 'lazy'"
+            alt=''
           />
           <img
             v-else
             src="/avatar.svg"
-            :alt="profile.name"
             :loading="props.staffPage ? 'eager' : 'lazy'"
+            alt=''
           />
         </v-flexible-link>
       </div>
