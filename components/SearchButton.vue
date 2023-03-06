@@ -24,16 +24,6 @@ const onSearch = () => {
 <template>
   <div class="search-button">
     <span v-if="expanded" class="p-input-icon-right w-full">
-      <i style="top: 14px">
-        <v-flexible-link raw aria-hidden="true" tabindex="-1" @click="onSearch">
-          <Button
-            icon="pi pi-search"
-            class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
-            aria-label="Go to search page"
-            aria-expanded="false"
-          />
-        </v-flexible-link>
-      </i>
       <InputText
         class="w-full alt-design dark"
         type="text"
@@ -43,6 +33,20 @@ const onSearch = () => {
         name="search"
         @keypress.enter="onSearch"
       />
+      <i style="top: 14px">
+        <v-flexible-link raw aria-hidden="true" tabindex="-1" @click="onSearch">
+          <Button
+            icon="pi pi-search"
+            class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
+            :aria-label="
+              searchTerm
+                ? `See search results for ${searchTerm}`
+                : 'Go to search page'
+            "
+            aria-expanded="false"
+          />
+        </v-flexible-link>
+      </i>
     </span>
     <v-flexible-link
       v-else

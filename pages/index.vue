@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
-import useImageUrl from '~~/composables/useImageUrl'
 import { ArticlePage } from '~~/composables/types/Page'
 import { computed, ref } from 'vue'
 
@@ -11,10 +9,8 @@ const riverAdRepeatRate = ref(6)
 
 const articlesPromise = findArticlePages({
   limit: riverStoryCount.value,
-  sponsored_content: false
-}).then(
-  ({ data }) => normalizeFindArticlePagesResponse(data)
-)
+  sponsored_content: false,
+}).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
 const homePageCollectionsPromise = findPage('/').then(({ data }) => {
   return data.value.pageCollectionRelationship.map((collection) => {
@@ -83,7 +79,7 @@ const nativoSectionLoaded = (name) => {
     loadedNativoElements.includes('ntv-latest-1')
   ) {
     loadedNativoElements.length = 0
-    if (typeof PostRelease !== "undefined") {
+    if (typeof PostRelease !== 'undefined') {
       PostRelease.Start()
     }
   }
@@ -102,7 +98,10 @@ const nativoSectionLoaded = (name) => {
         <!-- newsletter -->
         <div class="mt-8">
           <hr class="black mb-4" />
-          <newsletter-home source="gothamist_home" @submit="newsletterSubmitEvent" />
+          <newsletter-home
+            source="gothamist_home"
+            @submit="newsletterSubmitEvent"
+          />
         </div>
       </div>
       <!-- home page collections -->

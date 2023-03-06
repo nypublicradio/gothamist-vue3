@@ -306,14 +306,17 @@ if (isSponsoredRoute) {
   }
 }
 
-.gothamist-sidebar.p-sidebar-right {
+.gothamist-sidebar {
   background-color: var(--black-500);
-  width: 100vw;
+  width: 100vw !important;
   @include media('>sm') {
-    width: 480px;
+    width: 480px !important;
   }
   .p-sidebar-close {
-    color: white;
+    color: white !important;
+    &:hover {
+      color: initial !important;
+    }
   }
 }
 
@@ -336,10 +339,6 @@ if (isSponsoredRoute) {
 
 .gothamist-sidebar .p-sidebar-content {
   padding: 0;
-}
-
-.p-sidebar-mask {
-  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .gothamist-sidebar-header-tagline {
