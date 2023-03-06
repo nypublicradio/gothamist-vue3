@@ -6,10 +6,6 @@ const props = defineProps<{
   page: InformationPage
 }>()
 
-onMounted(() => {
-  $analytics.sendPageView({ page_type: 'information_page' })
-})
-
 const newsletterSubmitEvent = () => {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',

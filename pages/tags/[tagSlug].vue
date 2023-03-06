@@ -48,7 +48,10 @@ const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
 
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'tag_page' })
+  $analytics.sendPageView({
+    page_type: 'tag_page',
+    content_group: 'tag-page'
+  })
   $htlbid.setTargeting({ Template: 'Tag' })
 
   function getPagesFromZone(zone: StreamfieldBlock[]) {

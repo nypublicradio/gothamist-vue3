@@ -34,7 +34,6 @@ const loadMoreArticles = async () => {
 }
 const { $analytics } = useNuxtApp()
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'section_page' })
   useUpdateCommentCounts(articles.value)
 })
 const newsletterSubmitEvent = () => {

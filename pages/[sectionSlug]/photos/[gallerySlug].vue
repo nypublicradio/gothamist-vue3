@@ -29,7 +29,11 @@ const adTargetingData = { Template: 'Article Gallery' }
 useHead(headMetadata)
 
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'gallery' })
+  const article = gallery.relatedArticles?.[0]
+  $analytics.sendPageView({
+    page_type: 'gallery',
+    content_group: article?.sponsoredContent ? 'sponsored-content' : `${route.params.sectionSlug}-gallery`,
+  })
   $htlbid.setTargeting(adTargetingData)
 })
 onUnmounted(() => {
