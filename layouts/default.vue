@@ -242,10 +242,9 @@ if (isSponsoredRoute) {
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
-      <MarketingModalShirts
+      <MarketingModal
         v-if="productBanners.length > 0"
         :banners="productBanners"
-        ga-category="Radiolab-Shirts-Adhesion"
       />
     </div>
   </div>

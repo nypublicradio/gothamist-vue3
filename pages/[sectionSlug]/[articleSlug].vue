@@ -28,7 +28,6 @@ const article = isPreview
       `${route.params.sectionSlug}/${route.params.articleSlug}`
     ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage)
 
-
 let gallery
 if (article.leadGallery) {
   gallery = (await usePageById(article.leadGallery.gallery).then(({ data }) =>
@@ -103,9 +102,7 @@ const getGalleryLink = computed(() => {
 })
 
 const showMarketingBanner = computed(() => {
-  return (
-    marketingBannerData.value[0]?.location === 'BOTTOM'
-  )
+  return marketingBannerData.value[0]?.location === 'BOTTOM'
 })
 </script>
 <template>
@@ -188,7 +185,6 @@ const showMarketingBanner = computed(() => {
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
             </div>
-
             <ArticleDonationMarketingCTA
               v-if="showMarketingBanner"
               :banners="marketingBannerData"
