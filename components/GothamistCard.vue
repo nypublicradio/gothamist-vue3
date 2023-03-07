@@ -49,7 +49,7 @@ const link = computed(() => "link" in props.article && props.article.link ||
 
 const tags = computed(() => {
     if (props.hideTags 
-        || sponsored
+        || sponsored.value
         || !("section" in props.article)) {
         return []
     }
@@ -114,5 +114,9 @@ div.gothamist-card.sponsored {
             margin: 2rem 0;
         }
     }
+}
+
+.gothamist-card {
+  --tag-bg: transparent
 }
 </style>
