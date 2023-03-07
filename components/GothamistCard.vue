@@ -117,6 +117,6 @@ div.gothamist-card.sponsored {
 }
 
 .gothamist-card {
-  --tag-bg: transparent
+  --tag-bg: transparent;
 }
 </style>
