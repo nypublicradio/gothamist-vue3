@@ -164,7 +164,7 @@ const showMarketingBanner = computed(() => {
                 :maxHeight="topImage?.height"
                 :credit="topImage?.credit"
                 :credit-url="topImage?.creditLink"
-                :sizes="[1]"
+                :sizes="[2, 3]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
               />
