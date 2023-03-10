@@ -7,3 +7,4 @@ nuxt.d.ts
 coverage
 .vscode
 .npmrc
+cypress/videos/

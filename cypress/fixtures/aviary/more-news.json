@@ -1,6 +1,6 @@
 {
     "meta": {
-        "total_count": 140417
+        "total_count": 90144
     },
     "items": [
         {
@@ -484,116 +484,6 @@
             ]
         },
         {
-            "id": 154797,
-            "meta": {
-                "first_published_at": "2023-03-10T14:10:31.010276-05:00",
-                "type": "news.ArticlePage",
-                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154797/",
-                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/watch-the-oscars-among-friends-and-strangers-and-more-things-to-do-this-week-in-nyc/",
-                "slug": "watch-the-oscars-among-friends-and-strangers-and-more-things-to-do-this-week-in-nyc"
-            },
-            "title": "Watch the Oscars among friends (and strangers) and more things to do this week in NYC",
-            "listing_title": "",
-            "listing_summary": "",
-            "listing_image": null,
-            "uuid": "d3295477-588e-4599-ba5d-f4f781a64bc6",
-            "url": "https://gothamist.com/arts-entertainment/watch-the-oscars-among-friends-and-strangers-and-more-things-to-do-this-week-in-nyc",
-            "publication_date": "2023-03-10T14:10:31.010276-05:00",
-            "updated_date": null,
-            "description": "It’s impossible to keep up with everything happening in New York City arts and culture, but here are some recommendations for events you shouldn’t miss during the week ahead.",
-            "lead_asset": [
-                {
-                    "type": "lead_image",
-                    "value": {
-                        "image": {
-                            "id": 337193,
-                            "title": "shutterstock_2119939280.jpg",
-                            "width": 4592,
-                            "height": 3064,
-                            "created_at": "2023-03-10T13:03:03.078975-05:00",
-                            "focal_point_x": null,
-                            "focal_point_y": null,
-                            "focal_point_width": null,
-                            "focal_point_height": null,
-                            "file_size": 5982121,
-                            "file_hash": "5d32b799b0f7e8a1a00c9f8525318df92d8e40ab",
-                            "alt": "A golden statuette shaped like a man",
-                            "caption": "Catch up with the Oscars on Sunday night at one of the city's many public viewing events.",
-                            "credit": "LanKS/Shutterstock",
-                            "credit_link": "",
-                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_2119939280.jpg",
-                            "usage_limitations": "",
-                            "expiry_date": null,
-                            "collection": 1,
-                            "uploaded_by_user": 127
-                        },
-                        "caption": "",
-                        "image_link": ""
-                    },
-                    "id": "79044b49-f1d2-4adf-82e5-12a1c2c858c9"
-                }
-            ],
-            "sponsored_content": false,
-            "related_authors": [
-                {
-                    "id": 150749,
-                    "first_name": "Steve",
-                    "last_name": "Smith",
-                    "photo": 328940,
-                    "job_title": "Culture & Arts Editor",
-                    "biography": "Steve Smith came to WNYC from NPR, where he served as a senior editor on the Arts Desk. He ostensibly focused on music coverage, but in reality handled subjects like Mickey Mouse's creator, AI voice cloning, and even the 50th anniversary of the Crock Pot. Steve served previously as a music editor at Time Out New York, a classical-music critic for The New York Times, a weekly contributor to The New Yorker, and an assistant arts editor at the Boston Globe. He lives in Jackson Heights, Queens, with his wife, journalist and scholar Lara Pellegrinelli (herself a past contributor to WNYC and NPR), their daughter, and two dogs.",
-                    "website": "",
-                    "email": "",
-                    "slug": "steve-smith",
-                    "social_media_profile": []
-                }
-            ],
-            "tags": [
-                {
-                    "name": "nyc events",
-                    "slug": "nyc-events"
-                },
-                {
-                    "name": "new york city",
-                    "slug": "new-york-city"
-                }
-            ],
-            "show_as_feature": false,
-            "legacy_id": null,
-            "ancestry": [
-                {
-                    "id": 8,
-                    "meta": {
-                        "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/8/",
-                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
-                    },
-                    "title": "Arts & Entertainment",
-                    "slug": "arts-entertainment"
-                },
-                {
-                    "id": 3,
-                    "meta": {
-                        "type": "home.HomePage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
-                        "html_url": "http://cms.prod.nypr.digital/"
-                    },
-                    "title": "Gothamist",
-                    "slug": "home"
-                },
-                {
-                    "id": 1,
-                    "meta": {
-                        "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
-                        "html_url": null
-                    },
-                    "title": "Root",
-                    "slug": "root"
-                }
-            ]
-        },
-        {
             "id": 154796,
             "meta": {
                 "first_published_at": "2023-03-10T13:11:24.478149-05:00",
@@ -662,6 +552,112 @@
                 {
                     "name": "extra extra",
                     "slug": "extra-extra"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154794,
+            "meta": {
+                "first_published_at": "2023-03-10T10:00:53.456795-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154794/",
+                "html_url": "http://cms.prod.nypr.digital/news/early-addition-a-coyote-was-walkin-around-queens-this-week/",
+                "slug": "early-addition-a-coyote-was-walkin-around-queens-this-week"
+            },
+            "title": "Early Addition: A coyote was walkin' around Queens this week",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "ffa1cf45-9fb7-4c54-b7fd-04eba201d287",
+            "url": "https://gothamist.com/news/early-addition-a-coyote-was-walkin-around-queens-this-week",
+            "publication_date": "2023-03-10T10:00:53.456795-05:00",
+            "updated_date": null,
+            "description": "Because the canine has now been relocated to Long Island, here are your early links: Retired NYPD officer allegedly threatened teens with a gun, new Biggie mural unveiled, don't drink the Borg and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337191,
+                            "title": "Screen Shot 2023-03-10 at 8.30.47 AM.png",
+                            "width": 1460,
+                            "height": 1090,
+                            "created_at": "2023-03-10T08:33:06.024162-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1845115,
+                            "file_hash": "361491cbb74faccabcc0808f1a9155a5d31ef019",
+                            "alt": "a coyote seen walking on a Queens sidewalk",
+                            "caption": "",
+                            "credit": "NYPD105Pct/Twitter",
+                            "credit_link": "https://twitter.com/NYPD105Pct/status/1633462901775417345",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2023-03-10_at_8.30.47_AM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "60fe77e1-4ae3-46c0-8f8d-e819b3935ef0"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 35,
+                    "first_name": "James",
+                    "last_name": "Ramsay",
+                    "photo": 327650,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "james-ramsay",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "early addition",
+                    "slug": "early-addition"
                 }
             ],
             "show_as_feature": false,
