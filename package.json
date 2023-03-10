@@ -10,7 +10,7 @@
     "coverage": "vitest run --coverage",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test-e2e": "start-server-and-test dev-no-ssr http://localhost:3000 cy:run"
+    "test-cypress": "start-server-and-test dev-no-ssr http://localhost:3000 cy:run"
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
