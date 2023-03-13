@@ -102,7 +102,7 @@ useHead({
           <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
         </div>
         <div id="articleList" class="grid gutter-x-30">
-          <div v-if="articles" class="col">
+          <div v-if="articles" class="col staff-articles">
             <div
               v-for="(article, index) in articles"
               :key="article.uuid"

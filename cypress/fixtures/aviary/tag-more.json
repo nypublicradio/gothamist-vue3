@@ -1,0 +1,1318 @@
+{
+    "meta": {
+        "total_count": 819
+    },
+    "items": [
+        {
+            "id": 142498,
+            "meta": {
+                "first_published_at": "2020-02-21T12:17:48.773419-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/142498/",
+                "html_url": "http://cms.prod.nypr.digital/news/ny-cat-and-dog-owners-will-have-get-creative-plastic-bag-ban/",
+                "slug": "ny-cat-and-dog-owners-will-have-get-creative-plastic-bag-ban"
+            },
+            "title": "NY Cat And Dog Owners Will Have To Get Creative With Plastic Bag Ban",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "a45aea05-7b50-4b0f-9d67-01021ede0a1f",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/ny-cat-and-dog-owners-will-have-get-creative-plastic-bag-ban",
+            "publication_date": "2020-02-21T12:17:48.773419-05:00",
+            "updated_date": null,
+            "description": "“Necessity is the mother of invention. I’m not giving up my cat, I love her dearly so I'm marching on.”",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 301283,
+                            "title": "shutterstock_1155216337.jpg",
+                            "width": 5760,
+                            "height": 3840,
+                            "created_at": "2020-02-21T12:09:59.448671-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 12280109,
+                            "file_hash": "00844f64ff7cde1175c053478e7a75b7237690f4",
+                            "alt": "A cat sits next to a kitty litter box.",
+                            "caption": "A cat sits next to a kitty litter box looking up at its owner with a quizzical expression as if to say, \"Surely, you can figure this bag thing out right?\"",
+                            "credit": "New Africa / Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/shutterstock_1155216337.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 23
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "693bf339-62f9-4b05-818f-69f7a3283c49"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 40,
+                    "first_name": "Gwynne",
+                    "last_name": "Hogan",
+                    "photo": 328396,
+                    "job_title": "Reporter",
+                    "biography": "Gwynne Hogan is a general assignment reporter who’s worked at WNYC and Gothamist since 2017. Before joining WNYC, she did stints at the New York Post and the late DNAinfo New York and studied at the CUNY Newmark Graduate School of Journalism, graduating with the class of 2014. She won a Gracie award for her coverage of the COVID-19 pandemic and a Society of Professional Journalists award for her reporting on one Rockaway school’s efforts to avoid suspending students. Follow her on Twitter.",
+                    "website": "",
+                    "email": "",
+                    "slug": "gwynne-hogan",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/GwynneFitz"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "plastic bag ban",
+                    "slug": "plastic-bag-ban"
+                },
+                {
+                    "name": "cats",
+                    "slug": "cats"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 142351,
+            "meta": {
+                "first_published_at": "2020-02-12T13:31:43.097541-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/142351/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/photos-hanging-out-backstage-supernaturally-chill-dogs-westminster-dog-show-2020/",
+                "slug": "photos-hanging-out-backstage-supernaturally-chill-dogs-westminster-dog-show-2020"
+            },
+            "title": "Photos: Hanging Out Backstage With The Supernaturally Chill Dogs Of Westminster Dog Show 2020",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "5a581164-c6fc-4e70-849d-11f3f689c70c",
+            "url": "https://gothamist-vue3demo.gothamist.com/arts-entertainment/photos-hanging-out-backstage-supernaturally-chill-dogs-westminster-dog-show-2020",
+            "publication_date": "2020-02-12T13:31:43.097541-05:00",
+            "updated_date": null,
+            "description": "Backstage at Westminster, the fierce competition gave way to utterly polite chaos, soundtracked by a symphony of hair dryers.",
+            "lead_asset": [
+                {
+                    "type": "lead_gallery",
+                    "value": {
+                        "gallery": 142356,
+                        "default_image": {
+                            "id": 300891,
+                            "title": "DogShow-97.jpg",
+                            "width": 2000,
+                            "height": 1333,
+                            "created_at": "2020-02-11T15:20:07.480037-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1804998,
+                            "file_hash": "6130e9551bb465e2a690594a909b2ceb982b1628",
+                            "alt": "Photos of various dogs from the 2020 Westminster Dog Show",
+                            "caption": "",
+                            "credit": "Gretchen Robinette/Gothamist",
+                            "credit_link": "https://www.gretchenrobinette.com/",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/DogShow-97.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 30
+                        }
+                    },
+                    "id": "2827fc08-117d-40d3-ae32-a4672af9489f"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 15,
+                    "first_name": "Ben",
+                    "last_name": "Yakas",
+                    "photo": 327480,
+                    "job_title": "Culture & Arts Reporter",
+                    "biography": "Ben Yakas was born and raised in New York, and has worked for Gothamist for over a decade, and WNYC for four years, covering literally everything. He has hung out with Dan Smith (who will teach you guitar), but still has yet to have a guitar lesson with him.",
+                    "website": "",
+                    "email": "benyakas@gothamist.com",
+                    "slug": "ben-yakas",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/yenbakas"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "westminster",
+                    "slug": "westminster"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                },
+                {
+                    "name": "westminster kennel club dog show",
+                    "slug": "westminster-kennel-club-dog-show"
+                },
+                {
+                    "name": "westminster dog show",
+                    "slug": "westminster-dog-show"
+                },
+                {
+                    "name": "dog",
+                    "slug": "dog"
+                },
+                {
+                    "name": "good doggy",
+                    "slug": "good-doggy"
+                }
+            ],
+            "show_as_feature": true,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 142363,
+            "meta": {
+                "first_published_at": "2020-02-12T11:41:22.229967-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/142363/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/siba-rock-star-standard-poodle-wins-best-show-westminster-dog-show/",
+                "slug": "siba-rock-star-standard-poodle-wins-best-show-westminster-dog-show"
+            },
+            "title": "Siba, The Rock-Star Standard Poodle, Wins Best In Show At Westminster Dog Show",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "dc610e6a-b01f-44d6-a218-41b4c16b116d",
+            "url": "https://gothamist-vue3demo.gothamist.com/arts-entertainment/siba-rock-star-standard-poodle-wins-best-show-westminster-dog-show",
+            "publication_date": "2020-02-12T11:41:00-05:00",
+            "updated_date": null,
+            "description": "Big hair, don't care.",
+            "lead_asset": [
+                {
+                    "type": "lead_gallery",
+                    "value": {
+                        "gallery": 142362,
+                        "default_image": {
+                            "id": 300943,
+                            "title": "shutterstock_editorial_10554319ak.jpg",
+                            "width": 4338,
+                            "height": 2892,
+                            "created_at": "2020-02-12T09:27:05.071608-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2205179,
+                            "file_hash": "173ba55cfccd252b2f064c0a9934214df7078d8d",
+                            "alt": "Siba sits regally on the Best in Show winner stage, surrounded by flowers and trophies",
+                            "caption": "Siba, the standard poodle, poses for photographs after winning Best in Show in the 144th Westminster Kennel Club dog show, in New York",
+                            "credit": "John Minchillo/AP/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/shutterstock_editorial_10554319ak.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        }
+                    },
+                    "id": "40f523ad-0156-42cb-a4f4-f3432767d949"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "westminster",
+                    "slug": "westminster"
+                },
+                {
+                    "name": "poodle",
+                    "slug": "poodle"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                },
+                {
+                    "name": "westminster kennel club dog show",
+                    "slug": "westminster-kennel-club-dog-show"
+                },
+                {
+                    "name": "westminster dog show",
+                    "slug": "westminster-dog-show"
+                },
+                {
+                    "name": "dog",
+                    "slug": "dog"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 142290,
+            "meta": {
+                "first_published_at": "2020-02-10T16:18:50.936894-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/142290/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/photos-look-upon-dogs-westminster-dog-show-2020-ye-mighty-be-delighted/",
+                "slug": "photos-look-upon-dogs-westminster-dog-show-2020-ye-mighty-be-delighted"
+            },
+            "title": "Photos: Look Upon The Dogs Of Westminster Dog Show 2020, Ye Mighty, & Be Delighted!",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "855a3607-bad7-4966-81eb-6657d9936277",
+            "url": "https://gothamist-vue3demo.gothamist.com/arts-entertainment/photos-look-upon-dogs-westminster-dog-show-2020-ye-mighty-be-delighted",
+            "publication_date": "2020-02-10T16:18:50.936894-05:00",
+            "updated_date": null,
+            "description": "Did you catch a whiff of grooming spray emanating from Midtown this weekend?",
+            "lead_asset": [
+                {
+                    "type": "lead_gallery",
+                    "value": {
+                        "gallery": 142300,
+                        "default_image": {
+                            "id": 300747,
+                            "title": "Champ_and_Phil-1.jpg",
+                            "width": 1100,
+                            "height": 733,
+                            "created_at": "2020-02-10T14:31:36.792592-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 325038,
+                            "file_hash": "7f8e74ae23ce19a2c441e6c072a44135bf7ea5a4",
+                            "alt": "A photo of Champ and Phil, who are Dalmatian brothers. \"They like to be well-groomed, Citronella is a favorite. They like to smell nice.\"",
+                            "caption": "Champ and Phil are Dalmatian brothers. \"They like to be well-groomed, Citronella is a favorite. They like to smell nice.\"",
+                            "credit": "Gretchen Robinette/Gothamist",
+                            "credit_link": "https://www.gretchenrobinette.com",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/Champ_and_Phil-1.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 30
+                        }
+                    },
+                    "id": "1f196bb8-5f59-4ecc-a617-274fa6c4a3cc"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 15,
+                    "first_name": "Ben",
+                    "last_name": "Yakas",
+                    "photo": 327480,
+                    "job_title": "Culture & Arts Reporter",
+                    "biography": "Ben Yakas was born and raised in New York, and has worked for Gothamist for over a decade, and WNYC for four years, covering literally everything. He has hung out with Dan Smith (who will teach you guitar), but still has yet to have a guitar lesson with him.",
+                    "website": "",
+                    "email": "benyakas@gothamist.com",
+                    "slug": "ben-yakas",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/yenbakas"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "westminster",
+                    "slug": "westminster"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                },
+                {
+                    "name": "westminster kennel club dog show",
+                    "slug": "westminster-kennel-club-dog-show"
+                },
+                {
+                    "name": "westminster dog show",
+                    "slug": "westminster-dog-show"
+                },
+                {
+                    "name": "dog",
+                    "slug": "dog"
+                }
+            ],
+            "show_as_feature": true,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 142131,
+            "meta": {
+                "first_published_at": "2020-01-28T17:24:29.146485-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/142131/",
+                "html_url": "http://cms.prod.nypr.digital/news/video-does-michael-r-bloomberg-know-how-pet-dog/",
+                "slug": "video-does-michael-r-bloomberg-know-how-pet-dog"
+            },
+            "title": "Video: Does Michael R. Bloomberg Know How To Pet A Dog?",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "6ce7150e-e871-4fb6-8e99-fac9abef5dcc",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/video-does-michael-r-bloomberg-know-how-pet-dog",
+            "publication_date": "2020-01-28T17:24:00-05:00",
+            "updated_date": null,
+            "description": "An important debate rages.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 300346,
+                            "title": "BLOOMDOG.jpg",
+                            "width": 1990,
+                            "height": 1500,
+                            "created_at": "2020-01-28T17:08:35.010567-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1877023,
+                            "file_hash": "6489383316632122a4cdcc5549fa7a995e45693a",
+                            "alt": "Michael Bloomberg shaking hands with a business acquaintance in 2012",
+                            "caption": "Michael Bloomberg shaking hands with a business acquaintance in 2012",
+                            "credit": "Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/BLOOMDOG.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 30
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "544e58ca-a9f4-4d7c-9cb5-5af8d20845b9"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 15,
+                    "first_name": "Ben",
+                    "last_name": "Yakas",
+                    "photo": 327480,
+                    "job_title": "Culture & Arts Reporter",
+                    "biography": "Ben Yakas was born and raised in New York, and has worked for Gothamist for over a decade, and WNYC for four years, covering literally everything. He has hung out with Dan Smith (who will teach you guitar), but still has yet to have a guitar lesson with him.",
+                    "website": "",
+                    "email": "benyakas@gothamist.com",
+                    "slug": "ben-yakas",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/yenbakas"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "mike bloomberg",
+                    "slug": "mike-bloomberg"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                },
+                {
+                    "name": "michael bloomberg",
+                    "slug": "michael-bloomberg"
+                },
+                {
+                    "name": "dog etiquette",
+                    "slug": "dog-etiquette"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 141200,
+            "meta": {
+                "first_published_at": "2019-11-28T09:58:37.199937-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/141200/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/best-thanksgiving-tradition-national-dog-show/",
+                "slug": "best-thanksgiving-tradition-national-dog-show"
+            },
+            "title": "The Best Thanksgiving Tradition Is The National Dog Show",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "48f3d1ae-113c-46ea-a8c6-34858eb4ad5d",
+            "url": "https://gothamist-vue3demo.gothamist.com/arts-entertainment/best-thanksgiving-tradition-national-dog-show",
+            "publication_date": "2019-11-28T09:58:37.199937-05:00",
+            "updated_date": null,
+            "description": "Let me explain.",
+            "lead_asset": [
+                {
+                    "type": "lead_gallery",
+                    "value": {
+                        "gallery": 141215,
+                        "default_image": {
+                            "id": 297059,
+                            "title": "23dogshow112119.jpg",
+                            "width": 1024,
+                            "height": 682,
+                            "created_at": "2019-11-21T17:53:30.705509-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 161077,
+                            "file_hash": "cb4ee115e7258c06b8393bb8742ea98d137cc8b5",
+                            "alt": "This is a photo of an Afghan hound on the grooming table at the National Dog Show.",
+                            "caption": "",
+                            "credit": "Steve Donahue",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/23dogshow112119.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 27
+                        }
+                    },
+                    "id": "077cc81c-c7ac-4609-8b3b-9ecf1bf966eb"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 28,
+                    "first_name": "Claire",
+                    "last_name": "Lampen",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "claire-lampen",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "dog show",
+                    "slug": "dog-show"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                },
+                {
+                    "name": "thanksgiving",
+                    "slug": "thanksgiving"
+                }
+            ],
+            "show_as_feature": true,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 140852,
+            "meta": {
+                "first_published_at": "2019-10-28T12:41:26.708534-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/140852/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/photos-very-good-dogs-years-great-pupkin-halloween-parade/",
+                "slug": "photos-very-good-dogs-years-great-pupkin-halloween-parade"
+            },
+            "title": "Photos: The Very Good Dogs At This Year's Great PUPkin Halloween Parade",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "d35c23ee-3d41-4517-b0ec-a8b741876c9f",
+            "url": "https://gothamist-vue3demo.gothamist.com/arts-entertainment/photos-very-good-dogs-years-great-pupkin-halloween-parade",
+            "publication_date": "2019-10-28T12:41:26.708534-04:00",
+            "updated_date": null,
+            "description": "Dogs dressed up as 'Midsommar' was a dominant theme of the day.",
+            "lead_asset": [
+                {
+                    "type": "lead_gallery",
+                    "value": {
+                        "gallery": 140841,
+                        "default_image": {
+                            "id": 295454,
+                            "title": "Pup-58.jpg",
+                            "width": 1400,
+                            "height": 957,
+                            "created_at": "2019-10-27T08:58:57.811436-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1096703,
+                            "file_hash": "9928ac40d765b443315efcbd5796d6baf7671348",
+                            "alt": "Dog as hot dog vendor",
+                            "caption": "",
+                            "credit": "Gretchen Robinette / Gothamist",
+                            "credit_link": "http://gretchenrobinette.com",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/Pup-58.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 21
+                        }
+                    },
+                    "id": "c20bd6be-eb99-436e-b27c-6e7bff21dec8"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 15,
+                    "first_name": "Ben",
+                    "last_name": "Yakas",
+                    "photo": 327480,
+                    "job_title": "Culture & Arts Reporter",
+                    "biography": "Ben Yakas was born and raised in New York, and has worked for Gothamist for over a decade, and WNYC for four years, covering literally everything. He has hung out with Dan Smith (who will teach you guitar), but still has yet to have a guitar lesson with him.",
+                    "website": "",
+                    "email": "benyakas@gothamist.com",
+                    "slug": "ben-yakas",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/yenbakas"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "great pupkin",
+                    "slug": "great-pupkin"
+                },
+                {
+                    "name": "great pupkin contest",
+                    "slug": "great-pupkin-contest"
+                },
+                {
+                    "name": "halloween costumes",
+                    "slug": "halloween-costumes"
+                },
+                {
+                    "name": "halloween",
+                    "slug": "halloween"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                }
+            ],
+            "show_as_feature": true,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 140073,
+            "meta": {
+                "first_published_at": "2019-09-09T15:16:12.224177-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/140073/",
+                "html_url": "http://cms.prod.nypr.digital/news/pols-outraged-open-door-shoe-selfie-helicopter-flights-dogs/",
+                "slug": "pols-outraged-open-door-shoe-selfie-helicopter-flights-dogs"
+            },
+            "title": "Pols Outraged By Open Door 'Shoe Selfie' Helicopter Flights With Dogs",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "0e5d9d6e-0da2-483c-8a69-31dc2608805b",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/pols-outraged-open-door-shoe-selfie-helicopter-flights-dogs",
+            "publication_date": "2019-09-09T15:16:00-04:00",
+            "updated_date": null,
+            "description": "'Strapping in dogs for dangerous doors-off flights over New York is just totally repugnant.'",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 293221,
+                            "title": "Screen Shot 2019-09-09 at 12.03.37 PM.png",
+                            "width": 2210,
+                            "height": 1522,
+                            "created_at": "2019-09-09T12:04:36.534983-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 3525049,
+                            "file_hash": "cf1704e3af0d0a5a06642671138a566a32a01f1f",
+                            "alt": "helicopter dog",
+                            "caption": "Bentley The Bulldog",
+                            "credit": "FlyNYON",
+                            "credit_link": "https://www.youtube.com/watch?v=Os4XkbkzZ8I",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/Screen_Shot_2019-09-09_at_12.03.37_PM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 30
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "4ae4c5d2-7655-4f9b-82da-d588d2044e20"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 15,
+                    "first_name": "Ben",
+                    "last_name": "Yakas",
+                    "photo": 327480,
+                    "job_title": "Culture & Arts Reporter",
+                    "biography": "Ben Yakas was born and raised in New York, and has worked for Gothamist for over a decade, and WNYC for four years, covering literally everything. He has hung out with Dan Smith (who will teach you guitar), but still has yet to have a guitar lesson with him.",
+                    "website": "",
+                    "email": "benyakas@gothamist.com",
+                    "slug": "ben-yakas",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/yenbakas"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "chuck schumer",
+                    "slug": "chuck-schumer"
+                },
+                {
+                    "name": "flynyon",
+                    "slug": "flynyon"
+                },
+                {
+                    "name": "helicopter",
+                    "slug": "helicopter"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                },
+                {
+                    "name": "pets",
+                    "slug": "pets"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 139906,
+            "meta": {
+                "first_published_at": "2019-08-26T12:34:24-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/139906/",
+                "html_url": "http://cms.prod.nypr.digital/news/beware-toxic-dog-killing-algae-found-in-multiple-nyc-parks/",
+                "slug": "beware-toxic-dog-killing-algae-found-in-multiple-nyc-parks"
+            },
+            "title": "Beware: Toxic Dog-Killing Algae Found In Multiple NYC Parks",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": {
+                "id": 292673,
+                "title": "247063716_9f082e3eb6_z.jpg",
+                "width": 640,
+                "height": 427,
+                "created_at": "2019-08-26T18:28:43.337566-04:00",
+                "focal_point_x": null,
+                "focal_point_y": null,
+                "focal_point_width": null,
+                "focal_point_height": null,
+                "file_size": null,
+                "file_hash": "",
+                "alt": "Turtle Pond in Central Park.",
+                "caption": "Turtle Pond in Central Park.",
+                "credit": "Photo by Wally G",
+                "credit_link": "https://www.flickr.com/photos/wallyg/247063716",
+                "file": "https://cdn.cms.demo.nypr.digital/attachments/arts_jen/247063716_9f082e3eb6_z.jpg",
+                "usage_limitations": "",
+                "expiry_date": null,
+                "collection": 1,
+                "uploaded_by_user": null
+            },
+            "uuid": "bfd71293-dd98-4371-9ca0-996f593eb197",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/beware-toxic-dog-killing-algae-found-in-multiple-nyc-parks",
+            "publication_date": "2019-08-26T12:34:24-04:00",
+            "updated_date": "2019-08-26T13:40:27-04:00",
+            "description": "'It's important to try to avoid contact with any algae and keep pets on leashes... do not allow them to enter or drink from lakes and ponds unless in areas specifically designated for such activities.'",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 292673,
+                            "title": "247063716_9f082e3eb6_z.jpg",
+                            "width": 640,
+                            "height": 427,
+                            "created_at": "2019-08-26T18:28:43.337566-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": null,
+                            "file_hash": "",
+                            "alt": "Turtle Pond in Central Park.",
+                            "caption": "Turtle Pond in Central Park.",
+                            "credit": "Photo by Wally G",
+                            "credit_link": "https://www.flickr.com/photos/wallyg/247063716",
+                            "file": "https://cdn.cms.demo.nypr.digital/attachments/arts_jen/247063716_9f082e3eb6_z.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": null
+                        },
+                        "caption": "Turtle Pond in Central Park.",
+                        "image_link": null
+                    },
+                    "id": "26845372-814c-4573-873c-6a022211a34a"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 15,
+                    "first_name": "Ben",
+                    "last_name": "Yakas",
+                    "photo": 327480,
+                    "job_title": "Culture & Arts Reporter",
+                    "biography": "Ben Yakas was born and raised in New York, and has worked for Gothamist for over a decade, and WNYC for four years, covering literally everything. He has hung out with Dan Smith (who will teach you guitar), but still has yet to have a guitar lesson with him.",
+                    "website": "",
+                    "email": "benyakas@gothamist.com",
+                    "slug": "ben-yakas",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/yenbakas"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "algae",
+                    "slug": "algae"
+                },
+                {
+                    "name": "central park",
+                    "slug": "central-park"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                },
+                {
+                    "name": "morningside park",
+                    "slug": "morningside-park"
+                },
+                {
+                    "name": "nyc parks",
+                    "slug": "nyc-parks"
+                },
+                {
+                    "name": "parks",
+                    "slug": "parks"
+                },
+                {
+                    "name": "prospect park",
+                    "slug": "prospect-park"
+                }
+            ],
+            "show_as_feature": true,
+            "legacy_id": 709032,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 139660,
+            "meta": {
+                "first_published_at": "2019-08-22T11:04:00-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/139660/",
+                "html_url": "http://cms.prod.nypr.digital/news/dog-stolen-from-williamsburg-street-corner-returned-safely-to-owner/",
+                "slug": "dog-stolen-from-williamsburg-street-corner-returned-safely-to-owner"
+            },
+            "title": "Dog Stolen From Williamsburg Street Corner Returned Safely To Owner",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": {
+                "id": 291940,
+                "title": "breanadtheo082219horiz.jpg",
+                "width": 640,
+                "height": 509,
+                "created_at": "2019-08-26T11:29:42.119707-04:00",
+                "focal_point_x": null,
+                "focal_point_y": null,
+                "focal_point_width": null,
+                "focal_point_height": null,
+                "file_size": null,
+                "file_hash": "",
+                "alt": "Bre Kelly and her dog, Theo, who was dognapped earlier this week and has now been returned.",
+                "caption": "Bre Kelly and her dog, Theo, who was dognapped earlier this week and has now been returned.",
+                "credit": "Courtesy of Bre Kelly",
+                "credit_link": "",
+                "file": "https://cdn.cms.demo.nypr.digital/attachments/nyc_clampen/breanadtheo082219horiz.jpg",
+                "usage_limitations": "",
+                "expiry_date": null,
+                "collection": 1,
+                "uploaded_by_user": null
+            },
+            "uuid": "7b5974e8-9e17-41bd-8215-5a39fc916454",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/dog-stolen-from-williamsburg-street-corner-returned-safely-to-owner",
+            "publication_date": "2019-08-22T11:04:00-04:00",
+            "updated_date": "2019-08-22T12:22:27-04:00",
+            "description": "\"He's definitely shaken up and nervous, and seems like he can barely believe he's home.\"",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 291940,
+                            "title": "breanadtheo082219horiz.jpg",
+                            "width": 640,
+                            "height": 509,
+                            "created_at": "2019-08-26T11:29:42.119707-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": null,
+                            "file_hash": "",
+                            "alt": "Bre Kelly and her dog, Theo, who was dognapped earlier this week and has now been returned.",
+                            "caption": "Bre Kelly and her dog, Theo, who was dognapped earlier this week and has now been returned.",
+                            "credit": "Courtesy of Bre Kelly",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/attachments/nyc_clampen/breanadtheo082219horiz.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": null
+                        },
+                        "caption": "Bre Kelly and her dog, Theo, who was dognapped earlier this week and has now been returned.",
+                        "image_link": null
+                    },
+                    "id": "5852e779-16e6-4c41-866b-2ef4315f3a99"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 28,
+                    "first_name": "Claire",
+                    "last_name": "Lampen",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "claire-lampen",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "bed stuy",
+                    "slug": "bed-stuy"
+                },
+                {
+                    "name": "bushwick",
+                    "slug": "bushwick"
+                },
+                {
+                    "name": "dog",
+                    "slug": "dog"
+                },
+                {
+                    "name": "dognapping",
+                    "slug": "dognapping"
+                },
+                {
+                    "name": "dogs",
+                    "slug": "dogs"
+                },
+                {
+                    "name": "nypd",
+                    "slug": "nypd"
+                },
+                {
+                    "name": "williamsburg",
+                    "slug": "williamsburg"
+                }
+            ],
+            "show_as_feature": true,
+            "legacy_id": 708996,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        }
+    ]
+}

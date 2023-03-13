@@ -139,7 +139,7 @@ useHead({
     </section>
     <section v-if="articles">
       <div class="content">
-        <div id="articleList" class="grid gutter-x-30">
+        <div id="articleList" class="grid gutter-x-30 tag-river">
           <h2 class="sr-only">Latest Articles Tagged "{{ tagName }}"</h2>
           <div class="col">
             <div

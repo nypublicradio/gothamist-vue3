@@ -1,0 +1,2330 @@
+{
+    "meta": {
+        "total_count": 90159
+    },
+    "items": [
+        {
+            "id": 154808,
+            "meta": {
+                "first_published_at": "2023-03-13T06:01:57.066606-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154808/",
+                "html_url": "http://cms.prod.nypr.digital/news/what-is-the-future-of-housing-in-nyc-ask-mayor-adams-and-other-top-housing-experts/",
+                "slug": "what-is-the-future-of-housing-in-nyc-ask-mayor-adams-and-other-top-housing-experts"
+            },
+            "title": "What is the future of housing in NYC? Ask Mayor Adams and other top housing experts.",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "bf9cb569-8d75-40eb-bf99-9e9d2cdb3cdf",
+            "url": "https://gothamist.com/news/what-is-the-future-of-housing-in-nyc-ask-mayor-adams-and-other-top-housing-experts",
+            "publication_date": "2023-03-13T06:01:57.066606-04:00",
+            "updated_date": null,
+            "description": "The WNYC and Gothamist newsroom will host an event with Mayor Eric Adams, Comptroller Brad Lander and other top housing experts to discuss what the future of housing looks like in the five boroughs.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337209,
+                            "title": "GettyImages-514119605.jpg",
+                            "width": 7108,
+                            "height": 4477,
+                            "created_at": "2023-03-10T18:09:12.730223-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 24755294,
+                            "file_hash": "3780b1bd077af813cc308d79535b5683eebda3cf",
+                            "alt": "A birds-eye view of the West Village shows tightly packed brick buildings",
+                            "caption": "The event will feature a conversation with Mayor Eric Adams and a panel discussion with City Comptroller Brad Lander and top housing experts.",
+                            "credit": "Noam Galai / noamgalai.com",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/GettyImages-514119605.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 138
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "a04d85a7-66e4-4a60-81bf-e53ab81ee976"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 153020,
+                    "first_name": "Josefa",
+                    "last_name": "Velásquez",
+                    "photo": 334513,
+                    "job_title": "Editor, Economics & Equity",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "josefa-velásquez",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "eric adams",
+                    "slug": "eric-adams"
+                },
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "economy",
+                    "slug": "economy"
+                },
+                {
+                    "name": "Workforce",
+                    "slug": "workforce"
+                },
+                {
+                    "name": "housing",
+                    "slug": "housing"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "new york state",
+                    "slug": "new-york-state"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154806,
+            "meta": {
+                "first_published_at": "2023-03-13T05:01:23.290448-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154806/",
+                "html_url": "http://cms.prod.nypr.digital/news/colored-school-no-4-in-chelsea-moves-closer-to-landmark-status/",
+                "slug": "colored-school-no-4-in-chelsea-moves-closer-to-landmark-status"
+            },
+            "title": "‘Colored School No. 4’ in Chelsea moves closer to landmark status",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "66ce428c-fd76-4a97-9910-18c704577fe9",
+            "url": "https://gothamist.com/news/colored-school-no-4-in-chelsea-moves-closer-to-landmark-status",
+            "publication_date": "2023-03-13T05:01:00-04:00",
+            "updated_date": null,
+            "description": "The building figures in a larger push to preserve sites representing the history of Black New Yorkers.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337200,
+                            "title": "Colored School No. 4.jpg",
+                            "width": 3024,
+                            "height": 4032,
+                            "created_at": "2023-03-10T16:20:12.499575-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2162814,
+                            "file_hash": "1f03b02d89907653fb4c1405f37b6fe7f471bb77",
+                            "alt": "Colored School No. 4",
+                            "caption": "The rundown building known as \"Colored School No. 4,\" at 128 W. 17th St. in the Chelsea section of Manhattan, is inching a step closer to receiving landmark status. It was once a bustling, hub of activity for Black New Yorkers gaining education against the backdrop of slavery.",
+                            "credit": "Arun Venugopal / Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Colored_School_No._4.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 125
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "2b4b3b25-e96f-4238-9a38-8b16167ad982"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 81,
+                    "first_name": "Arun",
+                    "last_name": "Venugopal",
+                    "photo": 334514,
+                    "job_title": "Senior Reporter, Race and Justice",
+                    "biography": "Arun Venugopal is a senior reporter for the WNYC and Gothamist Race & Justice Unit who focuses on issues of race and bias in our region. His reporting also tackles the topics of immigration, faith, and inequality. Arun serves as the regular fill-in host of the station's \"U.S. of Anxiety\" program.\r\n\r\nArun was the creator and host of Micropolis, a series about race and identity. He is a contributor to NPR's Morning Edition and All Things Considered. He has appeared on PBS Newshour, On the Media and Studio 360, and has been published in The Guardian, The Wall Street Journal and Salon. He also frequently serves as an emcee and moderator of panel discussions on race, religion, and identity issues and has been a guest host of NPR's \"Fresh Air.\" He lives with his family in Queens.",
+                    "website": "",
+                    "email": "",
+                    "slug": "arun-venugopal",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/arunNYC"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Race And Justice Unit",
+                    "slug": "race-and-justice-unit"
+                },
+                {
+                    "name": "black history",
+                    "slug": "black-history"
+                },
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                },
+                {
+                    "name": "landmark preservation commission",
+                    "slug": "landmark-preservation-commission"
+                },
+                {
+                    "name": "segregation",
+                    "slug": "segregation"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154813,
+            "meta": {
+                "first_published_at": "2023-03-12T19:45:01.436253-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154813/",
+                "html_url": "http://cms.prod.nypr.digital/news/state-closes-nyc-based-bank-as-regulators-seek-to-stem-crisis/",
+                "slug": "state-closes-nyc-based-bank-as-regulators-seek-to-stem-crisis"
+            },
+            "title": "State closes NYC-based bank as regulators seek to stem crisis",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "ce76cee5-68ec-4c24-a551-c3473790f83c",
+            "url": "https://gothamist.com/news/state-closes-nyc-based-bank-as-regulators-seek-to-stem-crisis",
+            "publication_date": "2023-03-12T19:45:00-04:00",
+            "updated_date": null,
+            "description": "The closure comes days after a run on Silicon Valley Bank led to the country’s largest bank failure since the 2008 financial crisis.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337218,
+                            "title": "Signature Bank shutterstock do not reuse",
+                            "width": 2496,
+                            "height": 1664,
+                            "created_at": "2023-03-12T19:15:55.890852-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 882736,
+                            "file_hash": "22b5c15d2a88288c9b92c955dc26004bebb979d9",
+                            "alt": "Signature Bank is pictured in New York City.",
+                            "caption": "Signature Bank is pictured in New York City.",
+                            "credit": "PL Gould/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_1064732243.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 129
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "58f4f297-de51-4910-a8af-fefe397dcb32"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 13,
+                    "first_name": "Jake",
+                    "last_name": "Offenhartz",
+                    "photo": 334533,
+                    "job_title": "Reporter",
+                    "biography": "Jake Offenhartz is a general assignment reporter. He covers policing, transportation, local politics, climate change and and all manner of New York City oddities. He lives in Manhattan, and enjoys bikes, pickup basketball, and city beaches.",
+                    "website": "",
+                    "email": "joffenhartz@gothamist.com",
+                    "slug": "jake-offenhartz",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jangelooff"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "economy",
+                    "slug": "economy"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154812,
+            "meta": {
+                "first_published_at": "2023-03-12T16:19:09.831459-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154812/",
+                "html_url": "http://cms.prod.nypr.digital/news/pedestrian-plazas-car-free-blocks-coming-to-broadway-between-madison-and-herald-square/",
+                "slug": "pedestrian-plazas-car-free-blocks-coming-to-broadway-between-madison-and-herald-square"
+            },
+            "title": "Pedestrian plazas, car-free blocks coming to Broadway between Madison and Herald Square",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "21603cc6-e66e-44b6-bd9d-8d7fafda735d",
+            "url": "https://gothamist.com/news/pedestrian-plazas-car-free-blocks-coming-to-broadway-between-madison-and-herald-square",
+            "publication_date": "2023-03-12T16:19:09.831459-04:00",
+            "updated_date": null,
+            "description": "The cornerstone of the redesign will be a ban on vehicles between 25th and 27th streets.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337216,
+                            "title": "Broadway Vision",
+                            "width": 2000,
+                            "height": 1000,
+                            "created_at": "2023-03-12T16:06:05.790187-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1192649,
+                            "file_hash": "204c7c82c0708d3d71fdeecfaec6626d4f010487",
+                            "alt": "Rendering of Greeley Square after capital construction work is completed.",
+                            "caption": "Rendering of Greeley Square after capital construction work is completed.",
+                            "credit": "Courtesy “New” New York Panel",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/2023-03-12-broadway-vision-2_original.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 129
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "6fe42187-d28e-4962-a91c-3d6bf0647a84"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 13,
+                    "first_name": "Jake",
+                    "last_name": "Offenhartz",
+                    "photo": 334533,
+                    "job_title": "Reporter",
+                    "biography": "Jake Offenhartz is a general assignment reporter. He covers policing, transportation, local politics, climate change and and all manner of New York City oddities. He lives in Manhattan, and enjoys bikes, pickup basketball, and city beaches.",
+                    "website": "",
+                    "email": "joffenhartz@gothamist.com",
+                    "slug": "jake-offenhartz",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jangelooff"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "transportation",
+                    "slug": "transportation"
+                },
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154811,
+            "meta": {
+                "first_published_at": "2023-03-12T10:15:57.119354-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154811/",
+                "html_url": "http://cms.prod.nypr.digital/news/madison-square-garden-sues-ny-state-liquor-authority-as-agency-mulls-booze-ban/",
+                "slug": "madison-square-garden-sues-ny-state-liquor-authority-as-agency-mulls-booze-ban"
+            },
+            "title": "Madison Square Garden sues NY State Liquor Authority as agency mulls booze ban",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "befd9186-fbc9-41b5-b007-c412b1441223",
+            "url": "https://gothamist.com/news/madison-square-garden-sues-ny-state-liquor-authority-as-agency-mulls-booze-ban",
+            "publication_date": "2023-03-12T10:15:00-04:00",
+            "updated_date": null,
+            "description": "The agency threatened to ban alcohol sales at Madison Square Garden and other venues for Dolan’s controversial surveillance policy.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 336320,
+                            "title": "shutterstock_1806329554.jpg",
+                            "width": 4242,
+                            "height": 2828,
+                            "created_at": "2023-01-25T13:56:34.323444-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 9809547,
+                            "file_hash": "a437f8f84268b2f82628c7b954de43fdfbc5833d",
+                            "alt": "Madison Square Garden photographed from the outside with a yellow taxi in front.",
+                            "caption": "",
+                            "credit": "Sergii Figurnyi / Shutterstock",
+                            "credit_link": "https://enterprise.shutterstock.com/image-photo/new-york-city-usa-march-15-1806329554",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_1806329554.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 141
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "73e09a3a-4546-49dd-bde3-4a9fab78f319"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 153721,
+                    "first_name": "Bahar",
+                    "last_name": "Ostadan",
+                    "photo": 335319,
+                    "job_title": "NYC Accountability Reporter",
+                    "biography": "Bahar Ostadan is a reporter on the NYC Accountability desk interested in people and places that are often misrepresented in the news. She's reported on biker gangs in Staten Island and abortion access networks in rural Kentucky.",
+                    "website": "",
+                    "email": "bostadan@wnyc.org",
+                    "slug": "bahar-ostadan",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/BaharOstadan"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154800,
+            "meta": {
+                "first_published_at": "2023-03-12T07:01:00.206137-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154800/",
+                "html_url": "http://cms.prod.nypr.digital/news/hello-sunshine-nycs-sunsets-are-about-to-start-at-7-pm-or-later/",
+                "slug": "hello-sunshine-nycs-sunsets-are-about-to-start-at-7-pm-or-later"
+            },
+            "title": "Hello, sunshine! NYC's sunsets are about to start at 7 p.m. or later.",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "87113504-6cf2-46fa-a37b-de4df0fefcd9",
+            "url": "https://gothamist.com/news/hello-sunshine-nycs-sunsets-are-about-to-start-at-7-pm-or-later",
+            "publication_date": "2023-03-12T07:01:00.206137-04:00",
+            "updated_date": null,
+            "description": "Some New Yorkers are ready for later sunsets.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337199,
+                            "title": "NYC Sunset",
+                            "width": 5563,
+                            "height": 3707,
+                            "created_at": "2023-03-10T14:53:38.412947-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 11259299,
+                            "file_hash": "00810289dd0c9e5288223a92aa57d1520f33e7ef",
+                            "alt": "the sun shines behind the brooklyn bridge",
+                            "caption": "The sun sets over the Brooklyn Bridge.",
+                            "credit": "Mihai_Andritoiu / Shutterstock",
+                            "credit_link": "https://enterprise.shutterstock.com/image-photo/brooklyn-bridge-lower-manhattan-skyline-sunset-288748241",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_288748241.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 141
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "aceb1872-12cd-4850-9d13-dd77d2ad3b12"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151434,
+                    "first_name": "Catalina",
+                    "last_name": "Gonella",
+                    "job_title": "Reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "catalina-gonella",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "sunset",
+                    "slug": "sunset"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154810,
+            "meta": {
+                "first_published_at": "2023-03-11T18:33:23.328318-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154810/",
+                "html_url": "http://cms.prod.nypr.digital/news/over-100-nyc-protesters-rally-against-iranian-government/",
+                "slug": "over-100-nyc-protesters-rally-against-iranian-government"
+            },
+            "title": "Over 100 NYC protesters rally against Iranian government",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "3e6fd751-d06d-4ca0-9d78-95f8e24d38b2",
+            "url": "https://gothamist.com/news/over-100-nyc-protesters-rally-against-iranian-government",
+            "publication_date": "2023-03-11T18:33:23.328318-05:00",
+            "updated_date": null,
+            "description": "They called on local, state and national leaders to exert pressure on the Iranian government.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337215,
+                            "title": "IMG_8354.jpg",
+                            "width": 4032,
+                            "height": 3024,
+                            "created_at": "2023-03-11T18:26:18.452513-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 3751197,
+                            "file_hash": "018c937eef0a8d5a1599ffef9e8059356cd459ba",
+                            "alt": "Protesters at Foley Square.",
+                            "caption": "More than 100 protesters gathered in Downtown Manhattan on Saturday to call for change in Iran.",
+                            "credit": "Arya Sundaram/Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/IMG_8354.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 135
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "a0e11904-ba1c-4682-a272-26b2e7bee686"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 154600,
+                    "first_name": "Arya",
+                    "last_name": "Sundaram",
+                    "job_title": "Reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "arya-sundaram",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154809,
+            "meta": {
+                "first_published_at": "2023-03-11T17:59:53.041924-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154809/",
+                "html_url": "http://cms.prod.nypr.digital/news/mta-unveils-new-nyc-subway-cars-on-the-a-line/",
+                "slug": "mta-unveils-new-nyc-subway-cars-on-the-a-line"
+            },
+            "title": "MTA unveils new NYC subway cars on the A line",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "75ac102e-1d80-4717-b40c-e443cb03f4c5",
+            "url": "https://gothamist.com/news/mta-unveils-new-nyc-subway-cars-on-the-a-line",
+            "publication_date": "2023-03-11T17:59:53.041924-05:00",
+            "updated_date": null,
+            "description": "The new train cars include flip-up seating for riders with disabilities and wider door openings for quicker boarding.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337214,
+                            "title": "52739291818_611dda35f8_o.jpg",
+                            "width": 4525,
+                            "height": 3197,
+                            "created_at": "2023-03-11T17:56:46.625825-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 3191000,
+                            "file_hash": "9a7d600cbd0443958577c98262c80fb90b14b174",
+                            "alt": "An R211 train.",
+                            "caption": "The new R211 trains include security cameras, flip-up seating, and wider door openings.",
+                            "credit": "Metropolitan Transit Authority",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/52739291818_611dda35f8_o.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 135
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "78d6649f-ac11-4091-be48-72c3230fc194"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 154600,
+                    "first_name": "Arya",
+                    "last_name": "Sundaram",
+                    "job_title": "Reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "arya-sundaram",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "MTA",
+                    "slug": "mta"
+                },
+                {
+                    "name": "transportation",
+                    "slug": "transportation"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154805,
+            "meta": {
+                "first_published_at": "2023-03-11T11:00:55.380632-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154805/",
+                "html_url": "http://cms.prod.nypr.digital/news/queens-councilmember-calls-street-vendors-a-public-safety-hazard/",
+                "slug": "queens-councilmember-calls-street-vendors-a-public-safety-hazard"
+            },
+            "title": "Queens councilmember calls street vendors a public safety hazard",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "3175b8a0-4501-4bfd-b157-a419d6d69c22",
+            "url": "https://gothamist.com/news/queens-councilmember-calls-street-vendors-a-public-safety-hazard",
+            "publication_date": "2023-03-11T11:00:55.380632-05:00",
+            "updated_date": null,
+            "description": "Councilmember Sandra Ung has started a petition to increase enforcement in Downtown Flushing.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337206,
+                            "title": "IMG_0620.jpg",
+                            "width": 4032,
+                            "height": 3024,
+                            "created_at": "2023-03-10T17:12:57.680356-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1162446,
+                            "file_hash": "e95361a0271dcf029c5fb952c42e510538832c50",
+                            "alt": "Vendors outside the Long Island Rail Road in downtown Flushing.",
+                            "caption": "Vendors outside the Long Island Rail Road in downtown Flushing.",
+                            "credit": "Isidoro Rodriguez / Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/IMG_0620.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 128
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "37ef0523-358b-4a0c-bb45-86a2926c230e"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151636,
+                    "first_name": "Isidoro",
+                    "last_name": "Rodriguez",
+                    "job_title": "Public Safety Reporter",
+                    "biography": "Isidoro Rodriguez reports on safety and policing in New York City. Prior to joining Gothamist, he was  deputy editor of The Crime Report at the Center on Media, Crime and Justice at the John Jay College of Criminal Justice in New York.",
+                    "website": "",
+                    "email": "",
+                    "slug": "isidoro-rodriguez",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "City Council",
+                    "slug": "city-council"
+                },
+                {
+                    "name": "street vendors",
+                    "slug": "street-vendors"
+                },
+                {
+                    "name": "queens",
+                    "slug": "queens"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154807,
+            "meta": {
+                "first_published_at": "2023-03-11T09:01:33.452567-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154807/",
+                "html_url": "http://cms.prod.nypr.digital/news/one-queens-activist-resorts-to-a-hunger-strike-in-long-running-fight-over-a-city-building/",
+                "slug": "one-queens-activist-resorts-to-a-hunger-strike-in-long-running-fight-over-a-city-building"
+            },
+            "title": "One Queens activist resorts to a hunger strike in long-running fight over a city building",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "525f37ec-f37c-47a0-9235-6de73aa315dd",
+            "url": "https://gothamist.com/news/one-queens-activist-resorts-to-a-hunger-strike-in-long-running-fight-over-a-city-building",
+            "publication_date": "2023-03-11T09:01:33.452567-05:00",
+            "updated_date": null,
+            "description": "Lashawn \"Suga Ray\" Marston, an artist and member of the Western QueensCommunity Land Trust, says he has not eaten since his strike began on Feb. 28.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337208,
+                            "title": "Screenshot 2023-03-10 at 5.25.41 PM.png",
+                            "width": 902,
+                            "height": 708,
+                            "created_at": "2023-03-10T17:32:52.825884-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1289952,
+                            "file_hash": "ccabe7139368e9bcb2ccfcd2857b8c9f70d674d0",
+                            "alt": "A rendering of a potential rooftop garden at a city-owned building in Queens.",
+                            "caption": "A rendering of a potential rooftop garden at a city-owned building in Queens. Activists say that's one use the building could feature if turned over to the community.",
+                            "credit": "Bloustein School of Planning and Public Policy, Rutgers University, on behalf of the the Western Queens Community Land Trust",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screenshot_2023-03-10_at_5.25.41_PM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 123
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "4855a5b5-949a-4b1c-bbf0-4f5e978aa52b"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151433,
+                    "first_name": "Michelle",
+                    "last_name": "Bocanegra",
+                    "photo": 334516,
+                    "job_title": "Reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "michelle-bocanegra",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "eric adams",
+                    "slug": "eric-adams"
+                },
+                {
+                    "name": "real estate",
+                    "slug": "real-estate"
+                },
+                {
+                    "name": "queens",
+                    "slug": "queens"
+                },
+                {
+                    "name": "Amazon deal",
+                    "slug": "amazon-deal"
+                },
+                {
+                    "name": "land use",
+                    "slug": "land-use"
+                },
+                {
+                    "name": "hunger strike",
+                    "slug": "hunger-strike"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154804,
+            "meta": {
+                "first_published_at": "2023-03-10T17:20:50.261145-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154804/",
+                "html_url": "http://cms.prod.nypr.digital/news/real-estate-exec-pleads-guilty-to-kickback-scheme-of-corrupt-homeless-services-boss/",
+                "slug": "real-estate-exec-pleads-guilty-to-kickback-scheme-of-corrupt-homeless-services-boss"
+            },
+            "title": "Real estate exec pleads guilty to kickback scheme of corrupt homeless services boss",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "a58e8e16-387e-4309-8f8e-10d37b195d5c",
+            "url": "https://gothamist.com/news/real-estate-exec-pleads-guilty-to-kickback-scheme-of-corrupt-homeless-services-boss",
+            "publication_date": "2023-03-10T17:20:50.261145-05:00",
+            "updated_date": null,
+            "description": "Real estate executive Sheina Levin admitted to paying hundreds of thousands of dollars to disgraced former nonprofit CEO Victor Rivera in exchange for his organization leasing buildings owned by her company.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337202,
+                            "title": "GettyImages-1448950009.jpg",
+                            "width": 5472,
+                            "height": 3648,
+                            "created_at": "2023-03-10T16:58:19.931760-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 16501506,
+                            "file_hash": "6c6d2e6beb27f3dc8773f35de0c112990401b1bf",
+                            "alt": "A blue tent and a shopping cart at the base of the Manhattan Bridge bridge ahead of a homeless encampment sweep.",
+                            "caption": "Federal prosecutors in Manhattan said Sheina Levin paid the ex-CEO of a homeless shelter provider nearly $700,000 to rent out a Bronx shelter building owned by her company.",
+                            "credit": "Andrew Lichtenstein/Corbis via Getty Images",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/GettyImages-1448950009.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 138
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "263d0731-e062-40d1-8517-991c1dc4ebea"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 212,
+                    "first_name": "David",
+                    "last_name": "Brand",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "david-brand",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "homelessness",
+                    "slug": "homelessness"
+                },
+                {
+                    "name": "bronx",
+                    "slug": "bronx"
+                },
+                {
+                    "name": "housing",
+                    "slug": "housing"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154802,
+            "meta": {
+                "first_published_at": "2023-03-10T16:38:50.339360-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154802/",
+                "html_url": "http://cms.prod.nypr.digital/news/adams-praises-new-probation-chiefs-decision-to-invite-cardi-b-to-academy-event/",
+                "slug": "adams-praises-new-probation-chiefs-decision-to-invite-cardi-b-to-academy-event"
+            },
+            "title": "Mayor Adams praises new probation chief's decision to invite Cardi B to academy event",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "96467a16-3e35-45fb-b6eb-f5ebbded09e8",
+            "url": "https://gothamist.com/news/adams-praises-new-probation-chiefs-decision-to-invite-cardi-b-to-academy-event",
+            "publication_date": "2023-03-10T16:38:00-05:00",
+            "updated_date": null,
+            "description": "Juanita Holmes previously served as chief of training for the department.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 328281,
+                            "title": "Screen Shot 2022-01-01 at 2.47.05 PM.png",
+                            "width": 1932,
+                            "height": 1266,
+                            "created_at": "2022-01-01T14:50:16.439492-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 3131205,
+                            "file_hash": "aca6e2d00e75f2007203afcbb5a87b09b3bcef5f",
+                            "alt": "Juanita Holmes, wearing a mask, holds a picture at a press conference last year.",
+                            "caption": "Juanita Holmes, wearing a mask, holds a picture at a press conference last year.",
+                            "credit": "Mayor's Office / Twitter",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2022-01-01_at_2.47.05_PM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 78
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "677b5483-9982-42ef-a94b-5ef3b515b029"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151636,
+                    "first_name": "Isidoro",
+                    "last_name": "Rodriguez",
+                    "job_title": "Public Safety Reporter",
+                    "biography": "Isidoro Rodriguez reports on safety and policing in New York City. Prior to joining Gothamist, he was  deputy editor of The Crime Report at the Center on Media, Crime and Justice at the John Jay College of Criminal Justice in New York.",
+                    "website": "",
+                    "email": "",
+                    "slug": "isidoro-rodriguez",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "cardi b",
+                    "slug": "cardi-b"
+                },
+                {
+                    "name": "juanita holmes",
+                    "slug": "juanita-holmes"
+                },
+                {
+                    "name": "probation department",
+                    "slug": "probation-department"
+                },
+                {
+                    "name": "nypd",
+                    "slug": "nypd"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154801,
+            "meta": {
+                "first_published_at": "2023-03-10T15:32:44.362908-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154801/",
+                "html_url": "http://cms.prod.nypr.digital/news/tambourine-shaking-ex-nypd-cop-convicted-for-jan-6-actions/",
+                "slug": "tambourine-shaking-ex-nypd-cop-convicted-for-jan-6-actions"
+            },
+            "title": "Tambourine-shaking ex-NYPD cop convicted for Jan. 6 actions",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "e856d4f3-9a6b-4f33-9aeb-366c69ce8f30",
+            "url": "https://gothamist.com/news/tambourine-shaking-ex-nypd-cop-convicted-for-jan-6-actions",
+            "publication_date": "2023-03-10T15:32:44.362908-05:00",
+            "updated_date": null,
+            "description": "Two NYPD cops have been convicted for rioting at the Capitol.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 318246,
+                            "title": "Screen Shot 2021-03-23 at 2.18.13 PM.png",
+                            "width": 678,
+                            "height": 626,
+                            "created_at": "2021-03-23T14:19:03.655578-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 665083,
+                            "file_hash": "0b5440b6a5e054d5c15defc5fdefa40b4dedf83c",
+                            "alt": "A woman identified as Sara Carpenter shaking a tambourine inside the U.S. Capitol",
+                            "caption": "A woman identified as Sara Carpenter shaking a tambourine inside the U.S. Capitol",
+                            "credit": "DOJ",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2021-03-23_at_2.18.13_PM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 28
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "26ee92d0-9f61-47ed-b9cb-195d9c59edfd"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 93,
+                    "first_name": "Matt",
+                    "last_name": "Katz",
+                    "photo": 334524,
+                    "job_title": "Reporter",
+                    "biography": "Matt Katz reports on public safety, focusing on decarceration and the equitable enforcement of laws. He has investigated abuse in ICE detention and covered former N.J. Gov. Chris Christie, sharing a Peabody Award for coverage of Bridgegate and writing a book, \"American Governor: Chris Christie's Bridge to Redemption.\" Once upon a time, he wrote a syndicated dating column.",
+                    "website": "",
+                    "email": "mkatz@wnyc.org",
+                    "slug": "matt-katz",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/mattkatz00"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "federal court",
+                    "slug": "federal-court"
+                },
+                {
+                    "name": "capitol riots",
+                    "slug": "capitol-riots"
+                },
+                {
+                    "name": "nypd",
+                    "slug": "nypd"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154799,
+            "meta": {
+                "first_published_at": "2023-03-10T15:00:19.746957-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154799/",
+                "html_url": "http://cms.prod.nypr.digital/news/with-90-vote-rutgers-faculty-tells-union-leaders-they-can-call-a-strike/",
+                "slug": "with-90-vote-rutgers-faculty-tells-union-leaders-they-can-call-a-strike"
+            },
+            "title": "With 94% vote, Rutgers faculty tells union leaders they can call a strike",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "2a52c86d-1030-4069-9b3c-2617f8b93b65",
+            "url": "https://gothamist.com/news/with-90-vote-rutgers-faculty-tells-union-leaders-they-can-call-a-strike",
+            "publication_date": "2023-03-10T15:00:00-05:00",
+            "updated_date": null,
+            "description": "It would be the first faculty walkout in the school’s 256-year history.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337198,
+                            "title": "shutterstock_1427628818.jpg",
+                            "width": 6000,
+                            "height": 4000,
+                            "created_at": "2023-03-10T13:58:53.740976-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 12059531,
+                            "file_hash": "8281179c7712f4fa1cd1791eb02e1a77eb807348",
+                            "alt": "The unions representing Rutgers faculty members say they're headed back to the negotiating table for a contract, but they're now authorized to call a strike at any time.",
+                            "caption": "The unions representing Rutgers faculty members say they're headed back to the negotiating table for a contract, but they're now authorized to call a strike at any time.",
+                            "credit": "Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_1427628818.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 134
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "6541164e-f168-44b5-8779-1948ce57797f"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 142982,
+                    "first_name": "Nancy",
+                    "last_name": "Solomon",
+                    "job_title": "reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "nancy-solomon-wnyc",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Workforce",
+                    "slug": "workforce"
+                },
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "new jersey",
+                    "slug": "new-jersey"
+                },
+                {
+                    "name": "education",
+                    "slug": "education"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154798,
+            "meta": {
+                "first_published_at": "2023-03-10T14:22:09.573329-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154798/",
+                "html_url": "http://cms.prod.nypr.digital/news/ny-democratic-party-chair-blasts-progressives-in-fiery-wnyc-interview/",
+                "slug": "ny-democratic-party-chair-blasts-progressives-in-fiery-wnyc-interview"
+            },
+            "title": "NY Democratic Party chair blasts progressives in fiery WNYC interview",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "e96833a5-f6e7-4bbc-a1b8-860e461f5a7b",
+            "url": "https://gothamist.com/news/ny-democratic-party-chair-blasts-progressives-in-fiery-wnyc-interview",
+            "publication_date": "2023-03-10T14:22:00-05:00",
+            "updated_date": "2023-03-10T14:37:00-05:00",
+            "description": "Jacobs appeared on \"The Brian Lehrer Show\" to respond to criticism over his leadership.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337197,
+                            "title": "Jay Jacobs [Shutterstock]",
+                            "width": 5554,
+                            "height": 3703,
+                            "created_at": "2023-03-10T13:43:49.980598-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2688890,
+                            "file_hash": "f202f62762f17aa7a11ea4021151f0a4213dd676",
+                            "alt": "Jay Jacobs, chair of the New York State Democratic Committee, speaks during the New York State Democratic Convention in New York. Jacobs has faced criticism in the last month for not supporting fellow Democrats in their elections.",
+                            "caption": "Jay Jacobs, chair of the New York State Democratic Committee, speaks during the New York State Democratic Convention in New York. Jacobs has faced criticism in the last month for not supporting fellow Democrats in their elections.",
+                            "credit": "Seth Wenig/AP/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_editorial_12811418d_1.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 82
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "8051d4cd-d52d-4459-ab48-ae642f24b5d8"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 31,
+                    "first_name": "Brigid",
+                    "last_name": "Bergin",
+                    "photo": 334518,
+                    "job_title": "Senior Reporter - People and Power",
+                    "biography": "Brigid Bergin is an award-winning senior reporter on the People and Power desk. Fiercely committed to telling stories that help people engage and support democracy for more than a decade, her coverage has led to multiple appearances on NPR, MSNBC and the Black News Network. Brigid's reporting in 2017 included some of the first coverage of a political upstart now known as AOC. In April 2016, she broke the news of a voter purge in Brooklyn just days before New York’s presidential primary, triggering city, state and federal investigations. Brigid also guest hosts The Brian Lehrer Show and The Takeaway. She graduated from the University at Albany and the CUNY Newmark School of Journalism. Follow her on Twitter @brigidbergin",
+                    "website": "",
+                    "email": "bbergin@wnyc.org",
+                    "slug": "brigid-bergin",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/brigidbergin"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "news",
+                    "slug": "news"
+                },
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "new york state",
+                    "slug": "new-york-state"
+                },
+                {
+                    "name": "Democratic party",
+                    "slug": "democratic-party"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154796,
+            "meta": {
+                "first_published_at": "2023-03-10T13:11:24.478149-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154796/",
+                "html_url": "http://cms.prod.nypr.digital/news/extra-extra-meet-connecticuts-answer-to-pizza-rat/",
+                "slug": "extra-extra-meet-connecticuts-answer-to-pizza-rat"
+            },
+            "title": "Extra Extra: Meet Connecticut's answer to Pizza Rat",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "719d1ae0-9fbe-48c9-a5d1-5b918ed41ffe",
+            "url": "https://gothamist.com/news/extra-extra-meet-connecticuts-answer-to-pizza-rat",
+            "publication_date": "2023-03-10T13:11:24.478149-05:00",
+            "updated_date": null,
+            "description": "Because it's Pizza Eagle, here are your end-of-day links: Anti-terrorism bollards are great for protecting bike lanes, Malachy McCourt is still rockin', the Sweaters of Inisherin and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337194,
+                            "title": "eagle.jpg",
+                            "width": 2048,
+                            "height": 1540,
+                            "created_at": "2023-03-10T13:06:22.064815-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 466290,
+                            "file_hash": "3ec2a7b85d696da4a1d4e301c9809282d62b3746",
+                            "alt": "a bald eagle in a tree",
+                            "caption": "",
+                            "credit": "Keith Michael",
+                            "credit_link": "https://flickr.com/photos/keithmichaelnyc/39604706041/in/photolist-23kJtik-KyGG2Y-yiTUqw-Ma7pwg-dHUTrn-DjjPRv-qkpxPE-dL1Wc4-9vJKhp-dNjkqw-dvKvwu-dJg1TM-91vnAA-br9SQo-9TdPsK-aCMwoB-e6W1p3-KFzpxT-C2EPUB-m5pKg2-fbTJWj-e2iZfj-bpFjG9-bD3yeP-du57zX-2ng8Jbn-5oKDjF-2ntzfyA-2kPAi1L-2nkeKLK-RKHVhz-2nTvdN6-feF81i-81Xf6P-5nEoGn-JaYjaL-2og4kn5-QzRSCC-4m5gzG-2mpk17z-2mVT6cM-ecyGP4-gdixpw-5mFB2a-2ki5QVh-iJRv1-9n6gTC-7jF2W3-m29iAp-7G1eNo",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/eagle.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "40abd414-9078-401b-9a6d-6b2df45812fb"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 35,
+                    "first_name": "James",
+                    "last_name": "Ramsay",
+                    "photo": 327650,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "james-ramsay",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "extra extra",
+                    "slug": "extra-extra"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154794,
+            "meta": {
+                "first_published_at": "2023-03-10T10:00:53.456795-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154794/",
+                "html_url": "http://cms.prod.nypr.digital/news/early-addition-a-coyote-was-walkin-around-queens-this-week/",
+                "slug": "early-addition-a-coyote-was-walkin-around-queens-this-week"
+            },
+            "title": "Early Addition: A coyote was walkin' around Queens this week",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "ffa1cf45-9fb7-4c54-b7fd-04eba201d287",
+            "url": "https://gothamist.com/news/early-addition-a-coyote-was-walkin-around-queens-this-week",
+            "publication_date": "2023-03-10T10:00:53.456795-05:00",
+            "updated_date": null,
+            "description": "Because the canine has now been relocated to Long Island, here are your early links: Retired NYPD officer allegedly threatened teens with a gun, new Biggie mural unveiled, don't drink the Borg and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337191,
+                            "title": "Screen Shot 2023-03-10 at 8.30.47 AM.png",
+                            "width": 1460,
+                            "height": 1090,
+                            "created_at": "2023-03-10T08:33:06.024162-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1845115,
+                            "file_hash": "361491cbb74faccabcc0808f1a9155a5d31ef019",
+                            "alt": "a coyote seen walking on a Queens sidewalk",
+                            "caption": "",
+                            "credit": "NYPD105Pct/Twitter",
+                            "credit_link": "https://twitter.com/NYPD105Pct/status/1633462901775417345",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2023-03-10_at_8.30.47_AM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "60fe77e1-4ae3-46c0-8f8d-e819b3935ef0"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 35,
+                    "first_name": "James",
+                    "last_name": "Ramsay",
+                    "photo": 327650,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "james-ramsay",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "early addition",
+                    "slug": "early-addition"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154795,
+            "meta": {
+                "first_published_at": "2023-03-10T08:54:42.966790-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154795/",
+                "html_url": "http://cms.prod.nypr.digital/news/a-raccoon-is-eating-lasagna-on-my-porch-and-other-odd-nyc-complaints-after-20-years-of-311/",
+                "slug": "a-raccoon-is-eating-lasagna-on-my-porch-and-other-odd-nyc-complaints-after-20-years-of-311"
+            },
+            "title": "‘A raccoon is eating lasagna on my porch’ and other odd NYC complaints after 20 years of 311",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "2d99d0a5-b481-4379-92c6-4b9da2749b7f",
+            "url": "https://gothamist.com/news/a-raccoon-is-eating-lasagna-on-my-porch-and-other-odd-nyc-complaints-after-20-years-of-311",
+            "publication_date": "2023-03-10T08:54:00-05:00",
+            "updated_date": "2023-03-10T10:41:00-05:00",
+            "description": "Over the past two decades, 311 has fielded more than 525 million questions and concerns from New Yorkers. Some of the requests were weird.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337192,
+                            "title": "311 calls.PNG",
+                            "width": 1005,
+                            "height": 597,
+                            "created_at": "2023-03-10T08:51:42.070975-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 586274,
+                            "file_hash": "68f2b915bd73efcde132bf3cc652eaf0cdca5ad1",
+                            "alt": "A chart depicting the biggest volume calls to 311 over the past 20 years.",
+                            "caption": "A chart depicting the biggest volume calls to 311 over the past 20 years.",
+                            "credit": "New York City Hall",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/311_calls.PNG",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 123
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "4b7b4bc6-feae-4592-aee8-008fa0636dea"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 40,
+                    "first_name": "Gwynne",
+                    "last_name": "Hogan",
+                    "photo": 334519,
+                    "job_title": "Reporter",
+                    "biography": "Gwynne Hogan is a general assignment reporter who’s worked at WNYC and Gothamist since 2017. Before joining WNYC, she did stints at the New York Post and the late DNAinfo New York and studied at the CUNY Newmark Graduate School of Journalism, graduating with the class of 2014. She won a Gracie award for her coverage of the COVID-19 pandemic and a Society of Professional Journalists award for her reporting on one Rockaway school’s efforts to avoid suspending students. Follow her on Twitter @GwynneFitz or email her at ghogan@wnyc.org.",
+                    "website": "",
+                    "email": "ghogan@wnyc.org",
+                    "slug": "gwynne-hogan",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/GwynneFitz"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "311 call center",
+                    "slug": "311-call-center"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "raccoon",
+                    "slug": "raccoon"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154788,
+            "meta": {
+                "first_published_at": "2023-03-10T06:01:54.458480-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154788/",
+                "html_url": "http://cms.prod.nypr.digital/news/nyc-jail-captain-thought-detainee-was-making-a-joke-when-he-threatened-to-take-his-life/",
+                "slug": "nyc-jail-captain-thought-detainee-was-making-a-joke-when-he-threatened-to-take-his-life"
+            },
+            "title": "NYC jail captain thought detainee was ‘making a joke’ when he threatened to take his life",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "8428b6f5-bde8-4872-ba2b-131702c9d507",
+            "url": "https://gothamist.com/news/nyc-jail-captain-thought-detainee-was-making-a-joke-when-he-threatened-to-take-his-life",
+            "publication_date": "2023-03-10T06:01:00-05:00",
+            "updated_date": null,
+            "description": "Rebecca Hillman took the stand in her own homicide trial on Thursday.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 319227,
+                            "title": "Rebecca Hillman",
+                            "width": 4032,
+                            "height": 3024,
+                            "created_at": "2021-04-26T20:18:53.071857-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 584053,
+                            "file_hash": "f5a6c5321e0e3db6b72e9568ec26addcfd661582",
+                            "alt": "Rebecca Hillman, wearing sunglasses, a hooded jacket, tries to conceal herself as she is led into court",
+                            "caption": "Captain Rebecca Hillman being escorted to her arraignment.",
+                            "credit": "George Joseph / WNYC",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Image_from_iOS_116.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "8234019c-1e38-4f92-81e6-f8e553fd0cb6"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151868,
+                    "first_name": "Samantha",
+                    "last_name": "Max",
+                    "photo": 334517,
+                    "job_title": "Public Safety Reporter",
+                    "biography": "Samantha reports on whether New Yorkers feel safe and whether the institutions that are supposed to protect them are working. Before coming to WNYC/Gothamist, she spent three years covering the criminal justice system in Tennessee for Nashville Public Radio. Her reporting on Nashville's police department received multiple awards, including the Daniel Schorr Journalism Prize. Samantha was also part of the inaugural class of Report for America, a service journalism program that sends up-and-coming reporters to local newsrooms across the country. She is a Northwestern University grad, a Baltimore native and fluent in Spanish.",
+                    "website": "",
+                    "email": "",
+                    "slug": "samantha-max",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "witness",
+                    "slug": "witness"
+                },
+                {
+                    "name": "department of correction",
+                    "slug": "department-of-correction"
+                },
+                {
+                    "name": "HOMICIDE",
+                    "slug": "homicide"
+                },
+                {
+                    "name": "trial",
+                    "slug": "trial"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154793,
+            "meta": {
+                "first_published_at": "2023-03-09T20:20:18.391497-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154793/",
+                "html_url": "http://cms.prod.nypr.digital/news/cop-kills-dog-after-being-attacked-during-staten-island-call-nypd/",
+                "slug": "cop-kills-dog-after-being-attacked-during-staten-island-call-nypd"
+            },
+            "title": "Cop kills dog after being attacked during Staten Island call: NYPD",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "8ee60dfb-b570-4af2-a72b-4d1fc7d5a8fe",
+            "url": "https://gothamist.com/news/cop-kills-dog-after-being-attacked-during-staten-island-call-nypd",
+            "publication_date": "2023-03-09T20:20:18.391497-05:00",
+            "updated_date": null,
+            "description": "Police say a German Shepherd lunged at the officer, biting him on the hand and leg.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 336956,
+                            "title": "shutterstock_2057747654.jpg",
+                            "width": 3593,
+                            "height": 2695,
+                            "created_at": "2023-02-27T14:44:20.561487-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 6728491,
+                            "file_hash": "d1480546ad761add726ef7d6df377519e27e7058",
+                            "alt": "Close up of the badge on the side of a New York police department patrol car.",
+                            "caption": "Close up of the badge on the side of a New York police department patrol car.",
+                            "credit": "Ceri Breeze / Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_2057747654.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 128
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "bd1ef23d-bcd6-445e-bdb0-6683bc5a9b53"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151434,
+                    "first_name": "Catalina",
+                    "last_name": "Gonella",
+                    "job_title": "Reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "catalina-gonella",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "staten island",
+                    "slug": "staten-island"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        }
+    ]
+}

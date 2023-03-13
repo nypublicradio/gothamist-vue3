@@ -35,3 +35,21 @@
 //     }
 //   }
 // }
+  
+Cypress.Commands.add('loadGlobalFixtures',  () => {
+    cy.intercept('/api/v2/system_messages/*', {fixture: 'aviary/system_messages_empty.json'}).as('systemMessages')
+    cy.intercept('/api/v2/sitewide_components/*', {fixture: 'aviary/sitewide_components.json'}).as('sitewideComponents')
+    cy.intercept('/api/v2/navigation/*', {fixture: 'aviary/navigation.json'}).as('navigation')
+    cy.intercept('/api/v4/whats_on/**', {fixture: 'publisher/whats_on.json'}).as('whatsOn')
+    cy.intercept({
+      hostname: 'open-api.spot.im'
+    }, {statusCode: 200, body: {messages_count: []}}).as('commentCounts')
+})
+
+declare global {
+    namespace Cypress {
+      interface Chainable {
+          loadGlobalFixtures(): Chainable<void>
+      }
+    }
+  }

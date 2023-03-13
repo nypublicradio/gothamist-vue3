@@ -1,0 +1,32 @@
+{
+    "id": 4,
+    "meta": {
+        "first_published_at": "2019-08-09T13:24:40.447281-04:00",
+        "type": "standardpages.IndexPage",
+        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+        "html_url": "http://cms.prod.nypr.digital/news/",
+        "slug": "news",
+        "show_in_menus": true,
+        "seo_title": "",
+        "search_description": "",
+        "parent": {
+            "id": 3,
+            "meta": {
+                "type": "home.HomePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                "html_url": "http://cms.prod.nypr.digital/"
+            },
+            "title": "Gothamist"
+        }
+    },
+    "title": "News",
+    "listing_title": "",
+    "listing_summary": "",
+    "listing_image": null,
+    "social_image": null,
+    "social_title": "",
+    "social_text": "",
+    "show_on_index_listing": true,
+    "uuid": "bd865ae3-b0df-476e-bd9b-1eac532ebe68",
+    "url": "https://gothamist.com/news"
+}

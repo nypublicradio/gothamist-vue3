@@ -1,0 +1,1194 @@
+{
+    "meta": {
+        "total_count": 90159
+    },
+    "items": [
+        {
+            "id": 154791,
+            "meta": {
+                "first_published_at": "2023-03-09T19:35:44.885479-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154791/",
+                "html_url": "http://cms.prod.nypr.digital/news/black-activists-in-ny-duel-over-proposed-bans-on-menthol-cigarette-sales/",
+                "slug": "black-activists-in-ny-duel-over-proposed-bans-on-menthol-cigarette-sales"
+            },
+            "title": "Black activists in NY duel over proposed bans on menthol cigarette sales",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "acd4845e-4c8c-4c2e-96a3-a223824f95b6",
+            "url": "https://gothamist.com/news/black-activists-in-ny-duel-over-proposed-bans-on-menthol-cigarette-sales",
+            "publication_date": "2023-03-09T19:35:44.885479-05:00",
+            "updated_date": null,
+            "description": "Some worry the bans will mean more encounters with cops. Others decry the flavored cigarettes' deadly toll on Black people.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337180,
+                            "title": "shutterstock_editorial_13437417a.jpg DO NOT REUSE",
+                            "width": 3328,
+                            "height": 2218,
+                            "created_at": "2023-03-09T17:53:21.471291-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1358302,
+                            "file_hash": "adaea39cfd4bd84fe8c467d7bf803194b039d010",
+                            "alt": "Menthol cigarettes",
+                            "caption": "Menthol-flavored cigarettes would be banned under proposals pending in the State Legislature and New York City Council",
+                            "credit": "Jeff Chiu/AP/Shutterstock",
+                            "credit_link": "https://enterprise.shutterstock.com/editorial/image-editorial/menthol-cigarettes-other-tobacco-products-displayed-store-13437417a",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_editorial_13437417a.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 125
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "8e4eda57-eaf9-47b9-9dcf-f69739871f97"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 154600,
+                    "first_name": "Arya",
+                    "last_name": "Sundaram",
+                    "job_title": "Reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "arya-sundaram",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "menthol cigarettes",
+                    "slug": "menthol-cigarettes"
+                },
+                {
+                    "name": "lung cancer",
+                    "slug": "lung-cancer"
+                },
+                {
+                    "name": "Race And Justice Unit",
+                    "slug": "race-and-justice-unit"
+                },
+                {
+                    "name": "Kathy Hochul",
+                    "slug": "kathy-hochul"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154792,
+            "meta": {
+                "first_published_at": "2023-03-09T18:49:29.999520-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154792/",
+                "html_url": "http://cms.prod.nypr.digital/news/penn-station-redevelopment-isnt-dead-yet-gov-hochul-says/",
+                "slug": "penn-station-redevelopment-isnt-dead-yet-gov-hochul-says"
+            },
+            "title": "Penn Station redevelopment isn’t dead yet, Gov. Hochul says",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "2d8fa30e-1971-434d-821f-8749274e4e4e",
+            "url": "https://gothamist.com/news/penn-station-redevelopment-isnt-dead-yet-gov-hochul-says",
+            "publication_date": "2023-03-09T18:49:29.999520-05:00",
+            "updated_date": null,
+            "description": "On WNYC, the Democratic governor declined to give up on the Penn Station project, even though Vornado has paused its involvement.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337183,
+                            "title": "Hochul Getty do not reuse",
+                            "width": 6635,
+                            "height": 4425,
+                            "created_at": "2023-03-09T18:37:06.424963-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 10635415,
+                            "file_hash": "6a5fa86a602a66d8539db828cd2d488793fc66c8",
+                            "alt": "Gov. Kathy Hochul speaks during a press event on Long Island.",
+                            "caption": "Gov. Kathy Hochul speaks during a press event on Long Island.",
+                            "credit": "Steve Pfost/Newsday RM via Getty Images",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/GettyImages-1472110383.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 129
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "97637fed-e9d3-4465-a816-fbdf0f52f604"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 171,
+                    "first_name": "Jon",
+                    "last_name": "Campbell",
+                    "photo": 328437,
+                    "job_title": "Reporter",
+                    "biography": "Jon Campbell covers the New York State Capitol for WNYC and Gothamist. Prior to that, he covered the Capitol for more than a decade for the USA TODAY Network. He has twice earned the Walter T. Brown Memorial Award, an honor given annually by the Legislative Correspondents Association alumni for outstanding state government coverage. Jon grew up in the Buffalo area and graduated from the University at Albany.",
+                    "website": "",
+                    "email": "jcampbell@wnyc.org",
+                    "slug": "jon-campbell",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/JonCampbellNY"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "new york state",
+                    "slug": "new-york-state"
+                },
+                {
+                    "name": "Kathy Hochul",
+                    "slug": "kathy-hochul"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154790,
+            "meta": {
+                "first_published_at": "2023-03-09T17:59:28.702332-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154790/",
+                "html_url": "http://cms.prod.nypr.digital/news/nypd-arrests-man-suspected-of-robbing-4-bodegas-killing-1/",
+                "slug": "nypd-arrests-man-suspected-of-robbing-4-bodegas-killing-1"
+            },
+            "title": "NYPD arrests man suspected of robbing 4 bodegas, killing 1",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "c5b157ae-6ec9-4293-bd81-fe661cf70215",
+            "url": "https://gothamist.com/news/nypd-arrests-man-suspected-of-robbing-4-bodegas-killing-1",
+            "publication_date": "2023-03-09T17:59:00-05:00",
+            "updated_date": null,
+            "description": "The NYPD announced the arrest of 39-year-old Kimond Cyrus, accusing him of robbing four bodegas in Brooklyn and Manhattan, killing an employee in the process.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 334121,
+                            "title": "shutterstock_60781090.jpg",
+                            "width": 3152,
+                            "height": 2364,
+                            "created_at": "2022-09-24T12:29:31.492035-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1307329,
+                            "file_hash": "cbbfdd617e322027ad7852be6ad73394000fca37",
+                            "alt": "Police tape at a crime scene",
+                            "caption": "Police are investigating an incident in which a woman was killed by a hit-and-run driver early Saturday morning in Queens.",
+                            "credit": "M. Kuperus/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_60781090.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 127
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "421876f2-8168-4c9b-aafa-145da3161e28"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151636,
+                    "first_name": "Isidoro",
+                    "last_name": "Rodriguez",
+                    "job_title": "Public Safety Reporter",
+                    "biography": "Isidoro Rodriguez reports on safety and policing in New York City. Prior to joining Gothamist, he was  deputy editor of The Crime Report at the Center on Media, Crime and Justice at the John Jay College of Criminal Justice in New York.",
+                    "website": "",
+                    "email": "",
+                    "slug": "isidoro-rodriguez",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154787,
+            "meta": {
+                "first_published_at": "2023-03-09T15:40:54.292848-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154787/",
+                "html_url": "http://cms.prod.nypr.digital/news/cost-of-second-ave-subway-extension-to-east-harlem-balloons-to-77b/",
+                "slug": "cost-of-second-ave-subway-extension-to-east-harlem-balloons-to-77b"
+            },
+            "title": "Cost of 2nd Avenue Subway extension to East Harlem balloons to $7.7B",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "4051ebba-b343-4ea5-9b62-9f87fafb08b7",
+            "url": "https://gothamist.com/news/cost-of-second-ave-subway-extension-to-east-harlem-balloons-to-77b",
+            "publication_date": "2023-03-09T15:40:00-05:00",
+            "updated_date": "2023-03-09T15:50:00-05:00",
+            "description": "It’s the latest price hike for the project, which aims to extend the subway by 1.5 miles through a tunnel that’s already partially built.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 327172,
+                            "title": "Second Avenue Subway tour (stephen nessen)",
+                            "width": 3000,
+                            "height": 2000,
+                            "created_at": "2021-11-24T20:05:44.178219-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2875517,
+                            "file_hash": "58387e1cf51bb785fb1184ff5647bfc65824f111",
+                            "alt": "Inside the partially constructed 2nd avenue subway tunnels",
+                            "caption": "The Second Avenue Subway's phase two tunnel, November 23, 2021",
+                            "credit": "Stephen Nessen / WNYC",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/SA_st-4.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "The partially constructed Second Avenue Subway tunnel in East Harlem.",
+                        "image_link": ""
+                    },
+                    "id": "09dc2825-999d-43a8-bc8d-130f2d2b5739"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 29,
+                    "first_name": "Stephen",
+                    "last_name": "Nessen",
+                    "photo": 327485,
+                    "job_title": "Transportation Reporter",
+                    "biography": "Stephen Nessen covers transportation. Since 2008 he has reported on everything from Occupy Wall Street, the rebuilding of the World Trade Center site, Hurricane Sandy, to Trump’s campaign for president. His transportation reporting has taken him everywhere from the MTA’s secret Rail Control Center to the gleaming subways of Seoul.",
+                    "website": "",
+                    "email": "snessen@wnyc.org",
+                    "slug": "stephen-nessen",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/s_nessen"
+                        }
+                    ]
+                },
+                {
+                    "id": 153522,
+                    "first_name": "Clayton",
+                    "last_name": "Guse",
+                    "job_title": "Assistant Editor, NYC Accountability",
+                    "biography": "",
+                    "website": "",
+                    "email": "cguse@nypublicradio.org",
+                    "slug": "clayton-guse",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "transportation",
+                    "slug": "transportation"
+                },
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154786,
+            "meta": {
+                "first_published_at": "2023-03-09T14:48:58.606537-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154786/",
+                "html_url": "http://cms.prod.nypr.digital/news/extra-extra-remember-the-time-before-legal-weed-when-nyc-smelled-awesome/",
+                "slug": "extra-extra-remember-the-time-before-legal-weed-when-nyc-smelled-awesome"
+            },
+            "title": "Extra Extra: Remember the time before legal weed, when NYC smelled awesome?",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "6a04a497-a1a1-4bae-bb0e-6a5b3a6d1460",
+            "url": "https://gothamist.com/news/extra-extra-remember-the-time-before-legal-weed-when-nyc-smelled-awesome",
+            "publication_date": "2023-03-09T14:48:00-05:00",
+            "updated_date": null,
+            "description": "Because the scent of that dank kush is pushing some longtime New Yorkers over the edge, here are your end-of-day links: Undercover taxi boss, smoking inside Atlantic City casinos, COVID rats and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337179,
+                            "title": "trash.jpg",
+                            "width": 3216,
+                            "height": 1842,
+                            "created_at": "2023-03-09T14:43:13.627717-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1190773,
+                            "file_hash": "668e24a5722ec8f9d2d938a749908870527ce041",
+                            "alt": "a woman on a cell phone walks by bags of trash",
+                            "caption": "",
+                            "credit": "Justin Lane/EPA/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/trash.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "3dfe64f3-6e1e-4e74-94b2-2a4a34a2d58a"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 35,
+                    "first_name": "James",
+                    "last_name": "Ramsay",
+                    "photo": 327650,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "james-ramsay",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "extra extra",
+                    "slug": "extra-extra"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154785,
+            "meta": {
+                "first_published_at": "2023-03-09T13:04:13.988098-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154785/",
+                "html_url": "http://cms.prod.nypr.digital/news/gov-hochul-wants-to-loan-455-million-to-belmont-park-some-say-its-a-bad-bet/",
+                "slug": "gov-hochul-wants-to-loan-455-million-to-belmont-park-some-say-its-a-bad-bet"
+            },
+            "title": "Gov. Hochul wants to loan $455 million to Belmont Park. Some say it’s a bad bet.",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "066e0a34-c1b9-48c6-92a6-a001ac78901c",
+            "url": "https://gothamist.com/news/gov-hochul-wants-to-loan-455-million-to-belmont-park-some-say-its-a-bad-bet",
+            "publication_date": "2023-03-09T13:04:00-05:00",
+            "updated_date": "2023-03-09T16:22:00-05:00",
+            "description": "If the loan goes through, the state would take control of more than 100 acres near JFK International Airport.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337177,
+                            "title": "Belmont Park [Shutterstock]",
+                            "width": 2823,
+                            "height": 1783,
+                            "created_at": "2023-03-09T12:26:13.676742-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 910800,
+                            "file_hash": "7bccde01a4ce50ddccc28bfeb0ceeb66a97063e8",
+                            "alt": "Mo Donegal, with Irad Ortiz Jr. wins The Belmont Stakes presented by NYRA Bets at Belmont Park in Elmont in June last year. Hochul seeks to issue a $455 million loan to Belmont Park to redevelop the grandstand and clubhouse.",
+                            "caption": "Mo Donegal, with Irad Ortiz Jr. wins the Belmont Stakes presented by NYRA Bets at Belmont Park in Elmont in June last year. Hochul seeks to issue a $455 million loan to Belmont Park to redevelop the grandstand and clubhouse.",
+                            "credit": "Alex Evers/CSM/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_editorial_12982585b.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 82
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "dad99b1d-e4b8-4842-a86e-a7356da92091"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 171,
+                    "first_name": "Jon",
+                    "last_name": "Campbell",
+                    "photo": 328437,
+                    "job_title": "Reporter",
+                    "biography": "Jon Campbell covers the New York State Capitol for WNYC and Gothamist. Prior to that, he covered the Capitol for more than a decade for the USA TODAY Network. He has twice earned the Walter T. Brown Memorial Award, an honor given annually by the Legislative Correspondents Association alumni for outstanding state government coverage. Jon grew up in the Buffalo area and graduated from the University at Albany.",
+                    "website": "",
+                    "email": "jcampbell@wnyc.org",
+                    "slug": "jon-campbell",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/JonCampbellNY"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "news",
+                    "slug": "news"
+                },
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "Kathy Hochul",
+                    "slug": "kathy-hochul"
+                },
+                {
+                    "name": "new york",
+                    "slug": "new-york"
+                },
+                {
+                    "name": "Belmont Stakes",
+                    "slug": "belmont-stakes"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154784,
+            "meta": {
+                "first_published_at": "2023-03-09T12:42:16.773635-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154784/",
+                "html_url": "http://cms.prod.nypr.digital/news/nyc-retirees-must-switch-new-medicare-coverage-after-union-leaders-favor-aetna-privatized-plan/",
+                "slug": "nyc-retirees-must-switch-new-medicare-coverage-after-union-leaders-favor-aetna-privatized-plan"
+            },
+            "title": "250K NYC retirees must switch to new Medicare coverage after union leaders favor privatized plan",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": {
+                "id": 337175,
+                "title": "medicare advantage vote_20230309_GettyImages-1246120531.jpg",
+                "width": 3100,
+                "height": 2065,
+                "created_at": "2023-03-09T11:27:50.392883-05:00",
+                "focal_point_x": null,
+                "focal_point_y": null,
+                "focal_point_width": null,
+                "focal_point_height": null,
+                "file_size": 4358124,
+                "file_hash": "c790377b66c32092f194f2ad4f3f2c34b3275cd2",
+                "alt": "Participants seen cheering during an NYC City Council hearing about the proposed changes to the city’s administrative code and municipal retirees' health care benefits, Jan. 9, 2023.",
+                "caption": "Participants seen cheering during an NYC City Council hearing about the proposed changes to the city’s administrative code and municipal retirees' health care benefits, Jan. 9, 2023.",
+                "credit": "Erik McGregor/LightRocket via Getty Images",
+                "credit_link": "",
+                "file": "https://cdn.cms.prod.nypr.digital/original_images/medicare_advantage_vote_20230309_GettyImages-1246120531.jpg",
+                "usage_limitations": "",
+                "expiry_date": null,
+                "collection": 1,
+                "uploaded_by_user": 106
+            },
+            "uuid": "5ca57628-fc02-4cd0-8e33-e72de1c1a13c",
+            "url": "https://gothamist.com/news/nyc-retirees-must-switch-new-medicare-coverage-after-union-leaders-favor-aetna-privatized-plan",
+            "publication_date": "2023-03-09T12:42:00-05:00",
+            "updated_date": "2023-03-09T23:15:00-05:00",
+            "description": "The switch will provide some new benefits, but critics of the change have raised concerns that the Medicare Advantage plan will be more likely to require prior approval for certain medical services and potentially deny coverage.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337176,
+                            "title": "medicare advantage_20230309_shutterstock_editorial_13740802a.jpg",
+                            "width": 3889,
+                            "height": 2624,
+                            "created_at": "2023-03-09T11:47:11.156624-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1445626,
+                            "file_hash": "cd05b28f7385eaad6aa5f5373715b98f6a5ef719",
+                            "alt": "A page from the 2019 U.S. Medicare Handbook in Washington.",
+                            "caption": "According to a summary of the plan that was shared with Gothamist, Aetna won’t require prior authorization for any medical services for the first 120 days after coverage begins.",
+                            "credit": "Pablo Martinez Monsivais/AP/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/medicare_advantage_20230309_shutterstock_editorial_13740802a.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 106
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "13e94eec-ebf0-4a8d-8c61-03bc857bd90a"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 22,
+                    "first_name": "Caroline",
+                    "last_name": "Lewis",
+                    "photo": 334520,
+                    "job_title": "Health Reporter",
+                    "biography": "Caroline Lewis is on the health care beat for WNYC and Gothamist — and also covers cannabis, both with an eye towards equity and accountability. She was previously a health care reporter for Crain’s New York Business. Lewis has a degree from the CUNY Graduate School of Journalism and is a native New Yorker, although she has left occasionally. She did a Fulbright in Chile in 2011 and is fluent in Spanish. She now resides in Brooklyn.",
+                    "website": "",
+                    "email": "",
+                    "slug": "caroline-lewis",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Health and Science",
+                    "slug": "health-and-science"
+                },
+                {
+                    "name": "union",
+                    "slug": "union"
+                },
+                {
+                    "name": "health care",
+                    "slug": "health-care"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154783,
+            "meta": {
+                "first_published_at": "2023-03-09T09:52:53.328420-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154783/",
+                "html_url": "http://cms.prod.nypr.digital/news/early-addition-cruising-through-the-korean-dmz-on-google-street-view/",
+                "slug": "early-addition-cruising-through-the-korean-dmz-on-google-street-view"
+            },
+            "title": "Early Addition: Cruising through the Korean DMZ on Google Street View",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "97c94349-4409-4be7-80b5-576b47a6d33a",
+            "url": "https://gothamist.com/news/early-addition-cruising-through-the-korean-dmz-on-google-street-view",
+            "publication_date": "2023-03-09T09:52:53.328420-05:00",
+            "updated_date": null,
+            "description": "Because Google is marking the 70th anniversary of the peninsula's armistice, here are your early links: Good news for gun fanatics in New Jersey, dueling rallies over menthol cigarette ban, Donald Trump's letters from celebrities and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337174,
+                            "title": "Screen Shot 2023-03-09 at 9.26.24 AM.png",
+                            "width": 2620,
+                            "height": 1280,
+                            "created_at": "2023-03-09T09:29:11.687429-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 5249836,
+                            "file_hash": "ead2570f0d062727623407bf10da5c7439b710d2",
+                            "alt": "an abandoned office in the Korean DMZ",
+                            "caption": "",
+                            "credit": "Google",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2023-03-09_at_9.26.24_AM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "c963ac21-3f00-4246-a9a7-2ac4ca7c7a39"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 35,
+                    "first_name": "James",
+                    "last_name": "Ramsay",
+                    "photo": 327650,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "james-ramsay",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "early addition",
+                    "slug": "early-addition"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154779,
+            "meta": {
+                "first_published_at": "2023-03-09T07:30:57.415828-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154779/",
+                "html_url": "http://cms.prod.nypr.digital/news/daylight-saving-time-is-coming-to-nyc-beware/",
+                "slug": "daylight-saving-time-is-coming-to-nyc-beware"
+            },
+            "title": "Daylight saving time is coming to NYC — beware",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "69c6c467-3051-4c52-9512-c73966766d57",
+            "url": "https://gothamist.com/news/daylight-saving-time-is-coming-to-nyc-beware",
+            "publication_date": "2023-03-09T07:30:57.415828-05:00",
+            "updated_date": null,
+            "description": "We're still changing the clocks twice a year even though most people think it's silly and scientists say it's dangerous.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337160,
+                            "title": "DST GETTY NO REUSE .jpg",
+                            "width": 4368,
+                            "height": 2912,
+                            "created_at": "2023-03-08T16:57:30.015242-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 4684234,
+                            "file_hash": "b3ecbc32b4a475cb5d5b5d65b6b68982223d76f8",
+                            "alt": "A photo of a clock in springtime to depict daylight saving time.",
+                            "caption": "Yes, we'll have later sunsets, but scientists say daylight saving time messes with our sleep.",
+                            "credit": "Getty Images",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/DST_GETTY_NO_REUSE_.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 123
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "e68abd75-af21-4585-91ff-cd9bff5a0636"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 154778,
+                    "first_name": "Rose Marina",
+                    "last_name": "Boubion",
+                    "job_title": "Gothamist Contributor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "rose-marina-boubion",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "sleep deprivation",
+                    "slug": "sleep-deprivation"
+                },
+                {
+                    "name": "senate",
+                    "slug": "senate"
+                },
+                {
+                    "name": "assembly",
+                    "slug": "assembly"
+                },
+                {
+                    "name": "daylight saving time",
+                    "slug": "daylight-saving-time"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154780,
+            "meta": {
+                "first_published_at": "2023-03-09T06:00:59.699204-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154780/",
+                "html_url": "http://cms.prod.nypr.digital/news/toxic-fumes-detected-at-popular-brooklyn-shuffleboard-club-for-past-2-years/",
+                "slug": "toxic-fumes-detected-at-popular-brooklyn-shuffleboard-club-for-past-2-years"
+            },
+            "title": "Toxic fumes detected at popular Brooklyn shuffleboard club for past 2 years",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "d187af04-c4a3-45fd-9e07-5abbab713fc8",
+            "url": "https://gothamist.com/news/toxic-fumes-detected-at-popular-brooklyn-shuffleboard-club-for-past-2-years",
+            "publication_date": "2023-03-09T06:00:00-05:00",
+            "updated_date": "2023-03-09T10:47:00-05:00",
+            "description": "Here’s why you’re only now hearing about the incident at the Royal Palms Shuffleboard Club.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337171,
+                            "title": "royal palms_20230308_shuffleboard. gas_L1500214.jpeg",
+                            "width": 3000,
+                            "height": 2000,
+                            "created_at": "2023-03-08T22:11:46.772923-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 4388899,
+                            "file_hash": "1e0becb47efc9c3fa1ded447b450de159177ab61",
+                            "alt": "The Royal Palms Shuffleboard Club is located at 514 Union Street in Brooklyn. Environmental surveys detected high levels of a cancer-causing chemical called trichloroethylene and other industrial pollutants at the site in early 2021. But state regulators took a year to notify nearby residents about the health hazard. Remediation efforts to contain the toxins began last month.",
+                            "caption": "The Royal Palms Shuffleboard Club is located at 514 Union Street in Brooklyn. Environmental surveys detected high levels of a cancer-causing chemical called trichloroethylene and other industrial pollutants at the site in early 2021. But state regulators took a year to notify nearby residents about the health hazard. Remediation efforts to contain the toxins began last month.",
+                            "credit": "Reece T. Williams/Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/royal_palms_20230308_shuffleboard._gas_L1500214_GSlBL3l.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 106
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "70c578bd-52ce-4061-a832-e02e5a13b751"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 152986,
+                    "first_name": "Jordan",
+                    "last_name": "Gass-Poore'",
+                    "job_title": "Freelance reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "jordan-gass-poore",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Gowanus",
+                    "slug": "gowanus"
+                },
+                {
+                    "name": "Health and Science",
+                    "slug": "health-and-science"
+                },
+                {
+                    "name": "brooklyn",
+                    "slug": "brooklyn"
+                },
+                {
+                    "name": "environment",
+                    "slug": "environment"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        }
+    ]
+}

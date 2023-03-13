@@ -1,10 +1,7 @@
 import { assert, expect } from 'vitest';
-describe('The Homepage', () => {
+describe('The home page', () => {
   it('successfully loads', () => {
-    cy.intercept('/api/v2/system_messages/*', {fixture: 'aviary/system_messages.json'}).as('systemMessages')
-    cy.intercept('/api/v2/sitewide_components/*', {fixture: 'aviary/sitewide_components.json'}).as('sitewideComponents')
-    cy.intercept('/api/v2/navigation/*', {fixture: 'aviary/navigation.json'}).as('navigation')
-    cy.intercept('/api/v4/whats_on/**', {fixture: 'publisher/whats_on.json'}).as('whatsOn')
+    cy.loadGlobalFixtures()
     cy.intercept({
       pathname :'/api/v2/pages/',
       query: {
@@ -25,21 +22,15 @@ describe('The Homepage', () => {
         limit: '6',
         offset: '6'
       }
-    }, {fixture: 'aviary/index-more.json'}).as('index-more')
+    }, {fixture: 'aviary/index-more.json'}).as('indexMore')
     cy.intercept({
         pathname: '/api/v2/pages/find',
         query: { html_path: '/' }, 
     }, {fixture: 'aviary/index.json'}).as('index')
-    // cy.intercept({
-    //   hostname: 'o557978.ingest.sentry.io'
-    // }, {statusCode: 200, body: {}})
-    cy.intercept({
-      hostname: 'open-api.spot.im'
-    }, {statusCode: 200, body: {messages_count: []}})
     cy.visit('/')
 
-    cy.get('.marketing-modal').should('exist')
-    cy.get('.p-dialog-header-close').click()
+    // cy.get('.marketing-modal').should('exist')
+    // cy.get('.p-dialog-header-close').click()
 
     cy.get('.homepage-topper').should('exist')
     cy.get('.homepage-topper .gothamist-card').should('have.length', 5)
@@ -51,7 +42,7 @@ describe('The Homepage', () => {
     cy.get('#latest .gothamist-card').should('have.length', 6)
 
     cy.contains('Load More').click()
-    cy.wait('@index-more')
+    cy.wait('@indexMore')
     cy.get('#latest .gothamist-card').should('have.length', 12) 
     
     cy.get('.card-title-link').first().click()

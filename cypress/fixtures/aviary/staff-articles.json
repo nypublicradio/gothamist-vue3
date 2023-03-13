@@ -1,0 +1,1759 @@
+{
+    "meta": {
+        "total_count": 33495
+    },
+    "items": [
+        {
+            "id": 151834,
+            "meta": {
+                "first_published_at": "2022-05-27T15:01:30.314887-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151834/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/say-hello-to-the-central-park-zoos-three-new-bears/",
+                "slug": "say-hello-to-the-central-park-zoos-three-new-bears"
+            },
+            "title": "Say hello to the Central Park Zoo's three new bears",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "59ab99dd-55ed-428a-af01-1c4b39896245",
+            "url": "https://gothamist.com/arts-entertainment/say-hello-to-the-central-park-zoos-three-new-bears",
+            "publication_date": "2022-05-27T15:01:30.314887-04:00",
+            "updated_date": null,
+            "description": "The bears, Amber, Luna, and Treena, come from the Bronx Zoo.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 331488,
+                            "title": "Central Park bears (Julie Larsen Maher)",
+                            "width": 2000,
+                            "height": 1335,
+                            "created_at": "2022-05-27T13:25:54.136260-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2051761,
+                            "file_hash": "489edd81f813c2838e79bd0987df144c3376824d",
+                            "alt": "photographs of the brown bears debuting in Central Park",
+                            "caption": "The Central Park Zoo's new bears",
+                            "credit": "Julie Larsen Maher, Wildlife Conservation Society / Central Park Zoo",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Julie_Larsen_Maher_9224_Brown_Bears_CPZ_05_19_22_1.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "efacf3a9-00ad-49cd-aedd-5247fa1c932e"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "grizzly bears",
+                    "slug": "grizzly-bears"
+                },
+                {
+                    "name": "bears",
+                    "slug": "bears"
+                },
+                {
+                    "name": "central park zoo",
+                    "slug": "central-park-zoo"
+                },
+                {
+                    "name": "wildlife conservation society",
+                    "slug": "wildlife-conservation-society"
+                },
+                {
+                    "name": "bronx zoo",
+                    "slug": "bronx-zoo"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151579,
+            "meta": {
+                "first_published_at": "2022-05-07T06:02:20.571360-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151579/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/free-rides-to-celebrate-100th-birthday-of-janes-carousel/",
+                "slug": "free-rides-to-celebrate-100th-birthday-of-janes-carousel"
+            },
+            "title": "Free rides to celebrate 100th birthday of Jane's Carousel",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "fb15c498-618a-4d77-b594-35a862bf0f66",
+            "url": "https://gothamist.com/arts-entertainment/free-rides-to-celebrate-100th-birthday-of-janes-carousel",
+            "publication_date": "2022-05-07T06:02:20.571360-04:00",
+            "updated_date": null,
+            "description": "The carousel, which was restored by Jane Walentas and brought to Brooklyn in 2011, was originally built in 1922.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 330822,
+                            "title": "Jane's Carousel",
+                            "width": 3600,
+                            "height": 2400,
+                            "created_at": "2022-05-04T19:13:10.097164-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2405537,
+                            "file_hash": "0c6722f108781ddcbfa38e9bf21ba11272ff6db3",
+                            "alt": "A photograph of a carousel with horses, with the East River seen on the right side",
+                            "caption": "Jane's Carousel",
+                            "credit": "Courtesy of Julian Mackler",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Credit__Julian_Mackler_copy.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "26d1892d-a03b-4cd6-bfca-6188d68b89ad"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "jane's carousel",
+                    "slug": "janes-carousel"
+                },
+                {
+                    "name": "David Walentas",
+                    "slug": "david-walentas"
+                },
+                {
+                    "name": "brooklyn bridge park",
+                    "slug": "brooklyn-bridge-park"
+                },
+                {
+                    "name": "dumbo",
+                    "slug": "dumbo"
+                },
+                {
+                    "name": "Jane Walentas",
+                    "slug": "jane-walentas"
+                },
+                {
+                    "name": "brooklyn",
+                    "slug": "brooklyn"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151364,
+            "meta": {
+                "first_published_at": "2022-04-12T15:59:01.153040-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151364/",
+                "html_url": "http://cms.prod.nypr.digital/news/nyc-subway-systems-history-as-a-rare-target-of-mass-violence/",
+                "slug": "nyc-subway-systems-history-as-a-rare-target-of-mass-violence"
+            },
+            "title": "NYC Subway system’s history as a rare target of mass violence",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "f4993b05-5488-4510-b5b2-12057856131b",
+            "url": "https://gothamist.com/news/nyc-subway-systems-history-as-a-rare-target-of-mass-violence",
+            "publication_date": "2022-04-12T15:59:00-04:00",
+            "updated_date": "2022-04-13T18:00:00-04:00",
+            "description": "The subway system has been the target of other violent attacks, most notably bombing attempts.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 330376,
+                            "title": "Increased security subway bag check (Shutterstock no reuse)",
+                            "width": 3500,
+                            "height": 2333,
+                            "created_at": "2022-04-12T15:30:24.703577-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1770047,
+                            "file_hash": "e9290a086098ab06d7afda19827f021fac58e19d",
+                            "alt": "Police officers check a passenger's bag",
+                            "caption": "The police check a subway rider's bag at a subway station",
+                            "credit": "Richard Drew/AP/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_editorial_6044108d.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "073d6a42-2e26-4a39-bd35-dd02f829d155"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 141726,
+                    "first_name": "Sophia",
+                    "last_name": "Chang",
+                    "job_title": "Reporter",
+                    "biography": "Sophia Chang is a reporter on the NYC Accountability desk covering government policy, social structures and other issues that enable and complicate city life.",
+                    "website": "",
+                    "email": "schang@gothamist.com",
+                    "slug": "sophia-chang",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/bysophiachang"
+                        }
+                    ]
+                },
+                {
+                    "id": 121,
+                    "first_name": "Jaclyn",
+                    "last_name": "Jeffrey-Wilensky",
+                    "photo": 334525,
+                    "job_title": "Data Reporter",
+                    "biography": "Jaclyn writes data-driven health and science stories for WNYC/Gothamist. She also runs Gothamist's COVID data dashboards. She is an alumna of the Newmark Graduate School of Journalism. Her work has appeared in NBC News, Spectrum, the Daily Beast, and other outlets.",
+                    "website": "",
+                    "email": "",
+                    "slug": "jaclyn-jeffrey-wilensky",
+                    "social_media_profile": []
+                },
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "gun violence",
+                    "slug": "gun-violence"
+                },
+                {
+                    "name": "subway",
+                    "slug": "subway"
+                },
+                {
+                    "name": "brooklyn",
+                    "slug": "brooklyn"
+                },
+                {
+                    "name": "subway crime",
+                    "slug": "subway-crime"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "sunset park",
+                    "slug": "sunset-park"
+                },
+                {
+                    "name": "we the commuters",
+                    "slug": "we-the-commuters"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151291,
+            "meta": {
+                "first_published_at": "2022-04-11T11:30:12.748162-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151291/",
+                "html_url": "http://cms.prod.nypr.digital/news/mtas-reduced-fare-customers-will-get-to-use-omny-this-summer/",
+                "slug": "mtas-reduced-fare-customers-will-get-to-use-omny-this-summer"
+            },
+            "title": "MTA's reduced-fare customers will get to use OMNY this summer",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "963f0116-080b-4522-bf78-6210cda4483d",
+            "url": "https://gothamist.com/news/mtas-reduced-fare-customers-will-get-to-use-omny-this-summer",
+            "publication_date": "2022-04-11T11:30:12.748162-04:00",
+            "updated_date": null,
+            "description": "OMNY will replace MetroCards in 2024.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329208,
+                            "title": "OMNY card (MTA)",
+                            "width": 2048,
+                            "height": 1529,
+                            "created_at": "2022-02-18T16:56:15.006431-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 536054,
+                            "file_hash": "6fea9b8a3de3b8e9e36776b02128e3cc9d09d08e",
+                            "alt": "A view of the OMNY readers on subway turnstiles",
+                            "caption": "The MTA started its rollout of OMNY in 2019",
+                            "credit": "Marc A. Hermann / MTA New York City Transit",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/48536036201_2381c18d36_k_NKmCqVT.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "e919c516-2853-49e7-ad67-6aafeaace7db"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "subway",
+                    "slug": "subway"
+                },
+                {
+                    "name": "metrocard",
+                    "slug": "metrocard"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "reduced fare",
+                    "slug": "reduced-fare"
+                },
+                {
+                    "name": "omny",
+                    "slug": "omny"
+                },
+                {
+                    "name": "MTA",
+                    "slug": "mta"
+                },
+                {
+                    "name": "we the commuters",
+                    "slug": "we-the-commuters"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151246,
+            "meta": {
+                "first_published_at": "2022-04-03T14:15:11.843514-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151246/",
+                "html_url": "http://cms.prod.nypr.digital/news/car-free-earth-day-open-streets-2022/",
+                "slug": "car-free-earth-day-open-streets-2022"
+            },
+            "title": "Car-Free Earth Day is coming back in 2022",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "623951a3-1c76-4507-babe-eeb5b2f94a92",
+            "url": "https://gothamist.com/news/car-free-earth-day-open-streets-2022",
+            "publication_date": "2022-04-03T14:15:11.843514-04:00",
+            "updated_date": null,
+            "description": "100 streets will be car-free on Saturday, April 23rd, which will kick-off 2022's Open Streets program.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 330059,
+                            "title": "Bicyclists Summer Streets (Scott Lynch)",
+                            "width": 1089,
+                            "height": 713,
+                            "created_at": "2022-03-31T16:04:37.508031-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 163932,
+                            "file_hash": "3ed0a216633c2ce709f36dca648c627c3fa88877",
+                            "alt": "Dozens of bicyclists can be seen on Park Avenue during Summer Streets",
+                            "caption": "Bicyclists enjoying Summer Streets on Park Avenue",
+                            "credit": "Scott Lynch / Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/bicyclists.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "82b2b7f2-d8d6-44c1-b71d-4e91a6a05c72"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "earth day",
+                    "slug": "earth-day"
+                },
+                {
+                    "name": "open streets",
+                    "slug": "open-streets"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "department of transportation",
+                    "slug": "department-of-transportation"
+                },
+                {
+                    "name": "car-free streets",
+                    "slug": "car-free-streets"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151228,
+            "meta": {
+                "first_published_at": "2022-03-30T15:15:48.262631-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151228/",
+                "html_url": "http://cms.prod.nypr.digital/news/coyote-spotted-wandering-around-fort-tryon-park/",
+                "slug": "coyote-spotted-wandering-around-fort-tryon-park"
+            },
+            "title": "Coyote spotted wandering around Fort Tryon Park",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "d84b9e63-0f54-4d43-b8b8-1041ba5c0687",
+            "url": "https://gothamist.com/news/coyote-spotted-wandering-around-fort-tryon-park",
+            "publication_date": "2022-03-30T15:15:00-04:00",
+            "updated_date": null,
+            "description": "\"Over the last several decades coyotes have been expanding their natural range in response to ample food and open habitat,\" the Parks Department said.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329992,
+                            "title": "Coyote (Robert Randall)",
+                            "width": 574,
+                            "height": 395,
+                            "created_at": "2022-03-29T18:08:48.840121-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 475041,
+                            "file_hash": "42603086286dbb1900e3e36e35c286678c537cb8",
+                            "alt": "A coyote in the woods with rocks in the background",
+                            "caption": "The coyote in Fort Tryon",
+                            "credit": "Courtesy of Travis Aikman and Robert Randall",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2022-03-29_at_4.41.00_PM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "cd9f13dc-e90b-40b3-848d-af99f4429636"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "fort tryon park",
+                    "slug": "fort-tryon-park"
+                },
+                {
+                    "name": "central park",
+                    "slug": "central-park"
+                },
+                {
+                    "name": "wildlife",
+                    "slug": "wildlife"
+                },
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "coyote",
+                    "slug": "coyote"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151177,
+            "meta": {
+                "first_published_at": "2022-03-23T11:14:29.312543-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151177/",
+                "html_url": "http://cms.prod.nypr.digital/news/former-ma-transportation-head-richard-davey-to-lead-city-transit/",
+                "slug": "former-ma-transportation-head-richard-davey-to-lead-city-transit"
+            },
+            "title": "Former MA transportation head Richard Davey to lead city transit",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "43b4c208-7564-42c5-ae07-99bc2c5fd329",
+            "url": "https://gothamist.com/news/former-ma-transportation-head-richard-davey-to-lead-city-transit",
+            "publication_date": "2022-03-23T11:14:29.312543-04:00",
+            "updated_date": null,
+            "description": "\"Davey lives with his wife and two rescue cats and has not owned an automobile in 12 years,\" the MTA's press release said.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329898,
+                            "title": "Richard Davey (no reuse)",
+                            "width": 3846,
+                            "height": 2581,
+                            "created_at": "2022-03-23T09:09:21.714651-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1256904,
+                            "file_hash": "1eea17f9bb46d32108156d7477565dc972c67fed",
+                            "alt": "Photograph of Richard Davey in a suit, gesturing",
+                            "caption": "Richard Davey",
+                            "credit": "Stephan Savoia/AP/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_editorial_6099697a.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "3e3c5868-7922-46e1-bfa2-f05b27684095"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "subway",
+                    "slug": "subway"
+                },
+                {
+                    "name": "bus",
+                    "slug": "bus"
+                },
+                {
+                    "name": "Richard Davey",
+                    "slug": "richard-davey"
+                },
+                {
+                    "name": "nyc transit",
+                    "slug": "nyc-transit"
+                },
+                {
+                    "name": "MTA",
+                    "slug": "mta"
+                },
+                {
+                    "name": "we the commuters",
+                    "slug": "we-the-commuters"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151144,
+            "meta": {
+                "first_published_at": "2022-03-18T16:57:11.887486-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151144/",
+                "html_url": "http://cms.prod.nypr.digital/news/dot-to-install-500-accessible-pedestrian-signals-at-intersections-next-year/",
+                "slug": "dot-to-install-500-accessible-pedestrian-signals-at-intersections-next-year"
+            },
+            "title": "DOT to install 500 accessible pedestrian signals at intersections next year",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "0ab15f5e-b76c-47ff-8596-2e5c42bbb40f",
+            "url": "https://gothamist.com/news/dot-to-install-500-accessible-pedestrian-signals-at-intersections-next-year",
+            "publication_date": "2022-03-18T16:57:11.887486-04:00",
+            "updated_date": null,
+            "description": "A federal judge said that New York City too slow to make the city's streets accessible to the blind and low-vision pedestrians.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329826,
+                            "title": "Accessible Pedestrian Signal (NYC Council)",
+                            "width": 2048,
+                            "height": 1363,
+                            "created_at": "2022-03-18T13:12:35.473574-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 322115,
+                            "file_hash": "32c0158f4b076e7e26ae44b672729719fd4f16b9",
+                            "alt": "An accessible pedestrian signal button",
+                            "caption": "An accessible pedestrian signal",
+                            "credit": "William Alatriste / NYC Council",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/6192375167_47b2068ca3_k.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "08053c62-a570-466d-acb3-32874c73f873"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Accessible Pedestrian Signals",
+                    "slug": "accessible-pedestrian-signals"
+                },
+                {
+                    "name": "intersections",
+                    "slug": "intersections"
+                },
+                {
+                    "name": "blind",
+                    "slug": "blind"
+                },
+                {
+                    "name": "traffic light",
+                    "slug": "traffic-light"
+                },
+                {
+                    "name": "we the commuters",
+                    "slug": "we-the-commuters"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151133,
+            "meta": {
+                "first_published_at": "2022-03-17T14:53:18.718597-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151133/",
+                "html_url": "http://cms.prod.nypr.digital/news/mta-expects-congestion-pricing-to-start-at-the-end-of-2023/",
+                "slug": "mta-expects-congestion-pricing-to-start-at-the-end-of-2023"
+            },
+            "title": "MTA expects congestion pricing to start at the end of 2023",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "188c9ae1-7a15-4efe-a1f3-987a1bc8d4e7",
+            "url": "https://gothamist.com/news/mta-expects-congestion-pricing-to-start-at-the-end-of-2023",
+            "publication_date": "2022-03-17T14:53:18.718597-04:00",
+            "updated_date": null,
+            "description": "Right now, the 16-month federal environmental review is underway.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 322105,
+                            "title": "Downtown traffic",
+                            "width": 2048,
+                            "height": 1536,
+                            "created_at": "2021-07-15T17:27:41.466401-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 615045,
+                            "file_hash": "11b5c07b1d355c4993180db142635849d94ecb3f",
+                            "alt": "Cars are packed at an intersection in lower Manhattan",
+                            "caption": "Traffic at Charlton Street and Varick Street on July 8, 2021",
+                            "credit": "Kate Hinds / WNYC",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/E5zNidsWEAY-kvm.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "a2c3e93e-1701-4379-95f0-7b1d021b68f0"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "mass transit",
+                    "slug": "mass-transit"
+                },
+                {
+                    "name": "subway",
+                    "slug": "subway"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "congestion pricing",
+                    "slug": "congestion-pricing"
+                },
+                {
+                    "name": "MTA",
+                    "slug": "mta"
+                },
+                {
+                    "name": "we the commuters",
+                    "slug": "we-the-commuters"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151103,
+            "meta": {
+                "first_published_at": "2022-03-16T09:00:52.129424-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151103/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/nyc-st-patricks-day-parade-2022-details/",
+                "slug": "nyc-st-patricks-day-parade-2022-details"
+            },
+            "title": "St. Patrick's Day parade returns to NYC streets after pandemic pause",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "27efa12f-2d40-4f53-9a33-7bd119cd269e",
+            "url": "https://gothamist.com/arts-entertainment/nyc-st-patricks-day-parade-2022-details",
+            "publication_date": "2022-03-16T09:00:52.129424-04:00",
+            "updated_date": null,
+            "description": "Here's what streets will be closed on March 17, 2022.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 32645,
+                            "title": "cd83fa1cestpats-156-jpg.jpeg",
+                            "width": 1500,
+                            "height": 1000,
+                            "created_at": "2019-08-23T19:21:51.161781-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 329268,
+                            "file_hash": "",
+                            "alt": "",
+                            "caption": "",
+                            "credit": "Scott Lynch / Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/gothamistgallery/2019/3/17/cd83fa1cestpats-156-jpg.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": null
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "9dd31d6c-48b7-4ccf-87c4-604380b83a33"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "st. patrick's day parade",
+                    "slug": "st-patricks-day-parade"
+                },
+                {
+                    "name": "st. patrick's day",
+                    "slug": "st-patricks-day"
+                },
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151022,
+            "meta": {
+                "first_published_at": "2022-03-05T10:31:37.225306-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/151022/",
+                "html_url": "http://cms.prod.nypr.digital/news/jump-in-red-light-violations-in-nyc-renew-push-for-local-control-of-state-traffic-laws/",
+                "slug": "jump-in-red-light-violations-in-nyc-renew-push-for-local-control-of-state-traffic-laws"
+            },
+            "title": "Jump in red-light violations in NYC renew push for local control of state traffic laws",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "3e51b299-2f05-44b6-baaa-02216edf281e",
+            "url": "https://gothamist.com/news/jump-in-red-light-violations-in-nyc-renew-push-for-local-control-of-state-traffic-laws",
+            "publication_date": "2022-03-05T10:31:37.225306-05:00",
+            "updated_date": null,
+            "description": "Only a small fraction of NYC's streets have red-light cameras, which give tickets to speeders and prevent speeding.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329584,
+                            "title": "School zone speed limit NYC (Jen Chung)",
+                            "width": 4032,
+                            "height": 3024,
+                            "created_at": "2022-03-04T16:14:35.391113-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 4461446,
+                            "file_hash": "97e7ab0e83951354806ceb5cc8a56c1db4985624",
+                            "alt": "a speed limit sign for 15 mph across the street from a school on a nyc street",
+                            "caption": "",
+                            "credit": "Jen Chung / Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/schoolzone.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "ab3872bf-c36d-4b63-a779-6f9cce16bb32"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "vision zero",
+                    "slug": "vision-zero"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "speed camera",
+                    "slug": "speed-camera"
+                },
+                {
+                    "name": "department of transportation",
+                    "slug": "department-of-transportation"
+                },
+                {
+                    "name": "home rule",
+                    "slug": "home-rule"
+                },
+                {
+                    "name": "red light cameras",
+                    "slug": "red-light-cameras"
+                },
+                {
+                    "name": "we the commuters",
+                    "slug": "we-the-commuters"
+                },
+                {
+                    "name": "Albany",
+                    "slug": "albany"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 150966,
+            "meta": {
+                "first_published_at": "2022-02-27T15:18:22.923918-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/150966/",
+                "html_url": "http://cms.prod.nypr.digital/news/hochul-ny-state-ending-indoor-mask-mandate-schools-starting-march-2nd/",
+                "slug": "hochul-ny-state-ending-indoor-mask-mandate-schools-starting-march-2nd"
+            },
+            "title": "NYC could lift indoor school mask mandate on March 7th",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "3b6b5a71-bdc7-4bac-a717-b0a919b5c20c",
+            "url": "https://gothamist.com/news/hochul-ny-state-ending-indoor-mask-mandate-schools-starting-march-2nd",
+            "publication_date": "2022-02-27T15:18:00-05:00",
+            "updated_date": null,
+            "description": "Statewide, Governor Hochul announced the indoor mask mandate for schools will be lifted on March 2nd. The city is waiting longer.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 323308,
+                            "title": "schoolguidepic.png",
+                            "width": 800,
+                            "height": 542,
+                            "created_at": "2021-08-31T12:15:54.364685-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 764747,
+                            "file_hash": "0130f9b72aa691765e134210326fbff56a001219",
+                            "alt": "A young girl wearing a red tshirt and a face mask gives the peace sign to the camera at PS 8 in Brooklyn.",
+                            "caption": "A student at PS 8 in Brooklyn.",
+                            "credit": "DOE",
+                            "credit_link": "https://twitter.com/DOEChancellor/status/1422612549334409223?s=20",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/schoolguidepic.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 78
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "593ef9ec-4faa-41ec-a522-2b71c4024304"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 14,
+                    "first_name": "Jen",
+                    "last_name": "Chung",
+                    "photo": 327349,
+                    "job_title": "Co-founder of Gothamist + Senior Editor",
+                    "biography": "Jen Chung co-created Gothamist in 2002 with Jake Dobkin, establishing it as a website about New York City and everything that happens in it and an essential must-read for New Yorkers. She also launched sites across the country and world, including DCist, LAist, and Londonist. She loves learning about NYC arcana and meeting bodega cats. \r\n\r\nShe is currently Senior Editor of NYC Accountability in the Gothamist + WNYC newsroom.",
+                    "website": "",
+                    "email": "jen@gothamist.com",
+                    "slug": "jen-chung",
+                    "social_media_profile": [
+                        {
+                            "service": "facebook",
+                            "profile_url": "https://www.facebook.com/chungjen"
+                        },
+                        {
+                            "service": "linkedin",
+                            "profile_url": "https://www.linkedin.com/in/jen-chung-061b28/"
+                        },
+                        {
+                            "service": "instagram",
+                            "profile_url": "https://www.instagram.com/chungjen/?hl=en"
+                        },
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/jenchung"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "eric adams",
+                    "slug": "eric-adams"
+                },
+                {
+                    "name": "Kathy Hochul",
+                    "slug": "kathy-hochul"
+                },
+                {
+                    "name": "new york",
+                    "slug": "new-york"
+                },
+                {
+                    "name": "public schools",
+                    "slug": "public-schools"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "pandemic",
+                    "slug": "pandemic"
+                },
+                {
+                    "name": "COVID-19",
+                    "slug": "covid-19"
+                },
+                {
+                    "name": "mask mandate",
+                    "slug": "mask-mandate"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        }
+    ]
+}
