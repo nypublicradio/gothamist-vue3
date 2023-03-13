@@ -44,7 +44,7 @@ const onCtaClick = () => {
   })
   // link here ("?utm_source=....." is added in the backend, so we don't need to add the "?" here before "utm_medium".)
   window.open(
-    `${bannerData.buttonLink}utm_medium=product-marketing-banner`,
+    `${bannerData.buttonLink}&utm_medium=product-marketing-banner`,
     '_blank'
   )
   displayModal.value = false
