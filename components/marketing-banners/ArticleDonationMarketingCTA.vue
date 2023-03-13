@@ -27,7 +27,10 @@ const onCtaClick = () => {
     event_label: `${buttonText.value} button`,
   })
   // link here ("?utm_source=....." is added in the backend, so we don't need to add the "?" here before "utm_medium".)
-  window.open(`${bannerData.buttonLink}utm_medium=article-inline-top`, '_blank')
+  window.open(
+    `${bannerData.buttonLink}&utm_medium=article-inline-top`,
+    '_blank'
+  )
   emit('donate-click')
 }
 </script>
