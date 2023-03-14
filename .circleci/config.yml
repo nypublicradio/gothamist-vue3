@@ -44,6 +44,7 @@ workflows:
           requires:
             - test
             - test_nginx
+            - test_cypress
       - deploy:
           name: Deploy (prod)
           context: "AWS Deploy"
@@ -52,6 +53,7 @@ workflows:
           requires:
             - test
             - test_nginx
+            - test_cypress
 
 jobs:
   # Note (allie): This is its own job because I don't
