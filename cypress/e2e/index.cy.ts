@@ -53,8 +53,6 @@ describe('The home page', () => {
     ).as('systemMessagesWithBottomCTA')
 
     cy.visit('/')
-    cy.wait('@systemMessagesWithBottomCTA')
-
     cy.get('.marketing-modal').should('exist')
     cy.get('.p-dialog-header-close').click()
     cy.get('.marketing-modal').should('not.exist')
