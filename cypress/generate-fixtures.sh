@@ -5,9 +5,9 @@ mkdir fixtures/aviary
 mkdir fixtures/publisher
 
 # Global
-curl "https://cms.prod.nypr.digital/api/v2/system_messages/2/" > "fixtures/aviary/system_messages.json"
-curl "https://cms.prod.nypr.digital/api/v2/sitewide_components/2/" > "fixtures/aviary/sitewide_components.json"
-curl "https://cms.prod.nypr.digital/api/v2/navigation/1/" > "fixtures/aviary/navigation.json"
+# curl "https://cms.prod.nypr.digital/api/v2/system_messages/2/" > "fixtures/aviary/system_messages.json"
+# curl "https://cms.prod.nypr.digital/api/v2/sitewide_components/2/" > "fixtures/aviary/sitewide_components.json"
+# curl "https://cms.prod.nypr.digital/api/v2/navigation/1/" > "fixtures/aviary/navigation.json"
 
 # Home Page
 curl "https://cms.prod.nypr.digital/api/v2/pages/?type=news.ArticlePage&fields=ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors&order=-publication_date&show_on_index_listing=true&limit=6" > "fixtures/aviary/latest.json"
