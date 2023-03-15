@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import useImageUrl from '~~/composables/useImageUrl'
+import { ref, onMounted, watch, nextTick } from 'vue'
 
 const route = useRoute()
-const router = useRouter()
 const { $analytics } = useNuxtApp()
 const querySlug = ref(route.query.q)
 const query = ref(querySlug.value || '')
@@ -15,6 +12,7 @@ let articles = ref(
   )
 )
 const articlesToShow = ref(10)
+const loadMoreContainer = ref('#resultList')
 const isSearching = ref(false)
 
 async function getSearchResults() {
@@ -30,6 +28,16 @@ async function getSearchResults() {
     event_label: `${query.value}`,
   })
   isSearching.value = false
+}
+
+const loadMoreArticles = async () => {
+  const topArticle = articlesToShow.value
+  articlesToShow.value += 6
+  await nextTick()
+  if (topArticle < articles.value.length) {
+    ([...document.querySelectorAll(`${loadMoreContainer.value} .v-card .card-title-link`)]
+      .slice(topArticle)[0] as HTMLElement).focus()
+  }
 }
 
 onMounted(() => {
@@ -92,7 +100,7 @@ const newsletterSubmitEvent = () => {
         <div class="content">
           <!-- search results article river -->
           <template v-if="articles">
-            <div class="grid gutter-x-xl">
+            <div id="resultList" class="grid gutter-x-xl">
               <div class="col-1 hidden xxl:block"></div>
               <div class="col">
                 <div
@@ -124,7 +132,7 @@ const newsletterSubmitEvent = () => {
                   v-if="articlesToShow < articles.length"
                   class="p-button-rounded"
                   label="Load More"
-                  @click="articlesToShow += 6"
+                  @click="loadMoreArticles"
                 >
                 </Button>
               </div>

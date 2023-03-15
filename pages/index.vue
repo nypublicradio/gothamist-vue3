@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import { ArticlePage } from '~~/composables/types/Page'
-import { computed, ref } from 'vue'
+import { computed, ref, nextTick } from 'vue'
 
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
 const riverAdRepeatRate = ref(6)
+const riverContainer = ref('#latest')
 
 const articlesPromise = findArticlePages({
   limit: riverStoryCount.value,
@@ -49,6 +50,11 @@ const loadMoreArticles = async () => {
     offset: latestArticles.value.length,
   })
   latestArticles.value.push(...newArticles)
+  await nextTick()
+  if (newArticles.length) {
+    ([...document.querySelectorAll(`${riverContainer.value} .v-card .card-title-link`)]
+      .slice(-newArticles.length)[0] as HTMLElement).focus()
+  }
 }
 
 const { $analytics } = useNuxtApp()

@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import { Page } from '~~/composables/types/Page'
+import { nextTick } from 'vue'
 
 const props = defineProps<{
   page: Page
 }>()
 const route = useRoute()
 
-const initialStoryCount = ref(10)
 const loadMoreStoryCount = ref(10)
+const loadMoreContainer = ref('#articleList')
 const featuredStoryCount = ref(5)
 const pageTitle = `${props.page.title} | Gothamist | News For New Yorkers`
 
@@ -31,6 +31,11 @@ const loadMoreArticles = async () => {
     descendant_of: props.page.id,
   })
   articles.value.push(...newArticles)
+  await nextTick()
+  if (newArticles.length) {
+    ([...document.querySelectorAll(`${loadMoreContainer.value} .v-card .card-title-link`)]
+      .slice(-newArticles.length)[0] as HTMLElement).focus()
+  }
 }
 const { $analytics } = useNuxtApp()
 onMounted(() => {
@@ -62,7 +67,7 @@ const newsletterSubmitEvent = () => {
         <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
       </div>
       <!-- articles -->
-      <div v-if="articles" class="grid gutter-x-xl">
+      <div id="articleList" v-if="articles" class="grid gutter-x-xl">
         <h2 class="sr-only">Latest {{ page.title }} Articles</h2>
         <div class="col-1 hidden xl:block"></div>
         <div class="col">

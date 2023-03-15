@@ -3,6 +3,7 @@ import { TagPage } from '../../composables/types/Page'
 import { StreamfieldBlock, ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
 import { useUpdateCommentCounts } from '~~/composables/comments';
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
+import { nextTick } from 'vue'
 
 /* preview */
 import { usePreviewData } from '~/composables/states'
@@ -15,6 +16,7 @@ const { $analytics, $htlbid } = useNuxtApp()
 const tagSlug = isPreview ? previewData.value.slug : route.params.tagSlug
 const initialStoryCount = ref(10)
 const loadMoreStoryCount = ref(10)
+const loadMoreContainer = ref('#articleList')
 const curatedTagPagePromise = isPreview
   ? previewData.value.data
   : findPage(`tags/${tagSlug}`).then(
@@ -42,6 +44,11 @@ const loadMoreArticles = async () => {
     tag_slug: tagSlug,
   })
   articles.value.push(...newArticles)
+  await nextTick()
+  if (newArticles.length) {
+    ([...document.querySelectorAll(`${loadMoreContainer.value} .v-card .card-title-link`)]
+      .slice(-newArticles.length)[0] as HTMLElement).focus()
+  }
 }
 
 const tagName =
@@ -132,7 +139,7 @@ useHead({
     </section>
     <section v-if="articles">
       <div class="content">
-        <div class="grid gutter-x-30">
+        <div id="articleList" class="grid gutter-x-30">
           <h2 class="sr-only">Latest Articles Tagged "{{ tagName }}"</h2>
           <div class="col">
             <div

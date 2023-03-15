@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 //import { StaffPage } from '../../composables/types/Page'
 import { ArticlePage } from '~~/composables/types/Page';
 
@@ -12,6 +12,7 @@ const staffSlug = route.params.staffSlug
 
 const initialStoryCount = ref(12)
 const loadMoreStoryCount = ref(12)
+const loadMoreContainer = ref('#articleList')
 
 const initialArticles = await findArticlePages({
   author_slug: staffSlug,
@@ -32,6 +33,11 @@ const loadMoreArticles = async () => {
     offset: articles.value.length
   })
   articles.value.push(...newArticles)
+  await nextTick()
+  if (newArticles.length) {
+    ([...document.querySelectorAll(`${loadMoreContainer.value} .v-card .card-title-link`)]
+      .slice(-newArticles.length)[0] as HTMLElement).focus()
+  }
 }
 
 // find a match of the slug in the articles' authors array and return the matched author's data
@@ -95,7 +101,7 @@ useHead({
           </div>
           <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
         </div>
-        <div class="grid gutter-x-30">
+        <div id="articleList" class="grid gutter-x-30">
           <div v-if="articles" class="col">
             <div
               v-for="(article, index) in articles"
