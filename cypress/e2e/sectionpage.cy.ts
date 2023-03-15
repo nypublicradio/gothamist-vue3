@@ -1,5 +1,5 @@
 describe('A section page', () => {
-    it('successfully loads', () => {
+    beforeEach(() => {
         cy.loadGlobalFixtures()
         cy.intercept({
             pathname: '/api/v2/pages/find',
@@ -44,15 +44,19 @@ describe('A section page', () => {
                 offset: '25'
             }
         }, {fixture: 'aviary/section-more.json'}).as('sectionMore')
+    })
+    it('successfully loads', () => {
         cy.visit('/news')
         cy.get('#article-recirculation').should('exist')
         cy.get('#article-recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
-        cy.get('.section-river').should('exist')
-        cy.get('.section-river .gothamist-card').should('have.length', 20)
-        
+        cy.get('#articleList').should('exist')
+        cy.get('#articleList .gothamist-card').should('have.length', 20)
+    })
+    it('loads more', () => {
+        cy.visit('/news')
         cy.contains('Load More').click()
         cy.wait('@sectionMore')
-        cy.get('.section-river .gothamist-card').should('have.length', 30)
-
+        cy.get('#articleList .gothamist-card').should('have.length', 30)
+        cy.get('#articleList .card-title-link').eq(20).should('have.focus')
     })
 })

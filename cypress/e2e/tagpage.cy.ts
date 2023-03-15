@@ -1,7 +1,6 @@
 describe('A tag page', () => {
-    it('successfully loads', () => {
+    beforeEach(() => {
         cy.loadGlobalFixtures()
-
         cy.intercept({
             pathname: '/api/v2/pages/find',
             query: { html_path: 'tags/dogs' }, 
@@ -29,17 +28,21 @@ describe('A tag page', () => {
                 tag_slug: 'dogs'
             }
         }, {fixture: 'aviary/tag-more.json'}).as('tagMore')
-
+    })
+    it('successfully loads', () => {
         cy.visit('/tags/dogs')
         cy.wait('@tagPage')
         cy.get('h1').contains('Doggos').should('exist')
         cy.get('.tag-page-header-image').should('exist')
         cy.get('.tag-page-top-zone').contains('Doggo ipsum').should('exist')
         cy.get('.tag-page-mid-zone').contains('Dog goes woof').should('exist')
-        cy.get('.tag-river .gothamist-card').should('have.length', 10)
-
+        cy.get('#articleList .gothamist-card').should('have.length', 10)
+    })
+    it('loads more', () => {
+        cy.visit('/tags/dogs')
         cy.contains('Load More').click()
         cy.wait('@tagMore')
-        cy.get('.tag-river .gothamist-card').should('have.length', 20)
+        cy.get('#articleList .gothamist-card').should('have.length', 20)
+        cy.get('#articleList .card-title-link').eq(10).should('have.focus')
     })
 })

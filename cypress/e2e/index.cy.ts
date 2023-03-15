@@ -37,14 +37,15 @@ describe('The home page', () => {
     cy.get('.center-feature').should('exist')
     cy.get('.center-feature .gothamist-card:not(.hidden)').should('have.length', 6)
     cy.get('.boroughs').should('exist')
-    cy.get('#latest').should('exist')
-    cy.get('#latest .gothamist-card').should('have.length', 6)
-
+    cy.get('#articleList').should('exist')
+    cy.get('#articleList .gothamist-card').should('have.length', 6)
+  })
+  it('loads more', () => {
+    cy.visit('/')
     cy.contains('Load More').click()
     cy.wait('@indexMore')
-    cy.get('#latest .gothamist-card').should('have.length', 12) 
-    
-    cy.get('.card-title-link').first().click()
+    cy.get('#articleList .gothamist-card').should('have.length', 12)
+    cy.get('#articleList .card-title-link').eq(6).should('have.focus')
   })
   it('shows the marketing modal', () => {
     cy.intercept(

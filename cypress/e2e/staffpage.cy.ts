@@ -1,7 +1,6 @@
 describe('A staff page', () => {
-    it('successfully loads', () => {
+    beforeEach(() => {
         cy.loadGlobalFixtures()
-
         cy.intercept({
             pathname: '/api/v2/pages',
             query: {
@@ -27,12 +26,16 @@ describe('A staff page', () => {
                 offset: '12'
             }
         }, {fixture: 'aviary/staff-more.json'}).as('staffMore')
-
+    })
+    it('successfully loads', () => {
         cy.visit('/staff/jen-chung')
-        cy.get('.staff-articles .gothamist-card').should('have.length', 12)
-
+        cy.get('#articleList .gothamist-card').should('have.length', 12)
+    })
+    it('loads more', () => {
+        cy.visit('/staff/jen-chung')
         cy.contains('Load More').click()
         cy.wait('@staffMore')
-        cy.get('.staff-articles .gothamist-card').should('have.length', 24)
+        cy.get('#articleList .gothamist-card').should('have.length', 24)
+        cy.get('#articleList .card-title-link').eq(12).should('have.focus')
     })
 })
