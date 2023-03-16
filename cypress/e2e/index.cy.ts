@@ -29,7 +29,7 @@ describe('The home page', () => {
   })
   it('successfully loads', () => {
     cy.visit('/')
-    cy.wait(['@index','latest'])
+    cy.wait(['@index','@latest'])
     cy.get('.homepage-topper').should('exist')
     cy.get('.homepage-topper .gothamist-card').should('have.length', 5)
     cy.get('.newsletter-home').should('exist')
