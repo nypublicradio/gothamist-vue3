@@ -47,6 +47,7 @@ describe('A section page', () => {
     })
     it('successfully loads', () => {
         cy.visit('/news')
+        cy.wait('@sectionArticles')
         cy.get('#article-recirculation').should('exist')
         cy.get('#article-recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
         cy.get('#articleList').should('exist')
@@ -54,6 +55,7 @@ describe('A section page', () => {
     })
     it('loads more', () => {
         cy.visit('/news')
+        cy.wait('@sectionArticles')
         cy.contains('Load More').click()
         cy.wait('@sectionMore')
         cy.get('#articleList .gothamist-card').should('have.length', 30)
