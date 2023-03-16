@@ -46,10 +46,8 @@ Cypress.Commands.add('loadGlobalFixtures',  () => {
     }, {statusCode: 200, body: {messages_count: []}}).as('commentCounts')
 })
 
-declare global {
-    namespace Cypress {
-      interface Chainable {
-          loadGlobalFixtures(): Chainable<void>
-      }
-    }
+declare namespace Cypress {
+  interface Chainable {
+      loadGlobalFixtures(): Chainable<void>
   }
+}
