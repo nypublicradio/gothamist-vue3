@@ -1,4 +1,3 @@
-import { assert, expect } from 'vitest';
 describe('The home page', () => {
   beforeEach(() => {
     cy.loadGlobalFixtures()

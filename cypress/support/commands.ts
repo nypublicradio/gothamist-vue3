@@ -35,7 +35,13 @@
 //     }
 //   }
 // }
-  
+
+declare module 'Cypress' {
+  interface Chainable {
+      loadGlobalFixtures(): Chainable<void>
+  }
+}
+
 Cypress.Commands.add('loadGlobalFixtures',  () => {
     cy.intercept('/api/v2/system_messages/*', {fixture: 'aviary/system_messages_empty.json'}).as('systemMessages')
     cy.intercept('/api/v2/sitewide_components/*', {fixture: 'aviary/sitewide_components.json'}).as('sitewideComponents')
@@ -45,9 +51,3 @@ Cypress.Commands.add('loadGlobalFixtures',  () => {
       hostname: 'open-api.spot.im'
     }, {statusCode: 200, body: {messages_count: []}}).as('commentCounts')
 })
-
-declare namespace Cypress {
-  interface Chainable {
-      loadGlobalFixtures(): Chainable<void>
-  }
-}
