@@ -31,7 +31,7 @@ describe('A tag page', () => {
     })
     it('successfully loads', () => {
         cy.visit('/tags/dogs')
-        cy.wait('@tagPage')
+        cy.wait(['@tagPage', '@tagArticles'])
         cy.get('h1').contains('Doggos').should('exist')
         cy.get('.tag-page-header-image').should('exist')
         cy.get('.tag-page-top-zone').contains('Doggo ipsum').should('exist')
@@ -40,6 +40,7 @@ describe('A tag page', () => {
     })
     it('loads more', () => {
         cy.visit('/tags/dogs')
+        cy.wait('@tagArticles')
         cy.contains('Load More').click()
         cy.wait('@tagMore')
         cy.get('#articleList .gothamist-card').should('have.length', 20)
