@@ -50,6 +50,33 @@ const accountNameFromUrl = (url) => {
     class="author-profile grid grid-nogutter"
     :class="[{ staffPage: props.staffPage }]"
   >
+    <div class="col-fixed profile">
+      <div class="author-image">
+        <v-flexible-link
+          :to="profileLink"
+          raw
+          :aria-hidden="true"
+          :tabindex="-1"
+        >
+          <v-simple-responsive-image
+            v-if="profileImage"
+            :src="useImageUrl({ id: profileImage })"
+            :width="imageSize"
+            :height="imageSize"
+            :sizes="[2]"
+            :ratio="[1, 1]"
+            :loading="props.staffPage ? 'eager' : 'lazy'"
+            alt=''
+          />
+          <img
+            v-else
+            src="/avatar.svg"
+            :loading="props.staffPage ? 'eager' : 'lazy'"
+            alt=''
+          />
+        </v-flexible-link>
+      </div>
+    </div>
     <div class="col flex flex-column gap-2">
       <div
         class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"
@@ -79,39 +106,12 @@ const accountNameFromUrl = (url) => {
         {{ ctaText }}
       </v-flexible-link>
     </div>
-    <div class="col-fixed profile">
-      <div class="author-image">
-        <v-flexible-link
-          :to="profileLink"
-          raw
-          :aria-hidden="true"
-          :tabindex="-1"
-        >
-          <v-simple-responsive-image
-            v-if="profileImage"
-            :src="useImageUrl({ id: profileImage })"
-            :width="imageSize"
-            :height="imageSize"
-            :sizes="[2]"
-            :ratio="[1, 1]"
-            :loading="props.staffPage ? 'eager' : 'lazy'"
-            alt=''
-          />
-          <img
-            v-else
-            src="/avatar.svg"
-            :loading="props.staffPage ? 'eager' : 'lazy'"
-            alt=''
-          />
-        </v-flexible-link>
-      </div>
-    </div>
   </div>
 </template>
 
 <style lang="scss">
 .author-profile {
-  gap: 1rem;
+  gap: 1.5rem;
   .col-fixed {
     max-width: v-bind(imageSizePx) !important;
     @include media('<md') {
