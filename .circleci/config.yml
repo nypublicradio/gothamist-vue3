@@ -141,6 +141,7 @@ jobs:
         default: ""
     steps:
       - checkout
+      - setup_npmrc
       - setup_remote_docker:
           version: 20.10.12
       - run:
