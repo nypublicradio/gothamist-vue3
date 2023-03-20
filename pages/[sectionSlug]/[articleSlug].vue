@@ -106,7 +106,7 @@ const showMarketingBanner = computed(() => {
 })
 
 const tagName = computed(() => article?.sponsoredContent ? "Sponsored" : article?.section?.name )
-const tagSlug = computed(() => article?.sponsoredContent ? "" : article?.section?.slug )
+const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.section?.slug}` )
 </script>
 <template>
   <div>
@@ -132,7 +132,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : article?.section
               v-if="tagName"
               :class="article?.sponsoredContent && 'sponsored'"
               :name="tagName"
-              :slug="`/${tagSlug}`"
+              :slug="tagSlug"
             />
             <h1 class="mt-4 mb-3 h2">{{ article.title }}</h1>
           </div>
