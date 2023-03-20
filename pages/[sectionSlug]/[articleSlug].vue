@@ -104,6 +104,9 @@ const getGalleryLink = computed(() => {
 const showMarketingBanner = computed(() => {
   return marketingBannerData.value[0]?.location === 'BOTTOM'
 })
+
+const tagName = computed(() => article?.sponsoredContent ? "Sponsored" : article?.section?.name )
+const tagSlug = computed(() => article?.sponsoredContent ? "" : article?.section?.slug )
 </script>
 <template>
   <div>
@@ -126,9 +129,10 @@ const showMarketingBanner = computed(() => {
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col">
             <v-tag
-              v-if="article?.section"
-              :name="article.section.name"
-              :slug="`/${article.section.slug}`"
+              v-if="tagName"
+              :class="article?.sponsoredContent && 'sponsored'"
+              :name="tagName"
+              :slug="tagSlug"
             />
             <h1 class="mt-4 mb-3 h2">{{ article.title }}</h1>
           </div>
@@ -267,6 +271,12 @@ const showMarketingBanner = computed(() => {
       background: var(--tag-hover-bg);
     }
   }
+  .v-tag.sponsored .p-button {
+    background: var(--black);
+    border: solid 1px var(--black);
+    color: var(--white);
+  }
+
   .col-fixed {
     width: 100%;
     max-width: $col-fixed-width-330;
