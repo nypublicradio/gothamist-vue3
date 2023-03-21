@@ -9,8 +9,10 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "cy:run": "cypress run",
+    "cy:ci": "cypress run --config video=false",
     "cy:open": "cypress open",
-    "test-cypress": "start-server-and-test dev-no-ssr http://localhost:3000 cy:run"
+    "test-cypress": "start-server-and-test dev-no-ssr http://localhost:3000 cy:run",
+    "test-cypress-ci": "start-server-and-test dev-no-ssr http://localhost:3000 cy:ci"
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
