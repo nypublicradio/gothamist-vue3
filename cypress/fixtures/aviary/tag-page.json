@@ -1,0 +1,1413 @@
+{
+    "id": 151236,
+    "meta": {
+        "first_published_at": "2022-08-03T22:43:14.198977-04:00",
+        "type": "tagpages.TagPage",
+        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151236/",
+        "html_url": "http://cms.prod.nypr.digital/tags/dogs/",
+        "slug": "dogs",
+        "show_in_menus": true,
+        "seo_title": "Custom dog headline",
+        "search_description": "",
+        "parent": {
+            "id": 147372,
+            "meta": {
+                "type": "tagpages.TagPageIndex",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/147372/",
+                "html_url": "http://cms.prod.nypr.digital/tags/"
+            },
+            "title": "Tags"
+        }
+    },
+    "title": "Doggos!",
+    "listing_title": "TEST DOGS TITLE",
+    "listing_summary": "TEST DOGS TITLE",
+    "listing_image": null,
+    "social_image": null,
+    "social_title": "Great Dogs!",
+    "social_text": "Great Dogs!",
+    "show_on_index_listing": true,
+    "uuid": "5cc47525-c467-4b04-b680-4ba673fdbb6f",
+    "url": "https://gothamist-vue3demo.gothamist.com/tags/dogs",
+    "designed_header": [
+        {
+            "type": "image",
+            "value": {
+                "image": {
+                    "id": 329929,
+                    "title": "cute-dog.jpg",
+                    "width": 5031,
+                    "height": 3179,
+                    "created_at": "2022-08-03T22:43:08.403206-04:00",
+                    "focal_point_x": null,
+                    "focal_point_y": null,
+                    "focal_point_width": null,
+                    "focal_point_height": null,
+                    "file_size": 2307557,
+                    "file_hash": "e4df1a48ef1b60300c6b7d2716f6227739766344",
+                    "alt": "cute dog",
+                    "caption": "",
+                    "credit": "Unsplash",
+                    "credit_link": "",
+                    "file": "https://cdn.cms.demo.nypr.digital/original_images/rebecca-campbell-w40Eig2e4Qg-unsplash.jpg",
+                    "usage_limitations": "",
+                    "expiry_date": null,
+                    "collection": 1,
+                    "uploaded_by_user": 83
+                },
+                "caption": ""
+            },
+            "id": "2713de16-f339-4e4b-a295-5cb141c11ad4"
+        }
+    ],
+    "top_page_zone": [
+        {
+            "id": "dfdc7f4c-2d5c-4bd5-982f-509b6a2c5806",
+            "type": "paragraph",
+            "value": "<p>Doggo ipsum wow such tempt big ol pupper. Pupper such treat big ol heckin good boys most angery pupper I have ever seen, fat boi what a nice floof blop. Wow very biscit extremely cuuuuuute puggorino borkdrive sub woofer, big ol h*ck smol. noodle horse shoob tungg. You are doing me a frighten fat boi shooberino heckin angery woofer boof, floofs very taste wow waggy wags shoob snoot, h*ck the neighborhood pupper shoober. Clouds shooberino super chub blep mlem heckin angery woofer smol, most angery pupper I have ever seen sub woofer ur givin me a spook adorable doggo. Mlem pupperino snoot very hand that feed shibe, what a nice floof blop. Thicc pupper long doggo, much ruin diet. Borking doggo boofers fat boi waggy wags such treat, extremely cuuuuuute wow such tempt. H*ck what a nice floof lotsa pats h*ck, tungg.</p><p>Super chub blep heckin good boys and girls boof pats doge, vvv thicc blop. Tungg long bois heckin doing me a frighten h*ck lotsa pats doggo very hand that feed shibe long doggo, long woofer fluffer pupper smol lotsa pats many pats. Blop clouds doge heckin angery woofer lotsa pats clouds wow such tempt, clouds shoob thicc floofs lotsa pats. heck big ol. Heckin woofer long water shoob boofers shooberino aqua doggo adorable doggo, big ol very jealous pupper blop pupper boof. Very jealous pupper what a nice floof pats, he made many woofs. Ur givin me a spook doggo blep boofers borkf, wow such tempt puggorino fat boi pupper heckin angery woofer, shoob shooberino long water shoob.</p><p>Long woofer very jealous pupper fluffer blep fat boi pats, much ruin diet lotsa pats long woofer. Shooberino sub woofer doge boof, h*ck. Aqua doggo stop it fren long water shoob boofers, big ol pupper woofer. Such treat long water shoob long woofer heckin angery woofer boofers, wow very biscit wow such tempt very taste wow, shooberino doge fat boi. I am bekom fat wow such tempt puggo you are doing me a frighten I am bekom fat, ruff adorable doggo. Most angery pupper I have ever seen big ol pupper h*ck shoober porgo yapper, boofers you are doing me the shock borkf sub woofer snoot, borking doggo waggy wags very hand that feed shibe such treat.</p>"
+        },
+        {
+            "id": "72bb0594-819c-428a-8da9-5eb968db759c",
+            "type": "content_collection",
+            "value": {
+                "id": 6,
+                "title": "Grubhub",
+                "pages": [
+                    {
+                        "id": 151019,
+                        "meta": {
+                            "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151019/",
+                            "html_url": "http://cms.prod.nypr.digital/food/grubhub-guide-to-great-nyc-breakfasts/",
+                            "parent": {
+                                "id": 5,
+                                "meta": {
+                                    "type": "standardpages.IndexPage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/5/",
+                                    "html_url": "http://cms.prod.nypr.digital/food/"
+                                },
+                                "title": "Food"
+                            },
+                            "type": "news.ArticlePage",
+                            "slug": "grubhub-guide-to-great-nyc-breakfasts",
+                            "seo_title": "",
+                            "show_in_menus": true,
+                            "search_description": "",
+                            "first_published_at": "2022-03-04T14:29:18.300842-05:00",
+                            "locale": 1
+                        },
+                        "ancestry": [
+                            {
+                                "id": 5,
+                                "meta": {
+                                    "type": "standardpages.IndexPage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/5/",
+                                    "html_url": "http://cms.prod.nypr.digital/food/"
+                                },
+                                "title": "Food",
+                                "slug": "food"
+                            },
+                            {
+                                "id": 3,
+                                "meta": {
+                                    "type": "home.HomePage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                                    "html_url": "http://cms.prod.nypr.digital/"
+                                },
+                                "title": "Gothamist",
+                                "slug": "home"
+                            },
+                            {
+                                "id": 1,
+                                "meta": {
+                                    "type": "wagtailcore.Page",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                                    "html_url": null
+                                },
+                                "title": "Root",
+                                "slug": "root"
+                            }
+                        ],
+                        "listing_image": null,
+                        "related_authors": [
+                            {
+                                "id": 39,
+                                "first_name": "Gothamist",
+                                "last_name": "Sponsor",
+                                "job_title": "Gothamist Editor",
+                                "biography": "",
+                                "website": "",
+                                "email": "",
+                                "slug": "sponsor",
+                                "social_media_profile": []
+                            }
+                        ],
+                        "related_contributing_organizations": [],
+                        "related_sponsors": [
+                            {
+                                "id": 36,
+                                "name": "Grubhub",
+                                "link": "http://grubhub.com",
+                                "logo": 329931
+                            }
+                        ],
+                        "social_image": null,
+                        "tags": [],
+                        "url": "https://gothamist-vue3demo.gothamist.com/food/grubhub-guide-to-great-nyc-breakfasts",
+                        "path": "0001000100020BF1",
+                        "depth": 4,
+                        "numchild": 0,
+                        "translation_key": "48c602ba-24c7-4b90-969a-5a4d2114e447",
+                        "title": "Grubhub Guide To Great NYC Breakfasts",
+                        "draft_title": "Grubhub Guide To Great NYC Breakfasts",
+                        "live": true,
+                        "has_unpublished_changes": false,
+                        "url_path": "/home/food/grubhub-guide-to-great-nyc-breakfasts/",
+                        "go_live_at": "2022-03-08T00:00:00-05:00",
+                        "expire_at": null,
+                        "expired": false,
+                        "locked": false,
+                        "locked_at": null,
+                        "last_published_at": "2022-03-08T12:21:05.993672-05:00",
+                        "latest_revision_created_at": "2022-03-08T12:21:05.898005-05:00",
+                        "social_title": "",
+                        "social_text": "",
+                        "listing_title": "[sponsor] Grubhub Guide To Great NYC Breakfasts",
+                        "listing_summary": "",
+                        "show_on_index_listing": true,
+                        "legacy_url": "",
+                        "uuid": "0c80a217-8d9a-46fa-ae4b-c8c5fa50906b",
+                        "canonical_url": "",
+                        "publication_date": "2022-03-08T00:00:00-05:00",
+                        "updated_date": null,
+                        "lead_asset": [
+                            {
+                                "type": "lead_image",
+                                "value": {
+                                    "image": {
+                                        "id": 329573,
+                                        "title": "editheater-2.jpg",
+                                        "width": 3763,
+                                        "height": 2509,
+                                        "created_at": "2022-03-04T14:21:33.206861-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 666093,
+                                        "file_hash": "c07cf9dc92fa8c4cc0f29cbcb09fbef5ed2955ed",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/editheater-2.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": "",
+                                    "image_link": ""
+                                },
+                                "id": "af1d2803-1a1b-4457-8748-116f005096b6"
+                            }
+                        ],
+                        "description": "Here is a tiny sampling of all the best spots to get all the best breakfasts delivered by Grubhub to your home, office, or wherever else you may be when the craving strikes",
+                        "body": [
+                            {
+                                "type": "paragraph",
+                                "value": "<p><i>This post is a sponsored collaboration between Grubhub and Gothamist staff.</i></p><p></p><p>As many of us are getting back into the swing of going into the office, mornings might seem a bit more hectic than usual. Whether you&#x27;re commuting in, or just can&#x27;t muster that up-and-at-&#x27;em spirit, and need some sustenance delivered as close to your big comfy bed as possible, <a href=\"https://bit.ly/3IKXAQu\" rel=\"noopener\" target=\"_blank\">Grubhub</a> can make breakfast easy. It&#x27;s time to discover, and re-discover, your favorite breakfast spots.</p><p>Also, remember: breakfast food can be a good idea any time of day if the right people are making it for you. Here, then, is just a tiny sampling of all the best spots to get all the best breakfasts delivered by Grubhub to your home, office, or wherever else you may be when the craving strikes for things like bagels, BECs, burritos, and other eggy delights. And coffee, of course. Lots and lots of coffee.</p>",
+                                "id": "55343c2a-ab3d-4993-8913-7e824340c85a"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329574,
+                                        "title": "editheatery-1.jpg",
+                                        "width": 4203,
+                                        "height": 2802,
+                                        "created_at": "2022-03-04T14:22:21.650904-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1230377,
+                                        "file_hash": "8250d70d46527e88622862dba4be778c3c8da156",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/editheatery-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "defcf451-a2d1-4484-8441-063ab2fc209d"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Edith&#x27;s Sandwich and Edith&#x27;s Eatery in Williamsburg</b></p><p>What started as an early-pandemic pop-up at Paulie Gee&#x27;s has turned into not one but two of the best breakfast (and lunch) spots in town, Elyssa Heller&#x27;s amazing<a href=\"https://www.grubhub.com/restaurant/ediths-495-lorimer-st-brooklyn/2673963\" rel=\"noopener\" target=\"_blank\"> Edith&#x27;s sandwich shop</a> on Lorimer Street, and her new Jewish deli-style flagship<a href=\"https://www.grubhub.com/restaurant/ediths-eatery--grocery-312-leonard-st-brooklyn/3165302\" rel=\"noopener\" target=\"_blank\"> Edith&#x27;s Eatery and Grocery</a> not far away on Leonard Street. The former features a stellar lineup of eggy bagel delights (the BEC&amp;L adds latke to the usual bacon, egg and cheese mix); the latter will deliver slightly fancier fare like the complete Turkish Breakfast and, luxurious-morning-in-bed-alert, a fantastic Smoked Fish Plate for Two.</p><p><a href=\"https://www.grubhub.com/restaurant/ediths-495-lorimer-st-brooklyn/2673963\" rel=\"noopener\" target=\"_blank\">Edith&#x27;s Sandwich</a> is located at 495 Lorimer Street;<a href=\"https://www.grubhub.com/restaurant/ediths-eatery--grocery-312-leonard-st-brooklyn/3165302\" rel=\"noopener\" target=\"_blank\"> Edith&#x27;s Eatery</a> is at 312 Leonard -- Order Now</p>",
+                                "id": "5270e606-2d1f-43ec-8a5d-21f2eaa371af"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329575,
+                                        "title": "electricburrito-2.jpg",
+                                        "width": 3957,
+                                        "height": 2638,
+                                        "created_at": "2022-03-04T14:23:09.084398-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 791584,
+                                        "file_hash": "ebc511f3c31f366c966ea767ca008b6e2892dd2b",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/electricburrito-2_DHJWAbN.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "e096a23b-c7e4-4299-86cb-61e6c669d34d"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Electric Burrito in the East Village</b></p><p>Looking for a real beast of a breakfast?<a href=\"https://www.grubhub.com/restaurant/electric-burrito-81-st-marks-pl-new-york/2695503\" rel=\"noopener\" target=\"_blank\"> Electric Burrito</a> on St. Mark&#x27;s Place, home to all sorts of monster-sized meals, is definitely the move. Co-founded last spring by San Diego native and chef Alex Thaboua, this tiny shop serves up its burritos So-Cal-style, complete with french fries inside, and features five different breakfast varieties, including the massive &quot;Hot Rod&quot; stuffed with carne asada, eggs, bacon, beans, cheese, fries, and crema. Pro tip: this makes for a great dinner as well.</p><p>Electric Burrito is located at 81 St. Mark&#x27;s Place --<a href=\"https://www.grubhub.com/restaurant/electric-burrito-81-st-marks-pl-new-york/2695503\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "4df38fa1-6e37-4cc6-8e99-47ab0a1697c2"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329576,
+                                        "title": "veselka-2.jpg",
+                                        "width": 5603,
+                                        "height": 3735,
+                                        "created_at": "2022-03-04T14:23:55.267752-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1790528,
+                                        "file_hash": "7c6373a8ae4024e89f3ee85a812c9e0ac831e573",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/veselka-2_pofqgu8.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "96d5825b-47d2-4b03-b7a5-adf8af60917d"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Veselka in East Village</b></p><p>The beloved Ukrainian diner, which has been feeding East Village locals and late-night party people for nearly 70 years now, does many things really well--the Beef Stroganoff is a long-time favorite--but if we had to choose only one meal to eat at<a href=\"https://www.grubhub.com/restaurant/veselka-144-2nd-ave-new-york-city/312813\" rel=\"noopener\" target=\"_blank\"> Veselka</a>, it would have to be breakfast. A platter of Pierogis, a bowl of rejuvenating red Borscht, a couple of wonderfully greasy Potato Pancakes, maybe a Blintz or two... all absolute NYC classics. And no table waits when you order delivery via Grubhub!</p><p>Veselka is located at 144 Second Avenue --<a href=\"https://www.grubhub.com/restaurant/veselka-144-2nd-ave-new-york-city/312813\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "f1e5d83e-321f-4073-995e-2ff06e043ebf"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329577,
+                                        "title": "gertie-1.jpg",
+                                        "width": 4436,
+                                        "height": 2957,
+                                        "created_at": "2022-03-04T14:24:55.267841-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1076307,
+                                        "file_hash": "38205ed224214d8bc8f1213d47a3e2faa7709212",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/gertie-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "21572fd2-3c8a-45b1-a15f-b525c888972f"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Gertie in Williamsburg</b></p><p>This self-proclaimed “modern Jew-ish diner” opened at the end of Grand Street about three years ago, and has quickly become a neighborhood mainstay for its welcoming vibe, retro-chic decor, and excellent food. During the early pandemic, when to-go was the way to go,<a href=\"https://www.grubhub.com/restaurant/gertie-357-grand-st-brooklyn/1339774\" rel=\"noopener\" target=\"_blank\"> Gertie</a> went all in on its selection of Bagel and Bialy Sandwiches, and now they&#x27;re among the best in town. Pick hits: the Gift of Gab, with egg salad, capers, and belly lox; and the Best Bialy, starring the house hot smoked pastrami salmon.</p><p>Gertie&#x27;s is located at 357 Grand Street --<a href=\"https://www.grubhub.com/restaurant/gertie-357-grand-st-brooklyn/1339774\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "efa7561d-8c47-4d66-a3d7-9aa4b4965579"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329578,
+                                        "title": "kopitiam-1.jpg",
+                                        "width": 4000,
+                                        "height": 2667,
+                                        "created_at": "2022-03-04T14:25:27.535969-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 935040,
+                                        "file_hash": "abb130572a9a99a0beb6c83591e764f05d128f50",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/kopitiam-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "8136b7df-af31-4ea3-a27a-d63d0bb08f03"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Kopitiam on Lower East Side</b></p><p>One of the city&#x27;s best restaurants--chef Kyo Pang was just nominated for a James Beard award, not that long-time fans like us needed any proof that the food here totally rules--<a href=\"https://www.grubhub.com/restaurant/kopitiam-151-e-broadway-new-york/1027849\" rel=\"noopener\" target=\"_blank\">Kopitiam</a> has grown over the last seven years from a tiny Malaysian coffee house with a few excellent pastries to a glorious three-meal counter-service spot on East Broadway. There are so many amazing things to eat here, but for breakfast it’s hard to resist either the sweet and sticky Malaysian Style Milo French Toast or the salty Pan Mee, loaded with chewy fried anchovies. And always get the Kaya Butter Toast, a pandan-coconut delight.</p><p>Kopitiam is located at 151 East Broadway --<a href=\"https://www.grubhub.com/restaurant/kopitiam-151-e-broadway-new-york/1027849\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "4f07fce8-6880-4132-b25a-e44c96e3e02f"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329579,
+                                        "title": "eggshop-1.jpg",
+                                        "width": 5760,
+                                        "height": 3840,
+                                        "created_at": "2022-03-04T14:26:23.862897-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1744904,
+                                        "file_hash": "0cedbef3cb59141ed967416c17450feb69ece33a",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/eggshop-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "038e9769-ad4a-4423-88d3-548cc6502df1"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Egg Shop in Nolita and Williamsburg</b></p><p>Since 2014, the charming little<a href=\"https://www.grubhub.com/restaurant/egg-shop-151-elizabeth-st-new-york/569073\" rel=\"noopener\" target=\"_blank\"> Egg Shop</a> on Elizabeth Street has been serving a remarkably versatile, almost entirely eggy menu to the cool kids of Nolita and, since 2017, on North 8th Street in Williamsburg. Why so popular? How about the fact that eggs are pretty much the perfect food? There are breakfast burritos to be had here, and &quot;cruisers,&quot; which are basically what they call plates of food, and, best of all, Egg Sandwiches stuffed with things like avocado, or smoked salmon, or fried chicken, or ricotta cheese. And with Grubhub delivery, you don&#x27;t even have to get out of your pajamas to eat them!</p><p>Egg Shop is located at<a href=\"https://www.grubhub.com/restaurant/egg-shop-151-elizabeth-st-new-york/569073\" rel=\"noopener\" target=\"_blank\"> 151 Elizabeth</a> and<a href=\"https://www.grubhub.com/restaurant/egg-shop-138-n-8th-st-brooklyn/464586\" rel=\"noopener\" target=\"_blank\"> 136 N 8th</a> --<a href=\"https://www.grubhub.com/restaurant/egg-shop-151-elizabeth-st-new-york/569073\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "bba6b8c5-2b87-4d98-a206-7ddf34ff4722"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329580,
+                                        "title": "goblessusa-1.jpg",
+                                        "width": 4804,
+                                        "height": 3203,
+                                        "created_at": "2022-03-04T14:26:58.804406-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1040139,
+                                        "file_hash": "16400343740501670cce9acf56d1079e499ff07c",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/goblessusa-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "6cd62fbb-abff-4f1c-81f8-8b08a1a23907"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>God Bless USA Deli in Greenpoint</b></p><p>Like thousands of other bodegas everywhere in the city, the post-9/11-renamed<a href=\"https://www.grubhub.com/restaurant/god-bless-usa-deli-818-manhattan-ave-brooklyn/284414\" rel=\"noopener\" target=\"_blank\"> God Bless USA Deli</a> on bustling Manhattan Avenue slings a version of that NYC icon, the &quot;baconeggncheese.&quot; And yet somehow this Greenpoint institution transcends its unremarkable surroundings for a sandwich that should be held up as a model BEC for all random delis everywhere. Is it wizardry at the griddle that makes it special? That extra slice of cheese? The perfectly even, un-miserly distribution of bacon, ensuring that each bite contains the entire holy trinity of fillings? The fact that it still costs a shockingly low $3.99? The answer is: all of it. If this is your local, you are a fortunate human being.</p><p>God Bless USA Deli is located at 818 Manhattan Avenue --<a href=\"https://www.grubhub.com/restaurant/god-bless-usa-deli-818-manhattan-ave-brooklyn/284414\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "30213d78-549d-4d1a-9456-4f384123336a"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329581,
+                                        "title": "blackseed-2.jpg",
+                                        "width": 4570,
+                                        "height": 3047,
+                                        "created_at": "2022-03-04T14:27:42.841369-05:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1150290,
+                                        "file_hash": "448084d07811633bb9ca4877ee850ac9bb585743",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/blackseed-2.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "30393da2-721d-4201-ba10-e026710f80d5"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Black Seed Bagels in East Village, Nolita, Bushwick, Williamsburg, Nomad</b></p><p>Finally, it seems a bit sacrilege to hype a Montreal-style bagel chainlet on this very New York City list, but Black Seed has been delivering the goods since 2014, when founding partner, executive chef, and recent James Beard Award-nominee Dianna Daoheung opened her first shop on Elizabeth Street. There are multiple breakfast-y sandwiches on the menu (the PEC, made with pastrami instead of bacon, is particularly great), as well as several housemade cream cheese spreads, and all arrive on Daoheung&#x27;s delicious wood-fired Montreal bagels.</p><p>There are Blacks Seed Bagels locations in<a href=\"https://www.grubhub.com/restaurant/black-seed-bagels-170-elizabeth-st-new-york/300221\" rel=\"noopener\" target=\"_blank\"> Nolita</a>, the East Village,<a href=\"https://www.grubhub.com/restaurant/black-seed-bagels-379-suydam-st-ste-2-brooklyn/2276029\" rel=\"noopener\" target=\"_blank\"> Bushwick</a>,<a href=\"https://www.grubhub.com/restaurant/black-seed-bagels-214-berry-street-brooklyn/3171299\" rel=\"noopener\" target=\"_blank\"> Williamsburg</a>, and<a href=\"https://www.grubhub.com/restaurant/black-seed-bagels-1188-broadway-new-york/992998\" rel=\"noopener\" target=\"_blank\"> Nomad</a> --<a href=\"https://www.grubhub.com/restaurant/black-seed-bagels-170-elizabeth-st-new-york/300221\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p><p></p><p>Explore New York&#x27;s best food delivered straight to your couch with Grubhub. And with the Grubhub Guarantee, get it delivered on-time and at the lowest prices - guaranteed or Grubhub will make it right. <a href=\"https://www.grubhub.com/guarantee\" rel=\"noopener\" target=\"_blank\">Learn more</a>.</p>",
+                                "id": "5f32fc30-25a4-47ca-903d-4be74ffa9d20"
+                            }
+                        ],
+                        "sponsored_content": true,
+                        "disable_comments": true,
+                        "provocative_content": false,
+                        "sensitive_content": false,
+                        "related_links": [],
+                        "show_as_feature": true,
+                        "json_blob": "",
+                        "legacy_id": null,
+                        "content_type": 29,
+                        "owner": 69,
+                        "locked_by": null,
+                        "live_revision": 91966,
+                        "alias_of": null
+                    },
+                    {
+                        "id": 151140,
+                        "meta": {
+                            "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151140/",
+                            "html_url": "http://cms.prod.nypr.digital/food/grubhubs-guide-to-great-nyc-wings/",
+                            "parent": {
+                                "id": 5,
+                                "meta": {
+                                    "type": "standardpages.IndexPage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/5/",
+                                    "html_url": "http://cms.prod.nypr.digital/food/"
+                                },
+                                "title": "Food"
+                            },
+                            "type": "news.ArticlePage",
+                            "slug": "grubhubs-guide-to-great-nyc-wings",
+                            "seo_title": "",
+                            "show_in_menus": true,
+                            "search_description": "",
+                            "first_published_at": "2022-03-18T11:00:23.801065-04:00",
+                            "locale": 1
+                        },
+                        "ancestry": [
+                            {
+                                "id": 5,
+                                "meta": {
+                                    "type": "standardpages.IndexPage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/5/",
+                                    "html_url": "http://cms.prod.nypr.digital/food/"
+                                },
+                                "title": "Food",
+                                "slug": "food"
+                            },
+                            {
+                                "id": 3,
+                                "meta": {
+                                    "type": "home.HomePage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                                    "html_url": "http://cms.prod.nypr.digital/"
+                                },
+                                "title": "Gothamist",
+                                "slug": "home"
+                            },
+                            {
+                                "id": 1,
+                                "meta": {
+                                    "type": "wagtailcore.Page",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                                    "html_url": null
+                                },
+                                "title": "Root",
+                                "slug": "root"
+                            }
+                        ],
+                        "listing_image": null,
+                        "related_authors": [
+                            {
+                                "id": 39,
+                                "first_name": "Gothamist",
+                                "last_name": "Sponsor",
+                                "job_title": "Gothamist Editor",
+                                "biography": "",
+                                "website": "",
+                                "email": "",
+                                "slug": "sponsor",
+                                "social_media_profile": []
+                            }
+                        ],
+                        "related_contributing_organizations": [],
+                        "related_sponsors": [
+                            {
+                                "id": 36,
+                                "name": "Grubhub",
+                                "link": "http://grubhub.com",
+                                "logo": 329931
+                            }
+                        ],
+                        "social_image": null,
+                        "tags": [],
+                        "url": "https://gothamist-vue3demo.gothamist.com/food/grubhubs-guide-to-great-nyc-wings",
+                        "path": "0001000100020BF6",
+                        "depth": 4,
+                        "numchild": 0,
+                        "translation_key": "25e935f2-d248-4aa1-8a88-195a46783f80",
+                        "title": "Just In Time For March Madness, Grubhub's Guide To Great NYC Wings",
+                        "draft_title": "Just In Time For March Madness, Grubhub's Guide To Great NYC Wings",
+                        "live": true,
+                        "has_unpublished_changes": false,
+                        "url_path": "/home/food/grubhubs-guide-to-great-nyc-wings/",
+                        "go_live_at": "2022-03-22T00:00:00-04:00",
+                        "expire_at": null,
+                        "expired": false,
+                        "locked": false,
+                        "locked_at": null,
+                        "last_published_at": "2023-01-30T11:39:46.725795-05:00",
+                        "latest_revision_created_at": "2023-01-30T11:39:46.613016-05:00",
+                        "social_title": "",
+                        "social_text": "",
+                        "listing_title": "[sponsor] Grubhub's Guide To Great NYC Wings",
+                        "listing_summary": "",
+                        "show_on_index_listing": true,
+                        "legacy_url": "",
+                        "uuid": "84974c03-3c5a-4a9d-85bd-37f54af04ba3",
+                        "canonical_url": "",
+                        "publication_date": "2022-03-22T00:00:00-04:00",
+                        "updated_date": null,
+                        "lead_asset": [
+                            {
+                                "type": "lead_image",
+                                "value": {
+                                    "image": {
+                                        "id": 329816,
+                                        "title": "danjohn-2.jpg",
+                                        "width": 1000,
+                                        "height": 667,
+                                        "created_at": "2022-03-18T10:49:38.617996-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 102349,
+                                        "file_hash": "4243c63b2e747b7630582d6f3b67396e902a8874",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/danjohn-2.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": "",
+                                    "image_link": ""
+                                },
+                                "id": "fc8dab28-e034-4ecc-9867-58140514347a"
+                            }
+                        ],
+                        "description": "With citywide favorites including Blondie's, Chick Chick, Bonnie's Grill and more.",
+                        "body": [
+                            {
+                                "type": "paragraph",
+                                "value": "<p><i>This post is a sponsored collaboration between Grubhub and Gothamist staff. Test</i></p><p></p><p>Chicken wings, the second best part of that essential bird, go beyond fall and football watching– we eat them all year long, and as many as possible, whether Buffalo, Asian, barbecue, jerk, &quot;cheffy,&quot; or just straight-up fried. It&#x27;s by far the best reason to get your hands messy, in our opinion. Plus they work equally well as a snack, as a side dish or starter, or heck, give us a large enough platter and that&#x27;s all we need for a meal!</p><p>And if you <i>do</i> need a special excuse to order a whole stack of wings delivered to your home via <a href=\"https://bit.ly/3CQM83j\" rel=\"noopener\" target=\"_blank\">Grubhub</a>, just for yourself or for a whole crew, note that March Madness begins this week, which means there are hundreds of hours of exciting college basketball coming up. Why watch your bracket get busted without wings? It&#x27;s a lot less painful if you&#x27;re eating a pile of these bird bits from the following variety of local favorites, all available on Grubhub.</p>",
+                                "id": "a058a85e-1dfb-4c6f-9803-2934409192a1"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329817,
+                                        "title": "kettleblack-1.jpg",
+                                        "width": 1000,
+                                        "height": 667,
+                                        "created_at": "2022-03-18T10:50:26.405433-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 120057,
+                                        "file_hash": "0407407487750cf16b43946c0207f20453d04cf8",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/kettleblack-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "9abf051e-e136-498d-9aa8-95154cb9bf18"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>The Kettle Black in Bay Ridge and on Staten Island</b></p><p>Bay Ridge has more than its share of hopping neighborhood bars that celebrate sports- watching (Staten Island, too), but it&#x27;s<a href=\"https://www.grubhub.com/restaurant/the-kettle-black-3rd-ave-8622-3rd-ave-brooklyn/1141485\" rel=\"noopener\" target=\"_blank\"> The Kettle Black</a> on Third Avenue in Brooklyn that really nails the form. Go on any night of the week and the spacious, memorabilia-covered place will be festive with regulars sipping beers, shouting at screens, and tucking into platters of these exceptional chicken wings. Or do all that sipping, shouting, and tucking in from the comfort of your home, with delivery via Grubhub! The wings here come sauced, glazed, or rubbed about a dozen different ways, but the basics seem like the best way to go, whether that means their excellent take on the classic Buffalo, or generously coated in a zippy blend they call &quot;the original 87th Street dry rub.&quot;</p><p>The Kettle Black has locations in<a href=\"https://www.grubhub.com/restaurant/the-kettle-black-3rd-ave-8622-3rd-ave-brooklyn/1141485\" rel=\"noopener\" target=\"_blank\"> Bay Ridge</a> and on<a href=\"https://www.grubhub.com/restaurant/the-kettle-black-forest-ave-415-forest-ave-staten-island/781249\" rel=\"noopener\" target=\"_blank\"> Staten Island</a> -<a href=\"https://www.grubhub.com/restaurant/the-kettle-black-3rd-ave-8622-3rd-ave-brooklyn/1141485\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "fa55599c-690d-4548-9037-806862f92563"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329818,
+                                        "title": "blondie-1.jpg",
+                                        "width": 1000,
+                                        "height": 667,
+                                        "created_at": "2022-03-18T10:51:01.036960-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 97456,
+                                        "file_hash": "439e48fffa83b7ad3b2d77d9e9efa9ca56508dd9",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/blondie-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "6c23c8e7-2243-45a4-9c13-ab9aba389c28"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Blondie&#x27;s on the Upper West Side</b></p><p>It feels like this Upper West Side sports bar has been around forever, but even after all these years<a href=\"https://www.grubhub.com/restaurant/blondies-212-w-79th-st-new-york/2038536\" rel=\"noopener\" target=\"_blank\"> Blondie&#x27;s</a> signature Buffalo Wings consistently arrive at your table cooked to crisp perfection. An alternative idea to wading into the mayhem (and a good strategy for skipping the headache in the morning): watch the game at home, and order a 20-pack of wings via Grubhub. Note, though, that anything above &quot;Hot&quot; on the spiciness scale is to be devoured with caution.</p><p>Blondies is located at 212 West 79th Street --<a href=\"https://www.grubhub.com/restaurant/blondies-212-w-79th-st-new-york/2038536\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "133ecc12-3f63-4130-a25c-27024a598d6a"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329819,
+                                        "title": "Screen Shot 2022-03-18 at 10.51.26 AM.png",
+                                        "width": 463,
+                                        "height": 306,
+                                        "created_at": "2022-03-18T10:51:47.952283-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 308023,
+                                        "file_hash": "4b4dac28f7ed254ec493336c786171aecf21e8e0",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/Screen_Shot_2022-03-18_at_10.51.26_AM.png",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "42dcdf37-1c91-4f69-9e18-1271942ea377"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Fuku in Hudson Yards and Rockefeller Center</b></p><p>It&#x27;s been a little start-and-stop-and-start for David Chang&#x27;s great fried chicken mini-chain--a couple of locations closed for good when the pandemic hit--but the Hudson Yards and the Rockefeller Center outposts are still going strong and, really,<a href=\"https://www.grubhub.com/restaurant/fuku-20-hudson-yards--ru203a-new-york/1155444\" rel=\"noopener\" target=\"_blank\"> Fuku</a> still slings some of the best bird in town. Get a Sando or two (when the first Fuku launched in the East Village seven years ago, the Spicy Fried Sando was basically the only thing on the menu), and either, or both, of the wings six-packs, Sweet and Spicy, or Gochu and Garlic.</p><p>Fuku has locations in<a href=\"https://www.grubhub.com/restaurant/fuku-20-hudson-yards--ru203a-new-york/1155444\" rel=\"noopener\" target=\"_blank\"> Hudson Yards</a> and<a href=\"https://www.grubhub.com/restaurant/fuku-30-rockefeller-plaza-new-york/2852885\" rel=\"noopener\" target=\"_blank\"> Rockefeller Center</a> --<a href=\"https://www.grubhub.com/restaurant/fuku-20-hudson-yards--ru203a-new-york/1155444\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "e7ccc380-a896-4f6d-a29c-e928d6989584"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329820,
+                                        "title": "danjohns-1.jpg",
+                                        "width": 1000,
+                                        "height": 667,
+                                        "created_at": "2022-03-18T10:52:20.227011-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 123483,
+                                        "file_hash": "35457754df48b9974f47e2164b5690d5b939779f",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/danjohns-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "317d93d3-5848-4abf-bb21-705d5190baa3"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Dan and John&#x27;s in the East Village, Murray Hill, and Downtown Brooklyn</b></p><p>The Smorgasburg mainstay<a href=\"https://www.grubhub.com/restaurant/dan-and-johns-wings-135-1st-ave-new-york/2260404\" rel=\"noopener\" target=\"_blank\"> Dan and John&#x27;s</a> found a fixed home in the East Village back in 2015, and has since opened spots on Third Avenue in Murray Hill, and downstairs at the Dekalb Market on Albee Square, but whether you get these Buffalo-style beauties from a tent, a food hall, or a storefront, you can expect crunchy, juicy delights, sauced up as fiery as your desires can handle. Bonus: as at most great wing spots, the celery sticks are fresh and bright, and actually add an extra bit of pleasure to your meal. First-rate Fried Pickle Chips and Tater Tots too.</p><p>Dan and John&#x27;s has locations in the<a href=\"https://www.grubhub.com/restaurant/dan-and-johns-wings-135-1st-ave-new-york/2260404\" rel=\"noopener\" target=\"_blank\"> East Village</a>,<a href=\"https://www.grubhub.com/restaurant/dan-and-johns-wings-439-3rd-ave-new-york/2258578\" rel=\"noopener\" target=\"_blank\"> Murray Hill</a>, and Downtown Brooklyn --<a href=\"https://www.grubhub.com/restaurant/dan-and-johns-wings-135-1st-ave-new-york/2260404\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "145680ff-4b84-4d7a-be16-ca9d8164c854"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329821,
+                                        "title": "chickchick-2.jpg",
+                                        "width": 5492,
+                                        "height": 3661,
+                                        "created_at": "2022-03-18T10:55:22.072910-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1671134,
+                                        "file_hash": "e4f9347d0f9d7c1d40c325d2db2f62c0247bf123",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/chickchick-2.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "577e0232-d8ef-4bd8-9032-1c73c738c234"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Chick Chick on the Upper West Side</b></p><p>One of the city&#x27;s best new pandemic-era restaurants opened on the Upper West Side last spring, chef and owner Jun Park&#x27;s<a href=\"https://www.grubhub.com/restaurant/chick-chick-618-amsterdam-ave-new-york/2614612\" rel=\"noopener\" target=\"_blank\"> Chick Chick</a>, a glorious celebration of his two favorite foods, fried chicken and ramen. There are three different kinds of the former here: Park&#x27;s signature KSG, or Korean Sweet Gochujang; his take on Nashville Hot Chicken, which he drizzles with white sauce; and Crispy Chicken, which arrives extra-crackling on the outside and somehow still juicy within. You can get these in sandwiches, as boneless tenders, as a whole or half bird, or, relevant to the current discussion, as a pile of excellent wings. The Kimchi Fried Rice with chicken sausage crumbles makes for a terrific side dish too.</p><p>Chick Chick is located at 618 Amsterdam Avenue --<a href=\"https://www.grubhub.com/restaurant/chick-chick-618-amsterdam-ave-new-york/2614612\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "08f92251-b547-4cd7-8a38-0d8a7e2de1cb"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329822,
+                                        "title": "bonnies-1.jpg",
+                                        "width": 1000,
+                                        "height": 667,
+                                        "created_at": "2022-03-18T10:56:03.147758-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 121073,
+                                        "file_hash": "61fcc9b72fa30da84a724a74f8e4e7394ea39d95",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/bonnies-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "d748d662-d8a4-437d-8bb9-8a16c710ccb4"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329823,
+                                        "title": "internationalwings-1.jpg",
+                                        "width": 1000,
+                                        "height": 667,
+                                        "created_at": "2022-03-18T10:56:37.276113-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 125560,
+                                        "file_hash": "731b411578aa15af9d76de027899aa9996d9be8c",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/internationalwings-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "c9dc3495-a6e8-48d7-bfe9-3b7c4e557b39"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>International Wings Factory on the Upper East Side</b></p><p>For about a decade now chef Deepak Ballaney&#x27;s <a href=\"https://www.grubhub.com/restaurant/international-wings-factory-1762-1st-ave-new-york/278416\" rel=\"noopener\" target=\"_blank\">International Wings Factory</a> has been sending out top-notch wings from his tiny First Avenue shop, starring an impressive array of housemade dry rubs and sauces, from Classic Barbecue to Vietnamese Chili Gold to Lemon Cajun to Tandoori Masala. We&#x27;ve tried just about every variety over the years, and our current favorite is probably Ballaney&#x27;s zesty Black Pepper Teriyaki, but if you have a bunch of people over it&#x27;s fun to get multiple flavors delivered via Grubhub and try them all.</p><p>International Wings Factory is located at 1762 First Avenue --<a href=\"https://www.grubhub.com/restaurant/international-wings-factory-1762-1st-ave-new-york/278416\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p>",
+                                "id": "85351d8b-e117-4c19-9dcf-e5ce74959440"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329824,
+                                        "title": "fishcheeks-1.jpg",
+                                        "width": 5100,
+                                        "height": 3400,
+                                        "created_at": "2022-03-18T10:57:13.871795-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1488127,
+                                        "file_hash": "a182de842b79caff01c3e2bf02657087533ab530",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/fishcheeks-1.jpg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "8d46fbc9-44f7-4a9f-b34a-af235bd271e4"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Fish Cheeks in Noho</b></p><p>The Bond Street Thai food hotspot<a href=\"https://www.grubhub.com/restaurant/fish-cheeks-55-bond-st-new-york/371438\" rel=\"noopener\" target=\"_blank\"> Fish Cheeks</a> is known mostly for its seafood--the fiery Coconut Crab Curry is legendary, and the Grilled Branzino wrapped in a banana leaf has become something of a fan favorite--but chefs/owners/brothers Ohm and Chat Suansilphong definitely know how to cook up chicken wings as well. Called Zabb Wings when you&#x27;re dining in and simply Wings To Go when you&#x27;re ordering delivery through Grubhub, these crispy, three-section lovelies are lively with chili, cool with lime and mint, and all-around delicious.</p><p>Fish Cheeks is located at 55 Bond Street --<a href=\"https://www.grubhub.com/restaurant/fish-cheeks-55-bond-st-new-york/371438\" rel=\"noopener\" target=\"_blank\"> <b>Order Now</b></a></p><p></p><p>Explore New York&#x27;s best food delivered straight to your couch with Grubhub. And with the Grubhub Guarantee, get it delivered on-time and at the lowest prices - guaranteed or Grubhub will make it right. <a href=\"https://bit.ly/3CQM83j\" rel=\"noopener\" target=\"_blank\">Learn more</a>.</p>",
+                                "id": "672d2862-874e-45e0-a504-fe58097e39a4"
+                            }
+                        ],
+                        "sponsored_content": true,
+                        "disable_comments": true,
+                        "provocative_content": false,
+                        "sensitive_content": false,
+                        "related_links": [],
+                        "show_as_feature": true,
+                        "json_blob": "",
+                        "legacy_id": null,
+                        "content_type": 29,
+                        "owner": 69,
+                        "locked_by": null,
+                        "live_revision": 96095,
+                        "alias_of": null
+                    },
+                    {
+                        "id": 151170,
+                        "meta": {
+                            "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151170/",
+                            "html_url": "http://cms.prod.nypr.digital/food/your-grubhub-guide-to-nycs-best-affordable-sushi/",
+                            "parent": {
+                                "id": 5,
+                                "meta": {
+                                    "type": "standardpages.IndexPage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/5/",
+                                    "html_url": "http://cms.prod.nypr.digital/food/"
+                                },
+                                "title": "Food"
+                            },
+                            "type": "news.ArticlePage",
+                            "slug": "your-grubhub-guide-to-nycs-best-affordable-sushi",
+                            "seo_title": "",
+                            "show_in_menus": true,
+                            "search_description": "",
+                            "first_published_at": "2022-03-22T16:00:08.042315-04:00",
+                            "locale": 1
+                        },
+                        "ancestry": [
+                            {
+                                "id": 5,
+                                "meta": {
+                                    "type": "standardpages.IndexPage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/5/",
+                                    "html_url": "http://cms.prod.nypr.digital/food/"
+                                },
+                                "title": "Food",
+                                "slug": "food"
+                            },
+                            {
+                                "id": 3,
+                                "meta": {
+                                    "type": "home.HomePage",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                                    "html_url": "http://cms.prod.nypr.digital/"
+                                },
+                                "title": "Gothamist",
+                                "slug": "home"
+                            },
+                            {
+                                "id": 1,
+                                "meta": {
+                                    "type": "wagtailcore.Page",
+                                    "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                                    "html_url": null
+                                },
+                                "title": "Root",
+                                "slug": "root"
+                            }
+                        ],
+                        "listing_image": null,
+                        "related_authors": [
+                            {
+                                "id": 39,
+                                "first_name": "Gothamist",
+                                "last_name": "Sponsor",
+                                "job_title": "Gothamist Editor",
+                                "biography": "",
+                                "website": "",
+                                "email": "",
+                                "slug": "sponsor",
+                                "social_media_profile": []
+                            }
+                        ],
+                        "related_contributing_organizations": [],
+                        "related_sponsors": [
+                            {
+                                "id": 36,
+                                "name": "Grubhub",
+                                "link": "http://grubhub.com",
+                                "logo": 329931
+                            }
+                        ],
+                        "social_image": null,
+                        "tags": [],
+                        "url": "https://gothamist-vue3demo.gothamist.com/food/your-grubhub-guide-to-nycs-best-affordable-sushi",
+                        "path": "0001000100020BF7",
+                        "depth": 4,
+                        "numchild": 0,
+                        "translation_key": "beeade20-cbf3-477b-bf53-c34e306cc1e4",
+                        "title": "Your Grubhub Guide To NYC's Best Affordable Sushi",
+                        "draft_title": "Your Grubhub Guide To NYC's Best Affordable Sushi",
+                        "live": true,
+                        "has_unpublished_changes": false,
+                        "url_path": "/home/food/your-grubhub-guide-to-nycs-best-affordable-sushi/",
+                        "go_live_at": "2021-03-29T00:00:00-04:00",
+                        "expire_at": null,
+                        "expired": false,
+                        "locked": false,
+                        "locked_at": null,
+                        "last_published_at": "2022-03-22T16:00:08.042315-04:00",
+                        "latest_revision_created_at": "2022-03-22T16:00:07.901154-04:00",
+                        "social_title": "",
+                        "social_text": "",
+                        "listing_title": "",
+                        "listing_summary": "",
+                        "show_on_index_listing": false,
+                        "legacy_url": "",
+                        "uuid": "4862b631-7ede-4821-a1ef-9b7ded6ae94d",
+                        "canonical_url": "",
+                        "publication_date": "2021-03-29T00:00:00-04:00",
+                        "updated_date": null,
+                        "lead_asset": [
+                            {
+                                "type": "lead_image",
+                                "value": {
+                                    "image": {
+                                        "id": 329883,
+                                        "title": "sush1-1.jpeg",
+                                        "width": 5247,
+                                        "height": 3498,
+                                        "created_at": "2022-03-22T15:52:26.217484-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 1819585,
+                                        "file_hash": "c75859fa5a6927862695c6d0a59b75463611cb17",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/sush1-1.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": "",
+                                    "image_link": ""
+                                },
+                                "id": "6c3925e3-081b-43c0-96e2-38a50b2008b5"
+                            }
+                        ],
+                        "description": "",
+                        "body": [
+                            {
+                                "type": "paragraph",
+                                "value": "<p>Most of the sushi hype in this town goes to the big-name omakase palaces which we&#x27;re sure are delicious and all, but currently top out at more than $1000 per person for a single meal at Masa. Even the more &quot;affordable&quot; big names out there will set you back a couple hundred bucks for a dinner that, let&#x27;s be frank, probably won&#x27;t even fill you up. Ever grabbed a slice on the way home from a 13-piece, $150+ omakase? We sure have.</p><p>But it doesn&#x27;t have to be that way! Sushi--or, more specifically for our purposes here, raw fish in its many guises--can make for a special-feeling and completely satisfying meal without triggering a bunch of financial anxiety. So here is just a small sampling of all the great, more neighborhood-y sushi options in the city. And if you order your dinner via Grubhub, even after generously tipping your deliverista you&#x27;re still going to save money instead of going out, especially if you wash your dinner down with bodega beers.</p>",
+                                "id": "0bf9a480-860d-4bed-8df7-ecb45c4b2836"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329884,
+                                        "title": "chikarashi-1.jpeg",
+                                        "width": 3450,
+                                        "height": 2300,
+                                        "created_at": "2022-03-22T15:53:14.618778-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 652320,
+                                        "file_hash": "03573398825ed5ecbc91c8501c09da86ef9e7fbd",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/chikarashi-1.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "ae9de66a-1df9-40e0-94e0-bdbb9f952a3e"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Chikarashi in Chinatown</b></p><p>Located on a bustling stretch of Canal street, <a href=\"https://www.grubhub.com/restaurant/chikarashi-227-canal-st-new-york/912781\" rel=\"noopener\" target=\"_blank\">Chikarashi</a> has been serving first-rate &quot;contemporary poke&quot; bowls for more than five years now, combining some lovely cuts of fish with judiciously-handled toppings and sauces on top of well-vinegared sticky rice. The Salmon Ikura Chirashi is an obvious crowd-pleaser, the Spicy Hamachi has a nice bit of zing to it, and if you want your swimmer cooked, the roasted Hamachi Collar is really good too. And just about everything is under twenty bucks!</p><p>Chikarashi is located at 227 Canal Street -- <a href=\"https://www.grubhub.com/restaurant/chikarashi-227-canal-st-new-york/912781\" rel=\"noopener\" target=\"_blank\"><b>Order Now</b></a></p>",
+                                "id": "d2843190-b48b-4a52-ac34-e078dcf6a95d"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329885,
+                                        "title": "sush1-2.jpeg",
+                                        "width": 5553,
+                                        "height": 3702,
+                                        "created_at": "2022-03-22T15:54:14.120769-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 2249699,
+                                        "file_hash": "105adc11ffff464ed9731e29476e145e47b49b2c",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/sush1-2.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "1ec2cf81-c971-45c2-a65c-6992f94b5882"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Sush1 in Chelsea</b></p><p>This Brazilian-based mini-chain was founded on a simple proposition: to make sushi as accessible as any other fast-casual food by a bringing decent quality fish--served as nigiri, sashimi, or hand rolls--to a counter-service setting, and only charging about a buck each for every a piece (most things are now $1.25). True, the fish at <a href=\"https://www.grubhub.com/restaurant/sush1-555-6th-ave-9179652201-new-york/1963820\" rel=\"noopener\" target=\"_blank\">Sush1</a> is limited to greatest hits like tuna, salmon, yellow tail, and eel, but order one of those big combo boxes and you definitely won&#x27;t get bored. And if you really want to wow your next watch party, splurge on a &quot;100 for $100&quot; platter for a sushi party at home.</p><p>Sush1 is located at 555 Sixth Avenue -- <a href=\"https://www.grubhub.com/restaurant/sush1-555-6th-ave-9179652201-new-york/1963820\" rel=\"noopener\" target=\"_blank\"><b>Order Now</b></a></p>",
+                                "id": "72f9d944-8098-4a79-b52f-0930eb5a53a4"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329886,
+                                        "title": "kanoyama-3.jpeg",
+                                        "width": 5592,
+                                        "height": 3728,
+                                        "created_at": "2022-03-22T15:54:57.854550-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 2960425,
+                                        "file_hash": "e75c9f15bb280d77571e3a6a0a1c2420452e3317",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/kanoyama-3.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "5cd50019-4cb4-4be4-8ae9-d1f0664ccd44"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Kanoyama in East Village</b></p><p>For a more traditional sushi experience that still doesn&#x27;t cost a fortune, the beloved neighborhood spot <a href=\"https://www.grubhub.com/restaurant/kanoyama-175-2nd-ave-new-york/64406\" rel=\"noopener\" target=\"_blank\">Kanoyama</a>, sprawled out a bit at the corner of Second Avenue and 11th Street, has been making locals and destination date-nighters happy for some 15 years now. The prices aren&#x27;t too scary ($42 for Chirashi; a beautiful Sushi and Sashimi platter for two will run you $138), the fish is always top-notch, and if you order delivery via Grubhub, it makes for a perfect meal for a romantic evening at home.</p><p>Kanoyama is located at 175 Second Avenue -- <a href=\"https://www.grubhub.com/restaurant/kanoyama-175-2nd-ave-new-york/64406\" rel=\"noopener\" target=\"_blank\"><b>Order Now</b></a></p>",
+                                "id": "79cf7718-19f7-4a63-8356-0944d5e6e211"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329887,
+                                        "title": "gofish-1.jpeg",
+                                        "width": 4005,
+                                        "height": 2670,
+                                        "created_at": "2022-03-22T15:56:08.840052-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 719438,
+                                        "file_hash": "1e52f3626ae9764996743ca295e42cb8c5314371",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/gofish-1.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "f4ad4294-a661-40ec-84d2-6e298d75b4b6"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Go Fish in Midtown East</b></p><p>After a rough early pandemic period, the food halls in Manhattan run by Urbanspace have come roaring back to life--and with more opening soon--including this art deco gem inside the historic General Electric building at 570 Lexington Avenue. Eight vendors sling the wares here, but our favorite for a bright and flavorful lunch might be <a href=\"https://www.grubhub.com/restaurant/gofish-at-urbanspace570-lex-570-lexington-ave-new-york/799266\" rel=\"noopener\" target=\"_blank\">Go Fish Sushi Box</a>, which delivers, via Grubhub, loaded up Chirashi bowls as well as rolls and nigiri-sashimi combos. Even the fanciest dishes top out at about $15, too, so it&#x27;s easy to treat yourself.</p><p>Go Fish us at the 570 Lexington Market -- <a href=\"https://www.grubhub.com/restaurant/gofish-at-urbanspace570-lex-570-lexington-ave-new-york/799266\" rel=\"noopener\" target=\"_blank\"><b>Order Now</b></a></p>",
+                                "id": "6493d7f8-b3ab-4c65-9893-aa36a7896241"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329888,
+                                        "title": "momoya-1.jpeg",
+                                        "width": 560,
+                                        "height": 420,
+                                        "created_at": "2022-03-22T15:56:57.568111-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 100886,
+                                        "file_hash": "01c295bba7d7fe03ce57106c5b8f1b3dd39781fa",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/momoya-1.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "5bec15fa-d08e-4132-8926-29480ba7f4aa"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Momoya on the Upper West Side and in Chelsea</b></p><p>Since the mid-aughts the Momoyas on the <a href=\"https://www.grubhub.com/restaurant/momoya-427-amsterdam-ave-new-york/296258\" rel=\"noopener\" target=\"_blank\">UWS</a> and in <a href=\"https://www.grubhub.com/restaurant/momoya-chelsea-185-7th-ave-new-york/2114993\" rel=\"noopener\" target=\"_blank\">Chelsea</a> have been serving up crowd-pleasing platters, bowls, and rolls in stylish settings, establishing themselves as neighborhood go-tos for those nights when the craving for sushi hits hard. We usually keep it simple here and get a Chirashi, but the Bakudan Roll with spicy scallop, the Momoya Black Cod Roll, and the Salmon Crunch Roll are all fun and satisfying options too. Good non-fish dishes are available as well. Order delivery via Grubhub and suddenly your random Tuesday night at home just got a lot more exciting.</p><p>Momoya is located at <a href=\"https://www.grubhub.com/restaurant/momoya-427-amsterdam-ave-new-york/296258\" rel=\"noopener\" target=\"_blank\">427 Amsterdam Ave</a> and <a href=\"https://www.grubhub.com/restaurant/momoya-chelsea-185-7th-ave-new-york/2114993\" rel=\"noopener\" target=\"_blank\">185 Seventh Ave</a> -- <a href=\"https://www.grubhub.com/restaurant/momoya-chelsea-185-7th-ave-new-york/2114993\" rel=\"noopener\" target=\"_blank\"><b>Order Now</b></a></p>",
+                                "id": "825d3103-321b-477d-bdee-2aea619eb624"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329889,
+                                        "title": "bessou-1.jpeg",
+                                        "width": 3478,
+                                        "height": 2319,
+                                        "created_at": "2022-03-22T15:57:27.854118-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 459292,
+                                        "file_hash": "27aa185e73f5f330681378bab79938434c297a28",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/bessou-1.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "2e36f924-c154-4af1-829b-5843cccddeeb"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Bessou in the East Village</b></p><p><a href=\"https://www.grubhub.com/restaurant/bessou-5-bleecker-st-new-york/339186\" rel=\"noopener\" target=\"_blank\">Bessou</a> on Bleecker Street isn&#x27;t really a sushi restaurant per se; the tag &quot;modern Japanese comfort food&quot; is a much better descriptor, and the menu features plenty of non-fish fare like Spicy Miso Spare Ribs, Fried Chicken Sandwiches, and loaded bowls of hot or cold Udon noodles. That said, our favorite things here are probably Maiko Kyogoku and chef Emily Yuen&#x27;s fantastic Crispy Rice creations, triangles of the chewy, crackling grain piled high with either salmon, spicy tuna, or enoki mushroom and black garlic. It&#x27;s one of our most frequent sushi(ish) cravings, and, with delivery via Grubhub, it&#x27;s also one that&#x27;s easily satisfied.</p><p>Bessou is located at 5 Bleecker Street -- <a href=\"https://www.grubhub.com/restaurant/bessou-5-bleecker-st-new-york/339186\" rel=\"noopener\" target=\"_blank\"><b>Order Now</b></a></p>",
+                                "id": "a2981d1d-83e5-446b-9197-4d5a0edc9041"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329890,
+                                        "title": "yubu-1.jpeg",
+                                        "width": 3407,
+                                        "height": 2271,
+                                        "created_at": "2022-03-22T15:58:05.723233-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 938301,
+                                        "file_hash": "72dcda565ce422276d4d33589d1f4978af743a79",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/yubu-1.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "a2f1bf32-d9d7-4840-84cd-3ee2410039ed"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Yubu in the East Village</b></p><p>More not-standard-sushi for the list! <a href=\"https://www.grubhub.com/restaurant/yubu-86-e-7th-st-new-york/2785782\" rel=\"noopener\" target=\"_blank\">Yubu</a>, which opened its tiny storefront on East 7th Street during our second pandemic summer, sells only one thing: yubuchobap, which are Korean fried bean curd pockets stuffed with sushi-style vinegared rice. Ah but &quot;yubu,&quot; as it&#x27;s abbreviated here, proves to be the perfect vehicle for all manner of rich and hearty toppings, including Salmon, Spicy Tuna, and Crabmeat with special Myungran Mayo sauce. The meaty ones (Pork Jaeyook, Beef Bulgogi) are excellent too. Put this place into your regular Grubhub delivery rotation.</p><p>Yubu is located at 86 East 7th Street -- <a href=\"https://www.grubhub.com/restaurant/yubu-86-e-7th-st-new-york/2785782\" rel=\"noopener\" target=\"_blank\"><b>Order Now</b></a></p>",
+                                "id": "0d69a96c-4063-4375-bb67-07885c307ed5"
+                            },
+                            {
+                                "type": "image",
+                                "value": {
+                                    "image": {
+                                        "id": 329891,
+                                        "title": "beyondsushi-2.jpeg",
+                                        "width": 640,
+                                        "height": 480,
+                                        "created_at": "2022-03-22T15:58:57.792792-04:00",
+                                        "focal_point_x": null,
+                                        "focal_point_y": null,
+                                        "focal_point_width": null,
+                                        "focal_point_height": null,
+                                        "file_size": 119427,
+                                        "file_hash": "0ccffdb4fe36b9698353e81114159ab6ed0ed457",
+                                        "alt": "Grubhub",
+                                        "caption": "",
+                                        "credit": "",
+                                        "credit_link": "",
+                                        "file": "https://cdn.cms.demo.nypr.digital/original_images/beyondsushi-2.jpeg",
+                                        "usage_limitations": "",
+                                        "expiry_date": null,
+                                        "collection": 1,
+                                        "uploaded_by_user": 69
+                                    },
+                                    "caption": ""
+                                },
+                                "id": "734adfeb-fbac-42f5-abf9-75bedc456c09"
+                            },
+                            {
+                                "type": "paragraph",
+                                "value": "<p><b>Beyond Sushi in Midtown West, on Upper East Side, Nolita, Garment District</b></p><p>For more than a decade now the mini-chain Beyond Sushi has been delighting both vegans and omnivores alike with their lovely, creative, completely meatless &quot;sushi&quot; pieces and rolls. Vegetable dishes like the earthy Mighty Mushroom Roll and the festive-looking Rainbow Roll anchor the menu here, but in recent years the franchise has expanded its offering to include things like Fried Chik&#x27;n Bao and Impossible Meat dumplings.</p><p>Beyond Sushi has locations in <a href=\"https://www.grubhub.com/restaurant/beyond-sushi-56th-st-62-w-56th-st-new-york/300953\" rel=\"noopener\" target=\"_blank\">Midtown</a>, the <a href=\"https://www.grubhub.com/restaurant/beyond-sushi-1429-3rd-ave-new-york/1938434\" rel=\"noopener\" target=\"_blank\">UES</a>, <a href=\"https://www.grubhub.com/restaurant/beyond-sushi-215-mulberry-st-new-york/940606\" rel=\"noopener\" target=\"_blank\">Nolita</a>, and the <a href=\"https://www.grubhub.com/restaurant/beyond-sushi-37th-street-134-w-37th-st-new-york/432965\" rel=\"noopener\" target=\"_blank\">Garment District</a> -- <a href=\"https://www.grubhub.com/restaurant/beyond-sushi-37th-street-134-w-37th-st-new-york/432965\" rel=\"noopener\" target=\"_blank\"><b>Order Now</b></a></p><p>Explore New York&#x27;s best food delivered straight to your couch with Grubhub. And with the Grubhub Guarantee, get it delivered on-time and at the lowest prices - guaranteed or Grubhub will make it right. <a href=\"https://www.grubhub.com/guarantee\" rel=\"noopener\" target=\"_blank\">Learn more</a>.</p>",
+                                "id": "4bfd9df2-9b10-423f-bb6a-d0c78637a137"
+                            }
+                        ],
+                        "sponsored_content": true,
+                        "disable_comments": true,
+                        "provocative_content": false,
+                        "sensitive_content": false,
+                        "related_links": [],
+                        "show_as_feature": false,
+                        "json_blob": "",
+                        "legacy_id": null,
+                        "content_type": 29,
+                        "owner": 69,
+                        "locked_by": null,
+                        "live_revision": 93075,
+                        "alias_of": null
+                    }
+                ]
+            }
+        }
+    ],
+    "midpage_zone": [
+        {
+            "id": "a382b945-4d3f-4bbd-b8f0-9d646417d849",
+            "type": "image",
+            "value": {
+                "image": {
+                    "id": 329929,
+                    "title": "cute-dog.jpg",
+                    "width": 5031,
+                    "height": 3179,
+                    "created_at": "2022-08-03T22:43:08.403206-04:00",
+                    "focal_point_x": null,
+                    "focal_point_y": null,
+                    "focal_point_width": null,
+                    "focal_point_height": null,
+                    "file_size": 2307557,
+                    "file_hash": "e4df1a48ef1b60300c6b7d2716f6227739766344",
+                    "alt": "cute dog",
+                    "caption": "",
+                    "credit": "Unsplash",
+                    "credit_link": "",
+                    "file": "https://cdn.cms.demo.nypr.digital/original_images/rebecca-campbell-w40Eig2e4Qg-unsplash.jpg",
+                    "usage_limitations": "",
+                    "expiry_date": null,
+                    "collection": 1,
+                    "uploaded_by_user": 83
+                },
+                "caption": ""
+            }
+        },
+        {
+            "id": "f9142b98-4341-473b-ad6d-044926f6ca60",
+            "type": "pull_quote",
+            "value": {
+                "pull_quote": "Dog goes woof, Cat goes meow, Bird goes tweet, And mouse goes squeek",
+                "attribution": "Ylvis"
+            }
+        }
+    ],
+    "tags": [
+        "dogs"
+    ]
+}

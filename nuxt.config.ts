@@ -97,6 +97,7 @@ export default defineNuxtConfig({
       NEWRELIC_AGENT: process.env['NEWRELIC_AGENT'] || 'newrelic-dev.js',
     }
   },
+  ssr: Boolean(process.env['NUXT_SSR'] !== 'false'),
   typescript: {
     strict: true
   }

@@ -1,0 +1,8 @@
+{
+    "id": 2,
+    "meta": {
+        "type": "utils.SystemMessagesSettings",
+        "detail_url": "https://cms.prod.nypr.digital/api/v2/system_messages/2/"
+    },
+    "product_banners": []
+}

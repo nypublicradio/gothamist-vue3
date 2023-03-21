@@ -1,0 +1,703 @@
+{
+    "meta": {
+        "total_count": 140417
+    },
+    "items": [
+        {
+            "id": 154802,
+            "meta": {
+                "first_published_at": "2023-03-10T16:38:50.339360-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154802/",
+                "html_url": "http://cms.prod.nypr.digital/news/adams-praises-new-probation-chiefs-decision-to-invite-cardi-b-to-academy-event/",
+                "slug": "adams-praises-new-probation-chiefs-decision-to-invite-cardi-b-to-academy-event"
+            },
+            "title": "Mayor Adams praises new probation chief's decision to invite Cardi B to academy event",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "96467a16-3e35-45fb-b6eb-f5ebbded09e8",
+            "url": "https://gothamist.com/news/adams-praises-new-probation-chiefs-decision-to-invite-cardi-b-to-academy-event",
+            "publication_date": "2023-03-10T16:38:00-05:00",
+            "updated_date": null,
+            "description": "Juanita Holmes previously served as chief of training for the department.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 328281,
+                            "title": "Screen Shot 2022-01-01 at 2.47.05 PM.png",
+                            "width": 1932,
+                            "height": 1266,
+                            "created_at": "2022-01-01T14:50:16.439492-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 3131205,
+                            "file_hash": "aca6e2d00e75f2007203afcbb5a87b09b3bcef5f",
+                            "alt": "Juanita Holmes, wearing a mask, holds a picture at a press conference last year.",
+                            "caption": "Juanita Holmes, wearing a mask, holds a picture at a press conference last year.",
+                            "credit": "Mayor's Office / Twitter",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2022-01-01_at_2.47.05_PM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 78
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "677b5483-9982-42ef-a94b-5ef3b515b029"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151636,
+                    "first_name": "Isidoro",
+                    "last_name": "Rodriguez",
+                    "job_title": "Public Safety Reporter",
+                    "biography": "Isidoro Rodriguez reports on safety and policing in New York City. Prior to joining Gothamist, he was  deputy editor of The Crime Report at the Center on Media, Crime and Justice at the John Jay College of Criminal Justice in New York.",
+                    "website": "",
+                    "email": "",
+                    "slug": "isidoro-rodriguez",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "cardi b",
+                    "slug": "cardi-b"
+                },
+                {
+                    "name": "juanita holmes",
+                    "slug": "juanita-holmes"
+                },
+                {
+                    "name": "probation department",
+                    "slug": "probation-department"
+                },
+                {
+                    "name": "nypd",
+                    "slug": "nypd"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154801,
+            "meta": {
+                "first_published_at": "2023-03-10T15:32:44.362908-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154801/",
+                "html_url": "http://cms.prod.nypr.digital/news/tambourine-shaking-ex-nypd-cop-convicted-for-jan-6-actions/",
+                "slug": "tambourine-shaking-ex-nypd-cop-convicted-for-jan-6-actions"
+            },
+            "title": "Tambourine-shaking ex-NYPD cop convicted for Jan. 6 actions",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "e856d4f3-9a6b-4f33-9aeb-366c69ce8f30",
+            "url": "https://gothamist.com/news/tambourine-shaking-ex-nypd-cop-convicted-for-jan-6-actions",
+            "publication_date": "2023-03-10T15:32:44.362908-05:00",
+            "updated_date": null,
+            "description": "Two NYPD cops have been convicted for rioting at the Capitol.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 318246,
+                            "title": "Screen Shot 2021-03-23 at 2.18.13 PM.png",
+                            "width": 678,
+                            "height": 626,
+                            "created_at": "2021-03-23T14:19:03.655578-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 665083,
+                            "file_hash": "0b5440b6a5e054d5c15defc5fdefa40b4dedf83c",
+                            "alt": "A woman identified as Sara Carpenter shaking a tambourine inside the U.S. Capitol",
+                            "caption": "A woman identified as Sara Carpenter shaking a tambourine inside the U.S. Capitol",
+                            "credit": "DOJ",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2021-03-23_at_2.18.13_PM.png",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 28
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "26ee92d0-9f61-47ed-b9cb-195d9c59edfd"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 93,
+                    "first_name": "Matt",
+                    "last_name": "Katz",
+                    "photo": 334524,
+                    "job_title": "Reporter",
+                    "biography": "Matt Katz reports on public safety, focusing on decarceration and the equitable enforcement of laws. He has investigated abuse in ICE detention and covered former N.J. Gov. Chris Christie, sharing a Peabody Award for coverage of Bridgegate and writing a book, \"American Governor: Chris Christie's Bridge to Redemption.\" Once upon a time, he wrote a syndicated dating column.",
+                    "website": "",
+                    "email": "mkatz@wnyc.org",
+                    "slug": "matt-katz",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/mattkatz00"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "federal court",
+                    "slug": "federal-court"
+                },
+                {
+                    "name": "capitol riots",
+                    "slug": "capitol-riots"
+                },
+                {
+                    "name": "nypd",
+                    "slug": "nypd"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154799,
+            "meta": {
+                "first_published_at": "2023-03-10T15:00:19.746957-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154799/",
+                "html_url": "http://cms.prod.nypr.digital/news/with-90-vote-rutgers-faculty-tells-union-leaders-they-can-call-a-strike/",
+                "slug": "with-90-vote-rutgers-faculty-tells-union-leaders-they-can-call-a-strike"
+            },
+            "title": "With 94% vote, Rutgers faculty tells union leaders they can call a strike",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "2a52c86d-1030-4069-9b3c-2617f8b93b65",
+            "url": "https://gothamist.com/news/with-90-vote-rutgers-faculty-tells-union-leaders-they-can-call-a-strike",
+            "publication_date": "2023-03-10T15:00:00-05:00",
+            "updated_date": null,
+            "description": "It would be the first faculty walkout in the school’s 256-year history.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337198,
+                            "title": "shutterstock_1427628818.jpg",
+                            "width": 6000,
+                            "height": 4000,
+                            "created_at": "2023-03-10T13:58:53.740976-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 12059531,
+                            "file_hash": "8281179c7712f4fa1cd1791eb02e1a77eb807348",
+                            "alt": "The unions representing Rutgers faculty members say they're headed back to the negotiating table for a contract, but they're now authorized to call a strike at any time.",
+                            "caption": "The unions representing Rutgers faculty members say they're headed back to the negotiating table for a contract, but they're now authorized to call a strike at any time.",
+                            "credit": "Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_1427628818.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 134
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "6541164e-f168-44b5-8779-1948ce57797f"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 142982,
+                    "first_name": "Nancy",
+                    "last_name": "Solomon",
+                    "job_title": "reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "nancy-solomon-wnyc",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Workforce",
+                    "slug": "workforce"
+                },
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "new jersey",
+                    "slug": "new-jersey"
+                },
+                {
+                    "name": "education",
+                    "slug": "education"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154798,
+            "meta": {
+                "first_published_at": "2023-03-10T14:22:09.573329-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154798/",
+                "html_url": "http://cms.prod.nypr.digital/news/ny-democratic-party-chair-blasts-progressives-in-fiery-wnyc-interview/",
+                "slug": "ny-democratic-party-chair-blasts-progressives-in-fiery-wnyc-interview"
+            },
+            "title": "NY Democratic Party chair blasts progressives in fiery WNYC interview",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "e96833a5-f6e7-4bbc-a1b8-860e461f5a7b",
+            "url": "https://gothamist.com/news/ny-democratic-party-chair-blasts-progressives-in-fiery-wnyc-interview",
+            "publication_date": "2023-03-10T14:22:00-05:00",
+            "updated_date": "2023-03-10T14:37:00-05:00",
+            "description": "Jacobs appeared on \"The Brian Lehrer Show\" to respond to criticism over his leadership.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337197,
+                            "title": "Jay Jacobs [Shutterstock]",
+                            "width": 5554,
+                            "height": 3703,
+                            "created_at": "2023-03-10T13:43:49.980598-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2688890,
+                            "file_hash": "f202f62762f17aa7a11ea4021151f0a4213dd676",
+                            "alt": "Jay Jacobs, chair of the New York State Democratic Committee, speaks during the New York State Democratic Convention in New York. Jacobs has faced criticism in the last month for not supporting fellow Democrats in their elections.",
+                            "caption": "Jay Jacobs, chair of the New York State Democratic Committee, speaks during the New York State Democratic Convention in New York. Jacobs has faced criticism in the last month for not supporting fellow Democrats in their elections.",
+                            "credit": "Seth Wenig/AP/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_editorial_12811418d_1.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 82
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "8051d4cd-d52d-4459-ab48-ae642f24b5d8"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 31,
+                    "first_name": "Brigid",
+                    "last_name": "Bergin",
+                    "photo": 334518,
+                    "job_title": "Senior Reporter - People and Power",
+                    "biography": "Brigid Bergin is an award-winning senior reporter on the People and Power desk. Fiercely committed to telling stories that help people engage and support democracy for more than a decade, her coverage has led to multiple appearances on NPR, MSNBC and the Black News Network. Brigid's reporting in 2017 included some of the first coverage of a political upstart now known as AOC. In April 2016, she broke the news of a voter purge in Brooklyn just days before New York’s presidential primary, triggering city, state and federal investigations. Brigid also guest hosts The Brian Lehrer Show and The Takeaway. She graduated from the University at Albany and the CUNY Newmark School of Journalism. Follow her on Twitter @brigidbergin",
+                    "website": "",
+                    "email": "bbergin@wnyc.org",
+                    "slug": "brigid-bergin",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/brigidbergin"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "news",
+                    "slug": "news"
+                },
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "new york state",
+                    "slug": "new-york-state"
+                },
+                {
+                    "name": "Democratic party",
+                    "slug": "democratic-party"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154797,
+            "meta": {
+                "first_published_at": "2023-03-10T14:10:31.010276-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154797/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/watch-the-oscars-among-friends-and-strangers-and-more-things-to-do-this-week-in-nyc/",
+                "slug": "watch-the-oscars-among-friends-and-strangers-and-more-things-to-do-this-week-in-nyc"
+            },
+            "title": "Watch the Oscars among friends (and strangers) and more things to do this week in NYC",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "d3295477-588e-4599-ba5d-f4f781a64bc6",
+            "url": "https://gothamist.com/arts-entertainment/watch-the-oscars-among-friends-and-strangers-and-more-things-to-do-this-week-in-nyc",
+            "publication_date": "2023-03-10T14:10:31.010276-05:00",
+            "updated_date": null,
+            "description": "It’s impossible to keep up with everything happening in New York City arts and culture, but here are some recommendations for events you shouldn’t miss during the week ahead.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337193,
+                            "title": "shutterstock_2119939280.jpg",
+                            "width": 4592,
+                            "height": 3064,
+                            "created_at": "2023-03-10T13:03:03.078975-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 5982121,
+                            "file_hash": "5d32b799b0f7e8a1a00c9f8525318df92d8e40ab",
+                            "alt": "A golden statuette shaped like a man",
+                            "caption": "Catch up with the Oscars on Sunday night at one of the city's many public viewing events.",
+                            "credit": "LanKS/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_2119939280.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 127
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "79044b49-f1d2-4adf-82e5-12a1c2c858c9"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 150749,
+                    "first_name": "Steve",
+                    "last_name": "Smith",
+                    "photo": 328940,
+                    "job_title": "Culture & Arts Editor",
+                    "biography": "Steve Smith came to WNYC from NPR, where he served as a senior editor on the Arts Desk. He ostensibly focused on music coverage, but in reality handled subjects like Mickey Mouse's creator, AI voice cloning, and even the 50th anniversary of the Crock Pot. Steve served previously as a music editor at Time Out New York, a classical-music critic for The New York Times, a weekly contributor to The New Yorker, and an assistant arts editor at the Boston Globe. He lives in Jackson Heights, Queens, with his wife, journalist and scholar Lara Pellegrinelli (herself a past contributor to WNYC and NPR), their daughter, and two dogs.",
+                    "website": "",
+                    "email": "",
+                    "slug": "steve-smith",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "nyc events",
+                    "slug": "nyc-events"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 154796,
+            "meta": {
+                "first_published_at": "2023-03-10T13:11:24.478149-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154796/",
+                "html_url": "http://cms.prod.nypr.digital/news/extra-extra-meet-connecticuts-answer-to-pizza-rat/",
+                "slug": "extra-extra-meet-connecticuts-answer-to-pizza-rat"
+            },
+            "title": "Extra Extra: Meet Connecticut's answer to Pizza Rat",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "719d1ae0-9fbe-48c9-a5d1-5b918ed41ffe",
+            "url": "https://gothamist.com/news/extra-extra-meet-connecticuts-answer-to-pizza-rat",
+            "publication_date": "2023-03-10T13:11:24.478149-05:00",
+            "updated_date": null,
+            "description": "Because it's Pizza Eagle, here are your end-of-day links: Anti-terrorism bollards are great for protecting bike lanes, Malachy McCourt is still rockin', the Sweaters of Inisherin and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337194,
+                            "title": "eagle.jpg",
+                            "width": 2048,
+                            "height": 1540,
+                            "created_at": "2023-03-10T13:06:22.064815-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 466290,
+                            "file_hash": "3ec2a7b85d696da4a1d4e301c9809282d62b3746",
+                            "alt": "a bald eagle in a tree",
+                            "caption": "",
+                            "credit": "Keith Michael",
+                            "credit_link": "https://flickr.com/photos/keithmichaelnyc/39604706041/in/photolist-23kJtik-KyGG2Y-yiTUqw-Ma7pwg-dHUTrn-DjjPRv-qkpxPE-dL1Wc4-9vJKhp-dNjkqw-dvKvwu-dJg1TM-91vnAA-br9SQo-9TdPsK-aCMwoB-e6W1p3-KFzpxT-C2EPUB-m5pKg2-fbTJWj-e2iZfj-bpFjG9-bD3yeP-du57zX-2ng8Jbn-5oKDjF-2ntzfyA-2kPAi1L-2nkeKLK-RKHVhz-2nTvdN6-feF81i-81Xf6P-5nEoGn-JaYjaL-2og4kn5-QzRSCC-4m5gzG-2mpk17z-2mVT6cM-ecyGP4-gdixpw-5mFB2a-2ki5QVh-iJRv1-9n6gTC-7jF2W3-m29iAp-7G1eNo",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/eagle.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "40abd414-9078-401b-9a6d-6b2df45812fb"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 35,
+                    "first_name": "James",
+                    "last_name": "Ramsay",
+                    "photo": 327650,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "james-ramsay",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "extra extra",
+                    "slug": "extra-extra"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        }
+    ]
+}

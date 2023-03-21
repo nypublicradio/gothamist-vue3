@@ -1,0 +1,170 @@
+{
+    "id": 1,
+    "meta": {
+        "type": "navigation.NavigationSettings",
+        "detail_url": "https://cms.prod.nypr.digital/api/v2/navigation/1/"
+    },
+    "primary_navigation": [
+        {
+            "type": "cms_page",
+            "value": {
+                "page": 4,
+                "title": "News",
+                "url": "/news/",
+                "slug": "news"
+            },
+            "id": "7f4ddffd-5aa1-42e8-ae4e-1dd0d22bba11"
+        },
+        {
+            "type": "cms_page",
+            "value": {
+                "page": 8,
+                "title": "Culture",
+                "url": "/arts-entertainment/",
+                "slug": "arts-entertainment"
+            },
+            "id": "a0511d0e-3568-4497-a6d7-752e5693012c"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://gothamist.com/tags/transportation",
+                "title": "Transit"
+            },
+            "id": "db43b0b2-cc50-4cd9-82bc-338b11f944ec"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://gothamist.com/tags/politics",
+                "title": "Politics"
+            },
+            "id": "cfea409d-ab3b-4c3e-a277-5e34f309c8da"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://gothamist.com/tags/health-and-science",
+                "title": "Health & Science"
+            },
+            "id": "d2c9d285-93ab-4ef8-a5bc-5e57a32daa11"
+        }
+    ],
+    "secondary_navigation": [
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://sponsorship.wnyc.org",
+                "title": "Advertising"
+            },
+            "id": "152aaac4-c9c7-4939-897b-ff3b589f8a0e"
+        },
+        {
+            "type": "cms_page",
+            "value": {
+                "page": 144938,
+                "title": "Contact Us",
+                "url": "/contact/",
+                "slug": "contact"
+            },
+            "id": "b1136d9b-3183-49f4-bea5-e8d0798ae597"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://gothamist.com/feed",
+                "title": "RSS Feed"
+            },
+            "id": "062cdf6b-b487-4c6d-88eb-3043b25e0102"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://www.nypublicradio.org/diversity-dei-overview/",
+                "title": "Diversity (DEI)"
+            },
+            "id": "b4cf7e84-4ae3-4bd3-b4e5-36c431577b41"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://www.nypublicradio.org/support/",
+                "title": "Support Us"
+            },
+            "id": "535ceb58-7a08-47bd-bec9-99543263e9ce"
+        }
+    ],
+    "primary_footer_links": [
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://sponsorship.wnyc.org",
+                "title": "Advertising"
+            },
+            "id": "8baa479d-b20c-4ee9-993f-7ad2e1e066dc"
+        },
+        {
+            "type": "cms_page",
+            "value": {
+                "page": 144938,
+                "title": "Contact Us",
+                "url": "/contact/",
+                "slug": "contact"
+            },
+            "id": "5b3f8aaa-11eb-42fd-beb2-e1afb5ad1ae5"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://gothamist.com/feed",
+                "title": "RSS Feed"
+            },
+            "id": "203474f4-2eef-4ef8-b791-eda56b947507"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://www.nypublicradio.org/diversity-dei-overview/",
+                "title": "Diversity (DEI)"
+            },
+            "id": "7abe9f06-53ba-42a1-a6cd-a338a761e4f1"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://nypublicradio.org/careers/",
+                "title": "Careers"
+            },
+            "id": "117c369f-66ea-4fee-9f54-bfc6e5611f9e"
+        }
+    ],
+    "secondary_footer_links": [],
+    "legal_links": [
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://www.wnyc.org/terms",
+                "title": "Terms Of Use"
+            },
+            "id": "a4063b81-1bb5-4c00-aa37-35814212e9b9"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://www.wnyc.org/privacy",
+                "title": "Privacy Policy"
+            },
+            "id": "a54908fe-b560-4dc3-a001-349839f9fe62"
+        },
+        {
+            "type": "external_link",
+            "value": {
+                "url": "https://media.wnyc.org/media/resources/2022/May/06/accessibility_policy_5.6.22.pdf",
+                "title": "Accessibility"
+            },
+            "id": "14da45df-56cf-464a-8890-b21351cac0a4"
+        }
+    ],
+    "copyright_year": "2023",
+    "property_description": "<p>Gothamist is a website about New York City news, arts, events and food, brought to you by New York Public Radio.</p>"
+}

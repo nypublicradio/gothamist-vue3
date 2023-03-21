@@ -27,8 +27,12 @@ workflows:
       - build:
           <<: *filter_all
       - test_nginx:
-          <<: *filter_all  
+          <<: *filter_all
       - test:
+          <<: *filter_all
+          requires:
+            - build
+      - test_cypress:
           <<: *filter_all
           requires:
             - build
@@ -40,6 +44,7 @@ workflows:
           requires:
             - test
             - test_nginx
+            - test_cypress
       - deploy:
           name: Deploy (prod)
           context: "AWS Deploy"
@@ -48,33 +53,56 @@ workflows:
           requires:
             - test
             - test_nginx
+            - test_cypress
 
-jobs: 
-  # Note (allie): This is its own job because I don't 
+jobs:
+  # Note (allie): This is its own job because I don't
   # want to run the tests in an environment that has the
-  # built project. 
+  # built project.
   build:
     executor: default
     steps:
       - checkout
       - setup_npmrc
-      - run: 
-          name: Assert that it builds
+      - run:
+          name: install dependencies
           command: |
             npm ci
+      - save_cache:
+          key: v3-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+            - /root/.cache/Cypress
+      - run:
+          name: Assert that it builds
+          command: |
             npm run build
 
   test:
     executor: default
     steps:
       - checkout
-      - setup_npmrc
+      - restore_cache:
+          key: v3-deps-{{ checksum "package-lock.json" }}
+      # run test suite
       - run:
           name: Run unit tests
           command: |
-            npm ci
             npx nuxi prepare
-            npm run test      
+            npm run test
+
+  test_cypress:
+    executor: default
+    steps:
+      - checkout
+      - restore_cache:
+          key: v3-deps-{{ checksum "package-lock.json" }}
+      # run test suite
+      - run:
+          name: Run unit tests
+          command: |
+            npx nuxi prepare
+            npm run test-cypress-ci
 
   test_nginx:
     docker:
@@ -96,12 +124,12 @@ jobs:
           command: |
             apt-get update && \
             apt-get install -y nginx-extras
-            mkdir -p /app/nginx 
+            mkdir -p /app/nginx
             cp ./nginx/*.conf /etc/nginx/
             nginx -t
 
   deploy:
-    docker: 
+    docker:
       - image: circleci/python:3.8
     parameters:
       env:
@@ -115,7 +143,7 @@ jobs:
       - checkout
       - setup_npmrc
       - setup_remote_docker:
-          version: 20.10.12            
+          version: 20.10.12
       - run:
           name: Deploy
           environment:
@@ -128,7 +156,7 @@ jobs:
             python3 -m venv ~/.venv
             source ~/.venv/bin/activate
             pip3 install -U git+https://github.com/nypublicradio/nyprsetuptools.git
-            
+
             nyprsetuptools DockerDeploy \
               --fargate \
               --cpu=2048 \
@@ -140,7 +168,7 @@ jobs:
               --task-role=$ROLE \
               --environment=$ENV \
               --tag=$TAG \
-              --wait=300 
+              --wait=300
 
 commands:
   setup_npmrc:
@@ -150,10 +178,10 @@ commands:
           command: |
             echo "@nypublicradio:registry=https://npm.pkg.github.com" > .npmrc
             echo "//npm.pkg.github.com/:_authToken=$PAT" >> .npmrc
-    
+
 executors:
   default:
     docker:
-      - image: cimg/node:16.14.2
-    environment: 
+      - image: cypress/browsers:node-16.18.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
+    environment:
       JOBS: 2

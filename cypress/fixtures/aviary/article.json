@@ -1,0 +1,144 @@
+{
+    "id": 154796,
+    "meta": {
+        "first_published_at": "2023-03-10T13:11:24.478149-05:00",
+        "type": "news.ArticlePage",
+        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154796/",
+        "html_url": "http://cms.prod.nypr.digital/news/extra-extra-meet-connecticuts-answer-to-pizza-rat/",
+        "slug": "extra-extra-meet-connecticuts-answer-to-pizza-rat",
+        "show_in_menus": true,
+        "seo_title": "",
+        "search_description": "",
+        "parent": {
+            "id": 4,
+            "meta": {
+                "type": "standardpages.IndexPage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                "html_url": "http://cms.prod.nypr.digital/news/"
+            },
+            "title": "News"
+        }
+    },
+    "title": "Extra Extra: Meet Connecticut's answer to Pizza Rat",
+    "listing_title": "",
+    "listing_summary": "",
+    "listing_image": null,
+    "social_image": null,
+    "social_title": "",
+    "social_text": "",
+    "show_on_index_listing": true,
+    "uuid": "719d1ae0-9fbe-48c9-a5d1-5b918ed41ffe",
+    "url": "https://gothamist.com/news/extra-extra-meet-connecticuts-answer-to-pizza-rat",
+    "canonical_url": "",
+    "publication_date": "2023-03-10T13:11:24.478149-05:00",
+    "updated_date": null,
+    "description": "Because it's Pizza Eagle, here are your end-of-day links: Anti-terrorism bollards are great for protecting bike lanes, Malachy McCourt is still rockin', the Sweaters of Inisherin and more.",
+    "lead_asset": [
+        {
+            "type": "lead_image",
+            "value": {
+                "image": {
+                    "id": 337194,
+                    "title": "eagle.jpg",
+                    "width": 2048,
+                    "height": 1540,
+                    "created_at": "2023-03-10T13:06:22.064815-05:00",
+                    "focal_point_x": null,
+                    "focal_point_y": null,
+                    "focal_point_width": null,
+                    "focal_point_height": null,
+                    "file_size": 466290,
+                    "file_hash": "3ec2a7b85d696da4a1d4e301c9809282d62b3746",
+                    "alt": "a bald eagle in a tree",
+                    "caption": "",
+                    "credit": "Keith Michael",
+                    "credit_link": "https://flickr.com/photos/keithmichaelnyc/39604706041/in/photolist-23kJtik-KyGG2Y-yiTUqw-Ma7pwg-dHUTrn-DjjPRv-qkpxPE-dL1Wc4-9vJKhp-dNjkqw-dvKvwu-dJg1TM-91vnAA-br9SQo-9TdPsK-aCMwoB-e6W1p3-KFzpxT-C2EPUB-m5pKg2-fbTJWj-e2iZfj-bpFjG9-bD3yeP-du57zX-2ng8Jbn-5oKDjF-2ntzfyA-2kPAi1L-2nkeKLK-RKHVhz-2nTvdN6-feF81i-81Xf6P-5nEoGn-JaYjaL-2og4kn5-QzRSCC-4m5gzG-2mpk17z-2mVT6cM-ecyGP4-gdixpw-5mFB2a-2ki5QVh-iJRv1-9n6gTC-7jF2W3-m29iAp-7G1eNo",
+                    "file": "https://cdn.cms.prod.nypr.digital/original_images/eagle.jpg",
+                    "usage_limitations": "",
+                    "expiry_date": null,
+                    "collection": 1,
+                    "uploaded_by_user": 33
+                },
+                "caption": "",
+                "image_link": ""
+            },
+            "id": "40abd414-9078-401b-9a6d-6b2df45812fb"
+        }
+    ],
+    "body": [
+        {
+            "type": "paragraph",
+            "value": "<p><i>Good Friday afternoon in New York City, where the restaurants are all trying to be</i> <a href=\"https://ny.eater.com/2023/3/10/23609339/modern-luncheonette-diners-trend-butter-and-scotch?_gl=1*m0qpp*\" rel=\"noopener\" target=\"_blank\"><i>luncheonettes</i></a><i>. Here&#x27;s what else is happening:</i></p><ul><li>Newly released economic data shows that New York City gained 235,200 jobs last year — which was 40,000 more than initially predicted, and brings the city&#x27;s employment rate <a href=\"https://www.thecity.nyc/2023/3/9/23632897/jobs-recover-almost-pre-covid-levels\" rel=\"noopener\" target=\"_blank\">very close</a> to what it was right before the pandemic.</li><li>A hit-and-run driver <a href=\"https://abc7ny.com/brooklyn-hit-and-run-bicyclist-struck-nyc-killed/12937176/\" rel=\"noopener\" target=\"_blank\">killed a 56-year-old cyclist</a> in East Williamsburg last night.</li><li>Along Church Street by the World Trade Center, the <a href=\"https://nyc.streetsblog.org/2023/03/09/eyes-on-the-street-church-streets-amazing-and-unwitting-bike-lane/\" rel=\"noopener\" target=\"_blank\">anti-terrorism bollards</a> standing between the roadway and the bike lane have created for a uniquely safe cycling experience.</li><li>Happy early St. Patrick&#x27;s Day to <a href=\"https://www.nytimes.com/2023/03/10/nyregion/malachy-mccourt.html\" rel=\"noopener\" target=\"_blank\">Malachy McCourt</a>, the actor, WBAI radio host and famed raconteur who, at 91, recently graduated (?) from hospice care by surviving so long.</li><li>A bald eagle in Wethersfield, Connecticut is now famous for being caught on camera <a href=\"https://pix11.com/news/pie-in-the-sky-juvenile-bald-eagle-snatches-pizza-slice-in-connecticut/\" rel=\"noopener\" target=\"_blank\">picking up a slice of pizza</a> off the ground.</li><li>A home inspector in Wilmington, North Carolina recently found <a href=\"https://www.insider.com/home-inspector-finds-8-foot-alligator-in-north-carolina-attic-2023-3?_gl=1*1ydl2uw*_ga*MTg0MDI2MzEzNC4xNjI4NTExNTky*_ga_E21CV80ZCZ*MTY3ODQ2NDA4Ny4zMjMuMS4xNjc4NDY0MTAxLjAuMC4w\" rel=\"noopener\" target=\"_blank\">an 8-foot alligator</a> walking around the attic of a house under construction.</li><li>Cincinnati animal care officials announced recently that a serval (a type of wild cat) that was kept illegally as a pet escaped from its owner&#x27;s car during a traffic stop earlier this year, subsequently <a href=\"https://www.npr.org/2023/03/09/1162317306/cocaine-cat-cincinnati-zoo-serval\" rel=\"noopener\" target=\"_blank\">tested positive for cocaine</a>, and is now recuperating safely at the Cincinnati Zoo.</li><li>Van Leeuwen is putting its reputation on the line by making a limited edition <a href=\"https://www.nbcnewyork.com/news/national-international/hidden-valley-ranch-ice-cream-2023/4143450/\" rel=\"noopener\" target=\"_blank\">Hidden Valley Ranch-flavored</a> ice cream that it plans to sell at select Walmart locations.</li><li>Also, happy early St. Patrick&#x27;s Day to the <a href=\"https://www.theguardian.com/fashion/2023/mar/10/say-hello-to-hollywoods-new-darling-the-jumper-of-inisherin\" rel=\"noopener\" target=\"_blank\">Sweaters of Inisherin</a>.</li><li>Follow Gothamist on <a href=\"http://twitter.com/gothamist\" rel=\"noopener\" target=\"_blank\">Twitter</a>,<a href=\"https://instagram.com/gothamist/\" rel=\"noopener\" target=\"_blank\"> Instagram</a>, <a href=\"https://www.youtube.com/gothamist\" rel=\"noopener\" target=\"_blank\">YouTube</a> and<a href=\"http://www.facebook.com/pages/Gothamist/13927915491\" rel=\"noopener\" target=\"_blank\"> like us on Facebook</a>. You can also get the top stories in our daily newsletter — <a href=\"https://gothamist.com/newsletter\" rel=\"noopener\" target=\"_blank\">sign up here.</a></li><li>And finally, they will inherit the Earth:</li></ul>",
+            "id": "db637da2-9f09-445f-8531-56789544276a"
+        },
+        {
+            "type": "embed",
+            "value": {
+                "title": "",
+                "embed": "<div>\n    <blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">cmon mr gator u can do it <a href=\"https://t.co/6NEXNaDTuX\">pic.twitter.com/6NEXNaDTuX</a></p>&mdash; Gators Daily 🐊 (@GatorsDaily) <a href=\"https://twitter.com/GatorsDaily/status/1631406526450798592?ref_src=twsrc%5Etfw\">March 2, 2023</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n</div>\n"
+            },
+            "id": "4fb5129b-6e19-4d30-a257-722c4020205d"
+        }
+    ],
+    "sponsored_content": false,
+    "disable_comments": false,
+    "provocative_content": false,
+    "sensitive_content": false,
+    "related_links": [],
+    "related_authors": [
+        {
+            "id": 35,
+            "first_name": "James",
+            "last_name": "Ramsay",
+            "photo": 327650,
+            "job_title": "Digital Producer",
+            "biography": "",
+            "website": "",
+            "email": "",
+            "slug": "james-ramsay",
+            "social_media_profile": []
+        }
+    ],
+    "related_contributing_organizations": [],
+    "related_sponsors": [],
+    "tags": [
+        {
+            "name": "extra extra",
+            "slug": "extra-extra"
+        }
+    ],
+    "show_as_feature": false,
+    "legacy_id": null,
+    "ancestry": [
+        {
+            "id": 4,
+            "meta": {
+                "type": "standardpages.IndexPage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                "html_url": "http://cms.prod.nypr.digital/news/"
+            },
+            "title": "News",
+            "slug": "news"
+        },
+        {
+            "id": 3,
+            "meta": {
+                "type": "home.HomePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                "html_url": "http://cms.prod.nypr.digital/"
+            },
+            "title": "Gothamist",
+            "slug": "home"
+        },
+        {
+            "id": 1,
+            "meta": {
+                "type": "wagtailcore.Page",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                "html_url": null
+            },
+            "title": "Root",
+            "slug": "root"
+        }
+    ]
+}

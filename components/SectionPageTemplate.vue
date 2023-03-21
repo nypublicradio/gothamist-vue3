@@ -67,7 +67,7 @@ const newsletterSubmitEvent = () => {
         <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
       </div>
       <!-- articles -->
-      <div id="articleList" v-if="articles" class="grid gutter-x-xl">
+      <div id="articleList" v-if="articles" class="grid gutter-x-xl section-river">
         <h2 class="sr-only">Latest {{ page.title }} Articles</h2>
         <div class="col-1 hidden xl:block"></div>
         <div class="col">

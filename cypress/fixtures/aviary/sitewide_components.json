@@ -1,0 +1,8 @@
+{
+    "id": 2,
+    "meta": {
+        "type": "sitewide.SiteWideComponents",
+        "detail_url": "https://cms.prod.nypr.digital/api/v2/sitewide_components/2/"
+    },
+    "breaking_news": []
+}

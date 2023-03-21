@@ -1,0 +1,23 @@
+{
+    "id": 2,
+    "meta": {
+        "type": "utils.SystemMessagesSettings",
+        "detail_url": "https://cms.prod.nypr.digital/api/v2/system_messages/2/"
+    },
+    "product_banners": [
+        {
+            "id": "0e0ebcc5-2dda-4aac-aea5-f079f608aa92",
+            "type": "product_banner",
+            "value": {
+                "title": "Get a Free Gothamist Tote!",
+                "description": "<p>Donate today and receive our new Gothamist rat tote.</p>",
+                "is_live_eligible": true,
+                "start_time": "2023-03-08T16:00:00-05:00",
+                "button_text": "Donate Now",
+                "button_link": "https://pledge.wnyc.org/support/gothamist/?utm_source=gothamist-dot-com&utm_campaign=march23-rat-tote&",
+                "frequency": 72,
+                "location": "BOTTOM"
+            }
+        }
+    ]
+}
