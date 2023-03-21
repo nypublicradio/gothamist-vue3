@@ -119,7 +119,7 @@ const onCtaClick = () => {
     z-index: 2;
     width: 50px;
     @include media('<sm') {
-      margin-left: -50px;
+      margin-left: -30px;
     }
   }
 }
