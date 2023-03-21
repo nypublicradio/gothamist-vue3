@@ -14,12 +14,14 @@ const props = defineProps({
 
 <template>
   <div>
+    <slot name="before" />
     <BasicGiftImage
       filename="rat-tote.webp"
       alt="Gothamist rat totes bag"
       :maxWidth="props.maxWidth"
       :maxHeight="props.maxHeight"
     />
+    <slot name="after" />
   </div>
 </template>
 

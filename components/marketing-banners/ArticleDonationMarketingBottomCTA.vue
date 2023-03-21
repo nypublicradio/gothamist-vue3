@@ -58,15 +58,16 @@ const onCtaClick = () => {
         </div>
       </div>
     </div>
-    <div
-      class="flex flex-none relative sm:align-items-start flex-column sm:flex-row"
-    >
-      <img
-        class="burst"
-        src="/marketing-modal/free-burst.svg"
-        alt="free burst icon"
-      />
-      <TheGift maxHeight="135px" />
+    <div class="flex flex-none align-items-center flex-column sm:flex-row">
+      <TheGift maxHeight="135px" class="flex gap-1 align-items-start">
+        <template #before>
+          <img
+            class="burst"
+            src="/marketing-modal/free-burst.svg"
+            alt="free burst icon"
+          />
+        </template>
+      </TheGift>
       <Button
         class="cta-btn p-button-rounded px-3 py-2 mt-3 sm:hidden"
         :label="buttonText"
@@ -116,10 +117,9 @@ const onCtaClick = () => {
   }
   .burst {
     z-index: 2;
+    width: 50px;
     @include media('<sm') {
-      width: 50px;
-      position: absolute;
-      left: -45px;
+      margin-left: -50px;
     }
   }
 }
