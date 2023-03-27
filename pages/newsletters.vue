@@ -18,11 +18,18 @@ const submissionStatus = ref<string>(null)
 const selectedLists = ref<Array<string>>(newsletters.map(newsletter => newsletter.id))
 const agree = ref(true)
 const email = ref<string>(null)
+const formIsValid = computed(() => {
+  return selectedLists.value.length > 0 &&
+  agree.value &&
+  email.value
+})
 
 const submitForm = (event) => {
+  if (!formIsValid.value) {
+    return event.preventDefault()
+  }
   isSubmitting.value = true
   submissionStatus.value = null
-  console.log('Signing up', email.value, ' to ', selectedLists.value.join('++'))
   submissionStatus.value = 'success'
   $fetch(config.NEWSLETTER_API, {
     method: 'POST',
@@ -39,7 +46,7 @@ const submitForm = (event) => {
     submissionStatus.value = 'error'
     isSubmitting.value = false
   })
-    event.preventDefault()
+  return event.preventDefault()
 }
 
 </script>
@@ -99,8 +106,10 @@ const submitForm = (event) => {
               >.
             </label>
             <Button
-              :disabled="selectedLists.length < 1 || !agree || !email"
-              type="submit"
+              id="sign-up"
+              :class="!formIsValid ? 'disabled' : ''"
+              :aria-disabled="!formIsValid"
+              :type="formIsValid ? 'submit' : 'button'"
               class="submit-btn p-button-rounded"
               label="Sign Up"
               aria-label="Sign Up"
@@ -122,6 +131,13 @@ const submitForm = (event) => {
 </template>
 
 <style lang="scss">
+.p-button.disabled {
+  opacity: var(--disabled-opacity);
+  color: var(--text-color);
+  background: var(--disabled-background);
+  color: var(--button-text-disabled-color);
+  cursor: not-allowed;
+}
 .newsletter-page .content {
   display: flex;
   justify-content: space-around;
@@ -156,7 +172,6 @@ const submitForm = (event) => {
   font-family: var(--font-family-header);
   font-size: var(--font-size-6);
 }
-
 .newsletter-agree label {
   font-size: var(--font-size-3);
   line-height: 1.25;
