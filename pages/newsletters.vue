@@ -24,22 +24,22 @@ const submitForm = (event) => {
   submissionStatus.value = null
   console.log('Signing up', email.value, ' to ', selectedLists.value.join('++'))
   submissionStatus.value = 'success'
-  event.preventDefault()
-  // $fetch(config.NEWSLETTER_API, {
-  //   method: 'POST',
-  //   body: {
-  //     source: 'gothamist',
-  //     list: selectedLists.value.join('++'),
-  //     email: email
-  //   },
-  // })
-  //   .then(() => {
-  //     submissionStatus.value = 'success'
-  //   })
-  //   .catch(() => {
-  //     submissionStatus.value = 'error'
-  //     isSubmitting.value = false
-  //   })
+  $fetch(config.NEWSLETTER_API, {
+    method: 'POST',
+    body: {
+      source: 'gothamist',
+      list: selectedLists.value.join('++'),
+      email: email.value
+    },
+  })
+  .then(() => {
+    submissionStatus.value = 'success'
+  })
+  .catch(() => {
+    submissionStatus.value = 'error'
+    isSubmitting.value = false
+  })
+    event.preventDefault()
 }
 
 </script>
