@@ -210,8 +210,8 @@ const submitForm = (event) => {
     display: flex;
     justify-content: center;
     .phone {
-      height: 70vh;
-      width: calc(70vh * 9/17);
+      height: 60vh;
+      width: calc(60vh * 9/17);
       overflow: hidden;
       border: 6px solid black;
       border-radius: 5vh;
