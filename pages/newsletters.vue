@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const config = useRuntimeConfig()
 const newsletters = [
   {
     title: "Gothamist Daily",
@@ -121,7 +122,7 @@ const submitForm = (event) => {
             <div class="notch-container">
                   <div class="notch"></div>
             </div>
-            <img src="/newsletter-preview.png" srcset="newsletter-preview@2x.png 2x, newsletter-preview@3x.png 3x" alt="">
+            <img src="/newsletter-preview.png" srcset="/newsletter-preview@2x.png 2x, /newsletter-preview@3x.png 3x" alt="">
           </div>
         </div>
       </div>
