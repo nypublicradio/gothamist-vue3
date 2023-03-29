@@ -91,7 +91,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
       diversityPolicy: 'https://www.nypublicradio.org/diversity-dei-overview/'
     }
 
-    const authors = article.authors?.map((author) => {
+    const author = article.authors?.map((author) => {
       return {
         '@type': 'Person',
         name: author.name,
@@ -127,7 +127,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
           description: article.searchDescription,
           datePublished: article.publicationDate,
           dateModified: article.updatedDate,
-          authors,
+          author,
           publisher,
           isAccessibleForFree: true
         },
