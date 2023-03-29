@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
 const newsletters = [
   {
     title: "Gothamist Daily",
@@ -122,7 +121,7 @@ const submitForm = (event) => {
             <div class="notch-container">
                   <div class="notch"></div>
             </div>
-            <img src="" alt="">
+            <img src="/newsletter-preview.png" srcset="newsletter-preview@2x.png 2x, newsletter-preview@3x.png 3x" alt="">
           </div>
         </div>
       </div>
@@ -212,21 +211,27 @@ const submitForm = (event) => {
     display: flex;
     justify-content: center;
     .phone {
-      min-width: 200px;
-      min-height: 355px;
+      height: 70vh;
+      width: calc(70vh * 9/17);
+      overflow: hidden;
       border: 6px solid black;
-      border-radius: 40px;
+      border-radius: 5vh;
       background: #fff;
       box-shadow: 0px 20px 20px 0px rgba(0,0,0,0.1);
+      img {
+        width: 100%;
+        margin-top: -2.5vh;
+      }
     }
     .notch-container {
       display: flex;
       justify-content: center;
       .notch {
+        z-index: 1;
         width: 50%;
-        border: 20px solid black;
+        border: 2.5vh solid black;
         border-top: 0;
-        border-radius: 0 0 16px 16px;
+        border-radius: 0 0 2vh 2vh;
       }
     }
   }
