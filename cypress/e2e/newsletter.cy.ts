@@ -20,7 +20,6 @@ describe('The newsletter page', () => {
     cy.get('.newsletter-form').contains('Thank you for signing up!')
   })
   it("should be disabled when there are form errors", () => {
-    let called = 0;
     const spy = cy.spy()
     cy.intercept('email-proxy/subscribe', spy)
 

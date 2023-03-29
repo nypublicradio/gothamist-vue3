@@ -59,9 +59,7 @@ const submitForm = (event) => {
           <h1>Newsletters</h1>
           <p>Get the news New Yorkers need in your inbox.</p>
           <div class="field">
-            <label for="email"
-              >Email address</label
-            >
+            <label for="email">Email address</label>
             <InputText
               class="w-full p-inputtext-lg"
               type="email"
@@ -75,7 +73,7 @@ const submitForm = (event) => {
             />
           </div>
           <div class="newsletter-list">
-            <div v-for="(newsletter, index) in newsletters" key="newsletter.id" class="newsletter-list-item">
+            <div v-for="(newsletter, index) in newsletters" :key="newsletter.id" class="newsletter-list-item">
               <div class="newsletter-checkbox">
                 <Checkbox
                 :id="`newsletter-${index}`"
