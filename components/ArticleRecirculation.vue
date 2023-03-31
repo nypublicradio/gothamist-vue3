@@ -109,7 +109,7 @@ onMounted(async () => {
           >
             <p>
               {{ articleMd?.description }}
-            </p>g
+            </p>
             <v-card-metadata
               :article="articleMd"
               @link-click="$event => card.trackClick($event)"
