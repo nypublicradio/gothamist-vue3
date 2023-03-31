@@ -1,84 +1,110 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
-import { ArticlePage } from '~~/composables/types/Page.js'
-import Navigation from '~~/composables/types/Navigation.js'
+import { ref } from 'vue'
+import { ArticlePage } from '~~/composables/types/Page';
+import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 
 const props = defineProps<{
-  articles: ArticlePage[]
-  navigation: Navigation
+  articles: ArticlePage[],
+  trackingComponentLocation: string
 }>()
-const trackingComponentLocation = "Homepage Topper"
 const trackingComponent = "Homepage Topper"
 
-const featuredArticle = computed(() => props.articles[0])
-const latestArticles = computed(() => {
-  return (
-    props.articles
-      .slice(1)
-      // remove the manually curated featured article
-      // from the list of latest articles so it
-      // doesn't show up twice in this module
-      .filter((article) => article.uuid !== featuredArticle.value.uuid)
-      .slice(0, 4)
-  )
-})
+const [featureLarge, featureMedium, ...latestArticles] = props.articles
 </script>
 
-<template v-if="featuredArticle && latestArticles">
-  <div class="homepage-topper grid mb-6 gutter-x-30">
-    <h2 class="sr-only">Featured Article</h2>
-    <div class="col-12 xl:col-8">
-      <gothamist-card
-        v-slot="card"
-        :article="featuredArticle"
-        class="featured-article mod-vertical mod-featured mod-large"
-        :width="897"
-        :height="598"
-        loading="eager"
-        :trackClicks="true"
-        :trackingComponentLocation="trackingComponentLocation"
-        :trackingComponent="trackingComponent"
-        :trackingComponentPosition="1"
-      >
-        <v-card-metadata
-          altDesign
-          :article="featuredArticle"
-          @link-click="$event => card.trackClick($event)"
-        />
-      </gothamist-card>
-    </div>
-    <div class="col-12 xl:col-4 flex flex-column justify-content-end">
-      <hr class="black mb-1" />
-      <v-flexible-link
-        class="mb-3 -ml-3"
-        to="#latest"
-        raw
-        role="heading"
-        aria-level="2"
-      >
-        <Button
-          class="p-button-text p-button-rounded button-pill-icon"
-          icon="pi pi-arrow-right ml-2"
-          iconPos="right"
-          label="LATEST"
-        />
-      </v-flexible-link>
-      <div v-for="(article, index) in latestArticles" :key="article.uuid">
+<template>
+  <div v-if="featureLarge && featureMedium && latestArticles" class="homepage-topper">
+    <div class="sr-only" role="heading" aria-level="2">Featured Articles</div>
+    <div class="grid gutter-x-30">
+      <div class="col-fixed flex-order-2 lg:flex-order-1">
+        <!-- md article desktop  -->
+        <gothamist-card
+          v-slot="card"
+          :article="featureMedium"
+          class="hidden lg:flex article-md mod-vertical mod-large mb-5 tag-small"
+          :width="433"
+          :height="289"
+          loading="eager"
+          :trackClicks="true"
+          :trackingComponentLocation="trackingComponentLocation"
+          trackingComponent="Center Feature"
+          :trackingComponentPosition="2"
+        >
+          <p>
+            {{ featureMedium.description }}
+          </p>
+          <v-card-metadata
+            stack
+            :article="featureMedium"
+            :showComments="false"
+            @link-click="$event => card.trackClick($event)"
+          />
+        </gothamist-card>
+        <!-- md article mobile  -->
+        <gothamist-card
+          v-slot="card"
+          :article="featureMedium"
+          class="flex lg:hidden article-md mod-horizontal mod-left tag-small mb-2"
+          :width="318"
+          :height="212"
+          :trackClicks="true"
+          :trackingComponentLocation="trackingComponentLocation"
+          :trackingComponent="trackingComponent"
+          :trackingComponentPosition="2"
+        >
+          <p>
+            {{ featureMedium.description }}
+          </p>
+          <v-card-metadata
+            :article="featureMedium"
+            @link-click="$event => card.trackClick($event)"
+          />
+        </gothamist-card>
+        <div class="hidden lg:block mb-4 xl:mb-7">
+          <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
+        </div>
+      </div>
+      <div class="col flex-order-1 lg:flex-order-2">
+        <gothamist-card
+          v-slot="card"
+          :article="featureLarge"
+          class="article-lg mod-vertical mod-large mb-4"
+          :image="useImageUrl(featureLarge.listingImage)"
+          :width="700"
+          :height="467"
+          :trackClicks="true"
+          :trackingComponentLocation="trackingComponentLocation"
+          :trackingComponent="trackingComponent"
+          :trackingComponentPosition="1"
+        >
+          <v-card-metadata
+            class="mt-0 md:mt-2"
+            altDesign
+            :article="featureLarge"
+            @link-click="$event => card.trackClick($event)"
+          />
+        </gothamist-card>
+        <hr class="block lg:hidden black mb-4" />
+      </div>
+
+      <div class="col-3 flex-order-3">
+        <hr class="block lg:hidden black mb-5" />
+        <v-tag class="tag-small block mb-3" role="heading" aria-level="2" name="Latest" slug="/#latest" />
+        <div v-for="(article, index) in latestArticles" :key="article.uuid">
         <gothamist-card
           v-slot="card"
           :article="article"
-          :id="index === 3 ? 'ntv-latest-1' : ''"
-          class="mod-horizontal mod-left mod-small mb-3 tag-small"
-          :width="158"
-          :height="105"
+          :id="index === 4 ? 'ntv-latest-1' : ''"
+          class="mod-horizontal mod-left mod-small mb-0"
+          :width="106"
+          :height="106"
+          :ratio="[1, 1]"
           :sizes="[2]"
           :hide-tags="true"
           :trackClicks="true"
           :trackingComponentLocation="trackingComponentLocation"
           :trackingComponent="trackingComponent"
-          :trackingComponentPosition="index + 2"
+          :trackingComponentPosition="index + 3"
         >
           <div></div>
           <v-card-metadata
@@ -87,18 +113,65 @@ const latestArticles = computed(() => {
             @link-click="$event => card.trackClick($event)"
           />
         </gothamist-card>
-        <hr class="my-3 block" />
+        <hr v-if="index < 4" class="my-3 block" />
       </div>
-      <div class="mb-1">
-        <HtlAd
-          layout="rectangle"
-          slot="htlad-gothamist_index_topper"
-          fineprint="Gothamist is funded by sponsors and member donations"
-          fineprintClass="text-center"
-        />
+        <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
+          <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.homepage-topper {
+  --tag-bg: transparent;
+  .col-fixed {
+    width: $col-fixed-width-330;
+    @include media('<lg') {
+      width: 100%;
+    }
+  }
+  .col {
+    @include media('<xl') {
+      width: auto;
+    }
+    @include media('<lg') {
+      width: 100%;
+    }
+  }
+  .col-3 {
+    width: $col-fixed-width-330;
+    @include media('<xl') {
+      width: 100%;
+    }
+  }
+  .v-card {
+    background: transparent;
+    &.article-sm {
+      .card-title-link .h2 {
+        font-weight: 600 !important;
+      }
+      .card-slot {
+        justify-content: end;
+      }
+    }
+    &.article-md {
+      gap: 1rem !important;
+      // custom size of title and v-tag placement
+      @include media('>=lg') {
+        .card-details .card-title {
+          .flexible-link {
+            .h2 {
+              @include font-config($type-header5);
+            }
+          }
+          .v-tag {
+            margin-top: -4px;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

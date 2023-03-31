@@ -31,8 +31,8 @@ const [articles, homePageCollections] = await Promise.all([
 // the latest articles
 const latestArticles = ref([...articles])
 
-// the home page featured article should display only the first story in the home page content collection
-const featuredArticle = normalizeArticlePage(homePageCollections?.[0].data?.[0])
+// the home page featured article should display only the first and second story in the home page content collection
+const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
 
 const riverSegments = computed(() => {
   let riverCopy = latestArticles.value.slice()
@@ -93,6 +93,7 @@ const nativoSectionLoaded = (name) => {
     }
   }
 }
+
 </script>
 
 <template>
@@ -100,9 +101,9 @@ const nativoSectionLoaded = (name) => {
     <section>
       <div class="content pt-1">
         <gothamist-homepage-topper
-          :articles="[featuredArticle, ...latestArticles]"
-          :navigation="navigation"
+          :articles="[...featuredArticles, ...articles]"
           @vue:mounted="nativoSectionLoaded('ntv-latest-1')"
+          tracking-component-location=""
         />
         <!-- newsletter -->
         <div class="mt-8">
