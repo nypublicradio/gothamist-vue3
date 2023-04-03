@@ -102,7 +102,7 @@ const latestArticles = ref([
           <gothamist-card
             v-slot="card"
             :article="article"
-            :id="index === 4 ? 'ntv-latest-1' : ''"
+            :id="index === 3 ? 'ntv-latest-1' : ''"
             class="mod-horizontal mod-left mod-small mb-0"
             :width="106"
             :height="106"
