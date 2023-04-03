@@ -9,7 +9,15 @@ const props = defineProps<{
 }>()
 const trackingComponent = "Homepage Topper"
 
-const [featureLarge, featureMedium, ...latestArticles] = props.articles
+const featureLarge = ref(props.articles?.[0])
+const featureMedium = ref(props.articles?.[1])
+const latestArticles = ref([
+  props.articles?.[2],
+  props.articles?.[3],
+  props.articles?.[4],
+  props.articles?.[5],
+])
+
 </script>
 
 <template>
@@ -90,31 +98,31 @@ const [featureLarge, featureMedium, ...latestArticles] = props.articles
       <div class="col-3 flex-order-3">
         <hr class="block lg:hidden black mb-5" />
         <v-tag class="tag-small block mb-3" role="heading" aria-level="2" name="Latest" slug="/#latest" />
-        <div v-for="(article, index) in latestArticles" :key="article.uuid">
-        <gothamist-card
-          v-slot="card"
-          :article="article"
-          :id="index === 4 ? 'ntv-latest-1' : ''"
-          class="mod-horizontal mod-left mod-small mb-0"
-          :width="106"
-          :height="106"
-          :ratio="[1, 1]"
-          :sizes="[2]"
-          :hide-tags="true"
-          :trackClicks="true"
-          :trackingComponentLocation="trackingComponentLocation"
-          :trackingComponent="trackingComponent"
-          :trackingComponentPosition="index + 3"
-        >
-          <div></div>
-          <v-card-metadata
+        <div v-for="(article, index) in latestArticles" :key="article.uuid" class="homepage-topper-latest">
+          <gothamist-card
+            v-slot="card"
             :article="article"
-            :showComments="false"
-            @link-click="$event => card.trackClick($event)"
-          />
-        </gothamist-card>
-        <hr v-if="index < 4" class="my-3 block" />
-      </div>
+            :id="index === 4 ? 'ntv-latest-1' : ''"
+            class="mod-horizontal mod-left mod-small mb-0"
+            :width="106"
+            :height="106"
+            :ratio="[1, 1]"
+            :sizes="[2]"
+            :hide-tags="true"
+            :trackClicks="true"
+            :trackingComponentLocation="trackingComponentLocation"
+            :trackingComponent="trackingComponent"
+            :trackingComponentPosition="index + 3"
+          >
+            <div></div>
+            <v-card-metadata
+              :article="article"
+              :showComments="false"
+              @link-click="$event => card.trackClick($event)"
+            />
+          </gothamist-card>
+          <hr v-if="index < 4" class="my-3 block" />
+        </div>
         <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
           <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
         </div>
@@ -144,6 +152,16 @@ const [featureLarge, featureMedium, ...latestArticles] = props.articles
     width: $col-fixed-width-330;
     @include media('<xl') {
       width: 100%;
+    }
+  }
+  .homepage-topper-latest {
+    .v-card.mod-small .image-with-caption {
+      width: var(--img-width-mobile) !important;
+    }
+    @include media('<sm') {
+      .v-card.mod-small .image-with-caption {
+        width: 66px !important;
+      }
     }
   }
   .v-card {
