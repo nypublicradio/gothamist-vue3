@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { ArticlePage } from '~~/composables/types/Page';
 
 const props = defineProps<{
-  collection: {label: string, data: ArticlePage[]},
+  collection: {label?: string, data: ArticlePage[]},
   trackingComponentLocation: string
 }>()
 const trackingComponent = "Center Feature"
