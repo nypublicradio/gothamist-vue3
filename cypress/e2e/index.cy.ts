@@ -39,8 +39,10 @@ describe('The home page', () => {
     cy.get('.left-feature').should('exist')
     cy.get('.left-feature .gothamist-card:not(.hidden)').should('have.length', 4)
     cy.get('.boroughs').should('exist')
+    cy.get('#ntv-stream-2').should('exist')
     cy.get('#articleList').should('exist')
     cy.get('#articleList .gothamist-card:not(.hidden)').should('have.length', 6)
+    cy.get('#articleList .gothamist-card:not(.hidden)').eq(1).should('have.attr', 'id', 'ntv-stream-3')
   })
   it('displays cards correctly', () => {
     cy.visit('/')
