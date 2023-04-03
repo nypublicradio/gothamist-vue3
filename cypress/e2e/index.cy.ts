@@ -32,6 +32,7 @@ describe('The home page', () => {
     cy.wait(['@index','@latest'])
     cy.get('.homepage-topper').should('exist')
     cy.get('.homepage-topper .gothamist-card:not(.hidden)').should('have.length', 6)
+    cy.get('.homepage-topper .gothamist-card:not(.hidden)').eq(5).should('have.attr', 'id', 'ntv-latest-1')
     cy.get('.newsletter-home').should('exist')
     cy.get('.center-feature').should('exist')
     cy.get('.center-feature .gothamist-card:not(.hidden)').should('have.length', 6)
@@ -39,7 +40,7 @@ describe('The home page', () => {
     cy.get('.left-feature .gothamist-card:not(.hidden)').should('have.length', 4)
     cy.get('.boroughs').should('exist')
     cy.get('#articleList').should('exist')
-    cy.get('#articleList .gothamist-card').should('have.length', 6)
+    cy.get('#articleList .gothamist-card:not(.hidden)').should('have.length', 6)
   })
   it('displays cards correctly', () => {
     cy.visit('/')
