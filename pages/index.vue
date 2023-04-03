@@ -124,6 +124,12 @@ const nativoSectionLoaded = (name) => {
             :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
+          <left-feature
+            class="content"
+            v-if="collection.layout === 'left-feature'"
+            :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
+            :collection="collection"
+          />
           <center-feature
             class="content"
             v-if="collection.layout === 'center-feature'"
