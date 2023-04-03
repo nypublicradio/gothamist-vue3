@@ -121,7 +121,7 @@ const latestArticles = ref([
               @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
-          <hr v-if="index < 4" class="my-3 block" />
+          <hr v-if="index < 3" class="my-3 block" />
         </div>
         <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
           <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
