@@ -31,7 +31,7 @@ describe('The home page', () => {
     cy.visit('/')
     cy.wait(['@index','@latest'])
     cy.get('.homepage-topper').should('exist')
-    cy.get('.homepage-topper .gothamist-card').should('have.length', 5)
+    cy.get('.homepage-topper .gothamist-card:not(.hidden)').should('have.length', 6)
     cy.get('.newsletter-home').should('exist')
     cy.get('.center-feature').should('exist')
     cy.get('.center-feature .gothamist-card:not(.hidden)').should('have.length', 6)
