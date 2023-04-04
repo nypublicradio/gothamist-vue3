@@ -11,7 +11,7 @@ describe('The newsletter page', () => {
       'email-proxy/subscribe',
       req => {
         expect(req.body.email).to.eq(emailAddress)
-        expect(req.body.list).to.eq('Gothamist++We The Commuters')
+        expect(req.body.list).to.eq('Gothamist++We The Commuters++Politics Brief')
         expect(req.body.source).to.eq('gothamist')
     })
     cy.visit('/newsletters')

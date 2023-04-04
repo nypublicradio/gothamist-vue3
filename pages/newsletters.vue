@@ -9,6 +9,10 @@ const newsletters = [
     title: "We the Commuters",
     id: "We The Commuters",
     description: "Essential transportation coverage to your inbox every Thursday."
+  },{
+    title: "Politics Brief",
+    id: "Politics Brief",
+    description: "Everything you need to know as a voter in New York or New Jersey."
   }
 ]
 
@@ -83,7 +87,7 @@ const submitForm = (event) => {
               </div>
               <div class="newsletter-info">
                 <div><label :for="`newsletter-${index}`">{{newsletter.title}}</label></div>
-                <div>{{newsletter.description}}</div>            
+                <div>{{newsletter.description}}</div>
               </div>
             </div>
           </div>
@@ -154,7 +158,7 @@ const submitForm = (event) => {
   min-height: 64px;
   padding: 10px;
   position: fixed;
-  left: 0;  
+  left: 0;
   bottom: 0;
   @include media('>md') {
     position: static;
@@ -196,12 +200,22 @@ const submitForm = (event) => {
   flex-direction: column;
   color: var(--text-color);
   font-family: var(--font-family-header);
-  font-size: var(--font-size-6);
+  font-size: var(--font-size-5);
   letter-spacing: -.02em;
-  line-height: var(--font-size-6);
+  line-height: var(--font-size-5);
+  @include media('>md') {
+    flex-direction: row;
+    > div:first-child {
+      flex: 0 0 140px;
+    }
+  }
+  > div:nth-child(2) {
+    font-size: var(--font-size-4);
+  }
 }
-.newsletter-info b {
+.newsletter-info label {
   display: inline-block;
+  font-weight: 600;
   margin-bottom: 4px;
 }
 .newsletter-page .hero {
