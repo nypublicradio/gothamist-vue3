@@ -101,7 +101,7 @@ const nativoSectionLoaded = (name) => {
     <section>
       <div class="content pt-1">
         <gothamist-homepage-topper
-          :articles="[...featuredArticles, ...articles]"
+          :articles="[featuredArticles[0], featuredArticles[1], ...articles]"
           @vue:mounted="nativoSectionLoaded('ntv-latest-1')"
           tracking-component-location=""
         />
