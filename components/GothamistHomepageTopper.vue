@@ -96,7 +96,7 @@ const latestArticles = ref([
       </div>
 
       <div class="col-3 flex-order-3">
-        <hr class="block lg:hidden black mb-5" />
+        <hr class="block lg:hidden black mb-4" />
         <v-tag class="tag block mb-3" role="heading" aria-level="2" name="Latest" slug="/#latest" />
         <div v-for="(article, index) in latestArticles" :key="article.uuid" class="homepage-topper-latest">
           <gothamist-card
