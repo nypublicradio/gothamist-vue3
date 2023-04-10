@@ -21,12 +21,13 @@ const latestArticles = ref([
 </script>
 
 <template>
-  <div v-if="featureLarge && featureMedium && latestArticles" class="homepage-topper">
+  <div class="homepage-topper">
     <div class="sr-only" role="heading" aria-level="2">Featured Articles</div>
     <div class="grid gutter-x-30">
       <div class="col-fixed flex-order-2 lg:flex-order-1">
         <!-- md article desktop  -->
         <gothamist-card
+          v-if="featureMedium"
           v-slot="card"
           :article="featureMedium"
           class="hidden lg:flex article-md mod-vertical mod-large mb-5 tag-small"
@@ -50,6 +51,7 @@ const latestArticles = ref([
         </gothamist-card>
         <!-- md article mobile  -->
         <gothamist-card
+          v-if="featureMedium"
           v-slot="card"
           :article="featureMedium"
           class="flex lg:hidden article-md mod-horizontal mod-left tag-small mb-2"
@@ -74,6 +76,7 @@ const latestArticles = ref([
       </div>
       <div class="col flex-order-1 lg:flex-order-2">
         <gothamist-card
+          v-if="featureLarge"
           v-slot="card"
           :article="featureLarge"
           class="article-lg mod-vertical mod-large mb-4"
