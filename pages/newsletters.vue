@@ -4,7 +4,7 @@ const newsletters = [
   {
     title: "Gothamist Daily",
     id: "Gothamist",
-    description: "A daily roundup of the most important NYC headlines, delivered every day at 5pm"
+    description: "Get the local news you need delivered to your inbox."
   },{
     title: "We the Commuters",
     id: "We The Commuters",
