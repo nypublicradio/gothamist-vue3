@@ -13,7 +13,7 @@ const props = defineProps({
   // This "source" field is to capture the location and site as part of the record in the CRM
   source: {
     type: String,
-    default: 'gothamist',
+    default: 'gothamist_newsletter_landing_page',
   },
   altDesign: {
     type: Boolean,
