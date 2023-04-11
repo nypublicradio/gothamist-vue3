@@ -53,6 +53,9 @@ function normalizeAuthor(author: Record<string, any>): Author {
 
 // Transform page data from the API into a simpler and typed format
 export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
+    if (!article) {
+        return null
+    }
     return Object.assign({}, normalizePage(article), {
         description: article.description,
         image: article.leadAsset?.[0]?.value?.image ?? article.leadAsset?.[0]?.value?.defaultImage,

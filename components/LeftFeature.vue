@@ -12,11 +12,10 @@ const props = withDefaults(defineProps<{
 
 const articleLg = ref(normalizeArticlePage(props.collection.data?.[0]))
 const articleMd = ref(normalizeArticlePage(props.collection.data?.[1]))
-const articlesSm = ref([
-  normalizeArticlePage(props.collection.data?.[2]),
-  normalizeArticlePage(props.collection.data?.[3]),
-  normalizeArticlePage(props.collection.data?.[4]),
-])
+const articlesSm = ref([])
+props.collection.data?.[2] && articlesSm.value.push(normalizeArticlePage(props.collection.data?.[2]))
+props.collection.data?.[3] && articlesSm.value.push(normalizeArticlePage(props.collection.data?.[3]))
+props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.collection.data?.[4]))
 </script>
 
 <template>
@@ -25,11 +24,12 @@ const articlesSm = ref([
       <hr class="black" />
       <div class="type-label3 mt-2 mb-4" role="heading" aria-level="2">{{ collection.label }}</div>
     </template>
-    <div>
-      <div v-if="articleLg && articleMd && articlesSm" class="left-feature">
+    <div v-if="articleLg && articleMd">
+      <div class="left-feature">
         <div class="grid gutter-x-30">
           <div class="col-12 xl:col-8">
             <gothamist-card
+              v-if="articleLg"
               v-slot="card"
               :article="articleLg"
               class="article-lg mod-vertical mod-featured2 mod-large mb-4"
@@ -54,6 +54,7 @@ const articlesSm = ref([
           <div class="col-12 xl:col-4">
             <!-- md article desktop  -->
             <gothamist-card
+              v-if="articleMd"
               v-slot="card"
               :article="articleMd"
               class="hidden xl:flex article-md mod-vertical mod-large mb-5"
@@ -77,6 +78,7 @@ const articlesSm = ref([
             </gothamist-card>
             <!-- md article mobile  -->
             <gothamist-card
+              v-if="articleMd"
               v-slot="card"
               :article="articleMd"
               class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
@@ -93,7 +95,7 @@ const articlesSm = ref([
               />
             </gothamist-card>
             <hr class="my-3" />
-            <horizontal-drag :items="articlesSm" v-slot="slotProps">
+            <horizontal-drag v-if="articlesSm" :items="articlesSm" v-slot="slotProps">
               <gothamist-card
                 v-slot="card"
                 :article="slotProps.item"
