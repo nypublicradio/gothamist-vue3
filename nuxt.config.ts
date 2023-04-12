@@ -95,6 +95,8 @@ export default defineNuxtConfig({
       betaUrl: '//beta.gothamist.com',
       LIVESTREAM_URL: process.env['LIVESTREAM_URL'] || 'https://api.demo.nypr.digital/api/v4/whats_on/',
       NEWRELIC_AGENT: process.env['NEWRELIC_AGENT'] || 'newrelic-dev.js',
+      OPTIN_MONSTER_ACCOUNT_ID: process.env['OPTIN_MONSTER_ACCOUNT_ID'] || '267513',
+      OPTIN_MONSTER_USER_ID: process.env['OPTIN_MONSTER_USER_ID'] || '250465',
     }
   },
   ssr: Boolean(process.env['NUXT_SSR'] !== 'false'),
