@@ -35,6 +35,8 @@ describe('The home page', () => {
     cy.get('.newsletter-home').should('exist')
     cy.get('.center-feature').should('exist')
     cy.get('.center-feature .gothamist-card:not(.hidden)').should('have.length', 6)
+    cy.get('.left-feature').should('exist')
+    cy.get('.left-feature .gothamist-card:not(.hidden)').should('have.length', 4)
     cy.get('.boroughs').should('exist')
     cy.get('#articleList').should('exist')
     cy.get('#articleList .gothamist-card').should('have.length', 6)
