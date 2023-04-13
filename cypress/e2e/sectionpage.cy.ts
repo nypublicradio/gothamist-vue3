@@ -53,6 +53,18 @@ describe('A section page', () => {
         cy.get('#articleList').should('exist')
         cy.get('#articleList .gothamist-card').should('have.length', 20)
     })
+    it('displays cards correctly', () => {
+        cy.visit('/news')
+        cy.wait('@sectionArticles')
+        cy.get('.gothamist-card').first().find('.image-with-caption').should('exist')
+        cy.get('.gothamist-card').first().find('.card-title .h2').first().should('not.be.empty')
+        cy.get('.gothamist-card').first().find('.card-slot').first().should('not.be.empty')
+        cy.get('.gothamist-card').first().find('a.v-byline-author-name').first().should('not.be.empty')
+        cy.get('.gothamist-card').eq(2).find('.image-with-caption').should('exist')
+        cy.get('.gothamist-card').eq(2).find('.card-title .h2').first().should('not.be.empty')
+        cy.get('.gothamist-card').eq(2).find('.card-slot').first().should('not.be.empty')
+        cy.get('.gothamist-card').first().find('a.v-byline-author-name').first().should('not.be.empty')
+      })
     it('loads more', () => {
         cy.visit('/news')
         cy.wait('@sectionArticles')
