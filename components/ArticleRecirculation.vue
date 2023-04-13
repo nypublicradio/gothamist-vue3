@@ -25,7 +25,7 @@ const articles = await findArticlePages({
   sponsored_content: false,
   descendant_of: sectionId,
   limit: 6,
-}).then(({ data }) => normalizeFindArticlePagesResponse(data))
+}).then(({ data }) => data.value.items)
 
 // remove the current article from the list of articles
 const articlesFiltered = articles.filter(
