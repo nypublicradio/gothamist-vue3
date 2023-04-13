@@ -1,7 +1,7 @@
 import { GalleryPage } from "../types/Page"
 import Slide from "../types/Slide"
 import Image from "../types/Image"
-import { normalizePage } from "./pages"
+import { normalizePage } from "./basePages"
 import { normalizeArticlePage } from "./articlePages"
 
 // Take a slide and return an image, with the caption override applied if it exists
