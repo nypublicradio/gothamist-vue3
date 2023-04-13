@@ -1,9 +1,9 @@
 import { ArticlePage } from "../types/Page"
-import { normalizePage } from "./pages"
+import { normalizePage } from "./basePages"
 import Author from '../types/Author'
 
 // Get a list of article pages using the Aviary /pages api
-export async function findArticlePages(queryParams: any) {
+export function findArticlePages(queryParams: any) {
     const defaultParams = {
         type: 'news.ArticlePage',
         fields: ['ancestry', 'description', 'lead_asset', 'legacy_id', 'listing_image', 'publication_date', 'show_as_feature', 'sponsored_content', 'tags', 'updated_date', 'url', 'uuid', 'listing_title', 'listing_summary', 'related_authors'].join(','),
@@ -15,7 +15,7 @@ export async function findArticlePages(queryParams: any) {
 }
 
 // Get a list of article pages using the Aviary /search api
-export async function searchArticlePages(queryParams: any) {
+export function searchArticlePages(queryParams: any) {
     const params = Object.assign({}, queryParams)
     return useAviary('/search/', { params })
 }
@@ -52,7 +52,7 @@ function normalizeAuthor(author: Record<string, any>): Author {
 }
 
 // Transform page data from the API into a simpler and typed format
-export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
+export function normalizeArticlePage(article: Record<string, any | undefined>): ArticlePage {
     if (typeof article === 'undefined') {
         return undefined
     }
@@ -96,7 +96,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 }
 
 // Transform page data from the API into a simpler and typed format
-export function normalizeSearchResults(results: Record<string, any>): ArticlePage {
+export function normalizeSearchResults(results: Record<string, any | undefined>): ArticlePage {
     return {
         id: results.result.id,
         type: results.result.type,
