@@ -11,13 +11,13 @@ export async function findArticlePages(queryParams: any) {
         show_on_index_listing: true,
     }
     const params = Object.assign({}, defaultParams, queryParams)
-    return await useAviary('/pages/', { params })
+    return useAviary('/pages/', { params })
 }
 
 // Get a list of article pages using the Aviary /search api
 export async function searchArticlePages(queryParams: any) {
     const params = Object.assign({}, queryParams)
-    return await useAviary('/search/', { params })
+    return useAviary('/search/', { params })
 }
 
 // Get a relative link to an article
@@ -53,8 +53,8 @@ function normalizeAuthor(author: Record<string, any>): Author {
 
 // Transform page data from the API into a simpler and typed format
 export function normalizeArticlePage(article: Record<string, any>): ArticlePage {
-    if (!article) {
-        return null
+    if (typeof article === 'undefined') {
+        return undefined
     }
     return Object.assign({}, normalizePage(article), {
         description: article.description,
@@ -72,7 +72,8 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
         authors: article.relatedAuthors?.map(normalizeAuthor),
         contributingOrganizations: article.relatedContributingOrganizations,
         sponsors: article.relatedSponsors,
-        publicationDate: new Date(article.publicationDate) || new Date(article.meta?.firstPublishedAt),
+        publicationDate: article.publicationDate && new Date(article.publicationDate) || 
+                         article.meta?.firstPublishedAt && new Date(article.meta?.firstPublishedAt),
         updatedDate: article.updatedDate ? new Date(article.updatedDate) : undefined,
         showAsFeature: article.showAsFeature,
         sensitiveContent: article.sensitiveContent,
@@ -98,6 +99,7 @@ export function normalizeArticlePage(article: Record<string, any>): ArticlePage 
 export function normalizeSearchResults(results: Record<string, any>): ArticlePage {
     return {
         id: results.result.id,
+        type: results.result.type,
         title: results.result.listingTitle || results.result.title,
         description: results.result.description,
         image: results.result.image ?? results.result.leadAsset?.[0]?.value?.image ?? results.result.leadAsset?.[0]?.value?.defaultImage,
@@ -114,7 +116,8 @@ export function normalizeSearchResults(results: Record<string, any>): ArticlePag
         authors: results.result.relatedAuthors?.map(normalizeAuthor),
         contributingOrganizations: results.result.relatedContributingOrganizations,
         sponsors: results.result.relatedSponsors,
-        publicationDate: new Date(results.result.publicationDate) || new Date(results.result.meta?.firstPublishedAt),
+        publicationDate: results.result.publicationDate && new Date(results.result.publicationDate) ||
+                         results.result.meta?.firstPublishedAt && new Date(results.result.meta?.firstPublishedAt),
         updatedDate: results.result.updatedDate ? new Date(results.result.updatedDate) : undefined,
         showAsFeature: results.result.showAsFeature,
         sensitiveContent: results.result.sensitiveContent,
