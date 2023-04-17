@@ -158,6 +158,7 @@ const submitForm = (event) => {
   min-height: 64px;
   padding: 10px;
   position: fixed;
+  z-index: 10;
   left: 0;
   bottom: 0;
   @include media('>md') {
