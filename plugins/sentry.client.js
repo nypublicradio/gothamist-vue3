@@ -12,7 +12,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         integrations: [
             new Integrations.BrowserTracing({
                 routingInstrumentation: Sentry.vueRouterInstrumentation(nuxtApp.$router),
-                tracingOrigins: ['gothamist.com', 'gothamist-vue3.demo.nypr.digital', 'gothamist-vue3.prod.nypr.digital']
+                tracePropagationTargets: ['cms.demo.nypr.digital', 'api.demo.nypr.digital', 'cms.prod.nypr.digital', 'api.prod.nypr.digital']
             })
         ],
         logErrors: true,
