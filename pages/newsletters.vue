@@ -72,6 +72,7 @@ const submitForm = (event) => {
               placeholder="your@email.com"
               aria-label="sign up"
               aria-describedby="email-address-field"
+              enterkeyhint="send"
               autocomplete="email"
               name="email"
             />
