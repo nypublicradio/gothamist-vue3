@@ -11,10 +11,10 @@ export default function   (pageInfo = {}) {
     $chartbeat.updatePage(info)
   }
 
-  let observer
+  let observer:MutationObserver
 
   onMounted(function() {
-    observer = new MutationObserver(() => { updatePage() })
+    observer = new MutationObserver(updatePage)
     if (!process.server) {
       observer.observe(
         document.querySelector('title'),
