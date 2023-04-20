@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 import { useIsArticlePage } from '~/composables/states'
 const config = useRuntimeConfig()
 const { $analytics } = useNuxtApp()
@@ -31,7 +30,7 @@ onBeforeMount(() => {
   isArticlePage.value = true
 })
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'sponosored_article' })
+  $analytics.sendPageView({ page_type: 'sponsored_article' })
   sensitiveContent.value = true
   if (typeof PostRelease !== "undefined") {
     PostRelease.Start()
