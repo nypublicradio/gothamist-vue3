@@ -25,7 +25,6 @@ export default defineNuxtPlugin(() => {
   })();
   const updatePage = (pageInfo) => {
     if (!process.server && typeof window.pSUPERFLY !== 'undefined') {
-        console.log('UPDATE', pageInfo)
         window.pSUPERFLY.virtualPage(pageInfo)
     }
   }
