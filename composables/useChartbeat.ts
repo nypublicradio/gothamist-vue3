@@ -1,6 +1,6 @@
 export default function   (pageInfo = {}) {
-const { $chartbeat } = useNuxtApp()
-const updatePage = () => {
+  const { $chartbeat } = useNuxtApp()
+  const updatePage = () => {
     const defaultPageInfo = {
       path: document.location.pathname,
       title: document.title,
@@ -11,15 +11,18 @@ const updatePage = () => {
     $chartbeat.updatePage(info)
   }
 
-  const observer = new MutationObserver(() => {updatePage()})
+  let observer
 
-  onMounted(() => {
-    observer.observe(
-      document.querySelector('title'),
-      { subtree: true, characterData: true, childList: true }
-    );
-    
+  onMounted(function() {
+    observer = new MutationObserver(() => { updatePage() })
+    if (!process.server) {
+      observer.observe(
+        document.querySelector('title'),
+        { subtree: true, characterData: true, childList: true }
+      );
+    }
   })
+
   onUnmounted(() => {
     observer.disconnect();
   })

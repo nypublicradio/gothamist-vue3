@@ -29,6 +29,7 @@ useChartbeat()
 onBeforeMount(() => {
   isArticlePage.value = true
 })
+
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponsored_article' })
   sensitiveContent.value = true
