@@ -2,6 +2,7 @@
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import { ArticlePage } from '~~/composables/types/Page'
 import { computed, ref, nextTick } from 'vue'
+import { onBeforeRouteUpdate } from 'vue-router'
 
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
@@ -66,6 +67,8 @@ const newsletterSubmitEvent = () => {
   })
 }
 const navigation = useNavigation()
+
+useChartbeat()
 
 onMounted(() => {
   $analytics.sendPageView({

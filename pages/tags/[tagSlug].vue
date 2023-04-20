@@ -54,6 +54,8 @@ const loadMoreArticles = async () => {
 const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
 
+useChartbeat()
+
 onMounted(() => {
   $analytics.sendPageView({
     page_type: 'tag_page',

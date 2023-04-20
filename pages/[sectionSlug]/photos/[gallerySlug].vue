@@ -25,11 +25,15 @@ const shareTitle = ref(gallery.title)
 
 const headMetadata = useGalleryPageHeadMetadata(gallery)
 const adTargetingData = { Template: 'Article Gallery' }
+const article = gallery.relatedArticles?.[0]
 
 useHead(headMetadata)
+useChartbeat({
+  section: article.section.name,
+  authors: article.authors.map(author => author.name).join(',')
+})
 
 onMounted(() => {
-  const article = gallery.relatedArticles?.[0]
   $analytics.sendPageView({
     page_type: 'gallery',
     content_group: article?.sponsoredContent ? 'sponsored-content' : `${route.params.sectionSlug}-gallery`,

@@ -24,6 +24,9 @@ const titleRef = ref(null)
 const loadedTitle = ref(null)
 
 const sensitiveContent = useSensitiveContent()
+
+useChartbeat()
+
 onBeforeMount(() => {
   isArticlePage.value = true
 })

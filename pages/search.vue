@@ -40,6 +40,15 @@ const loadMoreArticles = async () => {
   }
 }
 
+const pageTitle = () => querySlug.value ? `Search Results for "${querySlug.value}" | Gothamist` : "Search | Gothamist"
+
+useHead({
+  title: pageTitle,
+  meta: [{ property: 'og:title', content: pageTitle}]
+})
+
+useChartbeat()
+
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'search_page' })
   getSearchResults()
