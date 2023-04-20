@@ -63,6 +63,8 @@ const newsletterSubmitEvent = () => {
   })
 }
 
+useChartbeat()
+
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'staff_page' })
   $htlbid.setTargeting({ Template: 'Staff' })

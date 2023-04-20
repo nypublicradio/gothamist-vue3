@@ -10,6 +10,8 @@ const page = await findPage(route?.params?.sectionSlug as string).then(
 const isPreview = route.query.preview ? true : false
 const { $analytics } = useNuxtApp()
 
+useChartbeat()
+
 onMounted(() => {
   if (isPreview) {
     return

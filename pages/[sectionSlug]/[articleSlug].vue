@@ -49,6 +49,10 @@ const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
 
 useHead(headMetadata)
+useChartbeat({
+  section: article.section.name,
+  authors: article.authors.map(author => author.name).join(',')
+})
 
 onBeforeMount(() => {
   isArticlePage.value = true
