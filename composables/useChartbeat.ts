@@ -13,7 +13,7 @@ export default function   (pageInfo = {}) {
 
   let observer:MutationObserver
 
-  onMounted(function() {
+  onMounted(() => {
     observer = new MutationObserver(updatePage)
     if (!process.server) {
       observer.observe(
