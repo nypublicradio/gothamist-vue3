@@ -1,4 +1,4 @@
-export default function   (pageInfo = {}) {
+export default function useChartbeat(pageInfo = {}) {
   const { $chartbeat } = useNuxtApp()
   const updatePage = () => {
     const defaultPageInfo = {
