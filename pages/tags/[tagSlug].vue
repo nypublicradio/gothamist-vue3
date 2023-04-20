@@ -30,12 +30,19 @@ const articlesPromise = findArticlePages({
   count: data.value && Number(data.value.meta.totalCount)
 }))
 
-const [curatedTagPage, {articles: initialArticles, count: initalCount}] = await Promise.all([
+const [curatedTagPage, {articles: initialArticles, count: initialCount}] = await Promise.all([
   curatedTagPagePromise,
   articlesPromise,
 ])
-const articleTotal = ref(initalCount)
+const articleTotal = ref(initialCount)
 const articles = ref(initialArticles)
+if (!initialCount) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found',
+    fatal: true,
+  })
+}
 
 const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({

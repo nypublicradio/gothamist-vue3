@@ -14,7 +14,14 @@ const gallery = isPreview
   ? previewData.value.data
   : ((await findPage(
       `${route.params.sectionSlug}/photos/${route.params.gallerySlug}`
-    ).then(({ data }) => normalizeFindPageResponse(data))) as GalleryPage)
+    ).then(({ data }) => normalizeFindPageResponse(data)
+    ).catch(() => {
+        throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found',
+        fatal: true,
+      })
+    })) as GalleryPage)
 
 if (gallery.slides.length <= 0 && gallery.articleLink) {
   navigateTo(gallery.articleLink, { replace: true, redirectCode: 301 })

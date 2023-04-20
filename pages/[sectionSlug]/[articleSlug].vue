@@ -26,7 +26,14 @@ const article = isPreview
   ? previewData.value.data as ArticlePage
   : ((await findPage(
       `${route.params.sectionSlug}/${route.params.articleSlug}`
-    ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage)
+    ).then(({ data }) => normalizeFindPageResponse(data)
+    ).catch(() => {
+        throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found',
+        fatal: true,
+      })
+    })) as ArticlePage)
 
 let gallery
 if (article.leadGallery) {

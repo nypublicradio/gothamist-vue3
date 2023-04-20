@@ -6,7 +6,13 @@ const previewData = usePreviewData()
 const route = useRoute()
 const page = await findPage(route?.params?.sectionSlug as string).then(
   ({ data }) => normalizeFindPageResponse(data)
-)
+).catch(() => {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found',
+    fatal: true,
+  })
+})
 const isPreview = route.query.preview ? true : false
 const { $analytics } = useNuxtApp()
 
@@ -30,7 +36,11 @@ onMounted(() => {
       })
       break
     default:
-      break
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'Page Not Found',
+      fatal: true,
+    })
   }
 })
 </script>
