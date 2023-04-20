@@ -20,7 +20,7 @@ const fetchCommentCounts = async function(commentIds:string[]):Promise<Record<st
                 "posts_ids": idList            
             }
         }
-        requests.push($fetch(path, {baseURL, ...options}))
+        requests.push($fetch(path, {baseURL, ...options}).catch(() => { messages_count: [] }))
     }
     const responses = await Promise.all(requests)
     responses.forEach(response => {
