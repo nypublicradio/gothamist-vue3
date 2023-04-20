@@ -1,4 +1,3 @@
-import { nextTick } from 'vue'
 export default function   (pageInfo = {}) {
 const { $chartbeat } = useNuxtApp()
 const updatePage = () => {
@@ -12,9 +11,7 @@ const updatePage = () => {
     $chartbeat.updatePage(info)
   }
 
-  const observer = new MutationObserver(function(mutations) {
-    updatePage()
-  })
+  const observer = new MutationObserver(() => {updatePage()})
 
   onMounted(() => {
     observer.observe(
