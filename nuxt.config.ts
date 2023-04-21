@@ -20,7 +20,6 @@ export default defineNuxtConfig({
           rel: 'preconnect',
           href: 'https://www.googletagmanager.com',
           crossorigin: '',
-          type: 'text/partytown'
         },
         {
           rel: 'preconnect',
@@ -32,7 +31,8 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/partytown'],
   partytown: {
-    debug: true
+    debug: true,
+    forward: ['dataLayer.push'],
   },
   css: [
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/fonts/fonts.css',

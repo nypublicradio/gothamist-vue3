@@ -144,7 +144,6 @@ useHead({
     {
       src: config.HTL_JS,
       async: true,
-      type: 'text/partytown'
     },
     {
       children: `window.twttr = (function(d, s, id) {
