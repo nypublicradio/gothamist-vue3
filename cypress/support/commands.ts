@@ -50,4 +50,7 @@ Cypress.Commands.add('loadGlobalFixtures',  () => {
     cy.intercept({
       hostname: 'open-api.spot.im'
     }, {statusCode: 200, body: {messages_count: []}}).as('commentCounts')
-})
+    cy.intercept({
+      hostname: 'api.omappapi.com'
+    }, {statusCode: 200, body: ''}).as('optinMonster')
+  })

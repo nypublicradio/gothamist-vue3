@@ -1,77 +1,184 @@
 {
     "meta": {
-        "total_count": 140417
+        "total_count": 137067
     },
     "items": [
         {
-            "id": 154794,
+            "id": 151275,
             "meta": {
-                "first_published_at": "2023-03-10T10:00:53.456795-05:00",
+                "first_published_at": "2023-01-17T15:13:04.164851-05:00",
                 "type": "news.ArticlePage",
-                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154794/",
-                "html_url": "http://cms.prod.nypr.digital/news/early-addition-a-coyote-was-walkin-around-queens-this-week/",
-                "slug": "early-addition-a-coyote-was-walkin-around-queens-this-week"
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151275/",
+                "html_url": "http://cms.prod.nypr.digital/news/test-of-openweb-liveblog/",
+                "slug": "test-of-openweb-liveblog"
             },
-            "title": "Early Addition: A coyote was walkin' around Queens this week",
+            "title": "Test of OpenWeb liveblog",
             "listing_title": "",
             "listing_summary": "",
             "listing_image": null,
-            "uuid": "ffa1cf45-9fb7-4c54-b7fd-04eba201d287",
-            "url": "https://gothamist.com/news/early-addition-a-coyote-was-walkin-around-queens-this-week",
-            "publication_date": "2023-03-10T10:00:53.456795-05:00",
+            "uuid": "206ca8b8-3830-4096-aa53-cb10b5dad485",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/test-of-openweb-liveblog",
+            "publication_date": "2023-01-17T15:13:04.164851-05:00",
             "updated_date": null,
-            "description": "Because the canine has now been relocated to Long Island, here are your early links: Retired NYPD officer allegedly threatened teens with a gun, new Biggie mural unveiled, don't drink the Borg and more.",
+            "description": "",
             "lead_asset": [
                 {
                     "type": "lead_image",
                     "value": {
                         "image": {
-                            "id": 337191,
-                            "title": "Screen Shot 2023-03-10 at 8.30.47 AM.png",
-                            "width": 1460,
-                            "height": 1090,
-                            "created_at": "2023-03-10T08:33:06.024162-05:00",
+                            "id": 329934,
+                            "title": "traditional-food-around-the-world-Travlinmad.jpeg",
+                            "width": 960,
+                            "height": 589,
+                            "created_at": "2022-09-13T05:41:41.557763-04:00",
                             "focal_point_x": null,
                             "focal_point_y": null,
                             "focal_point_width": null,
                             "focal_point_height": null,
-                            "file_size": 1845115,
-                            "file_hash": "361491cbb74faccabcc0808f1a9155a5d31ef019",
-                            "alt": "a coyote seen walking on a Queens sidewalk",
-                            "caption": "",
-                            "credit": "NYPD105Pct/Twitter",
-                            "credit_link": "https://twitter.com/NYPD105Pct/status/1633462901775417345",
-                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Screen_Shot_2023-03-10_at_8.30.47_AM.png",
+                            "file_size": 376370,
+                            "file_hash": "475ff05ed409177432214120a72c24b0527bb440",
+                            "alt": "image of foods around the world test",
+                            "caption": "caption test",
+                            "credit": "credit test",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/traditional-food-around-the-world-Travlinmad.jpeg",
                             "usage_limitations": "",
                             "expiry_date": null,
                             "collection": 1,
-                            "uploaded_by_user": 33
+                            "uploaded_by_user": 133
                         },
                         "caption": "",
                         "image_link": ""
                     },
-                    "id": "60fe77e1-4ae3-46c0-8f8d-e819b3935ef0"
+                    "id": "064d47d8-2171-47a2-96d5-98541f572c53"
                 }
             ],
             "sponsored_content": false,
             "related_authors": [
                 {
-                    "id": 35,
-                    "first_name": "James",
-                    "last_name": "Ramsay",
-                    "photo": 327650,
-                    "job_title": "Digital Producer",
+                    "id": 288,
+                    "first_name": "Yaron",
+                    "last_name": "Weitzman",
+                    "job_title": "Gothamist Editor",
                     "biography": "",
                     "website": "",
                     "email": "",
-                    "slug": "james-ramsay",
+                    "slug": "yaron-weitzman",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 151273,
+            "meta": {
+                "first_published_at": "2023-01-11T09:26:58.700927-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151273/",
+                "html_url": "http://cms.prod.nypr.digital/news/webp-image-test-article/",
+                "slug": "webp-image-test-article"
+            },
+            "title": "WebP Image Test Article",
+            "listing_title": "TEST WEBP TITLE",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "8e4e60d6-5dac-48d9-a2b9-853b7d5e444b",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/webp-image-test-article",
+            "publication_date": "2023-01-11T09:26:00-05:00",
+            "updated_date": null,
+            "description": "Another test for image rendering",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 329940,
+                            "title": "skyline_800.webp",
+                            "width": 800,
+                            "height": 800,
+                            "created_at": "2022-11-30T13:15:17.574918-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 134268,
+                            "file_hash": "95d7e784fd93097097589f6f0433d1d4cccf4065",
+                            "alt": "NYC skyline photo",
+                            "caption": "",
+                            "credit": "",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/skyline_800.webp",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 132
+                        },
+                        "caption": "Skyline",
+                        "image_link": ""
+                    },
+                    "id": "40405fb8-4020-41ef-ab1f-b5c753561e6a"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 261,
+                    "first_name": "Taylor",
+                    "last_name": "Wofford",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "taylor-wofford",
                     "social_media_profile": []
                 }
             ],
             "tags": [
                 {
-                    "name": "early addition",
-                    "slug": "early-addition"
+                    "name": "skyline",
+                    "slug": "skyline"
+                },
+                {
+                    "name": "nature",
+                    "slug": "nature"
+                },
+                {
+                    "name": "nyc",
+                    "slug": "nyc"
                 }
             ],
             "show_as_feature": false,
@@ -81,7 +188,7 @@
                     "id": 4,
                     "meta": {
                         "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
                         "html_url": "http://cms.prod.nypr.digital/news/"
                     },
                     "title": "News",
@@ -91,7 +198,7 @@
                     "id": 3,
                     "meta": {
                         "type": "home.HomePage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
                         "html_url": "http://cms.prod.nypr.digital/"
                     },
                     "title": "Gothamist",
@@ -101,7 +208,7 @@
                     "id": 1,
                     "meta": {
                         "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
                         "html_url": null
                     },
                     "title": "Root",
@@ -110,107 +217,96 @@
             ]
         },
         {
-            "id": 154795,
+            "id": 151272,
             "meta": {
-                "first_published_at": "2023-03-10T08:54:42.966790-05:00",
+                "first_published_at": "2023-01-10T15:44:23.817526-05:00",
                 "type": "news.ArticlePage",
-                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154795/",
-                "html_url": "http://cms.prod.nypr.digital/news/a-raccoon-is-eating-lasagna-on-my-porch-and-other-odd-nyc-complaints-after-20-years-of-311/",
-                "slug": "a-raccoon-is-eating-lasagna-on-my-porch-and-other-odd-nyc-complaints-after-20-years-of-311"
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151272/",
+                "html_url": "http://cms.prod.nypr.digital/food/test-article-with-gallery/",
+                "slug": "test-article-with-gallery"
             },
-            "title": "‘A raccoon is eating lasagna on my porch’ and other odd NYC complaints after 20 years of 311",
+            "title": "Test Article with Gallery",
             "listing_title": "",
             "listing_summary": "",
             "listing_image": null,
-            "uuid": "2d99d0a5-b481-4379-92c6-4b9da2749b7f",
-            "url": "https://gothamist.com/news/a-raccoon-is-eating-lasagna-on-my-porch-and-other-odd-nyc-complaints-after-20-years-of-311",
-            "publication_date": "2023-03-10T08:54:00-05:00",
-            "updated_date": "2023-03-10T10:41:00-05:00",
-            "description": "Over the past two decades, 311 has fielded more than 525 million questions and concerns from New Yorkers. Some of the requests were weird.",
+            "uuid": "7e17b5e3-34ca-4f3e-a280-080fa7fd5123",
+            "url": "https://gothamist-vue3demo.gothamist.com/food/test-article-with-gallery",
+            "publication_date": "2023-01-10T15:44:00-05:00",
+            "updated_date": null,
+            "description": "This is a test article with gallery.",
             "lead_asset": [
                 {
-                    "type": "lead_image",
+                    "type": "lead_gallery",
                     "value": {
-                        "image": {
-                            "id": 337192,
-                            "title": "311 calls.PNG",
-                            "width": 1005,
-                            "height": 597,
-                            "created_at": "2023-03-10T08:51:42.070975-05:00",
+                        "gallery": 151268,
+                        "default_image": {
+                            "id": 329940,
+                            "title": "skyline_800.webp",
+                            "width": 800,
+                            "height": 800,
+                            "created_at": "2022-11-30T13:15:17.574918-05:00",
                             "focal_point_x": null,
                             "focal_point_y": null,
                             "focal_point_width": null,
                             "focal_point_height": null,
-                            "file_size": 586274,
-                            "file_hash": "68f2b915bd73efcde132bf3cc652eaf0cdca5ad1",
-                            "alt": "A chart depicting the biggest volume calls to 311 over the past 20 years.",
-                            "caption": "A chart depicting the biggest volume calls to 311 over the past 20 years.",
-                            "credit": "New York City Hall",
+                            "file_size": 134268,
+                            "file_hash": "95d7e784fd93097097589f6f0433d1d4cccf4065",
+                            "alt": "NYC skyline photo",
+                            "caption": "",
+                            "credit": "",
                             "credit_link": "",
-                            "file": "https://cdn.cms.prod.nypr.digital/original_images/311_calls.PNG",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/skyline_800.webp",
                             "usage_limitations": "",
                             "expiry_date": null,
                             "collection": 1,
-                            "uploaded_by_user": 123
-                        },
-                        "caption": "",
-                        "image_link": ""
+                            "uploaded_by_user": 132
+                        }
                     },
-                    "id": "4b7b4bc6-feae-4592-aee8-008fa0636dea"
+                    "id": "828e8def-2795-44cd-9cb1-8f79f9660570"
                 }
             ],
             "sponsored_content": false,
             "related_authors": [
                 {
-                    "id": 40,
-                    "first_name": "Gwynne",
-                    "last_name": "Hogan",
-                    "photo": 334519,
-                    "job_title": "Reporter",
-                    "biography": "Gwynne Hogan is a general assignment reporter who’s worked at WNYC and Gothamist since 2017. Before joining WNYC, she did stints at the New York Post and the late DNAinfo New York and studied at the CUNY Newmark Graduate School of Journalism, graduating with the class of 2014. She won a Gracie award for her coverage of the COVID-19 pandemic and a Society of Professional Journalists award for her reporting on one Rockaway school’s efforts to avoid suspending students. Follow her on Twitter @GwynneFitz or email her at ghogan@wnyc.org.",
+                    "id": 162,
+                    "first_name": "Neil",
+                    "last_name": "Epstein",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
                     "website": "",
-                    "email": "ghogan@wnyc.org",
-                    "slug": "gwynne-hogan",
-                    "social_media_profile": [
-                        {
-                            "service": "twitter",
-                            "profile_url": "https://twitter.com/GwynneFitz"
-                        }
-                    ]
+                    "email": "",
+                    "slug": "neil-epstein",
+                    "social_media_profile": []
                 }
             ],
             "tags": [
                 {
-                    "name": "311 call center",
-                    "slug": "311-call-center"
+                    "name": "taco bell",
+                    "slug": "taco-bell"
                 },
                 {
-                    "name": "new york city",
-                    "slug": "new-york-city"
-                },
-                {
-                    "name": "raccoon",
-                    "slug": "raccoon"
+                    "name": "food",
+                    "slug": "food"
                 }
             ],
             "show_as_feature": false,
             "legacy_id": null,
             "ancestry": [
                 {
-                    "id": 4,
+                    "id": 5,
                     "meta": {
                         "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
-                        "html_url": "http://cms.prod.nypr.digital/news/"
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/5/",
+                        "html_url": "http://cms.prod.nypr.digital/food/"
                     },
-                    "title": "News",
-                    "slug": "news"
+                    "title": "Food",
+                    "slug": "food"
                 },
                 {
                     "id": 3,
                     "meta": {
                         "type": "home.HomePage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
                         "html_url": "http://cms.prod.nypr.digital/"
                     },
                     "title": "Gothamist",
@@ -220,7 +316,7 @@
                     "id": 1,
                     "meta": {
                         "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
                         "html_url": null
                     },
                     "title": "Root",
@@ -229,86 +325,77 @@
             ]
         },
         {
-            "id": 154788,
+            "id": 151270,
             "meta": {
-                "first_published_at": "2023-03-10T06:01:54.458480-05:00",
+                "first_published_at": "2023-01-04T17:52:55.425219-05:00",
                 "type": "news.ArticlePage",
-                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154788/",
-                "html_url": "http://cms.prod.nypr.digital/news/nyc-jail-captain-thought-detainee-was-making-a-joke-when-he-threatened-to-take-his-life/",
-                "slug": "nyc-jail-captain-thought-detainee-was-making-a-joke-when-he-threatened-to-take-his-life"
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151270/",
+                "html_url": "http://cms.prod.nypr.digital/news/test-article/",
+                "slug": "test-article"
             },
-            "title": "NYC jail captain thought detainee was ‘making a joke’ when he threatened to take his life",
+            "title": "Test Article",
             "listing_title": "",
             "listing_summary": "",
             "listing_image": null,
-            "uuid": "8428b6f5-bde8-4872-ba2b-131702c9d507",
-            "url": "https://gothamist.com/news/nyc-jail-captain-thought-detainee-was-making-a-joke-when-he-threatened-to-take-his-life",
-            "publication_date": "2023-03-10T06:01:00-05:00",
+            "uuid": "380891e8-d253-4fdb-b186-3612ec2d5732",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/test-article",
+            "publication_date": "2023-01-04T17:52:00-05:00",
             "updated_date": null,
-            "description": "Rebecca Hillman took the stand in her own homicide trial on Thursday.",
+            "description": "Testing",
             "lead_asset": [
                 {
                     "type": "lead_image",
                     "value": {
                         "image": {
-                            "id": 319227,
-                            "title": "Rebecca Hillman",
+                            "id": 329936,
+                            "title": "Pumpkins",
                             "width": 4032,
                             "height": 3024,
-                            "created_at": "2021-04-26T20:18:53.071857-04:00",
+                            "created_at": "2022-11-15T16:37:57.988492-05:00",
                             "focal_point_x": null,
                             "focal_point_y": null,
                             "focal_point_width": null,
                             "focal_point_height": null,
-                            "file_size": 584053,
-                            "file_hash": "f5a6c5321e0e3db6b72e9568ec26addcfd661582",
-                            "alt": "Rebecca Hillman, wearing sunglasses, a hooded jacket, tries to conceal herself as she is led into court",
-                            "caption": "Captain Rebecca Hillman being escorted to her arraignment.",
-                            "credit": "George Joseph / WNYC",
-                            "credit_link": "",
-                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Image_from_iOS_116.jpg",
+                            "file_size": 793155,
+                            "file_hash": "88bcd419122eb553cafdb48adce507ac213371d0",
+                            "alt": "Close-up of a pumpkin sitting in a pumpkin patch",
+                            "caption": "",
+                            "credit": "Marius Ciocirlan",
+                            "credit_link": "https://unsplash.com/@madebymarius",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/marius-ciocirlan-T9pdHqCsyoQ-unsplash.jpg",
                             "usage_limitations": "",
                             "expiry_date": null,
                             "collection": 1,
-                            "uploaded_by_user": 20
+                            "uploaded_by_user": 6
                         },
                         "caption": "",
                         "image_link": ""
                     },
-                    "id": "8234019c-1e38-4f92-81e6-f8e553fd0cb6"
+                    "id": "2edcdd37-9ddc-43c5-9fa2-25509d3dc8be"
                 }
             ],
             "sponsored_content": false,
             "related_authors": [
                 {
-                    "id": 151868,
-                    "first_name": "Samantha",
-                    "last_name": "Max",
-                    "photo": 334517,
-                    "job_title": "Public Safety Reporter",
-                    "biography": "Samantha reports on whether New Yorkers feel safe and whether the institutions that are supposed to protect them are working. Before coming to WNYC/Gothamist, she spent three years covering the criminal justice system in Tennessee for Nashville Public Radio. Her reporting on Nashville's police department received multiple awards, including the Daniel Schorr Journalism Prize. Samantha was also part of the inaugural class of Report for America, a service journalism program that sends up-and-coming reporters to local newsrooms across the country. She is a Northwestern University grad, a Baltimore native and fluent in Spanish.",
+                    "id": 319,
+                    "first_name": "Courtney",
+                    "last_name": "Iseman",
+                    "job_title": "Gothamist Editor",
+                    "biography": "",
                     "website": "",
                     "email": "",
-                    "slug": "samantha-max",
+                    "slug": "courtney-iseman",
                     "social_media_profile": []
                 }
             ],
             "tags": [
                 {
-                    "name": "witness",
-                    "slug": "witness"
+                    "name": "test",
+                    "slug": "test"
                 },
                 {
-                    "name": "department of correction",
-                    "slug": "department-of-correction"
-                },
-                {
-                    "name": "HOMICIDE",
-                    "slug": "homicide"
-                },
-                {
-                    "name": "trial",
-                    "slug": "trial"
+                    "name": "pumpkins",
+                    "slug": "pumpkins"
                 }
             ],
             "show_as_feature": false,
@@ -318,7 +405,7 @@
                     "id": 4,
                     "meta": {
                         "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
                         "html_url": "http://cms.prod.nypr.digital/news/"
                     },
                     "title": "News",
@@ -328,7 +415,7 @@
                     "id": 3,
                     "meta": {
                         "type": "home.HomePage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
                         "html_url": "http://cms.prod.nypr.digital/"
                     },
                     "title": "Gothamist",
@@ -338,7 +425,7 @@
                     "id": 1,
                     "meta": {
                         "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
                         "html_url": null
                     },
                     "title": "Root",
@@ -347,87 +434,70 @@
             ]
         },
         {
-            "id": 154789,
+            "id": 151267,
             "meta": {
-                "first_published_at": "2023-03-10T05:00:55.362649-05:00",
+                "first_published_at": "2022-12-19T11:50:35.137682-05:00",
                 "type": "news.ArticlePage",
-                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154789/",
-                "html_url": "http://cms.prod.nypr.digital/news/these-playwrights-turned-their-downtown-brooklyn-apartment-into-a-decked-out-theater/",
-                "slug": "these-playwrights-turned-their-downtown-brooklyn-apartment-into-a-decked-out-theater"
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151267/",
+                "html_url": "http://cms.prod.nypr.digital/news/test-another-twitter-embed/",
+                "slug": "test-another-twitter-embed"
             },
-            "title": "These playwrights turned their Downtown Brooklyn apartment into a ‘decked out’ theater",
+            "title": "Test Another Twitter Embed",
             "listing_title": "",
             "listing_summary": "",
             "listing_image": null,
-            "uuid": "96e042b9-677e-4e1b-946e-3160b2c4e81c",
-            "url": "https://gothamist.com/news/these-playwrights-turned-their-downtown-brooklyn-apartment-into-a-decked-out-theater",
-            "publication_date": "2023-03-10T05:00:55.362649-05:00",
+            "uuid": "8c589751-7b16-41ac-8c3c-0ef8d7e90a2e",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/test-another-twitter-embed",
+            "publication_date": "2022-12-19T11:50:00-05:00",
             "updated_date": null,
-            "description": "A new play is heading for a theater in Manhattan, but it got its start at the Loading Dock, taking its audience from a living room to a Humvee in Iraq.",
+            "description": "Tweet embed test",
             "lead_asset": [
                 {
                     "type": "lead_image",
                     "value": {
                         "image": {
-                            "id": 337184,
-                            "title": "untitled-1.jpg",
-                            "width": 3000,
-                            "height": 2000,
-                            "created_at": "2023-03-09T22:05:29.048205-05:00",
+                            "id": 329936,
+                            "title": "Pumpkins",
+                            "width": 4032,
+                            "height": 3024,
+                            "created_at": "2022-11-15T16:37:57.988492-05:00",
                             "focal_point_x": null,
                             "focal_point_y": null,
                             "focal_point_width": null,
                             "focal_point_height": null,
-                            "file_size": 4861410,
-                            "file_hash": "768b558295addffb0222d74ad4a95ae2c072067e",
-                            "alt": "A couple sits among theater equipment.",
-                            "caption": "Erin Treadway (left) and Leegrid Stevens in their living room, turned theater space in Brooklyn.",
-                            "credit": "José A. Alvarado Jr. for Gothamist",
-                            "credit_link": "",
-                            "file": "https://cdn.cms.prod.nypr.digital/original_images/untitled-1.jpg",
+                            "file_size": 793155,
+                            "file_hash": "88bcd419122eb553cafdb48adce507ac213371d0",
+                            "alt": "Close-up of a pumpkin sitting in a pumpkin patch",
+                            "caption": "",
+                            "credit": "Marius Ciocirlan",
+                            "credit_link": "https://unsplash.com/@madebymarius",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/marius-ciocirlan-T9pdHqCsyoQ-unsplash.jpg",
                             "usage_limitations": "",
                             "expiry_date": null,
                             "collection": 1,
-                            "uploaded_by_user": 137
+                            "uploaded_by_user": 6
                         },
                         "caption": "",
                         "image_link": ""
                     },
-                    "id": "35923740-a83d-4729-a194-da07eb5b6698"
+                    "id": "1d59e15b-3f0d-40ba-8a54-40119ad38425"
                 }
             ],
             "sponsored_content": false,
             "related_authors": [
                 {
-                    "id": 151434,
-                    "first_name": "Catalina",
-                    "last_name": "Gonella",
-                    "job_title": "Reporter",
+                    "id": 380,
+                    "first_name": "Peter",
+                    "last_name": "Trinkle",
+                    "job_title": "Gothamist Editor",
                     "biography": "",
                     "website": "",
                     "email": "",
-                    "slug": "catalina-gonella",
+                    "slug": "peter-trinkle",
                     "social_media_profile": []
                 }
             ],
-            "tags": [
-                {
-                    "name": "art",
-                    "slug": "art"
-                },
-                {
-                    "name": "brooklyn",
-                    "slug": "brooklyn"
-                },
-                {
-                    "name": "theater",
-                    "slug": "theater"
-                },
-                {
-                    "name": "new york city",
-                    "slug": "new-york-city"
-                }
-            ],
+            "tags": [],
             "show_as_feature": false,
             "legacy_id": null,
             "ancestry": [
@@ -435,7 +505,7 @@
                     "id": 4,
                     "meta": {
                         "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
                         "html_url": "http://cms.prod.nypr.digital/news/"
                     },
                     "title": "News",
@@ -445,7 +515,7 @@
                     "id": 3,
                     "meta": {
                         "type": "home.HomePage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
                         "html_url": "http://cms.prod.nypr.digital/"
                     },
                     "title": "Gothamist",
@@ -455,7 +525,7 @@
                     "id": 1,
                     "meta": {
                         "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
                         "html_url": null
                     },
                     "title": "Root",
@@ -464,77 +534,73 @@
             ]
         },
         {
-            "id": 154793,
+            "id": 151266,
             "meta": {
-                "first_published_at": "2023-03-09T20:20:18.391497-05:00",
+                "first_published_at": "2022-12-14T11:49:09.561943-05:00",
                 "type": "news.ArticlePage",
-                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154793/",
-                "html_url": "http://cms.prod.nypr.digital/news/cop-kills-dog-after-being-attacked-during-staten-island-call-nypd/",
-                "slug": "cop-kills-dog-after-being-attacked-during-staten-island-call-nypd"
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151266/",
+                "html_url": "http://cms.prod.nypr.digital/news/new-article-byline-test-sophie-kleeman/",
+                "slug": "new-article-byline-test-sophie-kleeman"
             },
-            "title": "Cop kills dog after being attacked during Staten Island call: NYPD",
+            "title": "New Article Byline Test- Sophie Kleeman",
             "listing_title": "",
             "listing_summary": "",
             "listing_image": null,
-            "uuid": "8ee60dfb-b570-4af2-a72b-4d1fc7d5a8fe",
-            "url": "https://gothamist.com/news/cop-kills-dog-after-being-attacked-during-staten-island-call-nypd",
-            "publication_date": "2023-03-09T20:20:18.391497-05:00",
+            "uuid": "bd35e08e-3ace-4ca6-b5f1-42e31f1ec012",
+            "url": "https://gothamist-vue3demo.gothamist.com/news/new-article-byline-test-sophie-kleeman",
+            "publication_date": "2022-12-14T11:49:09.561943-05:00",
             "updated_date": null,
-            "description": "Police say a German Shepherd lunged at the officer, biting him on the hand and leg.",
+            "description": "",
             "lead_asset": [
                 {
                     "type": "lead_image",
                     "value": {
                         "image": {
-                            "id": 336956,
-                            "title": "shutterstock_2057747654.jpg",
-                            "width": 3593,
-                            "height": 2695,
-                            "created_at": "2023-02-27T14:44:20.561487-05:00",
+                            "id": 329935,
+                            "title": "helthy-eating.jpeg",
+                            "width": 290,
+                            "height": 174,
+                            "created_at": "2022-09-14T09:56:36.480787-04:00",
                             "focal_point_x": null,
                             "focal_point_y": null,
                             "focal_point_width": null,
                             "focal_point_height": null,
-                            "file_size": 6728491,
-                            "file_hash": "d1480546ad761add726ef7d6df377519e27e7058",
-                            "alt": "Close up of the badge on the side of a New York police department patrol car.",
-                            "caption": "Close up of the badge on the side of a New York police department patrol car.",
-                            "credit": "Ceri Breeze / Shutterstock",
+                            "file_size": 11735,
+                            "file_hash": "4b174f6d17740e44fb46bbdce7ec42bbeab27812",
+                            "alt": "image test",
+                            "caption": "",
+                            "credit": "",
                             "credit_link": "",
-                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_2057747654.jpg",
+                            "file": "https://cdn.cms.demo.nypr.digital/original_images/helthy-eating.jpeg",
                             "usage_limitations": "",
                             "expiry_date": null,
                             "collection": 1,
-                            "uploaded_by_user": 128
+                            "uploaded_by_user": 133
                         },
                         "caption": "",
                         "image_link": ""
                     },
-                    "id": "bd1ef23d-bcd6-445e-bdb0-6683bc5a9b53"
+                    "id": "b4a1f663-1fc2-4ad1-9245-ed4046c906a9"
                 }
             ],
             "sponsored_content": false,
             "related_authors": [
                 {
-                    "id": 151434,
-                    "first_name": "Catalina",
-                    "last_name": "Gonella",
-                    "job_title": "Reporter",
+                    "id": 371,
+                    "first_name": "Sophie",
+                    "last_name": "Kleeman",
+                    "job_title": "Gothamist Editor",
                     "biography": "",
                     "website": "",
                     "email": "",
-                    "slug": "catalina-gonella",
+                    "slug": "sophie-kleeman",
                     "social_media_profile": []
                 }
             ],
             "tags": [
                 {
-                    "name": "staten island",
-                    "slug": "staten-island"
-                },
-                {
-                    "name": "public safety",
-                    "slug": "public-safety"
+                    "name": "salad",
+                    "slug": "salad"
                 }
             ],
             "show_as_feature": false,
@@ -544,7 +610,7 @@
                     "id": 4,
                     "meta": {
                         "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
                         "html_url": "http://cms.prod.nypr.digital/news/"
                     },
                     "title": "News",
@@ -554,7 +620,7 @@
                     "id": 3,
                     "meta": {
                         "type": "home.HomePage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
                         "html_url": "http://cms.prod.nypr.digital/"
                     },
                     "title": "Gothamist",
@@ -564,124 +630,7 @@
                     "id": 1,
                     "meta": {
                         "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
-                        "html_url": null
-                    },
-                    "title": "Root",
-                    "slug": "root"
-                }
-            ]
-        },
-        {
-            "id": 154791,
-            "meta": {
-                "first_published_at": "2023-03-09T19:35:44.885479-05:00",
-                "type": "news.ArticlePage",
-                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/154791/",
-                "html_url": "http://cms.prod.nypr.digital/news/black-activists-in-ny-duel-over-proposed-bans-on-menthol-cigarette-sales/",
-                "slug": "black-activists-in-ny-duel-over-proposed-bans-on-menthol-cigarette-sales"
-            },
-            "title": "Black activists in NY duel over proposed bans on menthol cigarette sales",
-            "listing_title": "",
-            "listing_summary": "",
-            "listing_image": null,
-            "uuid": "acd4845e-4c8c-4c2e-96a3-a223824f95b6",
-            "url": "https://gothamist.com/news/black-activists-in-ny-duel-over-proposed-bans-on-menthol-cigarette-sales",
-            "publication_date": "2023-03-09T19:35:44.885479-05:00",
-            "updated_date": null,
-            "description": "Some worry the bans will mean more encounters with cops. Others decry the flavored cigarettes' deadly toll on Black people.",
-            "lead_asset": [
-                {
-                    "type": "lead_image",
-                    "value": {
-                        "image": {
-                            "id": 337180,
-                            "title": "shutterstock_editorial_13437417a.jpg DO NOT REUSE",
-                            "width": 3328,
-                            "height": 2218,
-                            "created_at": "2023-03-09T17:53:21.471291-05:00",
-                            "focal_point_x": null,
-                            "focal_point_y": null,
-                            "focal_point_width": null,
-                            "focal_point_height": null,
-                            "file_size": 1358302,
-                            "file_hash": "adaea39cfd4bd84fe8c467d7bf803194b039d010",
-                            "alt": "Menthol cigarettes",
-                            "caption": "Menthol-flavored cigarettes would be banned under proposals pending in the State Legislature and New York City Council",
-                            "credit": "Jeff Chiu/AP/Shutterstock",
-                            "credit_link": "https://enterprise.shutterstock.com/editorial/image-editorial/menthol-cigarettes-other-tobacco-products-displayed-store-13437417a",
-                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_editorial_13437417a.jpg",
-                            "usage_limitations": "",
-                            "expiry_date": null,
-                            "collection": 1,
-                            "uploaded_by_user": 125
-                        },
-                        "caption": "",
-                        "image_link": ""
-                    },
-                    "id": "8e4eda57-eaf9-47b9-9dcf-f69739871f97"
-                }
-            ],
-            "sponsored_content": false,
-            "related_authors": [
-                {
-                    "id": 154600,
-                    "first_name": "Arya",
-                    "last_name": "Sundaram",
-                    "job_title": "Reporter",
-                    "biography": "",
-                    "website": "",
-                    "email": "",
-                    "slug": "arya-sundaram",
-                    "social_media_profile": []
-                }
-            ],
-            "tags": [
-                {
-                    "name": "menthol cigarettes",
-                    "slug": "menthol-cigarettes"
-                },
-                {
-                    "name": "lung cancer",
-                    "slug": "lung-cancer"
-                },
-                {
-                    "name": "Race And Justice Unit",
-                    "slug": "race-and-justice-unit"
-                },
-                {
-                    "name": "Kathy Hochul",
-                    "slug": "kathy-hochul"
-                }
-            ],
-            "show_as_feature": false,
-            "legacy_id": null,
-            "ancestry": [
-                {
-                    "id": 4,
-                    "meta": {
-                        "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
-                        "html_url": "http://cms.prod.nypr.digital/news/"
-                    },
-                    "title": "News",
-                    "slug": "news"
-                },
-                {
-                    "id": 3,
-                    "meta": {
-                        "type": "home.HomePage",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
-                        "html_url": "http://cms.prod.nypr.digital/"
-                    },
-                    "title": "Gothamist",
-                    "slug": "home"
-                },
-                {
-                    "id": 1,
-                    "meta": {
-                        "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
                         "html_url": null
                     },
                     "title": "Root",
