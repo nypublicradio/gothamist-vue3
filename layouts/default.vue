@@ -134,6 +134,7 @@ useHead({
     {
       src: `https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`,
       async: true,
+      type: 'text/partytown'
     },
     {
       src: 'https://s.ntv.io/serve/load.js',
