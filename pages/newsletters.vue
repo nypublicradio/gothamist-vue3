@@ -11,7 +11,7 @@ const newsletters = [
     description: "Essential transportation coverage to your inbox every Thursday."
   },{
     title: "Politics Brief",
-    id: "Politics Brief",
+    id: "Politics Brief Newsletter",
     description: "Everything you need to know as a voter in New York or New Jersey."
   }
 ]
