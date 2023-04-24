@@ -5,7 +5,7 @@ export default function useChartbeat(pageInfo = {}) {
       path: document.location.pathname,
       title: document.title,
       authors: '',
-      section: '',
+      sections: '',
     }
     const info = Object.assign({}, defaultPageInfo, pageInfo)
     $chartbeat.updatePage(info)

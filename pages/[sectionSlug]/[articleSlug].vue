@@ -50,7 +50,7 @@ const headMetadata = useArticlePageHeadMetadata(article)
 
 useHead(headMetadata)
 useChartbeat({
-  section: article.tags.map(tag => tag.name).join(','),
+  sections: article.tags.map(tag => tag.name).join(','),
   authors: article.authors.map(author => author.name).join(',')
 })
 
