@@ -23,7 +23,7 @@ const isPreview = route.query.preview ? true : false
 const config = useRuntimeConfig()
 const { $analytics, $htlbid } = useNuxtApp()
 const article = isPreview
-  ? previewData.value.data
+  ? previewData.value.data as ArticlePage
   : ((await findPage(
       `${route.params.sectionSlug}/${route.params.articleSlug}`
     ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage)
@@ -50,7 +50,7 @@ const headMetadata = useArticlePageHeadMetadata(article)
 
 useHead(headMetadata)
 useChartbeat({
-  section: article.section.name,
+  section: article.tags.map(tag => tag.name).join(','),
   authors: article.authors.map(author => author.name).join(',')
 })
 
