@@ -9,7 +9,7 @@ export default defineNuxtPlugin(() => {
     _sf_async_config.domain = 'gothamist.com'; //CHANGE THIS TO YOUR SITE ID
     _sf_async_config.useCanonical = true;
     _sf_async_config.useCanonicalDomain = true;
-    _sf_async_config.tags = ''; //SET PAGE SECTION(S)
+    _sf_async_config.section = ''; //SET PAGE SECTION(S)
     _sf_async_config.authors = ''; //SET PAGE AUTHOR(S)
     _sf_async_config.title = document.title; //SET PAGE TITLE
     /** CONFIGURATION END **/
