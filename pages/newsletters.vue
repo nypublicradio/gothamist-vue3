@@ -38,7 +38,7 @@ const submitForm = (event) => {
   $fetch(config.NEWSLETTER_API, {
     method: 'POST',
     body: {
-      source: 'gothamist',
+      source: 'gothamist_newsletter_landing_page',
       list: selectedLists.value.join('++'),
       email: email.value
     },
