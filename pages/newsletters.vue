@@ -115,9 +115,9 @@ const submitForm = (event) => {
               </label>
               <Button
                 id="sign-up"
-                :class="!formIsValid ? 'disabled' : ''"
-                :aria-disabled="!formIsValid"
-                :type="formIsValid ? 'submit' : 'button'"
+                :class="!formIsValid || isSubmitting ? 'disabled' : ''"
+                :aria-disabled="!formIsValid || isSubmitting"
+                :type="formIsValid || isSubmitting ? 'submit' : 'button'"
                 class="submit-btn p-button-rounded"
                 label="Sign Up"
                 aria-label="Sign Up"
