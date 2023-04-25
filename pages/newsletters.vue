@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
+const { $sentry } = useNuxtApp()
 const newsletters = [
   {
     title: "Gothamist Daily",
@@ -49,9 +50,10 @@ const submitForm = (event) => {
     submissionStatus.value = 'success'
     isSubmitting.value = false
   })
-  .catch(() => {
+  .catch((error) => {
     submissionStatus.value = 'error'
     isSubmitting.value = false
+    $sentry.captureException(error.response)
   })
   return event.preventDefault()
 }

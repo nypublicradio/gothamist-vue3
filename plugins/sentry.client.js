@@ -43,10 +43,13 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     return {
         provide: {
-            sentrySetContext: (n, context) => Sentry.setContext(n, context),
-            sentrySetUser: (user) => Sentry.setUser(user),
-            sentrySetTag: (tagName, value) => Sentry.setTag(tagName, value),
-            sentryAddBreadcrumb: (breadcrumb) => Sentry.addBreadcrumb(breadcrumb)
+            sentry: {
+                setContext: (n, context) => Sentry.setContext(n, context),
+                setUser: (user) => Sentry.setUser(user),
+                setTag: (tagName, value) => Sentry.setTag(tagName, value),
+                addBreadcrumb: (breadcrumb) => Sentry.addBreadcrumb(breadcrumb),
+                captureException: (exception) => Sentry.captureException(exception)
+            }
         }
     }
 });
