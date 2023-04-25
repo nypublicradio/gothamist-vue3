@@ -15,6 +15,8 @@ const newsletters = [
     description: "Everything you need to know as a voter in New York or New Jersey."
   }
 ]
+const thanksMessage = "Thank you for signing up!"
+const errorMessage = "Sorry! There was a problem signing you up. Please try again later"
 
 const isSubmitting = ref(false)
 const submissionStatus = ref<string>(null)
@@ -22,6 +24,7 @@ const submissionStatus = ref<string>(null)
 const selectedLists = ref<Array<string>>(newsletters.map(newsletter => newsletter.id))
 const agree = ref(true)
 const email = ref<string>(null)
+const isSuccess = ref(false)
 const formIsValid = computed(() => {
   return selectedLists.value.length > 0 &&
   agree.value &&
@@ -34,7 +37,6 @@ const submitForm = (event) => {
   }
   isSubmitting.value = true
   submissionStatus.value = null
-  submissionStatus.value = 'success'
   $fetch(config.NEWSLETTER_API, {
     method: 'POST',
     body: {
@@ -45,6 +47,7 @@ const submitForm = (event) => {
   })
   .then(() => {
     submissionStatus.value = 'success'
+    isSubmitting.value = false
   })
   .catch(() => {
     submissionStatus.value = 'error'
@@ -59,66 +62,69 @@ const submitForm = (event) => {
     <section>
       <div class="content">
         <form class="newsletter-form" v-on:submit="submitForm"
-        >
-          <h1>Newsletters</h1>
-          <p>Get the news New Yorkers need in your inbox.</p>
-          <div class="field">
-            <label for="email">Email address</label>
-            <InputText
-              class="w-full p-inputtext-lg"
-              type="email"
-              required="required"
-              v-model="email"
-              placeholder="your@email.com"
-              aria-label="sign up"
-              aria-describedby="email-address-field"
-              enterkeyhint="send"
-              autocomplete="email"
-              name="email"
-            />
-          </div>
-          <div class="newsletter-list">
-            <div v-for="(newsletter, index) in newsletters" :key="newsletter.id" class="newsletter-list-item">
-              <div class="newsletter-checkbox">
-                <Checkbox
-                :id="`newsletter-${index}`"
-                :value="newsletter.id"
-                v-model="selectedLists"
+        > 
+          <div v-if="submissionStatus !== 'success'" class="form">
+            <h1>Newsletters</h1>
+            <p>Get the news New Yorkers need in your inbox.</p>
+            <div class="field">
+              <label for="email">Email address</label>
+              <InputText
+                class="w-full p-inputtext-lg"
+                type="email"
+                required="required"
+                v-model="email"
+                placeholder="your@email.com"
+                aria-label="sign up"
+                aria-describedby="email-address-field"
+                enterkeyhint="send"
+                autocomplete="email"
+                name="email"
               />
-              </div>
-              <div class="newsletter-info">
-                <div><label :for="`newsletter-${index}`">{{newsletter.title}}</label></div>
-                <div>{{newsletter.description}}</div>
+            </div>
+            <div v-if="submissionStatus !== 'success'" class="newsletter-list">
+              <div v-for="(newsletter, index) in newsletters" :key="newsletter.id" class="newsletter-list-item">
+                <div class="newsletter-checkbox">
+                  <Checkbox
+                  :id="`newsletter-${index}`"
+                  :value="newsletter.id"
+                  v-model="selectedLists"
+                />
+                </div>
+                <div class="newsletter-info">
+                  <div><label :for="`newsletter-${index}`">{{newsletter.title}}</label></div>
+                  <div>{{newsletter.description}}</div>
+                </div>
               </div>
             </div>
+            <div v-if="submissionStatus === 'error'" class="newsletter-error">{{errorMessage}}</div>
+            <div class="newsletter-agree field-checkbox mt-3 mb-0">
+              <Checkbox
+                id="agree"
+                role="checkbox"
+                aria-label="Toggle agreement to the terms"
+                :aria-checked="agree"
+                v-model="agree"
+                :disabled="isSubmitting"
+                :binary="true"
+              />
+              <label for="agree">
+                By submitting your information, you're agreeing to receive
+                communications from New York Public Radio in accordance with our
+                <a href="https://www.wnyc.org/terms/" target="_blank" rel="noopener noreferrer">Terms</a
+                >.
+              </label>
+              <Button
+                id="sign-up"
+                :class="!formIsValid ? 'disabled' : ''"
+                :aria-disabled="!formIsValid"
+                :type="formIsValid ? 'submit' : 'button'"
+                class="submit-btn p-button-rounded"
+                label="Sign Up"
+                aria-label="Sign Up"
+              />
+            </div>
           </div>
-          <div v-if="submissionStatus !== 'success'" class="newsletter-agree field-checkbox mt-3 mb-0">
-            <Checkbox
-              id="agree"
-              role="checkbox"
-              aria-label="Toggle agreement to the terms"
-              :aria-checked="agree"
-              v-model="agree"
-              :disabled="isSubmitting"
-              :binary="true"
-            />
-            <label for="agree">
-              By submitting your information, you're agreeing to receive
-              communications from New York Public Radio in accordance with our
-              <a href="https://www.wnyc.org/terms/" target="_blank" rel="noopener noreferrer">Terms</a
-              >.
-            </label>
-            <Button
-              id="sign-up"
-              :class="!formIsValid ? 'disabled' : ''"
-              :aria-disabled="!formIsValid"
-              :type="formIsValid ? 'submit' : 'button'"
-              class="submit-btn p-button-rounded"
-              label="Sign Up"
-              aria-label="Sign Up"
-            />
-          </div>
-          <div v-else class="newsletter-thanks mt-3 mb-0">Thank you for signing up!</div>
+          <div v-else class="newsletter-thanks mt-3 mb-0">{{thanksMessage}}</div>
         </form>
         <div class="hero">
           <div class="phone">
@@ -153,7 +159,7 @@ const submitForm = (event) => {
 .newsletter-form p {
   margin-bottom: 1rem;
 }
-.newsletter-agree, .newsletter-thanks {
+.newsletter-agree, .newsletter-thanks, .newsletter-error {
   background: var(--soybean200);
   width: 100vw;
   min-height: 64px;
@@ -173,6 +179,15 @@ const submitForm = (event) => {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-6);
+}
+.newsletter-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0;
+  color: red;
   font-family: var(--font-family-header);
   font-size: var(--font-size-6);
 }
