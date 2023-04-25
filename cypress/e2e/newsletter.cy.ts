@@ -12,7 +12,7 @@ describe('The newsletter page', () => {
       req => {
         expect(req.body.email).to.eq(emailAddress)
         expect(req.body.list).to.eq('Gothamist++We The Commuters++Politics Brief Newsletter')
-        expect(req.body.source).to.eq('gothamist')
+        expect(req.body.source).to.eq('gothamist_newsletter_landing_page')
     })
     cy.visit('/newsletters')
     cy.get('.newsletter-form input').first().type(emailAddress)
