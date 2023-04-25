@@ -159,7 +159,7 @@ const submitForm = (event) => {
 .newsletter-form p {
   margin-bottom: 1rem;
 }
-.newsletter-agree, .newsletter-thanks, .newsletter-error {
+.newsletter-agree {
   background: var(--soybean200);
   width: 100vw;
   min-height: 64px;
@@ -179,17 +179,24 @@ const submitForm = (event) => {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
   font-family: var(--font-family-header);
   font-size: var(--font-size-6);
+  @include media('>md') {
+    padding: 12px 20px;
+  }
 }
 .newsletter-error {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 0;
+  padding: 10px;
   color: red;
   font-family: var(--font-family-header);
   font-size: var(--font-size-6);
+  @include media('>md') {
+    padding: 12px 20px 0 20px;
+  }
 }
 .newsletter-agree label {
   font-size: var(--font-size-3);
