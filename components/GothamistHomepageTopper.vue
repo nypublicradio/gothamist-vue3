@@ -15,7 +15,7 @@ const filteredLatestArticles = computed(() => {
   return props.latestArticles.filter(article =>
     article.id !== props.featureLarge?.id &&
     article.id !== props.featureMedium?.id
-  )
+  ).slice(0,4)
 })
 </script>
 
