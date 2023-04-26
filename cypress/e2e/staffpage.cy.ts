@@ -29,10 +29,12 @@ describe('A staff page', () => {
     })
     it('successfully loads', () => {
         cy.visit('/staff/jen-chung')
+        cy.wait('@staffArticles')
         cy.get('#articleList .gothamist-card').should('have.length', 12)
     })
     it('loads more', () => {
         cy.visit('/staff/jen-chung')
+        cy.wait('@staffArticles')
         cy.contains('Load More').click()
         cy.wait('@staffMore')
         cy.get('#articleList .gothamist-card').should('have.length', 24)
