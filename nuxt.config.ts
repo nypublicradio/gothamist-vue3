@@ -40,7 +40,7 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           // besure to mirror theses imports in the vitest.config.ts
-          additionalData: `@import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/breakpoints.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/_mixins.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/typography.scss"; @import "~/assets/scss/global.scss";`,
+          additionalData: '@import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/breakpoints.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/_mixins.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/typography.scss"; @import "~/assets/scss/global.scss";',
         },
       },
       postcss: {
@@ -95,6 +95,8 @@ export default defineNuxtConfig({
       betaUrl: '//beta.gothamist.com',
       LIVESTREAM_URL: process.env['LIVESTREAM_URL'] || 'https://api.demo.nypr.digital/api/v4/whats_on/',
       NEWRELIC_AGENT: process.env['NEWRELIC_AGENT'] || 'newrelic-dev.js',
+      OPTIN_MONSTER_ACCOUNT_ID: process.env['OPTIN_MONSTER_ACCOUNT_ID'] || '267513',
+      OPTIN_MONSTER_USER_ID: process.env['OPTIN_MONSTER_USER_ID'] || '250465',
     }
   },
   ssr: Boolean(process.env['NUXT_SSR'] !== 'false'),
