@@ -13,10 +13,11 @@ describe('The newsletter page', () => {
         expect(req.body.email).to.eq(emailAddress)
         expect(req.body.list).to.eq('Gothamist++We The Commuters++Politics Brief Newsletter')
         expect(req.body.source).to.eq('gothamist_newsletter_landing_page')
-    })
+    }).as('emailProxy')
     cy.visit('/newsletters')
     cy.get('.newsletter-form input').first().type(emailAddress)
     cy.get('#sign-up').click()
+    cy.wait('@emailProxy')
     cy.get('.newsletter-form').contains('Thank you for signing up!')
   })
   it("should be disabled when there are form errors", () => {

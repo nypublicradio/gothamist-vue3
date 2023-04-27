@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 import { ArticlePage } from '~~/composables/types/Page';
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 
 const props = defineProps<{
-  articles: ArticlePage[],
-  trackingComponentLocation: string
+  featureLarge: ArticlePage,
+  featureMedium: ArticlePage,
+  latestArticles: ArticlePage[],
+  trackingComponentLocation: string,
 }>()
 const trackingComponent = "Homepage Topper"
 
-const featureLarge = ref(props.articles?.[0])
-const featureMedium = ref(props.articles?.[1])
-const latestArticles = ref([
-  props.articles?.[2],
-  props.articles?.[3],
-  props.articles?.[4],
-  props.articles?.[5],
-])
-
+const filteredLatestArticles = computed(() => {
+  return props.latestArticles.filter(article =>
+    article.id !== props.featureLarge?.id &&
+    article.id !== props.featureMedium?.id
+  ).slice(0,4)
+})
 </script>
 
 <template>
@@ -101,7 +100,7 @@ const latestArticles = ref([
       <div class="col-3 flex-order-3">
         <hr class="block lg:hidden black mb-4" />
         <v-tag class="tag block mb-3" role="heading" aria-level="2" name="Latest" slug="/#latest" />
-        <div v-for="(article, index) in latestArticles" :key="article.uuid" class="homepage-topper-latest">
+        <div v-for="(article, index) in filteredLatestArticles" :key="article.uuid" class="homepage-topper-latest">
           <gothamist-card
             v-slot="card"
             :article="article"
