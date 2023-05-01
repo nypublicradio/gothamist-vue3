@@ -1,9 +1,11 @@
 export default {
     // A helper exp-{name}-{var} class will be added to the root element
-    name: 'tagless-cards-on-homepage',
+    name: 'no-duplicates-in-river',
+
+    maxAgeSeconds: 60 * 60 * 24 * 30,
 
     variants: [
-      { weight: 1 }, // Original
-      { weight: 1 } // Tagless Cards on Homepage
+      { weight: 1 }, // 0: Original
+      { weight: 1 }  // 1: Remove duplicate stories from the latest news river
     ]
   }

@@ -1,5 +1,6 @@
 import currentExperiments from "~/experiments";
 import Experiment from "~/composables/types/Experiment";
+import { get } from "cypress/types/lodash";
 
 export default defineNuxtPlugin(() => {
     let activeVariant:number
@@ -20,8 +21,9 @@ export default defineNuxtPlugin(() => {
 
     const assignVariants = (experiments:Experiment[]):void => {
       experiments.forEach(experiment => {
-        const variant = readVariant(experiment) || chooseVariant(experiment)
-        assignVariant(experiment, variant)
+        if (experiment === getCurrentExperiment() && typeof activeVariant === 'undefined') {
+          activeVariant = readVariant(experiment) ?? chooseVariant(experiment)
+        }
       })
     }
 
@@ -31,12 +33,12 @@ export default defineNuxtPlugin(() => {
 
     const readVariant = (experiment:Experiment):number => {
       const cookie = useCookie(`_experiment_${experiment.name}`, { path: '/' })
-      if (cookie.value) {
+      if (typeof cookie.value !== 'undefined') {
         return Number(cookie.value)
       }
     }
 
-    const assignVariant = (experiment:Experiment, variant:number):void => {
+    const saveVariant = (experiment:Experiment, variant:number):void => {
       const cookie = useCookie(
         `_experiment_${experiment.name}`, 
         { 
@@ -45,25 +47,28 @@ export default defineNuxtPlugin(() => {
         }
       )
       cookie.value = String(variant)
-      if (experiment === getCurrentExperiment()) {
-        activeVariant = variant
-      }
     }
 
-    const getCurrentExperiment = () => {
+    const getCurrentExperiment = ():Experiment => {
       if (currentExperiments.length > 0) {
         return currentExperiments[0]
       } else {
-        return {} 
+        return undefined
       }
     }
 
     assignVariants(currentExperiments)
 
+    if (!process.client) {
+      saveVariant(getCurrentExperiment(), activeVariant)
+    }
+
     return {
       provide: {
-        current: getCurrentExperiment(),
-        activeVariant
+        experiments: {
+          current: getCurrentExperiment(),
+          activeVariant
+        }
       }
     }
 })

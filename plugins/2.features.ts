@@ -20,7 +20,6 @@ export default defineNuxtPlugin(() => {
   }
   const classes = Object.entries(enabled)
     .map(entry => (entry[1] ? `${entry[0]}-enabled` : `${entry[0]}-disabled`))
-  inject('features', { enabled, disabled, classes })
 
   return {
     provide: {

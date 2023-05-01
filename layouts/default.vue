@@ -18,7 +18,7 @@ const marketingBannerData = useMarketingBannerData()
 
 const config = useRuntimeConfig()
 const route = useRoute()
-const { $htlbid, $analytics } = useNuxtApp()
+const { $htlbid, $analytics, $features } = useNuxtApp()
 
 const navigationState = useNavigation()
 const navigationPromise = findNavigation().then(({ data }) => {
@@ -118,6 +118,9 @@ watch(leaderboardAdToWatch.height, (height) => {
 useHead({
   htmlAttrs: {
     lang: 'en',
+  },
+  bodyAttrs: {
+    class: $features.classes.join(' ')
   },
   title: 'Gothamist: New York City Local News, Food, Arts & Events',
   meta: [
