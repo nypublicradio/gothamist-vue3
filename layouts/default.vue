@@ -119,9 +119,6 @@ useHead({
   htmlAttrs: {
     lang: 'en',
   },
-  bodyAttrs: {
-    class: $features.classes.join(' ')
-  },
   title: 'Gothamist: New York City Local News, Food, Arts & Events',
   meta: [
     {

@@ -9,7 +9,7 @@ export default defineNuxtPlugin(() => {
     // - Matt Walsh
     // Experiment started: May 3 2023
     'experiment-deduplicate-river': 
-      $experiments && $experiments.current.name === 'no-duplicates-in-river' && 
+      $experiments.current?.name === 'no-duplicates-in-river' && 
       $experiments.activeVariant === 1
   }
 
@@ -20,6 +20,12 @@ export default defineNuxtPlugin(() => {
   }
   const classes = Object.entries(enabled)
     .map(entry => (entry[1] ? `${entry[0]}-enabled` : `${entry[0]}-disabled`))
+
+  useHead({
+    bodyAttrs: {
+      class: classes.join(' ')
+    },
+  })
 
   return {
     provide: {

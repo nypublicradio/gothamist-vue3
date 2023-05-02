@@ -17,7 +17,7 @@ export default defineNuxtPlugin(() => {
     if ($experiments.current) {
       gtag('event', name, {
         experimentName: $experiments.current.name,
-        experimentVariant: $experiments.variant,
+        experimentVariant: $experiments.activeVariant,
         ...params
       })
     } else {
