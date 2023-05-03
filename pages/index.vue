@@ -4,15 +4,27 @@ import { ArticlePage } from '~~/composables/types/Page'
 import { computed, ref, nextTick } from 'vue'
 import { onBeforeRouteUpdate } from 'vue-router'
 
+const { $features } = useNuxtApp()
+const possibleDuplicates = ref(6) // from the topper
+const actualDuplicates = ref(4)
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
 const riverAdRepeatRate = ref(6)
 const riverContainer = ref('#latest')
 
-const articlesPromise = findArticlePages({
-  limit: riverStoryCount.value,
-  sponsored_content: false,
-}).then(({ data }) => normalizeFindArticlePagesResponse(data))
+let articlesPromise
+
+if ($features.enabled['experiment-deduplicate-river']) {
+  articlesPromise = findArticlePages({
+    limit: riverStoryCount.value + possibleDuplicates.value,
+    sponsored_content: false,
+  }).then(({ data }) => normalizeFindArticlePagesResponse(data))
+} else {
+  articlesPromise = findArticlePages({
+    limit: riverStoryCount.value,
+    sponsored_content: false,
+  }).then(({ data }) => normalizeFindArticlePagesResponse(data))
+}
 
 const homePageCollectionsPromise = findPage('/').then(({ data }) => {
   return data.value.pageCollectionRelationship.map((collection) => {
@@ -35,8 +47,20 @@ const latestArticles = ref([...articles])
 // the home page featured article should display only the first and second story in the home page content collection
 const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
 
+actualDuplicates.value = 4
+const firstFour = articles.slice(0,4).map(article => article.uuid)
+if (firstFour.includes(featuredArticles[0].uuid)) { actualDuplicates.value += 1 }
+if (firstFour.includes(featuredArticles[1].uuid)) { actualDuplicates.value += 1 }
+
+const filteredLatestArticles = computed(() => {
+  return articles.slice(actualDuplicates.value)
+})
+
+const riverArticles = $features.enabled['experiment-deduplicate-river'] ?
+filteredLatestArticles : latestArticles
+
 const riverSegments = computed(() => {
-  let riverCopy = latestArticles.value.slice()
+  let riverCopy = riverArticles.value.slice()
   const segments = [] as ArticlePage[][]
   while (riverCopy.length) {
     segments.push(riverCopy.splice(0, riverStoryCount.value))
