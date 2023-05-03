@@ -59,7 +59,7 @@ const loadMoreArticles = async () => {
 }
 
 const tagName =
-  articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug
+  articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug?.replace(/-/g, ' ')
 
 useChartbeat()
 
