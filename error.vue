@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { ref, onMounted } from 'vue'
-import { useRuntimeConfig } from '#app'
-import { useSidebarIsOpen } from '~~/composables/states.js'
 
 const config = useRuntimeConfig()
 const route = useRoute()

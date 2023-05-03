@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import Navigation from '~~/composables/types/Navigation'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import {
-  useCurrentHeaderAdHeight,
-  useCurrentSteamStation,
-} from '~/composables/states'
 
 defineProps<{
   isMinimized: boolean

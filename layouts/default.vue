@@ -83,9 +83,9 @@ const trackSidebarClick = (label) => {
   closeSidebar()
 }
 // load the live stream
-onBeforeMount(() => {
+onBeforeMount(async () => {
   const currentSteamStation = useCurrentSteamStation()
-  updateLiveStream(currentSteamStation.value)
+  await updateLiveStream(currentSteamStation.value)
 })
 onMounted(() => {
   if (typeof $htlbid !== "undefined") {
