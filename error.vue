@@ -88,6 +88,10 @@ const trackSidebarClick = (label) => {
   closeSidebar()
 }
 
+onBeforeMount(() => {
+  const currentSteamStation = useCurrentSteamStation()
+  updateLiveStream(currentSteamStation.value)
+})
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'error_page' })
   document.addEventListener('scroll', (e) => {
