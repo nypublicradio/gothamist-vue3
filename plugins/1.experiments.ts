@@ -4,6 +4,7 @@ import { get } from "cypress/types/lodash";
 
 export default defineNuxtPlugin(() => {
     let activeVariant:number
+    const defaultMaxAge = 60 * 60 * 24 * 30 // 30 days
 
     const chooseWeightedRandom = (weights:number[]):number => {
       const sumOfWeights = weights.reduce(
@@ -43,7 +44,7 @@ export default defineNuxtPlugin(() => {
         `_experiment_${experiment.name}`, 
         { 
           path: '/',
-          maxAge: experiment.maxAgeSeconds
+          maxAge: experiment.maxAgeSeconds ?? defaultMaxAge,
         }
       )
       cookie.value = String(variant)
