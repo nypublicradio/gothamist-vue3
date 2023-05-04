@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { ref, onMounted } from 'vue'
-import { useRuntimeConfig } from '#app'
-import { useSidebarIsOpen } from '~~/composables/states.js'
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -88,6 +85,10 @@ const trackSidebarClick = (label) => {
   closeSidebar()
 }
 
+onBeforeMount(() => {
+  const currentSteamStation = useCurrentSteamStation()
+  updateLiveStream(currentSteamStation.value)
+})
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'error_page' })
   document.addEventListener('scroll', (e) => {
@@ -251,6 +252,70 @@ useHead({
       font-size: var(--font-size-6);
       line-height: var(--font-size-6);
     }
+  }
+}
+
+.leaderboard-ad-wrapper {
+  background: #111111;
+  @include media('<md') {
+    min-height: 50px;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 5000;
+  }
+  @include media('>=md') {
+    min-height: 92px;
+    padding: 1px 0;
+  }
+}
+
+.gothamist-sidebar {
+  background-color: var(--black-500);
+  width: 100vw !important;
+  @include media('>sm') {
+    width: 480px !important;
+  }
+  .p-sidebar-close {
+    color: white !important;
+    &:hover {
+      color: initial !important;
+    }
+  }
+}
+
+.gothamist-sidebar .p-sidebar-header {
+  justify-content: space-between;
+  padding: 1rem 0 0 0;
+}
+
+.gothamist-sidebar .p-sidebar-header {
+  align-items: flex-start;
+}
+
+.gothamist-sidebar-header-logo {
+  width: 120px;
+  height: auto;
+  * {
+    fill: white;
+  }
+}
+
+.gothamist-sidebar .p-sidebar-content {
+  padding: 0;
+}
+
+.gothamist-sidebar-header-tagline {
+  max-width: 160px;
+  font-family: var(--font-family-header);
+  font-size: 12px;
+  line-height: var(--font-size-5);
+  color: white;
+  align-self: flex-end;
+  padding-right: 1rem;
+  @include media('<375px') {
+    font-size: 10px;
+    line-height: var(--font-size-4);
   }
 }
 </style>

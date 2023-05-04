@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <blockquote class="streamfield-pull-quote pt-4 pb-3">
+  <blockquote class="streamfield-pull-quote pt-4 pb-3" v-bind="{ ...$attrs }">
     <div class="h3">
       {{ quote }}
     </div>
