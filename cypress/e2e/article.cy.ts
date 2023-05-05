@@ -40,7 +40,7 @@ describe('An article page', () => {
     })
     it('shows the marketing CTAs', () => {
         cy.intercept(
-            '/api/v2/system_messages/*', 
+            '/api/v2/system_messages/*',
             {fixture: 'aviary/system_messages_bottom.json'}
         ).as('systemMessagesWithBottomCTA')
 
@@ -59,7 +59,7 @@ describe('An article page', () => {
             .then((srcset) => {
                 cy.get('.image-with-caption-image img').first().should('have.attr', 'srcset', srcset)
             })
-            
+
         cy.get('link[rel=preload][as=image]').first()
             .invoke('attr', 'href')
             .then((src) => {
