@@ -75,7 +75,7 @@ export function useResponsiveSrcset(image: Image, sizes: number[], options?: { w
   return responsiveSrcset
 }
 
-export function usePreloadResponsiveImage(href:string, imagesrcset:string) {
+export function usePreloadResponsiveImage(href:string, imagesrcset:string, priority=9) {
   useHead({
     link: [
       {
@@ -83,6 +83,7 @@ export function usePreloadResponsiveImage(href:string, imagesrcset:string) {
         as: 'image',
         href,
         imagesrcset,
+        tagPriority: priority
       }
     ]
   })
