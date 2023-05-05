@@ -81,6 +81,7 @@ export function usePreloadResponsiveImage(href:string, imagesrcset:string, prior
       {
         rel: 'preload',
         as: 'image',
+        fetchpriority: 'high',
         href,
         imagesrcset,
         tagPriority: priority
