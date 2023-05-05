@@ -56,6 +56,19 @@ const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
 
 useHead(headMetadata)
+usePreloadResponsiveImage(
+  useImageUrl(topImage, {
+    width: 700,
+    height: 467,
+    quality: 70
+  }),
+  useResponsiveSrcset(topImage, [2, 3], {
+    width: 700,
+    height: 467,
+    quality: 70
+  })
+)
+
 useChartbeat({
   sections: article.tags.map(tag => tag.name).join(','),
   authors: article.authors.map(author => author.name).join(',')
