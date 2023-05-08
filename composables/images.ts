@@ -70,7 +70,7 @@ export function useResponsiveSrcset(image: Image, sizes: number[], options?: { w
       height:responsiveSize.height,
       quality: calcQuality(options.quality, responsiveSize.size)
     })
-    return  + `${srcset}${url} ${responsiveSize.size}x${index < responsiveSizes.length - 1 ? ',' : ''} `
+    return `${srcset}${url} ${responsiveSize.size}x${index < responsiveSizes.length - 1 ? ',' : ''} `
   }, '')
   return responsiveSrcset
 }
