@@ -41,7 +41,7 @@ usePreloadResponsiveImage(
     height: 467,
     quality: 80
   }),
-  useResponsiveSrcset(featuredArticles?.[0]?.listingImage, [2], {
+  useResponsiveSrcset(featuredArticles?.[0]?.listingImage, [1], {
     width: 700,
     height: 467,
     quality: 80

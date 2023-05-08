@@ -82,7 +82,6 @@ const filteredLatestArticles = computed(() => {
           class="article-lg mod-vertical mod-large mb-4"
           :image="useImageUrl(featureLarge.listingImage)"
           loading="eager"
-          :sizes="[2]"
           :width="700"
           :height="467"
           :trackClicks="true"
