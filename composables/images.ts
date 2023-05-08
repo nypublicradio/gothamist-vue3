@@ -7,7 +7,7 @@ import Image from './types/Image'
 
 // if you just have the image ID you can use it like this
 //useImageUrl({ id: imageId })
-export default function useImageUrl(image: Image, options?: { width: number, height: number, quality: number }): string {
+export function useImageUrl(image: Image, options?: { width: number, height: number, quality: number }): string {
   const config = useRuntimeConfig()
   if (!image) {
     return ""
@@ -30,22 +30,22 @@ const getResponsiveSizes = (options: {
     height:number,
     maxWidth:number,
     maxHeight:number}): {size:number, width:number, height:number}[] => {
-  let responsiveSizes = []
-  let finalSize = false
+  const responsiveSizes = []
+  let isFinalSize = false
   for (const size of options.sizes) {
     /* continue if it is NOT the final image and the image has more pixels than its rendered area */
-    if (!finalSize && options.maxWidth > options.width) {
+    if (!isFinalSize && options.maxWidth > options.width) {
       let width = Math.round(options.width * size)
       let height = Math.round(options.height * size)
       /* the image no longer has enough resolution to support the next srcset, use its maximum size and make it the last on the srcset list */
       if (width > options.maxWidth || height > options.maxHeight) {
         height = Math.round((options.height / options.width) * options.maxWidth)
         width = options.maxWidth
-        finalSize = true
+        isFinalSize = true
       }
-      // if we are on the last size in the array, set finalSize to true
+      // if we are on the last size in the array, set isFinalSize to true
       if (options.sizes.length - 1 === options.sizes.indexOf(size)) {
-        finalSize = true
+        isFinalSize = true
       }
       responsiveSizes.push({size, width, height})
     }
@@ -70,7 +70,7 @@ export function useResponsiveSrcset(image: Image, sizes: number[], options?: { w
       height:responsiveSize.height,
       quality: calcQuality(options.quality, responsiveSize.size)
     })
-    return srcset + `${url} ${responsiveSize.size}x${index < responsiveSizes.length - 1 ? ',' : ''} `
+    return  + `${srcset}${url} ${responsiveSize.size}x${index < responsiveSizes.length - 1 ? ',' : ''} `
   }, '')
   return responsiveSrcset
 }
