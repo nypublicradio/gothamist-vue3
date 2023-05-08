@@ -45,7 +45,7 @@ const latestArticles = ref([...articles])
 const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
 
 actualDuplicateCount.value = 4
-const firstFour = articles.slice(0,4).map(article => article.uuid)
+const firstFour = articles.slice(0,6).map(article => article.uuid)
 if (firstFour.includes(featuredArticles[0].uuid)) { actualDuplicateCount.value += 1 }
 if (firstFour.includes(featuredArticles[1].uuid)) { actualDuplicateCount.value += 1 }
 
