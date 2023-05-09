@@ -4,7 +4,10 @@ import { InformationPage } from '../../composables/types/Page'
 import { usePreviewData } from '~/composables/states'
 const previewData = usePreviewData()
 const route = useRoute()
-const page = await findPage(route?.params?.sectionSlug as string).then(
+const isPreview = route.query.preview ? true : false
+
+const page = isPreview ? previewData.value.data
+: await findPage(route?.params?.sectionSlug as string).then(
   ({ data }) => normalizeFindPageResponse(data)
 ).catch(() => {
   throw createError({
@@ -13,7 +16,7 @@ const page = await findPage(route?.params?.sectionSlug as string).then(
     fatal: true,
   })
 })
-const isPreview = route.query.preview ? true : false
+
 const { $analytics } = useNuxtApp()
 
 useChartbeat()
