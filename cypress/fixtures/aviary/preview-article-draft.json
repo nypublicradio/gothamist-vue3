@@ -1,0 +1,148 @@
+{
+    "id": 151281,
+    "meta": {
+        "first_published_at": null,
+        "type": "news.ArticlePage",
+        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151281/",
+        "html_url": "http://cms.prod.nypr.digital/news/a-lot-more-than-gas-stoves-a-deep-dive-into-what-ny-must-do-to-meet-its-climate-law/",
+        "slug": "a-lot-more-than-gas-stoves-a-deep-dive-into-what-ny-must-do-to-meet-its-climate-law",
+        "show_in_menus": true,
+        "seo_title": "",
+        "search_description": "",
+        "parent": {
+            "id": 4,
+            "meta": {
+                "type": "standardpages.IndexPage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                "html_url": "http://cms.prod.nypr.digital/news/"
+            },
+            "title": "News"
+        }
+    },
+    "title": "A lot more than gas stoves: A deep dive into what NY must do to meet its climate law",
+    "listing_title": "",
+    "listing_summary": "",
+    "listing_image": null,
+    "social_image": null,
+    "social_title": "",
+    "social_text": "",
+    "show_on_index_listing": true,
+    "uuid": "0e1570c1-53a8-497f-9ba3-6a665703c948",
+    "url": "https://gothamist-vue3demo.gothamist.com/news/a-lot-more-than-gas-stoves-a-deep-dive-into-what-ny-must-do-to-meet-its-climate-law",
+    "canonical_url": "",
+    "publication_date": null,
+    "updated_date": null,
+    "description": "The Climate Action Council, a 22-member state-appointed committee tasked with defining recommendations for the state’s climate law, believes there's still hope for New York to meet its goal.",
+    "lead_asset": [
+        {
+            "type": "lead_image",
+            "value": {
+                "image": {
+                    "id": 329935,
+                    "title": "helthy-eating.jpeg",
+                    "width": 290,
+                    "height": 174,
+                    "created_at": "2022-09-14T09:56:36.480787-04:00",
+                    "focal_point_x": null,
+                    "focal_point_y": null,
+                    "focal_point_width": null,
+                    "focal_point_height": null,
+                    "file_size": 11735,
+                    "file_hash": "4b174f6d17740e44fb46bbdce7ec42bbeab27812",
+                    "alt": "image test",
+                    "caption": "",
+                    "credit": "",
+                    "credit_link": "",
+                    "file": "https://cdn.cms.demo.nypr.digital/original_images/helthy-eating.jpeg",
+                    "usage_limitations": "",
+                    "expiry_date": null,
+                    "collection": 1,
+                    "uploaded_by_user": 133
+                },
+                "caption": "",
+                "image_link": ""
+            },
+            "id": "a644568d-2aad-46de-84f8-2cbe8e98f94c"
+        }
+    ],
+    "body": [
+        {
+            "type": "paragraph",
+            "value": "<p>New York state has seven years to do most of the work required under the terms of the <a href=\"https://climate.ny.gov/\" rel=\"noopener\" target=\"_blank\">Climate Leadership and Community Protection Act</a>, the landmark 2019 law that calls for a 40% reduction in the state’s greenhouse gas emissions by 2030 — and an 85% reduction by 2050.</p><p>The Climate Action Council, a 22-member state-appointed committee tasked with defining recommendations for the law, believes there&#x27;s still hope for New York to meet its goal.</p><p>In a 445-page report released ahead of Christmas, the council proposed nearly full electrification for all sources of power across all economic sectors with rare exceptions, building renewable sources to make the grid zero-emissions, and reducing solid waste. This scoping plan also outlines financing methods, new practices and technologies for agriculture and manufacturing, and repurposing existing fossil fuel infrastructure for new sources of energy such as green hydrogen and renewable natural gas.</p><p>The final scoping plan is the result of more than three years of work and 32 public meetings. But it&#x27;s not the final step in implementing the CLCPA. By Jan. 1, 2024, the New York State Department of Environmental Conservation must distribute a draft of the enforceable regulations to ensure the CLCPA&#x27;s goals are achieved. Cost projections are unclear given the giant scale of the endeavor, but the DEC will publish a report every four years on progress made through the law. In five years, the Climate Action Council will update the scoping plan.</p><p>“The devil is in the details, and there’s an enormous number of devils out there that the DEC and other agencies are going to have to wrestle with,” said <a href=\"https://www.law.columbia.edu/faculty/michael-gerrard\" rel=\"noopener\" target=\"_blank\">Michael Gerrard</a>, director of the Sabin Center for Climate Change Law at Columbia University. “There are several hundred proposals that need to be acted upon – many require legislation and even more of them require regulations or guidance documents. This is an important step in the right direction, but there’s a whole lot ahead of us.”</p>",
+            "id": "5cc29674-a4f9-4e8b-8540-eaebaf83e3b7"
+        },
+        {
+            "type": "factbox",
+            "value": {
+                "heading": "What you need to know",
+                "image": {
+                    "image": null,
+                    "caption": ""
+                },
+                "body": [
+                    {
+                        "type": "text",
+                        "value": "<p>The Climate Leadership and Community Protection Act passed in 2019 and calls for:</p><ul><li>70% renewable electricity by 2030</li><li>100% zero-emission electricity by 2040</li><li>40% reduction in statewide GHG emissions from 1990 levels by 2030</li><li>85% reduction in statewide GHG emissions from 1990 levels by 2050</li><li>Net zero emissions statewide by 2050</li></ul>",
+                        "id": "6c14db7a-8f96-44ca-ba94-e3d487dda21c"
+                    }
+                ]
+            },
+            "id": "86779323-0c29-4ef8-93c8-a6d283699af3"
+        }
+    ],
+    "sponsored_content": false,
+    "disable_comments": false,
+    "provocative_content": false,
+    "sensitive_content": false,
+    "related_links": [],
+    "related_authors": [
+        {
+            "id": 476,
+            "first_name": "Augieland",
+            "last_name": "Augieland",
+            "job_title": "Gothamist Editor",
+            "biography": "",
+            "website": "",
+            "email": "",
+            "slug": "augieland",
+            "social_media_profile": []
+        }
+    ],
+    "related_contributing_organizations": [],
+    "related_sponsors": [],
+    "tags": [],
+    "show_as_feature": false,
+    "legacy_id": null,
+    "ancestry": [
+        {
+            "id": 4,
+            "meta": {
+                "type": "standardpages.IndexPage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                "html_url": "http://cms.prod.nypr.digital/news/"
+            },
+            "title": "News",
+            "slug": "news"
+        },
+        {
+            "id": 3,
+            "meta": {
+                "type": "home.HomePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                "html_url": "http://cms.prod.nypr.digital/"
+            },
+            "title": "Gothamist",
+            "slug": "home"
+        },
+        {
+            "id": 1,
+            "meta": {
+                "type": "wagtailcore.Page",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                "html_url": null
+            },
+            "title": "Root",
+            "slug": "root"
+        }
+    ]
+}

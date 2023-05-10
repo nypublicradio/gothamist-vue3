@@ -1,0 +1,68 @@
+{
+    "id": 151284,
+    "meta": {
+        "first_published_at": "2023-02-01T10:04:53.429000-05:00",
+        "type": "standardpages.InformationPage",
+        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151284/",
+        "html_url": "http://cms.prod.nypr.digital/another-test-information-page/",
+        "slug": "another-test-information-page",
+        "show_in_menus": true,
+        "seo_title": "",
+        "search_description": "",
+        "parent": {
+            "id": 3,
+            "meta": {
+                "type": "home.HomePage",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                "html_url": "http://cms.prod.nypr.digital/"
+            },
+            "title": "Gothamist"
+        }
+    },
+    "title": "Another test information page",
+    "listing_title": "",
+    "listing_summary": "",
+    "listing_image": null,
+    "social_image": null,
+    "social_title": "",
+    "social_text": "",
+    "show_on_index_listing": true,
+    "uuid": "c8a6718a-9e17-4539-b217-584688fb5ed6",
+    "url": "https://gothamist-vue3demo.gothamist.com/another-test-information-page",
+    "body": [
+        {
+            "type": "image",
+            "value": {
+                "image": {
+                    "id": 329880,
+                    "title": "GettyImages-3231104.jpg",
+                    "width": 3639,
+                    "height": 2726,
+                    "created_at": "2022-03-22T12:29:46.482871-04:00",
+                    "focal_point_x": null,
+                    "focal_point_y": null,
+                    "focal_point_width": null,
+                    "focal_point_height": null,
+                    "file_size": 5165319,
+                    "file_hash": "23d09f36b53df210eff9f8c378780144bfd57224",
+                    "alt": "Grand Central Terminal in 1914, a year after opening.",
+                    "caption": "Grand Central Terminal in 1914, a year after opening.",
+                    "credit": "Hulton Archive / Getty Images",
+                    "credit_link": "",
+                    "file": "https://cdn.cms.demo.nypr.digital/original_images/GettyImages-3231104.jpg",
+                    "usage_limitations": "",
+                    "expiry_date": null,
+                    "collection": 1,
+                    "uploaded_by_user": 21
+                },
+                "caption": ""
+            },
+            "id": "d1b8cfc8-67df-4617-ab77-0854edb37343"
+        },
+        {
+            "type": "paragraph",
+            "value": "<p>This is another test information page</p>",
+            "id": "bd9766ac-6f72-4ac5-9382-20c82bff4cc8"
+        }
+    ]
+}

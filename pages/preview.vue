@@ -20,6 +20,7 @@ const formatData = (data) => {
   return normalizedData
 }
 let fetchData = null
+
 const handlePreviewData = () => {
   useFetch(
     `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
@@ -37,10 +38,10 @@ watch(previewData, (res) => {
   switch (fetchData.value.meta.type) {
     case 'news.ArticlePage':
       return navigateTo(
-        `/${previewData.value.data.section.slug}/${identifierId}?preview=true`
+        `/${previewData.value.data.section.slug}/${previewData.value.slug}?preview=true`
       )
     case 'tagpages.TagPage':
-      return navigateTo(`/tags/${identifierId}?preview=true`)
+      return navigateTo(`/tags/${previewData.value.slug}?preview=true`)
     case 'gallery.GalleryPage':
       return navigateTo(`${path}?preview=true`)
     case 'standardpages.InformationPage':

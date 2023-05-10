@@ -1,0 +1,133 @@
+{
+    "id": 151235,
+    "meta": {
+        "first_published_at": "2022-08-03T22:33:29.876000-04:00",
+        "type": "tagpages.TagPage",
+        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151235/",
+        "html_url": "http://cms.prod.nypr.digital/tags/bagelfest/",
+        "slug": "bagelfest",
+        "show_in_menus": true,
+        "seo_title": "",
+        "search_description": "",
+        "parent": {
+            "id": 147372,
+            "meta": {
+                "type": "tagpages.TagPageIndex",
+                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/147372/",
+                "html_url": "http://cms.prod.nypr.digital/tags/"
+            },
+            "title": "Tags"
+        }
+    },
+    "title": "Bagel Fest",
+    "listing_title": "",
+    "listing_summary": "",
+    "listing_image": null,
+    "social_image": null,
+    "social_title": "",
+    "social_text": "",
+    "show_on_index_listing": true,
+    "uuid": "23043917-9782-4805-8889-4abbbdc6296d",
+    "url": "https://gothamist-vue3demo.gothamist.com/tags/bagelfest",
+    "designed_header": [
+        {
+            "type": "image",
+            "value": {
+                "image": {
+                    "id": 329927,
+                    "title": "bagel-zone.jpg",
+                    "width": 6000,
+                    "height": 4000,
+                    "created_at": "2022-08-03T22:31:05.887974-04:00",
+                    "focal_point_x": null,
+                    "focal_point_y": null,
+                    "focal_point_width": null,
+                    "focal_point_height": null,
+                    "file_size": 4530217,
+                    "file_hash": "635db857231480d4ea6a85801819ad7a29cbb18f",
+                    "alt": "bagel zone",
+                    "caption": "",
+                    "credit": "",
+                    "credit_link": "",
+                    "file": "https://cdn.cms.demo.nypr.digital/original_images/ryan-darin-viqQ-eDLRVI-unsplash.jpg",
+                    "usage_limitations": "",
+                    "expiry_date": null,
+                    "collection": 1,
+                    "uploaded_by_user": 83
+                },
+                "caption": ""
+            },
+            "id": "2b3e81af-5451-453d-be13-41ae7b50e424"
+        }
+    ],
+    "top_page_zone": [
+        {
+            "id": "1498749f-cf80-4cf2-8a68-0f476a64bf68",
+            "type": "paragraph",
+            "value": "<p>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.</p><p>Cum horribilem walking dead resurgere de crazed sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague haec decaying ambulabat mortuos. Sicut zeder apathetic malus voodoo. Aenean a dolor plan et terror soulless vulnerum contagium accedunt, mortui iam vivam unlife. Qui tardius moveri, brid eof reanimator sed in magna copia sint terribiles undeath legionis. Alii missing oculis aliorum sicut serpere crabs nostram. Putridi braindead odores kill and infect, aere implent left four dead.Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.</p><p>Cum horribilem walking dead resurgere de crazed sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague haec decaying ambulabat mortuos. Sicut zeder apathetic malus voodoo. Aenean a dolor plan et terror soulless vulnerum contagium accedunt, mortui iam vivam unlife. Qui tardius moveri, brid eof reanimator sed in magna copia sint terribiles undeath legionis. Alii missing oculis aliorum sicut serpere crabs nostram. Putridi braindead odores kill and infect, aere implent left four dead.</p>"
+        }
+    ],
+    "midpage_zone": [
+        {
+            "id": "16f8af73-eb09-424b-8793-c4a19c5a5e52",
+            "type": "image",
+            "value": {
+                "image": {
+                    "id": 207159,
+                    "title": "072508news.jpg",
+                    "width": 158,
+                    "height": 125,
+                    "created_at": "2019-08-24T07:17:41.221923-04:00",
+                    "focal_point_x": null,
+                    "focal_point_y": null,
+                    "focal_point_width": null,
+                    "focal_point_height": null,
+                    "file_size": null,
+                    "file_hash": "",
+                    "alt": "",
+                    "caption": "",
+                    "credit": "",
+                    "credit_link": "",
+                    "file": "https://cdn.cms.demo.nypr.digital/attachments/nyc_arts_john/072508news.jpg",
+                    "usage_limitations": "",
+                    "expiry_date": null,
+                    "collection": 1,
+                    "uploaded_by_user": null
+                },
+                "caption": ""
+            }
+        },
+        {
+            "id": "43b4937a-1cb5-4c2e-9224-d0c7d1e8a548",
+            "type": "image",
+            "value": {
+                "image": {
+                    "id": 166429,
+                    "title": "65a0a328f.jpeg",
+                    "width": 800,
+                    "height": 533,
+                    "created_at": "2019-08-24T04:41:03.612143-04:00",
+                    "focal_point_x": null,
+                    "focal_point_y": null,
+                    "focal_point_width": null,
+                    "focal_point_height": null,
+                    "file_size": null,
+                    "file_hash": "",
+                    "alt": "Piles of masa fed into the kneader<br>",
+                    "caption": "Piles of masa fed into the kneader<br>",
+                    "credit": "Clay Williams / Gothamist",
+                    "credit_link": "http://claywilliams.photoshelter.com/",
+                    "file": "https://cdn.cms.demo.nypr.digital/gothamistgallery/2016/3/27/65a0a328f.jpeg",
+                    "usage_limitations": "",
+                    "expiry_date": null,
+                    "collection": 1,
+                    "uploaded_by_user": null
+                },
+                "caption": ""
+            }
+        }
+    ],
+    "tags": [
+        "Bagelfest"
+    ]
+}
