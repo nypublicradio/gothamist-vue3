@@ -9,7 +9,6 @@ const route = useRoute()
 const previewData = usePreviewData()
 
 const identifier = route.query.identifier
-const identifierId = identifier.slice(3)
 const token = route.query.token
 
 const formatData = (data) => {
