@@ -12,9 +12,9 @@ export default defineNuxtPlugin(() => {
 
     const init = () => {
         htlbid.cmd.push(function () {
-            htlbid.layout('universal') 
+            htlbid.layout('universal')
         })
-    }   
+    }
     const setTargeting = (targetingParams) => {
         htlbid.cmd.push(() => {
           for (const key in targetingParams) {
