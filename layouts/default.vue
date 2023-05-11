@@ -119,8 +119,10 @@ useHead({
     },
   ],
   link: [
-    { rel: 'stylesheet', href: config.HTL_CSS, type: 'text/css' },
-    { rel: 'preconnect', href: config.API_URL },
+    { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high'},
+    { rel: 'preconnect', href: config.public.BASE_IMAGE_URL, crossorigin: '', tagPriority: 'high'},
+    { rel: 'preconnect', href: 'https://www.googletagmanager.com', tagPriority: 'high'},
+    { rel: 'preconnect', href: 'https://s.ntv.io/', tagPriority: 'high'}
   ],
   script: [
     {

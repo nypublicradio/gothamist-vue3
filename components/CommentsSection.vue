@@ -24,6 +24,7 @@ useHead({
     {
       src: `https://launcher.spot.im/spot/${config.OPENWEB_SPOT_ID}`,
       'data-spotim-module': 'spotim-launcher',
+      async: true,
       body: true,
     },
   ],

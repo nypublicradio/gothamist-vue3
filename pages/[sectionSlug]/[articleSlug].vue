@@ -55,20 +55,24 @@ const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
 
-useHead(headMetadata)
-useChartbeat({
-  sections: article.tags.map(tag => tag.name).join(','),
-  authors: article.authors.map(author => author.name).join(',')
+useHead({
+  title: `${article.seoTitle} - Gothamist`
 })
+useServerHead(headMetadata)
 
 onBeforeMount(() => {
   isArticlePage.value = true
 })
+
 onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
   useUpdateCommentCounts([article])
+  useChartbeat({
+    sections: article.tags.map(tag => tag.name).join(','),
+    authors: article.authors.map(author => author.name).join(',')
+  })
 })
 
 onUnmounted(() => {
