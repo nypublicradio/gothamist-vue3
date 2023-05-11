@@ -97,7 +97,7 @@ onMounted(() => {
   })
   $htlbid.init()
   $htlbid.setTargeting({
-    is_testing: config.HTL_IS_TESTING,
+    is_testing: config.public.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
 })
@@ -123,21 +123,21 @@ useHead({
   link: [
     {
       rel: 'preconnect',
-      href: config.API_URL
+      href: config.public.API_URL
     },
     {
       rel: 'stylesheet',
-      href: config.HTL_CSS,
+      href: config.public.HTL_CSS,
       type: 'text/css'
     }
   ],
   script: [
     {
-      src: `https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`,
+      src: `https://www.googletagmanager.com/gtag/js?id=${config.public.GA_MEASUREMENT_ID}`,
       async: true
     },
     {
-      src: config.HTL_JS,
+      src: config.public.HTL_JS,
       async: true
     }
   ],
@@ -151,7 +151,7 @@ useServerHead({
     {property: 'og:title', content: 'Gothamist: New York City Local News, Food, Arts & Events'},
     {property: 'og:site_name', content:'Gothamist'},
     {property: 'og:description', content:'Gothamist is a non-profit local newsroom, powered by WNYC.'},
-    {property: 'og:image', content: config.OG_IMAGE},
+    {property: 'og:image', content: config.public.OG_IMAGE},
     {property: 'og:locale', content:'en_US'},
     {property: 'og:image:width', content:'1200'},
     {property: 'og:image:height', content:'650'},
@@ -172,7 +172,7 @@ useServerHead({
     <GothamistMainHeader
       :navigation="navigation"
       :isMinimized="route.name !== 'index'"
-      :donateUrlBase="config.donateUrlBase"
+      :donateUrlBase="config.public.donateUrlBase"
       utmCampaign="goth_header"
     />
     <Sidebar
@@ -203,7 +203,7 @@ useServerHead({
       <template v-slot:default>
         <GothamistSidebarContents
           :navigation="navigation"
-          :donateUrlBase="config.donateUrlBase"
+          :donateUrlBase="config.public.donateUrlBase"
           @menuListClick="trackSidebarClick($event)"
           utmCampaign="goth_hamburger"
           class="mt-3"
@@ -216,7 +216,7 @@ useServerHead({
           <div class="error-page-error pt-2">
             {{ error.statusCode }} Error - {{ error.statusMessage }}
           </div>
-          <div v-if="config.DEBUG === 'true'" class="mt-4">
+          <div v-if="config.public.DEBUG === 'true'" class="mt-4">
             <pre class="font-bold">{{ error.message }}</pre>
             <div v-html="error.description"></div>
           </div>

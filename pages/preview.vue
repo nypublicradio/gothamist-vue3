@@ -22,7 +22,7 @@ let fetchData = null
 
 const handlePreviewData = () => {
   useFetch(
-    `${config.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
+    `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
   ).then((res) => {
     fetchData = res.data
     previewData.value = { data: formatData(res.data), error: res.error }

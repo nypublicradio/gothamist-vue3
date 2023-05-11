@@ -20,7 +20,7 @@ const props = defineProps({
 })
 
 const donateUrl = ref(
-  `${props.donateUrlBase || config.donateUrlBase}&utm_campaign=${
+  `${props.donateUrlBase || config.public.donateUrlBase}&utm_campaign=${
     props.utmCampaign
   }`
 )
