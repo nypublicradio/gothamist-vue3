@@ -120,7 +120,7 @@ useHead({
   ],
   link: [
     { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high'},
-    { rel: 'preconnect', href: config.public.IMAGE_BASE_URL, crossorigin: '', tagPriority: 'high'},
+    { rel: 'preconnect', href: config.public.IMAGE_CDN, crossorigin: '', tagPriority: 'high'},
     { rel: 'preconnect', href: 'https://www.googletagmanager.com', tagPriority: 'high'},
     { rel: 'preconnect', href: 'https://s.ntv.io/', tagPriority: 'high'}
   ],
