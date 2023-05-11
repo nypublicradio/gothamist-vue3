@@ -67,11 +67,11 @@ const hideComp = () => {
 const submitForm = (email) => {
   isSubmitting.value = true
   submissionStatus.value = null
-  $fetch(config.NEWSLETTER_API, {
+  $fetch(config.public.NEWSLETTER_API, {
     method: 'POST',
     body: {
       source: props.source,
-      list: config.NEWSLETTER_MULTI_LIST_IDS,
+      list: config.public.NEWSLETTER_MULTI_LIST_IDS,
       email: email,
     },
   })
