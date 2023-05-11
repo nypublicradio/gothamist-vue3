@@ -125,6 +125,8 @@ useHead({
       async: true
     }
   ],
+})
+useServerHead({
   meta: [
     {property: 'og:site_name', content: 'Gothamist'},
     {property: 'og:type', content: 'website'},

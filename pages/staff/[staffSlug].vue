@@ -85,6 +85,8 @@ const authorName =  authorProfileData?.name || getAuthorNameFromSlug()
 const pageTitle = `Articles by ${authorName} | Gothamist`
 useHead({
   title: pageTitle,
+})
+useServerHead({
   meta: [{ property: 'og:title', content: pageTitle}]
 })
 </script>
