@@ -11,21 +11,6 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', sizes: "180x180", href: '/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#ff3904' },
-        {
-          rel: 'preconnect',
-          href: process.env.API_URL,
-          crossorigin: ''
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://www.googletagmanager.com',
-          crossorigin: ''
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://www.google-analytics.com',
-          crossorigin: ''
-        }
       ],
     }
   },

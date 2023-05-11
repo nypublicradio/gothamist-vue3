@@ -124,11 +124,6 @@ useHead({
     {
       rel: 'preconnect',
       href: config.public.API_URL
-    },
-    {
-      rel: 'stylesheet',
-      href: config.public.HTL_CSS,
-      type: 'text/css'
     }
   ],
   script: [
