@@ -15,6 +15,8 @@ const pageTitle = `${props.page.title} | Gothamist | News For New Yorkers`
 
 useHead({
   title: pageTitle,
+})
+useServerHead({
   meta: [{ property: 'og:title', content: pageTitle }],
 })
 const initialArticles = await findArticlePages({

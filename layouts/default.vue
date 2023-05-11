@@ -163,11 +163,11 @@ useHead({
   ],
 })
 if (isSponsoredRoute) {
-  useHead({
+  useServerHead({
     meta: [{ name: 'robots', content: 'noindex,nofollow' }],
   })
 } else {
-  useHead({
+  useServerHead({
     meta: [
       { property: 'og:site_name', content: 'Gothamist' },
       { property: 'og:type', content: 'website' },
