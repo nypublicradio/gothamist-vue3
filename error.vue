@@ -130,10 +130,6 @@ useHead({
     {
       src: `https://www.googletagmanager.com/gtag/js?id=${config.public.GA_MEASUREMENT_ID}`,
       async: true
-    },
-    {
-      src: config.public.HTL_JS,
-      async: true
     }
   ],
 })
