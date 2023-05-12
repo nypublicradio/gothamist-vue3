@@ -102,7 +102,7 @@ const nativoSectionLoaded = (name) => {
 <template>
   <div>
     <section>
-      <div class="content pt-1">
+      <div class="content homepage pt-1">
         <gothamist-homepage-topper
           :featureLarge="featuredArticles[0]"
           :featureMedium="featuredArticles[1]"
@@ -241,48 +241,50 @@ const nativoSectionLoaded = (name) => {
   </div>
 </template>
 <style lang="scss">
-.homepage-topper-latest {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 842px;
-  @include media('>=md') {
-    contain-intrinsic-size: auto 936px;
+.homepage {
+  .homepage-topper-latest {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 842px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 936px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 737px;
+    }
   }
-  @include media('>=lg') {
-    contain-intrinsic-size: auto 737px;
+  .newsletter-home {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 278px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 209px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 218px;
+    }
   }
-}
-.newsletter-home {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 278px;
-  @include media('>=md') {
-    contain-intrinsic-size: auto 209px;
+  .left-feature {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1155px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 1506px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 969px;
+    }
   }
-  @include media('>=lg') {
-    contain-intrinsic-size: auto 218px;
+  .boroughs {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 462px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 326px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 413px;
+    }
   }
-}
-.left-feature {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 1155px;
-  @include media('>=md') {
-    contain-intrinsic-size: auto 1506px;
+  .latest-segment {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1800px;
   }
-  @include media('>=lg') {
-    contain-intrinsic-size: auto 969px;
-  }
-}
-.boroughs {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 462px;
-  @include media('>=md') {
-    contain-intrinsic-size: auto 326px;
-  }
-  @include media('>=lg') {
-    contain-intrinsic-size: auto 413px;
-  }
-}
-.latest-segment {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 1800px;
 }
 </style>

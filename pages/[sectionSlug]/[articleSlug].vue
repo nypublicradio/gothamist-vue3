@@ -332,5 +332,44 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
       width: calc(100% - 330px - 15px);
     }
   }
+
+  .related-links {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 244px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 326px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 255px;
+    }
+  }
+  .recirculation {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1277px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 1300px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 940px;
+    }
+  }
+  .comments {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 2360px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 1939px;
+    }
+  }
+  .newsletter-home {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 278px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 209px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 218px;
+    }
+  }
+
 }
 </style>
