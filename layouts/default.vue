@@ -135,10 +135,6 @@ useHead({
       'data-ntv-set-no-auto-start': '',
     },
     {
-      src: config.public.HTL_JS,
-      async: true,
-    },
-    {
       children: `
       addEventListener("DOMContentLoaded", () =>
         {
