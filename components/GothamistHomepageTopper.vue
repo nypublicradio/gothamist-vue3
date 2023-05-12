@@ -99,7 +99,7 @@ const filteredLatestArticles = computed(() => {
         <hr class="block lg:hidden black mb-4" />
       </div>
 
-      <div class="col-3 flex-order-3">
+      <div class="homepage-topper-latest col-3 flex-order-3">
         <hr class="block lg:hidden black mb-4" />
         <v-tag class="tag block mb-3" role="heading" aria-level="2" name="Latest" slug="/#latest" />
         <div v-for="(article, index) in filteredLatestArticles" :key="article.uuid" class="homepage-topper-latest">
