@@ -53,4 +53,7 @@ Cypress.Commands.add('loadGlobalFixtures',  () => {
     cy.intercept({
       hostname: 'api.omappapi.com'
     }, {statusCode: 200, body: ''}).as('optinMonster')
+    cy.intercept({
+      hostname: 'a.omappapi.com'
+    }, {statusCode: 200, body: ''}).as('optinMonster2')
   })

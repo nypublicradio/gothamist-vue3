@@ -40,7 +40,7 @@ describe('An article page', () => {
     })
     it('shows the marketing CTAs', () => {
         cy.intercept(
-            '/api/v2/system_messages/*', 
+            '/api/v2/system_messages/*',
             {fixture: 'aviary/system_messages_bottom.json'}
         ).as('systemMessagesWithBottomCTA')
 
@@ -50,5 +50,21 @@ describe('An article page', () => {
         cy.get('.marketing-modal').should('not.exist')
         cy.get('.article-donation-marketing-CTA').should('exist')
         cy.get('.article-donation-marketing-bottom-CTA').should('exist')
+    })
+    it('shows preview for draft articles', () => {
+        cy.intercept(
+            '/api/v2/page_preview/*',
+            {fixture: 'aviary/preview-article-draft.json'}
+        ).as('draftArticlePreview')
+
+        cy.visit('/preview?identifier=abc&token=123')
+        cy.wait('@draftArticlePreview')
+
+        cy.get('h1').should('exist')
+        cy.get('.byline').should('exist')
+        cy.get('.article-body').should('exist')
+        cy.get('.author-profile').should('exist')
+        cy.get('.recirculation').should('exist')
+        cy.get('.recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
     })
 })
