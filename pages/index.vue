@@ -35,6 +35,19 @@ const latestArticles = ref([...articles])
 // the home page featured article should display only the first and second story in the home page content collection
 const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
 
+usePreloadResponsiveImage(
+  useImageUrl(featuredArticles?.[0]?.listingImage, {
+    width: 700,
+    height: 467,
+    quality: 80
+  }),
+  useResponsiveSrcset(featuredArticles?.[0]?.listingImage, [1], {
+    width: 700,
+    height: 467,
+    quality: 80
+  })
+)
+
 const riverSegments = computed(() => {
   let riverCopy = latestArticles.value.slice()
   const segments = [] as ArticlePage[][]

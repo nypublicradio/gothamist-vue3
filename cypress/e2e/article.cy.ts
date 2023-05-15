@@ -51,6 +51,21 @@ describe('An article page', () => {
         cy.get('.article-donation-marketing-CTA').should('exist')
         cy.get('.article-donation-marketing-bottom-CTA').should('exist')
     })
+    it('has a preload tag that matches the lead image', () => {
+        cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
+        cy.wait('@article')
+        cy.get('link[rel=preload][as=image]').first()
+            .invoke('attr', 'imagesrcset')
+            .then((srcset) => {
+                cy.get('.image-with-caption-image img').first().should('have.attr', 'srcset', srcset)
+            })
+
+        cy.get('link[rel=preload][as=image]').first()
+            .invoke('attr', 'href')
+            .then((src) => {
+                cy.get('.image-with-caption-image img').first().should('have.attr', 'src', src)
+            })
+    })
     it('shows preview for draft articles', () => {
         cy.intercept(
             '/api/v2/page_preview/*',
