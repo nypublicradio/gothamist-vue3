@@ -65,6 +65,21 @@ describe('An article page', () => {
             .then((src) => {
                 cy.get('.image-with-caption-image img').first().should('have.attr', 'src', src)
             })
+    })
+    it('shows preview for draft articles', () => {
+        cy.intercept(
+            '/api/v2/page_preview/*',
+            {fixture: 'aviary/preview-article-draft.json'}
+        ).as('draftArticlePreview')
 
+        cy.visit('/preview?identifier=abc&token=123')
+        cy.wait('@draftArticlePreview')
+
+        cy.get('h1').should('exist')
+        cy.get('.byline').should('exist')
+        cy.get('.article-body').should('exist')
+        cy.get('.author-profile').should('exist')
+        cy.get('.recirculation').should('exist')
+        cy.get('.recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
     })
 })
