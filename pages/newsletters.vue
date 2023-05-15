@@ -4,8 +4,8 @@ const { $sentry } = useNuxtApp()
 const newsletters = [
   {
     title: "Gothamist Daily",
-    id: "Gothamist",
-    description: "Get the local news you need delivered to your inbox."
+    id: "Gothamist++Gothamist - Early Addition",
+    description: "Start and end your day with local headlines and fun tidbits from around the internet."
   },{
     title: "We the Commuters",
     id: "We The Commuters",
