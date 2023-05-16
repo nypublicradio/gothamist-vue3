@@ -20,7 +20,6 @@ export default defineNuxtPlugin(() => {
         refresh: () => {
           if (typeof PostRelease !== 'undefined') {
             PostRelease.Start()
-            console.log('activating NATIVO')
           }
         }
       }
