@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 import { useIsArticlePage } from '~/composables/states'
 const config = useRuntimeConfig()
-const { $analytics } = useNuxtApp()
+const { $analytics, $nativo } = useNuxtApp()
 const isArticlePage = useIsArticlePage()
 const article = {
   title: '',
@@ -33,9 +33,7 @@ onBeforeMount(() => {
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponsored_article' })
   sensitiveContent.value = true
-  if (typeof PostRelease !== "undefined") {
-    PostRelease.Start()
-  }
+  $nativo.refresh()
 
   // getting title from element after the sponsored content loads
   setTimeout(() => {
