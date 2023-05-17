@@ -7,7 +7,7 @@ export default defineNuxtPlugin(() => {
     // Remove duplicate stories from the river on the home page
     // Part of an a/b test
     // - Matt Walsh
-    // Experiment started: May 3 2023
+    // Experiment started: May 17 2023
     'experiment-deduplicate-river': 
       $experiments.current?.name === 'no-duplicates-in-river' && 
       $experiments.activeVariant === 1
