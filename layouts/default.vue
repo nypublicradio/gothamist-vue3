@@ -9,7 +9,7 @@ const marketingBannerData = useMarketingBannerData()
 
 const config = useRuntimeConfig()
 const route = useRoute()
-const { $htlbid, $analytics } = useNuxtApp()
+const { $htlbid, $analytics, $features } = useNuxtApp()
 
 const navigationState = useNavigation()
 const navigationPromise = findNavigation().then(({ data }) => {
