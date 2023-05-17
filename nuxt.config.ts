@@ -84,7 +84,7 @@ export default defineNuxtConfig({
       GTM_ID: process.env['GTM_ID'] || 'GTM-W6RXBNS',
       NEWSLETTER_API: process.env['NEWSLETTER_API'] || 'https://api.demo.nypr.digital/email-proxy/subscribe',
       NEWSLETTER_MAIN_LIST_ID: '65dbec786b',
-      NEWSLETTER_MULTI_LIST_IDS: process.env['NEWSLETTER_MULTI_LIST_IDS'] || 'Gothamist++Gothamist Membership',
+      NEWSLETTER_MULTI_LIST_IDS: process.env['NEWSLETTER_MULTI_LIST_IDS'] || 'Gothamist++Gothamist Membership++Gothamist - Early Addition',
       DEBUG: process.env['DEBUG'] || 'false',
       donateUrlBase: 'https://pledge.wnyc.org/support/gothamist/?utm_medium=partnersite&utm_source=gothamist',
       OPENWEB_SPOT_ID: process.env['OPENWEB_SPOT_ID'] || 'sp_6X1qAIKA',
