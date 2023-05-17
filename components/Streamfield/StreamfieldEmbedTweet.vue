@@ -30,7 +30,7 @@ function findTweetElement(tweetId) {
 // replace a tweet blockquote with the expanded embed
 function replaceTweet(tweetId) {
     return new Promise((resolve) => {
-        if (window.twttr) {
+        if (window.twttr?.widgets?.createTweet) {
             const originalTweetElement = findTweetElement(tweetId)
             if (!originalTweetElement) {
                resolve('error finding tweet element')

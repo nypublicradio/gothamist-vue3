@@ -56,6 +56,19 @@ const filteredLatestArticles = computed(() => {
 const riverArticles = $features.enabled['experiment-deduplicate-river'] ?
 filteredLatestArticles : latestArticles
 
+usePreloadResponsiveImage(
+  useImageUrl(featuredArticles?.[0]?.listingImage, {
+    width: 700,
+    height: 467,
+    quality: 80
+  }),
+  useResponsiveSrcset(featuredArticles?.[0]?.listingImage, [1], {
+    width: 700,
+    height: 467,
+    quality: 80
+  })
+)
+
 const riverSegments = computed(() => {
   let riverCopy = riverArticles.value.slice()
   const segments = [] as ArticlePage[][]

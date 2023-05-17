@@ -1,19 +1,10 @@
 <script setup lang="ts">
-import { updateLiveStream } from '~~/composables/data/liveStream'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { useRuntimeConfig } from '#app'
 import { useElementSize } from '@vueuse/core'
-import {
-  useCurrentHeaderAdHeight,
-  useIsArticlePage,
-  useCurrentSteamStation,
-  useMarketingBannerData,
-} from '~/composables/states'
 const leaderboardAdWrapperRef = ref(null)
 const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
 const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const isArticlePage = useIsArticlePage()
-const currentSteamStation = useCurrentSteamStation()
 const marketingBannerData = useMarketingBannerData()
 
 const config = useRuntimeConfig()
@@ -91,9 +82,10 @@ const trackSidebarClick = (label) => {
   })
   closeSidebar()
 }
-// load the life stream
-onBeforeMount(() => {
-  updateLiveStream(currentSteamStation.value)
+// load the live stream
+onBeforeMount(async () => {
+  const currentSteamStation = useCurrentSteamStation()
+  await updateLiveStream(currentSteamStation.value)
 })
 onMounted(() => {
   if (typeof $htlbid !== "undefined") {

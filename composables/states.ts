@@ -15,6 +15,7 @@ export const useNavigation = () => useState<Navigation>('navigation', () => ({
     propertyDescription: ''
 }))
 export const useStrapline = () => useState<string>('strapline', () => 'A non-profit newsroom, powered by WNYC.')
+export const useChartbeatFirstPageLoaded = () => useState<boolean>('chartbeatFirstPageLoaded', () => false)
 
 
 // audio player globals

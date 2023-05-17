@@ -25,6 +25,13 @@ const initialArticles = await findArticlePages({
 
 const articleTotal = ref(initialArticles.count)
 const articles = ref(initialArticles.articles)
+if (!articleTotal.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found',
+    fatal: true,
+  })
+}
 
 const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({

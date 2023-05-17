@@ -26,7 +26,14 @@ const article = isPreview
   ? previewData.value.data as ArticlePage
   : ((await findPage(
       `${route.params.sectionSlug}/${route.params.articleSlug}`
-    ).then(({ data }) => normalizeFindPageResponse(data))) as ArticlePage)
+    ).then(({ data }) => normalizeFindPageResponse(data)
+    ).catch(() => {
+        throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found',
+        fatal: true,
+      })
+    })) as ArticlePage)
 
 let gallery
 if (article.leadGallery) {
@@ -49,6 +56,19 @@ const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
 
 useHead(headMetadata)
+usePreloadResponsiveImage(
+  useImageUrl(topImage, {
+    width: 700,
+    height: 467,
+    quality: 70
+  }),
+  useResponsiveSrcset(topImage, [2, 3], {
+    width: 700,
+    height: 467,
+    quality: 70
+  })
+)
+
 useChartbeat({
   sections: article.tags.map(tag => tag.name).join(','),
   authors: article.authors.map(author => author.name).join(',')
