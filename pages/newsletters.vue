@@ -3,9 +3,13 @@ const config = useRuntimeConfig()
 const { $sentry } = useNuxtApp()
 const newsletters = [
   {
-    title: "Gothamist Daily",
+    title: "Early Addition",
+    id: "Gothamist - Early Addition",
+    description: "Start your weekdays with a guide of the local stories you need to know, plus tidbits from around the internet."
+  },{
+    title: "Evening Headlines",
     id: "Gothamist",
-    description: "Get the local news you need delivered to your inbox."
+    description: "Get links to our top stories delivered to your inbox every day at 5 p.m."
   },{
     title: "We the Commuters",
     id: "We The Commuters",
