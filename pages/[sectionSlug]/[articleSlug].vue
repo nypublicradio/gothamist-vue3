@@ -172,8 +172,6 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
                 <hr class="mb-4" />
                 <newsletter-article
                   class="pb-8"
-                  triggerID="pinned-newsletter"
-                  pinEndTriggerID="pinned-newsletter-end"
                   @submit="newsletterSubmitEvent('pinned')"
                 />
               </div>

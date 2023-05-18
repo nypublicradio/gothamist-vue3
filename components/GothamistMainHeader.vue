@@ -15,7 +15,6 @@ const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = await useStrapline()
-const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const openSidebar = (e) => {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target

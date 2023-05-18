@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { useElementSize } from '@vueuse/core'
-const leaderboardAdWrapperRef = ref(null)
-const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
-const currentHeaderAdHeight = useCurrentHeaderAdHeight()
 const marketingBannerData = useMarketingBannerData()
 
 const config = useRuntimeConfig()
@@ -97,10 +93,6 @@ onMounted(() => {
   }
 })
 
-// watch ads for height changes & update the global variable
-watch(leaderboardAdToWatch.height, (height) => {
-  currentHeaderAdHeight.value = height
-})
 watch(route, (value) => {
   if (typeof $htlbid !== "undefined") {
     $htlbid.setTargetingForRoute(value)
@@ -193,7 +185,7 @@ if (isSponsoredRoute) {
     <div>
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div
-        class="leaderboard-ad-wrapper flex justify-content-center align-items-center flex-column"
+        class="leaderboard-wrapper flex justify-content-center align-items-center flex-column"
       >
         <div class="leaderboard-ad-backdrop">
           <HtlAd
@@ -274,24 +266,24 @@ if (isSponsoredRoute) {
 </template>
 
 <style lang="scss">
-.leaderboard-ad-wrapper {
+.leaderboard-wrapper {
   background: transparent;
   @include media('<md') {
-    min-height: 50px;
-    padding: 0;
     position: sticky;
     top: 0;
     z-index: 5000;
-  }
-  @include media('>=md') {
-    min-height: 92px;
-    padding: 1px 0;
   }
 }
 
 .leaderboard-ad-backdrop {
   background: #111111;
-  width: 100%;
+  min-height: 50px;
+  width: 100vw;
+  padding: 0;
+  @include media('>=md') {
+    min-height: 92px;
+    padding: 1px 0;
+  }
 }
 
 .leaderboard-container {
