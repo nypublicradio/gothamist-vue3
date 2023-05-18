@@ -158,18 +158,24 @@ const openSidebar = (e) => {
 
 <style lang="scss">
 .article-page-header {
-  opacity: 0;
-  display: none;
-  width: 100%;
+  opacity: 1;
+  display: block;
+  width: 100vw;
   height: 68px;
-  position: fixed;
+  position: absolute;
   z-index: 1000;
-  top: 50px;
+  top: 0px;
+  left: -50vw;
   background: white;
+  transition: opacity  0.25s linear;
   @include media('>=md') {
-    top: 0px !important;
+    position: fixed;
+    left: 0;
   }
 }
+
+.article-page-header-enter-active, .article-page-header-leave-active { opacity: 0; }
+
 .article-page-header-progress {
   --progressPercentage: v-bind(progressPercentage);
   background: linear-gradient(

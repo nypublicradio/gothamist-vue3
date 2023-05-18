@@ -8,12 +8,6 @@ import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 /* preview */
-import {
-  usePreviewData,
-  useIsArticlePage,
-  useMarketingBannerData,
-} from '~/composables/states'
-const isArticlePage = useIsArticlePage()
 const previewData = usePreviewData()
 const marketingBannerData = useMarketingBannerData()
 const route = useRoute()
@@ -53,6 +47,7 @@ const galleryLength = gallery?.slides?.length || 0
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
+const fixedHeaderVisible = useFixedHeaderVisible()
 const headMetadata = useArticlePageHeadMetadata(article)
 
 usePreloadResponsiveImage(
@@ -77,10 +72,6 @@ useHead({
 })
 useServerHead(headMetadata)
 
-onBeforeMount(() => {
-  isArticlePage.value = true
-})
-
 onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
@@ -95,7 +86,6 @@ onMounted(() => {
 onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
   sensitiveContent.value = false
-  isArticlePage.value = false
 })
 
 // handle ads when the article is mounted
@@ -142,19 +132,22 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
 </script>
 <template>
   <div>
-    <HeaderScrollTrigger header-class="article-page-header">
+    <Teleport to="#article-header">
       <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
-        <ArticlePageHeader
-          class="article-page-header"
-          :donateUrlBase="config.public.donateUrlBase"
-          utmCampaign="goth_header"
-          :progress="scrollTrackerProps.scrollPercentage"
-          :title="article?.title"
-          :shareUrl="article.url"
-          :shareTitle="article.socialTitle"
-        />
+        <Transition name="article-page-header">
+          <ArticlePageHeader
+            v-if="fixedHeaderVisible"
+            class="article-page-header"
+            :donateUrlBase="config.public.donateUrlBase"
+            utmCampaign="goth_header"
+            :progress="scrollTrackerProps.scrollPercentage"
+            :title="article?.title"
+            :shareUrl="article.url"
+            :shareTitle="article.socialTitle"
+          />
+        </Transition>
       </ScrollTracker>
-    </HeaderScrollTrigger>
+    </Teleport>
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">

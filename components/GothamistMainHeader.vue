@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import Navigation from '~~/composables/types/Navigation'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+import useVisibilityTracking from '~/composables/useVisibilityTracking';
 
 defineProps<{
   isMinimized: boolean
-  isFixed?: boolean
   navigation: Navigation
   donateUrlBase: string
   utmCampaign: string
 }>()
+const emit = defineEmits(['visible','not-visible'])
 const currentSteamStation = useCurrentSteamStation()
 const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
@@ -27,13 +28,17 @@ const trackClick = (category, label) => {
     event_label: label,
   })
 }
+const headerElement = ref(null)
+const onVisible = () => emit('visible')
+const onNotVisible = () => emit('not-visible')
+useVisibilityTracking(headerElement, onVisible, onNotVisible)
+
 </script>
 
 <template>
   <header
+    ref="headerElement"
     class="gothamist-header"
-    :class="[{ 'is-fixed': isFixed }]"
-    :style="isFixed ? `top:${currentHeaderAdHeight}px;` : ``"
   >
     <div
       class="top flex justify-content-between align-items-center sm:align-items-end"

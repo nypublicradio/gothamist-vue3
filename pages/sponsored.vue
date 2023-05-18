@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useIsArticlePage } from '~/composables/states'
 const config = useRuntimeConfig()
 const { $analytics, $nativo } = useNuxtApp()
-const isArticlePage = useIsArticlePage()
 const article = {
   title: '',
   socialTitle: '',
@@ -23,12 +21,9 @@ const titleRef = ref(null)
 const loadedTitle = ref(null)
 
 const sensitiveContent = useSensitiveContent()
+const fixedHeaderVisible = useFixedHeaderVisible()
 
 useChartbeat()
-
-onBeforeMount(() => {
-  isArticlePage.value = true
-})
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponsored_article' })
@@ -43,7 +38,6 @@ onMounted(() => {
 
 onUnmounted(() => {
   sensitiveContent.value = false
-  isArticlePage.value = false
 })
 
 const newsletterSubmitEvent = () => {
@@ -57,19 +51,22 @@ const newsletterSubmitEvent = () => {
 
 <template>
   <div>
-    <HeaderScrollTrigger v-if="article" header-class="article-page-header">
-      <ScrollTracker scrollTarget=".article-column" v-slot="scrollTrackerProps">
-        <ArticlePageHeader
-          class="article-page-header"
-          :donateUrlBase="config.public.donateUrlBase"
-          utmCampaign="goth_header"
-          :progress="scrollTrackerProps.scrollPercentage"
-          :title="loadedTitle"
-          :shareUrl="article.url"
-          :shareTitle="article.socialTitle"
-        />
-      </ScrollTracker>
-    </HeaderScrollTrigger>
+    <Teleport to="#article-header">
+      <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
+        <Transition name="article-page-header">
+          <ArticlePageHeader
+            v-if="fixedHeaderVisible"
+            class="article-page-header"
+            :donateUrlBase="config.public.donateUrlBase"
+            utmCampaign="goth_header"
+            :progress="scrollTrackerProps.scrollPercentage"
+            :title="loadedTitle"
+            :shareUrl="article.url"
+            :shareTitle="article.socialTitle"
+            />
+          </Transition>
+        </ScrollTracker>
+      </Teleport>
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
