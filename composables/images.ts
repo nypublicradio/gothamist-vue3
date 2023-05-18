@@ -12,7 +12,7 @@ export function useImageUrl(image: Image, options?: { width: number, height: num
   if (!image) {
     return ""
   }
-  const imageUrlTemplate = `${config.IMAGE_BASE_URL}${image.id}/fill-%width%x%height%|format-webp|webpquality-%quality%`
+  const imageUrlTemplate = `${config.public.IMAGE_BASE_URL}${image.id}/fill-%width%x%height%|format-webp|webpquality-%quality%`
   return imageUrlTemplate
     .replace('%width%', options?.width && String(options.width) || '%width%')
     .replace('%height%', options?.height && String(options.height) || '%height%')
