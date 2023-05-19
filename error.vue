@@ -114,8 +114,19 @@ const newsletterSubmitEvent = () => {
     event_label: 'Newsletter',
   })
 }
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+  title: 'Gothamist: New York City Local News, Food, Arts & Events'
+})
 useServerHead({
+  link: [
+    { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high'},
+    { rel: 'preconnect', href: config.public.IMAGE_CDN_URL, tagPriority: 'high'},
+  ],
   meta: [
+    {name: 'description', content: 'Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio.'},
     {property: 'og:site_name', content: 'Gothamist'},
     {property: 'og:type', content: 'website'},
     {property: 'og:url', content: `https://www.gothamist.com${route.fullPath}`},
@@ -134,16 +145,6 @@ useServerHead({
 </script>
 <template>
   <div class="error-page">
-    <Html lang="en">
-      <Head>
-        <Link rel="preconnect" :href="config.public.API_URL" />
-        <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
-        <Meta
-          name="description"
-          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
-        />
-      </Head>
-    </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
     <div
       class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
