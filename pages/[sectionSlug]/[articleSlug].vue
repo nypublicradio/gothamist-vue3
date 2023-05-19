@@ -55,7 +55,10 @@ const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
 
-useHead(headMetadata)
+useHead({
+  title: `${article.seoTitle} - Gothamist`
+})
+useServerHead(headMetadata)
 if (topImage) {
   usePreloadResponsiveImage(
     useImageUrl(topImage, {
@@ -70,7 +73,6 @@ if (topImage) {
     })
   )
 }
-
 useChartbeat({
   sections: article.tags.map(tag => tag.name).join(','),
   authors: article.authors.map(author => author.name).join(',')
