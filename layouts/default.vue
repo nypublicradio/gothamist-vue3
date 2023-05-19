@@ -349,4 +349,12 @@ if (isSponsoredRoute) {
     line-height: var(--font-size-4);
   }
 }
+
+.gothamist-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 430px;
+  @include media('>=md') {
+    contain-intrinsic-size: auto 396px;
+  }
+}
 </style>
