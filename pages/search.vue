@@ -42,8 +42,10 @@ const loadMoreArticles = async () => {
 
 const pageTitle = () => querySlug.value ? `Search Results for "${querySlug.value}" | Gothamist` : "Search | Gothamist"
 
-useHead({
+useHeadSafe({
   title: pageTitle,
+})
+useServerHeadSafe({
   meta: [{ property: 'og:title', content: pageTitle}]
 })
 

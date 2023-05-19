@@ -34,7 +34,10 @@ const headMetadata = useGalleryPageHeadMetadata(gallery)
 const adTargetingData = { Template: 'Article Gallery' }
 const article = gallery.relatedArticles?.[0]
 
-useHead(headMetadata)
+useHead({
+  title: `${article.seoTitle} - Gothamist`
+})
+useServerHead(headMetadata)
 useChartbeat({
   section: article.section.name,
   authors: article.authors.map(author => author.name).join(',')
