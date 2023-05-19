@@ -140,7 +140,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
       <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
         <ArticlePageHeader
           class="article-page-header"
-          :donateUrlBase="config.donateUrlBase"
+          :donateUrlBase="config.public.donateUrlBase"
           utmCampaign="goth_header"
           :progress="scrollTrackerProps.scrollPercentage"
           :title="article?.title"
@@ -221,7 +221,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
             />
             <article-donation-CTA
               v-else
-              :donateUrlBase="config.donateUrlBase"
+              :donateUrlBase="config.public.donateUrlBase"
               utmCampaign="article-top"
             />
           </div>

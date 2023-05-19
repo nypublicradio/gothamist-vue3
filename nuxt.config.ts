@@ -62,9 +62,18 @@ export default defineNuxtConfig({
   imports: {
     dirs: [
       'composables', // top-level modules
-      'composables/*/index.{ts,js,mjs,mts}' // one level directories's index.js,
+      'composables/*/index.{ts,js,mjs,mts}' // one level directories's index.js
     ]
   },
+  components: [
+    {
+      path: '~/components',
+    },
+    {
+      path: '~/components/marketing-banners',
+      pathPrefix: false,
+    },
+  ],
   build: {
     transpile: [
       'primevue',

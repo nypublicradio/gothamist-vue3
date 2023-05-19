@@ -91,7 +91,7 @@ onMounted(() => {
   if (typeof $htlbid !== "undefined") {
     $htlbid.init()
     $htlbid.setTargeting({
-      is_testing: config.HTL_IS_TESTING,
+      is_testing: config.public.HTL_IS_TESTING,
     })
     $htlbid.setTargetingForRoute(route)
   }
@@ -119,12 +119,12 @@ useHead({
     },
   ],
   link: [
-    { rel: 'stylesheet', href: config.HTL_CSS, type: 'text/css' },
-    { rel: 'preconnect', href: config.API_URL },
+    { rel: 'stylesheet', href: config.public.HTL_CSS, type: 'text/css' },
+    { rel: 'preconnect', href: config.public.API_URL },
   ],
   script: [
     {
-      src: `https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`,
+      src: `https://www.googletagmanager.com/gtag/js?id=${config.public.GA_MEASUREMENT_ID}`,
       async: true,
     },
     {
@@ -133,7 +133,7 @@ useHead({
       'data-ntv-set-no-auto-start': '',
     },
     {
-      src: config.HTL_JS,
+      src: config.public.HTL_JS,
       async: true,
     },
     {
@@ -157,7 +157,7 @@ useHead({
   ],
   noscript: [
     {
-      children: `<iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.GTM_ID}&quot;
+      children: `<iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.public.GTM_ID}&quot;
     height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe>`,
     },
   ],
@@ -184,7 +184,7 @@ if (isSponsoredRoute) {
         property: 'og:description',
         content: 'Gothamist is a non-profit local newsroom, powered by WNYC.',
       },
-      { property: 'og:image', content: config.OG_IMAGE },
+      { property: 'og:image', content: config.public.OG_IMAGE },
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '650' },
@@ -222,14 +222,14 @@ if (isSponsoredRoute) {
             :navigation="navigation"
             :isMinimized="true"
             isFixed
-            :donateUrlBase="config.donateUrlBase"
+            :donateUrlBase="config.public.donateUrlBase"
             utmCampaign="homepage-header"
           />
         </HeaderScrollTrigger>
         <GothamistMainHeader
           :navigation="navigation"
           :isMinimized="route.name !== 'index'"
-          :donateUrlBase="config.donateUrlBase"
+          :donateUrlBase="config.public.donateUrlBase"
           utmCampaign="homepage-header"
         />
         <div class="default-slot-holder">
@@ -268,7 +268,7 @@ if (isSponsoredRoute) {
     <template v-slot:default>
       <GothamistSidebarContents
         :navigation="navigation"
-        :donateUrlBase="config.donateUrlBase"
+        :donateUrlBase="config.public.donateUrlBase"
         @menuListClick="trackSidebarClick($event)"
         utmCampaign="goth_hamburger"
         class="mt-3"
