@@ -99,7 +99,7 @@ const loadMoreArticles = async () => {
   }
 }
 
-const { $analytics } = useNuxtApp()
+const { $analytics, $nativo } = useNuxtApp()
 const newsletterSubmitEvent = () => {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
@@ -132,9 +132,7 @@ const nativoSectionLoaded = (name) => {
     loadedNativoElements.includes('ntv-latest-1')
   ) {
     loadedNativoElements.length = 0
-    if (typeof PostRelease !== 'undefined') {
-      PostRelease.Start()
-    }
+    $nativo.refresh()
   }
 }
 

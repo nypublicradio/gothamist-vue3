@@ -1,13 +1,26 @@
 /* global htlbid */
 export default defineNuxtPlugin(() => {
+  const config = useRuntimeConfig()
+  useHead({
+    link: [{
+      rel: 'stylesheet',
+      href: config.public.HTL_CSS,
+      type: 'text/css'
+    }],
+    script: [{
+      src: config.public.HTL_JS,
+      async: true
+    }]
+  })
+  if (!process.server) {
     window.htlbid = window.htlbid || {}
     htlbid.cmd = htlbid.cmd || []
 
     const init = () => {
         htlbid.cmd.push(function () {
-            htlbid.layout('universal') 
+            htlbid.layout('universal')
         })
-    }   
+    }
     const setTargeting = (targetingParams) => {
         htlbid.cmd.push(() => {
           for (const key in targetingParams) {
@@ -39,14 +52,15 @@ export default defineNuxtPlugin(() => {
         })
     }
     return {
-        provide: {
-          htlbid: {
-            init,
-            setTargeting,
-            clearTargeting,
-            setTargetingForRoute,
-            clearAds
-          }
+      provide: {
+        htlbid: {
+          init,
+          setTargeting,
+          clearTargeting,
+          setTargetingForRoute,
+          clearAds
         }
       }
+    }
+  }
 })
