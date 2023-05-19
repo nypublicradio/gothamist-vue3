@@ -15,7 +15,7 @@ export default defineNuxtPlugin(() => {
 
     const e = document.createElement('script')
     const n = document.getElementsByTagName('script')[0]
-    e.type = 'text/javascript'
+    e.type = 'text/partytown'
     e.async = true
     e.src = '//static.chartbeat.com/js/chartbeat.js'
     n.parentNode.insertBefore(e, n);
