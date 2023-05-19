@@ -1,5 +1,4 @@
 <script setup>
-import { useRuntimeConfig } from '#app'
 const config = useRuntimeConfig()
 
 const props = defineProps({
@@ -22,7 +21,7 @@ const getArticleUrl = () => {
 useHead({
   script: [
     {
-      src: `https://launcher.spot.im/spot/${config.OPENWEB_SPOT_ID}`,
+      src: `https://launcher.spot.im/spot/${config.public.OPENWEB_SPOT_ID}`,
       'data-spotim-module': 'spotim-launcher',
       body: true,
     },

@@ -42,7 +42,7 @@ const submitForm = (event) => {
   }
   isSubmitting.value = true
   submissionStatus.value = null
-  $fetch(config.NEWSLETTER_API, {
+  $fetch(config.public.NEWSLETTER_API, {
     method: 'POST',
     body: {
       source: 'gothamist_newsletter_landing_page',

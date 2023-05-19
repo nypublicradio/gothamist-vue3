@@ -64,7 +64,7 @@ const newsletterSubmitEvent = () => {
       <ScrollTracker scrollTarget=".article-column" v-slot="scrollTrackerProps">
         <ArticlePageHeader
           class="article-page-header"
-          :donateUrlBase="config.donateUrlBase"
+          :donateUrlBase="config.public.donateUrlBase"
           utmCampaign="goth_header"
           :progress="scrollTrackerProps.scrollPercentage"
           :title="loadedTitle"
@@ -101,7 +101,7 @@ const newsletterSubmitEvent = () => {
             </div>
             <article-donation-CTA
               title="Gothamist is funded by sponsors and member donations"
-              :donateUrlBase="config.donateUrlBase"
+              :donateUrlBase="config.public.donateUrlBase"
               utmCampaign="article-top"
             />
           </div>
