@@ -82,4 +82,22 @@ describe('An article page', () => {
         cy.get('.recirculation').should('exist')
         cy.get('.recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
     })
+    it('shows articles without lead images', () => {
+        cy.intercept({
+            pathname: '/api/v2/pages/find',
+            query: {
+                html_path: 'news/worst-of-the-worst-graffiti-tagger-map-caught'
+            }
+        }, {fixture: 'aviary/article-no-image.json'}).as('articleNoImage')
+
+        cy.visit('/news/worst-of-the-worst-graffiti-tagger-map-caught')
+        cy.wait('@articleNoImage')
+
+        cy.get('h1').should('exist')
+        cy.get('.byline').should('exist')
+        cy.get('.article-body').should('exist')
+        cy.get('.author-profile').should('exist')
+        cy.get('.recirculation').should('exist')
+        cy.get('.recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
+    })
 })

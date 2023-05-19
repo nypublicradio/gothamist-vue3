@@ -1,0 +1,192 @@
+{
+    "id": 121567,
+    "meta": {
+        "first_published_at": "2006-11-28T12:14:02-05:00",
+        "type": "news.ArticlePage",
+        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/121567/",
+        "html_url": "http://cms.prod.nypr.digital/news/worst-of-the-worst-graffiti-tagger-map-caught/",
+        "slug": "worst-of-the-worst-graffiti-tagger-map-caught",
+        "show_in_menus": true,
+        "seo_title": "",
+        "search_description": "",
+        "parent": {
+            "id": 4,
+            "meta": {
+                "type": "standardpages.IndexPage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                "html_url": "http://cms.prod.nypr.digital/news/"
+            },
+            "title": "News"
+        }
+    },
+    "title": "\"Worst of the Worst\" Graffiti Tagger Map Caught",
+    "listing_title": "",
+    "listing_summary": "",
+    "listing_image": null,
+    "social_image": null,
+    "social_title": "",
+    "social_text": "",
+    "show_on_index_listing": true,
+    "uuid": "0ccfad9b-0fff-44d6-9089-3546acc48a1d",
+    "url": "https://gothamist.com/news/worst-of-the-worst-graffiti-tagger-map-caught",
+    "canonical_url": "",
+    "publication_date": "2006-11-28T12:14:02-05:00",
+    "updated_date": "2008-03-07T03:53:50-05:00",
+    "description": "Score one for the Mayor's Anti-Graffiti Task Force: The NYPD arrested",
+    "lead_asset": [],
+    "body": [
+        {
+            "type": "code",
+            "value": {
+                "title": "",
+                "code": "<p><img alt=\"2006_11_map2.JPG\" src=\"https://www.gothamist.com/attachments/jen/2006_11_map2.JPG\" width=\"600\" height=\"450\"></p><p>Score one for the <a href=\"http://www.gothamist.com/archives/2005/01/14/mayor_goes_after_graffiti.php\" target=\"_blank\" rel=\"noopener\">Mayor's Anti-Graffiti Task Force</a>:  The NYPD arrested 34 year old Patrick McCormick, tag Map, yesterday.   McCormick <a href=\"http://www.nysun.com/article/44181\" target=\"_blank\" rel=\"noopener\">was on the NYPD's 50 \"Worst of the Worst\" graffiti vandals list</a>.  The thing is, McCormick was arrested after <a href=\"http://www.amny.com/news/local/transportation/subway/am-graff1128,0,612038.story?coll=am-topheadlines\" target=\"_blank\" rel=\"noopener\">smashing the window of an A train</a> in front of a police officer, who was behind him.  It was on Saturday afternoon, near the Beach 98th Street stop in Rockaway.  The police suspect that McCormick was trying to destroy a rival's tag, but the head of the transit bureau James Hall said, \"He broke the window so we weren't able to determine that for sure.\"  </p><p>Hall also revealed, \"He's going around scratching up windows by his own admission.  During interviews with detectives he said he's done 10 windows on the N train.\"  Hmm, maybe like the one pictured below?  Anyway, according to am new York, McCormick was found with \"nine cans of spray paint, six grinding rocks for scratchitti, three indelible markers, two pairs of gloves and a wax stick in McCormick's knapsack.\" </p><p><img alt=\"2006_11_mapgraf.jpg\" src=\"https://www.gothamist.com/attachments/jen/2006_11_mapgraf.jpg\" width=\"450\" height=\"337\"></p><p>Now, the NY Sun reported McCormick's police history which included a <a href=\"http://query.nytimes.com/gst/fullpage.html?res=950DE1D8133EF930A25757C0A96F948260\" target=\"_blank\" rel=\"noopener\">manslaughter conviction in 1989 for burning a homeless man</a> (Hall said, \"This particular guy has a history of violence in addition to his artistic endeavors.  It's a good arrest. It's a really good grab.\").  We asked a graffiti expert about the arrest:</p><blockquote><p>Gothamist:  Did you see that writer map got busted for breaking a window on a train, and it turns out that he had previous arrests for graf, and... homicide!</p><p></p><p>Graf Expert:  Thats old news. Did it go into detail of his homicide arrest? </p><p>From what I gather, he was bombing subway tunnels many years ago, and was assaulted and raped (yes raped) by a bum in the tunnels.  So map came back with a can of gasoline and set the bum on fire and burned him alive.  True story.</p></blockquote><p>Egads.  Maybe City Councilman Vallone should use that in his anti-graffiti speeches.  </p><p></p><p><i>Top image is from <a href=\"http://www.robotswillkill.com/graffiti/showgraff.php?artist_id=1374\" target=\"_blank\" rel=\"noopener\">Robots Will Kill</a> (Map's tag is green with the squished M's) and the lower image is from <a href=\"http://www.saster.net\" target=\"_blank\" rel=\"noopener\">The Streets are Saying Things</a></i></p>"
+            },
+            "id": "53b8e50d-17d9-48ea-9e29-2e863d1f3cfa"
+        }
+    ],
+    "sponsored_content": false,
+    "disable_comments": false,
+    "provocative_content": false,
+    "sensitive_content": false,
+    "related_links": [],
+    "related_authors": [
+        {
+            "id": 14,
+            "first_name": "Jen",
+            "last_name": "Chung",
+            "photo": 327349,
+            "job_title": "Co-founder of Gothamist + Senior Editor",
+            "biography": "Jen Chung is a former WNYC and Gothamist editor.",
+            "website": "",
+            "email": "",
+            "slug": "jen-chung",
+            "social_media_profile": []
+        }
+    ],
+    "related_contributing_organizations": [],
+    "related_sponsors": [],
+    "tags": [
+        {
+            "name": "a train",
+            "slug": "a-train"
+        },
+        {
+            "name": "breaking",
+            "slug": "breaking"
+        },
+        {
+            "name": "city",
+            "slug": "city"
+        },
+        {
+            "name": "City Councilman",
+            "slug": "city-councilman"
+        },
+        {
+            "name": "City Councilman Vallone",
+            "slug": "city-councilman-vallone"
+        },
+        {
+            "name": "fire",
+            "slug": "fire"
+        },
+        {
+            "name": "gothamist",
+            "slug": "gothamist"
+        },
+        {
+            "name": "graffiti",
+            "slug": "graffiti"
+        },
+        {
+            "name": "Graffiti Task Force",
+            "slug": "graffiti-task-force"
+        },
+        {
+            "name": "history",
+            "slug": "history"
+        },
+        {
+            "name": "homeless",
+            "slug": "homeless"
+        },
+        {
+            "name": "HOMICIDE",
+            "slug": "homicide"
+        },
+        {
+            "name": "mayor",
+            "slug": "mayor"
+        },
+        {
+            "name": "ny sun",
+            "slug": "ny-sun"
+        },
+        {
+            "name": "nypd",
+            "slug": "nypd"
+        },
+        {
+            "name": "police",
+            "slug": "police"
+        },
+        {
+            "name": "subway",
+            "slug": "subway"
+        },
+        {
+            "name": "Task Force",
+            "slug": "task-force"
+        },
+        {
+            "name": "The NYPD",
+            "slug": "the-nypd"
+        },
+        {
+            "name": "The Streets",
+            "slug": "the-streets"
+        },
+        {
+            "name": "train",
+            "slug": "train"
+        },
+        {
+            "name": "transportation",
+            "slug": "transportation"
+        }
+    ],
+    "show_as_feature": false,
+    "legacy_id": 84133,
+    "ancestry": [
+        {
+            "id": 4,
+            "meta": {
+                "type": "standardpages.IndexPage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                "html_url": "http://cms.prod.nypr.digital/news/"
+            },
+            "title": "News",
+            "slug": "news"
+        },
+        {
+            "id": 3,
+            "meta": {
+                "type": "home.HomePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                "html_url": "http://cms.prod.nypr.digital/"
+            },
+            "title": "Gothamist",
+            "slug": "home"
+        },
+        {
+            "id": 1,
+            "meta": {
+                "type": "wagtailcore.Page",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                "html_url": null
+            },
+            "title": "Root",
+            "slug": "root"
+        }
+    ]
+}
