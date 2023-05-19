@@ -17,7 +17,6 @@ export default defineNuxtPlugin((nuxtApp) => {
         ],
         logErrors: true,
         debug: false,
-        sampleRate: 1,
         tracesSampleRate: 1,
         environment: config.public.SENTRY_ENV,
         beforeSend(event) {

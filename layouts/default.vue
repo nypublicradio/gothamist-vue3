@@ -119,14 +119,9 @@ useHead({
     },
   ],
   link: [
-    { rel: 'stylesheet', href: config.public.HTL_CSS, type: 'text/css' },
     { rel: 'preconnect', href: config.public.API_URL },
   ],
   script: [
-    {
-      src: `https://www.googletagmanager.com/gtag/js?id=${config.public.GA_MEASUREMENT_ID}`,
-      async: true,
-    },
     {
       src: 'https://s.ntv.io/serve/load.js',
       async: true,
@@ -154,20 +149,24 @@ useHead({
         return t;
       }(document, 'script', 'twitter-wjs'));`,
     },
-  ],
-  noscript: [
-    {
-      children: `<iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.public.GTM_ID}&quot;
-    height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe>`,
-    },
+  ]
+})
+
+// Resource Hints
+useServerHead({
+  link: [
+    { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high'},
+    { rel: 'preconnect', href: config.public.IMAGE_CDN_URL, tagPriority: 'high'},
   ],
 })
+
+// Metadata
 if (isSponsoredRoute) {
-  useHead({
+  useServerHead({
     meta: [{ name: 'robots', content: 'noindex,nofollow' }],
   })
 } else {
-  useHead({
+  useServerHead({
     meta: [
       { property: 'og:site_name', content: 'Gothamist' },
       { property: 'og:type', content: 'website' },

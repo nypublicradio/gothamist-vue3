@@ -114,17 +114,7 @@ const newsletterSubmitEvent = () => {
     event_label: 'Newsletter',
   })
 }
-useHead({
-  script: [
-    {
-      src: `https://www.googletagmanager.com/gtag/js?id=${config.public.GA_MEASUREMENT_ID}`,
-      async: true
-    },
-    {
-      src: config.public.HTL_JS,
-      async: true
-    }
-  ],
+useServerHead({
   meta: [
     {property: 'og:site_name', content: 'Gothamist'},
     {property: 'og:type', content: 'website'},
@@ -147,7 +137,6 @@ useHead({
     <Html lang="en">
       <Head>
         <Link rel="preconnect" :href="config.public.API_URL" />
-        <Link rel="stylesheet" :href="config.public.HTL_CSS" type="text/css" />
         <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
         <Meta
           name="description"
