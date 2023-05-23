@@ -4,14 +4,14 @@ import { normalizeGalleryPage } from './galleryPages'
 import { normalizeTagPage } from './tagPages'
 import { Page, ArticlePage, TagPage, InformationPage } from "../types/Page"
 
-export async function findPage(htmlPath: string) {
+export function findPage(htmlPath: string) {
     const params = { html_path: htmlPath }
-    return await useAviary('/pages/find', { params })
+    return useAviary('/pages/find', { params })
 }
 
-// Get a page by it's cms id
-export async function usePageById(pageId: number) {
-    return await useAviary(`/pages/${pageId}`)
+// Get a page by it's c ms id
+export function usePageById(pageId: number) {
+    return useAviary(`/pages/${pageId}`)
 }
 
 export function normalizeInformationPage(page: Record<string, any>): InformationPage {

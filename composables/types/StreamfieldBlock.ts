@@ -1,5 +1,5 @@
-import Image from "./Image";
-import { ArticlePage } from "./Page";
+import type Image from "./Image";
+import type { ArticlePage } from "./Page";
 
 export type BlockQuoteBlock = {
     id: string,

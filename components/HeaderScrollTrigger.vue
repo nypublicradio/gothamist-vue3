@@ -61,7 +61,7 @@ const refreshScrollTrigger = () => {
     scrollTriggerSelector.refresh()
   }
 }
-watch([currentHeaderAdHeight, route], (height) => {
+watch([currentHeaderAdHeight, route], () => {
   refreshScrollTrigger()
 })
 </script>

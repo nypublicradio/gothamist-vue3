@@ -1,11 +1,11 @@
-import { StreamfieldBlock } from './StreamfieldBlock';
-import Author from './Author';
-import ContributingOrganization from './ContributingOrganization';
-import Image from './Image';
-import Slide from './Slide';
-import Sponsor from './Sponsor';
-import Tag from './Tag';
-import NavigationLink from './NavigationLink'
+import type { StreamfieldBlock } from './StreamfieldBlock';
+import type Author from './Author';
+import type ContributingOrganization from './ContributingOrganization';
+import type Image from './Image';
+import type Slide from './Slide';
+import type Sponsor from './Sponsor';
+import type Tag from './Tag';
+import type NavigationLink from './NavigationLink'
 
 
 export interface Page {
