@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { InformationPage } from '../composables/types/Page';
+import type { InformationPage } from '../composables/types/Page';
 const { $analytics } = useNuxtApp()
 
-const props = defineProps<{
+defineProps<{
   page: InformationPage
 }>()
 

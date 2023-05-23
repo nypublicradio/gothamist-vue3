@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BasicGiftImage from './BasicGiftImage.vue'
-const props = defineProps({
+defineProps({
   maxHeight: {
     type: String,
     default: '300px',
@@ -18,8 +18,8 @@ const props = defineProps({
     <BasicGiftImage
       filename="rat-tote.webp"
       alt="Gothamist rat totes bag"
-      :maxWidth="props.maxWidth"
-      :maxHeight="props.maxHeight"
+      :maxWidth="maxWidth"
+      :maxHeight="maxHeight"
     />
     <slot name="after" />
   </div>

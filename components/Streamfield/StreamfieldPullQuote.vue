@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PullQuoteBlock } from '../../composables/types/StreamfieldBlock'
+import type { PullQuoteBlock } from '../../composables/types/StreamfieldBlock'
 defineProps<{
   block: PullQuoteBlock
 }>()

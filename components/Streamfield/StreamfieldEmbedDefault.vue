@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { EmbedBlock } from '../../composables/types/StreamfieldBlock'
+import type { EmbedBlock } from '../../composables/types/StreamfieldBlock'
 defineProps<{
   block: EmbedBlock
 }>()

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
-import { ImageBlock } from '../../composables/types/StreamfieldBlock'
+import type { ImageBlock } from '../../composables/types/StreamfieldBlock'
 defineProps<{
   block: ImageBlock
 }>()

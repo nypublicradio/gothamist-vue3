@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HeadingBlock } from '../../composables/types/StreamfieldBlock'
+import type { HeadingBlock } from '../../composables/types/StreamfieldBlock'
 defineProps<{
   block: HeadingBlock
 }>()

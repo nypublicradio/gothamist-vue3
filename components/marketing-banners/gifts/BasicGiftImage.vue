@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   filename: {
     type: String,
     default: 'rat-tote.webp',
@@ -24,8 +24,8 @@ const props = defineProps({
 <template>
   <img
     class="product-item-image"
-    :src="`/marketing-modal/${props.filename}`"
-    :alt="props.alt"
+    :src="`/marketing-modal/${filename}`"
+    :alt="alt"
   />
 </template>
 
