@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
+import type { ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
 defineProps<{
   block: ContentCollectionBlock
   trackingComponentLocation: string

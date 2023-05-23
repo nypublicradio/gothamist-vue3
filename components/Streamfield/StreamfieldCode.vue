@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CodeBlock, EmbedBlock } from '../../composables/types/StreamfieldBlock'
+import type { CodeBlock, EmbedBlock } from '../../composables/types/StreamfieldBlock'
 const props = defineProps<{
   block: CodeBlock
 }>()
