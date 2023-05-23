@@ -94,12 +94,19 @@ onUnmounted(() => {
 
 // handle ads when the article is mounted
 function handleArticleMounted(el) {
-  let landmarks = useStreamfieldLandmarks(el.value)
+  const element = el.value
+  let landmarks = useStreamfieldLandmarks(element)
   do {
     const adTarget = landmarks[Math.min(landmarks.length - 1, 5)].node
     useInsertAd(adTarget)
     landmarks = landmarks.slice(6)
   } while (landmarks.length > 6)
+
+  Array.from(element.querySelectorAll('[data-optin-monster-id]')).forEach((div:HTMLElement) => {
+    if (div.parentElement) {
+      div.parentElement.id = div.dataset.optinMonsterId
+    }
+  })
 }
 
 // insert ads into the target element
