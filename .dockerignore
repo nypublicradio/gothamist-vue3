@@ -20,3 +20,6 @@ node_modules/
 
 CODEOWNERS
 README.md
+
+# Cloudfront function
+cf_functions/

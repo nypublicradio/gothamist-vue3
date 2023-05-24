@@ -54,6 +54,26 @@ workflows:
             - test
             - test_nginx
             - test_cypress
+      - cf-function-deploy:
+          name: Deploy CloudFront Functions (demo)
+          context: "AWS Deploy"
+          env: demo
+          <<: *filter_demo
+          requires:
+            - test
+            - test_nginx
+            - test_cypress
+            - deploy
+      - cf-function-deploy:
+          name: Deploy CloudFront Functions (prod)
+          context: "AWS Deploy"
+          env: prod
+          <<: *filter_demo
+          requires:
+            - test
+            - test_nginx
+            - test_cypress
+            - deploy
 
 jobs:
   # Note (allie): This is its own job because I don't
@@ -170,6 +190,37 @@ jobs:
               --tag=$TAG \
               --wait=300
 
+  cf-function-deploy:
+    executor: aws-cli/default
+    parameters:
+      env:
+        type: enum
+        default: "demo"
+        enum: ["demo", "prod"]
+    steps:
+      - checkout
+      - aws-cli/setup
+      - run:
+          name: Deploy
+          environment:
+            ENV: <<parameters.env>>
+          command: |
+            cd cf_functions
+            for x in *.js; do 
+              functionName=$(basename $x .js)
+              aws cloudfront describe-function --name $functionName-$ENV
+              if (( $? == 0 )); then
+                aws cloudfront update-function \
+                  --name $functionName-$ENV \
+                  --if-match 1 \
+                  --function-code fileb://$x
+              else
+                aws cloudfront create-function \
+                  --name $functionName-$ENV \
+                  --function-code fileb://$x
+              fi
+            done
+
 commands:
   setup_npmrc:
     steps:
@@ -185,3 +236,6 @@ executors:
       - image: cypress/browsers:node-16.18.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
     environment:
       JOBS: 2
+
+orbs:
+  aws-cli: circleci/aws-cli@3.1.5
