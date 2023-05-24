@@ -75,6 +75,7 @@ useChartbeat({
   sections: article.tags.map(tag => tag.name).join(','),
   authors: article.authors.map(author => author.name).join(',')
 })
+useOptinMonster()
 
 onBeforeMount(() => {
   isArticlePage.value = true

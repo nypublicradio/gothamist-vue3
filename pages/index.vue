@@ -112,6 +112,7 @@ const newsletterSubmitEvent = () => {
 const navigation = useNavigation()
 
 useChartbeat()
+useOptinMonster()
 
 onMounted(() => {
   $analytics.sendPageView({

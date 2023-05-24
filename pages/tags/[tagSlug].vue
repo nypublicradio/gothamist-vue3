@@ -62,6 +62,7 @@ const tagName =
   articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug?.replace(/-/g, ' ')
 
 useChartbeat()
+useOptinMonster()
 
 onMounted(() => {
   $analytics.sendPageView({

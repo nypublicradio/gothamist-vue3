@@ -48,6 +48,7 @@ useHead({
 })
 
 useChartbeat()
+useOptinMonster()
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'search_page' })
