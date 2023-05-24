@@ -6,30 +6,12 @@ export default defineNuxtPlugin(() => {
     let activeVariant:number
     const defaultMaxAge = 60 * 60 * 24 * 30 // 30 days
 
-    const chooseWeightedRandom = (weights:number[]):number => {
-      const sumOfWeights = weights.reduce(
-        (sum, weight) => sum + weight,
-      0)
-      const choice = Math.random()
-      let threshold = 0
-      for (let i = 0; i < weights.length; i++) {
-        threshold += weights[i]/sumOfWeights
-        if (choice <= threshold) {
-          return i
-        }
-      }
-    }
-
     const assignVariants = (experiments:Experiment[]):void => {
       experiments.forEach(experiment => {
         if (experiment === getCurrentExperiment() && typeof activeVariant === 'undefined') {
-          activeVariant = readVariant(experiment) ?? chooseVariant(experiment)
+          activeVariant = readVariant(experiment)
         }
       })
-    }
-
-    const chooseVariant = (experiment:Experiment):number => {
-      return chooseWeightedRandom(experiment.variants.map(variant => variant.weight))
     }
 
     const readVariant = (experiment:Experiment):number => {
