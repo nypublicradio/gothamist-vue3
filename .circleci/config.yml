@@ -63,7 +63,7 @@ workflows:
             - test
             - test_nginx
             - test_cypress
-            - deploy
+            - "Deploy (demo)"
       - cf-function-deploy:
           name: Deploy CloudFront Functions (prod)
           context: "AWS Deploy"
@@ -74,6 +74,7 @@ workflows:
             - test_nginx
             - test_cypress
             - deploy
+            - "Deploy (prod)"
 
 jobs:
   # Note (allie): This is its own job because I don't
