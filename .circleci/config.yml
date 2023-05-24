@@ -73,7 +73,6 @@ workflows:
             - test
             - test_nginx
             - test_cypress
-            - deploy
             - "Deploy (prod)"
 
 jobs:
