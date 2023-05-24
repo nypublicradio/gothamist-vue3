@@ -68,7 +68,7 @@ workflows:
           name: Deploy CloudFront Functions (prod)
           context: "AWS Deploy"
           env: prod
-          <<: *filter_demo
+          <<: *filter_prod
           requires:
             - test
             - test_nginx
