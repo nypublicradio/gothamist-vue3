@@ -208,8 +208,8 @@ jobs:
             cd cf_functions
             for x in *.js; do 
               functionName=$(basename $x .js)
-              aws cloudfront describe-function --name $functionName-$ENV
-              if (( $? == 0 )); then
+              describeFunction=`aws cloudfront describe-function --name $functionName-$ENV`
+              if [[ $? == 0 ]] then
                 aws cloudfront update-function \
                   --name $functionName-$ENV \
                   --if-match 1 \
