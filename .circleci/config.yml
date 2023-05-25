@@ -208,17 +208,33 @@ jobs:
             cd cf_functions
             for x in *.js; do 
               functionName=$(basename $x .js)
-              describeFunction=`aws cloudfront describe-function --name $functionName-$ENV`
-              if [[ $? == 0 ]] then
+              aws cloudfront describe-function --name $functionName-$ENV > /dev/null 2>&1
+              if [[ $? == 0 ]]; then
+                etag=$(aws cloudfront describe-function --name $functionName-$ENV --query 'ETag' --output text)
                 aws cloudfront update-function \
                   --name $functionName-$ENV \
-                  --if-match 1 \
+                  --function-config Comment="$functionName",Runtime="cloudfront-js-1.0" \
+                  --if-match $etag \
                   --function-code fileb://$x
               else
                 aws cloudfront create-function \
                   --name $functionName-$ENV \
+                  --function-config Comment="$functionName",Runtime="cloudfront-js-1.0" \
                   --function-code fileb://$x
               fi
+            done
+      - run:
+          name: Publish Functions
+          environment:
+            ENV: <<parameters.env>>
+          command: |
+            cd cf_functions
+            for x in *.js; do 
+              functionName=$(basename $x .js)
+              etag=$(aws cloudfront describe-function --name $functionName-$ENV --query 'ETag' --output text)
+              aws cloudfront publish-function \
+                --name $functionName-$ENV \
+                --if-match $etag
             done
 
 commands:
