@@ -191,6 +191,7 @@ jobs:
               --wait=300
 
   cf-function-deploy:
+    working_directory: ~/project/cf_functions
     executor: aws-cli/default
     parameters:
       env:
@@ -198,14 +199,14 @@ jobs:
         default: "demo"
         enum: ["demo", "prod"]
     steps:
-      - checkout
+      - checkout:
+          path: ~/project
       - aws-cli/setup
       - run:
           name: Deploy
           environment:
             ENV: <<parameters.env>>
           command: |
-            cd cf_functions
             for x in *.js; do 
               functionName=$(basename $x .js)
               aws cloudfront describe-function --name $functionName-$ENV > /dev/null 2>&1
@@ -228,7 +229,6 @@ jobs:
           environment:
             ENV: <<parameters.env>>
           command: |
-            cd cf_functions
             for x in *.js; do 
               functionName=$(basename $x .js)
               etag=$(aws cloudfront describe-function --name $functionName-$ENV --query 'ETag' --output text)
