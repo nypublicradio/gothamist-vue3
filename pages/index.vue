@@ -56,14 +56,15 @@ const filteredLatestArticles = computed(() => {
 const riverArticles = $features.enabled['experiment-deduplicate-river'] ?
 filteredLatestArticles : latestArticles
 
-if(featuredArticles?.[0]?.listingImage) {
+const mainImage = featuredArticles?.[0]?.listingImage
+if (mainImage) {
   usePreloadResponsiveImage(
-    useImageUrl(featuredArticles?.[0]?.listingImage, {
+    useImageUrl(mainImage, {
       width: 700,
       height: 467,
       quality: 80
     }),
-    useResponsiveSrcset(featuredArticles?.[0]?.listingImage, [1], {
+    useResponsiveSrcset(mainImage, [1], {
       width: 700,
       height: 467,
       quality: 80
