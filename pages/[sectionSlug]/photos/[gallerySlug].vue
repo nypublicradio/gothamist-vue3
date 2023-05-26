@@ -182,6 +182,7 @@ const goBack = () => {
             :sizes="[2]"
             :ratio="[slide.image.width, slide.image.height]"
             :allow-preview="true"
+            :loading="index === 0 ? 'eager' : 'lazy'"
           />
           <hr class="my-3" />
         </div>
