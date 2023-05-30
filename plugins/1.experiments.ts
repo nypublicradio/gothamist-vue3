@@ -3,10 +3,10 @@ import Experiment from "~/composables/types/Experiment";
 import { get } from "cypress/types/lodash";
 
 export default defineNuxtPlugin(() => {
+    const abTestCookie = 'ablot'
     let activeVariant:number
-    const defaultMaxAge = 60 * 60 * 24 * 30 // 30 days
 
-    const assignVariants = (experiments:Experiment[]):void => {
+    const readVariants = (experiments:Experiment[]):void => {
       experiments.forEach(experiment => {
         if (experiment === getCurrentExperiment() && typeof activeVariant === 'undefined') {
           activeVariant = readVariant(experiment)
@@ -15,21 +15,10 @@ export default defineNuxtPlugin(() => {
     }
 
     const readVariant = (experiment:Experiment):number => {
-      const cookie = useCookie(`_experiment_${experiment.name}`, { path: '/' })
+      const cookie = useCookie(abTestCookie, { path: '/' })
       if (typeof cookie.value !== 'undefined') {
         return Number(cookie.value)
       }
-    }
-
-    const saveVariant = (experiment:Experiment, variant:number):void => {
-      const cookie = useCookie(
-        `_experiment_${experiment.name}`, 
-        { 
-          path: '/',
-          maxAge: experiment.maxAgeSeconds ?? defaultMaxAge,
-        }
-      )
-      cookie.value = String(variant)
     }
 
     const getCurrentExperiment = ():Experiment => {
@@ -40,11 +29,7 @@ export default defineNuxtPlugin(() => {
       }
     }
 
-    assignVariants(currentExperiments)
-
-    if (!process.client) {
-      saveVariant(getCurrentExperiment(), activeVariant)
-    }
+    readVariants(currentExperiments)
 
     return {
       provide: {
