@@ -6,5 +6,5 @@ export default async function useOptinMonster() {
       optinMonster.reset()
       optinMonster.campaigns?.Sessions?.init();
     }
-  }
+  })
 }
