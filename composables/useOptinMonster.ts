@@ -1,4 +1,4 @@
-export default async function useOptinMonster() {
+export default function useOptinMonster() {
   onMounted(() => {
     const config = useRuntimeConfig()
     if (!process.server && window[`om${config.OPTIN_MONSTER_ACCOUNT_ID}_${config.OPTIN_MONSTER_USER_ID}`]) {
