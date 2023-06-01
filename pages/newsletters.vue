@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import useNewsletterSignup from '~/composables/useNewsletterSignup';
+
 const config = useRuntimeConfig()
 const { $sentry } = useNuxtApp()
 const newsletters = [
@@ -23,53 +25,24 @@ const newsletters = [
 const thanksMessage = "Thank you for signing up!"
 const errorMessage = "Sorry! There was a problem signing you up. Please try again later"
 
-const isSubmitting = ref(false)
-const submissionStatus = ref<string>(null)
-
 const selectedLists = ref<Array<string>>(newsletters.map(newsletter => newsletter.id))
 const agree = ref(true)
 const email = ref<string>(null)
-const isSuccess = ref(false)
-const formIsValid = computed(() => {
-  return selectedLists.value.length > 0 &&
-  agree.value &&
-  email.value
-})
 
-const submitForm = (event) => {
-  if (!formIsValid.value) {
-    return event.preventDefault()
-  }
-  isSubmitting.value = true
-  submissionStatus.value = null
-  $fetch(config.public.NEWSLETTER_API, {
-    method: 'POST',
-    body: {
-      source: 'gothamist_newsletter_landing_page',
-      list: selectedLists.value.join('++'),
-      email: email.value
-    },
-  })
-  .then(() => {
-    submissionStatus.value = 'success'
-    isSubmitting.value = false
-  })
-  .catch((error) => {
-    submissionStatus.value = 'error'
-    isSubmitting.value = false
-    $sentry.captureException(error.response)
-  })
-  return event.preventDefault()
-}
+const newsletterSignup = useNewsletterSignup({
+  email:email, 
+  lists:selectedLists,
+  consent: agree
+})
 
 </script>
 <template>
     <div class="newsletter-page">
     <section>
       <div class="content">
-        <form class="newsletter-form" v-on:submit="submitForm"
+        <form class="newsletter-form" v-on:submit="newsletterSignup.submitForm"
         > 
-          <div v-if="submissionStatus !== 'success'" class="form">
+          <div v-if="!newsletterSignup.isSuccess.value" class="form">
             <h1>Newsletters</h1>
             <p>Get the news New Yorkers need in your inbox.</p>
             <div class="field">
@@ -87,7 +60,7 @@ const submitForm = (event) => {
                 name="email"
               />
             </div>
-            <div v-if="submissionStatus !== 'success'" class="newsletter-list">
+            <div v-if="!newsletterSignup.isSuccess.value" class="newsletter-list">
               <div v-for="(newsletter, index) in newsletters" :key="newsletter.id" class="newsletter-list-item">
                 <div class="newsletter-checkbox">
                   <Checkbox
@@ -102,7 +75,7 @@ const submitForm = (event) => {
                 </div>
               </div>
             </div>
-            <div v-if="submissionStatus === 'error'" class="newsletter-error">{{errorMessage}}</div>
+            <div v-if="newsletterSignup.isError.value" class="newsletter-error">{{errorMessage}}</div>
             <div class="newsletter-agree field-checkbox mt-3 mb-0">
               <Checkbox
                 id="agree"
@@ -110,7 +83,7 @@ const submitForm = (event) => {
                 aria-label="Toggle agreement to the terms"
                 :aria-checked="agree"
                 v-model="agree"
-                :disabled="isSubmitting"
+                :disabled="newsletterSignup.isSubmitting.value"
                 :binary="true"
               />
               <label for="agree">
@@ -121,9 +94,9 @@ const submitForm = (event) => {
               </label>
               <Button
                 id="sign-up"
-                :class="!formIsValid || isSubmitting ? 'disabled' : ''"
-                :aria-disabled="!formIsValid || isSubmitting"
-                :type="formIsValid || isSubmitting ? 'submit' : 'button'"
+                :class="!newsletterSignup.isFormValid.value || newsletterSignup.isSubmitting.value ? 'disabled' : ''"
+                :aria-disabled="(!newsletterSignup.isFormValid.value || newsletterSignup.isSubmitting.value)"
+                :type="newsletterSignup.isFormValid.value || newsletterSignup.isSubmitting.value ? 'submit' : 'button'"
                 class="submit-btn p-button-rounded"
                 label="Sign Up"
                 aria-label="Sign Up"
