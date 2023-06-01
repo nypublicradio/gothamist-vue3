@@ -20,6 +20,7 @@ const page = isPreview ? previewData.value.data
 const { $analytics } = useNuxtApp()
 
 useChartbeat()
+useOptinMonster()
 
 onMounted(() => {
   if (isPreview) {

@@ -1,5 +1,7 @@
 export default defineNuxtConfig({
   app: {
+    pageTransition: false,
+    layoutTransition: false,
     head: {
       meta: [
         { name: 'msapplication-TileColor', content: '#f4f2f0' },
