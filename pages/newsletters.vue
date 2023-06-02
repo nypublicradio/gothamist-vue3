@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import useNewsletterSignup from '~/composables/useNewsletterSignup';
-
-const config = useRuntimeConfig()
-const { $sentry } = useNuxtApp()
 const newsletters = [
   {
     title: "Early Addition",
