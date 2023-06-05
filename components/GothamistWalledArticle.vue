@@ -55,9 +55,8 @@ const handleArticleMounted = () => {
     display: flex;
     height: var(--content-wall-height);
     background: linear-gradient(rgba(255,255,255,0) 5%, rgba(255,255,255,1) 200px);
-    padding: calc(var(--line-height-6) * var(--font-size-6) * 3) 8px 0;
-    @include media(">medium") {
-      padding: calc(var(--line-height-6) * var(--font-size-6) * 3) 96px 0;
+    @include media(">large") {
+      width: calc(100% - 330px - 15px);
     }
   }
   </style>
