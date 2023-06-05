@@ -26,7 +26,8 @@ const email = ref<string>(null)
 const newsletterSignup = useNewsletterSignup({
   email,
   lists,
-  consent: agree
+  consent: agree,
+  source: 'gothamist_archive_regWall'
 })
 
 const handleSubmit = (emailAddress) => {

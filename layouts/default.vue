@@ -80,6 +80,7 @@ const trackSidebarClick = (label) => {
   })
   closeSidebar()
 }
+
 // load the live stream
 onBeforeMount(async () => {
   const currentSteamStation = useCurrentSteamStation()
@@ -92,6 +93,12 @@ onMounted(() => {
       is_testing: config.public.HTL_IS_TESTING,
     })
     $htlbid.setTargetingForRoute(route)
+  }
+  const url = new URL(window.location.href)
+  if (url.searchParams.get('utm_medium') === 'nypr-email')
+  {
+    const cookie = useCookie('__gothamistNewsletterMember', { path: '/' })
+    cookie.value = 'true'
   }
 })
 watch(route, (value) => {

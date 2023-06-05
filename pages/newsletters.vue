@@ -28,7 +28,8 @@ const email = ref<string>(null)
 const newsletterSignup = useNewsletterSignup({
   email:email, 
   lists:selectedLists,
-  consent: agree
+  consent: agree,
+  source: 'gothamist_newsletter_landing_page'
 })
 
 </script>

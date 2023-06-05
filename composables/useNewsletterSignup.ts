@@ -1,7 +1,8 @@
 export default function useNewsletterSignup(options: {
   email: Ref<string>,
-  lists: Ref<string[]>
+  lists: Ref<string[]>,
   consent: Ref<boolean>,
+  source: string,
 }) {
 
 
@@ -32,7 +33,7 @@ const submitForm = (event=new Event('')) => {
   $fetch(config.public.NEWSLETTER_API, {
     method: 'POST',
     body: {
-      source: 'gothamist_newsletter_landing_page',
+      source: options.source,
       list: options.lists.value.join('++'),
       email: options.email.value
     },
@@ -40,6 +41,8 @@ const submitForm = (event=new Event('')) => {
   .then(() => {
     isSuccess.value = true
     isSubmitting.value = false
+    const cookie = useCookie('__gothamistNewsletterMember', { path: '/' })
+    cookie.value = 'true'
   })
   .catch((error) => {
     isError.value = true
