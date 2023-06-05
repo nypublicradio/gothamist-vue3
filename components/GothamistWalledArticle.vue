@@ -37,7 +37,7 @@ const handleArticleMounted = () => {
       </template>
     </ContentWall>
   </template>
-  
+
   <style lang="scss">
   .content-wall {
     --content-wall-height: 550px;

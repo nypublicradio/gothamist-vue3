@@ -19,7 +19,7 @@ const isValidEmail = (email) => {
 }
 
 const isFormValid = computed(() => {
-  return isValidEmail(options.email.value) && 
+  return isValidEmail(options.email.value) &&
   options.lists.value.length > 0 &&
   options.consent.value == true
 })
