@@ -23,7 +23,7 @@ const isFormValid = computed(() => {
   options.lists.value.length > 0 &&
   options.consent.value == true
 })
-const submitForm = (event) => {
+const submitForm = (event=new Event('')) => {
   if (!isFormValid) {
     return event.preventDefault()
   }

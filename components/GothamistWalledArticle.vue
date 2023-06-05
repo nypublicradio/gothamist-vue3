@@ -32,7 +32,7 @@ const handleArticleMounted = () => {
       </template>
       <template #wall="wall">
         <div class="wall-wrapper">
-          <GothamistWallNewsletter @wallCleared="wall.dismiss" />
+          <NewsletterContentWall @wallCleared="wall.dismiss" />
         </div>
       </template>
     </ContentWall>
@@ -40,7 +40,7 @@ const handleArticleMounted = () => {
   
   <style lang="scss">
   .content-wall {
-    --content-wall-height: 400px;
+    --content-wall-height: 550px;
     position: relative;
     min-height: var(--content-wall-height);
   }
@@ -54,8 +54,8 @@ const handleArticleMounted = () => {
     width: 100%;
     display: flex;
     height: var(--content-wall-height);
-    background: linear-gradient(rgba(255,255,255,0) 5%, rgba(255,255,255,1) 80%);
-    padding: calc(var(--line-height-6) * var(--font-size-6) * 3) var(--space-2) 0;
+    background: linear-gradient(rgba(255,255,255,0) 5%, rgba(255,255,255,1) 200px);
+    padding: calc(var(--line-height-6) * var(--font-size-6) * 3) 8px 0;
     @include media(">medium") {
       padding: calc(var(--line-height-6) * var(--font-size-6) * 3) 96px 0;
     }
