@@ -39,6 +39,7 @@ useChartbeat({
   section: article.section.name,
   authors: article.authors.map(author => author.name).join(',')
 })
+useOptinMonster()
 
 onMounted(() => {
   $analytics.sendPageView({

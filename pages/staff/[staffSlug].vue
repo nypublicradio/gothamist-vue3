@@ -71,6 +71,7 @@ const newsletterSubmitEvent = () => {
 }
 
 useChartbeat()
+useOptinMonster()
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'staff_page' })

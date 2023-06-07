@@ -25,6 +25,7 @@ const loadedTitle = ref(null)
 const sensitiveContent = useSensitiveContent()
 
 useChartbeat()
+useOptinMonster()
 
 onBeforeMount(() => {
   isArticlePage.value = true
