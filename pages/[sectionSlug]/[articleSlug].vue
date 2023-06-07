@@ -13,6 +13,7 @@ import {
   useIsArticlePage,
   useMarketingBannerData,
 } from '~/composables/states'
+import useWalledState from '~/composables/useWalledState'
 const isArticlePage = useIsArticlePage()
 const previewData = usePreviewData()
 const marketingBannerData = useMarketingBannerData()
@@ -148,7 +149,7 @@ const showMarketingBanner = computed(() => {
   return marketingBannerData.value[0]?.location === 'BOTTOM'
 })
 
-const contentLocked = true
+const contentLocked = useWalledState(article)
 
 const tagName = computed(() => article?.sponsoredContent ? "Sponsored" : article?.section?.name )
 const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.section?.slug}` )

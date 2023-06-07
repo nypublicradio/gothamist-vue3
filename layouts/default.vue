@@ -95,6 +95,7 @@ onMounted(() => {
     $htlbid.setTargetingForRoute(route)
   }
   const url = new URL(window.location.href)
+  // Track users coming from newsletter
   if (url.searchParams.get('utm_medium') === 'nypr-email')
   {
     const cookie = useCookie('__gothamistNewsletterMember', { path: '/' })
