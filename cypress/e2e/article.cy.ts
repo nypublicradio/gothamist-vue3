@@ -148,4 +148,25 @@ describe('An article page', () => {
             })
         })
     })
+    it('does not show the content wall on sponsored articles', () => {
+        cy.clearCookie('__gothamistNewsletterMember')
+
+        cy.fixture('aviary/article.json').then(article => {
+            article.publication_date = new Date('1990-01-01').toISOString()
+            article.meta.first_published_at = new Date('1990-01-01').toISOString()
+            article.sponsored_content === true
+            cy.intercept({
+                pathname: '/api/v2/pages/find',
+                query: {
+                    html_path: 'news/extra-extra-meet-connecticuts-answer-to-pizza-rat'
+                }
+            }, {body: article}).as('oldArticle')
+
+            cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
+            cy.wait('@oldArticle').then(() => {
+                cy.wait(500)
+                cy.get('h2.regwall-header').should('not.exist')
+            })
+        })
+    })
 })

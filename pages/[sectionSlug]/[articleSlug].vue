@@ -141,6 +141,24 @@ const newsletterSubmitEvent = (e) => {
   })
 }
 
+const trackWallViewed = () => {
+  $analytics.sendEvent('view_promotion', {
+    creative_slot: 'article-registration-wall',
+    location_id: '',
+    promotion_name: `Registration Wall - ${article.title}`,
+    creative_name: 'Archived_Story'
+  })
+}
+
+const trackWallDismissed = () => {
+  $analytics.sendEvent('select_promotion', {
+    creative_slot: 'article-registration-wall',
+    location_id: '',
+    promotion_name: `Registration Wall - ${article.title}`,
+    creative_name: 'Archived_Story'
+  })
+}
+
 const getGalleryLink = computed(() => {
   return gallery.url.replace(/^https:\/\/[^/]*/, '')
 })
@@ -259,6 +277,8 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
             <template v-if="contentLocked">
               <GothamistWalledArticle 
                 :article="article"
+                @wall-dismissed="trackWallDismissed"
+                @wall-viewed="trackWallViewed"
               />
             </template>
             <template v-else>
