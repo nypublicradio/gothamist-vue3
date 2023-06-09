@@ -4,6 +4,7 @@ export default function useWalledState(article:ArticlePage) {
 
   // is the article's updatedDate later than the threshold date?
   const wallThreshold = subMonths(new Date(), 6) // 6 months ago
+
   if (compareAsc(article.updatedDate || article.publicationDate, wallThreshold) > 0) {
     return false
   }
