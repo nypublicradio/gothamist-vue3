@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 import { useIsArticlePage } from '~/composables/states'
 const config = useRuntimeConfig()
-const { $analytics } = useNuxtApp()
+const { $analytics, $nativo } = useNuxtApp()
 const isArticlePage = useIsArticlePage()
 const article = {
   title: '',
@@ -34,9 +34,7 @@ onBeforeMount(() => {
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponsored_article' })
   sensitiveContent.value = true
-  if (typeof PostRelease !== "undefined") {
-    PostRelease.Start()
-  }
+  $nativo.refresh()
 
   // getting title from element after the sponsored content loads
   setTimeout(() => {
@@ -64,7 +62,7 @@ const newsletterSubmitEvent = () => {
       <ScrollTracker scrollTarget=".article-column" v-slot="scrollTrackerProps">
         <ArticlePageHeader
           class="article-page-header"
-          :donateUrlBase="config.donateUrlBase"
+          :donateUrlBase="config.public.donateUrlBase"
           utmCampaign="goth_header"
           :progress="scrollTrackerProps.scrollPercentage"
           :title="loadedTitle"
@@ -101,7 +99,7 @@ const newsletterSubmitEvent = () => {
             </div>
             <article-donation-CTA
               title="Gothamist is funded by sponsors and member donations"
-              :donateUrlBase="config.donateUrlBase"
+              :donateUrlBase="config.public.donateUrlBase"
               utmCampaign="article-top"
             />
           </div>

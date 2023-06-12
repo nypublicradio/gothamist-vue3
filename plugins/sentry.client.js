@@ -8,7 +8,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     Sentry.init({
         app: [vueApp],
-        dsn: config.SENTRY_DSN,
+        dsn: config.public.SENTRY_DSN,
         integrations: [
             new Integrations.BrowserTracing({
                 routingInstrumentation: Sentry.vueRouterInstrumentation(nuxtApp.$router),
@@ -17,9 +17,8 @@ export default defineNuxtPlugin((nuxtApp) => {
         ],
         logErrors: true,
         debug: false,
-        sampleRate: 1,
         tracesSampleRate: 1,
-        environment: config.SENTRY_ENV,
+        environment: config.public.SENTRY_ENV,
         beforeSend(event) {
             return event;
         }

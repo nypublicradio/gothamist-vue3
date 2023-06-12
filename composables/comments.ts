@@ -16,7 +16,7 @@ const fetchCommentCounts = async function(commentIds:string[]):Promise<Record<st
         const idList = ids.splice(0, 30).join(',')
         const options = {
             params: {
-                "spot_id": config.OPENWEB_SPOT_ID,
+                "spot_id": config.public.OPENWEB_SPOT_ID,
                 "posts_ids": idList            
             }
         }

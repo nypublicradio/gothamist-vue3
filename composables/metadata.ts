@@ -138,11 +138,10 @@ import { ArticlePage, GalleryPage } from './types/Page'
 
   // Get <head> metadata values (for use with useHead) for an article
   function useArticlePageHeadMetadata(article: ArticlePage)
-    :{ title: string, meta: ({name: string, content: string} | {property: string, content: string})[] }
+    :{ meta: ({name: string, content: string} | {property: string, content: string})[] }
   {   
     const config = useRuntimeConfig()
     const metadata = {
-      title: `${article.seoTitle} - Gothamist`,
       link: [
         {rel: 'canonical', href: article?.url}
       ],

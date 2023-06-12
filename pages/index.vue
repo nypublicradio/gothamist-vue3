@@ -56,14 +56,15 @@ const filteredLatestArticles = computed(() => {
 const riverArticles = $features.enabled['experiment-deduplicate-river'] ?
 filteredLatestArticles : latestArticles
 
-if(featuredArticles?.[0]?.listingImage) {
+const mainImage = featuredArticles?.[0]?.listingImage
+if (mainImage) {
   usePreloadResponsiveImage(
-    useImageUrl(featuredArticles?.[0]?.listingImage, {
+    useImageUrl(mainImage, {
       width: 700,
       height: 467,
       quality: 80
     }),
-    useResponsiveSrcset(featuredArticles?.[0]?.listingImage, [1], {
+    useResponsiveSrcset(mainImage, [1], {
       width: 700,
       height: 467,
       quality: 80
@@ -101,7 +102,7 @@ const loadMoreArticles = async () => {
   }
 }
 
-const { $analytics } = useNuxtApp()
+const { $analytics, $nativo } = useNuxtApp()
 const newsletterSubmitEvent = () => {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
@@ -135,9 +136,7 @@ const nativoSectionLoaded = (name) => {
     loadedNativoElements.includes('ntv-latest-1')
   ) {
     loadedNativoElements.length = 0
-    if (typeof PostRelease !== 'undefined') {
-      PostRelease.Start()
-    }
+    $nativo.refresh()
   }
 }
 
@@ -146,7 +145,7 @@ const nativoSectionLoaded = (name) => {
 <template>
   <div>
     <section>
-      <div class="content pt-1">
+      <div class="content homepage pt-1">
         <gothamist-homepage-topper
           :featureLarge="featuredArticles[0]"
           :featureMedium="featuredArticles[1]"
@@ -175,19 +174,19 @@ const nativoSectionLoaded = (name) => {
             :collection="collection"
           />
           <left-feature
-            class="content"
+            class="content left-feature"
             v-if="collection.layout === 'left-feature'"
             :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
           <center-feature
-            class="content"
+            class="content center-feature"
             v-if="collection.layout === 'center-feature'"
             :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
           <skyline-feature
-            class="content"
+            class="content skyline"
             v-if="collection.layout === 'skyline'"
             :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
@@ -207,7 +206,7 @@ const nativoSectionLoaded = (name) => {
             <div
               v-for="(riverSegment, segmentIndex) in riverSegments"
               :key="riverSegment.map((article) => article.uuid).join('-')"
-              class="grid gutter-x-xl"
+              class="grid gutter-x-xl latest-segment"
             >
               <div class="col-12 xxl:col-1 type-label3">
                 <div
@@ -283,3 +282,51 @@ const nativoSectionLoaded = (name) => {
     </section>
   </div>
 </template>
+<style lang="scss">
+.homepage {
+  .homepage-topper-latest {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 842px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 936px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 737px;
+    }
+  }
+  .newsletter-home {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 278px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 209px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 218px;
+    }
+  }
+  .left-feature {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1155px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 1506px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 969px;
+    }
+  }
+  .boroughs {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 462px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 326px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 413px;
+    }
+  }
+  .latest-segment {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1800px;
+  }
+}
+</style>

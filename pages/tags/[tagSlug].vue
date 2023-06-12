@@ -58,9 +58,8 @@ const loadMoreArticles = async () => {
   }
 }
 
-const tagName =
-  articles[0]?.tags.find((tag) => tag.slug === tagSlug)?.name || tagSlug?.replace(/-/g, ' ')
-
+const tag = articles.value[0]?.tags.find((tag) => tag.slug === tagSlug)
+const tagName = tag?.name || tag?.slug.replace(/-/g, ' ')
 useChartbeat()
 useOptinMonster()
 
@@ -99,6 +98,8 @@ const newsletterSubmitEvent = () => {
 const pageTitle = `Articles about ${tagName} | Gothamist`
 useHead({
   title: curatedTagPage?.seoTitle || pageTitle,
+})
+useServerHead({
   meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle}]
 })
 </script>

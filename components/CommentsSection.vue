@@ -1,5 +1,4 @@
 <script setup>
-import { useRuntimeConfig } from '#app'
 const config = useRuntimeConfig()
 
 const props = defineProps({
@@ -14,15 +13,13 @@ const getArticleTagsString = () => {
   return tags.map((tag) => tag.name).join(', ')
 }
 const getArticleUrl = () => {
-  // force the data-post-url to match the beta.gothamist.com url of the article
-  // TODO: REMOVE REPLACE WHEN WE GO LIVE
-  var url = props.article.url
+  const url = props.article.url
   return url
 }
 useHead({
   script: [
     {
-      src: `https://launcher.spot.im/spot/${config.OPENWEB_SPOT_ID}`,
+      src: `https://launcher.spot.im/spot/${config.public.OPENWEB_SPOT_ID}`,
       'data-spotim-module': 'spotim-launcher',
       body: true,
     },

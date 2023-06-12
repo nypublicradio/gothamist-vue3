@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRuntimeConfig } from '#app'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 const config = useRuntimeConfig()
@@ -67,12 +66,12 @@ const hideComp = () => {
 const submitForm = (email) => {
   isSubmitting.value = true
   submissionStatus.value = null
-  $fetch(config.NEWSLETTER_API, {
+  $fetch(config.public.NEWSLETTER_API, {
     method: 'POST',
     body: {
       source: props.source,
-      list: config.NEWSLETTER_MULTI_LIST_IDS,
-      email: email,
+      list: config.public.NEWSLETTER_MULTI_LIST_IDS,
+      email
     },
   })
     .then(() => {
@@ -91,10 +90,10 @@ const submitForm = (email) => {
   <div
     v-if="showComponent"
     class="newsletter-home grid"
-    :class="[{ small: props.small }]"
+    :class="[{ small: small }]"
   >
     <Button
-      v-if="props.showX"
+      v-if="showX"
       aria-label="Dismiss newsletter signup form"
       class="closer-x p-button-rounded p-button-sm p-button-text"
       icon="pi pi-times"
@@ -102,7 +101,7 @@ const submitForm = (email) => {
     />
     <div
       class="col-12 lg:col-3 pr-3 pb-2"
-      :class="props.showX ? 'pr-6' : 'pr-3'"
+      :class="showX ? 'pr-6' : 'pr-3'"
     >
       <div class="h4">{{ titleText }}</div>
     </div>
@@ -115,13 +114,13 @@ const submitForm = (email) => {
         @noThanksClick="hideComp"
         @submit="submitForm"
         :class="showBlurb ? 'mt-5' : 'mt-2'"
-        :showNoThanks="props.showNoThanks"
-        :submitButtonText="props.submitButtonText"
-        :submitButtonIcon="props.submitButtonIcon"
+        :showNoThanks="showNoThanks"
+        :submitButtonText="submitButtonText"
+        :submitButtonIcon="submitButtonIcon"
         :isSubmitting="isSubmitting"
         :submissionStatus="submissionStatus"
-        :altDesign="props.altDesign"
-        :outlined="props.outlined"
+        :altDesign="altDesign"
+        :outlined="outlined"
       >
         By submitting your information, you're agreeing to receive
         communications from New York Public Radio in accordance with our

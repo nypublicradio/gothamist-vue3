@@ -55,7 +55,10 @@ const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
 
-useHead(headMetadata)
+useHead({
+  title: `${article.seoTitle} - Gothamist`
+})
+useServerHead(headMetadata)
 if (topImage) {
   usePreloadResponsiveImage(
     useImageUrl(topImage, {
@@ -70,7 +73,6 @@ if (topImage) {
     })
   )
 }
-
 useChartbeat({
   sections: article.tags.map(tag => tag.name).join(','),
   authors: article.authors.map(author => author.name).join(',')
@@ -148,7 +150,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
       <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
         <ArticlePageHeader
           class="article-page-header"
-          :donateUrlBase="config.donateUrlBase"
+          :donateUrlBase="config.public.donateUrlBase"
           utmCampaign="goth_header"
           :progress="scrollTrackerProps.scrollPercentage"
           :title="article?.title"
@@ -229,7 +231,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
             />
             <article-donation-CTA
               v-else
-              :donateUrlBase="config.donateUrlBase"
+              :donateUrlBase="config.public.donateUrlBase"
               utmCampaign="article-top"
             />
           </div>
@@ -349,6 +351,44 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
     }
     .below-body {
       width: calc(100% - 330px - 15px);
+    }
+  }
+
+  .related-links {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 244px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 326px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 255px;
+    }
+  }
+  .recirculation {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1277px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 1300px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 940px;
+    }
+  }
+  .comments {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 2360px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 1939px;
+    }
+  }
+  .newsletter-home {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 278px;
+    @include media('>=md') {
+      contain-intrinsic-size: auto 209px;
+    }
+    @include media('>=lg') {
+      contain-intrinsic-size: auto 218px;
     }
   }
 }

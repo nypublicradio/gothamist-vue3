@@ -1,5 +1,4 @@
 <script setup>
-import { useRuntimeConfig } from '#app'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 const config = useRuntimeConfig()
@@ -20,7 +19,7 @@ const props = defineProps({
 })
 
 const donateUrl = ref(
-  `${props.donateUrlBase || config.donateUrlBase}&utm_campaign=${
+  `${props.donateUrlBase || config.public.donateUrlBase}&utm_campaign=${
     props.utmCampaign
   }`
 )

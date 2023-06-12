@@ -34,7 +34,10 @@ const headMetadata = useGalleryPageHeadMetadata(gallery)
 const adTargetingData = { Template: 'Article Gallery' }
 const article = gallery.relatedArticles?.[0]
 
-useHead(headMetadata)
+useHead({
+  title: `${article.seoTitle} - Gothamist`
+})
+useServerHead(headMetadata)
 useChartbeat({
   section: article.section.name,
   authors: article.authors.map(author => author.name).join(',')
@@ -179,6 +182,7 @@ const goBack = () => {
             :sizes="[2]"
             :ratio="[slide.image.width, slide.image.height]"
             :allow-preview="true"
+            :loading="index === 0 ? 'eager' : 'lazy'"
           />
           <hr class="my-3" />
         </div>

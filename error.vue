@@ -40,6 +40,7 @@ const sidebarOpenedFrom = useSidebarOpenedFrom()
 const closeSidebar = () => {
   sidebarOpen.value = false
 }
+let sidebarElements, firstElement, lastElement
 
 const handleSidebarHidden = () => {
   if (sidebarOpenedFrom.value?.focus) {
@@ -60,10 +61,6 @@ const handleSidebarShiftTab = (e) => {
     e.preventDefault()
   }
 }
-
-let sidebarElements = undefined
-let firstElement = undefined
-let lastElement = undefined
 
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
@@ -97,7 +94,7 @@ onMounted(() => {
   })
   $htlbid.init()
   $htlbid.setTargeting({
-    is_testing: config.HTL_IS_TESTING,
+    is_testing: config.public.HTL_IS_TESTING,
   })
   $htlbid.setTargetingForRoute(route)
 })
@@ -115,24 +112,25 @@ const newsletterSubmitEvent = () => {
   })
 }
 useHead({
-  script: [
-    {
-      src: `https://www.googletagmanager.com/gtag/js?id=${config.GA_MEASUREMENT_ID}`,
-      async: true
-    },
-    {
-      src: config.HTL_JS,
-      async: true
-    }
+  htmlAttrs: {
+    lang: 'en',
+  },
+  title: 'Gothamist: New York City Local News, Food, Arts & Events'
+})
+useServerHead({
+  link: [
+    { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high'},
+    { rel: 'preconnect', href: config.public.IMAGE_CDN_URL, tagPriority: 'high'},
   ],
   meta: [
+    {name: 'description', content: 'Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio.'},
     {property: 'og:site_name', content: 'Gothamist'},
     {property: 'og:type', content: 'website'},
     {property: 'og:url', content: `https://www.gothamist.com${route.fullPath}`},
     {property: 'og:title', content: 'Gothamist: New York City Local News, Food, Arts & Events'},
     {property: 'og:site_name', content:'Gothamist'},
     {property: 'og:description', content:'Gothamist is a non-profit local newsroom, powered by WNYC.'},
-    {property: 'og:image', content: config.OG_IMAGE},
+    {property: 'og:image', content: config.public.OG_IMAGE},
     {property: 'og:locale', content:'en_US'},
     {property: 'og:image:width', content:'1200'},
     {property: 'og:image:height', content:'650'},
@@ -144,17 +142,6 @@ useHead({
 </script>
 <template>
   <div class="error-page">
-    <Html lang="en">
-      <Head>
-        <Link rel="preconnect" :href="config.API_URL" />
-        <Link rel="stylesheet" :href="config.HTL_CSS" type="text/css" />
-        <Title>Gothamist: New York City Local News, Food, Arts & Events</Title>
-        <Meta
-          name="description"
-          content="Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio."
-        />
-      </Head>
-    </Html>
     <div v-if="!sensitiveContent" class="htlad-skin" />
     <div
       class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
@@ -164,7 +151,7 @@ useHead({
     <GothamistMainHeader
       :navigation="navigation"
       :isMinimized="route.name !== 'index'"
-      :donateUrlBase="config.donateUrlBase"
+      :donateUrlBase="config.public.donateUrlBase"
       utmCampaign="goth_header"
     />
     <Sidebar
@@ -195,7 +182,7 @@ useHead({
       <template v-slot:default>
         <GothamistSidebarContents
           :navigation="navigation"
-          :donateUrlBase="config.donateUrlBase"
+          :donateUrlBase="config.public.donateUrlBase"
           @menuListClick="trackSidebarClick($event)"
           utmCampaign="goth_hamburger"
           class="mt-3"
@@ -208,7 +195,7 @@ useHead({
           <div class="error-page-error pt-2">
             {{ error.statusCode }} Error - {{ error.statusMessage }}
           </div>
-          <div v-if="config.DEBUG === 'true'" class="mt-4">
+          <div v-if="config.public.DEBUG === 'true'" class="mt-4">
             <pre class="font-bold">{{ error.message }}</pre>
             <div v-html="error.description"></div>
           </div>

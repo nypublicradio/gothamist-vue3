@@ -8,8 +8,8 @@
     "preview": "nuxi preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "cy:run": "cypress run",
-    "cy:ci": "cypress run --config video=false",
+    "cy:run": "cypress run --browser chrome",
+    "cy:ci": "cypress run --config video=false --browser chrome",
     "cy:open": "cypress open",
     "test-cypress": "start-server-and-test dev-no-ssr http://localhost:3000 cy:run",
     "test-cypress-ci": "start-server-and-test dev-no-ssr http://localhost:3000 cy:ci"
@@ -22,14 +22,14 @@
     "@vue/compiler-sfc": "^3.2.31",
     "cypress": "^12.3.0",
     "jest-axe": "^5.0.1",
-    "nuxt": "^3.3.2",
+    "nuxt": "^3.5.0",
     "start-server-and-test": "^2.0.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
     "@nypublicradio/nypr-design-system-vue3": "^1.0.8",
-    "@sentry/tracing": "^6.18.2",
-    "@sentry/vue": "^6.18.2",
+    "@sentry/tracing": "^7.52.1",
+    "@sentry/vue": "^7.52.1",
     "@vitejs/plugin-vue": "^2.3.2",
     "@vue/test-utils": "^2.0.0-rc.21",
     "@vueuse/core": "^9.1.0",
