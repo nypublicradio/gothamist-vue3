@@ -39,9 +39,7 @@ const closeSidebar = () => {
   sidebarOpen.value = false
 }
 
-let sidebarElements = undefined
-let firstElement = undefined
-let lastElement = undefined
+let sidebarElements, firstElement, lastElement
 
 const handleSidebarShown = () => {
   sidebarElements = Array.from(

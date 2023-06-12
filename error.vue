@@ -40,6 +40,7 @@ const sidebarOpenedFrom = useSidebarOpenedFrom()
 const closeSidebar = () => {
   sidebarOpen.value = false
 }
+let sidebarElements, firstElement, lastElement
 
 const handleSidebarHidden = () => {
   if (sidebarOpenedFrom.value?.focus) {
@@ -60,10 +61,6 @@ const handleSidebarShiftTab = (e) => {
     e.preventDefault()
   }
 }
-
-let sidebarElements = undefined
-let firstElement = undefined
-let lastElement = undefined
 
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
