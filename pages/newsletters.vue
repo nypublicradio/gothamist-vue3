@@ -26,7 +26,7 @@ const agree = ref(true)
 const email = ref<string>(null)
 
 const newsletterSignup = useNewsletterSignup({
-  email:email, 
+  email,
   lists:selectedLists,
   consent: agree,
   source: 'gothamist_newsletter_landing_page'
@@ -38,7 +38,7 @@ const newsletterSignup = useNewsletterSignup({
     <section>
       <div class="content">
         <form class="newsletter-form" v-on:submit="newsletterSignup.submitForm"
-        > 
+        >
           <div v-if="!newsletterSignup.isSuccess.value" class="form">
             <h1>Newsletters</h1>
             <p>Get the news New Yorkers need in your inbox.</p>

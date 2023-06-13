@@ -154,7 +154,7 @@ describe('An article page', () => {
         cy.fixture('aviary/article.json').then(article => {
             article.publication_date = new Date('1990-01-01').toISOString()
             article.meta.first_published_at = new Date('1990-01-01').toISOString()
-            article.sponsored_content === true
+            article.sponsored_content = true
             cy.intercept({
                 pathname: '/api/v2/pages/find',
                 query: {

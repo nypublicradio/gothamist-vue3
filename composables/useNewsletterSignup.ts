@@ -21,7 +21,7 @@ const isValidEmail = (email:string) => {
 const isFormValid = computed(() => {
   return isValidEmail(options.email.value) &&
   options.lists.value.length > 0 &&
-  options.consent.value == true
+  options.consent.value === true
 })
 const submitForm = (event=new Event('')) => {
   if (!isFormValid) {

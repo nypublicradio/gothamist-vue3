@@ -12,6 +12,3 @@ const dismiss = () => {
     <slot v-if="!showContent" name="wall" :dismiss="dismiss" />
   </div>
 </template>
-
-<style lang="scss">
-</style>

@@ -9,15 +9,11 @@ export default function useWalledState(article:ArticlePage) {
   }
 
   // sponsored content shouldn't be walled
-  if (article.sponsoredContent === true) {
+  if (article.sponsoredContent) {
     return false
   }
 
   // content shouldn't be walled when the user has a newsletter member cookie
   const cookie = useCookie('__gothamistNewsletterMember', { path: '/' })
-  if (typeof cookie.value !== 'undefined') {
-    return false
-  }
-
-  return true
+  return typeof cookie.value === 'undefined'
 }
