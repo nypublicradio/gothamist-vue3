@@ -5,7 +5,9 @@ const props = defineProps<{
   article: ArticlePage
 }>()
 const emit = defineEmits<{
-  (e: 'wall-dismissed' | 'wall-seen' | 'all-blocks-mounted'): void
+  (e: 'wall-dismissed'):void
+  (e: 'wall-seen'):void
+  (e: 'all-blocks-mounted'):void
 }>()
 const handleSeen = () => {
   emit('wall-seen')

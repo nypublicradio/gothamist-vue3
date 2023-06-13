@@ -11,10 +11,6 @@ const decline = () => {
 const unDecline = () => {
   status.value = ''
 }
-const goToHomepage = () => {
-  const router = useRouter()
-  router.push('/')
-}
 const startReading = () => {
   emit('wall-cleared')
 }
