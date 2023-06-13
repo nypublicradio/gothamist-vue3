@@ -141,7 +141,7 @@ const newsletterSubmitEvent = (e) => {
   })
 }
 
-const trackWallViewed = () => {
+const trackWallSeen = () => {
   $analytics.sendEvent('view_promotion', {
     creative_slot: 'article-registration-wall',
     location_id: '',
@@ -278,7 +278,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
               <GothamistWalledArticle 
                 :article="article"
                 @wall-dismissed="trackWallDismissed"
-                @wall-viewed="trackWallViewed"
+                @wall-seen="trackWallSeen"
               />
             </template>
             <template v-else>

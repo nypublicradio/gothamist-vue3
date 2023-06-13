@@ -1,18 +1,26 @@
 <script setup lang="ts">
 import { ArticlePage } from '~/composables/types/Page';
+import useTrackSeen from '~/composables/useTrackSeen';
 const props = defineProps<{
   article: ArticlePage
 }>()
 const emit = defineEmits<{
   (e: 'wall-dismissed'): void
+  (e: 'wall-seen'): void
   (e: 'all-blocks-mounted'): void
 }>()
+const handleSeen = () => {
+  console.log('WALL SEEN')
+  emit('wall-seen')
+}
 const handleDismissed = () => {
   emit('wall-dismissed')
 }
 const handleArticleMounted = () => {
   emit('all-blocks-mounted')
 }
+const contentWallRef = ref()
+useTrackSeen(contentWallRef, handleSeen)
 </script>
 
 <template>
@@ -31,7 +39,7 @@ const handleArticleMounted = () => {
         />
       </template>
       <template #wall="wall">
-        <div class="wall-wrapper">
+        <div class="wall-wrapper" ref="contentWallRef">
           <NewsletterContentWall @wallCleared="wall.dismiss" />
         </div>
       </template>
