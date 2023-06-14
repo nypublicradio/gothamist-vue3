@@ -48,9 +48,14 @@ useHeadSafe({
 useServerHeadSafe({
   meta: [{ property: 'og:title', content: pageTitle}]
 })
+if (query.value) {
+  useServerHead({meta: [{name: 'robots', content: 'noindex'}]})
+}
 
 useChartbeat()
 useOptinMonster()
+
+
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'search_page' })
