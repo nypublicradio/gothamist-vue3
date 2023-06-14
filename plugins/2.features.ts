@@ -8,8 +8,8 @@ export default defineNuxtPlugin(() => {
     // Part of an a/b test
     // - Matt Walsh
     // Experiment started: May 17 2023
-    'experiment-deduplicate-river': 
-      $experiments.current?.name === 'no-duplicates-in-river' && 
+    'experiment-deduplicate-river':
+      $experiments.current?.name === 'homepage-river' &&
       $experiments.activeVariant === 1
   }
 

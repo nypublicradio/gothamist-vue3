@@ -1,4 +1,4 @@
-var COOKIE_NAME = 'ablot';
+var COOKIE_NAME = '_experiment_homepage-river';
 var HEADER_NAME = 'x-gothamist-abtest';
 var MAX_AGE = 30 * 24 * 60 * 60; //This equals 30 days
 function handler(event) {
