@@ -126,7 +126,7 @@ jobs:
 
   test_nginx:
     docker:
-      - image: nginx
+      - image: node:16.14.2-slim
     parameters:
       env:
         type: enum
