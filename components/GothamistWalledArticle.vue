@@ -39,7 +39,7 @@ useTrackSeen(contentWallRef, handleSeen)
       </template>
       <template #wall="wall">
         <div class="wall-wrapper" ref="contentWallRef">
-          <NewsletterContentWall @wallCleared="wall.dismiss" />
+          <NewsletterContentWall @wallCleared="wall.dismiss" @signUp="wall.signUp" />
         </div>
       </template>
     </ContentWall>

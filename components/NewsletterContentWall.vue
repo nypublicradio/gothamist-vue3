@@ -2,6 +2,7 @@
 import Button from 'primevue/button'
 const config =  useRuntimeConfig()
 const emit = defineEmits<{
+  (e:'sign-up'):void
   (e:'wall-cleared'):void
 }>()
 const status = ref('')
@@ -31,6 +32,11 @@ const handleSubmit = (emailAddress) => {
   newsletterSignup.submitForm()
 }
 
+watch(newsletterSignup.isSuccess, (value) => {
+  if (value) {
+    emit('sign-up')
+  }
+})
 </script>
 
 <template>

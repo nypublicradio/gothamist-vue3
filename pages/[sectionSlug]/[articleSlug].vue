@@ -150,7 +150,7 @@ const trackWallSeen = () => {
   })
 }
 
-const trackWallDismissed = () => {
+const trackSignUp = () => {
   $analytics.sendEvent('select_promotion', {
     creative_slot: 'article-registration-wall',
     location_id: '',
@@ -277,7 +277,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
             <template v-if="contentLocked">
               <GothamistWalledArticle 
                 :article="article"
-                @wall-dismissed="trackWallDismissed"
+                @sign-up="trackSignUp"
                 @wall-seen="trackWallSeen"
               />
             </template>
