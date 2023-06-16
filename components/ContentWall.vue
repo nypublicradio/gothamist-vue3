@@ -1,8 +1,14 @@
 <script setup lang="ts">
 const showContent = ref(false)
+const emit = defineEmits<{
+  (e: 'dismissed'):void
+}>()
+
 const dismiss = () => {
   showContent.value = true
+  emit('dismissed')
 }
+
 </script>
 
 <template>
