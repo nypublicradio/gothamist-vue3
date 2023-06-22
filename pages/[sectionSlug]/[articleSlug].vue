@@ -73,6 +73,9 @@ if (topImage) {
     })
   )
 }
+if (article.preventSearchIndexing) {
+  useServerHead({meta: [{name: 'robots', content: 'noindex'}]})
+}
 useChartbeat({
   sections: article.tags.map(tag => tag.name).join(','),
   authors: article.authors.map(author => author.name).join(',')

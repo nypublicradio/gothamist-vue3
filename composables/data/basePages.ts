@@ -24,6 +24,7 @@ export function normalizePage(page: Record<string, any>): Page {
         socialImage: page.socialImage,
     
         seoTitle: page.meta?.seoTitle || page.title,
-        searchDescription: page.meta?.searchDescription || page.title
+        searchDescription: page.meta?.searchDescription || page.title,
+        preventSearchIndexing: page.preventSearchIndexing
     }
 }

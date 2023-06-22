@@ -24,6 +24,7 @@ export interface Page {
 
     seoTitle?: string;
     searchDescription?: string;
+    preventSearchIndexing?: boolean;
 }
 
 export interface ArticlePage extends Page {
