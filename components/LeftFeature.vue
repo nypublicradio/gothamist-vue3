@@ -5,11 +5,14 @@ const props = withDefaults(defineProps<{
   collection: {label?: string, data: ArticlePage[]},
   trackingComponent?: string
   trackingComponentLocation?: string
+  nativoId?: string
 }>(), {
   trackingComponent: "Left Feature",
-  trackingComponentLocation: "Left Feature"
+  trackingComponentLocation: "Left Feature",
+  nativoId: ""
 })
 
+const { $nativo } = useNuxtApp()
 const articleLg = ref(normalizeArticlePage(props.collection.data?.[0]))
 const articleMd = ref(normalizeArticlePage(props.collection.data?.[1]))
 const articlesSm = ref([])
@@ -57,6 +60,8 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
               v-if="articleMd"
               v-slot="card"
               :article="articleMd"
+              :id="nativoId"
+              @vue:mounted="$nativo.refresh"
               class="hidden xl:flex article-md mod-vertical mod-large mb-5"
               :width="433"
               :height="289"
@@ -81,6 +86,7 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
               v-if="articleMd"
               v-slot="card"
               :article="articleMd"
+              :id="nativoId"
               class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
               :width="318"
               :height="212"

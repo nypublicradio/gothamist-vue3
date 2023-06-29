@@ -8,10 +8,12 @@ const props = withDefaults(defineProps<{
   article?: ArticlePage
   slug?: string
   trackingComponentLocation?: string
+  nativoId?: string
 }>(), {
   article: null,
   slug: 'news',
-  trackingComponentLocation: "Recirculation Module"
+  trackingComponentLocation: "Recirculation Module",
+  nativoId: ""
 })
 
 const trackingComponent = "Recirculation Module"
@@ -43,5 +45,6 @@ onMounted(async () => {
     :collection="{data: articlesFiltered}"
     trackingComponent="Recirculation Module"
     trackingComponentLocation="Recirculation Module"
+    :nativoId="nativoId"
   />
 </template>

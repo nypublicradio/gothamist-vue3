@@ -54,6 +54,7 @@ const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
+const sectionSlug = computed(() => route?.params?.sectionSlug as string)
 
 useHead({
   title: `${article.seoTitle} - Gothamist`
@@ -289,9 +290,10 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
           MORE {{ article.section.slug }}
         </p>
         <article-recirculation
-          :slug="(route?.params?.sectionSlug as string)"
+          :slug="sectionSlug"
           :article="article"
           trackingComponentLocation="Article Page Recirculation Module"
+          :nativoId="`ntv-${sectionSlug}-article-1`"
         />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
