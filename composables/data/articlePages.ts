@@ -79,6 +79,7 @@ export function normalizeArticlePage(article: Record<string, any | undefined>): 
         sensitiveContent: article.sensitiveContent,
         provocativeContent: article.provocativeContent,
         sponsoredContent: article.sponsoredContent,
+        preventSearchIndexing: article.preventSearchIndexing,
         relatedLinks: article.relatedLinks,
         tags: article.tags,
         url: article.url,

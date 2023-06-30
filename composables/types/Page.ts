@@ -18,6 +18,8 @@ export interface Page {
     listingDescription: string;
     listingImage: Image;
 
+    preventSearchIndexing: boolean;
+
     socialTitle: string;
     socialDescription: string;
     socialImage: Image;

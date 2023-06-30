@@ -58,6 +58,12 @@ const headMetadata = useArticlePageHeadMetadata(article)
 useHead({
   title: `${article.seoTitle} - Gothamist`
 })
+if (article.preventSearchIndexing) {
+  useServerHead({
+    meta: [{name: 'robots', content: 'noindex'}]
+  })
+}
+
 useServerHead(headMetadata)
 if (topImage) {
   usePreloadResponsiveImage(
