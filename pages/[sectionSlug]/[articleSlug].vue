@@ -293,7 +293,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
           :slug="sectionSlug"
           :article="article"
           trackingComponentLocation="Article Page Recirculation Module"
-          :nativoId="`ntv-${sectionSlug}-article-1`"
+          :nativoId="`ntv-article-1`"
         />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
