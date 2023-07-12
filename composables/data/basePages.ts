@@ -18,7 +18,8 @@ export function normalizePage(page: Record<string, any>): Page {
         listingTitle: page.listingTitle || page.title,
         listingDescription: page.listingSummary || page.description,
         listingImage: page.listingImage,
-    
+        preventSearchIndexing: page.preventSearchIndexing,
+
         socialTitle: page.socialTitle || page.title,
         socialDescription: page.socialText || page.description,
         socialImage: page.socialImage,
