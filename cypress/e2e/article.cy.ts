@@ -38,7 +38,7 @@ describe('An article page', () => {
         cy.get('.recirculation').should('exist')
         cy.get('.recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
         cy.get('.recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
-        cy.get('.recirculation .gothamist-card:not(.hidden)').eq(1).should('have.attr', 'id', 'ntv-news-article-1')
+        cy.get('.recirculation .gothamist-card:not(.hidden)').eq(1).should('have.attr', 'id', 'ntv-article-1')
     })
     it('shows the marketing CTAs', () => {
         cy.intercept(
@@ -68,7 +68,7 @@ describe('An article page', () => {
         cy.get('.author-profile').should('exist')
         cy.get('.recirculation').should('exist')
         cy.get('.recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
-        cy.get('.recirculation .gothamist-card:not(.hidden)').eq(1).should('have.attr', 'id', 'ntv-news-article-1')
+        cy.get('.recirculation .gothamist-card:not(.hidden)').eq(1).should('have.attr', 'id', 'ntv-article-1')
     })
     it('shows articles without lead images', () => {
         cy.intercept({
