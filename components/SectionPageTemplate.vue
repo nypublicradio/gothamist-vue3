@@ -7,7 +7,7 @@ const props = defineProps<{
   page: Page
 }>()
 const route = useRoute()
-
+const sectionSlug = computed(() => route?.params?.sectionSlug as string)
 const loadMoreStoryCount = ref(10)
 const loadMoreContainer = ref('#articleList')
 const featuredStoryCount = ref(5)
@@ -58,10 +58,11 @@ const newsletterSubmitEvent = () => {
       <!-- featured area -->
       <h2 class="sr-only">Featured {{ page.title }} Stories</h2>
       <article-recirculation
-        :slug="(route?.params?.sectionSlug as string)"
+        :slug="sectionSlug"
         id="article-recirculation"
         trackingComponentLocation="Section Page Recirculation Module"
         class="my-6"
+        :nativoId="`ntv-section-1`"
       />
       <div class="mb-6">
         <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
