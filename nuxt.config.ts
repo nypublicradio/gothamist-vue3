@@ -36,6 +36,7 @@ export default defineNuxtConfig({
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/gothamist.min.css',
     'primevue/resources/primevue.min.css',
     'primeicons/primeicons.css',
+    'assets/styles/weather-icons.min.css'
   ],
   vite: {
     css: {
@@ -114,5 +115,12 @@ export default defineNuxtConfig({
   ssr: Boolean(process.env['NUXT_SSR'] !== 'false'),
   typescript: {
     strict: true
-  }
+  },
+  nitro: {
+    storage: {
+      'weather:lastUpdated' : { driver: 'memory'},
+      'weather:temperature' : { driver: 'memory'},
+      'weather:iconName' : { driver: 'memory'}
+    }
+  },
 })
