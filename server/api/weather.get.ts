@@ -1,30 +1,25 @@
 import { differenceInMinutes } from 'date-fns';
 export default defineEventHandler(async (event) => {
-  const UPDATE_INTERVAL_MINUTES = 1
-  let temperature: number, iconName:string
+  const UPDATE_INTERVAL_MINUTES = 5
+  let temperature: number, iconName:string, textDescription: string
   const lastUpdated = await useStorage().getItem('weather:lastUpdated')
   if (lastUpdated) {
     const lastUpdateMinutesAgo = differenceInMinutes(new Date(), new Date(String(lastUpdated)))
     if (lastUpdateMinutesAgo >= UPDATE_INTERVAL_MINUTES) {
       const {data} = await getCurrentWeather()
-      temperature = data.temperature
-      iconName = data.iconName
-      await useStorage().setItem('weather:temperature', temperature)
-      await useStorage().setItem('weather:iconName', iconName)
-      await useStorage().setItem('weather:lastUpdated', new Date())
+      updateWeatherData(data)
+      return data
     } else {
       temperature = Number(await useStorage().getItem('weather:temperature'))
-      iconName = String(await useStorage().getItem('weather:iconName'))  
+      iconName = String(await useStorage().getItem('weather:iconName'))
+      textDescription =  String(await useStorage().getItem('weather:textDescription'))
+      return {temperature, iconName, textDescription}
     }
   } else {
     const {data} = await getCurrentWeather()
-    temperature = data.temperature
-    iconName = data.iconName
-    await useStorage().setItem('weather:temperature', temperature)
-    await useStorage().setItem('weather:iconName', iconName)
-    await useStorage().setItem('weather:lastUpdated', new Date())
+    updateWeatherData(data)
+    return data
   }
-  return {temperature, iconName, lastUpdated}
 })
 
 function convertCtoF(temperatureInC:number):number {
@@ -37,7 +32,7 @@ function getIconName(iconUrl) {
   const iconRegExp = /https:\/\/api.weather.gov\/icons\/land\/(?<time>[a-z]+)\/(?<icon>[a-z]+)+/g
   const matches = iconRegExp.exec(iconUrl)
   const {time, icon} = matches.groups
-  const mappings = 
+  const mappings =
   {
     skc: `${time === 'day' ? 'day-sunny' : 'night-clear'}`,
     few: `${time === 'day' ? 'day-sunny' : 'night-clear'}`,
@@ -75,11 +70,23 @@ function getIconName(iconUrl) {
   }
   return `wi-${mappings[icon]}`
 }
+
+async function updateWeatherData(data) {
+  const temperature = data.temperature
+  const iconName = data.iconName
+  const textDescription = data.textDescription
+  await useStorage().setItem('weather:temperature', data.temperature)
+  await useStorage().setItem('weather:iconName', data.iconName)
+  await useStorage().setItem('weather:textDescription', data.textDescription)
+  await useStorage().setItem('weather:lastUpdated', new Date())
+}
+
 async function getCurrentWeather(station='knyc') {
   const data = await $fetch(`https://api.weather.gov/stations/${station}/observations/latest`)
   const weatherData = {
     temperature: convertCtoF(data.properties.temperature.value),
     iconName: getIconName(data.properties.icon),
+    textDescription: data.properties.textDescription
   }
   return { data: weatherData }
 }

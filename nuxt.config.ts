@@ -120,7 +120,8 @@ export default defineNuxtConfig({
     storage: {
       'weather:lastUpdated' : { driver: 'memory'},
       'weather:temperature' : { driver: 'memory'},
-      'weather:iconName' : { driver: 'memory'}
+      'weather:iconName' : { driver: 'memory'},
+      'weather:textDescription' : { driver: 'memory'}      
     }
   },
 })
