@@ -2,7 +2,6 @@
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import { ArticlePage } from '~~/composables/types/Page'
 import { computed, ref, nextTick } from 'vue'
-import { onBeforeRouteUpdate } from 'vue-router'
 
 const { $features } = useNuxtApp()
 const possibleDuplicateCount = ref(6) // from the topper
@@ -15,7 +14,7 @@ const riverContainer = ref('#latest')
 let findArticleLimit
 if ($features.enabled['experiment-deduplicate-river']) {
   findArticleLimit = riverStoryCount.value + possibleDuplicateCount.value
-} else {
+} else {                                                                     r
   findArticleLimit = riverStoryCount.value
 }
 const articlesPromise = findArticlePages({
@@ -39,7 +38,7 @@ const [articles, homePageCollections] = await Promise.all([
   homePageCollectionsPromise,
 ])
 // the latest articles
-const latestArticles = ref([...articles])
+const latestArticles = articles
 
 // the home page featured article should display only the first and second story in the home page content collection
 const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
@@ -50,7 +49,8 @@ if (firstFour.includes(featuredArticles[0].uuid)) { actualDuplicateCount.value +
 if (firstFour.includes(featuredArticles[1].uuid)) { actualDuplicateCount.value += 1 }
 
 const filteredLatestArticles = computed(() => {
-  return latestArticles.value.slice(actualDuplicateCount.value)
+
+  return latestArticles.slice(actualDuplicateCount.value)
 })
 
 const riverArticles = $features.enabled['experiment-deduplicate-river'] ?
@@ -84,9 +84,9 @@ const riverSegments = computed(() => {
 const loadMoreArticles = async () => {
   let loadMoreOffset
   if ($features.enabled['experiment-deduplicate-river']) {
-    loadMoreOffset = latestArticles.value.length + actualDuplicateCount.value
+    loadMoreOffset = latestArticles.length + actualDuplicateCount.value
   } else {
-    loadMoreOffset = latestArticles.value.length
+    loadMoreOffset = latestArticles.length
   }
 
   const newArticles = await useLoadMoreArticles({
@@ -94,7 +94,7 @@ const loadMoreArticles = async () => {
     limit: riverStoryCount.value,
     offset: loadMoreOffset,
   })
-  latestArticles.value.push(...newArticles)
+  latestArticles.push(...newArticles)
   await nextTick()
   if (newArticles.length) {
     ([...document.querySelectorAll(`${riverContainer.value} .v-card .card-title-link`)]
