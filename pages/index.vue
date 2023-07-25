@@ -50,7 +50,11 @@ if (firstFour.includes(featuredArticles[0].uuid)) { actualDuplicateCount.value +
 if (firstFour.includes(featuredArticles[1].uuid)) { actualDuplicateCount.value += 1 }
 
 const filteredLatestArticles = computed(() => {
-  return [...toValue(latestArticles)].slice(actualDuplicateCount.value)
+  if (latestArticles) {
+    return [...toValue(latestArticles)].slice(actualDuplicateCount.value)
+  } else {
+    return []
+  }
 })
 
 const riverArticles = $features.enabled['experiment-deduplicate-river'] ?
