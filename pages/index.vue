@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import { ArticlePage } from '~~/composables/types/Page'
-import { computed, ref, nextTick } from 'vue'
+import { computed, ref, nextTick, toValue } from 'vue'
 import { onBeforeRouteUpdate } from 'vue-router'
 
 const { $features } = useNuxtApp()
@@ -50,7 +50,11 @@ if (firstFour.includes(featuredArticles[0].uuid)) { actualDuplicateCount.value +
 if (firstFour.includes(featuredArticles[1].uuid)) { actualDuplicateCount.value += 1 }
 
 const filteredLatestArticles = computed(() => {
-  return latestArticles.value.slice(actualDuplicateCount.value)
+  if (toValue(latestArticles)) {
+    return [...toValue(latestArticles)].slice(actualDuplicateCount.value)
+  } else {
+    return []
+  }
 })
 
 const riverArticles = $features.enabled['experiment-deduplicate-river'] ?

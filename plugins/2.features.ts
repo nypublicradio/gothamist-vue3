@@ -16,7 +16,7 @@ export default defineNuxtPlugin(() => {
   const enabled = features || {}
   const disabled = {}
   for (const feature of Object.entries(enabled)) {
-    disabled[feature[0]] = !feature[1]
+    disabled[feature[0]] = !(feature[1] === false)
   }
   const classes = Object.entries(enabled)
     .map(entry => (entry[1] ? `${entry[0]}-enabled` : `${entry[0]}-disabled`))
