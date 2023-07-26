@@ -31,7 +31,7 @@ export const formatDateForByline = function (date) {
   if (date) {
     const dateObject = new Date(date)
     const now = new Date()
-    const shortDate = `${formatInTimeZone(dateObject, TIMEZONE, 'MMM d, y')} ET`
+    const shortDate = formatInTimeZone(dateObject, TIMEZONE, 'MMM d, y')
     const longDate = `${formatInTimeZone(dateObject, TIMEZONE, "MMM d, y 'at' h:mm aaaa")} ET`
     return differenceInHours(now, dateObject) <= 12 ? longDate : shortDate
   }
