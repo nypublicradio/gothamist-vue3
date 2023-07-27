@@ -18,6 +18,16 @@ describe('The home page', () => {
         fields: 'ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors',
         order: '-publication_date',
         show_on_index_listing: 'true',
+        limit: '12'
+      }
+    }, {fixture: 'aviary/latest-plus.json'}).as('latestPlus')
+    cy.intercept({
+      pathname :'/api/v2/pages/',
+      query: {
+        type: 'news.ArticlePage',
+        fields: 'ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors',
+        order: '-publication_date',
+        show_on_index_listing: 'true',
         limit: '6',
         offset: '6'
       }
@@ -52,7 +62,7 @@ describe('The home page', () => {
   it('handles case 1, deduplicate river', () => {
     cy.setCookie('_experiment_homepage-latest-news-river', '1', {path: '/'})
     cy.visit('/')
-    cy.wait(['@index','@latest'])
+    cy.wait(['@index','@latestPlus'])
     cy.get('.homepage-topper').should('exist')
     cy.get('.homepage-topper .gothamist-card:not(.hidden)').should('have.length', 6)
     cy.get('.homepage-topper .gothamist-card:not(.hidden)').eq(5).should('have.attr', 'id', 'ntv-latest-1')

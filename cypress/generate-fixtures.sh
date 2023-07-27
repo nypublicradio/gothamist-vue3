@@ -11,6 +11,7 @@ mkdir fixtures/publisher
 
 # Home Page
 curl "https://cms.prod.nypr.digital/api/v2/pages/?type=news.ArticlePage&fields=ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors&order=-publication_date&show_on_index_listing=true&limit=6" > "fixtures/aviary/latest.json"
+curl "https://cms.prod.nypr.digital/api/v2/pages/?type=news.ArticlePage&fields=ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors&order=-publication_date&show_on_index_listing=true&limit=12" > "fixtures/aviary/latest-plus.json"
 curl -L "https://cms.prod.nypr.digital/api/v2/pages/find?html_path=/" > "fixtures/aviary/index.json"
 curl "https://cms.prod.nypr.digital/api/v2/pages/?type=news.ArticlePage&fields=ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors&order=-publication_date&show_on_index_listing=true&limit=6&offset=6" > "fixtures/aviary/index-more.json"
 

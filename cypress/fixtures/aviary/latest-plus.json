@@ -1,0 +1,1414 @@
+{
+    "meta": {
+        "total_count": 141969
+    },
+    "items": [
+        {
+            "id": 156431,
+            "meta": {
+                "first_published_at": "2023-07-27T17:44:37.024645-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156431/",
+                "html_url": "http://cms.prod.nypr.digital/news/landlords-sue-jersey-city-over-plan-to-give-tenants-free-legal-help/",
+                "slug": "landlords-sue-jersey-city-over-plan-to-give-tenants-free-legal-help"
+            },
+            "title": "Landlords sue Jersey City over plan to give tenants free legal help",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "c53dd119-55d2-4980-90a2-ee550b1c0018",
+            "url": "https://gothamist.com/news/landlords-sue-jersey-city-over-plan-to-give-tenants-free-legal-help",
+            "publication_date": "2023-07-27T17:44:37.024645-04:00",
+            "updated_date": null,
+            "description": "The Jersey City Property Owners’ Association says the new \"right to counsel\" program exceeds the city's authority.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 339943,
+                            "title": "shutterstock_1029430792.jpg",
+                            "width": 3000,
+                            "height": 2000,
+                            "created_at": "2023-07-27T17:27:39.405794-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 3050338,
+                            "file_hash": "405d042f2a457299a85965b60c2fdbb81014e6d5",
+                            "alt": "Male lawyer working with contract papers and wooden gavel on tabel in courtroom",
+                            "caption": "Jersey City plans to launch a \"right to counsel\" program, where tenants will have access to free legal representation in disputes with landlords.",
+                            "credit": "Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_1029430792.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 134
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "b86ecd9d-2814-48eb-a076-d93508f2fbb6"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 142399,
+                    "first_name": "Karen",
+                    "last_name": "Yi",
+                    "photo": 338980,
+                    "job_title": "Reporter",
+                    "biography": "Karen Yi covers New Jersey and started in the newsroom in 2020. Before joining WNYC, Karen covered Newark for the Star-Ledger and spent almost a decade working for newspapers in New Jersey and Florida. She grew up in Miami and has a dog named Cashew. Got a tip? Email kyi@wnyc.org or Signal 917-589-1460.",
+                    "website": "",
+                    "email": "kyi@wnyc.org",
+                    "slug": "karen-yi-wnyc",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/karen_yi"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "housing",
+                    "slug": "housing"
+                },
+                {
+                    "name": "new jersey",
+                    "slug": "new-jersey"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156428,
+            "meta": {
+                "first_published_at": "2023-07-27T16:38:05.687401-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156428/",
+                "html_url": "http://cms.prod.nypr.digital/news/affordable-housing-at-5-world-trade-center-approved-by-state-board/",
+                "slug": "affordable-housing-at-5-world-trade-center-approved-by-state-board"
+            },
+            "title": "Affordable housing at 5 World Trade Center approved by state board",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "63c225ae-7d4e-4946-9507-697b88327561",
+            "url": "https://gothamist.com/news/affordable-housing-at-5-world-trade-center-approved-by-state-board",
+            "publication_date": "2023-07-27T16:38:05.687401-04:00",
+            "updated_date": null,
+            "description": "Roughly a third of the 1,200 homes planned for 5 World Trade Center will be reserved for moderate- to low-income residents.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 332613,
+                            "title": "5WTC [Rendering]",
+                            "width": 1008,
+                            "height": 592,
+                            "created_at": "2022-07-08T18:33:54.881932-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 617234,
+                            "file_hash": "36d5d5ba9f10b1776868bf96b647cafe98455899",
+                            "alt": "A rendering of Five World Trade Center at 130 Liberty Street in Lower Manhattan.",
+                            "caption": "A rendering of Five World Trade Center at 130 Liberty Street in Lower Manhattan.",
+                            "credit": "Rendering/Silverstein Properties",
+                            "credit_link": "https://www.silversteinproperties.com/developments/5wtc",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/5WTC-Header.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 82
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "fc861a76-e65a-4ad6-a449-6ba8df0b8e88"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151433,
+                    "first_name": "Michelle",
+                    "last_name": "Bocanegra",
+                    "photo": 334516,
+                    "job_title": "Reporter",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "michelle-bocanegra",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "housing",
+                    "slug": "housing"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156429,
+            "meta": {
+                "first_published_at": "2023-07-27T15:55:17.306045-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156429/",
+                "html_url": "http://cms.prod.nypr.digital/news/police-fdny-divers-search-for-teen-who-went-missing-off-coney-island-beach/",
+                "slug": "police-fdny-divers-search-for-teen-who-went-missing-off-coney-island-beach"
+            },
+            "title": "Search called off for teen who went missing off Coney Island beach",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "512adea4-6a4d-44e0-a59c-c5d9af24e29e",
+            "url": "https://gothamist.com/news/police-fdny-divers-search-for-teen-who-went-missing-off-coney-island-beach",
+            "publication_date": "2023-07-27T15:55:00-04:00",
+            "updated_date": "2023-07-27T17:33:00-04:00",
+            "description": "The NYPD said another teen was found in stable condition, but divers were unable to locate the missing boy.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 339695,
+                            "title": "Parks",
+                            "width": 7360,
+                            "height": 4912,
+                            "created_at": "2023-07-13T15:56:30.691278-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 5159651,
+                            "file_hash": "df1420f62a8ceeb7655f0f91ccb7a1ef8e120303",
+                            "alt": "General view of Coney Island Beach in New York officially opens its doors on Saturday, May 27, 2023.",
+                            "caption": "General view of Coney Island Beach in New York officially opens its doors on Saturday, May 27, 2023.",
+                            "credit": "Deccio Serrano/NurPhoto/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/shutterstock_editorial_13936350u.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 129
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "3c84a3b4-8780-4be8-bebd-dca28c6a0860"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 155864,
+                    "first_name": "Ramsey",
+                    "last_name": "Khalifeh",
+                    "photo": 338984,
+                    "job_title": "Intern",
+                    "biography": "Ramsey is a day-of news intern at Gothamist and WNYC.",
+                    "website": "",
+                    "email": "",
+                    "slug": "ramsey-khalifeh",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "brooklyn",
+                    "slug": "brooklyn"
+                },
+                {
+                    "name": "coney island",
+                    "slug": "coney-island"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                },
+                {
+                    "name": "drowning",
+                    "slug": "drowning"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156427,
+            "meta": {
+                "first_published_at": "2023-07-27T15:01:02.473698-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156427/",
+                "html_url": "http://cms.prod.nypr.digital/news/extra-extra-poppin-champagne-at-the-manhattan-wegmans/",
+                "slug": "extra-extra-poppin-champagne-at-the-manhattan-wegmans"
+            },
+            "title": "Extra Extra: Poppin' champagne at the Manhattan Wegmans",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "7f6f299a-e1f2-4373-892f-b47c4e8c5ba7",
+            "url": "https://gothamist.com/news/extra-extra-poppin-champagne-at-the-manhattan-wegmans",
+            "publication_date": "2023-07-27T15:01:00-04:00",
+            "updated_date": null,
+            "description": "Because curb your dog signs have to be creative to be seen, here are your afternoon links: a bougie Wegmans, nonconsensual organ harvesting, X's are the new tweets, and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 295534,
+                            "title": "Wegman's opening in Brooklyn",
+                            "width": 6370,
+                            "height": 4247,
+                            "created_at": "2019-10-28T09:23:44.918693-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1618194,
+                            "file_hash": "93225683108a8260ede5ab9ce5bc05839518ac4b",
+                            "alt": "Scenes from opening day of the new Brooklyn Wegman's",
+                            "caption": "",
+                            "credit": "Scott Lynch / Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/wegmans-5.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 20
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "bc7c07e8-16ca-454d-bfc4-6c17ae76971b"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 155782,
+                    "first_name": "Emily",
+                    "last_name": "Nadal",
+                    "photo": 339407,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "emily-nadal",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "extra extra",
+                    "slug": "extra-extra"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156426,
+            "meta": {
+                "first_published_at": "2023-07-27T13:19:16.436682-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156426/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/renaissance-fare-5-ways-to-celebrate-beyonc%C3%A9-coming-to-nj-this-weekend/",
+                "slug": "renaissance-fare-5-ways-to-celebrate-beyoncé-coming-to-nj-this-weekend"
+            },
+            "title": "'Renaissance' fare: 5 ways to celebrate Beyoncé coming to NJ this weekend",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "a080c0a0-0699-4b68-b9c7-0bb17bf4abc9",
+            "url": "https://gothamist.com/arts-entertainment/renaissance-fare-5-ways-to-celebrate-beyonc%C3%A9-coming-to-nj-this-weekend",
+            "publication_date": "2023-07-27T13:19:16.436682-04:00",
+            "updated_date": null,
+            "description": "Whether you scored tickets for Beyoncé's two concerts at MetLife Stadium or you'll be sitting at home looking for livestreams, you can get into the mood at these five celebratory events.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 339940,
+                            "title": "GettyImages-1564411180.jpg",
+                            "width": 6000,
+                            "height": 4000,
+                            "created_at": "2023-07-27T12:29:45.182490-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 5213662,
+                            "file_hash": "a2bf4e1380af8bccc518a977502e35bc0d995a03",
+                            "alt": "A busy concert stage with a singer dressed in silver poised high overhead",
+                            "caption": "Whether you're seeing Beyoncé perform live in New Jersey this weekend or not, there are plenty of options for celebrating her arrival.",
+                            "credit": "Kevin Mazur/Getty Images for Parkwood",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/GettyImages-1564411180.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 127
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "ea0f8df1-26aa-47ea-823a-612af50e78ec"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151601,
+                    "first_name": "Precious",
+                    "last_name": "Fondren",
+                    "photo": 330896,
+                    "job_title": "Culture and Arts Reporter",
+                    "biography": "Precious is a culture and arts reporter covering the diverse arts community around New York City. Got a tip? Email pfondren@nypublicradio.org or Signal 646-988-9525.",
+                    "website": "",
+                    "email": "",
+                    "slug": "precious-fondren",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "new jersey",
+                    "slug": "new-jersey"
+                },
+                {
+                    "name": "Music",
+                    "slug": "music"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156425,
+            "meta": {
+                "first_published_at": "2023-07-27T12:19:32.469283-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156425/",
+                "html_url": "http://cms.prod.nypr.digital/news/supervisors-at-a-bronx-juvenile-detention-center-charged-with-punching-and-stomping-teen-detainee/",
+                "slug": "supervisors-at-a-bronx-juvenile-detention-center-charged-with-punching-and-stomping-teen-detainee"
+            },
+            "title": "Supervisors at a Bronx juvenile detention center charged with punching and stomping teen detainee",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "520cea32-f504-4728-932c-def6ce434f06",
+            "url": "https://gothamist.com/news/supervisors-at-a-bronx-juvenile-detention-center-charged-with-punching-and-stomping-teen-detainee",
+            "publication_date": "2023-07-27T12:19:00-04:00",
+            "updated_date": null,
+            "description": "Federal prosecutors say the men then took steps to cover up the attack.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 337297,
+                            "title": "Horizon Detention Center.jpg",
+                            "width": 3358,
+                            "height": 2679,
+                            "created_at": "2023-03-15T18:23:25.184364-04:00",
+                            "focal_point_x": 1667,
+                            "focal_point_y": 1371,
+                            "focal_point_width": 3335,
+                            "focal_point_height": 2519,
+                            "file_size": 1909434,
+                            "file_hash": "907f3fb5f8f4070b299da1ec1683d6ae72c87dfe",
+                            "alt": "The Horizon Juvenile Center in the Bronx.",
+                            "caption": "The Horizon Juvenile Center in the Bronx.",
+                            "credit": "Bahar Ostadan/Gothamist",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Image_from_iOS_1_CsaPSKQ.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 135
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "3fe554a8-aa03-4509-a007-2a8f88d4f250"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 151296,
+                    "first_name": "Ann",
+                    "last_name": "Givens",
+                    "photo": 334526,
+                    "job_title": "Public Safety Editor",
+                    "biography": "Ann Givens is the Public Safety Editor at Gothamist and WNYC. \r\nGot a tip? Email: agivens@nypublicradio.org or reach Ann on Signal at 917-434-0736.",
+                    "website": "",
+                    "email": "",
+                    "slug": "ann-givens",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/anngivenswrites"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "the bronx",
+                    "slug": "the-bronx"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156424,
+            "meta": {
+                "first_published_at": "2023-07-27T11:21:20.579618-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156424/",
+                "html_url": "http://cms.prod.nypr.digital/news/mayor-eric-adams-urges-new-yorkers-to-stay-safe-in-extreme-heat/",
+                "slug": "mayor-eric-adams-urges-new-yorkers-to-stay-safe-in-extreme-heat"
+            },
+            "title": "NYC is under an 'Excessive Heat Warning' as 3-day heat wave begins",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "de2dc874-500a-43cc-8b7c-58683f8933db",
+            "url": "https://gothamist.com/news/mayor-eric-adams-urges-new-yorkers-to-stay-safe-in-extreme-heat",
+            "publication_date": "2023-07-27T11:21:00-04:00",
+            "updated_date": null,
+            "description": "Mayor Adams urged residents to stay safe: “Heat kills more New Yorkers every year than any other kind of extreme weather event.”",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 339939,
+                            "title": "GettyImages-1413871449.jpg",
+                            "width": 594,
+                            "height": 396,
+                            "created_at": "2023-07-27T07:56:28.433396-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 121743,
+                            "file_hash": "d63e9aa4dfe0b71fde548afc29f7d14fd297a779",
+                            "alt": "A man walks outside in the heat.",
+                            "caption": "",
+                            "credit": "Michael M. Santiago / Getty",
+                            "credit_link": "https://www.gettyimages.com/detail/news-photo/people-shade-themselves-from-the-sun-as-they-walk-past-the-news-photo/1413871449?adppopup=true",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/GettyImages-1413871449.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 141
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "8e8d06c1-582e-43e6-b928-439a5ac9a159"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 155152,
+                    "first_name": "Brittany",
+                    "last_name": "Kriegstein",
+                    "photo": 339904,
+                    "job_title": "Reporter",
+                    "biography": "Brittany Kriegstein covers all breaking news around New York City, with a focus on crime and gun violence. Got a tip? Email Brittany at bkriegstein@nypublicradio.org.",
+                    "website": "",
+                    "email": "",
+                    "slug": "brittany-kriegstein",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/BKriegstein"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Health and Science",
+                    "slug": "health-and-science"
+                },
+                {
+                    "name": "heat advisory",
+                    "slug": "heat-advisory"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156406,
+            "meta": {
+                "first_published_at": "2023-07-27T11:00:59.564192-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156406/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/25-free-things-to-do-in-nyc-this-august/",
+                "slug": "25-free-things-to-do-in-nyc-this-august"
+            },
+            "title": "25 free things to do in NYC this August",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "e5f4d478-e816-40b4-90ec-783d5bc84ff4",
+            "url": "https://gothamist.com/arts-entertainment/25-free-things-to-do-in-nyc-this-august",
+            "publication_date": "2023-07-27T11:00:59.564192-04:00",
+            "updated_date": null,
+            "description": "There's something suited to every taste happening free of charge almost every day in New York City, from world-class theater, concerts and dance to outdoor film screenings and exercise classes.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 339918,
+                            "title": "Beach Sessions Dance Series.jpg",
+                            "width": 2500,
+                            "height": 1669,
+                            "created_at": "2023-07-25T18:34:13.075150-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 703755,
+                            "file_hash": "c2dc30d80b4efc96408c31e4edd90beb8999ad3e",
+                            "alt": "A small group of costumed dancers leading a large crowd along a beach",
+                            "caption": "The Beach Sessions Dance Series returns to Rockaway Beach on August 26.",
+                            "credit": "Courtesy Beach Sessions Dance Series",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/Beach_Sessions_Dance_Series.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 127
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "12c6c8dc-dd66-48ac-a9c2-91b6606cda1f"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 150749,
+                    "first_name": "Steve",
+                    "last_name": "Smith",
+                    "photo": 328940,
+                    "job_title": "Culture & Arts Editor",
+                    "biography": "Steve Smith came to WNYC from NPR, where he served as a senior editor on the Arts Desk. He ostensibly focused on music coverage, but in reality handled subjects like Mickey Mouse's creator, AI voice cloning, and even the 50th anniversary of the Crock Pot. Steve served previously as a music editor at Time Out New York, a classical-music critic for The New York Times, a weekly contributor to The New Yorker, and an assistant arts editor at the Boston Globe. He lives in Jackson Heights, Queens, with his wife, journalist and scholar Lara Pellegrinelli (herself a past contributor to WNYC and NPR), their daughter, and two dogs. Got a tip? Email stsmith@nypublicradio.org or Signal 917-938-4043.",
+                    "website": "",
+                    "email": "",
+                    "slug": "steve-smith",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "nyc events",
+                    "slug": "nyc-events"
+                },
+                {
+                    "name": "free events",
+                    "slug": "free-events"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 8,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
+                    },
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156423,
+            "meta": {
+                "first_published_at": "2023-07-27T10:29:05.330945-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156423/",
+                "html_url": "http://cms.prod.nypr.digital/news/early-addition-ny-lawmakers-want-the-5-0-to-stop-the-4-20-in-the-park/",
+                "slug": "early-addition-ny-lawmakers-want-the-5-0-to-stop-the-4-20-in-the-park"
+            },
+            "title": "Early Addition: NY lawmakers want the 5-0 to stop the 4-20 in the park",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "a82d2620-e41a-488f-9ec8-7c1ce0c9f05a",
+            "url": "https://gothamist.com/news/early-addition-ny-lawmakers-want-the-5-0-to-stop-the-4-20-in-the-park",
+            "publication_date": "2023-07-27T10:29:05.330945-04:00",
+            "updated_date": null,
+            "description": "Because taxi drivers need that respite, here are your early links: a push to stop cannabis smoking in public, NYC's hidden bookstores, volunteer craft finishers and more from around the city and internet.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 339457,
+                            "title": "20230630_weed investment_shutterstock_editorial_13945069o.jpg",
+                            "width": 6337,
+                            "height": 4225,
+                            "created_at": "2023-06-30T13:14:51.142331-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2786565,
+                            "file_hash": "a3d8ca305fddfaeee3b2934bb31127c25c9df05c",
+                            "alt": "Pre-rolled cannabis joints on display at the CWCBExpo at the Javits Center, June 2, 2023",
+                            "caption": "Pre-rolled cannabis joints on display at the CWCBExpo at the Javits Center, June 2, 2023",
+                            "credit": "Erik Pendzich/Shutterstock",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/20230630_weed_investment_shutterstock_editorial_13945069o.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 106
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "1e147764-36a8-4eea-8739-7e100aae3494"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 155782,
+                    "first_name": "Emily",
+                    "last_name": "Nadal",
+                    "photo": 339407,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "emily-nadal",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "early addition",
+                    "slug": "early-addition"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156420,
+            "meta": {
+                "first_published_at": "2023-07-27T09:01:02.569516-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156420/",
+                "html_url": "http://cms.prod.nypr.digital/news/safe-to-swim-play-outside-how-to-keep-nyc-kids-and-adults-healthy-during-this-heat-wave/",
+                "slug": "safe-to-swim-play-outside-how-to-keep-nyc-kids-and-adults-healthy-during-this-heat-wave"
+            },
+            "title": "Safe to swim? Play outside? How to keep NYC kids (and adults) healthy during this heat wave.",
+            "listing_title": "An expert on ways to stay safe and healthy in the heat",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "828e576e-f31d-4b0f-ad81-b703433b8646",
+            "url": "https://gothamist.com/news/safe-to-swim-play-outside-how-to-keep-nyc-kids-and-adults-healthy-during-this-heat-wave",
+            "publication_date": "2023-07-27T09:01:00-04:00",
+            "updated_date": null,
+            "description": "As sweltering temperatures hit the New York region, an emergency medicine professor from Columbia University offers tips on how to spot the signs of heat stress and heatstroke.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 339916,
+                            "title": "20230725_hottest nabes_GettyImages-1552544441.jpg",
+                            "width": 7773,
+                            "height": 5205,
+                            "created_at": "2023-07-25T18:15:47.565819-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 7007667,
+                            "file_hash": "f462e3926c274a9cb5fb800d0ef0777a18d3b882",
+                            "alt": "New Yorkers visit a water fountain on July 24, 2023 to get relief from a streak of hot weather.",
+                            "caption": "New Yorkers visit a water fountain on July 24, 2023 to get relief from a streak of hot weather.",
+                            "credit": "Fatih Aktas/Anadolu Agency via Getty Images",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/20230725_hottest_nabes_GettyImages-1552544441.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 106
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "663656d2-735a-4eb7-b447-e69d0e93e052"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 150251,
+                    "first_name": "Joseph",
+                    "last_name": "Capriglione",
+                    "job_title": "Associate Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "joseph-capriglione",
+                    "social_media_profile": []
+                },
+                {
+                    "id": 149627,
+                    "first_name": "David",
+                    "last_name": "Furst",
+                    "job_title": "Host",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "david-furst",
+                    "social_media_profile": []
+                },
+                {
+                    "id": 146821,
+                    "first_name": "Nsikan",
+                    "last_name": "Akpan",
+                    "photo": 334544,
+                    "job_title": "Editor, Health & Science",
+                    "biography": "Nsikan runs the health and science desk at WNYC/Gothamist. Nsikan was previously at National Geographic where he worked as a science editor, overseeing its COVID-19 coverage in addition to other topics in science, health and technology. Before National Geographic, he worked for more than four years at PBS NewsHour, where he co-created an award-winning video series named ScienceScope. \r\n\r\nHe shared a 2020 Emmy for the PBS NewsHour series “Stopping a Killer Pandemic” and in 2019 received a George Foster Peabody Award for the PBS NewsHour series “The Plastic Problem.” Nsikan has also worked for NPR, Science News Magazine, Science Magazine, KUSP Central Coast Public Radio, the Santa Cruz Sentinel and as a writer at the Center for Infection and Immunity at Columbia University. He holds a doctorate in pathobiology from Columbia University and is an alum of the science communication program at the University of California, Santa Cruz.",
+                    "website": "",
+                    "email": "",
+                    "slug": "nsikan-akpan",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/MoNscience"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "environment",
+                    "slug": "environment"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "Health and Science",
+                    "slug": "health-and-science"
+                },
+                {
+                    "name": "heat wave",
+                    "slug": "heat-wave"
+                },
+                {
+                    "name": "climate change",
+                    "slug": "climate-change"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156417,
+            "meta": {
+                "first_published_at": "2023-07-27T06:30:59.950176-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156417/",
+                "html_url": "http://cms.prod.nypr.digital/news/new-york-lawmakers-vow-insurance-industry-crackdown-after-gothamist-investigation/",
+                "slug": "new-york-lawmakers-vow-insurance-industry-crackdown-after-gothamist-investigation"
+            },
+            "title": "New York lawmakers vow insurance industry crackdown after Gothamist investigation",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "519227bd-9348-4c7a-a775-f62c28b47728",
+            "url": "https://gothamist.com/news/new-york-lawmakers-vow-insurance-industry-crackdown-after-gothamist-investigation",
+            "publication_date": "2023-07-27T06:30:00-04:00",
+            "updated_date": "2023-07-27T07:37:00-04:00",
+            "description": "The lawmakers said they will introduce bills prohibiting insurers from asking landlords whether they accept tenants with housing vouchers and denying coverage for subsidized housing.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 339934,
+                            "title": "GettyImages-1394257889.jpg",
+                            "width": 1024,
+                            "height": 683,
+                            "created_at": "2023-07-26T16:14:04.901100-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 150782,
+                            "file_hash": "4a52c5634a42c13fee108bb790e2566d10081a27",
+                            "alt": "Assembly member Linda Rosenthal holds a megaphone up to her mouth during a housing protest in City Hall Park.",
+                            "caption": "“This kind of behavior cements decades-old stereotypes and we should have moved away from that kind of practices years ago,” said Assemblymember Linda Rosenthal (D-Manhattan) said. “It's really reprehensible.”",
+                            "credit": "Photo by Michael M. Santiago/Getty Images",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/original_images/GettyImages-1394257889.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 138
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "00917641-4a26-4d2f-adc4-e0b243a53886"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 212,
+                    "first_name": "David",
+                    "last_name": "Brand",
+                    "photo": 338981,
+                    "job_title": "Reporter",
+                    "biography": "David is a reporter covering housing for Gothamist and WNYC. Got a tip? Email dbrand@nypublicradio.org or Signal 908-310-3960.",
+                    "website": "",
+                    "email": "",
+                    "slug": "david-brand",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "queens",
+                    "slug": "queens"
+                },
+                {
+                    "name": "economy",
+                    "slug": "economy"
+                },
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                },
+                {
+                    "name": "housing",
+                    "slug": "housing"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 156416,
+            "meta": {
+                "first_published_at": "2023-07-27T06:00:59.776684-04:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/156416/",
+                "html_url": "http://cms.prod.nypr.digital/news/nyc-is-not-enforcing-a-law-prohibiting-stores-from-air-conditioning-the-streets/",
+                "slug": "nyc-is-not-enforcing-a-law-prohibiting-stores-from-air-conditioning-the-streets"
+            },
+            "title": "NYC is not enforcing a law prohibiting stores from air conditioning the streets",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "845370d4-157d-4f9a-a412-829265613966",
+            "url": "https://gothamist.com/news/nyc-is-not-enforcing-a-law-prohibiting-stores-from-air-conditioning-the-streets",
+            "publication_date": "2023-07-27T06:00:00-04:00",
+            "updated_date": "2023-07-27T10:12:00-04:00",
+            "description": "Amid a global climate crisis, buildings are pumping AC onto the streets to lure customers inside.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 68231,
+                            "title": "090815ac.jpeg",
+                            "width": 640,
+                            "height": 480,
+                            "created_at": "2019-08-23T21:56:08.234416-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": null,
+                            "file_hash": "",
+                            "alt": "",
+                            "caption": "",
+                            "credit": "",
+                            "credit_link": "",
+                            "file": "https://cdn.cms.prod.nypr.digital/attachments/nyc_ewhitford/090815ac.jpeg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": null
+                        },
+                        "caption": "Businesses that leave their doors open during summer are not getting fined.",
+                        "image_link": ""
+                    },
+                    "id": "0587cc63-7272-4014-b7b3-a911c42e80c1"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 148262,
+                    "first_name": "Charles",
+                    "last_name": "Lane",
+                    "photo": 339405,
+                    "job_title": "Reporter",
+                    "biography": "Charles is a Day-of reporter focused on breaking news and enterprise. He’s very friendly and can be reached at charles@wnyc.org, or more securely on whatsapp/signal 631-295-6715",
+                    "website": "",
+                    "email": "clane@nypublicradio.org",
+                    "slug": "charles-lane",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/_charleslane"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "Health and Science",
+                    "slug": "health-and-science"
+                },
+                {
+                    "name": "politcs",
+                    "slug": "politcs"
+                },
+                {
+                    "name": "environment",
+                    "slug": "environment"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://cms.prod.nypr.digital/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        }
+    ]
+}
