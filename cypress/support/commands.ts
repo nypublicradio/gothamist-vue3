@@ -43,7 +43,6 @@ declare module 'Cypress' {
 }
 
 Cypress.Commands.add('loadGlobalFixtures',  () => {
-    cy.setCookie('_experiment_homepage-river', '0', {path: '/'})
     cy.intercept('/api/v2/system_messages/*', {fixture: 'aviary/system_messages_empty.json'}).as('systemMessages')
     cy.intercept('/api/v2/sitewide_components/*', {fixture: 'aviary/sitewide_components.json'}).as('sitewideComponents')
     cy.intercept('/api/v2/navigation/*', {fixture: 'aviary/navigation.json'}).as('navigation')
