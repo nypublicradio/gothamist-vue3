@@ -1,4 +1,4 @@
-var COOKIE_NAME = '_experiment_homepage-river'
+var COOKIE_NAME = '_experiment_homepage-latest-news-river'
 var HEADER_NAME = 'x-gothamist-abtest'
 function handler(event) {
     // NOTE: This example function is for a viewer request event trigger. 

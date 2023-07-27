@@ -1,75 +1,31 @@
-import currentExperiments from "~/experiments";
 import Experiment from "~/composables/types/Experiment";
-import { get } from "cypress/types/lodash";
 
 export default defineNuxtPlugin(() => {
-    let activeVariant:number
-    const defaultMaxAge = 60 * 60 * 24 * 30 // 30 days
 
-    const chooseWeightedRandom = (weights:number[]):number => {
-      const sumOfWeights = weights.reduce(
-        (sum, weight) => sum + weight,
-      0)
-      const choice = Math.random()
-      let threshold = 0
-      for (let i = 0; i < weights.length; i++) {
-        threshold += weights[i]/sumOfWeights
-        if (choice <= threshold) {
-          return i
-        }
-      }
+  const currentExperiment:Experiment = {
+    // Experiment started: Aug 01 2023
+    // Two versions of the latest news river. 
+    name: 'homepage-latest-news-river',
+    variants: {
+      0: 'unchanged latest news. river and top feature latest news both start from latest story',
+      1: 'stories in latest news river start where top feature left off'
     }
+  }
 
-    const assignVariants = (experiments:Experiment[]):void => {
-      experiments.forEach(experiment => {
-        if (experiment === getCurrentExperiment() && typeof activeVariant === 'undefined') {
-          activeVariant = readVariant(experiment) ?? chooseVariant(experiment)
-        }
-      })
-    }
-
-    const chooseVariant = (experiment:Experiment):number => {
-      return chooseWeightedRandom(experiment.variants.map(variant => variant.weight))
-    }
-
-    const readVariant = (experiment:Experiment):number => {
+  const readVariant = (experiment:Experiment):number => {
+    if (experiment) {
       const cookie = useCookie(`_experiment_${experiment.name}`, { path: '/' })
-      if (typeof cookie.value !== 'undefined') {
-        return Number(cookie.value)
+      const variant = cookie.value && Number(cookie.value)
+      return variant
+    }
+  }
+
+  return {
+    provide: {
+      experiments: {
+        currentExperiment: currentExperiment,
+        activeVariant: readVariant(currentExperiment)
       }
     }
-
-    const saveVariant = (experiment:Experiment, variant:number):void => {
-      const cookie = useCookie(
-        `_experiment_${experiment.name}`, 
-        { 
-          path: '/',
-          maxAge: experiment.maxAgeSeconds ?? defaultMaxAge,
-        }
-      )
-      cookie.value = String(variant)
-    }
-
-    const getCurrentExperiment = ():Experiment => {
-      if (currentExperiments.length > 0) {
-        return currentExperiments[0]
-      } else {
-        return undefined
-      }
-    }
-
-    assignVariants(currentExperiments)
-
-    if (!process.client) {
-      saveVariant(getCurrentExperiment(), activeVariant)
-    }
-
-    return {
-      provide: {
-        experiments: {
-          current: getCurrentExperiment(),
-          activeVariant
-        }
-      }
-    }
+  }
 })

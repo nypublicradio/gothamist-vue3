@@ -14,9 +14,9 @@ export default defineNuxtPlugin(() => {
 
   // event to use when sending gtag events
   const sendEvent = (name: string, params: Record<string, string>) => {
-    if ($experiments.current) {
+    if ($experiments.currentExperiment && typeof $experiments.activeVariant !== 'undefined') {
       gtag('event', name, {
-        experimentName: $experiments.current.name,
+        experimentName: $experiments.currentExperiment.name,
         experimentVariant: $experiments.activeVariant,
         ...params
       })
