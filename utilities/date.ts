@@ -1,4 +1,4 @@
-import { format, differenceInMinutes, differenceInHours, getYear, isValid } from 'date-fns'
+import { differenceInMinutes, differenceInHours, getYear, isValid } from 'date-fns'
 import { formatInTimeZone } from 'date-fns-tz'
 
 const TIMEZONE = 'America/New_York'
