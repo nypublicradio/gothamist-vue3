@@ -2,5 +2,14 @@ User-agent: *
 Disallow: /mt/
 Disallow: /profile/
 
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT
+Disallow: /
+
+User-agent: OpenAI
+Disallow: /
+
 Sitemap: https://gothamist.com/sitemap.xml
 Sitemap: https://gothamist.com/sitemap-news.xml
