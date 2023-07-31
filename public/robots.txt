@@ -11,8 +11,5 @@ Disallow: /
 User-agent: OpenAI
 Disallow: /
 
-User-agent: GoogleOther
-Disallow: /
-
 Sitemap: https://gothamist.com/sitemap.xml
 Sitemap: https://gothamist.com/sitemap-news.xml
