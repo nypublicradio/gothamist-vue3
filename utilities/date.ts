@@ -1,4 +1,7 @@
-import { format, differenceInMinutes, differenceInHours, getYear, isValid } from 'date-fns'
+import { differenceInMinutes, differenceInHours, getYear, isValid } from 'date-fns'
+import { formatInTimeZone } from 'date-fns-tz'
+
+const TIMEZONE = 'America/New_York'
 
 export const fuzzyDateTime = function (time: Date): string {
   const JUST_NOW = 'Just now'
@@ -17,9 +20,9 @@ export const fuzzyDateTime = function (time: Date): string {
   } else if (hours < 24) {
     return `${hours} hour${hours > 1 ? 's' : ''} ago`
   } else if (getYear(time) === getYear(now)) {
-    return format(time, TIMESTAMP_FORMAT_NO_YEAR)
+    return `${formatInTimeZone(time, TIMEZONE, TIMESTAMP_FORMAT_NO_YEAR)} ET`
   }
-  return format(time, TIMESTAMP_FORMAT)
+  return `${formatInTimeZone(time, TIMEZONE, TIMESTAMP_FORMAT)} ET`
 
 }
 
@@ -28,8 +31,8 @@ export const formatDateForByline = function (date) {
   if (date) {
     const dateObject = new Date(date)
     const now = new Date()
-    const shortDate = format(dateObject, 'MMM d, y')
-    const longDate = format(dateObject, "MMM d, y 'at' h:mm aaaa")
+    const shortDate = formatInTimeZone(dateObject, TIMEZONE, 'MMM d, y')
+    const longDate = `${formatInTimeZone(dateObject, TIMEZONE, "MMM d, y 'at' h:mm aaaa")} ET`
     return differenceInHours(now, dateObject) <= 12 ? longDate : shortDate
   }
   return null
