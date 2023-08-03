@@ -51,7 +51,7 @@ watch(newsletterSignup.isSuccess, (value) => {
         </h2>
         <div class="regwall-text mb-4">
           To continue reading, sign up for our daily newsletter and get unlimited access to Gothamist.com.
-          <a class="regwall-link" href="https://gothamist.com">Why am I seeing this?</a>
+          <a class="regwall-link" href="https://gothamist.com/archived-stories-faq">Why am I seeing this?</a>
         </div>
         <form
           class="gtm__click-tracking regwall-form"
