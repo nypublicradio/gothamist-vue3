@@ -17,7 +17,7 @@ const startReading = () => {
 }
 
 const agree = ref(true)
-const lists = ref(config.public.NEWSLETTER_MULTI_LIST_IDS.split('++'))
+const lists = ref(['Gothamist Membership', 'Gothamist - Early Addition'])
 const email = ref<string>(null)
 
 const newsletterSignup = useNewsletterSignup({
