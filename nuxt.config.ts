@@ -109,6 +109,7 @@ export default defineNuxtConfig({
       NEWRELIC_AGENT: process.env['NEWRELIC_AGENT'] || 'newrelic-dev.js',
       OPTIN_MONSTER_ACCOUNT_ID: process.env['OPTIN_MONSTER_ACCOUNT_ID'] || '267513',
       OPTIN_MONSTER_USER_ID: process.env['OPTIN_MONSTER_USER_ID'] || '250465',
+      WALL_ALLOW_LIST:  process.env['WALL_ALLOW_LIST'] || 'covid-19',
     }
   },
   ssr: Boolean(process.env['NUXT_SSR'] !== 'false'),
