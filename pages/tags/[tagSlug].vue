@@ -102,6 +102,9 @@ useHead({
 useServerHead({
   meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle}]
 })
+if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
+  useServerHead({meta: [{name: 'robots', content: 'noindex'}]})
+}
 </script>
 
 <template>
@@ -179,7 +182,7 @@ useServerHead({
               <hr class="mb-5" />
               <!-- mid page zone should go after the third article -->
               <div
-                v-if="index === 2 && curatedTagPage?.midPageZone"
+                v-if="index === 2 && curatedTagPage?.midPageZone.length"
                 class="tag-page-mid-zone my-8"
               >
                 <v-streamfield
