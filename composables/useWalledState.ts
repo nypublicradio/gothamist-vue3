@@ -1,7 +1,7 @@
 import { ArticlePage } from "./types/Page";
 import { compareAsc, subMonths } from 'date-fns';
 export default function useWalledState(article:ArticlePage) {
-  let config = useRuntimeConfig()
+  const config = useRuntimeConfig()
   if (!process.server) {
     // articles newer than the threshold date shouldn't be walled
     const wallThreshold = subMonths(new Date(), 6) // 6 months ago
@@ -16,7 +16,6 @@ export default function useWalledState(article:ArticlePage) {
 
     // content shouldn't be walled if it's has a tag on the allow list
     const ignoredTags = config.public['WALL_ALLOW_LIST']?.split(',') || []
-    console.log('tags | ', article.tags, ' | ignore | ', ignoredTags)
     if (article.tags.some(tag => ignoredTags.includes(tag.slug))) {
       return false
     }
@@ -25,4 +24,6 @@ export default function useWalledState(article:ArticlePage) {
     const cookie = useCookie('__gothamistNewsletterMember', { path: '/' })
     return typeof cookie.value === 'undefined'
   }
+  // content not hidden on server side rendering
+  return false
 }

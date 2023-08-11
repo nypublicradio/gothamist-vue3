@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Button from 'primevue/button'
-const config =  useRuntimeConfig()
 const emit = defineEmits<{
   (e:'sign-up'):void
   (e:'wall-cleared'):void
