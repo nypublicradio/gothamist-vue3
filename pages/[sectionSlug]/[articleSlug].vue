@@ -43,13 +43,13 @@ if (article.leadGallery) {
   )) as GalleryPage
 }
 
-const topImage = article.leadImage || gallery?.slides?.[0]?.image || null
+const topImage = article.leadImage ?? gallery?.slides?.[0]?.image ?? null
 const topCaption =
-  article.leadImageCaption ||
-  topImage?.caption ||
-  gallery?.slides?.[0]?.image.caption ||
+  article.leadImageCaption ??
+  topImage?.caption ??
+  gallery?.slides?.[0]?.image.caption ??
   null
-const galleryLength = gallery?.slides?.length || 0
+const galleryLength = gallery?.slides?.length ?? 0
 
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
