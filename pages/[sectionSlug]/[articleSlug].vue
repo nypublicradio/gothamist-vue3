@@ -98,13 +98,13 @@ onMounted(() => {
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
   useUpdateCommentCounts([article])
+  contentLocked.value = useWalledState(article)
 })
 
 onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
   sensitiveContent.value = false
   isArticlePage.value = false
-  contentLocked.value = useWalledState(article)
 })
 
 // handle ads when the article is mounted
