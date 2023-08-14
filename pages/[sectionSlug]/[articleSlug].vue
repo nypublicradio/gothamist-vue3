@@ -167,10 +167,15 @@ const showMarketingBanner = computed(() => {
   return marketingBannerData.value[0]?.location === 'BOTTOM'
 })
 
-const contentLocked = useWalledState(article)
+let contentLocked = ref(false)
 
 const tagName = computed(() => article?.sponsoredContent ? "Sponsored" : article?.section?.name )
 const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.section?.slug}` )
+
+onBeforeMount(() => {
+  contentLocked.value = useWalledState(article)
+})
+
 </script>
 <template>
   <div>
@@ -274,20 +279,18 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col overflow-hidden article-column">
-            <template v-if="contentLocked">
               <GothamistWalledArticle 
+                v-if="contentLocked"
                 :article="article"
                 @sign-up="trackSignUp"
                 @wall-seen="trackWallSeen"
               />
-            </template>
-            <template v-else>
-            <v-streamfield
-              class="article-body"
-              :streamfield-blocks="article.body"
-              @all-blocks-mounted="handleArticleMounted"
-            />
-          </template>
+              <v-streamfield
+                v-else
+                class="article-body"
+                :streamfield-blocks="article.body"
+                @all-blocks-mounted="handleArticleMounted"
+              />
             <RelatedLinks
               :article="article"
               class="below-body"
