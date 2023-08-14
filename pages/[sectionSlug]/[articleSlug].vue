@@ -56,6 +56,7 @@ const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
 const sectionSlug = computed(() => route?.params?.sectionSlug as string)
+const contentLocked = ref(false) // starts unlocked for ssr, we check content wall state during onMounted hook
 
 useHead({
   title: `${article.seoTitle} - Gothamist`
@@ -86,8 +87,6 @@ useChartbeat({
   authors: article.authors.map(author => author.name).join(',')
 })
 useOptinMonster()
-let contentLocked = ref(false)
-
 
 onBeforeMount(() => {
   isArticlePage.value = true
