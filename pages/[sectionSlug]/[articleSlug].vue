@@ -86,10 +86,13 @@ useChartbeat({
   authors: article.authors.map(author => author.name).join(',')
 })
 useOptinMonster()
+let contentLocked = ref(false)
+
 
 onBeforeMount(() => {
   isArticlePage.value = true
 })
+
 onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
@@ -101,6 +104,7 @@ onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
   sensitiveContent.value = false
   isArticlePage.value = false
+  contentLocked.value = useWalledState(article)
 })
 
 // handle ads when the article is mounted
@@ -167,14 +171,8 @@ const showMarketingBanner = computed(() => {
   return marketingBannerData.value[0]?.location === 'BOTTOM'
 })
 
-let contentLocked = ref(false)
-
 const tagName = computed(() => article?.sponsoredContent ? "Sponsored" : article?.section?.name )
 const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.section?.slug}` )
-
-onBeforeMount(() => {
-  contentLocked.value = useWalledState(article)
-})
 
 </script>
 <template>
