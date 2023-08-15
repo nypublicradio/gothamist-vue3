@@ -5,6 +5,7 @@ import { ArticlePage } from '~~/composables/types/Page';
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
+const config = useRuntimeConfig()
 const staffSlug = route.params.staffSlug
 // const curatedStaffPage = await findPage(`staff/${staffSlug}`).then(
 //   ({ data }) => data?.value && (normalizeFindPageResponse(data) as StaffPage)
@@ -86,7 +87,10 @@ const authorName =  authorProfileData?.name || getAuthorNameFromSlug()
 const pageTitle = `Articles by ${authorName} | Gothamist`
 useHead({
   title: pageTitle,
-  meta: [{ property: 'og:title', content: pageTitle}]
+})
+useServerHead({
+  meta: [{ property: 'og:title', content: pageTitle}],
+  link: [{rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/staff/${staffSlug}`}]
 })
 </script>
 

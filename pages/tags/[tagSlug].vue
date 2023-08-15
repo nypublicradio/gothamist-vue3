@@ -13,6 +13,7 @@ const isPreview = route.query.preview ? true : false
 /* preview */
 
 const { $analytics, $htlbid } = useNuxtApp()
+const config = useRuntimeConfig()
 const tagSlug = isPreview ? previewData.value.slug : route.params.tagSlug
 const initialStoryCount = ref(10)
 const loadMoreStoryCount = ref(10)
@@ -100,7 +101,8 @@ useHead({
   title: curatedTagPage?.seoTitle || pageTitle,
 })
 useServerHead({
-  meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle}]
+  meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle}],
+  link: [{rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/tags/${tagSlug}`}]
 })
 </script>
 

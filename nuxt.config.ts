@@ -98,6 +98,7 @@ export default defineNuxtConfig({
       NEWSLETTER_MAIN_LIST_ID: '65dbec786b',
       NEWSLETTER_MULTI_LIST_IDS: process.env['NEWSLETTER_MULTI_LIST_IDS'] ?? 'Gothamist++Gothamist Membership++Gothamist - Early Addition',
       DEBUG: process.env['DEBUG'] ?? 'false',
+      CANONICAL_HOST: process.env['CANONICAL_HOST'] ?? 'gothamist-vue3demo.gothamist.com',
       donateUrlBase: 'https://pledge.wnyc.org/support/gothamist/?utm_medium=partnersite&utm_source=gothamist',
       OPENWEB_SPOT_ID: process.env['OPENWEB_SPOT_ID'] ?? 'sp_6X1qAIKA',
       OG_IMAGE: process.env['OG_IMAGE'] ?? 'https://gothamist-vue3demo.gothamist.com/gothamist_og.png',
