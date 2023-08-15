@@ -13,6 +13,7 @@ import {
   useIsArticlePage,
   useMarketingBannerData,
 } from '~/composables/states'
+import useWalledState from '~/composables/useWalledState'
 const isArticlePage = useIsArticlePage()
 const previewData = usePreviewData()
 const marketingBannerData = useMarketingBannerData()
@@ -42,19 +43,20 @@ if (article.leadGallery) {
   )) as GalleryPage
 }
 
-const topImage = article.leadImage || gallery?.slides?.[0]?.image || null
+const topImage = article.leadImage ?? gallery?.slides?.[0]?.image ?? null
 const topCaption =
-  article.leadImageCaption ||
-  topImage?.caption ||
-  gallery?.slides?.[0]?.image.caption ||
+  article.leadImageCaption ??
+  topImage?.caption ??
+  gallery?.slides?.[0]?.image.caption ??
   null
-const galleryLength = gallery?.slides?.length || 0
+const galleryLength = gallery?.slides?.length ?? 0
 
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
 const headMetadata = useArticlePageHeadMetadata(article)
 const sectionSlug = computed(() => route?.params?.sectionSlug as string)
+const contentLocked = ref(false) // starts unlocked for ssr, we check content wall state during onMounted hook
 
 useHead({
   title: `${article.seoTitle} - Gothamist`
@@ -89,11 +91,13 @@ useOptinMonster()
 onBeforeMount(() => {
   isArticlePage.value = true
 })
+
 onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
   useUpdateCommentCounts([article])
+  contentLocked.value = useWalledState(article)
 })
 
 onUnmounted(() => {
@@ -140,6 +144,24 @@ const newsletterSubmitEvent = (e) => {
   })
 }
 
+const trackWallSeen = () => {
+  $analytics.sendEvent('view_promotion', {
+    creative_slot: 'article-registration-wall',
+    location_id: '',
+    promotion_name: `Registration Wall - ${article.title}`,
+    creative_name: 'Archived_Story'
+  })
+}
+
+const trackSignUp = () => {
+  $analytics.sendEvent('select_promotion', {
+    creative_slot: 'article-registration-wall',
+    location_id: '',
+    promotion_name: `Registration Wall - ${article.title}`,
+    creative_name: 'Archived_Story'
+  })
+}
+
 const getGalleryLink = computed(() => {
   return gallery.url.replace(/^https:\/\/[^/]*/, '')
 })
@@ -150,6 +172,7 @@ const showMarketingBanner = computed(() => {
 
 const tagName = computed(() => article?.sponsoredContent ? "Sponsored" : article?.section?.name )
 const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.section?.slug}` )
+
 </script>
 <template>
   <div>
@@ -253,11 +276,18 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block"></div>
           <div class="col overflow-hidden article-column">
-            <v-streamfield
-              class="article-body"
-              :streamfield-blocks="article.body"
-              @all-blocks-mounted="handleArticleMounted"
-            />
+              <GothamistWalledArticle 
+                v-if="contentLocked"
+                :article="article"
+                @sign-up="trackSignUp"
+                @wall-seen="trackWallSeen"
+              />
+              <v-streamfield
+                v-else
+                class="article-body"
+                :streamfield-blocks="article.body"
+                @all-blocks-mounted="handleArticleMounted"
+              />
             <RelatedLinks
               :article="article"
               class="below-body"
@@ -293,7 +323,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
           :slug="sectionSlug"
           :article="article"
           trackingComponentLocation="Article Page Recirculation Module"
-          :nativoId="`ntv-article-1`"
+          nativoId="ntv-article-1"
         />
         <div class="mt-6 mb-5">
           <hr class="black mb-4" />
