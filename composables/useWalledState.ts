@@ -3,6 +3,11 @@ import { compareAsc, subMonths } from 'date-fns';
 export default function useWalledState(article:ArticlePage) {
   const config = useRuntimeConfig()
   if (!process.server) {
+    // drafts shouldn't be walled
+    if (article.updatedDate == null && article.publicationDate == null) {
+      return false
+    }
+
     // articles newer than the threshold date shouldn't be walled
     const wallThreshold = subMonths(new Date(), 6) // 6 months ago
     if (compareAsc(article.updatedDate || article.publicationDate, wallThreshold) > 0) {
