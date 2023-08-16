@@ -4,7 +4,7 @@ export default function useWalledState(article:ArticlePage) {
   const config = useRuntimeConfig()
   if (!process.server) {
     // drafts shouldn't be walled
-    if (article.updatedDate == null && article.publicationDate == null) {
+    if (!article.updatedDate && !article.publicationDate) {
       return false
     }
 
