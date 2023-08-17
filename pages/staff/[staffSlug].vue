@@ -50,13 +50,13 @@ const loadMoreArticles = async () => {
 
 // find a match of the slug in the articles' authors array and return the matched author's data
 const authorProfileData = articles.value[1]?.authors.find((author) => {
-  if (author.slug === staffSlug) return author
+  return author.slug === staffSlug ? author : false
 })
 
 // formats the name of the author by manipulating the slug. This is used when authorProfileData returns no data
 const getAuthorNameFromSlug = () => {
-  var splitStr = typeof staffSlug === 'string' && staffSlug.toLowerCase().split('-')
-  for (var i = 0; i < splitStr.length; i++) {
+  let splitStr = typeof staffSlug === 'string' && staffSlug.toLowerCase().split('-')
+  for (let i = 0; i < splitStr.length; i++) {
     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
   }
   return splitStr.join(' ')

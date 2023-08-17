@@ -5,9 +5,9 @@ const route = useRoute()
 const config = useRuntimeConfig()
 const { $analytics } = useNuxtApp()
 const querySlug = ref(route.query.q)
-const query = ref(querySlug.value || '')
+const query = ref(querySlug.value ?? '')
 
-let articles = ref(
+const articles = ref(
   await searchArticlePages({ q: querySlug.value }).then(({ data }) =>
     normalizeSearchArticlePagesResponse(data)
   )

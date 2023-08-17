@@ -66,7 +66,7 @@ const newsletterSubmitEvent = () => {
         id="article-recirculation"
         trackingComponentLocation="Section Page Recirculation Module"
         class="my-6"
-        :nativoId="`ntv-section-1`"
+        nativoId="ntv-section-1"
       />
       <div class="mb-6">
         <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
