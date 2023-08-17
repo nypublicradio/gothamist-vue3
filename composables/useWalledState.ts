@@ -2,9 +2,13 @@ import { ArticlePage } from "./types/Page";
 import { compareAsc, subMonths } from 'date-fns';
 export default function useWalledState(article:ArticlePage) {
   const config = useRuntimeConfig()
+  const route = useRoute()
   if (!process.server) {
     // drafts shouldn't be walled
     if (!article.updatedDate && !article.publicationDate) {
+      return false
+    }
+    if (route.query.preview) {
       return false
     }
 
