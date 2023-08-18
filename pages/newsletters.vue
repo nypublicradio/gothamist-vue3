@@ -27,7 +27,7 @@ const email = ref<string>(null)
 
 const newsletterSignup = useNewsletterSignup({
   email,
-  selectedLists: selectedLists,
+  selectedLists,
   additionalLists: ref(['Gothamist Membership']),
   consent: agree,
   source: 'gothamist_newsletter_landing_page'
