@@ -13,6 +13,9 @@ describe('The newsletter page', () => {
         expect(req.body.email).to.eq(emailAddress)
         expect(req.body.list).to.eq('Gothamist - Early Addition++Gothamist++We The Commuters++Politics Brief Newsletter')
         expect(req.body.source).to.eq('gothamist_newsletter_landing_page')
+        req.reply({
+          statusCode: 200
+        })
     }).as('emailProxy')
     cy.visit('/newsletters')
     cy.get('.newsletter-form input').first().type(emailAddress)
