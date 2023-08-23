@@ -19,7 +19,7 @@ useHead({
 })
 useServerHead({
   meta: [{ property: 'og:title', content: pageTitle }],
-  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/${sectionSlug}`}]
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/${sectionSlug.value}`}]
 })
 const initialArticles = await findArticlePages({
   sponsored_content: false,
