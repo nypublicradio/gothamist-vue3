@@ -181,6 +181,9 @@ import { ArticlePage, GalleryPage } from './types/Page'
     {
     const config = useRuntimeConfig()
     const metadata = {
+      link: [
+        {rel: 'canonical', href: gallery?.url}
+      ],
       meta: [
         { property: 'og:title', content: `${gallery.socialTitle} - Photo Gallery - Gothamist` },
         { property: 'og:description', content: gallery.socialDescription },

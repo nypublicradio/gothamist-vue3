@@ -64,10 +64,10 @@ export function normalizeArticlePage(article: Record<string, any | undefined>): 
         link: getArticleLink(article),
 
         leadAsset: article.leadAsset?.[0],
-        leadImage: article.leadAsset?.[0]?.type === 'lead_image' && article.leadAsset?.[0]?.value.image,
-        leadGallery: article.leadAsset?.[0]?.type === 'lead_gallery' && article.leadAsset?.[0]?.value,
+        leadImage: article.leadAsset?.[0]?.type === 'lead_image' ? article.leadAsset?.[0]?.value.image : undefined,
+        leadGallery: article.leadAsset?.[0]?.type === 'lead_gallery' ? article.leadAsset?.[0]?.value : undefined,
 
-        gallerySlides: article.leadAsset?.[0]?.type === 'lead_gallery' && article.leadAsset?.[0]?.slides,
+        gallerySlides: article.leadAsset?.[0]?.type === 'lead_gallery' ? article.leadAsset?.[0]?.slides : undefined,
         legacyId: article.legacyId,
         authors: article.relatedAuthors?.map(normalizeAuthor),
         contributingOrganizations: article.relatedContributingOrganizations,
@@ -86,12 +86,12 @@ export function normalizeArticlePage(article: Record<string, any | undefined>): 
         body: article.body,
 
         // curated images
-        listingImage: article.listingImage || article.leadAsset?.[0]?.value?.image || article.leadAsset?.[0]?.value?.defaultImage,
-        socialImage: article.socialImage || article.leadAsset?.[0]?.value?.image || article.leadAsset?.[0]?.value?.defaultImage,
+        listingImage: article.listingImage ?? article.leadAsset?.[0]?.value?.image ?? article.leadAsset?.[0]?.value?.defaultImage,
+        socialImage: article.socialImage ?? article.leadAsset?.[0]?.value?.image ?? article.leadAsset?.[0]?.value?.defaultImage,
 
         // for comments
         disableComments: article.disableComments,
-        commentId: String(article.legacyId || article.uuid)
+        commentId: String(article.legacyId ?? article.uuid)
     })
 }
 
