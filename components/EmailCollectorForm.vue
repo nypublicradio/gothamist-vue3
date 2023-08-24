@@ -61,7 +61,9 @@ onMounted(() => {
 
 // function to check if the email is a valid format and to set the error text
 const validateEmail = () => {
-  const validRegex = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,3}$/
+  // See also isValidEmail in useNewsletterSignup.ts
+  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#basic_validation
+  const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
   emailErrorText.value = null
   if (validRegex.test(email.value)) {
     return true
