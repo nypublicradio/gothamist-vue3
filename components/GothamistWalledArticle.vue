@@ -61,7 +61,7 @@ useTrackSeen(contentWallRef, handleSeen)
     width: 100%;
     display: flex;
     height: var(--content-wall-height);
-    background: linear-gradient(rgba(255,255,255,0) 5%, rgba(255,255,255,1) 200px);
+    background: linear-gradient(rgba(255,255,255,0) 5%, rgba(255,255,255,1) 155px);
     @include media(">large") {
       width: calc(100% - 330px - 15px);
     }
