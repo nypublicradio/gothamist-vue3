@@ -2,7 +2,6 @@
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import { ArticlePage } from '~~/composables/types/Page'
 import { computed, ref, nextTick, toValue } from 'vue'
-import { onBeforeRouteUpdate } from 'vue-router'
 
 const { $features } = useNuxtApp()
 const possibleDuplicateCount = ref(6) // from the topper
