@@ -34,6 +34,8 @@ const handleSubmit = (emailAddress) => {
 watch(newsletterSignup.isSuccess, (value) => {
   if (value) {
     emit('sign-up')
+    setTimeout(() => { document.querySelector('.regwall-success-buttons button')?.focus() }, 1)
+    setTimeout(startReading, 5000)
   }
 })
 </script>
@@ -54,6 +56,7 @@ watch(newsletterSignup.isSuccess, (value) => {
         </div>
         <form
           class="gtm__click-tracking regwall-form"
+          @submit.prevent
         >
           <label
             for="newsletter"
