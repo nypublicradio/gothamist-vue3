@@ -7,6 +7,7 @@ const props = defineProps<{
   page: Page
 }>()
 const route = useRoute()
+const config = useRuntimeConfig()
 const sectionSlug = computed(() => route?.params?.sectionSlug as string)
 const loadMoreStoryCount = ref(10)
 const loadMoreContainer = ref('#articleList')
@@ -15,7 +16,10 @@ const pageTitle = `${props.page.title} | Gothamist | News For New Yorkers`
 
 useHead({
   title: pageTitle,
+})
+useServerHead({
   meta: [{ property: 'og:title', content: pageTitle }],
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/${sectionSlug.value}`}]
 })
 const initialArticles = await findArticlePages({
   sponsored_content: false,
@@ -62,7 +66,7 @@ const newsletterSubmitEvent = () => {
         id="article-recirculation"
         trackingComponentLocation="Section Page Recirculation Module"
         class="my-6"
-        :nativoId="`ntv-section-1`"
+        nativoId="ntv-section-1"
       />
       <div class="mb-6">
         <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
