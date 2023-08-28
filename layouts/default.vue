@@ -82,10 +82,16 @@ const trackSidebarClick = (label) => {
 }
 
 // Track users coming from newsletter  
+const maxAge = 60 * 60 * 24 * 30 * 12 // about 12 months
 if (route.query.utm_medium === 'nypr-email')
 {
-  const cookie = useCookie('__gothamistNewsletterMember', { path: '/' })
+  const cookie = useCookie('__gothamistNewsletterMember', { path: '/', maxAge })
   cookie.value = 'true'
+}
+// update newsletter cookie expiration
+const newsLetterCookie = useCookie('__gothamistNewsletterMember', { path: '/', maxAge })
+if (newsLetterCookie.value === 'true') {
+  newsLetterCookie.value = 'true'
 }
 
 // load the live stream
