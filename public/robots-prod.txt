@@ -8,7 +8,7 @@ Disallow: /
 User-agent: ChatGPT
 Disallow: /
 
-User-agent: OpenAI
+User-agent: GPTBot
 Disallow: /
 
 Sitemap: https://gothamist.com/sitemap.xml

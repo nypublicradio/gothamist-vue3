@@ -42,7 +42,8 @@ const submitForm = (event=new Event('')) => {
   .then(() => {
     isSuccess.value = true
     isSubmitting.value = false
-    const cookie = useCookie('__gothamistNewsletterMember', { path: '/' })
+    const maxAge = 60 * 60 * 24 * 30 * 12 // about 12 months
+    const cookie = useCookie('__gothamistNewsletterMember', { path: '/', maxAge})
     cookie.value = 'true'
   })
   .catch((error) => {
