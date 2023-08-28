@@ -1,11 +1,12 @@
 export default function useNewsletterSignup(options: {
   email: Ref<string>,
-  lists: Ref<string[]>,
+  selectedLists: Ref<string[]>,
+  additionalLists?: Ref<string[]>,
   consent: Ref<boolean>,
   source: string,
 }) {
 
-
+options.additionalLists = options.additionalLists ?? []
 const { $sentry } = useNuxtApp()
 const config = useRuntimeConfig()
 
@@ -20,7 +21,7 @@ const isValidEmail = (email:string) => {
 }
 const isFormValid = computed(() => {
   return isValidEmail(options.email.value) &&
-  options.lists.value.length > 0 &&
+  options.selectedLists.value.length > 0 &&
   options.consent.value === true
 })
 const submitForm = (event=new Event('')) => {
@@ -34,7 +35,7 @@ const submitForm = (event=new Event('')) => {
     method: 'POST',
     body: {
       source: options.source,
-      list: options.lists.value.join('++'),
+      list: [...options.selectedLists.value, ...options.additionalLists.value].join('++'),
       email: options.email.value
     },
   })
