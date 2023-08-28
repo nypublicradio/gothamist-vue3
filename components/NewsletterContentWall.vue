@@ -16,12 +16,12 @@ const startReading = () => {
 }
 
 const agree = ref(true)
-const lists = ref(['Gothamist Membership', 'Gothamist - Early Addition'])
+const selectedLists = ref(['Gothamist Membership', 'Gothamist - Early Addition'])
 const email = ref<string>(null)
 
 const newsletterSignup = useNewsletterSignup({
   email,
-  lists,
+  selectedLists,
   consent: agree,
   source: 'gothamist_archive_regWall'
 })

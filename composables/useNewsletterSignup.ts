@@ -1,9 +1,11 @@
+import type { MaybeRefOrGetter } from 'vue'
+
 export default function useNewsletterSignup(options: {
-  email: Ref<string>,
-  selectedLists: Ref<string[]>,
-  additionalLists?: Ref<string[]>,
-  consent: Ref<boolean>,
-  source: string,
+  email: MaybeRefOrGetter<string>,
+  selectedLists: MaybeRefOrGetter<string[]>,
+  additionalLists?: MaybeRefOrGetter<string[]>,
+  consent: MaybeRefOrGetter<boolean>,
+  source: MaybeRefOrGetter<string>,
 }) {
 
 options.additionalLists = options.additionalLists ?? []
@@ -20,9 +22,9 @@ const isValidEmail = (email:string) => {
   return emailMatcher.test(email)
 }
 const isFormValid = computed(() => {
-  return isValidEmail(options.email.value) &&
-  options.selectedLists.value.length > 0 &&
-  options.consent.value === true
+  return isValidEmail(toValue(options.email)) &&
+  toValue(options.selectedLists).length > 0 &&
+  toValue(options.consent) === true
 })
 const submitForm = (event=new Event('')) => {
   if (!isFormValid) {
@@ -34,9 +36,9 @@ const submitForm = (event=new Event('')) => {
   $fetch(config.public.NEWSLETTER_API, {
     method: 'POST',
     body: {
-      source: options.source,
-      list: [...options.selectedLists.value, ...options.additionalLists.value].join('++'),
-      email: options.email.value
+      source: toValue(options.source),
+      list: [...toValue(options.selectedLists), ...toValue(options.additionalLists)].join('++'),
+      email: toValue(options.email)
     },
   })
   .then(() => {
