@@ -112,6 +112,40 @@ describe('An article page', () => {
             })
         })
     })
+    it('clears the content wall on signup', () => {
+        cy.clearCookie('__gothamistNewsletterMember')
+        const emailAddress = 'test@example.com'
+
+        cy.fixture('aviary/article.json').then(article => {
+            article.publication_date = new Date('1990-01-01').toISOString()
+            article.meta.first_published_at = new Date('1990-01-01').toISOString()
+            cy.intercept({
+                pathname: '/api/v2/pages/find',
+                query: {
+                    html_path: 'news/extra-extra-meet-connecticuts-answer-to-pizza-rat'
+                }
+            }, {body: article}).as('oldArticle')
+            cy.intercept(
+            'email-proxy/subscribe',
+            req => {
+                expect(req.body.email).to.eq(emailAddress)
+                expect(req.body.list).to.eq('Gothamist Membership++Gothamist - Early Addition')
+                expect(req.body.source).to.eq('gothamist_archive_regWall')
+                req.reply({
+                  statusCode: 200
+                })
+            }).as('emailProxy')
+
+            cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
+            cy.wait('@oldArticle').then(() => {
+                cy.get('h2.regwall-header').should('contain', 'Read this story completely free')
+                cy.get('.regwall-form-wrapper input[type=email]').type(emailAddress)
+                cy.contains('Sign Up').click()
+                cy.wait('@emailProxy')
+                cy.get('h2.regwall-header').should('contain', 'Thanks for subscribing!')
+            })
+        })
+    })
     it('does not show the content wall on old articles when you have a cookie', () => {
         cy.setCookie('__gothamistNewsletterMember', 'true', {path:'/'})
 
