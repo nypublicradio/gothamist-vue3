@@ -39,30 +39,28 @@ const trackClick = (category, label) => {
       class="top flex justify-content-between align-items-center sm:align-items-end"
     >
       <div class="gothamist-header-left">
-        <v-flexible-link
+        <nuxt-link
           class="block"
           :class="isMinimized ? 'hidden' : 'xl:hidden'"
           to="/"
-          raw
           @click="trackClick('Click Tracking - Header', 'header logo')"
         >
           <LogoGothamist class="gothamist-header-logo pr-2" />
-        </v-flexible-link>
+        </nuxt-link>
         <div class="gothamist-header-tagline-holder hidden sm:block">
           <div class="gothamist-header-tagline" v-html="strapline" />
         </div>
       </div>
-      <v-flexible-link
+      <nuxt-link
         class="hidden"
         :class="isMinimized ? 'xl:hidden' : 'xl:block'"
         to="/"
-        raw
         @click="trackClick('Click Tracking - Header', 'header logo')"
         role="heading"
         aria-level="1"
       >
         <LogoGothamist class="gothamist-header-center-logo" />
-      </v-flexible-link>
+      </nuxt-link>
       <div class="gothamist-header-right align-items-center gap-2">
         <!-- <ListenAllLiveButton class="hidden md:block" /> -->
         <ListenLiveButton
