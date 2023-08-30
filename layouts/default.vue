@@ -244,6 +244,11 @@ if (isSponsoredRoute) {
           :donateUrlBase="config.public.donateUrlBase"
           utmCampaign="homepage-header"
         />
+        <BreakingNewsModule
+          v-if="breakingNews.length"
+          :title=breakingNews[0].title
+          :link=breakingNews[0].link
+        />
         <div class="default-slot-holder">
           <slot />
         </div>

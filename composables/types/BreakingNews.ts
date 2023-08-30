@@ -1,5 +1,6 @@
+import NavigationLink from './NavigationLink'
 export default interface BreakingNews {
     title: string;
-    link: string;
+    link: NavigationLink;
     description: string;
 }
