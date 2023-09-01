@@ -244,11 +244,13 @@ if (isSponsoredRoute) {
           :donateUrlBase="config.public.donateUrlBase"
           utmCampaign="homepage-header"
         />
-        <BreakingNewsModule
-          v-if="breakingNews.length"
-          :title=breakingNews[0].title
-          :link=breakingNews[0].link
-        />
+        <div class="breaking-news-wrapper">
+          <BreakingNewsModule
+            v-if="breakingNews.length"
+            :title=breakingNews[0].title
+            :link=breakingNews[0].link
+          />
+        </div>
         <div class="default-slot-holder">
           <slot />
         </div>
@@ -313,6 +315,15 @@ if (isSponsoredRoute) {
 .main {
   @include page-top-gradient;
 }
+.breaking-news-wrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 8px 1.5rem;
+  @include media('>=lg') {
+    padding: 8px 2.5rem;
+  }
+}
+
 .sectionSlug-photos-gallerySlug {
   .main {
     background: none;
