@@ -75,4 +75,15 @@ describe('The home page', () => {
     cy.get('.p-dialog-header-close').click()
     cy.get('.marketing-modal').should('not.exist')
   })
+  it('shows breaking news', () => {
+    cy.intercept(
+      '/api/v2/sitewide_components/*',
+      {fixture: 'aviary/sitewide_components_breaking.json'}
+    ).as('sitewideComponentsWithBreakingNews')
+
+    cy.visit('/')
+    cy.wait(['@index','@latest', '@sitewideComponentsWithBreakingNews'])
+    cy.get('.breaking-news').should('exist')
+    cy.get('.breaking-news-link').should('have.text', 'Test Breaking News')
+  })
 })
