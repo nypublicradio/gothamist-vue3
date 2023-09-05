@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue';
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import NavigationLink from 'composables/types/NavigationLink';
 
 defineProps<{
   title: string
-  link: NavigationLink
+  link: string
 }>()
 
 </script>
