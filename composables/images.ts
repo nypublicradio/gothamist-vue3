@@ -14,9 +14,9 @@ export function useImageUrl(image: Image, options?: { width: number, height: num
   }
   const imageUrlTemplate = `${config.public.IMAGE_BASE_URL}${image.id}/fill-%width%x%height%|format-webp|webpquality-%quality%/`
   return imageUrlTemplate
-    .replace('%width%', options?.width && String(options.width) || '%width%')
-    .replace('%height%', options?.height && String(options.height) || '%height%')
-    .replace('%quality%', options?.quality && String(options.quality) || '%quality%')
+    .replace('%width%', (options?.width && String(options.width)) ?? '%width%')
+    .replace('%height%', (options?.height && String(options.height)) ?? '%height%')
+    .replace('%quality%', (options?.quality && String(options.quality)) ?? '%quality%')
 }
 
 const calcQuality = (quality, size) => {
