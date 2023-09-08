@@ -282,7 +282,8 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
                 :streamfield-blocks="article.body"
                 @all-blocks-mounted="handleArticleMounted"
               />
-            <RelatedLinks
+            <LazyRelatedLinks
+              v-if="article.relatedLinks?.length"
               :article="article"
               class="below-body"
               trackingComponentLocation="Article Page Related Links"

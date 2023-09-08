@@ -4,7 +4,6 @@ import { gsap } from 'gsap'
 import { Draggable } from '~/assets/gsap/Draggable.js'
 import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
-import { ArticlePage } from '~~/composables/types/Page.js'
 
 const props = defineProps<{
   items: any[]
