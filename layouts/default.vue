@@ -1,10 +1,5 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-import { useElementSize } from '@vueuse/core'
-const leaderboardAdWrapperRef = ref(null)
-const leaderboardAdToWatch = useElementSize(leaderboardAdWrapperRef)
-const currentHeaderAdHeight = useCurrentHeaderAdHeight()
-const isArticlePage = useIsArticlePage()
 const marketingBannerData = useMarketingBannerData()
 
 const config = useRuntimeConfig()
@@ -33,6 +28,7 @@ marketingBannerData.value = productBanners
 const isSponsoredRoute = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
+const fixedHeaderVisible = useFixedHeaderVisible()
 const sidebarOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const closeSidebar = () => {
@@ -114,10 +110,6 @@ watch(route, (value) => {
     $htlbid.setTargetingForRoute(value)
     $htlbid.clearAds()
   }
-})
-// watch ads for height changes & update the global variable
-watch(leaderboardAdToWatch.height, (height) => {
-  currentHeaderAdHeight.value = height
 })
 
 useHead({
@@ -213,40 +205,44 @@ if (isSponsoredRoute) {
     <div>
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div
-        ref="leaderboardAdWrapperRef"
-        class="leaderboard-ad-wrapper flex justify-content-center align-items-center flex-column"
-      >
-        <HtlAd
-          v-if="route.name === 'index'"
-          layout="leaderboard"
-          slot="htlad-gothamist_index_leaderboard_1"
-        />
-        <HtlAd
-          v-else
-          layout="leaderboard"
-          slot="htlad-gothamist_interior_leaderboard_1"
-        />
+        class="leaderboard-wrapper flex justify-content-center align-items-center flex-column"
+      >        
+        <div class="leaderboard-ad-backdrop">
+          <HtlAd
+            v-if="route.name === 'index'"
+            layout="leaderboard"
+            slot="htlad-gothamist_index_leaderboard_1"
+          />
+          <HtlAd
+            v-else
+            layout="leaderboard"
+            slot="htlad-gothamist_interior_leaderboard_1"
+          />
+        </div>
+        <div class="leaderboard-container">
+          <Transition name="fixed-header">
+          <GothamistMainHeader
+              v-if="fixedHeaderVisible && route.name !== 'sectionSlug-articleSlug'"
+              class="fixed-header"
+              :navigation="navigation"
+              :isMinimized="true"
+              :donateUrlBase="config.public.donateUrlBase"
+              utmCampaign="homepage-header"
+            />
+        </Transition>
+          <div id="article-header" />
+        </div>
       </div>
       <main class="main">
-        <HeaderScrollTrigger :isHidden="isArticlePage">
-          <GothamistMainHeader
-            class="fixed-header"
-            :navigation="navigation"
-            :isMinimized="true"
-            isFixed
-            :donateUrlBase="config.public.donateUrlBase"
-            utmCampaign="homepage-header"
-          />
-        </HeaderScrollTrigger>
         <GothamistMainHeader
           :navigation="navigation"
           :isMinimized="route.name !== 'index'"
           :donateUrlBase="config.public.donateUrlBase"
           utmCampaign="homepage-header"
+          @visible="() => { fixedHeaderVisible = false }"
+          @not-visible="() => { fixedHeaderVisible = true }"
         />
-        <div class="default-slot-holder">
-          <slot />
-        </div>
+        <slot />
       </main>
       <gothamist-footer :navigation="navigation" />
       <audio-player />
@@ -290,20 +286,46 @@ if (isSponsoredRoute) {
 </template>
 
 <style lang="scss">
-.leaderboard-ad-wrapper {
-  background: #111111;
+.leaderboard-wrapper {
+  background: transparent;
   @include media('<md') {
-    min-height: 50px;
-    padding: 0;
     position: sticky;
     top: 0;
     z-index: 5000;
   }
+}
+
+.leaderboard-ad-backdrop {
+  background: #111111;
+  min-height: 50px;
+  width: 100vw;
+  padding: 0;
   @include media('>=md') {
     min-height: 92px;
     padding: 1px 0;
   }
 }
+.leaderboard-container {
+  position: relative;
+}
+.fixed-header {
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  width: 100vw;
+  min-height:73.5px;
+  display: block;
+  transition: opacity  0.25s linear;
+  opacity: 1;
+  @include media('>=md') {
+    position: fixed;
+    left: 0;
+    z-index: 20;
+  }
+}
+
+.fixed-header-enter-active, .fixed-header-leave-active { opacity: 0; }
 
 .main {
   @include page-top-gradient;

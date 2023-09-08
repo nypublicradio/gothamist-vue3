@@ -35,6 +35,7 @@ const [navigation, breakingNews, productBanners] = await Promise.all([
 const atTop = ref(true)
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
+const fixedHeaderVisible = useFixedHeaderVisible()
 const sidebarOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const closeSidebar = () => {
@@ -147,12 +148,26 @@ useServerHead({
       class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
     >
       <div v-if="!sensitiveContent" class="htlad-index_leaderboard_1"></div>
+      <div class="leaderboard-container">
+        <Transition name="fixed-header">
+          <GothamistMainHeader
+              v-if="fixedHeaderVisible && route.name !== 'sectionSlug-articleSlug'"
+              class="fixed-header"
+              :navigation="navigation"
+              :isMinimized="true"
+              :donateUrlBase="config.public.donateUrlBase"
+              utmCampaign="homepage-header"
+            />
+        </Transition>
+      </div>
     </div>
     <GothamistMainHeader
       :navigation="navigation"
       :isMinimized="route.name !== 'index'"
       :donateUrlBase="config.public.donateUrlBase"
       utmCampaign="goth_header"
+      @visible="() => { fixedHeaderVisible = false }"
+      @not-visible="() => { fixedHeaderVisible = true }"
     />
     <Sidebar
       v-model:visible="sidebarOpen"
@@ -239,21 +254,6 @@ useServerHead({
       font-size: var(--font-size-6);
       line-height: var(--font-size-6);
     }
-  }
-}
-
-.leaderboard-ad-wrapper {
-  background: #111111;
-  @include media('<md') {
-    min-height: 50px;
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 5000;
-  }
-  @include media('>=md') {
-    min-height: 92px;
-    padding: 1px 0;
   }
 }
 

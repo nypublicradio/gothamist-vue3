@@ -4,11 +4,11 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 
 defineProps<{
   isMinimized: boolean
-  isFixed?: boolean
   navigation: Navigation
   donateUrlBase: string
   utmCampaign: string
 }>()
+const emit = defineEmits(['visible','not-visible'])
 const currentSteamStation = useCurrentSteamStation()
 const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
@@ -19,6 +19,11 @@ const openSidebar = (e) => {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target
 }
+const headerElement = ref(null)
+const onVisible = () => emit('visible')
+const onNotVisible = () => emit('not-visible')
+useVisibilityTracking(headerElement, onVisible, onNotVisible)
+
 const trackClick = (category, label) => {
   //emitted mobile menu click event
   $analytics.sendEvent('click_tracking', {
@@ -31,9 +36,8 @@ const trackClick = (category, label) => {
 
 <template>
   <header
+    ref="headerElement"
     class="gothamist-header"
-    :class="[{ 'is-fixed': isFixed }]"
-    :style="isFixed ? `top:${currentHeaderAdHeight}px;` : ``"
   >
     <div
       class="top flex justify-content-between align-items-center sm:align-items-end"
@@ -107,19 +111,6 @@ const trackClick = (category, label) => {
 
 <style lang="scss">
 .gothamist-header {
-  &.is-fixed {
-    opacity: 0;
-    display: none;
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background-color: var(--white);
-    top: 90px;
-    @include media('>=md') {
-      top: 0px !important;
-    }
-  }
   .top,
   .bottom {
     width: 100%;
