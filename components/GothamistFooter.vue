@@ -43,7 +43,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
           <div class="block lg:hidden">
             <menu-list :navLinks="props.navigation.primaryFooterLinks" />
           </div>
-          <nypr-logos-bracket />
+          <lazy-nypr-logos-bracket />
         </div>
       </div>
       <hr class="w-full my-4" />

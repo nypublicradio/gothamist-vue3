@@ -274,7 +274,7 @@ if (isSponsoredRoute) {
       </div>
     </template>
     <template v-slot:default>
-      <GothamistSidebarContents
+      <LazyGothamistSidebarContents
         :navigation="navigation"
         :donateUrlBase="config.public.donateUrlBase"
         @menuListClick="trackSidebarClick($event)"
