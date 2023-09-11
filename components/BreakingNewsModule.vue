@@ -4,6 +4,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 
 defineProps<{
   title: string
+  tag: string
   link: string
 }>()
 
@@ -12,7 +13,7 @@ defineProps<{
   <div class="breaking-news">
     <v-tag
       class="breaking-news-tag"
-      name="Breaking News!"
+      :name="tag"
     />
     <div class="breaking-news-title"><VFlexibleLink class="breaking-news-link" :to=link>{{ title }}</VFlexibleLink></div>
   </div>

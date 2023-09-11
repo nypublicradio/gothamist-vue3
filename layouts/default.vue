@@ -249,6 +249,7 @@ if (isSponsoredRoute) {
             v-if="breakingNews.length"
             :title=breakingNews[0].title
             :link=breakingNews[0].link
+            :tag=breakingNews[0].description
           />
         </div>
         <div class="default-slot-holder">

@@ -82,8 +82,9 @@ describe('The home page', () => {
     ).as('sitewideComponentsWithBreakingNews')
 
     cy.visit('/')
-    cy.wait(['@index','@latest', '@sitewideComponentsWithBreakingNews'])
+    cy.wait(['@index','@latest','@sitewideComponentsWithBreakingNews'])
     cy.get('.breaking-news').should('exist')
-    cy.get('.breaking-news-link').should('have.text', 'Test Breaking News')
+    cy.get('.breaking-news-link').should('have.text', 'Test Breaking News Title')
+    cy.get('.breaking-news-tag').should('have.text', 'Test Breaking News Description')
   })
 })

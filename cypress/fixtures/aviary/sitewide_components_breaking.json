@@ -8,9 +8,9 @@
         {
             "type": "breaking_news",
             "value": {
-                "title": "Test Breaking News",
+                "title": "Test Breaking News Title",
                 "link": "/news/early-addition-mediocrity-is-in-for-spring-2022/",
-                "description": "<p><b>Test Breaking News</b></p>",
+                "description": "<p><b>Test Breaking News Description</b></p>",
                 "is_live_eligible": true,
                 "start_time": "2023-08-29T17:00:00-04:00"
             },

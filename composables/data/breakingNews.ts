@@ -12,9 +12,13 @@ export function normalizeFindBreakingNewsResponse(breakingNewsData: Record<strin
 }
 
 export function normalizeBreakingNews(newsItem: Record<string, any>): BreakingNews {
+    const naiveTagMatcher = /(<([^>]+)>)/ig // Good enough to clean up tags from a CMS rich text field
+    const description = newsItem.value.description ?
+        newsItem.value.description.replace(naiveTagMatcher, "") :
+        "Breaking News"
     return {
         title: newsItem.value.title,
         link: newsItem.value.link,
-        description: newsItem.value.description
+        description: description
     }
 }
