@@ -104,6 +104,9 @@ useServerHead({
   meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle}],
   link: [{rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/tags/${tagSlug}`}]
 })
+if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
+  useServerHead({meta: [{name: 'robots', content: 'noindex'}]})
+}
 </script>
 
 <template>
@@ -181,7 +184,7 @@ useServerHead({
               <hr class="mb-5" />
               <!-- mid page zone should go after the third article -->
               <div
-                v-if="index === 2 && curatedTagPage?.midPageZone"
+                v-if="index === 2 && curatedTagPage?.midPageZone.length"
                 class="tag-page-mid-zone my-8"
               >
                 <v-streamfield
