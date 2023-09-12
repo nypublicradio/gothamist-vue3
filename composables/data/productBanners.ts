@@ -2,7 +2,7 @@ import ProductBanner from "../types/ProductBanner"
 
 export function findProductBanners() {
     const config = useRuntimeConfig()
-    return useAviary(`/system_messages/${config.public.systemMessagesId}`)
+    return useAviary(`/system_messages/${config.public.systemMessagesId}/`)
 }
 
 export function normalizeFindProductBannersResponse(productBannersData: Record<string, any>): ProductBanner[] {
