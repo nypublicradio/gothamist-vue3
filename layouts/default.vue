@@ -244,7 +244,7 @@ if (isSponsoredRoute) {
         />
         <slot />
       </main>
-      <gothamist-footer :navigation="navigation" />
+      <gothamist-footer :navigation="navigation"/>
       <audio-player />
       <MarketingModal
         v-if="productBanners.length > 0"
@@ -274,13 +274,15 @@ if (isSponsoredRoute) {
       </div>
     </template>
     <template v-slot:default>
-      <LazyGothamistSidebarContents
-        :navigation="navigation"
-        :donateUrlBase="config.public.donateUrlBase"
-        @menuListClick="trackSidebarClick($event)"
-        utmCampaign="goth_hamburger"
-        class="mt-3"
-      />
+      <LoadLazily>
+        <LazyGothamistSidebarContents
+          :navigation="navigation"
+          :donateUrlBase="config.public.donateUrlBase"
+          @menuListClick="trackSidebarClick($event)"
+          utmCampaign="goth_hamburger"
+          class="mt-3"
+        />
+      </LoadLazily>
     </template>
   </Sidebar>
 </template>

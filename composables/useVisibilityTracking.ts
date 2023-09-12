@@ -1,4 +1,4 @@
-export default async function useVisibilityTracking(elementRef, onVisible, onNotVisible) {
+export default async function useVisibilityTracking(elementRef, onVisible, onNotVisible, options={threshold: [1.0]}) {
   const componentIsVisible = ref()
 
   if (!process.server) {
@@ -12,9 +12,7 @@ export default async function useVisibilityTracking(elementRef, onVisible, onNot
           onNotVisible()
         }
       })
-    }, {
-      threshold: [1.0]
-    });
+    }, options);
 
     onMounted(() => { 
       observer.observe(elementRef.value)
