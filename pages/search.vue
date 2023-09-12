@@ -2,11 +2,12 @@
 import { ref, onMounted, watch, nextTick } from 'vue'
 
 const route = useRoute()
+const config = useRuntimeConfig()
 const { $analytics } = useNuxtApp()
 const querySlug = ref(route.query.q)
-const query = ref(querySlug.value || '')
+const query = ref(querySlug.value ?? '')
 
-let articles = ref(
+const articles = ref(
   await searchArticlePages({ q: querySlug.value }).then(({ data }) =>
     normalizeSearchArticlePagesResponse(data)
   )
@@ -47,6 +48,9 @@ useHeadSafe({
 })
 useServerHeadSafe({
   meta: [{ property: 'og:title', content: pageTitle}]
+})
+useServerHead({
+  link: [{rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/search`}]
 })
 if (query.value) {
   useServerHead({meta: [{name: 'robots', content: 'noindex'}]})
