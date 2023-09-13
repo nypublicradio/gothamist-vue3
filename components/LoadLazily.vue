@@ -14,8 +14,8 @@
   })
   const element = ref(null)
   const seen = ref(false)
-  const onVisible = () => seen.value = true
-  const onNotVisible = () => {}
+  const onVisible = () => {seen.value = true}
+  const onNotVisible = () => { //do nothing }
   useVisibilityTracking(element, onVisible, onNotVisible, props.options )
 </script>
 

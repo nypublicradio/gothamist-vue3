@@ -14,7 +14,7 @@ const dragBoundsRef = ref(null)
 const isMobile = ref(false)
 const unitMinWidth = 310
 const toDragWidth = ref(unitMinWidth * props.items.length)
-const toDragWidthPx = ref(toDragWidth.value + 'px')
+const toDragWidthPx = ref(`${toDragWidth.value}px`)
 
 onMounted(() => {
   // draggable setup
