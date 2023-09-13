@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  let props = withDefaults(defineProps<{
+  const props = withDefaults(defineProps<{
     options?: {
       root?: HTMLElement
       rootMargin?: string

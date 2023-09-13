@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { Draggable } from '~/assets/gsap/Draggable.js'
 import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
