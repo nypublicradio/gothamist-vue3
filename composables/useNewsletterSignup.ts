@@ -1,11 +1,14 @@
+import type { MaybeRefOrGetter } from 'vue'
+
 export default function useNewsletterSignup(options: {
-  email: Ref<string>,
-  lists: Ref<string[]>,
-  consent: Ref<boolean>,
-  source: string,
+  email: MaybeRefOrGetter<string>,
+  selectedLists: MaybeRefOrGetter<string[]>,
+  additionalLists?: MaybeRefOrGetter<string[]>,
+  consent: MaybeRefOrGetter<boolean>,
+  source: MaybeRefOrGetter<string>,
 }) {
 
-
+options.additionalLists = options.additionalLists ?? []
 const { $sentry } = useNuxtApp()
 const config = useRuntimeConfig()
 
@@ -19,9 +22,9 @@ const isValidEmail = (email:string) => {
   return emailMatcher.test(email)
 }
 const isFormValid = computed(() => {
-  return isValidEmail(options.email.value) &&
-  options.lists.value.length > 0 &&
-  options.consent.value === true
+  return isValidEmail(toValue(options.email)) &&
+  toValue(options.selectedLists).length > 0 &&
+  toValue(options.consent) === true
 })
 const submitForm = (event=new Event('')) => {
   if (!isFormValid) {
@@ -33,15 +36,16 @@ const submitForm = (event=new Event('')) => {
   $fetch(config.public.NEWSLETTER_API, {
     method: 'POST',
     body: {
-      source: options.source,
-      list: options.lists.value.join('++'),
-      email: options.email.value
+      source: toValue(options.source),
+      list: [...toValue(options.selectedLists), ...toValue(options.additionalLists)].join('++'),
+      email: toValue(options.email)
     },
   })
   .then(() => {
     isSuccess.value = true
     isSubmitting.value = false
-    const cookie = useCookie('__gothamistNewsletterMember', { path: '/' })
+    const maxAge = 60 * 60 * 24 * 30 * 12 // about 12 months
+    const cookie = useCookie('__gothamistNewsletterMember', { path: '/', maxAge})
     cookie.value = 'true'
   })
   .catch((error) => {

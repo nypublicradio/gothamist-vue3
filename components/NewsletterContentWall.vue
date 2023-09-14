@@ -16,12 +16,12 @@ const startReading = () => {
 }
 
 const agree = ref(true)
-const lists = ref(['Gothamist Membership', 'Gothamist - Early Addition'])
+const selectedLists = ref(['Gothamist Membership', 'Gothamist - Early Addition'])
 const email = ref<string>(null)
 
 const newsletterSignup = useNewsletterSignup({
   email,
-  lists,
+  selectedLists,
   consent: agree,
   source: 'gothamist_archive_regWall'
 })
@@ -34,6 +34,8 @@ const handleSubmit = (emailAddress) => {
 watch(newsletterSignup.isSuccess, (value) => {
   if (value) {
     emit('sign-up')
+    setTimeout(() => { document.querySelector('.regwall-success-buttons button')?.focus() }, 1)
+    setTimeout(startReading, 5000)
   }
 })
 </script>
@@ -54,6 +56,7 @@ watch(newsletterSignup.isSuccess, (value) => {
         </div>
         <form
           class="gtm__click-tracking regwall-form"
+          @submit.prevent
         >
           <label
             for="newsletter"

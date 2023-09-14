@@ -2,7 +2,7 @@ import BreakingNews from "../types/BreakingNews"
 
 export function findBreakingNews() {
     const config = useRuntimeConfig()
-    return useAviary(`/sitewide_components/${config.public.sitewideComponentsId}`)
+    return useAviary(`/sitewide_components/${config.public.sitewideComponentsId}/`)
 }
 
 export function normalizeFindBreakingNewsResponse(breakingNewsData: Record<string, any>): BreakingNews[] {
