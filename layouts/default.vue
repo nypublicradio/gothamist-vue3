@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-const marketingBannerData = useMarketingBannerData()
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -16,15 +15,10 @@ const navigationPromise = findNavigation().then(({ data }) => {
 const breakingNewsPromise = findBreakingNews().then(({ data }) =>
   normalizeFindBreakingNewsResponse(data)
 )
-const productBannersPromise = findProductBanners().then(({ data }) =>
-  normalizeFindProductBannersResponse(data)
-)
-const [navigation, breakingNews, productBanners] = await Promise.all([
+const [navigation, breakingNews] = await Promise.all([
   navigationPromise,
   breakingNewsPromise,
-  productBannersPromise,
 ])
-marketingBannerData.value = productBanners
 const isSponsoredRoute = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
@@ -246,10 +240,6 @@ if (isSponsoredRoute) {
       </main>
       <gothamist-footer :navigation="navigation"/>
       <audio-player />
-      <MarketingModal
-        v-if="productBanners.length > 0"
-        :banners="productBanners"
-      />
     </div>
   </div>
   <Sidebar
