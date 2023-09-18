@@ -8,7 +8,7 @@
   }>(), {
     options: {
       root: null,
-      rootMargin: '1000px 0px 0px 0px',
+      rootMargin: '600px 0px 0px 0px',
       threshold: 0
     }
   })

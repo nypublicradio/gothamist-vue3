@@ -97,7 +97,7 @@ const articlesSm = ref([
       </div>
       <div class="col-3 flex-order-3">
         <hr class="my-3 block xl:hidden" />
-        <lazy-horizontal-drag :items="articlesSm" v-slot="slotProps">
+        <lazy-horizontal-drag v-if="articlesSm" :items="articlesSm" v-slot="slotProps">
           <gothamist-card
             v-slot="card"
             :article="slotProps.item"
