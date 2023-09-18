@@ -97,7 +97,7 @@ const articlesSm = ref([
       </div>
       <div class="col-3 flex-order-3">
         <hr class="my-3 block xl:hidden" />
-        <lazy-horizontal-drag v-if="articlesSm" :items="articlesSm" v-slot="slotProps">
+        <horizontal-drag v-if="articlesSm" :items="articlesSm" v-slot="slotProps">
           <gothamist-card
             v-slot="card"
             :article="slotProps.item"
@@ -119,7 +119,7 @@ const articlesSm = ref([
               @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
-        </lazy-horizontal-drag>
+        </horizontal-drag>
         <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
           <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
         </div>

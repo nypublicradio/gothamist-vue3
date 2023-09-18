@@ -52,7 +52,7 @@ const relatedLinks = await Promise.all(props.article.relatedLinks.slice(0, limit
     <div v-if="relatedLinks.length" class="related-links">
       <hr class="black mb-2" />
       <div class="type-label3 mb-4">Related stories</div>
-      <lazy-horizontal-drag v-if="relatedLinks" :items="relatedLinks" v-slot="slotProps">
+      <horizontal-drag v-if="relatedLinks" :items="relatedLinks" v-slot="slotProps">
         <!-- article page -->
         <gothamist-card
           class="mod-horizontal mod-left mod-small mb-0"
@@ -69,7 +69,7 @@ const relatedLinks = await Promise.all(props.article.relatedLinks.slice(0, limit
             :showComments="false"
           />
         </gothamist-card>
-      </lazy-horizontal-drag>
+      </horizontal-drag>
     </div>
   </div>
 </template>

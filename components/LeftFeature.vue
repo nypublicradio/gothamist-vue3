@@ -101,7 +101,7 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
               />
             </gothamist-card>
             <hr class="my-3" />
-            <lazy-horizontal-drag v-if="articlesSm" :items="articlesSm" v-slot="slotProps">
+            <horizontal-drag v-if="articlesSm" :items="articlesSm" v-slot="slotProps">
               <gothamist-card
                 v-slot="card"
                 :article="slotProps.item"
@@ -118,7 +118,7 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
                   @link-click="$event => card.trackClick($event)"
                 />
               </gothamist-card>
-            </lazy-horizontal-drag>
+            </horizontal-drag>
           </div>
         </div>
       </div>
