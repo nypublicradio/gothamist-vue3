@@ -43,8 +43,8 @@ const copyrightYear = ref(props.navigation.copyrightYear)
           <div class="block lg:hidden">
             <menu-list :navLinks="props.navigation.primaryFooterLinks" />
           </div>
-          <LoadLazily>
-            <lazy-nypr-logos-bracket />
+          <LoadLazily v-slot="lazyLoader">
+            <lazy-nypr-logos-bracket v-if="lazyLoader.seen" />
           </LoadLazily>
         </div>
       </div>

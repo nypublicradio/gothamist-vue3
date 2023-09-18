@@ -274,8 +274,9 @@ if (isSponsoredRoute) {
       </div>
     </template>
     <template v-slot:default>
-      <LoadLazily>
+      <LoadLazily v-slot="lazyLoader">
         <LazyGothamistSidebarContents
+          v-if="lazyLoader.seen"
           :navigation="navigation"
           :donateUrlBase="config.public.donateUrlBase"
           @menuListClick="trackSidebarClick($event)"
