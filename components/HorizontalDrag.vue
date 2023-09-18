@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { Draggable } from '~/assets/gsap/Draggable.js'
 import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
-import { ArticlePage } from '~~/composables/types/Page.js'
 
 const props = defineProps<{
   items: any[]
@@ -15,7 +14,7 @@ const dragBoundsRef = ref(null)
 const isMobile = ref(false)
 const unitMinWidth = 310
 const toDragWidth = ref(unitMinWidth * props.items.length)
-const toDragWidthPx = ref(toDragWidth.value + 'px')
+const toDragWidthPx = ref(`${toDragWidth.value}px`)
 
 onMounted(() => {
   // draggable setup

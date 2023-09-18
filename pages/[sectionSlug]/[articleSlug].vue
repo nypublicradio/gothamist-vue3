@@ -8,13 +8,6 @@ import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 /* preview */
-import {
-  usePreviewData,
-  useIsArticlePage,
-  useMarketingBannerData,
-} from '~/composables/states'
-import useWalledState from '~/composables/useWalledState'
-const isArticlePage = useIsArticlePage()
 const previewData = usePreviewData()
 const marketingBannerData = useMarketingBannerData()
 const route = useRoute()
@@ -54,9 +47,11 @@ const galleryLength = gallery?.slides?.length ?? 0
 const trackingData = useArticlePageTrackingData(article)
 const adTargetingData = useArticlePageAdTargetingData(article)
 const sensitiveContent = useSensitiveContent()
+const fixedHeaderVisible = useFixedHeaderVisible()
 const headMetadata = useArticlePageHeadMetadata(article)
 const sectionSlug = computed(() => route?.params?.sectionSlug as string)
 const contentLocked = ref(false) // starts unlocked for ssr, we check content wall state during onMounted hook
+const isMounted = ref(false)
 
 useHead({
   title: `${article.seoTitle} - Gothamist`
@@ -88,22 +83,18 @@ useChartbeat({
 })
 useOptinMonster()
 
-onBeforeMount(() => {
-  isArticlePage.value = true
-})
-
 onMounted(() => {
   $analytics.sendPageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
   useUpdateCommentCounts([article])
   contentLocked.value = useWalledState(article)
+  isMounted.value = true
 })
 
 onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
   sensitiveContent.value = false
-  isArticlePage.value = false
 })
 
 // handle ads when the article is mounted
@@ -176,19 +167,22 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
 </script>
 <template>
   <div>
-    <HeaderScrollTrigger header-class="article-page-header">
+    <Teleport name="teleport" to="#article-header" v-if="isMounted">
       <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
-        <ArticlePageHeader
-          class="article-page-header"
-          :donateUrlBase="config.public.donateUrlBase"
-          utmCampaign="goth_header"
-          :progress="scrollTrackerProps.scrollPercentage"
-          :title="article?.title"
-          :shareUrl="article.url"
-          :shareTitle="article.socialTitle"
-        />
+        <Transition name="article-page-header">
+          <ArticlePageHeader
+            v-if="fixedHeaderVisible"
+            class="article-page-header"
+            :donateUrlBase="config.public.donateUrlBase"
+            utmCampaign="goth_header"
+            :progress="scrollTrackerProps.scrollPercentage"
+            :title="article?.title"
+            :shareUrl="article.url"
+            :shareTitle="article.socialTitle"
+          />
+        </Transition>
       </ScrollTracker>
-    </HeaderScrollTrigger>
+    </Teleport>
     <section class="top-section" v-if="article">
       <div class="content">
         <div class="grid gutter-x-30">
@@ -288,11 +282,13 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
                 :streamfield-blocks="article.body"
                 @all-blocks-mounted="handleArticleMounted"
               />
-            <RelatedLinks
-              :article="article"
-              class="below-body"
-              trackingComponentLocation="Article Page Related Links"
-            />
+            <LoadLazily v-if="article.relatedLinks?.length">
+              <LazyRelatedLinks
+                :article="article"
+                class="below-body"
+                trackingComponentLocation="Article Page Related Links"
+              />
+            </LoadLazily>
             <ArticleDonationMarketingBottomCTA
               v-if="showMarketingBanner"
               class="below-body"

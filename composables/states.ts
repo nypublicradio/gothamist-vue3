@@ -4,6 +4,7 @@ export const useSensitiveContent = () => useState<boolean>('sensitiveContent', (
 export const useSidebarIsOpen = () => useState<boolean>('sidebarIsOpen', () => false)
 export const useSidebarOpenedFrom = () => useState<HTMLElement>('sidebarOpenedFrom', () => null)
 export const useMembershipStatus = () => useState<string>('membershipStatus', () => 'status-unknown')
+export const useFixedHeaderVisible = () => useState<boolean>('fixedHeaderVisible', () => false)
 export const useNavigation = () => useState<Navigation>('navigation', () => ({
     id: 0,
     primaryNavigation: [],
@@ -68,12 +69,6 @@ const currentHeaderAdHeight = 0
  * Global state for the current AD height. 
  */
 export const useCurrentHeaderAdHeight = () => useState('useCurrentHeaderAdHeight', () => currentHeaderAdHeight)
-
-const isArticlePage = false
-/**
- * Global state for the current AD height. 
- */
-export const useIsArticlePage = () => useState('useIsArticlePage', () => isArticlePage)
 
 const currentSteamStation = 'wnyc-fm939'
 /**
