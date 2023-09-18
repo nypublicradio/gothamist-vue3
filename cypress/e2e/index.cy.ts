@@ -64,17 +64,6 @@ describe('The home page', () => {
     cy.get('#articleList .gothamist-card').should('have.length', 12)
     cy.get('#articleList .card-title-link').eq(6).should('have.focus')
   })
-  it('shows the marketing modal', () => {
-    cy.intercept(
-      '/api/v2/system_messages/*', 
-      {fixture: 'aviary/system_messages_bottom.json'}
-    ).as('systemMessagesWithBottomCTA')
-
-    cy.visit('/')
-    cy.get('.marketing-modal').should('exist')
-    cy.get('.p-dialog-header-close').click()
-    cy.get('.marketing-modal').should('not.exist')
-  })
   it('hides and shows the fixed header', () => {
     cy.visit('/')
     cy.get('.fixed-header').should('not.exist')

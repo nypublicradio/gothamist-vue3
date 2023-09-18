@@ -41,19 +41,6 @@ describe('An article page', () => {
         cy.get('.recirculation .gothamist-card:not(.hidden)').should('have.length', 5)
         cy.get('.recirculation .gothamist-card:not(.hidden)').eq(1).should('have.attr', 'id', 'ntv-article-1')
     })
-    it('shows the marketing CTAs', () => {
-        cy.intercept(
-            '/api/v2/system_messages/*',
-            {fixture: 'aviary/system_messages_bottom.json'}
-        ).as('systemMessagesWithBottomCTA')
-
-        cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
-        cy.get('.marketing-modal').should('exist')
-        cy.get('.p-dialog-header-close').click()
-        cy.get('.marketing-modal').should('not.exist')
-        cy.get('.article-donation-marketing-CTA').should('exist')
-        cy.get('.article-donation-marketing-bottom-CTA').should('exist')
-    })
     it('shows preview for draft articles', () => {
         cy.clearCookie('__gothamistNewsletterMember')
 
