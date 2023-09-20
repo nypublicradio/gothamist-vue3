@@ -33,18 +33,6 @@ Start the development server on `http://localhost:3000`
 npm run dev
 ```
 
-## Updating the Marketing banner
-CMS Link: https://cms.demo.nypr.digital/admin/settings/utils/systemmessagessettings/3/
-
-Add any new image assets to the ~/public/marketing-modal folder.
-
-Since the gift asset shows up in 2 places, the initial modal (marketingModal.vue) and in the bottom of the articles (ArticleDonationMarketingBottomCTA.vue), I created a single component where you can update/replace the gift asset. 
-```js
-~/components/gifts/TheGift.vue
-```
-
-Inside TheGift.vue component, you can just use the BasicGiftImage.vue component if the asset is just an image. If it is anything else, add your custom component there instead. 
-
 ## Production
 
 Build the application for production:

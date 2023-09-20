@@ -83,7 +83,3 @@ const previewData = null
  * Global state for the current episode object. 
  */
 export const usePreviewData = () => useState('usePreviewData', () => previewData)
-
-// CMS product Banner Data globals
-const marketingBannerData = null
-export const useMarketingBannerData = () => useState('useMarketingBannerData', () => marketingBannerData)

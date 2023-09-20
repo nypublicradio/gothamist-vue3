@@ -2,14 +2,11 @@
 import { onMounted, computed } from 'vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
-import ArticleDonationMarketingCTA from '~/components/marketing-banners/ArticleDonationMarketingCTA.vue'
-import ArticleDonationMarketingBottomCTA from '~/components/marketing-banners/ArticleDonationMarketingBottomCTA.vue'
 import { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 /* preview */
 const previewData = usePreviewData()
-const marketingBannerData = useMarketingBannerData()
 const route = useRoute()
 const isPreview = route.query.preview ? true : false
 /* preview */
@@ -157,10 +154,6 @@ const getGalleryLink = computed(() => {
   return gallery.url.replace(/^https:\/\/[^/]*/, '')
 })
 
-const showMarketingBanner = computed(() => {
-  return marketingBannerData.value[0]?.location === 'BOTTOM'
-})
-
 const tagName = computed(() => article?.sponsoredContent ? "Sponsored" : article?.section?.name )
 const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.section?.slug}` )
 
@@ -249,12 +242,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
               <byline class="pt-4" :article="article" />
               <hr class="mt-3 mb-5" />
             </div>
-            <ArticleDonationMarketingCTA
-              v-if="showMarketingBanner"
-              :banners="marketingBannerData"
-            />
             <article-donation-CTA
-              v-else
               :donateUrlBase="config.public.donateUrlBase"
               utmCampaign="article-top"
             />
@@ -289,11 +277,6 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
                 trackingComponentLocation="Article Page Related Links"
               />
             </LoadLazily>
-            <ArticleDonationMarketingBottomCTA
-              v-if="showMarketingBanner"
-              class="below-body"
-              :banners="marketingBannerData"
-            />
           </div>
         </div>
       </div>
