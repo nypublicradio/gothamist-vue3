@@ -21,10 +21,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         logErrors: true,
         debug: false,
         environment: config.public.SENTRY_ENV,
-        beforeSend(event) {
-            return event;
-        }
-    });
+    })
 
     return {
         provide: {
@@ -33,8 +30,8 @@ export default defineNuxtPlugin((nuxtApp) => {
                 setUser: (user) => Sentry.setUser(user),
                 setTag: (tagName, value) => Sentry.setTag(tagName, value),
                 addBreadcrumb: (breadcrumb) => Sentry.addBreadcrumb(breadcrumb),
-                captureException: (exception) => Sentry.captureException(exception)
+                captureException: (exception) => Sentry.captureException(exception),
             }
         }
     }
-});
+})
