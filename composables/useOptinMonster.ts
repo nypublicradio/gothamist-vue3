@@ -4,11 +4,11 @@ export default function useOptinMonster() {
     script: [{
       children:
       `document.addEventListener('om.Scripts.init', function(event) {
-      event.detail.Scripts.enabled.fonts = false;`
+        event.detail.Scripts.enabled.fonts = false;
+      })`
     }],
     style: [{
-      children: `
-      html div#om-${config.public.OPTIN_MONSTER_ACCOUNT_ID} .gothamist-sans-serif
+      children: `html div#om-${config.public.OPTIN_MONSTER_ACCOUNT_ID} .gothamist-sans-serif
       { font-family:'Haffer SQ, sans-serif !important; }
       html div#om-${config.public.OPTIN_MONSTER_ACCOUNT_ID} .gothamist-sans-serif-bold
       { font-family:'Haffer SQ SemiBold, sans-serif !important;
