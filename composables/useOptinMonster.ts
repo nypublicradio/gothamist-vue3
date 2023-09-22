@@ -9,12 +9,12 @@ export default function useOptinMonster() {
     }],
     style: [{
       children: html .Campaign .gothamist-sans-serif
-      { font-family:'Haffer SQ, sans-serif !important; }
+      { font-family: "Haffer SQ", sans-serif !important; }
       html .Campaign .gothamist-sans-serif-bold
-      { font-family:'Haffer SQ SemiBold, sans-serif !important;
+      { font-family: "Haffer SQ SemiBold", sans-serif !important;
         font-weight: 600 !important; }
       html .Campaign .gothamist-serif
-      { font-family:'Reckless Neue, serif !important; }`
+      { font-family: "Reckless Neue", serif !important; }`
     }]
   })
   onMounted(() => {
