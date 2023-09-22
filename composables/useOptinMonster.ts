@@ -8,12 +8,12 @@ export default function useOptinMonster() {
       })`
     }],
     style: [{
-      children: `html div#om-${config.public.OPTIN_MONSTER_ACCOUNT_ID} .gothamist-sans-serif
+      children: `html div#om-${config.public.OPTIN_MONSTER_USER_ID} .gothamist-sans-serif
       { font-family:'Haffer SQ, sans-serif !important; }
-      html div#om-${config.public.OPTIN_MONSTER_ACCOUNT_ID} .gothamist-sans-serif-bold
+      html div#om-${config.public.OPTIN_MONSTER_USER_ID} .gothamist-sans-serif-bold
       { font-family:'Haffer SQ SemiBold, sans-serif !important;
         font-weight: 600 !important; }
-      html div#om-${config.public.OPTIN_MONSTER_ACCOUNT_ID} .gothamist-serif
+      html div#om-${config.public.OPTIN_MONSTER_USER_ID} .gothamist-serif
       { font-family:'Reckless Neue, serif !important; }`
     }]
   })
