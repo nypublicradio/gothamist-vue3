@@ -8,7 +8,7 @@ export default function useOptinMonster() {
       })`
     }],
     style: [{
-      children: html .Campaign .gothamist-sans-serif
+      children: `html .Campaign .gothamist-sans-serif
       { font-family: "Haffer SQ", sans-serif !important; }
       html .Campaign .gothamist-sans-serif-bold
       { font-family: "Haffer SQ SemiBold", sans-serif !important;
