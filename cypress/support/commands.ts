@@ -57,4 +57,11 @@ Cypress.Commands.add('loadGlobalFixtures',  () => {
     cy.intercept({
       hostname: 'a.omappapi.com'
     }, {statusCode: 200, body: ''}).as('optinMonster2')
+
+    /* prevent test failure on error that only happens in cypress on ci */
+    Cypress.on('uncaught:exception', (err) => {
+        if (err.message.includes("ResizeObserver loop limit exceeded")) {
+            return false
+        }
+    })
   })
