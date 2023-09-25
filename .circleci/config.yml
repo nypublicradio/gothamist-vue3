@@ -126,7 +126,7 @@ jobs:
 
   test_nginx:
     docker:
-      - image: node:16.14.2-slim
+      - image: node:18.18.0-slim
     parameters:
       env:
         type: enum
@@ -249,7 +249,7 @@ commands:
 executors:
   default:
     docker:
-      - image: cypress/browsers:node-16.18.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
+      - image: cypress/browsers:node-18.15.0-chrome-106.0.5249.61-1-ff-99.0.1-edge-114.0.1823.51-1
     environment:
       JOBS: 2
 

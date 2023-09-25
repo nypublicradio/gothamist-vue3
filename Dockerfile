@@ -1,4 +1,4 @@
-FROM node:16.14.2 as build
+FROM node:18.18.0 as build
 
 ARG SENTRY_DSN
 ARG SENTRY_ENV
