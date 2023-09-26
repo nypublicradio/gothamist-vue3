@@ -17,15 +17,17 @@ const embedType = computed(() => {
 </script>
 
 <template>
-  <StreamfieldEmbedTweet
-    v-if="embedType === 'twitter-tweet'"
-    :key="`${block.id}-embed-tweet`"
-    :block="block"
-  />
-  <StreamfieldEmbedDefault
-    v-else
-    :class="[{ youtube: embedType === 'youtube-video' }]"
-    :key="`${block.id}-embed-default`"
-    :block="block"
-  />
+  <LoadLazily>
+    <LazyStreamfieldEmbedTweet
+      v-if="embedType === 'twitter-tweet'"
+      :key="`${block.id}-embed-tweet`"
+      :block="block"
+    />
+    <LazyStreamfieldEmbedDefault
+      v-else
+      :class="[{ youtube: embedType === 'youtube-video' }]"
+      :key="`${block.id}-embed-default`"
+      :block="block"
+    />
+  </LoadLazily>
 </template>
