@@ -52,7 +52,9 @@ const onTagClick = (tag) => {
         </div>
         <div v-if="!isDisableComments" id="comments" class="mb-4 md:mb-6">
           <hr class="black mb-4 md:mb-6" />
-          <comments-section :article="props.article" />
+          <LoadLazily>
+            <lazy-comments-section :article="props.article" />
+          </LoadLazily>
         </div>
       </div>
       <div class="col-fixed mx-auto hidden lg:block">
