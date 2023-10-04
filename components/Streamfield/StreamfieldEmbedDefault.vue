@@ -24,10 +24,5 @@ const el = ref(null)
       height: 100% !important;
     }
   }
-  .instagram-media {
-    @include media('<lg') {
-      margin: auto !important;
-    }
-  }
 }
 </style>

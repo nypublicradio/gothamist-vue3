@@ -8,14 +8,14 @@
   }>(), {
     options: {
       root: null,
-      rootMargin: '1000px 0px 0px 0px',
+      rootMargin: '0px 0px 400px 0px',
       threshold: 0
     }
   })
   const element = ref(null)
   const seen = ref(false)
   const onVisible = () => {seen.value = true}
-const onNotVisible = () => { /*do nothing*/ }
+  const onNotVisible = () => { /*do nothing*/ }
   useVisibilityTracking(element, onVisible, onNotVisible, props.options )
 </script>
 

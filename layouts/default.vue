@@ -246,7 +246,11 @@ if (isSponsoredRoute) {
       </div>
     </template>
     <template v-slot:default>
-      <LoadLazily>
+      <LoadLazily :options="{
+        root: null,
+        rootMargin: '0px',
+        threshold: 0
+      }">
         <LazyGothamistSidebarContents
           :navigation="navigation"
           :donateUrlBase="config.public.donateUrlBase"
