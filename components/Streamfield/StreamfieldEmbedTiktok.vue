@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { usePreferredDark } from '@vueuse/core';
 import { EmbedBlock } from '~~/composables/types/StreamfieldBlock';
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 
-const props = defineProps<{
+defineProps<{
     block: EmbedBlock
 }>()
 
