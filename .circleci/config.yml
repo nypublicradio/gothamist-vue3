@@ -32,6 +32,10 @@ workflows:
           <<: *filter_all
           requires:
             - build
+      - test_eslint:
+          <<: *filter_all
+          requires:
+            - build
       - test_cypress:
           <<: *filter_all
           requires:
@@ -43,6 +47,7 @@ workflows:
           tag: demo
           requires:
             - test
+            - test_eslint
             - test_nginx
             - test_cypress
       - deploy:
@@ -52,6 +57,7 @@ workflows:
           <<: *filter_prod
           requires:
             - test
+            - test_eslint
             - test_nginx
             - test_cypress
       - cf-function-deploy:
@@ -61,6 +67,7 @@ workflows:
           <<: *filter_demo
           requires:
             - test
+            - test_eslint
             - test_nginx
             - test_cypress
             - Deploy (demo)
@@ -71,6 +78,7 @@ workflows:
           <<: *filter_prod
           requires:
             - test
+            - test_eslint
             - test_nginx
             - test_cypress
             - Deploy (prod)
@@ -110,6 +118,17 @@ jobs:
           command: |
             npx nuxi prepare
             npm run test
+  test_eslint:
+    executor: default
+    steps:
+      - checkout
+      - restore_cache:
+          key: v3-deps-{{ checksum "package-lock.json" }}
+      # run test suite
+      - run:
+          name: Run eslint
+          command: |
+            npm run lint
 
   test_cypress:
     executor: default
