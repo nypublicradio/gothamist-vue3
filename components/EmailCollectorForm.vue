@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   showNoThanks: {
@@ -52,9 +52,9 @@ const submitButtonWidth = ref(40)
 const emailErrorText = ref(null)
 onMounted(() => {
   // for some reason the submit button is not always rendered when the component is mounted coming from a route transition, so I have to add a slight delay to make sure it gets access to the button.
-  //this is a known bug: https://github.com/nuxt/framework/issues/3587
+  // this is a known bug: https://github.com/nuxt/framework/issues/3587
   setTimeout(() => {
-    //gets the width of the submit button to set the padding right on the input field
+    // gets the width of the submit button to set the padding right on the input field
     submitButtonWidth.value = submitButtonRef.value.offsetWidth + 20
   }, 500)
 })
@@ -67,7 +67,8 @@ const validateEmail = () => {
   emailErrorText.value = null
   if (validRegex.test(email.value)) {
     return true
-  } else {
+  }
+  else {
     emailErrorText.value = 'Please enter a valid email address.'
     return false
   }
@@ -82,17 +83,18 @@ watch(
       case 'success':
         break
       case 'error':
-        emailErrorText.value =
-          'Sorry, there was an error with your submission. Please try again!'
+        emailErrorText.value
+          = 'Sorry, there was an error with your submission. Please try again!'
         break
       default:
     }
-  }
+  },
 )
 
 // submit the email value through the emit if the email is valid
 const submitForm = () => {
-  if (validateEmail()) emit('submit', email.value)
+  if (validateEmail())
+    emit('submit', email.value)
 }
 </script>
 
@@ -117,22 +119,21 @@ const submitForm = () => {
             >
               <Button
                 :disabled="props.isSubmitting || !checked"
-                @click="submitForm"
                 class="submit-btn p-button-rounded"
                 :class="[{ 'p-button-outlined': props.outlined }]"
                 :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
-                iconPos="right"
+                icon-pos="right"
                 :label="submitButtonIcon ? null : props.submitButtonText"
                 :aria-label="props.submitButtonText"
+                @click="submitForm"
               >
                 <i v-if="props.isSubmitting" class="pi pi-spin pi-spinner" />
               </Button>
             </i>
             <span class="field">
-              <label :class="emailErrorText ? 'p-error' : ''" for="email"
-                >Email address</label
-              >
+              <label :class="emailErrorText ? 'p-error' : ''" for="email">Email address</label>
               <InputText
+                v-model="email"
                 :disabled="props.isSubmitting"
                 class="w-full p-inputtext-lg"
                 :class="[
@@ -145,7 +146,6 @@ const submitForm = () => {
                 placeholder="your@email.com"
                 aria-label="sign up"
                 aria-describedby="email-address-field"
-                v-model="email"
                 autocomplete="email"
                 name="email"
                 @keypress.enter="submitForm"
@@ -157,15 +157,14 @@ const submitForm = () => {
               v-if="emailErrorText"
               id="email-address-field"
               class="p-error mt-1 block"
-              >{{ emailErrorText }}</small
-            >
+            >{{ emailErrorText }}</small>
           </Transition>
           <div class="field-checkbox mt-3 mb-0">
             <Checkbox
+              v-model="checked"
               role="checkbox"
               aria-label="Toggle agreement to the terms"
               :aria-checked="checked"
-              v-model="checked"
               :disabled="props.isSubmitting"
               :binary="true"
               @click="!checked"
@@ -176,16 +175,17 @@ const submitForm = () => {
         <div v-if="props.showNoThanks" class="flex justify-content-start">
           <div>
             <Button
-              @click="emit('noThanksClick')"
               class="no-thanks-btn p-button-link"
               label="No thanks"
               :style="props.isSubmitting ? 'visibility: hidden' : ''"
-            >
-            </Button>
+              @click="emit('noThanksClick')"
+            />
           </div>
         </div>
       </span>
-      <p v-else class="type-paragraph3">{{ props.thanksMessage }}</p>
+      <p v-else class="type-paragraph3">
+        {{ props.thanksMessage }}
+      </p>
     </div>
   </div>
 </template>

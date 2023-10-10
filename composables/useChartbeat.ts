@@ -11,19 +11,19 @@ export default function useChartbeat(pageInfo = {}) {
     $chartbeat.updatePage(info)
   }
 
-  let observer:MutationObserver
+  let observer: MutationObserver
 
   onMounted(() => {
     observer = new MutationObserver(updatePage)
     if (!process.server) {
       observer.observe(
         document.querySelector('title'),
-        { subtree: true, characterData: true, childList: true }
-      );
+        { subtree: true, characterData: true, childList: true },
+      )
     }
   })
 
   onUnmounted(() => {
-    observer.disconnect();
+    observer.disconnect()
   })
 }

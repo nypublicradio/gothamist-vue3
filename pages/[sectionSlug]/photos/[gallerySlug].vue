@@ -1,31 +1,30 @@
 <script setup lang="ts">
-import { GalleryPage } from '~/composables/types/Page'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
+import type { GalleryPage } from '~/composables/types/Page'
 import { usePreviewData } from '~/composables/states'
 
 const previewData = usePreviewData()
 const route = useRoute()
 const { $analytics, $htlbid } = useNuxtApp()
-const isPreview = route.query.preview ? true : false
+const isPreview = !!route.query.preview
 
 const gallery = isPreview
   ? previewData.value.data
   : ((await findPage(
-      `${route.params.sectionSlug}/photos/${route.params.gallerySlug}`
-    ).then(({ data }) => normalizeFindPageResponse(data)
+      `${route.params.sectionSlug}/photos/${route.params.gallerySlug}`,
+    ).then(({ data }) => normalizeFindPageResponse(data),
     ).catch(() => {
-        throw createError({
+      throw createError({
         statusCode: 404,
         statusMessage: 'Page Not Found',
         fatal: true,
       })
     })) as GalleryPage)
 
-if (gallery.slides.length <= 0 && gallery.articleLink) {
+if (gallery.slides.length <= 0 && gallery.articleLink)
   navigateTo(gallery.articleLink, { replace: true, redirectCode: 301 })
-}
 
 const shareUrl = ref(gallery.url)
 const shareTitle = ref(gallery.title)
@@ -35,12 +34,12 @@ const adTargetingData = { Template: 'Article Gallery' }
 const article = gallery.relatedArticles?.[0]
 
 useHead({
-  title: `${article.seoTitle} - Gothamist`
+  title: `${article.seoTitle} - Gothamist`,
 })
 useServerHead(headMetadata)
 useChartbeat({
   section: article.section.name,
-  authors: article.authors.map(author => author.name).join(',')
+  authors: article.authors.map(author => author.name).join(','),
 })
 useOptinMonster()
 
@@ -69,8 +68,8 @@ const goBack = () => {
     <div class="content">
       <div class="grid gutter-30 mb-4">
         <div class="col-6">
-          <v-share-tools label="Share" class="mt-3">
-            <v-share-tools-item
+          <VShareTools label="Share" class="mt-3">
+            <VShareToolsItem
               action="share"
               service="facebook"
               :url="shareUrl"
@@ -87,7 +86,7 @@ const goBack = () => {
                 })
               "
             />
-            <v-share-tools-item
+            <VShareToolsItem
               action="share"
               service="twitter"
               :url="shareUrl"
@@ -105,7 +104,7 @@ const goBack = () => {
                 })
               "
             />
-            <v-share-tools-item
+            <VShareToolsItem
               action="share"
               service="reddit"
               :url="shareUrl"
@@ -123,11 +122,11 @@ const goBack = () => {
                 })
               "
             />
-            <v-share-tools-item
+            <VShareToolsItem
               action="share"
               service="email"
               :url="shareUrl"
-              :share-parameters="{ body: shareTitle + ' - %URL%' }"
+              :share-parameters="{ body: `${shareTitle} - %URL%` }"
               :utm-parameters="{
                 medium: 'social',
                 source: 'email',
@@ -141,7 +140,7 @@ const goBack = () => {
                 })
               "
             />
-          </v-share-tools>
+          </VShareTools>
         </div>
         <div class="col-6 text-right">
           <NuxtLink :to="gallery.articleLink" @click="goBack()">
@@ -152,30 +151,32 @@ const goBack = () => {
       </div>
       <div class="grid gutter-x-30">
         <div class="col-12">
-          <h1 v-if="gallery.title">{{ gallery.articleTitle }}</h1>
+          <h1 v-if="gallery.title">
+            {{ gallery.articleTitle }}
+          </h1>
           <p class="gallery-photo-count mb-3">
             {{ gallery.slides.length }} photos
           </p>
         </div>
         <div
           v-for="(slide, index) in gallery.slides"
+          :key="`${slide.image.id}-${index}`"
           class="col-12"
           :class="{ 'xl:col-6': index % 3 !== 0 }"
-          :key="`${slide.image.id}-${index}`"
         >
           <template v-if="index === 3 || (index > 0 && index % 6 === 0)">
             <HtlAd
-              layout="rectangle"
               slot="htlad-gothamist_interior_midpage_repeating"
+              layout="rectangle"
             />
-            <hr class="my-3" />
+            <hr class="my-3">
           </template>
-          <v-image-with-caption
+          <VImageWithCaption
             v-if="slide.image"
             :image="useImageUrl(slide.image)"
             :alt-text="slide.image.alt"
-            :maxWidth="slide.image.width"
-            :maxHeight="slide.image.height"
+            :max-width="slide.image.width"
+            :max-height="slide.image.height"
             :credit="slide.image.credit"
             :credit-url="slide.image.creditLink"
             :description="slide.title || slide.image.caption"
@@ -184,7 +185,7 @@ const goBack = () => {
             :allow-preview="true"
             :loading="index === 0 ? 'eager' : 'lazy'"
           />
-          <hr class="my-3" />
+          <hr class="my-3">
         </div>
       </div>
       <div class="text-right mt-2">

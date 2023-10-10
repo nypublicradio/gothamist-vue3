@@ -2,7 +2,6 @@
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
-const { $analytics } = useNuxtApp()
 
 const props = defineProps({
   title: {
@@ -30,6 +29,9 @@ const props = defineProps({
     default: '',
   },
 })
+
+const { $analytics } = useNuxtApp()
+
 const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = useStrapline()
@@ -47,17 +49,17 @@ const openSidebar = (e) => {
         class="article-page-header-contents content py-0 my-3 flex align-items-center justify-content-between"
       >
         <div class="article-page-header-left">
-          <v-flexible-link to="/" raw>
+          <VFlexibleLink to="/" raw>
             <LogoGothamist class="article-page-header-logo" />
-          </v-flexible-link>
+          </VFlexibleLink>
           <div class="article-page-header-tagline hidden" v-html="strapline" />
         </div>
         <div class="article-page-header-center hidden h6 md:block px-4">
           {{ title }}
         </div>
         <div class="article-page-header-right flex justify-content-end">
-          <v-share-tools class="hidden lg:flex mx-3">
-            <v-share-tools-item
+          <VShareTools class="hidden lg:flex mx-3">
+            <VShareToolsItem
               action="share"
               service="facebook"
               :url="shareUrl"
@@ -75,7 +77,7 @@ const openSidebar = (e) => {
               "
             />
 
-            <v-share-tools-item
+            <VShareToolsItem
               action="share"
               service="twitter"
               :url="shareUrl"
@@ -93,7 +95,7 @@ const openSidebar = (e) => {
                 })
               "
             />
-            <v-share-tools-item
+            <VShareToolsItem
               action="share"
               service="reddit"
               :url="shareUrl"
@@ -111,11 +113,11 @@ const openSidebar = (e) => {
                 })
               "
             />
-            <v-share-tools-item
+            <VShareToolsItem
               action="share"
               service="email"
               :url="shareUrl"
-              :share-parameters="{ body: shareTitle + ' - %URL%' }"
+              :share-parameters="{ body: `${shareTitle} - %URL%` }"
               :utm-parameters="{
                 medium: 'social',
                 source: 'email',
@@ -129,7 +131,7 @@ const openSidebar = (e) => {
                 })
               "
             />
-          </v-share-tools>
+          </VShareTools>
           <a
             class="article-page-header-donate-button mod-button p-component p-button p-button-rounded mr-2"
             :href="`${donateUrlBase}&utm_campaign=${utmCampaign}`"

@@ -21,11 +21,11 @@ module.exports = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
-    'components/*.vue'
+    'components/*.vue',
   ],
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -65,10 +65,10 @@ module.exports = {
   globals: {
     'vue-jest': {
       compilerOptions: {
-        // get rid of nuxt specific warnings	
-        isCustomElement: tag => tag.startsWith('nuxt-')
-      }
-    }
+        // get rid of nuxt specific warnings
+        isCustomElement: tag => tag.startsWith('nuxt-'),
+      },
+    },
   },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
@@ -81,13 +81,13 @@ module.exports = {
 
   // An array of file extensions your modules use
   moduleFileExtensions: [
-    "js",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node",
-    'vue'
+    'js',
+    'jsx',
+    'ts',
+    'tsx',
+    'json',
+    'node',
+    'vue',
   ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
@@ -147,7 +147,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -185,12 +185,12 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   transform: {
     '^.+\\.vue$': '@vue/vue3-jest',
-    '^.+\\js$': 'babel-jest'
+    '^.+\\js$': 'babel-jest',
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    "\\\\node_modules\\\\"
+    '\\\\node_modules\\\\',
   ],
   // transformIgnorePatterns: ['node_modules/(?!@nypublicradio/nypr-design-system-vue3)'],
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them

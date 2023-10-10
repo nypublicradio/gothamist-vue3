@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { BlockQuoteBlock } from '../../composables/types/StreamfieldBlock'
+import type { BlockQuoteBlock } from '../../composables/types/StreamfieldBlock'
+
 defineProps<{
   block: BlockQuoteBlock
 }>()

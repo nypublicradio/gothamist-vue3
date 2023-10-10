@@ -1,16 +1,17 @@
 <script setup>
-const config = useRuntimeConfig()
-
 const props = defineProps({
   article: {
     type: Object,
     default: null,
   },
 })
+
+const config = useRuntimeConfig()
+
 // return the tags as a comma separated string for openWeb comments data-article-tags
 const getArticleTagsString = () => {
   const tags = props.article.tags || []
-  return tags.map((tag) => tag.name).join(', ')
+  return tags.map(tag => tag.name).join(', ')
 }
 const getArticleUrl = () => {
   const url = props.article.url
@@ -19,9 +20,9 @@ const getArticleUrl = () => {
 useHead({
   script: [
     {
-      src: `https://launcher.spot.im/spot/${config.public.OPENWEB_SPOT_ID}`,
+      'src': `https://launcher.spot.im/spot/${config.public.OPENWEB_SPOT_ID}`,
       'data-spotim-module': 'spotim-launcher',
-      body: true,
+      'body': true,
     },
   ],
 })
@@ -34,6 +35,6 @@ useHead({
       :data-post-url="getArticleUrl()"
       :data-article-tags="getArticleTagsString()"
       :data-post-id="String(article.legacyId || article.uuid)"
-    ></div>
+    />
   </div>
 </template>

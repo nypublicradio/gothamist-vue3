@@ -1,27 +1,29 @@
 <script setup lang="ts">
-import { ref,computed } from 'vue'
-import { ArticlePage } from '~~/composables/types/Page';
+import { computed, ref } from 'vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
+import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = defineProps<{
-  featureLarge: ArticlePage,
-  featureMedium: ArticlePage,
-  latestArticles: ArticlePage[],
-  trackingComponentLocation: string,
+  featureLarge: ArticlePage
+  featureMedium: ArticlePage
+  latestArticles: ArticlePage[]
+  trackingComponentLocation: string
 }>()
-const trackingComponent = "Homepage Topper"
+const trackingComponent = 'Homepage Topper'
 
 const filteredLatestArticles = computed(() => {
   return props.latestArticles.filter(article =>
-    article.id !== props.featureLarge?.id &&
-    article.id !== props.featureMedium?.id
-  ).slice(0,4)
+    article.id !== props.featureLarge?.id
+    && article.id !== props.featureMedium?.id,
+  ).slice(0, 4)
 })
 </script>
 
 <template>
   <div class="homepage-topper">
-    <div class="sr-only" role="heading" aria-level="2">Featured Articles</div>
+    <div class="sr-only" role="heading" aria-level="2">
+      Featured Articles
+    </div>
     <div class="grid gutter-x-30">
       <div class="col-fixed flex-order-2 lg:flex-order-1">
         <!-- md article desktop  -->
@@ -33,10 +35,10 @@ const filteredLatestArticles = computed(() => {
           :width="433"
           :height="289"
           loading="eager"
-          :trackClicks="true"
-          :trackingComponentLocation="trackingComponentLocation"
-          trackingComponent="Center Feature"
-          :trackingComponentPosition="2"
+          :track-clicks="true"
+          :tracking-component-location="trackingComponentLocation"
+          tracking-component="Center Feature"
+          :tracking-component-position="2"
         >
           <p>
             {{ featureMedium.description }}
@@ -44,7 +46,7 @@ const filteredLatestArticles = computed(() => {
           <v-card-metadata
             stack
             :article="featureMedium"
-            :showComments="false"
+            :show-comments="false"
             @link-click="$event => card.trackClick($event)"
           />
         </gothamist-card>
@@ -57,10 +59,10 @@ const filteredLatestArticles = computed(() => {
           loading="eager"
           :width="318"
           :height="212"
-          :trackClicks="true"
-          :trackingComponentLocation="trackingComponentLocation"
-          :trackingComponent="trackingComponent"
-          :trackingComponentPosition="2"
+          :track-clicks="true"
+          :tracking-component-location="trackingComponentLocation"
+          :tracking-component="trackingComponent"
+          :tracking-component-position="2"
         >
           <p>
             {{ featureMedium.description }}
@@ -71,7 +73,7 @@ const filteredLatestArticles = computed(() => {
           />
         </gothamist-card>
         <div class="hidden lg:block mb-4 xl:mb-7">
-          <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
+          <HtlAd slot="htlad-gothamist_index_topper" layout="rectangle" />
         </div>
       </div>
       <div class="col flex-order-1 lg:flex-order-2">
@@ -84,51 +86,51 @@ const filteredLatestArticles = computed(() => {
           loading="eager"
           :width="700"
           :height="467"
-          :trackClicks="true"
-          :trackingComponentLocation="trackingComponentLocation"
-          :trackingComponent="trackingComponent"
-          :trackingComponentPosition="1"
+          :track-clicks="true"
+          :tracking-component-location="trackingComponentLocation"
+          :tracking-component="trackingComponent"
+          :tracking-component-position="1"
         >
           <v-card-metadata
             class="mt-0 md:mt-2"
-            altDesign
+            alt-design
             :article="featureLarge"
             @link-click="$event => card.trackClick($event)"
           />
         </gothamist-card>
-        <hr class="block lg:hidden black mb-4" />
+        <hr class="block lg:hidden black mb-4">
       </div>
 
       <div class="col-3 flex-order-3">
-        <hr class="block lg:hidden black mb-4" />
-        <v-tag class="tag block mb-3" role="heading" aria-level="2" name="Latest" slug="/#latest" />
+        <hr class="block lg:hidden black mb-4">
+        <VTag class="tag block mb-3" role="heading" aria-level="2" name="Latest" slug="/#latest" />
         <div v-for="(article, index) in filteredLatestArticles" :key="article.uuid" class="homepage-topper-latest">
           <gothamist-card
+            :id="index === 3 ? 'ntv-latest-1' : ''"
             v-slot="card"
             :article="article"
-            :id="index === 3 ? 'ntv-latest-1' : ''"
             class="mod-horizontal mod-left mod-small mb-0"
             :width="106"
             :height="106"
             :ratio="[1, 1]"
             :sizes="[2]"
             :hide-tags="true"
-            :trackClicks="true"
-            :trackingComponentLocation="trackingComponentLocation"
-            :trackingComponent="trackingComponent"
-            :trackingComponentPosition="index + 3"
+            :track-clicks="true"
+            :tracking-component-location="trackingComponentLocation"
+            :tracking-component="trackingComponent"
+            :tracking-component-position="index + 3"
           >
-            <div></div>
+            <div />
             <v-card-metadata
               :article="article"
-              :showComments="false"
+              :show-comments="false"
               @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
-          <hr v-if="index < 3" class="my-3 block" />
+          <hr v-if="index < 3" class="my-3 block">
         </div>
         <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
-          <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
+          <HtlAd slot="htlad-gothamist_index_topper" layout="rectangle" />
         </div>
       </div>
     </div>

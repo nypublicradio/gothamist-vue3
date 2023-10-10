@@ -1,9 +1,9 @@
-import { useMembershipStatus } from "~~/composables/states"
+import { useMembershipStatus } from '~~/composables/states'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const membershipStatus = useMembershipStatus()
-  const  { $experiments } = useNuxtApp()
+  const { $experiments } = useNuxtApp()
 
   window.dataLayer = window.dataLayer || []
   // init gtag function
@@ -18,9 +18,10 @@ export default defineNuxtPlugin(() => {
       gtag('event', name, {
         experimentName: $experiments.current.name,
         experimentVariant: $experiments.activeVariant,
-        ...params
+        ...params,
       })
-    } else {
+    }
+    else {
       gtag('event', name, params)
     }
   }
@@ -30,15 +31,15 @@ export default defineNuxtPlugin(() => {
       page_location: document.location.href,
       page_title: document.title,
       NYPRMember: membershipStatus.value,
-      ...params
+      ...params,
     })
   }
   return {
     provide: {
       analytics: {
         sendEvent,
-        sendPageView
-      }
-    }
+        sendPageView,
+      },
+    },
   }
 })

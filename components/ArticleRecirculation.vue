@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useUpdateCommentCounts } from '~~/composables/comments';
-import { ArticlePage } from '~~/composables/types/Page';
+import { onMounted, ref } from 'vue'
+import { useUpdateCommentCounts } from '~~/composables/comments'
+import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = withDefaults(defineProps<{
   // the article to filter out from the results if it exists
@@ -12,15 +12,15 @@ const props = withDefaults(defineProps<{
 }>(), {
   article: null,
   slug: 'news',
-  trackingComponentLocation: "Recirculation Module",
-  nativoId: ""
+  trackingComponentLocation: 'Recirculation Module',
+  nativoId: '',
 })
 
-const trackingComponent = "Recirculation Module"
+const trackingComponent = 'Recirculation Module'
 
 const routeSectionSlug = ref(props.slug)
 const { title: sectionTitle, id: sectionId } = await findPage(
-  routeSectionSlug.value as string
+  routeSectionSlug.value as string,
 ).then(({ data }) => normalizeFindPageResponse(data))
 
 const articles = await findArticlePages({
@@ -31,7 +31,7 @@ const articles = await findArticlePages({
 
 // remove the current article from the list of articles
 const articlesFiltered = articles.filter(
-  (article) => article.id !== props.article?.id
+  article => article.id !== props.article?.id,
 )
 
 onMounted(async () => {
@@ -42,9 +42,9 @@ onMounted(async () => {
 <template>
   <LeftFeature
     class="recirculation"
-    :collection="{data: articlesFiltered}"
-    trackingComponent="Recirculation Module"
-    trackingComponentLocation="Recirculation Module"
-    :nativoId="nativoId"
+    :collection="{ data: articlesFiltered }"
+    tracking-component="Recirculation Module"
+    tracking-component-location="Recirculation Module"
+    :nativo-id="nativoId"
   />
 </template>

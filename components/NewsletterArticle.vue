@@ -5,13 +5,13 @@ const emit = defineEmits(['submit'])
 <template>
   <div class="newsletter-article">
     <newsletter-home
-      source='gothamist_articleBody'
-      @submit="emit('submit')"
+      source="gothamist_articleBody"
       small
-      :showBlurb="false"
-      altDesign
+      :show-blurb="false"
+      alt-design
       outlined
-      submitButtonIcon="pi-arrow-right"
+      submit-button-icon="pi-arrow-right"
+      @submit="emit('submit')"
     />
   </div>
 </template>

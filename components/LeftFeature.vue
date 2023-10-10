@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { ArticlePage } from '~~/composables/types/Page';
+import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = withDefaults(defineProps<{
-  collection: {label?: string, data: ArticlePage[]},
+  collection: { label?: string; data: ArticlePage[] }
   trackingComponent?: string
   trackingComponentLocation?: string
   nativoId?: string
 }>(), {
-  trackingComponent: "Left Feature",
-  trackingComponentLocation: "Left Feature",
-  nativoId: ""
+  trackingComponent: 'Left Feature',
+  trackingComponentLocation: 'Left Feature',
+  nativoId: '',
 })
 
 const { $nativo } = useNuxtApp()
@@ -24,8 +24,10 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
 <template>
   <div>
     <template v-if="collection?.label?.length > 0">
-      <hr class="black" />
-      <div class="type-label3 mt-2 mb-4" role="heading" aria-level="2">{{ collection.label }}</div>
+      <hr class="black">
+      <div class="type-label3 mt-2 mb-4" role="heading" aria-level="2">
+        {{ collection.label }}
+      </div>
     </template>
     <div v-if="articleLg && articleMd">
       <div class="left-feature">
@@ -38,39 +40,39 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
               class="article-lg mod-vertical mod-featured2 mod-large mb-4"
               :width="897"
               :height="598"
-              :hideTags="true"
+              :hide-tags="true"
               loading="eager"
-              :trackClicks="true"
-              :trackingComponent="trackingComponent"
-              :trackingComponentLocation="trackingComponentLocation"
-              :trackingComponentPosition="1"
+              :track-clicks="true"
+              :tracking-component="trackingComponent"
+              :tracking-component-location="trackingComponentLocation"
+              :tracking-component-position="1"
             >
               <v-card-metadata
                 class="mt-0 md:mt-2"
-                altDesign
+                alt-design
                 :article="articleLg"
                 @link-click="$event => card.trackClick($event)"
               />
             </gothamist-card>
-            <hr class="block xl:hidden mb-3" />
+            <hr class="block xl:hidden mb-3">
           </div>
           <div class="col-12 xl:col-4">
             <!-- md article desktop  -->
             <gothamist-card
               v-if="articleMd"
+              :id="nativoId"
               v-slot="card"
               :article="articleMd"
-              :id="nativoId"
-              @vue:mounted="$nativo.refresh"
               class="hidden xl:flex article-md mod-vertical mod-large mb-5"
               :width="433"
               :height="289"
-              :hideTags="true"
+              :hide-tags="true"
               loading="eager"
-              :trackClicks="true"
-              :trackingComponent="trackingComponent"
-              :trackingComponentLocation="trackingComponentLocation"
-              :trackingComponentPosition="2"
+              :track-clicks="true"
+              :tracking-component="trackingComponent"
+              :tracking-component-location="trackingComponentLocation"
+              :tracking-component-position="2"
+              @vue:mounted="$nativo.refresh"
             >
               <p>
                 {{ articleMd?.description }}
@@ -84,9 +86,9 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
             <!-- md article mobile  -->
             <gothamist-card
               v-if="articleMd"
+              :id="nativoId"
               v-slot="card"
               :article="articleMd"
-              :id="nativoId"
               class="flex xl:hidden article-md mod-horizontal mod-left tag-small mb-5"
               :width="318"
               :height="212"
@@ -100,18 +102,18 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
                 @link-click="$event => card.trackClick($event)"
               />
             </gothamist-card>
-            <hr class="my-3" />
-            <lazy-horizontal-drag v-if="articlesSm" :items="articlesSm" v-slot="slotProps">
+            <hr class="my-3">
+            <lazy-horizontal-drag v-if="articlesSm" v-slot="slotProps" :items="articlesSm">
               <gothamist-card
                 v-slot="card"
                 :article="slotProps.item"
                 class="article-sm mod-horizontal mod-small mb-3 tag-small"
                 :hide-image="true"
                 :hide-tags="true"
-                :trackClicks="true"
-                :trackingComponent="trackingComponent"
-                :trackingComponentLocation="trackingComponentLocation"
-                :trackingComponentPosition="slotProps.index + 3"
+                :track-clicks="true"
+                :tracking-component="trackingComponent"
+                :tracking-component-location="trackingComponentLocation"
+                :tracking-component-position="slotProps.index + 3"
               >
                 <v-card-metadata
                   :article="slotProps.item"

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import {
-  useIsEpisodePlaying,
-  useTogglePlayTrigger,
   useCurrentEpisode,
   useCurrentEpisodeHolder,
+  useIsEpisodePlaying,
+  useTogglePlayTrigger,
 } from '~/composables/states'
+
 const props = defineProps({
   label: {
     type: String,
@@ -24,9 +25,9 @@ const currentEpisode = useCurrentEpisode()
 const currentEpisodeHolder = useCurrentEpisodeHolder()
 
 const togglePlay = () => {
-  if (!currentEpisode.value) {
+  if (!currentEpisode.value)
     currentEpisode.value = currentEpisodeHolder.value
-  }
+
   emit('stream-button-click')
   togglePlayTrigger.value = !togglePlayTrigger.value
 }
@@ -43,19 +44,19 @@ const togglePlay = () => {
           v-if="!currentEpisodeHolder"
           class="pi pi-spin pi-spinner mr-2"
           style="font-size: 1rem"
-        ></i>
+        />
         <img
           v-else-if="!isEpisodePlaying"
           alt="play icon"
           src="/play.svg"
           class="mr-2"
-        />
-        <img v-else alt="pause icon" src="/pause.svg" class="mr-2" />
+        >
+        <img v-else alt="pause icon" src="/pause.svg" class="mr-2">
         <img
           alt="WNYC"
           :src="`/live-stream-logos-white/${props.slug}.svg`"
           class="mr-2"
-        />
+        >
         {{ props.label }}
       </div>
     </Button>

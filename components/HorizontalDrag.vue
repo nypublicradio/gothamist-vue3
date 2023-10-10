@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
+import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 import { Draggable } from '~/assets/gsap/Draggable.js'
 import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
-import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 
 const props = defineProps<{
   items: any[]
@@ -34,9 +34,8 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   // kill draggable
-  if (isMobile.value) {
+  if (isMobile.value)
     Draggable.get(dragContentRef.value).kill()
-  }
 })
 </script>
 
@@ -58,7 +57,7 @@ onBeforeUnmount(() => {
                 : 'col-12 xl:col-12 flex-column xl:flex-row xl:flex-column unit'
             "
           >
-            <slot :isMobile="isMobile" :item="item" :index="index" />
+            <slot :is-mobile="isMobile" :item="item" :index="index" />
           </div>
         </div>
       </div>

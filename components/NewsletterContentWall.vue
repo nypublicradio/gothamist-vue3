@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import Button from 'primevue/button'
+
 const emit = defineEmits<{
-  (e:'sign-up'):void
-  (e:'wall-cleared'):void
+  (e: 'sign-up'): void
+  (e: 'wall-cleared'): void
 }>()
 const status = ref('')
 const decline = () => {
@@ -23,7 +24,7 @@ const newsletterSignup = useNewsletterSignup({
   email,
   selectedLists,
   consent: agree,
-  source: 'gothamist_archive_regWall'
+  source: 'gothamist_archive_regWall',
 })
 
 const handleSubmit = (emailAddress) => {
@@ -43,7 +44,7 @@ watch(newsletterSignup.isSuccess, (value) => {
 <template>
   <div class="regwall">
     <div class="regwall-wrapper mt-5 mb-4">
-      <hr class="black mb-4"/>
+      <hr class="black mb-4">
       <template
         v-if="!newsletterSignup.isSuccess.value && status !== 'declined'"
       >
@@ -66,21 +67,20 @@ watch(newsletterSignup.isSuccess, (value) => {
           </label>
           <div class="regwall-form-wrapper">
             <email-collector-form
-              @noThanksClick="decline"
-              @submit="handleSubmit"
               class="mt-2"
-              :showNoThanks="true"
-              submitButtonText="Sign Up"
-              :isSubmitting="newsletterSignup.isSubmitting.value"
-              :submissionStatus="newsletterSignup.isError.value ? 'error' : newsletterSignup.isSuccess.value ? 'success' : ''"
-              :altDesign="false"
+              :show-no-thanks="true"
+              submit-button-text="Sign Up"
+              :is-submitting="newsletterSignup.isSubmitting.value"
+              :submission-status="newsletterSignup.isError.value ? 'error' : newsletterSignup.isSuccess.value ? 'success' : ''"
+              :alt-design="false"
               :outlined="false"
               :small="false"
+              @noThanksClick="decline"
+              @submit="handleSubmit"
             >
               By submitting your information, you're agreeing to receive
               communications from New York Public Radio in accordance with our
-              <a href="https://www.wnyc.org/terms/" target="_blank" rel="noopener noreferrer">Terms</a
-              >.
+              <a href="https://www.wnyc.org/terms/" target="_blank" rel="noopener noreferrer">Terms</a>.
             </email-collector-form>
           </div>
           <div
@@ -115,8 +115,10 @@ watch(newsletterSignup.isSuccess, (value) => {
           You can still read the latest and greatest stories on Gothamist.com
         </div>
         <div class="regwall-decline-buttons">
-        <Button class="regwall-button regwall-back-button p-button-rounded" label="Go back to sign up" @click="unDecline" />
-        <NuxtLink to="/" class="regwall-link">Back to home</NuxtLink>
+          <Button class="regwall-button regwall-back-button p-button-rounded" label="Go back to sign up" @click="unDecline" />
+          <NuxtLink to="/" class="regwall-link">
+            Back to home
+          </NuxtLink>
         </div>
       </template>
     </div>

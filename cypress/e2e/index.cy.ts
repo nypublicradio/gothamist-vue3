@@ -2,34 +2,34 @@ describe('The home page', () => {
   beforeEach(() => {
     cy.loadGlobalFixtures()
     cy.intercept({
-      pathname :'/api/v2/pages/',
-      query: {
-        type: 'news.ArticlePage',
-        fields: 'ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors',
-        order: '-publication_date',
-        show_on_index_listing: 'true',
-        limit: '6'
-      }
-    }, {fixture: 'aviary/latest.json'}).as('latest')
-    cy.intercept({
-      pathname :'/api/v2/pages/',
+      pathname: '/api/v2/pages/',
       query: {
         type: 'news.ArticlePage',
         fields: 'ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors',
         order: '-publication_date',
         show_on_index_listing: 'true',
         limit: '6',
-        offset: '6'
-      }
-    }, {fixture: 'aviary/index-more.json'}).as('indexMore')
+      },
+    }, { fixture: 'aviary/latest.json' }).as('latest')
     cy.intercept({
-        pathname: '/api/v2/pages/find',
-        query: { html_path: '/' }, 
-    }, {fixture: 'aviary/index.json'}).as('index')
+      pathname: '/api/v2/pages/',
+      query: {
+        type: 'news.ArticlePage',
+        fields: 'ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors',
+        order: '-publication_date',
+        show_on_index_listing: 'true',
+        limit: '6',
+        offset: '6',
+      },
+    }, { fixture: 'aviary/index-more.json' }).as('indexMore')
+    cy.intercept({
+      pathname: '/api/v2/pages/find',
+      query: { html_path: '/' },
+    }, { fixture: 'aviary/index.json' }).as('index')
   })
   it('successfully loads', () => {
     cy.visit('/')
-    cy.wait(['@index','@latest'])
+    cy.wait(['@index', '@latest'])
     cy.get('.homepage-topper').should('exist')
     cy.get('.homepage-topper .gothamist-card:not(.hidden)').should('have.length', 6)
     cy.get('.homepage-topper .gothamist-card:not(.hidden)').eq(5).should('have.attr', 'id', 'ntv-latest-1')
@@ -67,10 +67,10 @@ describe('The home page', () => {
   it('hides and shows the fixed header', () => {
     cy.visit('/')
     cy.get('.fixed-header').should('not.exist')
-    cy.scrollTo(0,500)
+    cy.scrollTo(0, 500)
     cy.wait(300)
     cy.get('.fixed-header').should('exist')
-    cy.scrollTo(0,0)
+    cy.scrollTo(0, 0)
     cy.wait(300)
     cy.get('.fixed-header').should('not.exist')
   })

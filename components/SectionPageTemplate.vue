@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useUpdateCommentCounts } from '~~/composables/comments'
-import { Page } from '~~/composables/types/Page'
 import { nextTick } from 'vue'
+import { useUpdateCommentCounts } from '~~/composables/comments'
+import type { Page } from '~~/composables/types/Page'
 
 const props = defineProps<{
   page: Page
@@ -19,7 +19,7 @@ useHead({
 })
 useServerHead({
   meta: [{ property: 'og:title', content: pageTitle }],
-  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/${sectionSlug.value}`}]
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/${sectionSlug.value}` }],
 })
 const initialArticles = await findArticlePages({
   sponsored_content: false,
@@ -57,24 +57,30 @@ const newsletterSubmitEvent = () => {
 <template>
   <section class="section-page">
     <div class="content">
-      <h1 class="mb-5">{{ page.title }}</h1>
-      <hr class="black" />
+      <h1 class="mb-5">
+        {{ page.title }}
+      </h1>
+      <hr class="black">
       <!-- featured area -->
-      <h2 class="sr-only">Featured {{ page.title }} Stories</h2>
+      <h2 class="sr-only">
+        Featured {{ page.title }} Stories
+      </h2>
       <article-recirculation
-        :slug="sectionSlug"
         id="article-recirculation"
-        trackingComponentLocation="Section Page Recirculation Module"
+        :slug="sectionSlug"
+        tracking-component-location="Section Page Recirculation Module"
         class="my-6"
-        nativoId="ntv-section-1"
+        nativo-id="ntv-section-1"
       />
       <div class="mb-6">
-        <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
+        <HtlAd slot="htlad-gothamist_interior_midpage_1" layout="rectangle" />
       </div>
       <!-- articles -->
-      <div id="articleList" v-if="articles" class="grid gutter-x-xl section-river">
-        <h2 class="sr-only">Latest {{ page.title }} Articles</h2>
-        <div class="col-1 hidden xl:block"></div>
+      <div v-if="articles" id="articleList" class="grid gutter-x-xl section-river">
+        <h2 class="sr-only">
+          Latest {{ page.title }} Articles
+        </h2>
+        <div class="col-1 hidden xl:block" />
         <div class="col">
           <div
             v-for="(article, index) in articles"
@@ -86,10 +92,10 @@ const newsletterSubmitEvent = () => {
               class="mod-horizontal mb-5"
               :width="318"
               :height="212"
-              :trackClicks="true"
-              trackingComponentLocation="Section Page River"
-              trackingComponent="Section Page River"
-              :trackingComponentPosition="index + 1"
+              :track-clicks="true"
+              tracking-component-location="Section Page River"
+              tracking-component="Section Page River"
+              :tracking-component-position="index + 1"
             >
               <p>
                 {{ article.description }}
@@ -99,22 +105,21 @@ const newsletterSubmitEvent = () => {
                 @link-click="$event => card.trackClick($event)"
               />
             </gothamist-card>
-            <hr class="mb-5" />
+            <hr class="mb-5">
           </div>
           <Button
             class="p-button-rounded mb-8"
             label="Load More"
             @click="loadMoreArticles"
-          >
-          </Button>
+          />
         </div>
         <div class="col-fixed mx-auto hidden xl:block">
-          <HtlAd layout="rectangle" slot="htlad-gothamist_interior_river" />
+          <HtlAd slot="htlad-gothamist_interior_river" layout="rectangle" />
         </div>
       </div>
       <!-- newsletter -->
       <div class="mt-8 mb-5">
-        <hr class="black mb-4" />
+        <hr class="black mb-4">
         <newsletter-home @submit="newsletterSubmitEvent" />
       </div>
     </div>

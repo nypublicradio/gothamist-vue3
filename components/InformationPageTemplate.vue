@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { InformationPage } from '../composables/types/Page';
-const { $analytics } = useNuxtApp()
+import type { InformationPage } from '../composables/types/Page'
 
 const props = defineProps<{
   page: InformationPage
 }>()
+
+const { $analytics } = useNuxtApp()
 
 const newsletterSubmitEvent = () => {
   $analytics.sendEvent('click_tracking', {
@@ -19,8 +20,10 @@ const newsletterSubmitEvent = () => {
   <div>
     <section v-if="page" class="section-page">
       <div class="content">
-        <h1 class="mb-5">{{ page.title }}</h1>
-        <hr class="black mb-6" />
+        <h1 class="mb-5">
+          {{ page.title }}
+        </h1>
+        <hr class="black mb-6">
         <!-- page content -->
         <v-streamfield
           v-if="page.body"
@@ -29,7 +32,7 @@ const newsletterSubmitEvent = () => {
         />
         <!-- newsletter -->
         <div class="mt-8 mb-5">
-          <hr class="black mb-4" />
+          <hr class="black mb-4">
           <newsletter-home @submit="newsletterSubmitEvent" />
         </div>
       </div>

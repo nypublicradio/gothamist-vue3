@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useUpdateCommentCounts } from '~~/composables/comments'
-import { ArticlePage } from '~~/composables/types/Page'
-import { computed, ref, nextTick, toValue } from 'vue'
+import { computed, nextTick, ref, toValue } from 'vue'
 import { onBeforeRouteUpdate } from 'vue-router'
+import { useUpdateCommentCounts } from '~~/composables/comments'
+import type { ArticlePage } from '~~/composables/types/Page'
 
 const { $features } = useNuxtApp()
 const possibleDuplicateCount = ref(6) // from the topper
@@ -13,11 +13,11 @@ const riverAdRepeatRate = ref(6)
 const riverContainer = ref('#latest')
 
 let findArticleLimit
-if ($features.enabled['experiment-deduplicate-river']) {
+if ($features.enabled['experiment-deduplicate-river'])
   findArticleLimit = riverStoryCount.value + possibleDuplicateCount.value
-} else {
+else
   findArticleLimit = riverStoryCount.value
-}
+
 const articlesPromise = findArticlePages({
   limit: findArticleLimit,
   sponsored_content: false,
@@ -45,20 +45,22 @@ const latestArticles = ref([...articles])
 const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
 
 actualDuplicateCount.value = 4
-const firstFour = articles.slice(0,6).map(article => article.uuid)
-if (firstFour.includes(featuredArticles[0].uuid)) { actualDuplicateCount.value += 1 }
-if (firstFour.includes(featuredArticles[1].uuid)) { actualDuplicateCount.value += 1 }
+const firstFour = articles.slice(0, 6).map(article => article.uuid)
+if (firstFour.includes(featuredArticles[0].uuid))
+  actualDuplicateCount.value += 1
+if (firstFour.includes(featuredArticles[1].uuid))
+  actualDuplicateCount.value += 1
 
 const filteredLatestArticles = computed(() => {
-  if (toValue(latestArticles)) {
+  if (toValue(latestArticles))
     return [...toValue(latestArticles)].slice(actualDuplicateCount.value)
-  } else {
+  else
     return []
-  }
 })
 
-const riverArticles = $features.enabled['experiment-deduplicate-river'] ?
-filteredLatestArticles : latestArticles
+const riverArticles = $features.enabled['experiment-deduplicate-river']
+  ? filteredLatestArticles
+  : latestArticles
 
 const mainImage = featuredArticles?.[0]?.listingImage
 if (mainImage) {
@@ -66,32 +68,31 @@ if (mainImage) {
     useImageUrl(mainImage, {
       width: 700,
       height: 467,
-      quality: 80
+      quality: 80,
     }),
     useResponsiveSrcset(mainImage, [1], {
       width: 700,
       height: 467,
-      quality: 80
-    })
+      quality: 80,
+    }),
   )
 }
 
 const riverSegments = computed(() => {
-  let riverCopy = riverArticles.value.slice()
+  const riverCopy = riverArticles.value.slice()
   const segments = [] as ArticlePage[][]
-  while (riverCopy.length >= 6) {
+  while (riverCopy.length >= 6)
     segments.push(riverCopy.splice(0, riverStoryCount.value))
-  }
+
   return segments
 })
 
 const loadMoreArticles = async () => {
   let loadMoreOffset
-  if ($features.enabled['experiment-deduplicate-river']) {
+  if ($features.enabled['experiment-deduplicate-river'])
     loadMoreOffset = latestArticles.value.length + actualDuplicateCount.value
-  } else {
+  else
     loadMoreOffset = latestArticles.value.length
-  }
 
   const newArticles = await useLoadMoreArticles({
     sponsored_content: false,
@@ -122,11 +123,11 @@ useOptinMonster()
 onMounted(() => {
   $analytics.sendPageView({
     page_type: 'home_page',
-    content_group: 'homepage'
+    content_group: 'homepage',
   })
   const collectionArticles = homePageCollections.reduce(
     (pages, collection) => [...pages, ...collection.data],
-    []
+    [],
   )
   const allArticles = [...articles, ...collectionArticles]
   useUpdateCommentCounts(allArticles)
@@ -136,14 +137,13 @@ const loadedNativoElements = []
 const nativoSectionLoaded = (name) => {
   loadedNativoElements.push(name)
   if (
-    loadedNativoElements.includes('ntv-stream-3') &&
-    loadedNativoElements.includes('ntv-latest-1')
+    loadedNativoElements.includes('ntv-stream-3')
+    && loadedNativoElements.includes('ntv-latest-1')
   ) {
     loadedNativoElements.length = 0
     $nativo.refresh()
   }
 }
-
 </script>
 
 <template>
@@ -151,15 +151,15 @@ const nativoSectionLoaded = (name) => {
     <section>
       <div class="content homepage pt-1">
         <gothamist-homepage-topper
-          :featureLarge="featuredArticles[0]"
-          :featureMedium="featuredArticles[1]"
-          :latestArticles="articles"
-          @vue:mounted="nativoSectionLoaded('ntv-latest-1')"
+          :feature-large="featuredArticles[0]"
+          :feature-medium="featuredArticles[1]"
+          :latest-articles="articles"
           tracking-component-location=""
+          @vue:mounted="nativoSectionLoaded('ntv-latest-1')"
         />
         <!-- newsletter -->
         <div class="mt-8">
-          <hr class="black mb-4" />
+          <hr class="black mb-4">
           <newsletter-home
             source="gothamist_home"
             @submit="newsletterSubmitEvent"
@@ -174,38 +174,38 @@ const nativoSectionLoaded = (name) => {
         >
           <single-story-feature
             v-if="collection.layout === 'single-story-feature'"
-            :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
+            :tracking-component-location="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
           <left-feature
-            class="content left-feature"
             v-if="collection.layout === 'left-feature'"
-            :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
+            class="content left-feature"
+            :tracking-component-location="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
           <center-feature
-            class="content center-feature"
             v-if="collection.layout === 'center-feature'"
-            :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
+            class="content center-feature"
+            :tracking-component-location="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
           <skyline-feature
-            class="content skyline"
             v-if="collection.layout === 'skyline'"
-            :trackingComponentLocation="`Homepage Curation Module ${index + 1}`"
+            class="content skyline"
+            :tracking-component-location="`Homepage Curation Module ${index + 1}`"
             :collection="collection"
           />
-          <div v-if="index === 0" id="ntv-stream-2"></div>
+          <div v-if="index === 0" id="ntv-stream-2" />
         </template>
       </template>
       <!-- If no homepage collections still include the nativo div -->
-      <div v-else id="ntv-stream-2"></div>
+      <div v-else id="ntv-stream-2" />
       <boroughs class="mb-5 lg:mb-8" />
       <!-- river -->
 
       <div id="articleList" class="content">
         <template v-if="articles">
-          <hr class="mb-4 black" />
+          <hr class="mb-4 black">
           <div id="latest">
             <div
               v-for="(riverSegment, segmentIndex) in riverSegments"
@@ -225,24 +225,24 @@ const nativoSectionLoaded = (name) => {
                 <div
                   v-for="(article, itemIndex) in riverSegment.slice(
                     0,
-                    riverStoryCount
+                    riverStoryCount,
                   )"
                   :key="article.uuid"
                 >
                   <gothamist-card
+                    :id="itemIndex === 1 ? 'ntv-stream-3' : ''"
                     v-slot="card"
                     :article="article"
-                    :id="itemIndex === 1 ? 'ntv-stream-3' : ''"
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
                     :width="318"
                     :height="212"
+                    :track-clicks="true"
+                    tracking-component-location="Homepage River"
+                    tracking-component="Homepage River"
+                    :tracking-component-position="(segmentIndex + 1) * riverStoryCount + itemIndex + 1"
                     @vue:mounted="
                       itemIndex === 1 && nativoSectionLoaded('ntv-stream-3')
                     "
-                    :trackClicks="true"
-                    trackingComponentLocation="Homepage River"
-                    trackingComponent="Homepage River"
-                    :trackingComponentPosition="(segmentIndex + 1) * riverStoryCount + itemIndex + 1"
                   >
                     <p class="desc">
                       {{ article.description }}
@@ -252,7 +252,7 @@ const nativoSectionLoaded = (name) => {
                       @link-click="$event => card.trackClick($event)"
                     />
                   </gothamist-card>
-                  <hr class="mb-5" />
+                  <hr class="mb-5">
                   <div
                     v-if="(itemIndex + riverAdOffset) % riverAdRepeatRate === 0"
                     class="xl:hidden"
@@ -261,7 +261,7 @@ const nativoSectionLoaded = (name) => {
                       slot="htlad-gothamist_index_river"
                       layout="rectangle"
                     />
-                    <hr class="mb-5" />
+                    <hr class="mb-5">
                   </div>
                 </div>
               </div>
@@ -270,14 +270,13 @@ const nativoSectionLoaded = (name) => {
               </div>
             </div>
             <div class="grid gutter-x-xl">
-              <div class="col-12 xxl:col-1"></div>
+              <div class="col-12 xxl:col-1" />
               <div class="col">
                 <Button
                   class="p-button-rounded"
                   label="Load More"
                   @click="loadMoreArticles"
-                >
-                </Button>
+                />
               </div>
             </div>
           </div>
@@ -286,6 +285,7 @@ const nativoSectionLoaded = (name) => {
     </section>
   </div>
 </template>
+
 <style lang="scss">
 .homepage {
   .homepage-topper-latest {

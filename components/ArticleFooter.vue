@@ -32,33 +32,33 @@ const onTagClick = (tag) => {
   <div class="article-footer">
     <!-- tags -->
     <article-tags v-if="tags.length" :tags="tags" @tag-click="onTagClick" />
-    <!-- profile & comments-->
-    <hr class="black mb-4 md:mb-6" />
+    <!-- profile & comments -->
+    <hr class="black mb-4 md:mb-6">
     <div class="grid gutter-x-30">
       <div class="profile-col">
         <author-profile
           v-for="profile in profileData"
           :key="profile.id"
-          :profileData="profile"
+          :profile-data="profile"
           :sponsored="isSponsored"
           class="mb-4 md:mb-6"
         />
         <div class="block mx-auto block lg:hidden mb-6" style="width: 300px">
           <HtlAd
-            layout="rectangle"
             slot="htlad-gothamist_interior_rectangle_article_bio"
+            layout="rectangle"
             fineprint="Gothamist is funded by sponsors and member donations"
           />
         </div>
         <div v-if="!isDisableComments" id="comments" class="mb-4 md:mb-6">
-          <hr class="black mb-4 md:mb-6" />
+          <hr class="black mb-4 md:mb-6">
           <comments-section :article="props.article" />
         </div>
       </div>
       <div class="col-fixed mx-auto hidden lg:block">
         <HtlAd
-          layout="rectangle"
           slot="htlad-gothamist_interior_rectangle_article_bio"
+          layout="rectangle"
           fineprint="Gothamist is funded by sponsors and member donations"
         />
       </div>

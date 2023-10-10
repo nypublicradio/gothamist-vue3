@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { ArticlePage } from '~/composables/types/Page';
-import useTrackSeen from '~/composables/useTrackSeen';
+import type { ArticlePage } from '~/composables/types/Page'
+import useTrackSeen from '~/composables/useTrackSeen'
+
 const props = defineProps<{
   article: ArticlePage
 }>()
 const emit = defineEmits<{
-  (e: 'wall-dismissed'):void
-  (e: 'wall-seen'):void
-  (e: 'all-blocks-mounted'):void
+  (e: 'wall-dismissed'): void
+  (e: 'wall-seen'): void
+  (e: 'all-blocks-mounted'): void
 }>()
 const handleSeen = () => {
   emit('wall-seen')
@@ -25,25 +26,25 @@ useTrackSeen(contentWallRef, handleSeen)
 <template>
   <ContentWall class="content-wall" @dismissed="handleDismissed">
     <template #full>
-        <v-streamfield
-          class="article-body"
-          :streamfield-blocks="article.body"
-          @all-blocks-mounted="handleArticleMounted"
-        />
-      </template>
-      <template #leadin>
-        <v-streamfield
-          class="article-body leadin"
-          :streamfield-blocks="article.body"
-        />
-      </template>
-      <template #wall="wall">
-        <div class="wall-wrapper" ref="contentWallRef">
-          <NewsletterContentWall @wallCleared="wall.dismiss" @signUp="wall.signUp" />
-        </div>
-      </template>
-    </ContentWall>
-  </template>
+      <v-streamfield
+        class="article-body"
+        :streamfield-blocks="article.body"
+        @all-blocks-mounted="handleArticleMounted"
+      />
+    </template>
+    <template #leadin>
+      <v-streamfield
+        class="article-body leadin"
+        :streamfield-blocks="article.body"
+      />
+    </template>
+    <template #wall="wall">
+      <div ref="contentWallRef" class="wall-wrapper">
+        <NewsletterContentWall @wallCleared="wall.dismiss" @signUp="wall.signUp" />
+      </div>
+    </template>
+  </ContentWall>
+</template>
 
   <style lang="scss">
   .content-wall {

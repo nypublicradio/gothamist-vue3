@@ -1,5 +1,5 @@
 export default interface Sponsor {
-    id: number;
-    name: string;
-    link: string;
+  id: number
+  name: string
+  link: string
 }

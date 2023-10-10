@@ -1,14 +1,14 @@
-import { TagPage } from "../types/Page"
-import { normalizePage } from "./basePages"
+import type { TagPage } from '../types/Page'
+import { normalizePage } from './basePages'
 
-export function normalizeFindTagPageResponse (tagPageResponse: Record<string, any>): TagPage {
-    return tagPageResponse.value.items?.map(normalizeTagPage)
+export function normalizeFindTagPageResponse(tagPageResponse: Record<string, any>): TagPage {
+  return tagPageResponse.value.items?.map(normalizeTagPage)
 }
 
 export function normalizeTagPage(page: Record<string, any>): TagPage {
-    return Object.assign({}, normalizePage(page), {
-        headerImage: page.designedHeader[0]?.value.image,
-        topPageZone: page.topPageZone,
-        midPageZone: page.midpageZone,
-    })
+  return Object.assign({}, normalizePage(page), {
+    headerImage: page.designedHeader[0]?.value.image,
+    topPageZone: page.topPageZone,
+    midPageZone: page.midpageZone,
+  })
 }

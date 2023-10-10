@@ -2,7 +2,7 @@
 import VByline from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VByline.vue'
 import { computed, ref } from 'vue'
 import { useCommentCounts } from '~~/composables/comments'
-import { ArticlePage } from '~~/composables/types/Page.js'
+import type { ArticlePage } from '~~/composables/types/Page.js'
 
 const props = withDefaults(defineProps<{
   article?: ArticlePage
@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<{
   stack: false,
   altDesign: false,
   showComments: true,
-  showDescription: true
+  showDescription: true,
 })
 
 const emit = defineEmits<{
@@ -37,22 +37,21 @@ const commentCount = computed(() => {
     <!-- default byline and comments -->
     <template v-if="!props.altDesign">
       <span>
-        <v-byline
+        <VByline
           :authors="props.article.authors || props.article.relatedAuthors"
           @name-click="$event => emit('link-click', $event?.url)"
           @organization-click="$event => emit('link-click', $event?.url)"
         />
       </span>
       <span
-        class="comments"
         v-if="!props.article.disableComments && showComments && commentCount"
+        class="comments"
       >
         <NuxtLink
-          :to="{ path: props.article.link, hash: '#comments'}"
+          :to="{ path: props.article.link, hash: '#comments' }"
           @click="$event => emit('link-click', `${props.article.link}#comments`)"
         >{{ String(Number(commentCount)) }}
-          {{ commentCount === 1 ? 'comment' : 'comments' }}</NuxtLink
-        >
+          {{ commentCount === 1 ? 'comment' : 'comments' }}</NuxtLink>
       </span>
     </template>
 
@@ -67,14 +66,14 @@ const commentCount = computed(() => {
         <div :class="showDescription ? 'col-12 md:col-6' : 'col-12'">
           <byline
             :article="props.article"
-            :showSocial="false"
-            :showComments="false"
+            :show-social="false"
+            :show-comments="false"
             @link-click="$event => emit('link-click', $event)"
           />
         </div>
         <span
-          class="col-12 comments"
           v-if="!props.article.disableComments && showComments && commentCount"
+          class="col-12 comments"
         >
           <NuxtLink
             :to="{ path: props.article.link, hash: '#comments' }"

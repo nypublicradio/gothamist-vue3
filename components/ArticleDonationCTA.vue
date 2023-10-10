@@ -1,8 +1,6 @@
 <script setup>
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
-const config = useRuntimeConfig()
-
 const props = defineProps({
   title: {
     type: String,
@@ -18,30 +16,34 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['donate-click'])
+
+const config = useRuntimeConfig()
+
 const donateUrl = ref(
   `${props.donateUrlBase || config.public.donateUrlBase}&utm_campaign=${
     props.utmCampaign
-  }`
+  }`,
 )
 
 const getCurrentYear = () => new Date().getFullYear()
-
-const emit = defineEmits(['donate-click'])
 </script>
 
 <template>
   <div class="article-donation-CTA">
-    <div class="h6">{{ title }}</div>
+    <div class="h6">
+      {{ title }}
+    </div>
     <p class="type-textlink2 no-underline">
       Make your contribution now and help Gothamist thrive in
       {{ getCurrentYear() }}.
-      <v-flexible-link
+      <VFlexibleLink
         :to="donateUrl"
-        @click="emit('donate-click', donateUrl)"
         class="author-name"
+        @click="emit('donate-click', donateUrl)"
       >
         Donate today
-      </v-flexible-link>
+      </VFlexibleLink>
     </p>
   </div>
 </template>

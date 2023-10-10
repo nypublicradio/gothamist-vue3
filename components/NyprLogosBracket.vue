@@ -6,31 +6,31 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
   <div class="nypr-logos-bracket flex">
     <logo-nypr />
     <div class="bracket bracket-left" />
-    <v-flexible-link to="https://www.wnyc.org/" target="_blank">
+    <VFlexibleLink to="https://www.wnyc.org/" target="_blank">
       <logo-wnyc />
-    </v-flexible-link>
-    <v-flexible-link to="/" target="_blank">
+    </VFlexibleLink>
+    <VFlexibleLink to="/" target="_blank">
       <logo-gothamist />
-    </v-flexible-link>
-    <v-flexible-link to="https://www.wnycstudios.org/" target="_blank">
+    </VFlexibleLink>
+    <VFlexibleLink to="https://www.wnycstudios.org/" target="_blank">
       <logo-wnyc-studios />
-    </v-flexible-link>
-    <v-flexible-link
+    </VFlexibleLink>
+    <VFlexibleLink
       to="https://www.wnyc.org/series/new-jersey-public-radio/"
       target="_blank"
     >
       <logo-njpr />
-    </v-flexible-link>
-    <v-flexible-link to="https://www.wqxr.org/" target="_blank">
+    </VFlexibleLink>
+    <VFlexibleLink to="https://www.wqxr.org/" target="_blank">
       <logo-wqxr />
-    </v-flexible-link>
-    <v-flexible-link to="https://www.newsounds.org/" target="_blank">
+    </VFlexibleLink>
+    <VFlexibleLink to="https://www.newsounds.org/" target="_blank">
       <logo-new-sounds />
-    </v-flexible-link>
+    </VFlexibleLink>
     <div class="inline-flex">
-      <v-flexible-link to="https://www.thegreenespace.org/" target="_blank">
+      <VFlexibleLink to="https://www.thegreenespace.org/" target="_blank">
         <logo-the-greene-space />
-      </v-flexible-link>
+      </VFlexibleLink>
       <div class="bracket bracket-right ml-3" />
     </div>
   </div>

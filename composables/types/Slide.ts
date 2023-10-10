@@ -1,6 +1,6 @@
-import Image from './Image';
+import type Image from './Image'
 
 export default interface Slide {
-    title: string;
-    image: Image;
+  title: string
+  image: Image
 }

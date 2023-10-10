@@ -1,22 +1,21 @@
 // const INLINE_TAGS = ['a', 'b', 'i', 'em', 'strong']
 // const HEADER_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5']
-const EMBED_TAGS = ['iframe', 'embed', 'video',
-  'twitter-widget', 'center', 'div']
+const EMBED_TAGS = ['iframe', 'embed', 'video', 'twitter-widget', 'center', 'div']
 const TEXT_CLASS = 'rte-text'
 // a `div` tag in MT article markup is probably from an embed
 const EMBED_WEIGHT = 50
 
 // Returns whether a node only contains whitespace or not
-function _isNotWhitespaceOnly (node) {
-  return !(['#text', 'P'].includes(node.nodeName) &&
-  node.textContent.replace(/\s/g, '').length === 0)
+function _isNotWhitespaceOnly(node) {
+  return !(['#text', 'P'].includes(node.nodeName)
+  && node.textContent.replace(/\s/g, '').length === 0)
 }
-function _isNotComment (node) {
-    return (node.nodeName !== "#comment")
+function _isNotComment(node) {
+  return (node.nodeName !== '#comment')
 }
 
 // Counts the words in a DOM nodes text content
-function _countWords (node) {
+function _countWords(node) {
   const text = node.textContent
   return text.replace(/[^\w ]/g, '').split(/\s+/).length
 }
@@ -26,12 +25,12 @@ function _countWords (node) {
 // We're really only using word count as a proxy for
 // vertical height i.e. line count so we want to account
 // for the height of images, embeds etc.
-function _getWordWeight (node) {
+function _getWordWeight(node) {
   const tagType = node.nodeName.toLowerCase()
   let wordWeight = _countWords(node)
-  if (EMBED_TAGS.includes(tagType)) {
+  if (EMBED_TAGS.includes(tagType))
     wordWeight = Math.max(wordWeight, EMBED_WEIGHT)
-  }
+
   return wordWeight
 }
 
@@ -47,15 +46,16 @@ const _getTextFieldLandmarks = function (rootElement, startingWordWeight) {
         node,
         wordWeight,
         type: node.nodeName.toLowerCase(),
-        nextType: node.nextSibling?.nodeName.toLowerCase()
+        nextType: node.nextSibling?.nodeName.toLowerCase(),
       })
-    } else {
+    }
+    else {
       wordWeight += _getWordWeight(node)
       landmarks.push({
         node: rootElement,
         wordWeight,
         type: rootElement.nodeName.toLowerCase(),
-        nextType: rootElement.nextSibling?.nodeName.toLowerCase()
+        nextType: rootElement.nextSibling?.nodeName.toLowerCase(),
       })
     }
   }
@@ -65,11 +65,10 @@ const _getTextFieldLandmarks = function (rootElement, startingWordWeight) {
 // Insert next to insertLocation, or append the end.
 const useInsertAfterElement = function (element, target) {
   const parent = target.parentNode
-  if (target && target.nextSibling) {
+  if (target && target.nextSibling)
     parent.insertBefore(element, target.nextSibling)
-  } else {
+  else
     parent.appendChild(element)
-  }
 }
 
 // Gets a list of dom nodes in the streamfield, where
@@ -90,13 +89,14 @@ const useStreamfieldLandmarks = function (rootElement) {
       const childLandmarks = _getTextFieldLandmarks(node, wordWeight)
       landmarks.push(...childLandmarks);
       ({ wordWeight } = landmarks.at(-1))
-    } else {
+    }
+    else {
       wordWeight += _getWordWeight(node)
       landmarks.push({
         node,
         wordWeight,
         type: node.nodeName.toLowerCase(),
-        nextType: node.nextSibling?.nodeName.toLowerCase()
+        nextType: node.nextSibling?.nodeName.toLowerCase(),
       })
     }
   }
@@ -105,5 +105,5 @@ const useStreamfieldLandmarks = function (rootElement) {
 
 export {
   useStreamfieldLandmarks,
-  useInsertAfterElement
+  useInsertAfterElement,
 }
