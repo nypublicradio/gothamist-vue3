@@ -251,7 +251,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? '' : `/${article?.sec
           </div>
           <div class="col-fixed hidden lg:block">
             <HtlAd
-              slot="htlad-gothamist_interior_rectangle_topper"
+              slot-name="htlad-gothamist_interior_rectangle_topper"
               layout="rectangle"
               fineprint="Gothamist is funded by sponsors and member donations"
             />

@@ -166,7 +166,7 @@ function goBack() {
         >
           <template v-if="index === 3 || (index > 0 && index % 6 === 0)">
             <HtlAd
-              slot="htlad-gothamist_interior_midpage_repeating"
+              slot-name="htlad-gothamist_interior_midpage_repeating"
               layout="rectangle"
             />
             <hr class="my-3">

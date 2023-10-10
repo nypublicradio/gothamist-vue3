@@ -257,7 +257,7 @@ function nativoSectionLoaded(name) {
                     class="xl:hidden"
                   >
                     <HtlAd
-                      slot="htlad-gothamist_index_river"
+                      slot-name="htlad-gothamist_index_river"
                       layout="rectangle"
                     />
                     <hr class="mb-5">
@@ -265,7 +265,7 @@ function nativoSectionLoaded(name) {
                 </div>
               </div>
               <div class="col-fixed hidden xl:block mx-auto">
-                <HtlAd slot="htlad-gothamist_index_river" layout="rectangle" />
+                <HtlAd slot-name="htlad-gothamist_index_river" layout="rectangle" />
               </div>
             </div>
             <div class="grid gutter-x-xl">

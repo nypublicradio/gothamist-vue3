@@ -73,7 +73,7 @@ function newsletterSubmitEvent() {
         nativo-id="ntv-section-1"
       />
       <div class="mb-6">
-        <HtlAd slot="htlad-gothamist_interior_midpage_1" layout="rectangle" />
+        <HtlAd slot-name="htlad-gothamist_interior_midpage_1" layout="rectangle" />
       </div>
       <!-- articles -->
       <div v-if="articles" id="articleList" class="grid gutter-x-xl section-river">
@@ -114,7 +114,7 @@ function newsletterSubmitEvent() {
           />
         </div>
         <div class="col-fixed mx-auto hidden xl:block">
-          <HtlAd slot="htlad-gothamist_interior_river" layout="rectangle" />
+          <HtlAd slot-name="htlad-gothamist_interior_river" layout="rectangle" />
         </div>
       </div>
       <!-- newsletter -->

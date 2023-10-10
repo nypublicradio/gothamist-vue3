@@ -145,7 +145,7 @@ if (!curatedTagPage || curatedTagPage.preventSearchIndexing)
           <div class="col-fixed col-fixed-width-330 hidden xl:block" />
         </div>
       </div>
-      <HtlAd slot="htlad-gothamist_interior_midpage_1" layout="rectangle" />
+      <HtlAd slot-name="htlad-gothamist_interior_midpage_1" layout="rectangle" />
     </section>
     <section class="block xl:hidden">
       <div
@@ -203,7 +203,7 @@ if (!curatedTagPage || curatedTagPage.preventSearchIndexing)
             />
           </div>
           <div class="col-fixed mx-auto hidden xl:block">
-            <HtlAd slot="htlad-gothamist_interior_river" layout="rectangle" />
+            <HtlAd slot-name="htlad-gothamist_interior_river" layout="rectangle" />
           </div>
         </div>
         <!-- newsletter -->

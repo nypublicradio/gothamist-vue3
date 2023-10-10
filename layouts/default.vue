@@ -184,12 +184,12 @@ else {
         <div class="leaderboard-ad-backdrop">
           <HtlAd
             v-if="route.name === 'index'"
-            slot="htlad-gothamist_index_leaderboard_1"
+            slot-name="htlad-gothamist_index_leaderboard_1"
             layout="leaderboard"
           />
           <HtlAd
             v-else
-            slot="htlad-gothamist_interior_leaderboard_1"
+            slot-name="htlad-gothamist_interior_leaderboard_1"
             layout="leaderboard"
           />
         </div>

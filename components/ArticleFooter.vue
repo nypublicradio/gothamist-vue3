@@ -45,7 +45,7 @@ function onTagClick(tag) {
         />
         <div class="block mx-auto block lg:hidden mb-6" style="width: 300px">
           <HtlAd
-            slot="htlad-gothamist_interior_rectangle_article_bio"
+            slot-name="htlad-gothamist_interior_rectangle_article_bio"
             layout="rectangle"
             fineprint="Gothamist is funded by sponsors and member donations"
           />
@@ -57,7 +57,7 @@ function onTagClick(tag) {
       </div>
       <div class="col-fixed mx-auto hidden lg:block">
         <HtlAd
-          slot="htlad-gothamist_interior_rectangle_article_bio"
+          slot-name="htlad-gothamist_interior_rectangle_article_bio"
           layout="rectangle"
           fineprint="Gothamist is funded by sponsors and member donations"
         />
