@@ -9,7 +9,7 @@ const el = ref(null)
 
 <template>
   <div
-    class="streamfield-embed streamfield-embed-defualt streamfield-paragraph mb-7"
+    class="streamfield-embed streamfield-embed-default streamfield-paragraph mb-7"
     v-html="block.value.embed"
     ref="el"
   />
@@ -22,11 +22,6 @@ const el = ref(null)
       aspect-ratio: 16 / 9 !important;
       width: 100% !important;
       height: 100% !important;
-    }
-  }
-  .instagram-media {
-    @include media('<lg') {
-      margin: auto !important;
     }
   }
 }
