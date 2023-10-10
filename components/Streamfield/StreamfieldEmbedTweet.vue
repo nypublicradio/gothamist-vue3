@@ -76,7 +76,9 @@ onMounted(async () => {
   el.value.innerHTML = stripTweetScripts(props.block.value.embed)
   if (window.twttr) {
     await nextTick()
-    const promises = tweetIds.value.map((id) => { return replaceTweet(id) })
+    const promises = tweetIds.value.map((id) => {
+      return replaceTweet(id)
+    })
     Promise.all(promises)
   }
 })

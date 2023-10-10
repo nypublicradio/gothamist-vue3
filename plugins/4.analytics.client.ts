@@ -7,7 +7,9 @@ export default defineNuxtPlugin(() => {
 
   window.dataLayer = window.dataLayer || []
   // init gtag function
-  function gtag() { dataLayer.push(arguments) }
+  function gtag() {
+    dataLayer.push(arguments)
+  }
   gtag('js', new Date())
   gtag('set', 'send_page_view', false)
   gtag('config', config.public.GA_MEASUREMENT_ID)

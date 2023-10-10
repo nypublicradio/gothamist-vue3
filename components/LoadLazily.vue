@@ -16,7 +16,9 @@ const props = withDefaults(defineProps<{
 })
 const element = ref(null)
 const seen = ref(false)
-function onVisible() { seen.value = true }
+function onVisible() {
+  seen.value = true
+}
 function onNotVisible() { /* do nothing */ }
 useVisibilityTracking(element, onVisible, onNotVisible, props.options)
 </script>
