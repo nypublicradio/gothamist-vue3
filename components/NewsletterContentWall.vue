@@ -93,10 +93,7 @@ watch(newsletterSignup.isSuccess, (value) => {
           </div>
         </form>
       </template>
-      <template
-        v-if="newsletterSignup.isSuccess.value"
-        class="regwall-form__submit"
-      >
+      <template v-if="newsletterSignup.isSuccess.value">
         <h2 class="regwall-header">
           Thanks for subscribing!
         </h2>
