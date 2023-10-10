@@ -1,5 +1,6 @@
 export default function useVisibilityTracking(elementRef, onVisible, onNotVisible, options) {
   const componentIsVisible = ref()
+  options = options ?? {}
   options.threshold = options.threshold ?? [1.0]
 
   if (!process.server) {
