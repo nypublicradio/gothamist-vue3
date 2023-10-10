@@ -209,10 +209,6 @@ function openSidebar(e) {
   fill: var(--text-color);
 }
 
-.article-page-header-left {
-  //min-width: 180px;
-}
-
 .article-page-header-right {
   min-width: 135px;
   @include media('>lg') {

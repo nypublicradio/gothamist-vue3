@@ -68,6 +68,5 @@ handlePreviewData()
 </template>
 
 <style lang="scss">
-.preview {
-}
+
 </style>
