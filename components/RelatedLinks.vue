@@ -15,7 +15,7 @@ const trackingComponent = 'Related Links'
 async function getRelatedPage(item) {
   const pageResponse = await usePageById(item.value.page)
   const page = normalizeFindPageResponse(pageResponse.data)
-  const link = 'link' in page && page.link || 'url' in page && page.url
+  const link = ('link' in page && page.link) || ('url' in page && page.url)
   return {
     listingTitle: item.value.title || page.listingTitle,
     listingImage: page.listingImage,

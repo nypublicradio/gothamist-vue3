@@ -42,8 +42,8 @@ const props = withDefaults(defineProps<{
 })
 const { $analytics } = useNuxtApp()
 const sponsored = computed(() => 'sponsoredContent' in props.article && props.article.sponsoredContent)
-const link = computed(() => 'link' in props.article && props.article.link
-             || 'url' in props.article && props.article.url)
+const link = computed(() => ('link' in props.article && props.article.link)
+             || ('url' in props.article && props.article.url))
 
 const tags = computed(() => {
   if (props.hideTags
