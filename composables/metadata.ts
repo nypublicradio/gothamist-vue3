@@ -139,7 +139,7 @@ import { ArticlePage, GalleryPage } from './types/Page'
   // Get <head> metadata values (for use with useHead) for an article
   function useArticlePageHeadMetadata(article: ArticlePage)
     :{ meta: ({name: string, content: string} | {property: string, content: string})[] }
-  {   
+  {
     const config = useRuntimeConfig()
     const metadata = {
       link: [
@@ -171,13 +171,17 @@ import { ArticlePage, GalleryPage } from './types/Page'
       metadata.meta.push({
         name: 'robots', content: 'noindex,nofollow'
       })
+    } else {
+      metadata.meta.push({
+        name: 'robots', content: 'max-image-preview:large'
+      })
     }
     return metadata
   }
 
   // Get <head> metadata values (for use with useHead) for a gallery
   function useGalleryPageHeadMetadata(gallery: GalleryPage)
-    :{ meta: ({name: string, content: string} | {property: string, content: string})[] } 
+    :{ meta: ({name: string, content: string} | {property: string, content: string})[] }
     {
     const config = useRuntimeConfig()
     const metadata = {
