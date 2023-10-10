@@ -2,8 +2,8 @@
 import Button from 'primevue/button'
 
 const emit = defineEmits<{
-  (e: 'sign-up'): void
-  (e: 'wall-cleared'): void
+  (e: 'signUp'): void
+  (e: 'wallCleared'): void
 }>()
 const status = ref('')
 function decline() {
@@ -13,7 +13,7 @@ function unDecline() {
   status.value = ''
 }
 function startReading() {
-  emit('wall-cleared')
+  emit('wallCleared')
 }
 
 const agree = ref(true)
@@ -34,7 +34,7 @@ function handleSubmit(emailAddress) {
 
 watch(newsletterSignup.isSuccess, (value) => {
   if (value) {
-    emit('sign-up')
+    emit('signUp')
     setTimeout(() => { document.querySelector('.regwall-success-buttons button')?.focus() }, 1)
     setTimeout(startReading, 5000)
   }
@@ -75,7 +75,7 @@ watch(newsletterSignup.isSuccess, (value) => {
               :alt-design="false"
               :outlined="false"
               :small="false"
-              @noThanksClick="decline"
+              @no-thanks-click="decline"
               @submit="handleSubmit"
             >
               By submitting your information, you're agreeing to receive

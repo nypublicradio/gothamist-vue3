@@ -8,7 +8,7 @@ defineProps<{
   donateUrlBase: string
   utmCampaign: string
 }>()
-const emit = defineEmits(['visible', 'not-visible'])
+const emit = defineEmits(['visible', 'notVisible'])
 const currentSteamStation = useCurrentSteamStation()
 const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
@@ -20,7 +20,7 @@ function openSidebar(e) {
 }
 const headerElement = ref(null)
 const onVisible = () => emit('visible')
-const onNotVisible = () => emit('not-visible')
+const onNotVisible = () => emit('notVisible')
 useVisibilityTracking(headerElement, onVisible, onNotVisible)
 
 function trackClick(category, label) {
@@ -85,7 +85,7 @@ function trackClick(category, label) {
           <span class="p-button-label">Donate</span>
         </a>
         <SearchButton
-          @onNavigate="trackClick('Click Tracking - Header', 'search button')"
+          @on-navigate="trackClick('Click Tracking - Header', 'search button')"
         />
         <Button
           icon="pi pi-bars"

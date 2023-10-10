@@ -116,7 +116,7 @@ watch(isEpisodePlaying, (e) => {
         :show-skip="false"
         :can-minimize="true"
         :show-track="false"
-        @togglePlay="updateUseIsEpisodePlaying"
+        @toggle-play="updateUseIsEpisodePlaying"
         @is-minimized="updateUseIsPlayerMinimized"
       />
     </transition>

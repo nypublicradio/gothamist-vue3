@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const emit = defineEmits<{
-  (e: 'sign-up'): void
+  (e: 'signUp'): void
   (e: 'dismissed'): void
 }>()
 const showContent = ref(false)
 function signUp() {
-  emit('sign-up')
+  emit('signUp')
 }
 
 function dismiss() {

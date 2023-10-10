@@ -90,10 +90,10 @@ const trackClick = function (targetUrl: string) {
     :tags="tags"
     :loading="loading"
     v-bind="{ ...$props, ...$attrs }"
-    @titleClick="trackClick(link)"
-    @imageClick="trackClick(link)"
-    @creditClick="trackClick(article.listingImage?.creditLink)"
-    @tagClick="(tag) => trackClick(`tags/${tag?.slug}`)"
+    @title-click="trackClick(link)"
+    @image-click="trackClick(link)"
+    @credit-click="trackClick(article.listingImage?.creditLink)"
+    @tag-click="(tag) => trackClick(`tags/${tag?.slug}`)"
   >
     <slot :track-click="trackClick" />
   </VCard>
