@@ -8,4 +8,9 @@ export default antfu({
     'cf_functions/**',
     'cypress/fixtures/**',
   ],
+  overrides: {
+    typescript: {
+      'node/prefer-global/process': ['error', 'always'],
+    },
+  },
 })
