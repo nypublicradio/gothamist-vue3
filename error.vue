@@ -4,7 +4,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 defineProps({
   error: {
     type: Object,
-    default: {},
+    default() { return {} },
   },
 })
 const config = useRuntimeConfig()

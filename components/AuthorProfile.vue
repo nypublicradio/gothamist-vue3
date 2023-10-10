@@ -8,7 +8,7 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
 const props = defineProps({
   profileData: {
     type: Object,
-    default: {},
+    default() { return {} },
   },
   showCta: {
     type: Boolean,
