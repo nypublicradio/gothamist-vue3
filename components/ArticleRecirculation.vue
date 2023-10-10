@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<{
 const trackingComponent = 'Recirculation Module'
 
 const routeSectionSlug = ref(props.slug)
-const { title: sectionTitle, id: sectionId } = await findPage(
+const { id: sectionId } = await findPage(
   routeSectionSlug.value as string,
 ).then(({ data }) => normalizeFindPageResponse(data))
 
@@ -43,8 +43,8 @@ onMounted(async () => {
   <LeftFeature
     class="recirculation"
     :collection="{ data: articlesFiltered }"
-    tracking-component="Recirculation Module"
-    tracking-component-location="Recirculation Module"
+    :tracking-component="trackingComponent"
+    :tracking-component-location="trackingComponentLocation"
     :nativo-id="nativoId"
   />
 </template>
