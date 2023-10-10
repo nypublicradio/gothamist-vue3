@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  slot: string
+  slotName: string
   layout: string
   fineprint?: string
   fineprintClass?: string
@@ -12,7 +12,7 @@ const sensitiveContent = useSensitiveContent()
 <template>
   <div>
     <div :class="`ad-wrapper ${sensitiveContent ? '' : layout}`">
-      <div v-if="!sensitiveContent" :class="slot" />
+      <div v-if="!sensitiveContent" :class="slotName" />
     </div>
     <p v-if="fineprint && !sensitiveContent" :class="`type-fineprint ${fineprintClass || ''}`">
       {{ fineprint }}

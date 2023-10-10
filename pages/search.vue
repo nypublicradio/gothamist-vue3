@@ -157,7 +157,7 @@ function newsletterSubmitEvent() {
               </div>
               <div class="col-fixed mx-auto hidden xl:block">
                 <HtlAd
-                  slot="htlad-gothamist_interior_river"
+                  slot-name="htlad-gothamist_interior_river"
                   layout="rectangle"
                 />
               </div>

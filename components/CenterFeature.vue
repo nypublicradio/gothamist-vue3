@@ -72,7 +72,7 @@ const articlesSm = ref([
           />
         </gothamist-card>
         <div class="hidden lg:block mb-4 xl:mb-7">
-          <HtlAd slot="htlad-gothamist_index_topper" layout="rectangle" />
+          <HtlAd slot-name="htlad-gothamist_index_topper" layout="rectangle" />
         </div>
       </div>
       <div class="col flex-order-1 lg:flex-order-2">
@@ -123,7 +123,7 @@ const articlesSm = ref([
           </gothamist-card>
         </lazy-horizontal-drag>
         <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
-          <HtlAd slot="htlad-gothamist_index_topper" layout="rectangle" />
+          <HtlAd slot-name="htlad-gothamist_index_topper" layout="rectangle" />
         </div>
       </div>
     </div>

@@ -153,7 +153,7 @@ useServerHead({
           </p>
           <div class="col-fixed col-fixed-width-330 hidden xl:block">
             <HtlAd
-              slot="htl-gothamist_interior_midpage_1"
+              slot-name="htl-gothamist_interior_midpage_1"
               layout="rectangle"
               fineprint="Gothamist is funded by sponsors and member donations"
             />
@@ -161,7 +161,7 @@ useServerHead({
         </div>
         <div class="block xl:hidden mb-4">
           <HtlAd
-            slot="htl-gothamist_interior_midpage_2"
+            slot-name="htl-gothamist_interior_midpage_2"
             layout="rectangle"
             fineprint="Gothamist is funded by sponsors and member donations"
           />
