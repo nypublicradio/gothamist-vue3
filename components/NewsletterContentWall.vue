@@ -35,7 +35,9 @@ function handleSubmit(emailAddress) {
 watch(newsletterSignup.isSuccess, (value) => {
   if (value) {
     emit('signUp')
-    setTimeout(() => { document.querySelector('.regwall-success-buttons button')?.focus() }, 1)
+    setTimeout(() => {
+      document.querySelector('.regwall-success-buttons button')?.focus()
+    }, 1)
     setTimeout(startReading, 5000)
   }
 })
