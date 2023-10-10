@@ -121,7 +121,7 @@ function submitForm(email) {
         :submission-status="submissionStatus"
         :alt-design="altDesign"
         :outlined="outlined"
-        @noThanksClick="hideComp"
+        @no-thanks-click="hideComp"
         @submit="submitForm"
       >
         By submitting your information, you're agreeing to receive

@@ -6,18 +6,18 @@ defineProps<{
   article: ArticlePage
 }>()
 const emit = defineEmits<{
-  (e: 'wall-dismissed'): void
-  (e: 'wall-seen'): void
-  (e: 'all-blocks-mounted'): void
+  (e: 'wallDismissed'): void
+  (e: 'wallSeen'): void
+  (e: 'allBlocksMounted'): void
 }>()
 function handleSeen() {
-  emit('wall-seen')
+  emit('wallSeen')
 }
 function handleDismissed() {
-  emit('wall-dismissed')
+  emit('wallDismissed')
 }
 function handleArticleMounted() {
-  emit('all-blocks-mounted')
+  emit('allBlocksMounted')
 }
 const contentWallRef = ref()
 useTrackSeen(contentWallRef, handleSeen)
@@ -40,7 +40,7 @@ useTrackSeen(contentWallRef, handleSeen)
     </template>
     <template #wall="wall">
       <div ref="contentWallRef" class="wall-wrapper">
-        <NewsletterContentWall @wallCleared="wall.dismiss" @signUp="wall.signUp" />
+        <NewsletterContentWall @wall-cleared="wall.dismiss" @sign-up="wall.signUp" />
       </div>
     </template>
   </ContentWall>

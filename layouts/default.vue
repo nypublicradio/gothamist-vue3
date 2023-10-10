@@ -251,7 +251,7 @@ else {
           :donate-url-base="config.public.donateUrlBase"
           utm-campaign="goth_hamburger"
           class="mt-3"
-          @menuListClick="trackSidebarClick($event)"
+          @menu-list-click="trackSidebarClick($event)"
         />
       </LoadLazily>
     </template>

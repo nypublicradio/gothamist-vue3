@@ -8,7 +8,7 @@ const props = defineProps<{
   donateUrlBase: string
   utmCampaign: string
 }>()
-const emit = defineEmits(['menu-list-click'])
+const emit = defineEmits(['menuListClick'])
 </script>
 
 <template>
@@ -17,18 +17,18 @@ const emit = defineEmits(['menu-list-click'])
       <SearchButton
         expanded
         class="mb-6"
-        @onSearch="emit('menu-list-click', $event)"
+        @on-search="emit('menuListClick', $event)"
       />
       <menu-list
         :nav-links="props.navigation.primaryNavigation"
-        @menuListClick="emit('menu-list-click', $event)"
+        @menu-list-click="emit('menuListClick', $event)"
       />
     </div>
     <div class="sidebar-contents-bottom mb-5 md:mb-6">
       <!-- <ListenAllLiveButton
-        @streamButtonClick="emit('menu-list-click', $event)"
+        @streamButtonClick="emit('menuListClick', $event)"
       /> -->
-      <ListenLiveButton @streamButtonClick="emit('menu-list-click', $event)" />
+      <ListenLiveButton @stream-button-click="emit('menuListClick', $event)" />
       <a
         class="sidebar-button-send-a-story mod-button p-button p-button-rounded mb-5 mt-3 w-full"
         href="mailto:tips@gothamist.com"

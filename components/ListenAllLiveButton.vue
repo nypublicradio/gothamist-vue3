@@ -21,7 +21,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['stream-button-click'])
+const emit = defineEmits(['streamButtonClick'])
 
 const isEpisodePlaying = useIsEpisodePlaying()
 const togglePlayTrigger = useTogglePlayTrigger()
@@ -67,7 +67,7 @@ async function togglePlay() {
     await getLiveStream(slug.value)
     gotStream = true
   }
-  emit('stream-button-click')
+  emit('streamButtonClick')
   togglePlayTrigger.value = !togglePlayTrigger.value
 }
 </script>
