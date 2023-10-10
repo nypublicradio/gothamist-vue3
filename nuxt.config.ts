@@ -70,10 +70,6 @@ export default defineNuxtConfig({
     {
       path: '~/components',
     },
-    {
-      path: '~/components/marketing-banners',
-      pathPrefix: false,
-    },
   ],
   build: {
     transpile: [
