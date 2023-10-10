@@ -7,8 +7,8 @@ export default defineNuxtPlugin(() => {
 
   window.dataLayer = window.dataLayer || []
   // init gtag function
-  function gtag() {
-    dataLayer.push(arguments)
+  function gtag(...args) {
+    dataLayer.push(args)
   }
   gtag('js', new Date())
   gtag('set', 'send_page_view', false)
