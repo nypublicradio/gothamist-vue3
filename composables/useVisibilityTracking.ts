@@ -1,5 +1,6 @@
-export default function useVisibilityTracking(elementRef, onVisible, onNotVisible, options={threshold: [1.0]}) {
+export default function useVisibilityTracking(elementRef, onVisible, onNotVisible, options) {
   const componentIsVisible = ref()
+  options.threshold = options.threshold ?? [1.0]
 
   if (!process.server) {
     const observer = new IntersectionObserver((entries) => {
@@ -7,14 +8,15 @@ export default function useVisibilityTracking(elementRef, onVisible, onNotVisibl
         if (entry.isIntersecting && componentIsVisible.value !== true) {
           componentIsVisible.value = true
           onVisible()
-        } else if (!entry.isIntersecting && componentIsVisible.value !== false) {
+        }
+        else if (!entry.isIntersecting && componentIsVisible.value !== false) {
           componentIsVisible.value = false
           onNotVisible()
         }
       })
-    }, options);
+    }, options)
 
-    onMounted(() => { 
+    onMounted(() => {
       observer.observe(elementRef.value)
     })
 
