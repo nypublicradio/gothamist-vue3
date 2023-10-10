@@ -19,13 +19,6 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  const assignVariants = (experiments: Experiment[]): void => {
-    experiments.forEach((experiment) => {
-      if (experiment === getCurrentExperiment() && typeof activeVariant === 'undefined')
-        activeVariant = readVariant(experiment) ?? chooseVariant(experiment)
-    })
-  }
-
   const chooseVariant = (experiment: Experiment): number => {
     return chooseWeightedRandom(experiment.variants.map(variant => variant.weight))
   }
@@ -52,6 +45,13 @@ export default defineNuxtPlugin(() => {
       return currentExperiments[0]
     else
       return undefined
+  }
+
+  const assignVariants = (experiments: Experiment[]): void => {
+    experiments.forEach((experiment) => {
+      if (experiment === getCurrentExperiment() && typeof activeVariant === 'undefined')
+        activeVariant = readVariant(experiment) ?? chooseVariant(experiment)
+    })
   }
 
   assignVariants(currentExperiments)
