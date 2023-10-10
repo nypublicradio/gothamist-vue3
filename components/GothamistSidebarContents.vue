@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
-import Navigation from '~~/composables/types/Navigation.js'
+import type Navigation from '~~/composables/types/Navigation.js'
 
 const props = defineProps<{
   navigation: Navigation
@@ -20,7 +20,7 @@ const emit = defineEmits(['menu-list-click'])
         @onSearch="emit('menu-list-click', $event)"
       />
       <menu-list
-        :navLinks="props.navigation.primaryNavigation"
+        :nav-links="props.navigation.primaryNavigation"
         @menuListClick="emit('menu-list-click', $event)"
       />
     </div>
@@ -37,23 +37,23 @@ const emit = defineEmits(['menu-list-click'])
       >
         <span class="p-button-label">Send a story idea</span>
       </a>
-      <hr class="white mb-3" />
-      <v-share-tools class="mb-3">
+      <hr class="white mb-3">
+      <VShareTools class="mb-3">
         <span>Follow Us</span>
-        <v-share-tools-item service="facebook" username="gothamist" />
-        <v-share-tools-item service="twitter" username="gothamist" />
-        <v-share-tools-item service="instagram" username="gothamist" />
-        <v-share-tools-item
+        <VShareToolsItem service="facebook" username="gothamist" />
+        <VShareToolsItem service="twitter" username="gothamist" />
+        <VShareToolsItem service="instagram" username="gothamist" />
+        <VShareToolsItem
           service="youtube"
           username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
         />
-      </v-share-tools>
-      <hr class="white mb-3" />
+      </VShareTools>
+      <hr class="white mb-3">
       <div class="flex mb-3">
         <div
           class="sidebar-contents-property-description mr-2"
           v-html="navigation.propertyDescription"
-        ></div>
+        />
         <div class="sidebar-contents-logo">
           <LogoNypr />
         </div>
@@ -65,7 +65,7 @@ const emit = defineEmits(['menu-list-click'])
         rel="noopener noreferrer"
       >
         <span class="p-button-label">
-          <span class="pi pi-heart-fill"></span>
+          <span class="pi pi-heart-fill" />
           Support us today
         </span>
       </a>

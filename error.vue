@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
-const config = useRuntimeConfig()
-const route = useRoute()
-const { $htlbid, $analytics } = useNuxtApp()
-
 const props = defineProps({
   error: {
     type: Object,
     default: {},
   },
 })
+const config = useRuntimeConfig()
+const route = useRoute()
+const { $htlbid, $analytics } = useNuxtApp()
 
 const navigationState = useNavigation()
 const navigationPromise = findNavigation().then(({ data }) => {
@@ -20,10 +19,10 @@ const navigationPromise = findNavigation().then(({ data }) => {
 })
 
 const breakingNewsPromise = findBreakingNews().then(({ data }) =>
-  normalizeFindBreakingNewsResponse(data)
+  normalizeFindBreakingNewsResponse(data),
 )
 const productBannersPromise = findProductBanners().then(({ data }) =>
-  normalizeFindProductBannersResponse(data)
+  normalizeFindProductBannersResponse(data),
 )
 
 const [navigation, breakingNews, productBanners] = await Promise.all([
@@ -44,9 +43,8 @@ const closeSidebar = () => {
 let sidebarElements, firstElement, lastElement
 
 const handleSidebarHidden = () => {
-  if (sidebarOpenedFrom.value?.focus) {
+  if (sidebarOpenedFrom.value?.focus)
     sidebarOpenedFrom.value.focus()
-  }
 }
 
 const handleSidebarTab = (e) => {
@@ -66,15 +64,15 @@ const handleSidebarShiftTab = (e) => {
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
     document.querySelectorAll(
-      '.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])'
-    )
-  ).filter((element) => element.clientWidth + element.clientHeight !== 0)
+      '.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])',
+    ),
+  ).filter(element => element.clientWidth + element.clientHeight !== 0)
   firstElement = sidebarElements[0]
   lastElement = sidebarElements[sidebarElements.length - 1]
 }
 
 const trackSidebarClick = (label) => {
-  //emitted mobile menu click event
+  // emitted mobile menu click event
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Mobile Menu',
     component: 'header',
@@ -90,8 +88,8 @@ onBeforeMount(() => {
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'error_page' })
   document.addEventListener('scroll', (e) => {
-    atTop.value = window.scrollY > 0 ? false : true
-    //atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
+    atTop.value = !(window.scrollY > 0)
+    // atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
   })
   $htlbid.init()
   $htlbid.setTargeting({
@@ -116,65 +114,66 @@ useHead({
   htmlAttrs: {
     lang: 'en',
   },
-  title: 'Gothamist: New York City Local News, Food, Arts & Events'
+  title: 'Gothamist: New York City Local News, Food, Arts & Events',
 })
 useServerHead({
   link: [
-    { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high'},
-    { rel: 'preconnect', href: config.public.IMAGE_CDN_URL, tagPriority: 'high'},
+    { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high' },
+    { rel: 'preconnect', href: config.public.IMAGE_CDN_URL, tagPriority: 'high' },
   ],
   meta: [
-    {name: 'description', content: 'Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio.'},
-    {property: 'og:site_name', content: 'Gothamist'},
-    {property: 'og:type', content: 'website'},
-    {property: 'og:url', content: `https://www.gothamist.com${route.fullPath}`},
-    {property: 'og:title', content: 'Gothamist: New York City Local News, Food, Arts & Events'},
-    {property: 'og:site_name', content:'Gothamist'},
-    {property: 'og:description', content:'Gothamist is a non-profit local newsroom, powered by WNYC.'},
-    {property: 'og:image', content: config.public.OG_IMAGE},
-    {property: 'og:locale', content:'en_US'},
-    {property: 'og:image:width', content:'1200'},
-    {property: 'og:image:height', content:'650'},
-    {property: 'fb:app_id', content:'151261804904925'},
-    {name: 'twitter:card', content:'summary_large_image'},
-    {name: 'twitter:site', content:'@gothamist'}
-  ]
+    { name: 'description', content: 'Gothamist is a website about New York City news, arts and events, and food, brought to you by New York Public Radio.' },
+    { property: 'og:site_name', content: 'Gothamist' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: `https://www.gothamist.com${route.fullPath}` },
+    { property: 'og:title', content: 'Gothamist: New York City Local News, Food, Arts & Events' },
+    { property: 'og:site_name', content: 'Gothamist' },
+    { property: 'og:description', content: 'Gothamist is a non-profit local newsroom, powered by WNYC.' },
+    { property: 'og:image', content: config.public.OG_IMAGE },
+    { property: 'og:locale', content: 'en_US' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '650' },
+    { property: 'fb:app_id', content: '151261804904925' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:site', content: '@gothamist' },
+  ],
 })
 </script>
+
 <template>
   <div class="error-page">
     <div v-if="!sensitiveContent" class="htlad-skin" />
     <div
       class="leaderboard-ad-wrapper flex justify-content-center align-items-center"
     >
-      <div v-if="!sensitiveContent" class="htlad-index_leaderboard_1"></div>
+      <div v-if="!sensitiveContent" class="htlad-index_leaderboard_1" />
       <div class="leaderboard-container">
         <Transition name="fixed-header">
           <GothamistMainHeader
-              v-if="fixedHeaderVisible && route.name !== 'sectionSlug-articleSlug'"
-              class="fixed-header"
-              :navigation="navigation"
-              :isMinimized="true"
-              :donateUrlBase="config.public.donateUrlBase"
-              utmCampaign="homepage-header"
-            />
+            v-if="fixedHeaderVisible && route.name !== 'sectionSlug-articleSlug'"
+            class="fixed-header"
+            :navigation="navigation"
+            :is-minimized="true"
+            :donate-url-base="config.public.donateUrlBase"
+            utm-campaign="homepage-header"
+          />
         </Transition>
       </div>
     </div>
     <GothamistMainHeader
       :navigation="navigation"
-      :isMinimized="route.name !== 'index'"
-      :donateUrlBase="config.public.donateUrlBase"
-      utmCampaign="goth_header"
+      :is-minimized="route.name !== 'index'"
+      :donate-url-base="config.public.donateUrlBase"
+      utm-campaign="goth_header"
       @visible="() => { fixedHeaderVisible = false }"
       @not-visible="() => { fixedHeaderVisible = true }"
     />
     <Sidebar
       v-model:visible="sidebarOpen"
-      :baseZIndex="6000"
+      :base-z-index="6000"
       position="right"
       data-style-mode="dark"
-      ariaCloseLabel="close the navigation menu"
+      aria-close-label="close the navigation menu"
       class="gothamist-sidebar px-3 md:px-4"
       @show="handleSidebarShown"
       @hide="handleSidebarHidden"
@@ -182,25 +181,25 @@ useServerHead({
       @keydown.tab="handleSidebarTab"
       @keydown.shift.tab="handleSidebarShiftTab"
     >
-      <template v-slot:header>
+      <template #header>
         <div class="gothamist-sidebar-header flex md:hidden">
-          <v-flexible-link
+          <VFlexibleLink
             to="/"
             raw
             @click="trackSidebarClick('sidebar logo')"
           >
             <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
-          </v-flexible-link>
+          </VFlexibleLink>
           <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
         </div>
       </template>
-      <template v-slot:default>
+      <template #default>
         <GothamistSidebarContents
           :navigation="navigation"
-          :donateUrlBase="config.public.donateUrlBase"
-          @menuListClick="trackSidebarClick($event)"
-          utmCampaign="goth_hamburger"
+          :donate-url-base="config.public.donateUrlBase"
+          utm-campaign="goth_hamburger"
           class="mt-3"
+          @menuListClick="trackSidebarClick($event)"
         />
       </template>
     </Sidebar>
@@ -212,7 +211,7 @@ useServerHead({
           </div>
           <div v-if="config.public.DEBUG === 'true'" class="mt-4">
             <pre class="font-bold">{{ error.message }}</pre>
-            <div v-html="error.description"></div>
+            <div v-html="error.description" />
           </div>
           <h2 class="text-center p-6">
             The page you're looking for doesn't appear to exist. Please check
@@ -223,10 +222,10 @@ useServerHead({
       <section>
         <div class="content">
           <!-- featured area -->
-          <article-recirculation trackingComponentLocation="Error Page Recirculation Module" />
+          <article-recirculation tracking-component-location="Error Page Recirculation Module" />
           <!-- newsletter -->
           <div class="mt-8 mb-5">
-            <hr class="black mb-4" />
+            <hr class="black mb-4">
             <newsletter-home @submit="newsletterSubmitEvent" />
           </div>
         </div>

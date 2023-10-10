@@ -1,14 +1,15 @@
 <script setup>
-import { ref, onBeforeMount } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import {
+  useAllCurrentEpisodes,
   useIsEpisodePlaying,
   useTogglePlayTrigger,
-  useAllCurrentEpisodes,
 } from '~/composables/states'
 import {
   getAllLiveStreams,
   getLiveStream,
 } from '~~/composables/data/liveStream'
+
 const props = defineProps({
   label: {
     type: String,
@@ -39,24 +40,24 @@ const toggleMenu = (event) => {
 // lifecycle hooks
 onBeforeMount(async () => {
   getAllLiveStreams().then(() => {
-    //console.log('allCurrentEpisodes.value', allCurrentEpisodes.value)
+    // console.log('allCurrentEpisodes.value', allCurrentEpisodes.value)
     allCurrentEpisodes.value.data.forEach((stream) => {
-      //console.log('stream', stream)
+      // console.log('stream', stream)
       // conditional to check what shows are currently running
-      //if (stream.relationships['current-show'].data !== null) {
+      // if (stream.relationships['current-show'].data !== null) {
       streamItems.value.push({
         label: stream.attributes.name,
         icon: 'icon',
         slug: stream.attributes.slug,
         image: stream.attributes['image-logo'],
         command: async () => {
-          //console.log('command - ', stream.attributes.slug)
+          // console.log('command - ', stream.attributes.slug)
           slug.value = stream.attributes.slug
           await getLiveStream(stream.attributes.slug)
           gotStream = true
         },
       })
-      //}
+      // }
     })
   })
 })
@@ -84,13 +85,13 @@ const togglePlay = async () => {
             alt="play icon"
             src="/play.svg"
             class="mr-2"
-          />
-          <img v-else alt="pause icon" src="/pause.svg" class="mr-2" />
+          >
+          <img v-else alt="pause icon" src="/pause.svg" class="mr-2">
           <img
             class="logo mr-2"
             alt="show-logo"
             :src="`/live-stream-logos-white/${slug}.svg`"
-          />
+          >
           <span>{{ props.label }}</span>
         </div>
       </Button>
@@ -112,8 +113,10 @@ const togglePlay = async () => {
           class="stream-item flex gap-2 align-items-center"
           @click="item.command()"
         >
-          <img :src="item.image" alt="-" class="image" />
-          <p class="label">{{ item.label }}</p>
+          <img :src="item.image" alt="-" class="image">
+          <p class="label">
+            {{ item.label }}
+          </p>
         </div>
       </template>
     </TieredMenu>

@@ -1,20 +1,21 @@
 <script setup lang="ts">
-import { ArticlePage } from '../composables/types/Page'
+import type { ArticlePage } from '../composables/types/Page'
 
 const props = withDefaults(defineProps<{
   articles?: ArticlePage[]
   trackingComponentLocation: string
 }>(), {
-  articles: () => []
+  articles: () => [],
 })
-const trackingComponent = "Content Collection"
+const trackingComponent = 'Content Collection'
 
 const articleData = []
-//loop through articles and normalize data for each one
+// loop through articles and normalize data for each one
 props.articles.forEach((article) => {
   articleData.push(normalizeArticlePage(article))
 })
 </script>
+
 <template>
   <div>
     <div class="grid gutter-x-30 justify-content-center">
@@ -30,10 +31,10 @@ props.articles.forEach((article) => {
           :width="318"
           :height="212"
           :sizes="[1]"
-          :trackClicks="true"
-          :trackingComponentLocation="trackingComponentLocation"
-          :trackingComponent="trackingComponent"
-          :trackingComponentPosition="index + 1"
+          :track-clicks="true"
+          :tracking-component-location="trackingComponentLocation"
+          :tracking-component="trackingComponent"
+          :tracking-component-position="index + 1"
         >
           <p class="desc">
             {{ article.description }}
@@ -43,9 +44,9 @@ props.articles.forEach((article) => {
             @link-click="$event => card.trackClick($event)"
           />
         </gothamist-card>
-        <hr class="mb-5 block md:hidden" />
+        <hr class="mb-5 block md:hidden">
       </div>
     </div>
-    <hr class="mb-5 hidden md:block" />
+    <hr class="mb-5 hidden md:block">
   </div>
 </template>

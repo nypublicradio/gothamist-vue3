@@ -38,7 +38,7 @@ workflows:
             - build
       - deploy:
           name: Deploy (demo)
-          context: "AWS Deploy"
+          context: AWS Deploy
           <<: *filter_demo
           tag: demo
           requires:
@@ -47,7 +47,7 @@ workflows:
             - test_cypress
       - deploy:
           name: Deploy (prod)
-          context: "AWS Deploy"
+          context: AWS Deploy
           env: prod
           <<: *filter_prod
           requires:
@@ -56,24 +56,24 @@ workflows:
             - test_cypress
       - cf-function-deploy:
           name: Deploy CloudFront Functions (demo)
-          context: "AWS Deploy"
+          context: AWS Deploy
           env: demo
           <<: *filter_demo
           requires:
             - test
             - test_nginx
             - test_cypress
-            - "Deploy (demo)"
+            - Deploy (demo)
       - cf-function-deploy:
           name: Deploy CloudFront Functions (prod)
-          context: "AWS Deploy"
+          context: AWS Deploy
           env: prod
           <<: *filter_prod
           requires:
             - test
             - test_nginx
             - test_cypress
-            - "Deploy (prod)"
+            - Deploy (prod)
 
 jobs:
   # Note (allie): This is its own job because I don't
@@ -130,11 +130,11 @@ jobs:
     parameters:
       env:
         type: enum
-        default: "demo"
-        enum: ["demo", "prod"]
+        default: demo
+        enum: [demo, prod]
       tag:
         type: string
-        default: ""
+        default: ''
     steps:
       - checkout
       - run:
@@ -154,11 +154,11 @@ jobs:
     parameters:
       env:
         type: enum
-        default: "demo"
-        enum: ["demo", "prod"]
+        default: demo
+        enum: [demo, prod]
       tag:
         type: string
-        default: ""
+        default: ''
     steps:
       - checkout
       - setup_npmrc
@@ -196,8 +196,8 @@ jobs:
     parameters:
       env:
         type: enum
-        default: "demo"
-        enum: ["demo", "prod"]
+        default: demo
+        enum: [demo, prod]
     steps:
       - checkout:
           path: ~/project
@@ -207,7 +207,7 @@ jobs:
           environment:
             ENV: <<parameters.env>>
           command: |
-            for x in *.js; do 
+            for x in *.js; do
               functionName=$(basename $x .js)
               aws cloudfront describe-function --name $functionName-$ENV > /dev/null 2>&1
               if [[ $? == 0 ]]; then
@@ -229,7 +229,7 @@ jobs:
           environment:
             ENV: <<parameters.env>>
           command: |
-            for x in *.js; do 
+            for x in *.js; do
               functionName=$(basename $x .js)
               etag=$(aws cloudfront describe-function --name $functionName-$ENV --query 'ETag' --output text)
               aws cloudfront publish-function \

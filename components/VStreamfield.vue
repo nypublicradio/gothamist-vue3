@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { StreamfieldBlock } from '../composables/types/StreamfieldBlock'
+import type { StreamfieldBlock } from '../composables/types/StreamfieldBlock'
+
 const props = withDefaults(defineProps<{
   streamfieldBlocks: StreamfieldBlock[]
   trackingComponentLocation?: string
 }>(), {
-  trackingComponentLocation: "Streamfield"
+  trackingComponentLocation: 'Streamfield',
 })
 const emit = defineEmits<{
   (e: 'allBlocksMounted', value: any): void
@@ -15,14 +16,13 @@ let blocksMounted = 0
 
 function countMountedBlock() {
   blocksMounted++
-  if (blocksMounted === props.streamfieldBlocks.length) {
+  if (blocksMounted === props.streamfieldBlocks.length)
     emit('allBlocksMounted', el)
-  }
 }
 </script>
 
 <template>
-  <div class="streamfield" ref="el">
+  <div ref="el" class="streamfield">
     <template v-for="block in streamfieldBlocks">
       <StreamfieldBlockQuote
         v-if="block.type === 'block_quote'"
@@ -42,7 +42,7 @@ function countMountedBlock() {
         v-else-if="block.type === 'content_collection'"
         :key="`${block.id}-content-collection`"
         :block="block"
-        :trackingComponentLocation="trackingComponentLocation"
+        :tracking-component-location="trackingComponentLocation"
         @vue:mounted="countMountedBlock"
       />
 

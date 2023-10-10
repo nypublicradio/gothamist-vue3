@@ -1,6 +1,6 @@
 <script setup>
-import { formatDateForByline, fuzzyDateTime } from '~/utilities/date'
 import { ref } from 'vue'
+import { formatDateForByline, fuzzyDateTime } from '~/utilities/date'
 
 const props = defineProps({
   article: {
@@ -32,11 +32,10 @@ const props = defineProps({
 // function to format the date based on being fuzzy or showing the prefix
 const createDateLine = (date, prefix) => {
   if (date) {
-    if (props.fuzzy) {
+    if (props.fuzzy)
       return `${prefix}${fuzzyDateTime(date)}`
-    } else {
+    else
       return `${prefix}${formatDateForByline(date)}`
-    }
   }
   return null
 }
@@ -45,13 +44,15 @@ const prefixModified = ref(props.showPrefix ? props.prefixModified : '')
 
 const date = ref(createDateLine(props.article?.publicationDate, prefix.value))
 const modifiedDate = ref(
-  createDateLine(props.article?.updatedDate, prefixModified.value)
+  createDateLine(props.article?.updatedDate, prefixModified.value),
 )
 </script>
 
 <template>
   <div class="date-published">
-    <p :class="props.typeClass">{{ date }}</p>
+    <p :class="props.typeClass">
+      {{ date }}
+    </p>
     <p v-if="modifiedDate" :class="props.typeClass">
       {{ modifiedDate }}
     </p>

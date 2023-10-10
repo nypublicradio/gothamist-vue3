@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch, nextTick } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 
 const route = useRoute()
 const config = useRuntimeConfig()
@@ -9,18 +9,19 @@ const query = ref(querySlug.value ?? '')
 
 const articles = ref(
   await searchArticlePages({ q: querySlug.value }).then(({ data }) =>
-    normalizeSearchArticlePagesResponse(data)
-  )
+    normalizeSearchArticlePagesResponse(data),
+  ),
 )
 const articlesToShow = ref(10)
 const loadMoreContainer = ref('#resultList')
 const isSearching = ref(false)
 
 async function getSearchResults() {
-  if (query.value) await navigateTo({ query: { q: query.value } })
+  if (query.value)
+    await navigateTo({ query: { q: query.value } })
   isSearching.value = true
   articles.value = await searchArticlePages({ q: query.value }).then(
-    ({ data }) => normalizeSearchArticlePagesResponse(data)
+    ({ data }) => normalizeSearchArticlePagesResponse(data),
   )
   $analytics.sendEvent('event_tracking', {
     event_category: 'search query',
@@ -41,25 +42,22 @@ const loadMoreArticles = async () => {
   }
 }
 
-const pageTitle = () => querySlug.value ? `Search Results for "${querySlug.value}" | Gothamist` : "Search | Gothamist"
+const pageTitle = () => querySlug.value ? `Search Results for "${querySlug.value}" | Gothamist` : 'Search | Gothamist'
 
 useHeadSafe({
   title: pageTitle,
 })
 useServerHeadSafe({
-  meta: [{ property: 'og:title', content: pageTitle}]
+  meta: [{ property: 'og:title', content: pageTitle }],
 })
 useServerHead({
-  link: [{rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/search`}]
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/search` }],
 })
-if (query.value) {
-  useServerHead({meta: [{name: 'robots', content: 'noindex'}]})
-}
+if (query.value)
+  useServerHead({ meta: [{ name: 'robots', content: 'noindex' }] })
 
 useChartbeat()
 useOptinMonster()
-
-
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'search_page' })
@@ -80,13 +78,14 @@ const newsletterSubmitEvent = () => {
   })
 }
 </script>
+
 <template>
   <div>
     <div class="search-page">
       <section>
         <div class="content">
           <div class="grid gutter-x-xl">
-            <div class="col-1 hidden xxl:block"></div>
+            <div class="col-1 hidden xxl:block" />
             <div class="col">
               <div class="search-page-results pt-2">
                 <span v-if="articles">
@@ -95,21 +94,21 @@ const newsletterSubmitEvent = () => {
               </div>
               <form id="search" class="mt-4 mb-2">
                 <input
+                  v-model="query"
                   autofocus
                   class="search-page-input"
                   type="text"
                   placeholder="search"
                   aria-label="Search this site"
-                  v-model="query"
                   name="q"
                   @keypress.enter.prevent="getSearchResults"
-                />
+                >
                 <Button
                   class="search-page-button p-button-rounded p-button-outlined"
                   :icon="
                     isSearching ? 'pi pi-spin pi-spinner' : 'pi pi-arrow-right'
                   "
-                  iconPos="right"
+                  icon-pos="right"
                   @click="getSearchResults"
                 />
               </form>
@@ -122,7 +121,7 @@ const newsletterSubmitEvent = () => {
           <!-- search results article river -->
           <template v-if="articles">
             <div id="resultList" class="grid gutter-x-xl">
-              <div class="col-1 hidden xxl:block"></div>
+              <div class="col-1 hidden xxl:block" />
               <div class="col">
                 <div
                   v-for="(article, index) in articles.slice(0, articlesToShow)"
@@ -134,10 +133,10 @@ const newsletterSubmitEvent = () => {
                     class="mod-horizontal mb-3 lg:mb-5 tag-small"
                     :width="318"
                     :height="212"
-                    :trackClicks="true"
-                    trackingComponentLocation="Search Results"
-                    trackingComponent="Search Results"
-                    :trackingComponentPosition="index + 1"
+                    :track-clicks="true"
+                    tracking-component-location="Search Results"
+                    tracking-component="Search Results"
+                    :tracking-component-position="index + 1"
                   >
                     <p class="desc">
                       {{ article.description }}
@@ -147,27 +146,26 @@ const newsletterSubmitEvent = () => {
                       @link-click="$event => card.trackClick($event)"
                     />
                   </gothamist-card>
-                  <hr class="mb-5" />
+                  <hr class="mb-5">
                 </div>
                 <Button
                   v-if="articlesToShow < articles.length"
                   class="p-button-rounded"
                   label="Load More"
                   @click="loadMoreArticles"
-                >
-                </Button>
+                />
               </div>
               <div class="col-fixed mx-auto hidden xl:block">
                 <HtlAd
-                  layout="rectangle"
                   slot="htlad-gothamist_interior_river"
+                  layout="rectangle"
                 />
               </div>
             </div>
           </template>
           <!-- newsletter -->
           <div class="mt-8 mb-5">
-            <hr class="black mb-4" />
+            <hr class="black mb-4">
             <newsletter-home @submit="newsletterSubmitEvent" />
           </div>
         </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { CodeBlock, EmbedBlock } from '../../composables/types/StreamfieldBlock'
+import type { CodeBlock, EmbedBlock } from '../../composables/types/StreamfieldBlock'
+
 const props = defineProps<{
   block: CodeBlock
 }>()
@@ -14,12 +15,11 @@ const embedBlock: EmbedBlock = {
   id: props.block.id,
   type: 'embed',
   value: {
-    embed: props.block.value.code
-  }
+    embed: props.block.value.code,
+  },
 }
 </script>
 
 <template>
   <StreamfieldEmbed :block="embedBlock" />
 </template>
-

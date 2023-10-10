@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
+import type { ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
+
 defineProps<{
   block: ContentCollectionBlock
   trackingComponentLocation: string
@@ -10,6 +11,6 @@ defineProps<{
   <ContentCollection
     class="streamfield-content-collection mb-5"
     :articles="block.value.pages"
-    :trackingComponentLocation="trackingComponentLocation"
+    :tracking-component-location="trackingComponentLocation"
   />
 </template>

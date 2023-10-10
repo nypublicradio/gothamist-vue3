@@ -1,7 +1,7 @@
-import { nextTick } from 'vue';
+import { nextTick } from 'vue'
 
 export default defineNuxtPlugin(() => {
-  let firstPageLoaded = useChartbeatFirstPageLoaded()
+  const firstPageLoaded = useChartbeatFirstPageLoaded()
 
   const initializeChartbeat = (pageInfo) => {
     const _sf_async_config = window._sf_async_config = (window._sf_async_config || {})
@@ -18,13 +18,12 @@ export default defineNuxtPlugin(() => {
     e.type = 'text/javascript'
     e.async = true
     e.src = '//static.chartbeat.com/js/chartbeat.js'
-    n.parentNode.insertBefore(e, n);
+    n.parentNode.insertBefore(e, n)
   }
 
   const updateChartbeat = (pageInfo) => {
-    if (typeof window.pSUPERFLY !== 'undefined') {
+    if (typeof window.pSUPERFLY !== 'undefined')
       window.pSUPERFLY.virtualPage(pageInfo)
-    }
   }
 
   const updatePage = (pageInfo) => {
@@ -32,7 +31,8 @@ export default defineNuxtPlugin(() => {
       if (firstPageLoaded.value === false) {
         firstPageLoaded.value = true
         initializeChartbeat(pageInfo)
-      } else {
+      }
+      else {
         updateChartbeat(pageInfo)
       }
     }
@@ -41,8 +41,8 @@ export default defineNuxtPlugin(() => {
   return {
     provide: {
       chartbeat: {
-        updatePage
-      }
-    }
+        updatePage,
+      },
+    },
   }
 })

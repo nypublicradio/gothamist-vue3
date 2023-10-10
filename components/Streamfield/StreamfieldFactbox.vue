@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
-import { FactboxBlock } from '../../composables/types/StreamfieldBlock'
+import type { FactboxBlock } from '../../composables/types/StreamfieldBlock'
+
 const props = defineProps<{
   block: FactboxBlock
 }>()
@@ -8,29 +9,31 @@ const props = defineProps<{
 
 <template>
   <aside class="factbox">
-    <h3 class="factbox-heading">{{ block.value.heading }}</h3>
-    <v-image-with-caption
+    <h3 class="factbox-heading">
+      {{ block.value.heading }}
+    </h3>
+    <VImageWithCaption
       v-if="block.value.image.image"
       class="factbox-image-wrapper mb-3"
       :image="useImageUrl(block.value.image.image)"
       :alt-text="block.value.image.image.alt"
       :width="320"
       :height="214"
-      :maxWidth="block.value.image.image.width"
-      :maxHeight="block.value.image.image.height"
+      :max-width="block.value.image.image.width"
+      :max-height="block.value.image.image.height"
       :description="block.value.image.caption || block.value.image.image.caption"
       :credit="block.value.image.image.credit"
       :credit-url="block.value.image.image.creditLink"
       :sizes="[2]"
-      :ratio="[4,3]"
+      :ratio="[4, 3]"
     />
     <div class="factbox-body">
       <div v-for="bodyBlock of block.value.body" :key="bodyBlock.id">
         <div
           v-if="bodyBlock.type === 'text'"
           :key="`${bodyBlock.id}-text`"
-          v-html="bodyBlock.value"
           class="factbox-body-text"
+          v-html="bodyBlock.value"
         />
         <table
           v-else-if="bodyBlock.type === 'custom_list'"
@@ -52,7 +55,6 @@ const props = defineProps<{
 </template>
 
 <style lang="scss">
-
 .page.sectionSlug-articleSlug .article-body > .factbox {
   margin: 24px 0;
   padding: 20px 0;
@@ -159,5 +161,4 @@ const props = defineProps<{
   text-transform: none;
   font-weight: 400;
 }
-
 </style>

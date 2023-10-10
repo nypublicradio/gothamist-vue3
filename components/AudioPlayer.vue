@@ -1,15 +1,16 @@
 <script setup>
-import { ref, watch, computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import VPersistentPlayer from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VPersistentPlayer.vue'
+import { Howl, Howler } from 'howler'
 import {
+  audioPlayerHeight,
   useCurrentEpisode,
   useIsEpisodePlaying,
-  useTogglePlayTrigger,
   useIsPlayerMinimized,
-  audioPlayerHeight,
+  useTogglePlayTrigger,
 } from '~/composables/states'
+
 // had to install howler.js locally and add this import to stop it from breaking the build
-import { Howl, Howler } from 'howler'
 const { $analytics } = useNuxtApp()
 const currentEpisode = useCurrentEpisode()
 const isEpisodePlaying = useIsEpisodePlaying()
@@ -17,8 +18,8 @@ const togglePlayTrigger = useTogglePlayTrigger()
 const isPlayerMinimized = useIsPlayerMinimized()
 const showPlayer = ref(false)
 const playerRef = ref()
-const playerHeight = ref(audioPlayerHeight + 'px')
-/*function that updated the global useIsEpisodePlaying */
+const playerHeight = ref(`${audioPlayerHeight}px`)
+/* function that updated the global useIsEpisodePlaying */
 const updateUseIsEpisodePlaying = (e) => {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Audio Player play toggle button',
@@ -27,7 +28,7 @@ const updateUseIsEpisodePlaying = (e) => {
   })
   isEpisodePlaying.value = e
 }
-/*function that updated the global useIsPlayerMinimized */
+/* function that updated the global useIsPlayerMinimized */
 const updateUseIsPlayerMinimized = (e) => {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Audio Player minimized',
@@ -39,17 +40,17 @@ const updateUseIsPlayerMinimized = (e) => {
 
 // data vars to pass to VPersistentPlayer
 const currentEpisodeData = computed(
-  () => currentEpisode.value.data[0].attributes
+  () => currentEpisode.value.data[0].attributes,
 )
 const currentEpisodeImage = computed(
   () =>
-    currentEpisode.value.included.find((include) => include.type === 'image')
-      .attributes
+    currentEpisode.value.included.find(include => include.type === 'image')
+      .attributes,
 )
 const currentEpisodeShow = computed(
   () =>
-    currentEpisode.value.included.find((include) => include.type === 'show')
-      .attributes
+    currentEpisode.value.included.find(include => include.type === 'show')
+      .attributes,
 )
 
 let delay = 0
@@ -67,7 +68,8 @@ watch(currentEpisode, () => {
 })
 
 watch(togglePlayTrigger, () => {
-  if (playerRef.value) playerRef.value.togglePlay()
+  if (playerRef.value)
+    playerRef.value.togglePlay()
 })
 let timer = null
 let isInitialPing = true
@@ -89,7 +91,8 @@ watch(isEpisodePlaying, (e) => {
     timer = setInterval(() => {
       pingEvent()
     }, 60000)
-  } else {
+  }
+  else {
     clearInterval(timer)
     timer = null
   }
@@ -99,10 +102,10 @@ watch(isEpisodePlaying, (e) => {
 <template>
   <div>
     <transition name="player">
-      <v-persistent-player
+      <VPersistentPlayer
+        v-if="showPlayer"
         ref="playerRef"
         class="player"
-        v-if="showPlayer"
         :auto-play="true"
         :livestream="true"
         :title="currentEpisodeShow.title"
@@ -113,7 +116,7 @@ watch(isEpisodePlaying, (e) => {
         :file="currentEpisodeData['mobile-mp3']"
         :show-skip="false"
         :can-minimize="true"
-        :showTrack="false"
+        :show-track="false"
         @togglePlay="updateUseIsEpisodePlaying"
         @is-minimized="updateUseIsPlayerMinimized"
       />

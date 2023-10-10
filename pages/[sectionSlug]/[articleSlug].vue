@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { onMounted, computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
-import { ArticlePage, GalleryPage } from '../../composables/types/Page'
-import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+import type { ArticlePage, GalleryPage } from '../../composables/types/Page'
+import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
+
 /* preview */
 const previewData = usePreviewData()
 const route = useRoute()
-const isPreview = route.query.preview ? true : false
+const isPreview = !!route.query.preview
 /* preview */
 
 const config = useRuntimeConfig()
@@ -16,10 +17,10 @@ const { $analytics, $htlbid } = useNuxtApp()
 const article = isPreview
   ? previewData.value.data as ArticlePage
   : ((await findPage(
-      `${route.params.sectionSlug}/${route.params.articleSlug}`
-    ).then(({ data }) => normalizeFindPageResponse(data)
+      `${route.params.sectionSlug}/${route.params.articleSlug}`,
+    ).then(({ data }) => normalizeFindPageResponse(data),
     ).catch(() => {
-        throw createError({
+      throw createError({
         statusCode: 404,
         statusMessage: 'Page Not Found',
         fatal: true,
@@ -29,16 +30,16 @@ const article = isPreview
 let gallery
 if (article.leadGallery) {
   gallery = (await usePageById(article.leadGallery.gallery).then(({ data }) =>
-    normalizeGalleryPage(data.value)
+    normalizeGalleryPage(data.value),
   )) as GalleryPage
 }
 
 const topImage = article.leadImage ?? gallery?.slides?.[0]?.image ?? null
-const topCaption =
-  article.leadImageCaption ??
-  topImage?.caption ??
-  gallery?.slides?.[0]?.image.caption ??
-  null
+const topCaption
+  = article.leadImageCaption
+  ?? topImage?.caption
+  ?? gallery?.slides?.[0]?.image.caption
+  ?? null
 const galleryLength = gallery?.slides?.length ?? 0
 
 const trackingData = useArticlePageTrackingData(article)
@@ -51,11 +52,11 @@ const contentLocked = ref(false) // starts unlocked for ssr, we check content wa
 const isMounted = ref(false)
 
 useHead({
-  title: `${article.seoTitle} - Gothamist`
+  title: `${article.seoTitle} - Gothamist`,
 })
 if (article.preventSearchIndexing) {
   useServerHead({
-    meta: [{name: 'robots', content: 'noindex'}]
+    meta: [{ name: 'robots', content: 'noindex' }],
   })
 }
 
@@ -65,18 +66,18 @@ if (topImage) {
     useImageUrl(topImage, {
       width: 700,
       height: 467,
-      quality: 70
+      quality: 70,
     }),
     useResponsiveSrcset(topImage, [2, 3], {
       width: 700,
       height: 467,
-      quality: 70
-    })
+      quality: 70,
+    }),
   )
 }
 useChartbeat({
   sections: article.tags.map(tag => tag.name).join(','),
-  authors: article.authors.map(author => author.name).join(',')
+  authors: article.authors.map(author => author.name).join(','),
 })
 useOptinMonster()
 
@@ -104,10 +105,9 @@ function handleArticleMounted(el) {
     landmarks = landmarks.slice(6)
   } while (landmarks.length > 6)
 
-  Array.from(element.querySelectorAll('[data-optin-monster-id]')).forEach((div:HTMLElement) => {
-    if (div.parentElement) {
+  Array.from(element.querySelectorAll('[data-optin-monster-id]')).forEach((div: HTMLElement) => {
+    if (div.parentElement)
       div.parentElement.id = div.dataset.optinMonsterId
-    }
   })
 }
 
@@ -118,7 +118,7 @@ function useInsertAd(targetElement) {
     adDiv.classList.add(
       'htlad-gothamist_interior_midpage_repeating',
       'wide-module',
-      'mb-5'
+      'mb-5',
     )
     useInsertAfterElement(adDiv, targetElement)
   }
@@ -137,7 +137,7 @@ const trackWallSeen = () => {
     creative_slot: 'article-registration-wall',
     location_id: '',
     promotion_name: `Registration Wall - ${article.title}`,
-    creative_name: 'Archived_Story'
+    creative_name: 'Archived_Story',
   })
 }
 
@@ -146,7 +146,7 @@ const trackSignUp = () => {
     creative_slot: 'article-registration-wall',
     location_id: '',
     promotion_name: `Registration Wall - ${article.title}`,
-    creative_name: 'Archived_Story'
+    creative_name: 'Archived_Story',
   })
 }
 
@@ -154,78 +154,80 @@ const getGalleryLink = computed(() => {
   return gallery.url.replace(/^https:\/\/[^/]*/, '')
 })
 
-const tagName = computed(() => article?.sponsoredContent ? "Sponsored" : article?.section?.name )
-const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.section?.slug}` )
-
+const tagName = computed(() => article?.sponsoredContent ? 'Sponsored' : article?.section?.name)
+const tagSlug = computed(() => article?.sponsoredContent ? '' : `/${article?.section?.slug}`)
 </script>
+
 <template>
   <div>
-    <Teleport name="teleport" to="#article-header" v-if="isMounted">
-      <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
+    <Teleport v-if="isMounted" name="teleport" to="#article-header">
+      <ScrollTracker v-slot="scrollTrackerProps" scroll-target=".article-body">
         <Transition name="article-page-header">
           <ArticlePageHeader
             v-if="fixedHeaderVisible"
             class="article-page-header"
-            :donateUrlBase="config.public.donateUrlBase"
-            utmCampaign="goth_header"
+            :donate-url-base="config.public.donateUrlBase"
+            utm-campaign="goth_header"
             :progress="scrollTrackerProps.scrollPercentage"
             :title="article?.title"
-            :shareUrl="article.url"
-            :shareTitle="article.socialTitle"
+            :share-url="article.url"
+            :share-title="article.socialTitle"
           />
         </Transition>
       </ScrollTracker>
     </Teleport>
-    <section class="top-section" v-if="article">
+    <section v-if="article" class="top-section">
       <div class="content">
         <div class="grid gutter-x-30">
-          <div class="col-fixed hidden xxl:block"></div>
+          <div class="col-fixed hidden xxl:block" />
           <div class="col">
-            <v-tag
+            <VTag
               v-if="tagName"
               :class="article?.sponsoredContent && 'sponsored'"
               :name="tagName"
               :slug="tagSlug"
             />
-            <h1 class="mt-4 mb-3 h2">{{ article.title }}</h1>
+            <h1 class="mt-4 mb-3 h2">
+              {{ article.title }}
+            </h1>
           </div>
-          <div class="col-fixed hidden lg:block"></div>
+          <div class="col-fixed hidden lg:block" />
         </div>
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block">
-            <hr class="black" />
+            <hr class="black">
             <byline class="mb-3 pt-4" :article="article" />
             <div>
               <div id="pinned-newsletter" style="min-width: 300px">
-                <hr class="mb-4" />
+                <hr class="mb-4">
                 <newsletter-article
                   class="pb-8"
-                  triggerID="pinned-newsletter"
-                  pinEndTriggerID="pinned-newsletter-end"
+                  trigger-i-d="pinned-newsletter"
+                  pin-end-trigger-i-d="pinned-newsletter-end"
                   @submit="newsletterSubmitEvent('pinned')"
                 />
               </div>
             </div>
           </div>
-          <div class="col overflow-hidden" v-if="article">
+          <div v-if="article" class="col overflow-hidden">
             <div class="mb-4 xxl:mb-6 relative">
-              <v-image-with-caption
+              <VImageWithCaption
                 v-if="topImage"
                 loading="eager"
                 :image="useImageUrl(topImage)"
-                :imageUrl="article.imageLink"
+                :image-url="article.imageLink"
                 :width="700"
                 :height="467"
                 :alt-text="topImage?.alt"
-                :maxWidth="topImage?.width"
-                :maxHeight="topImage?.height"
+                :max-width="topImage?.width"
+                :max-height="topImage?.height"
                 :credit="topImage?.credit"
                 :credit-url="topImage?.creditLink"
                 :sizes="[2, 3]"
                 :ratio="[3, 2]"
                 :caption="topCaption"
               />
-              <v-flexible-link
+              <VFlexibleLink
                 v-if="galleryLength"
                 class="view-gallery-button"
                 :to="getGalleryLink"
@@ -235,46 +237,46 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
                   class="p-button-rounded p-button-sm p-button-raised p-button-secondary"
                   :label="`View all ${galleryLength}`"
                 />
-              </v-flexible-link>
+              </VFlexibleLink>
             </div>
             <div class="block xxl:hidden mb-5">
-              <hr class="black" />
+              <hr class="black">
               <byline class="pt-4" :article="article" />
-              <hr class="mt-3 mb-5" />
+              <hr class="mt-3 mb-5">
             </div>
             <article-donation-CTA
-              :donateUrlBase="config.public.donateUrlBase"
-              utmCampaign="article-top"
+              :donate-url-base="config.public.donateUrlBase"
+              utm-campaign="article-top"
             />
           </div>
           <div class="col-fixed hidden lg:block">
             <HtlAd
-              layout="rectangle"
               slot="htlad-gothamist_interior_rectangle_topper"
+              layout="rectangle"
               fineprint="Gothamist is funded by sponsors and member donations"
             />
           </div>
         </div>
         <div class="grid gutter-x-30">
-          <div class="col-fixed hidden xxl:block"></div>
+          <div class="col-fixed hidden xxl:block" />
           <div class="col overflow-hidden article-column">
-              <GothamistWalledArticle 
-                v-if="contentLocked"
-                :article="article"
-                @sign-up="trackSignUp"
-                @wall-seen="trackWallSeen"
-              />
-              <v-streamfield
-                v-else
-                class="article-body"
-                :streamfield-blocks="article.body"
-                @all-blocks-mounted="handleArticleMounted"
-              />
+            <GothamistWalledArticle
+              v-if="contentLocked"
+              :article="article"
+              @sign-up="trackSignUp"
+              @wall-seen="trackWallSeen"
+            />
+            <v-streamfield
+              v-else
+              class="article-body"
+              :streamfield-blocks="article.body"
+              @all-blocks-mounted="handleArticleMounted"
+            />
             <LoadLazily v-if="article.relatedLinks?.length">
               <LazyRelatedLinks
                 :article="article"
                 class="below-body"
-                trackingComponentLocation="Article Page Related Links"
+                tracking-component-location="Article Page Related Links"
               />
             </LoadLazily>
           </div>
@@ -284,16 +286,16 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
     <section>
       <div id="pinned-newsletter-end" class="content">
         <div class="grid gutter-x-30">
-          <div class="col-fixed hidden xxl:block"></div>
+          <div class="col-fixed hidden xxl:block" />
           <div class="col w-full">
             <article-footer :article="article" />
           </div>
         </div>
-        <hr class="black" />
+        <hr class="black">
         <p
+          v-if="article?.section"
           role="heading"
           aria-level="2"
-          v-if="article?.section"
           class="type-label3 mt-2 mb-4"
         >
           MORE {{ article.section.slug }}
@@ -301,11 +303,11 @@ const tagSlug = computed(() => article?.sponsoredContent ? "" : `/${article?.sec
         <article-recirculation
           :slug="sectionSlug"
           :article="article"
-          trackingComponentLocation="Article Page Recirculation Module"
-          nativoId="ntv-article-1"
+          tracking-component-location="Article Page Recirculation Module"
+          nativo-id="ntv-article-1"
         />
         <div class="mt-6 mb-5">
-          <hr class="black mb-4" />
+          <hr class="black mb-4">
           <newsletter-home
             source="gothamist_footer"
             @submit="newsletterSubmitEvent('footer')"

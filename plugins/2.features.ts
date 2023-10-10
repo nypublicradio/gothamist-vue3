@@ -1,5 +1,4 @@
 export default defineNuxtPlugin(() => {
-
   // Add your features here
   const { $experiments } = useNuxtApp()
 
@@ -9,27 +8,27 @@ export default defineNuxtPlugin(() => {
     // - Matt Walsh
     // Experiment started: May 17 2023
     'experiment-deduplicate-river':
-      $experiments.current?.name === 'homepage-river' &&
-      $experiments.activeVariant === 1
+      $experiments.current?.name === 'homepage-river'
+      && $experiments.activeVariant === 1,
   }
 
   const enabled = features || {}
   const disabled = {}
-  for (const feature of Object.entries(enabled)) {
+  for (const feature of Object.entries(enabled))
     disabled[feature[0]] = !(feature[1] === false)
-  }
+
   const classes = Object.entries(enabled)
     .map(entry => (entry[1] ? `${entry[0]}-enabled` : `${entry[0]}-disabled`))
 
   useHead({
     bodyAttrs: {
-      class: classes.join(' ')
+      class: classes.join(' '),
     },
   })
 
   return {
     provide: {
-      features: { enabled, disabled, classes }
-    }
+      features: { enabled, disabled, classes },
+    },
   }
 })

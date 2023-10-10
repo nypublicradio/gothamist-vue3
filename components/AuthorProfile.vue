@@ -27,19 +27,19 @@ const props = defineProps({
 const profile = ref(props.profileData)
 const ctaText = ref(props.sponsored ? 'Learn More' : 'Read more')
 const profileImage = ref(
-  props.sponsored ? profile.value.logo : profile.value.photoID
+  props.sponsored ? profile.value.logo : profile.value.photoID,
 )
 const profileLink = ref(
-  props.sponsored ? profile.value.link : profile.value.url
+  props.sponsored ? profile.value.link : profile.value.url,
 )
 const profileImageSizeLg = ref(157)
 const profileImageSizeMd = ref(86)
 const profileImageSizeSm = ref('60px')
 
 const imageSize = ref(
-  props.staffPage ? profileImageSizeLg.value : profileImageSizeMd.value
+  props.staffPage ? profileImageSizeLg.value : profileImageSizeMd.value,
 )
-const imageSizePx = ref(imageSize.value + 'px')
+const imageSizePx = ref(`${imageSize.value}px`)
 const accountNameFromUrl = (url) => {
   return url?.split('/').filter(str => str !== '').slice(-1)[0]
 }
@@ -52,13 +52,13 @@ const accountNameFromUrl = (url) => {
   >
     <div class="col-fixed profile">
       <div class="author-image">
-        <v-flexible-link
+        <VFlexibleLink
           :to="profileLink"
           raw
           :aria-hidden="true"
           :tabindex="-1"
         >
-          <v-simple-responsive-image
+          <VSimpleResponsiveImage
             v-if="profileImage"
             :src="useImageUrl({ id: profileImage })"
             :width="imageSize"
@@ -66,33 +66,35 @@ const accountNameFromUrl = (url) => {
             :sizes="[2]"
             :ratio="[1, 1]"
             :loading="props.staffPage ? 'eager' : 'lazy'"
-            alt=''
+            alt=""
           />
           <img
             v-else
             src="/avatar.svg"
             :loading="props.staffPage ? 'eager' : 'lazy'"
-            alt=''
-          />
-        </v-flexible-link>
+            alt=""
+          >
+        </VFlexibleLink>
       </div>
     </div>
     <div class="col flex flex-column gap-2">
       <div
         class="flex flex-column align-items-start gap-2 md:flex-row md:align-items-center"
       >
-        <v-flexible-link :to="profileLink" class="no-underline">
-          <div class="h5">{{ profile.name }}</div>
-        </v-flexible-link>
+        <VFlexibleLink :to="profileLink" class="no-underline">
+          <div class="h5">
+            {{ profile.name }}
+          </div>
+        </VFlexibleLink>
         <span v-if="profile.socialMediaProfile">
-          <v-share-tools class="">
-            <v-share-tools-item
+          <VShareTools class="">
+            <VShareToolsItem
               v-for="account in profile.socialMediaProfile"
               :key="account.id"
               :service="account.service"
               :username="accountNameFromUrl(account.profileUrl)"
             />
-          </v-share-tools>
+          </VShareTools>
         </span>
       </div>
       <p
@@ -102,9 +104,9 @@ const accountNameFromUrl = (url) => {
       >
         {{ profile.biography }}
       </p>
-      <v-flexible-link v-if="showCta" :to="profileLink" class="type-textlink1">
+      <VFlexibleLink v-if="showCta" :to="profileLink" class="type-textlink1">
         {{ ctaText }}
-      </v-flexible-link>
+      </VFlexibleLink>
     </div>
   </div>
 </template>

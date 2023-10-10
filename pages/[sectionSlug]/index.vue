@@ -1,21 +1,24 @@
 <script setup lang="ts">
-import { InformationPage } from '../../composables/types/Page'
+import type { InformationPage } from '../../composables/types/Page'
+
 /* preview */
 import { usePreviewData } from '~/composables/states'
+
 const previewData = usePreviewData()
 const route = useRoute()
-const isPreview = route.query.preview ? true : false
+const isPreview = !!route.query.preview
 
-const page = isPreview ? previewData.value.data
-: await findPage(route?.params?.sectionSlug as string).then(
-  ({ data }) => normalizeFindPageResponse(data)
-).catch(() => {
-  throw createError({
-    statusCode: 404,
-    statusMessage: 'Page Not Found',
-    fatal: true,
+const page = isPreview
+  ? previewData.value.data
+  : await findPage(route?.params?.sectionSlug as string).then(
+    ({ data }) => normalizeFindPageResponse(data),
+  ).catch(() => {
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'Page Not Found',
+      fatal: true,
+    })
   })
-})
 
 const { $analytics } = useNuxtApp()
 
@@ -23,31 +26,32 @@ useChartbeat()
 useOptinMonster()
 
 onMounted(() => {
-  if (isPreview) {
+  if (isPreview)
     return
-  }
-  switch(page?.type) {
+
+  switch (page?.type) {
     case 'information_page':
       $analytics.sendPageView({
         page_type: 'information_page',
-        content_group: 'static-page'
+        content_group: 'static-page',
       })
       break
     case 'section_page':
       $analytics.sendPageView({
         page_type: 'section_page',
-        content_group: 'section-front'
+        content_group: 'section-front',
       })
       break
     default:
-    throw createError({
-      statusCode: 404,
-      statusMessage: 'Page Not Found',
-      fatal: true,
-    })
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found',
+        fatal: true,
+      })
   }
 })
 </script>
+
 <template>
   <div>
     <SectionPageTemplate

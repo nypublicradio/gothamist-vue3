@@ -2,13 +2,13 @@
 import { useBreakpoints } from '@vueuse/core'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 import { ref } from 'vue'
-import { ArticlePage } from '~~/composables/types/Page';
+import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = defineProps<{
-  collection: {label: string, data: ArticlePage[]},
+  collection: { label: string; data: ArticlePage[] }
   trackingComponentLocation: string
 }>()
-const trackingComponent = "Skyline Feature"
+const trackingComponent = 'Skyline Feature'
 
 const breakpoints = useBreakpoints({
   md: Number(breakpoint.md),
@@ -18,17 +18,17 @@ const smallerThanMd = ref(breakpoints.smaller('md'))
 const articleLg = ref(
   props.collection.data[0]
     ? normalizeArticlePage(props.collection.data[0])
-    : null
+    : null,
 )
 const articleMd = ref(
   props.collection.data[1]
     ? normalizeArticlePage(props.collection.data[1])
-    : null
+    : null,
 )
 const articleSm = ref(
   props.collection.data[2]
     ? normalizeArticlePage(props.collection.data[2])
-    : null
+    : null,
 )
 
 const featureLabel = ref(props.collection.label)
@@ -39,13 +39,15 @@ const isOneOnly = !articleMd.value && !articleSm.value
   <div v-if="articleLg">
     <div class="skyline-feature">
       <template v-if="featureLabel">
-        <hr class="black" />
+        <hr class="black">
         <p role="heading" aria-level="2" class="type-label3 mt-2 mb-4">
           {{ featureLabel }}
         </p>
       </template>
       <template v-else>
-        <h2 class="sr-only">Featured</h2>
+        <h2 class="sr-only">
+          Featured
+        </h2>
       </template>
       <div class="grid gutter-x-30 justify-content-center">
         <div
@@ -60,14 +62,14 @@ const isOneOnly = !articleMd.value && !articleSm.value
             :height="isOneOnly ? 453 : 443"
             :ratio="isOneOnly ? [6, 2] : [3, 2]"
             loading="eager"
-            :trackClicks="true"
-            :trackingComponentLocation="trackingComponentLocation"
-            :trackingComponent="trackingComponent"
-            :trackingComponentPosition="1"
+            :track-clicks="true"
+            :tracking-component-location="trackingComponentLocation"
+            :tracking-component="trackingComponent"
+            :tracking-component-position="1"
           >
             <v-card-metadata
               class="mt-0 md:mt-2"
-              altDesign
+              alt-design
               :article="articleLg"
               @link-click="$event => card.trackClick($event)"
             />
@@ -93,10 +95,10 @@ const isOneOnly = !articleMd.value && !articleSm.value
               :height="318"
               :ratio="[1, 1]"
               loading="eager"
-              :trackClicks="true"
-              :trackingComponentLocation="trackingComponentLocation"
-              :trackingComponent="trackingComponent"
-              :trackingComponentPosition="2"
+              :track-clicks="true"
+              :tracking-component-location="trackingComponentLocation"
+              :tracking-component="trackingComponent"
+              :tracking-component-position="2"
             >
               <p>
                 {{ articleMd?.description }}
@@ -125,10 +127,10 @@ const isOneOnly = !articleMd.value && !articleSm.value
               :width="318"
               :height="212"
               loading="eager"
-              :trackClicks="true"
-              :trackingComponentLocation="trackingComponentLocation"
-              :trackingComponent="trackingComponent"
-              :trackingComponentPosition="3"
+              :track-clicks="true"
+              :tracking-component-location="trackingComponentLocation"
+              :tracking-component="trackingComponent"
+              :tracking-component-position="3"
             >
               <p>
                 {{ articleSm?.description }}

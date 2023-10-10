@@ -11,7 +11,7 @@ defineProps<{
       {{ quote }}
     </div>
   </blockquote>
-  <span class="streamfield-pull-quote-author pb-4 mb-5" v-if="author">
+  <span v-if="author" class="streamfield-pull-quote-author pb-4 mb-5">
     {{ author }}
   </span>
 </template>

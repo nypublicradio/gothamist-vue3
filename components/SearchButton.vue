@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+
 const props = defineProps({
   placeholder: {
     type: String,
@@ -25,16 +26,16 @@ const onSearch = () => {
   <div class="search-button">
     <span v-if="expanded" class="p-input-icon-right w-full">
       <InputText
+        v-model="searchTerm"
         class="w-full alt-design dark"
         type="text"
         :placeholder="props.placeholder"
         :aria-label="props.placeholder"
-        v-model="searchTerm"
         name="search"
         @keypress.enter="onSearch"
       />
       <i style="top: 14px">
-        <v-flexible-link raw aria-hidden="true" tabindex="-1" @click="onSearch">
+        <VFlexibleLink raw aria-hidden="true" tabindex="-1" @click="onSearch">
           <Button
             icon="pi pi-search"
             class="p-button p-component p-button-icon-only p-button-text p-button-rounded -mr-2"
@@ -45,10 +46,10 @@ const onSearch = () => {
             "
             aria-expanded="false"
           />
-        </v-flexible-link>
+        </VFlexibleLink>
       </i>
     </span>
-    <v-flexible-link
+    <VFlexibleLink
       v-else
       :to="route.query.q ? '' : '/search'"
       raw
@@ -62,7 +63,7 @@ const onSearch = () => {
         aria-label="Go to search page"
         aria-expanded="false"
       />
-    </v-flexible-link>
+    </VFlexibleLink>
   </div>
 </template>
 

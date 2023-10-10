@@ -47,8 +47,8 @@ const commentCount = computed(() => {
     <!-- sponsored -->
     <div v-if="isSponsored" class="sponsored flex align-items-center">
       <div class="author-image flex-none">
-        <v-flexible-link :to="sponsor?.link" raw>
-          <v-simple-responsive-image
+        <VFlexibleLink :to="sponsor?.link" raw>
+          <VSimpleResponsiveImage
             v-if="sponsor?.logo"
             :src="useImageUrl({ id: sponsor?.logo })"
             :width="60"
@@ -57,23 +57,25 @@ const commentCount = computed(() => {
             :ratio="[1, 1]"
             alt="Sponsor's image"
           />
-          <img v-else src="/avatar.svg" alt="Sponsor's image" loading="lazy" />
-        </v-flexible-link>
+          <img v-else src="/avatar.svg" alt="Sponsor's image" loading="lazy">
+        </VFlexibleLink>
       </div>
       <div class="flex flex-column gap-125">
-        <p class="type-caption">Article sponsored by</p>
-        <v-flexible-link :to="sponsor?.link" class="author-name">
+        <p class="type-caption">
+          Article sponsored by
+        </p>
+        <VFlexibleLink :to="sponsor?.link" class="author-name">
           {{ sponsor?.name }}
-        </v-flexible-link>
+        </VFlexibleLink>
         <date-published :article="props.article" />
-        <v-flexible-link
+        <VFlexibleLink
           v-if="!isDisableComments && props.showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
           {{ String(Number(commentCount)) }}
           {{ commentCount === 1 ? 'comment' : 'comments' }}
-        </v-flexible-link>
+        </VFlexibleLink>
       </div>
     </div>
     <!-- authors -->
@@ -84,13 +86,13 @@ const commentCount = computed(() => {
     >
       <div class="author-images flex flex-wrap">
         <div v-for="author of authors" :key="author.id" class="author-image">
-          <v-flexible-link
+          <VFlexibleLink
             :to="author.url"
             raw
             aria-hidden="true"
             tabindex="-1"
           >
-            <v-simple-responsive-image
+            <VSimpleResponsiveImage
               v-if="author.photoID"
               :src="useImageUrl({ id: author.photoID })"
               :width="60"
@@ -99,33 +101,33 @@ const commentCount = computed(() => {
               :ratio="[1, 1]"
               alt=""
             />
-            <img v-else src="/avatar.svg" alt="" loading="lazy" />
-          </v-flexible-link>
+            <img v-else src="/avatar.svg" alt="" loading="lazy">
+          </VFlexibleLink>
         </div>
       </div>
       <div class="flex flex-column gap-125">
-        <v-byline
+        <VByline
           :authors="authors"
           prefix="By"
           @name-click="$event => emit('link-click', $event?.url)"
           @organization-click="$event => emit('link-click', $event?.url)"
         />
         <date-published :article="props.article" />
-        <v-flexible-link
+        <VFlexibleLink
           v-if="!isDisableComments && props.showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
           {{ String(Number(commentCount)) }}
           {{ commentCount === 1 ? 'comment' : 'comments' }}
-        </v-flexible-link>
+        </VFlexibleLink>
       </div>
     </div>
     <!-- social share -->
     <div v-if="showSocial">
-      <hr class="mt-4" />
-      <v-share-tools label="Share" class="mt-3">
-        <v-share-tools-item
+      <hr class="mt-4">
+      <VShareTools label="Share" class="mt-3">
+        <VShareToolsItem
           action="share"
           service="facebook"
           :url="shareUrl"
@@ -143,7 +145,7 @@ const commentCount = computed(() => {
           "
         />
 
-        <v-share-tools-item
+        <VShareToolsItem
           action="share"
           service="twitter"
           :url="shareUrl"
@@ -161,7 +163,7 @@ const commentCount = computed(() => {
             })
           "
         />
-        <v-share-tools-item
+        <VShareToolsItem
           action="share"
           service="reddit"
           :url="shareUrl"
@@ -179,11 +181,11 @@ const commentCount = computed(() => {
             })
           "
         />
-        <v-share-tools-item
+        <VShareToolsItem
           action="share"
           service="email"
           :url="shareUrl"
-          :share-parameters="{ body: shareTitle + ' - %URL%' }"
+          :share-parameters="{ body: `${shareTitle} - %URL%` }"
           :utm-parameters="{
             medium: 'social',
             source: 'email',
@@ -197,7 +199,7 @@ const commentCount = computed(() => {
             })
           "
         />
-      </v-share-tools>
+      </VShareTools>
     </div>
   </div>
 </template>

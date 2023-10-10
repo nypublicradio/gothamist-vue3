@@ -1,38 +1,53 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 </script>
+
 <template>
   <div class="boroughs p-4 xl:p-6 pb-6 xl:pb-8" data-style-mode="dark">
-    <div class="boroughs-header mb-5 xl:mb-7 py-2">WNYC Presents</div>
+    <div class="boroughs-header mb-5 xl:mb-7 py-2">
+      WNYC Presents
+    </div>
     <div class="boroughs-content">
       We cover stories that make New York work for New Yorkers. Browse
-      <v-flexible-link to="/tags/manhattan" raw rawHover="underline">
-        <div class="tag-large">Manhattan</div>
-      </v-flexible-link>
-      <v-flexible-link to="/tags/brooklyn" raw rawHover="underline">
-        <div class="tag-large">Brooklyn</div>
-      </v-flexible-link>
-      <v-flexible-link to="/tags/the-bronx" raw rawHover="underline">
-        <div class="tag-large">The Bronx</div>
-      </v-flexible-link>
-      <v-flexible-link to="/tags/staten-island" raw rawHover="underline">
-        <div class="tag-large">Staten Island</div>
-      </v-flexible-link>
-      <v-flexible-link to="/tags/queens" raw rawHover="underline">
-        <div class="tag-large">Queens</div>
-      </v-flexible-link>
-      <v-flexible-link to="/tags/new-jersey" raw rawHover="underline">
-        <div class="tag-large">New Jersey</div>
-      </v-flexible-link>
+      <VFlexibleLink to="/tags/manhattan" raw raw-hover="underline">
+        <div class="tag-large">
+          Manhattan
+        </div>
+      </VFlexibleLink>
+      <VFlexibleLink to="/tags/brooklyn" raw raw-hover="underline">
+        <div class="tag-large">
+          Brooklyn
+        </div>
+      </VFlexibleLink>
+      <VFlexibleLink to="/tags/the-bronx" raw raw-hover="underline">
+        <div class="tag-large">
+          The Bronx
+        </div>
+      </VFlexibleLink>
+      <VFlexibleLink to="/tags/staten-island" raw raw-hover="underline">
+        <div class="tag-large">
+          Staten Island
+        </div>
+      </VFlexibleLink>
+      <VFlexibleLink to="/tags/queens" raw raw-hover="underline">
+        <div class="tag-large">
+          Queens
+        </div>
+      </VFlexibleLink>
+      <VFlexibleLink to="/tags/new-jersey" raw raw-hover="underline">
+        <div class="tag-large">
+          New Jersey
+        </div>
+      </VFlexibleLink>
     </div>
     <div class="boroughs-footer mt-4 xl:mt-5">
       ♥
-      <v-flexible-link
+      <VFlexibleLink
         to="https://pledge.wnyc.org/support/gothamist/?utm_medium=partnersite&utm_source=gothamist&utm_campaign=homepage-brand-moment"
         target="_blank"
       >
         Support our local coverage
-      </v-flexible-link>
+      </VFlexibleLink>
     </div>
   </div>
 </template>

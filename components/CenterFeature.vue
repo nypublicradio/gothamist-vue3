@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ArticlePage } from '~~/composables/types/Page';
+import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = defineProps<{
-  collection: {label?: string, data: ArticlePage[]},
+  collection: { label?: string; data: ArticlePage[] }
   trackingComponentLocation: string
 }>()
-const trackingComponent = "Center Feature"
+const trackingComponent = 'Center Feature'
 
 // Note: the center feature should display the first 6 stories in the content collection
 const articleLg = ref(normalizeArticlePage(props.collection.data[0]))
@@ -22,8 +22,10 @@ const articlesSm = ref([
 <template>
   <div v-if="articleLg && articleMd && articlesSm" class="center-feature">
     <template v-if="collection.label">
-      <hr class="black" />
-      <div class="type-label3 mt-2 mb-4" role="heading" aria-level="2">{{ collection.label }}</div>
+      <hr class="black">
+      <div class="type-label3 mt-2 mb-4" role="heading" aria-level="2">
+        {{ collection.label }}
+      </div>
     </template>
     <div class="grid gutter-x-30">
       <div class="col-fixed flex-order-2 lg:flex-order-1">
@@ -35,10 +37,10 @@ const articlesSm = ref([
           :width="433"
           :height="289"
           loading="eager"
-          :trackClicks="true"
-          :trackingComponentLocation="trackingComponentLocation"
-          trackingComponent="Center Feature"
-          :trackingComponentPosition="2"
+          :track-clicks="true"
+          :tracking-component-location="trackingComponentLocation"
+          tracking-component="Center Feature"
+          :tracking-component-position="2"
         >
           <p>
             {{ articleMd.description }}
@@ -56,10 +58,10 @@ const articlesSm = ref([
           class="flex lg:hidden article-md mod-horizontal mod-left tag-small"
           :width="318"
           :height="212"
-          :trackClicks="true"
-          :trackingComponentLocation="trackingComponentLocation"
-          :trackingComponent="trackingComponent"
-          :trackingComponentPosition="2"
+          :track-clicks="true"
+          :tracking-component-location="trackingComponentLocation"
+          :tracking-component="trackingComponent"
+          :tracking-component-position="2"
         >
           <p>
             {{ articleMd.description }}
@@ -70,7 +72,7 @@ const articlesSm = ref([
           />
         </gothamist-card>
         <div class="hidden lg:block mb-4 xl:mb-7">
-          <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
+          <HtlAd slot="htlad-gothamist_index_topper" layout="rectangle" />
         </div>
       </div>
       <div class="col flex-order-1 lg:flex-order-2">
@@ -81,23 +83,23 @@ const articlesSm = ref([
           :image="useImageUrl(articleLg.listingImage)"
           :width="700"
           :height="467"
-          :trackClicks="true"
-          :trackingComponentLocation="trackingComponentLocation"
-          :trackingComponent="trackingComponent"
-          :trackingComponentPosition="1"
+          :track-clicks="true"
+          :tracking-component-location="trackingComponentLocation"
+          :tracking-component="trackingComponent"
+          :tracking-component-position="1"
         >
           <v-card-metadata
             class="mt-0 md:mt-2"
-            altDesign
+            alt-design
             :article="articleLg"
             @link-click="$event => card.trackClick($event)"
           />
         </gothamist-card>
-        <hr class="block lg:hidden mb-3" />
+        <hr class="block lg:hidden mb-3">
       </div>
       <div class="col-3 flex-order-3">
-        <hr class="my-3 block xl:hidden" />
-        <lazy-horizontal-drag :items="articlesSm" v-slot="slotProps">
+        <hr class="my-3 block xl:hidden">
+        <lazy-horizontal-drag v-slot="slotProps" :items="articlesSm">
           <gothamist-card
             v-slot="card"
             :article="slotProps.item"
@@ -107,21 +109,21 @@ const articlesSm = ref([
             :ratio="[1, 1]"
             :hide-tags="true"
             :sizes="[2]"
-            :trackClicks="true"
-            :trackingComponentLocation="trackingComponentLocation"
-            :trackingComponent="trackingComponent"
-            :trackingComponentPosition="slotProps.index + 3"
+            :track-clicks="true"
+            :tracking-component-location="trackingComponentLocation"
+            :tracking-component="trackingComponent"
+            :tracking-component-position="slotProps.index + 3"
           >
-            <div></div>
+            <div />
             <v-card-metadata
               :article="slotProps.item"
-              :showComments="false"
+              :show-comments="false"
               @link-click="$event => card.trackClick($event)"
             />
           </gothamist-card>
         </lazy-horizontal-drag>
         <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
-          <HtlAd layout="rectangle" slot="htlad-gothamist_index_topper" />
+          <HtlAd slot="htlad-gothamist_index_topper" layout="rectangle" />
         </div>
       </div>
     </div>

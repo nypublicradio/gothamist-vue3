@@ -1,5 +1,6 @@
 <script setup>
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
+
 const props = defineProps({
   tags: {
     type: Array,
@@ -19,12 +20,12 @@ const emit = defineEmits(['tag-click'])
       {{ props.label }}
     </p>
     <div class="flex gap-1 align-items-center flex-wrap">
-      <v-tag
+      <VTag
         v-for="tag in props.tags"
+        :key="tag.name"
         class="tag-small"
         :name="tag.name"
         :slug="`/tags/${tag.slug}`"
-        :key="tag.name"
         @click="emit('tag-click', tag)"
       />
     </div>

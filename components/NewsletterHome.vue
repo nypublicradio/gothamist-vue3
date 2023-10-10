@@ -2,8 +2,6 @@
 import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
-const config = useRuntimeConfig()
-
 const props = defineProps({
   showNoThanks: {
     type: Boolean,
@@ -44,7 +42,7 @@ const props = defineProps({
   },
   submitButtonIcon: {
     type: String,
-    //default: 'pi-arrow-right',
+    // default: 'pi-arrow-right',
     default: null,
   },
 })
@@ -52,6 +50,8 @@ const props = defineProps({
 const emit = defineEmits<{
   (e: 'submit', value: any): void
 }>()
+
+const config = useRuntimeConfig()
 
 const showComponent = ref(true)
 const submissionStatus = ref(null)
@@ -71,7 +71,7 @@ const submitForm = (email) => {
     body: {
       source: props.source,
       list: config.public.NEWSLETTER_MULTI_LIST_IDS,
-      email
+      email,
     },
   })
     .then(() => {
@@ -90,7 +90,7 @@ const submitForm = (email) => {
   <div
     v-if="showComponent"
     class="newsletter-home grid"
-    :class="[{ small: small }]"
+    :class="[{ small }]"
   >
     <Button
       v-if="showX"
@@ -103,7 +103,9 @@ const submitForm = (email) => {
       class="col-12 lg:col-3 pr-3 pb-2"
       :class="showX ? 'pr-6' : 'pr-3'"
     >
-      <div class="h4">{{ titleText }}</div>
+      <div class="h4">
+        {{ titleText }}
+      </div>
     </div>
     <div class="col-12 lg:col-7 xl:col-5 col-offset-0 xl:col-offset-1">
       <p v-if="showBlurb" class="type-paragraph2 pr-0 lg:pr-8 xl:pr-0">
@@ -111,21 +113,22 @@ const submitForm = (email) => {
         stories, delivered to your inbox daily.
       </p>
       <email-collector-form
+        :class="showBlurb ? 'mt-5' : 'mt-2'"
+        :show-no-thanks="showNoThanks"
+        :submit-button-text="submitButtonText"
+        :submit-button-icon="submitButtonIcon"
+        :is-submitting="isSubmitting"
+        :submission-status="submissionStatus"
+        :alt-design="altDesign"
+        :outlined="outlined"
         @noThanksClick="hideComp"
         @submit="submitForm"
-        :class="showBlurb ? 'mt-5' : 'mt-2'"
-        :showNoThanks="showNoThanks"
-        :submitButtonText="submitButtonText"
-        :submitButtonIcon="submitButtonIcon"
-        :isSubmitting="isSubmitting"
-        :submissionStatus="submissionStatus"
-        :altDesign="altDesign"
-        :outlined="outlined"
       >
         By submitting your information, you're agreeing to receive
         communications from New York Public Radio in accordance with our
-        <v-flexible-link to="https://www.wnyc.org/terms/">Terms</v-flexible-link
-        >.
+        <VFlexibleLink to="https://www.wnyc.org/terms/">
+          Terms
+        </VFlexibleLink>.
       </email-collector-form>
     </div>
   </div>

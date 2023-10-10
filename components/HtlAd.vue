@@ -1,22 +1,25 @@
 <script setup lang="ts">
 defineProps<{
-    slot: string
-    layout: string
-    fineprint?: string
-    fineprintClass?: string
+  slot: string
+  layout: string
+  fineprint?: string
+  fineprintClass?: string
 }>()
 
 const sensitiveContent = useSensitiveContent()
 </script>
 
 <template>
-    <div>
-        <div :class="`ad-wrapper ${sensitiveContent ? '' : layout}`">
-            <div v-if="!sensitiveContent" :class="slot"></div>
-        </div>
-        <p v-if="fineprint && !sensitiveContent" :class="`type-fineprint ${fineprintClass || ''}`">{{fineprint}}</p>
+  <div>
+    <div :class="`ad-wrapper ${sensitiveContent ? '' : layout}`">
+      <div v-if="!sensitiveContent" :class="slot" />
     </div>
+    <p v-if="fineprint && !sensitiveContent" :class="`type-fineprint ${fineprintClass || ''}`">
+      {{ fineprint }}
+    </p>
+  </div>
 </template>
+
 <style lang="scss">
 .ad-wrapper.leaderboard {
     min-width: 300px;
@@ -40,5 +43,4 @@ const sensitiveContent = useSensitiveContent()
     min-width: 300px;
     min-height: 250px;
 }
-
 </style>

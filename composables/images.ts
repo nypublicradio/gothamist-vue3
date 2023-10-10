@@ -1,4 +1,4 @@
-import Image from './types/Image'
+import type Image from './types/Image'
 
 // Returns an image template string for use with the SimpleResponsiveImage
 // component in nypr-design-system
@@ -6,12 +6,12 @@ import Image from './types/Image'
 // for places where you can't use the image component, like in social metadata
 
 // if you just have the image ID you can use it like this
-//useImageUrl({ id: imageId })
-export function useImageUrl(image: Image, options?: { width: number, height: number, quality: number }): string {
+// useImageUrl({ id: imageId })
+export function useImageUrl(image: Image, options?: { width: number; height: number; quality: number }): string {
   const config = useRuntimeConfig()
-  if (!image) {
-    return ""
-  }
+  if (!image)
+    return ''
+
   const imageUrlTemplate = `${config.public.IMAGE_BASE_URL}${image.id}/fill-%width%x%height%|format-webp|webpquality-%quality%/`
   return imageUrlTemplate
     .replace('%width%', (options?.width && String(options.width)) ?? '%width%')
@@ -25,11 +25,12 @@ const calcQuality = (quality, size) => {
 }
 
 const getResponsiveSizes = (options: {
-    sizes:number[],
-    width:number,
-    height:number,
-    maxWidth:number,
-    maxHeight:number}): {size:number, width:number, height:number}[] => {
+  sizes: number[]
+  width: number
+  height: number
+  maxWidth: number
+  maxHeight: number
+}): { size: number; width: number; height: number }[] => {
   const responsiveSizes = []
   let isFinalSize = false
   for (const size of options.sizes) {
@@ -44,38 +45,38 @@ const getResponsiveSizes = (options: {
         isFinalSize = true
       }
       // if we are on the last size in the array, set isFinalSize to true
-      if (options.sizes.length - 1 === options.sizes.indexOf(size)) {
+      if (options.sizes.length - 1 === options.sizes.indexOf(size))
         isFinalSize = true
-      }
-      responsiveSizes.push({size, width, height})
+
+      responsiveSizes.push({ size, width, height })
     }
   }
   return responsiveSizes
 }
 
-export function useResponsiveSrcset(image: Image, sizes: number[], options?: { width: number, height: number, quality: number, maxWidth?:number, maxHeight?:number }) {
-  const maxWidth = options.maxWidth ?? image.width ?? Infinity
-  const maxHeight = options.maxHeight ?? image.height ?? Infinity
+export function useResponsiveSrcset(image: Image, sizes: number[], options?: { width: number; height: number; quality: number; maxWidth?: number; maxHeight?: number }) {
+  const maxWidth = options.maxWidth ?? image.width ?? Number.POSITIVE_INFINITY
+  const maxHeight = options.maxHeight ?? image.height ?? Number.POSITIVE_INFINITY
   const responsiveSizes = getResponsiveSizes({
     sizes,
     width: options.width,
     height: options.height,
     maxWidth,
-    maxHeight
+    maxHeight,
   })
 
   const responsiveSrcset = responsiveSizes.reduce((srcset, responsiveSize, index) => {
     const url = useImageUrl(image, {
       width: responsiveSize.width,
-      height:responsiveSize.height,
-      quality: calcQuality(options.quality, responsiveSize.size)
+      height: responsiveSize.height,
+      quality: calcQuality(options.quality, responsiveSize.size),
     })
     return `${srcset}${url} ${responsiveSize.size}x${index < responsiveSizes.length - 1 ? ',' : ''} `
   }, '')
   return responsiveSrcset
 }
 
-export function usePreloadResponsiveImage(href:string, imagesrcset:string, priority=9) {
+export function usePreloadResponsiveImage(href: string, imagesrcset: string, priority = 9) {
   useServerHead({
     link: [
       {
@@ -84,8 +85,8 @@ export function usePreloadResponsiveImage(href:string, imagesrcset:string, prior
         fetchpriority: 'high',
         href,
         imagesrcset,
-        tagPriority: priority
-      }
-    ]
+        tagPriority: priority,
+      },
+    ],
   })
 }

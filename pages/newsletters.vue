@@ -1,25 +1,28 @@
 <script setup lang="ts">
 const newsletters = [
   {
-    title: "Early Addition",
-    id: "Gothamist - Early Addition",
-    description: "Start your weekdays with a guide of the local stories you need to know, plus tidbits from around the internet."
-  },{
-    title: "Evening Headlines",
-    id: "Gothamist",
-    description: "Get links to our top stories delivered to your inbox every day at 5 p.m."
-  },{
-    title: "We the Commuters",
-    id: "We The Commuters",
-    description: "Essential transportation coverage to your inbox every Thursday."
-  },{
-    title: "Politics Brief",
-    id: "Politics Brief Newsletter",
-    description: "Everything you need to know as a voter in New York or New Jersey."
-  }
+    title: 'Early Addition',
+    id: 'Gothamist - Early Addition',
+    description: 'Start your weekdays with a guide of the local stories you need to know, plus tidbits from around the internet.',
+  },
+  {
+    title: 'Evening Headlines',
+    id: 'Gothamist',
+    description: 'Get links to our top stories delivered to your inbox every day at 5 p.m.',
+  },
+  {
+    title: 'We the Commuters',
+    id: 'We The Commuters',
+    description: 'Essential transportation coverage to your inbox every Thursday.',
+  },
+  {
+    title: 'Politics Brief',
+    id: 'Politics Brief Newsletter',
+    description: 'Everything you need to know as a voter in New York or New Jersey.',
+  },
 ]
-const thanksMessage = "Thank you for signing up!"
-const errorMessage = "Sorry! There was a problem signing you up. Please try again later"
+const thanksMessage = 'Thank you for signing up!'
+const errorMessage = 'Sorry! There was a problem signing you up. Please try again later'
 
 const selectedLists = ref<Array<string>>(newsletters.map(newsletter => newsletter.id))
 const agree = ref(true)
@@ -30,26 +33,25 @@ const newsletterSignup = useNewsletterSignup({
   selectedLists,
   additionalLists: ref(['Gothamist Membership']),
   consent: agree,
-  source: 'gothamist_newsletter_landing_page'
+  source: 'gothamist_newsletter_landing_page',
 })
-
 </script>
+
 <template>
-    <div class="newsletter-page">
+  <div class="newsletter-page">
     <section>
       <div class="content">
-        <form class="newsletter-form" v-on:submit="newsletterSignup.submitForm"
-        >
+        <form class="newsletter-form" @submit="newsletterSignup.submitForm">
           <div v-if="!newsletterSignup.isSuccess.value" class="form">
             <h1>Newsletters</h1>
             <p>Get the news New Yorkers need in your inbox.</p>
             <div class="field">
               <label for="email">Email address</label>
               <InputText
+                v-model="email"
                 class="w-full p-inputtext-lg"
                 type="email"
                 required="required"
-                v-model="email"
                 placeholder="your@email.com"
                 aria-label="sign up"
                 aria-describedby="email-address-field"
@@ -62,38 +64,39 @@ const newsletterSignup = useNewsletterSignup({
               <div v-for="(newsletter, index) in newsletters" :key="newsletter.id" class="newsletter-list-item">
                 <div class="newsletter-checkbox">
                   <Checkbox
-                  :id="`newsletter-${index}`"
-                  :value="newsletter.id"
-                  v-model="selectedLists"
-                />
+                    :id="`newsletter-${index}`"
+                    v-model="selectedLists"
+                    :value="newsletter.id"
+                  />
                 </div>
                 <div class="newsletter-info">
-                  <div><label :for="`newsletter-${index}`">{{newsletter.title}}</label></div>
-                  <div>{{newsletter.description}}</div>
+                  <div><label :for="`newsletter-${index}`">{{ newsletter.title }}</label></div>
+                  <div>{{ newsletter.description }}</div>
                 </div>
               </div>
             </div>
-            <div v-if="newsletterSignup.isError.value" class="newsletter-error">{{errorMessage}}</div>
+            <div v-if="newsletterSignup.isError.value" class="newsletter-error">
+              {{ errorMessage }}
+            </div>
             <div class="newsletter-agree field-checkbox mt-3 mb-0">
               <Checkbox
                 id="agree"
+                v-model="agree"
                 role="checkbox"
                 aria-label="Toggle agreement to the terms"
                 :aria-checked="agree"
-                v-model="agree"
                 :disabled="newsletterSignup.isSubmitting.value"
                 :binary="true"
               />
               <label for="agree">
                 By submitting your information, you're agreeing to receive
                 communications from New York Public Radio in accordance with our
-                <a href="https://www.wnyc.org/terms/" target="_blank" rel="noopener noreferrer">Terms</a
-                >.
+                <a href="https://www.wnyc.org/terms/" target="_blank" rel="noopener noreferrer">Terms</a>.
               </label>
               <Button
                 id="sign-up"
                 :class="!newsletterSignup.isFormValid.value || newsletterSignup.isSubmitting.value ? 'disabled' : ''"
-                :aria-disabled="(!newsletterSignup.isFormValid.value || newsletterSignup.isSubmitting.value)"
+                :aria-disabled="!newsletterSignup.isFormValid.value || newsletterSignup.isSubmitting.value"
                 :type="newsletterSignup.isFormValid.value || newsletterSignup.isSubmitting.value ? 'submit' : 'button'"
                 class="submit-btn p-button-rounded"
                 label="Sign Up"
@@ -101,12 +104,14 @@ const newsletterSignup = useNewsletterSignup({
               />
             </div>
           </div>
-          <div v-else class="newsletter-thanks mt-3 mb-0">{{thanksMessage}}</div>
+          <div v-else class="newsletter-thanks mt-3 mb-0">
+            {{ thanksMessage }}
+          </div>
         </form>
         <div class="hero">
           <div class="phone">
             <div class="notch-container">
-                  <div class="notch"></div>
+              <div class="notch" />
             </div>
             <img src="/newsletter-preview.png" srcset="/newsletter-preview@2x.png 2x, /newsletter-preview@3x.png 3x" alt="">
           </div>
@@ -250,5 +255,4 @@ const newsletterSignup = useNewsletterSignup({
     }
   }
 }
-
 </style>

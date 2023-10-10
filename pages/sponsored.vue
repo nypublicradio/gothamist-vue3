@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+
 const config = useRuntimeConfig()
 const { $analytics, $nativo } = useNuxtApp()
 const article = {
@@ -54,64 +55,66 @@ const newsletterSubmitEvent = () => {
 
 <template>
   <div>
-    <Teleport name="teleport" to="#article-header" v-if="isMounted">
-      <ScrollTracker scrollTarget=".article-body" v-slot="scrollTrackerProps">
+    <Teleport v-if="isMounted" name="teleport" to="#article-header">
+      <ScrollTracker v-slot="scrollTrackerProps" scroll-target=".article-body">
         <Transition name="article-page-header">
           <ArticlePageHeader
             v-if="fixedHeaderVisible"
             class="article-page-header"
-            :donateUrlBase="config.public.donateUrlBase"
-            utmCampaign="goth_header"
+            :donate-url-base="config.public.donateUrlBase"
+            utm-campaign="goth_header"
             :progress="scrollTrackerProps.scrollPercentage"
             :title="loadedTitle"
-            :shareUrl="article.url"
-            :shareTitle="article.socialTitle"
+            :share-url="article.url"
+            :share-title="article.socialTitle"
           />
         </Transition>
       </ScrollTracker>
     </Teleport>
-    <section class="top-section" v-if="article">
+    <section v-if="article" class="top-section">
       <div class="content">
         <div class="grid gutter-x-30">
-          <div class="col-fixed hidden xxl:block"></div>
+          <div class="col-fixed hidden xxl:block" />
           <div class="col">
             <v-tag
               v-if="article?.section"
               :name="article.section.name"
               :slug="`/${article.section.slug}`"
             />
-            <h1 ref="titleRef" class="mt-4 mb-3 h2">{{ article.title }}</h1>
+            <h1 ref="titleRef" class="mt-4 mb-3 h2">
+              {{ article.title }}
+            </h1>
           </div>
-          <div class="col-fixed hidden lg:block"></div>
+          <div class="col-fixed hidden lg:block" />
         </div>
         <div class="grid gutter-x-30">
           <div class="col-fixed hidden xxl:block">
-            <hr class="black" />
+            <hr class="black">
             <byline class="mb-3 pt-4" :article="article" />
           </div>
-          <div class="col overflow-hidden" v-if="article">
-            <div class="mb-4 xxl:mb-6 relative"></div>
+          <div v-if="article" class="col overflow-hidden">
+            <div class="mb-4 xxl:mb-6 relative" />
             <div class="block xxl:hidden mb-5">
-              <hr class="black" />
+              <hr class="black">
               <byline class="pt-4" :article="article" />
-              <hr class="mt-3 mb-5" />
+              <hr class="mt-3 mb-5">
             </div>
             <article-donation-CTA
               title="Gothamist is funded by sponsors and member donations"
-              :donateUrlBase="config.public.donateUrlBase"
-              utmCampaign="article-top"
+              :donate-url-base="config.public.donateUrlBase"
+              utm-campaign="article-top"
             />
           </div>
           <div class="col-fixed hidden lg:block">
             <HtlAd
-              layout="rectangle"
               slot="htlad-gothamist_interior_rectangle_topper"
+              layout="rectangle"
               fineprint="Gothamist is funded by sponsors and member donations"
             />
           </div>
         </div>
         <div class="grid gutter-x-30">
-          <div class="col-fixed hidden xxl:block"></div>
+          <div class="col-fixed hidden xxl:block" />
           <div class="col overflow-hidden article-column">
             <v-streamfield
               class="article-body"
@@ -124,20 +127,20 @@ const newsletterSubmitEvent = () => {
     <section>
       <div class="content">
         <div class="grid gutter-x-30">
-          <div class="col-fixed hidden xxl:block"></div>
+          <div class="col-fixed hidden xxl:block" />
         </div>
-        <hr class="black" />
+        <hr class="black">
         <p
+          v-if="article?.section"
           role="heading"
           aria-level="2"
-          v-if="article?.section"
           class="type-label3 mt-2 mb-4"
         >
           MORE NEWS
         </p>
-        <article-recirculation slug="news" trackingComponentLocation="Sponsored Landing Page Recirculation Module"/>
+        <article-recirculation slug="news" tracking-component-location="Sponsored Landing Page Recirculation Module" />
         <div class="mt-6 mb-5">
-          <hr class="black mb-4" />
+          <hr class="black mb-4">
           <newsletter-home @submit="newsletterSubmitEvent()" />
         </div>
       </div>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, nextTick } from 'vue'
-//import { StaffPage } from '../../composables/types/Page'
-import { ArticlePage } from '~~/composables/types/Page';
+import { nextTick, ref } from 'vue'
+
+// import { StaffPage } from '../../composables/types/Page'
+import type { ArticlePage } from '~~/composables/types/Page'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
@@ -21,8 +22,8 @@ const initialArticles = await findArticlePages({
   offset: 0,
 }).then(({ data }) => ({
   articles: normalizeFindArticlePagesResponse(data),
-  count: data.value && Number(data.value.meta.totalCount)
-})) as {articles: ArticlePage[], count: number}
+  count: data.value && Number(data.value.meta.totalCount),
+})) as { articles: ArticlePage[]; count: number }
 
 const articleTotal = ref(initialArticles.count)
 const articles = ref(initialArticles.articles)
@@ -38,7 +39,7 @@ const loadMoreArticles = async () => {
   const newArticles = await useLoadMoreArticles({
     author_slug: staffSlug,
     limit: loadMoreStoryCount.value,
-    offset: articles.value.length
+    offset: articles.value.length,
   })
   articles.value.push(...newArticles)
   await nextTick()
@@ -55,10 +56,10 @@ const authorProfileData = articles.value[1]?.authors.find((author) => {
 
 // formats the name of the author by manipulating the slug. This is used when authorProfileData returns no data
 const getAuthorNameFromSlug = () => {
-  let splitStr = typeof staffSlug === 'string' && staffSlug.toLowerCase().split('-')
-  for (let i = 0; i < splitStr.length; i++) {
+  const splitStr = typeof staffSlug === 'string' && staffSlug.toLowerCase().split('-')
+  for (let i = 0; i < splitStr.length; i++)
     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
-  }
+
   return splitStr.join(' ')
 }
 
@@ -83,14 +84,14 @@ onUnmounted(() => {
   $htlbid.clearTargeting({ Template: 'Staff' })
 })
 
-const authorName =  authorProfileData?.name || getAuthorNameFromSlug()
+const authorName = authorProfileData?.name || getAuthorNameFromSlug()
 const pageTitle = `Articles by ${authorName} | Gothamist`
 useHead({
   title: pageTitle,
 })
 useServerHead({
-  meta: [{ property: 'og:title', content: pageTitle}],
-  link: [{rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/staff/${staffSlug}`}]
+  meta: [{ property: 'og:title', content: pageTitle }],
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/staff/${staffSlug}` }],
 })
 </script>
 
@@ -100,20 +101,24 @@ useServerHead({
       <div class="content">
         <div class="grid gutter-x-30">
           <div class="col-12">
-            <h1 class="sr-only">{{ authorName }}</h1>
+            <h1 class="sr-only">
+              {{ authorName }}
+            </h1>
             <h2>Articles by {{ authorName }}</h2>
-            <hr class="black mt-3 md:mt-6 mb-2" />
+            <hr class="black mt-3 md:mt-6 mb-2">
           </div>
           <div class="col mb-6">
             <author-profile
               v-if="authorProfileData"
-              :profileData="authorProfileData"
-              :showCta="false"
-              staffPage
+              :profile-data="authorProfileData"
+              :show-cta="false"
+              staff-page
             />
-            <div class="h5" v-else>{{ getAuthorNameFromSlug() }}</div>
+            <div v-else class="h5">
+              {{ getAuthorNameFromSlug() }}
+            </div>
           </div>
-          <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
+          <div class="col-fixed col-fixed-width-330 hidden xl:block" />
         </div>
         <div id="articleList" class="grid gutter-x-30">
           <div v-if="articles" class="col staff-articles">
@@ -127,10 +132,10 @@ useServerHead({
                 class="mod-horizontal mb-5"
                 :width="318"
                 :height="212"
-                :trackClicks="true"
-                trackingComponentLocation="Author Page River"
-                trackingComponent="Author Page River"
-                :trackingComponentPosition="index + 1"
+                :track-clicks="true"
+                tracking-component-location="Author Page River"
+                tracking-component="Author Page River"
+                :tracking-component-position="index + 1"
               >
                 <p>
                   {{ article.description }}
@@ -140,22 +145,24 @@ useServerHead({
                   @link-click="$event => card.trackClick($event)"
                 />
               </gothamist-card>
-              <hr class="mb-5" />
+              <hr class="mb-5">
             </div>
           </div>
-          <p v-else class="col">No articles available</p>
+          <p v-else class="col">
+            No articles available
+          </p>
           <div class="col-fixed col-fixed-width-330 hidden xl:block">
             <HtlAd
-              layout="rectangle"
               slot="htl-gothamist_interior_midpage_1"
+              layout="rectangle"
               fineprint="Gothamist is funded by sponsors and member donations"
             />
           </div>
         </div>
         <div class="block xl:hidden mb-4">
           <HtlAd
-            layout="rectangle"
             slot="htl-gothamist_interior_midpage_2"
+            layout="rectangle"
             fineprint="Gothamist is funded by sponsors and member donations"
           />
         </div>
@@ -164,11 +171,10 @@ useServerHead({
           class="p-button-rounded"
           label="Load More"
           @click="loadMoreArticles"
-        >
-        </Button>
+        />
 
         <div class="mt-8 mb-5">
-          <hr class="black mb-4" />
+          <hr class="black mb-4">
           <newsletter-home @submit="newsletterSubmitEvent" />
         </div>
       </div>

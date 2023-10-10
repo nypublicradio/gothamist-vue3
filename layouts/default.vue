@@ -13,7 +13,7 @@ const navigationPromise = findNavigation().then(({ data }) => {
 })
 
 const breakingNewsPromise = findBreakingNews().then(({ data }) =>
-  normalizeFindBreakingNewsResponse(data)
+  normalizeFindBreakingNewsResponse(data),
 )
 const [navigation, breakingNews] = await Promise.all([
   navigationPromise,
@@ -34,17 +34,16 @@ let sidebarElements, firstElement, lastElement
 const handleSidebarShown = () => {
   sidebarElements = Array.from(
     document.querySelectorAll(
-      '.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])'
-    )
-  ).filter((element) => element.clientWidth + element.clientHeight !== 0)
+      '.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])',
+    ),
+  ).filter(element => element.clientWidth + element.clientHeight !== 0)
   firstElement = sidebarElements[0]
   lastElement = sidebarElements[sidebarElements.length - 1]
 }
 
 const handleSidebarHidden = () => {
-  if (sidebarOpenedFrom.value?.focus) {
+  if (sidebarOpenedFrom.value?.focus)
     sidebarOpenedFrom.value.focus()
-  }
 }
 
 const handleSidebarTab = (e) => {
@@ -62,7 +61,7 @@ const handleSidebarShiftTab = (e) => {
 }
 
 const trackSidebarClick = (label) => {
-  //emitted mobile menu click event
+  // emitted mobile menu click event
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Mobile Menu',
     component: 'header',
@@ -71,18 +70,16 @@ const trackSidebarClick = (label) => {
   closeSidebar()
 }
 
-// Track users coming from newsletter  
+// Track users coming from newsletter
 const maxAge = 60 * 60 * 24 * 30 * 12 // about 12 months
-if (route.query.utm_medium === 'nypr-email')
-{
+if (route.query.utm_medium === 'nypr-email') {
   const cookie = useCookie('__gothamistNewsletterMember', { path: '/', maxAge })
   cookie.value = 'true'
 }
 // update newsletter cookie expiration
 const newsLetterCookie = useCookie('__gothamistNewsletterMember', { path: '/', maxAge })
-if (newsLetterCookie.value === 'true') {
+if (newsLetterCookie.value === 'true')
   newsLetterCookie.value = 'true'
-}
 
 // load the live stream
 onBeforeMount(async () => {
@@ -90,7 +87,7 @@ onBeforeMount(async () => {
   await updateLiveStream(currentSteamStation.value)
 })
 onMounted(() => {
-  if (typeof $htlbid !== "undefined") {
+  if (typeof $htlbid !== 'undefined') {
     $htlbid.init()
     $htlbid.setTargeting({
       is_testing: config.public.HTL_IS_TESTING,
@@ -100,7 +97,7 @@ onMounted(() => {
   const url = new URL(window.location.href)
 })
 watch(route, (value) => {
-  if (typeof $htlbid !== "undefined") {
+  if (typeof $htlbid !== 'undefined') {
     $htlbid.setTargetingForRoute(value)
     $htlbid.clearAds()
   }
@@ -122,22 +119,22 @@ useHead({
   ],
   script: [
     {
-      src: 'https://s.ntv.io/serve/load.js',
-      async: true,
+      'src': 'https://s.ntv.io/serve/load.js',
+      'async': true,
       'data-ntv-set-no-auto-start': '',
     },
     {
       src: config.public.HTL_JS,
       async: true,
-    }
-  ]
+    },
+  ],
 })
 
 // Resource Hints
 useServerHead({
   link: [
-    { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high'},
-    { rel: 'preconnect', href: config.public.IMAGE_CDN_URL, tagPriority: 'high'},
+    { rel: 'preconnect', href: config.public.API_URL, crossorigin: '', tagPriority: 'high' },
+    { rel: 'preconnect', href: config.public.IMAGE_CDN_URL, tagPriority: 'high' },
   ],
 })
 
@@ -146,7 +143,8 @@ if (isSponsoredRoute) {
   useServerHead({
     meta: [{ name: 'robots', content: 'noindex,nofollow' }],
   })
-} else {
+}
+else {
   useServerHead({
     meta: [
       { property: 'og:site_name', content: 'Gothamist' },
@@ -182,54 +180,54 @@ if (isSponsoredRoute) {
       <div v-if="!sensitiveContent" class="htlad-skin" />
       <div
         class="leaderboard-wrapper flex justify-content-center align-items-center flex-column"
-      >        
+      >
         <div class="leaderboard-ad-backdrop">
           <HtlAd
             v-if="route.name === 'index'"
-            layout="leaderboard"
             slot="htlad-gothamist_index_leaderboard_1"
+            layout="leaderboard"
           />
           <HtlAd
             v-else
-            layout="leaderboard"
             slot="htlad-gothamist_interior_leaderboard_1"
+            layout="leaderboard"
           />
         </div>
         <div class="leaderboard-container">
           <Transition name="fixed-header">
-          <GothamistMainHeader
+            <GothamistMainHeader
               v-if="fixedHeaderVisible && route.name !== 'sectionSlug-articleSlug'"
               class="fixed-header"
               :navigation="navigation"
-              :isMinimized="true"
-              :donateUrlBase="config.public.donateUrlBase"
-              utmCampaign="homepage-header"
+              :is-minimized="true"
+              :donate-url-base="config.public.donateUrlBase"
+              utm-campaign="homepage-header"
             />
-        </Transition>
+          </Transition>
           <div id="article-header" />
         </div>
       </div>
       <main class="main">
         <GothamistMainHeader
           :navigation="navigation"
-          :isMinimized="route.name !== 'index'"
-          :donateUrlBase="config.public.donateUrlBase"
-          utmCampaign="homepage-header"
+          :is-minimized="route.name !== 'index'"
+          :donate-url-base="config.public.donateUrlBase"
+          utm-campaign="homepage-header"
           @visible="() => { fixedHeaderVisible = false }"
           @not-visible="() => { fixedHeaderVisible = true }"
         />
         <slot />
       </main>
-      <gothamist-footer :navigation="navigation"/>
+      <gothamist-footer :navigation="navigation" />
       <audio-player />
     </div>
   </div>
   <Sidebar
     v-model:visible="sidebarOpen"
-    :baseZIndex="6000"
+    :base-z-index="6000"
     position="right"
     data-style-mode="dark"
-    ariaCloseLabel="close the navigation menu"
+    aria-close-label="close the navigation menu"
     class="gothamist-sidebar px-3 md:px-4"
     @show="handleSidebarShown"
     @hide="handleSidebarHidden"
@@ -237,26 +235,28 @@ if (isSponsoredRoute) {
     @keydown.tab="handleSidebarTab"
     @keydown.shift.tab="handleSidebarShiftTab"
   >
-    <template v-slot:header>
+    <template #header>
       <div class="gothamist-sidebar-header flex md:hidden">
-        <v-flexible-link to="/" raw @click="trackSidebarClick('sidebar logo')">
+        <VFlexibleLink to="/" raw @click="trackSidebarClick('sidebar logo')">
           <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
-        </v-flexible-link>
+        </VFlexibleLink>
         <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
       </div>
     </template>
-    <template v-slot:default>
-      <LoadLazily :options="{
-        root: null,
-        rootMargin: '0px',
-        threshold: 0
-      }">
+    <template #default>
+      <LoadLazily
+        :options="{
+          root: null,
+          rootMargin: '0px',
+          threshold: 0,
+        }"
+      >
         <LazyGothamistSidebarContents
           :navigation="navigation"
-          :donateUrlBase="config.public.donateUrlBase"
-          @menuListClick="trackSidebarClick($event)"
-          utmCampaign="goth_hamburger"
+          :donate-url-base="config.public.donateUrlBase"
+          utm-campaign="goth_hamburger"
           class="mt-3"
+          @menuListClick="trackSidebarClick($event)"
         />
       </LoadLazily>
     </template>

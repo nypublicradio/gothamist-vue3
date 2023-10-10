@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { TagPage } from '../../composables/types/Page'
-import { StreamfieldBlock, ContentCollectionBlock } from '../../composables/types/StreamfieldBlock'
-import { useUpdateCommentCounts } from '~~/composables/comments';
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import { nextTick } from 'vue'
+import type { TagPage } from '../../composables/types/Page'
+import type { ContentCollectionBlock, StreamfieldBlock } from '../../composables/types/StreamfieldBlock'
+import { useUpdateCommentCounts } from '~~/composables/comments'
 
 /* preview */
 import { usePreviewData } from '~/composables/states'
+
 const previewData = usePreviewData()
 const route = useRoute()
-const isPreview = route.query.preview ? true : false
+const isPreview = !!route.query.preview
 /* preview */
 
 const { $analytics, $htlbid } = useNuxtApp()
@@ -21,17 +22,17 @@ const loadMoreContainer = ref('#articleList')
 const curatedTagPagePromise = isPreview
   ? previewData.value.data
   : findPage(`tags/${tagSlug}`).then(
-      ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage)
-    )
+    ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage),
+  )
 const articlesPromise = findArticlePages({
   limit: initialStoryCount.value,
   tag_slug: tagSlug,
 }).then(({ data }) => ({
   articles: normalizeFindArticlePagesResponse(data),
-  count: data.value && Number(data.value.meta.totalCount)
+  count: data.value && Number(data.value.meta.totalCount),
 }))
 
-const [curatedTagPage, {articles: initialArticles, count: initialCount}] = await Promise.all([
+const [curatedTagPage, { articles: initialArticles, count: initialCount }] = await Promise.all([
   curatedTagPagePromise,
   articlesPromise,
 ])
@@ -59,7 +60,7 @@ const loadMoreArticles = async () => {
   }
 }
 
-const tag = articles.value[0]?.tags.find((tag) => tag.slug === tagSlug)
+const tag = articles.value[0]?.tags.find(tag => tag.slug === tagSlug)
 const tagName = tag?.name || tag?.slug.replace(/-/g, ' ')
 useChartbeat()
 useOptinMonster()
@@ -67,16 +68,16 @@ useOptinMonster()
 onMounted(() => {
   $analytics.sendPageView({
     page_type: 'tag_page',
-    content_group: 'tag-page'
+    content_group: 'tag-page',
   })
   $htlbid.setTargeting({ Template: 'Tag' })
 
   function getPagesFromZone(zone: StreamfieldBlock[]) {
-    if (!zone) {
+    if (!zone)
       return []
-    }
-    return zone.filter(block => block.type === "content_collection")
-    .reduce((pages, collection: ContentCollectionBlock) => [...pages, ...collection.value.pages], [])
+
+    return zone.filter(block => block.type === 'content_collection')
+      .reduce((pages, collection: ContentCollectionBlock) => [...pages, ...collection.value.pages], [])
   }
   const topPageArticles = getPagesFromZone(curatedTagPage?.topPageZone)
   const midPageArticles = getPagesFromZone(curatedTagPage?.midPageZone)
@@ -101,12 +102,11 @@ useHead({
   title: curatedTagPage?.seoTitle || pageTitle,
 })
 useServerHead({
-  meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle}],
-  link: [{rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/tags/${tagSlug}`}]
+  meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle }],
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/tags/${tagSlug}` }],
 })
-if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
-  useServerHead({meta: [{name: 'robots', content: 'noindex'}]})
-}
+if (!curatedTagPage || curatedTagPage.preventSearchIndexing)
+  useServerHead({ meta: [{ name: 'robots', content: 'noindex' }] })
 </script>
 
 <template>
@@ -117,15 +117,15 @@ if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
       </h1>
     </section>
     <section v-if="curatedTagPage?.headerImage" class="tag-page-header-image">
-      <v-image-with-caption
+      <VImageWithCaption
         loading="eager"
         :image="useImageUrl(curatedTagPage.headerImage)"
         :width="1440"
         :height="288"
         :sizes="[1]"
         :alt-text="curatedTagPage.headerImage?.alt"
-        :maxWidth="curatedTagPage.headerImage?.width"
-        :maxHeight="curatedTagPage.headerImage?.height"
+        :max-width="curatedTagPage.headerImage?.width"
+        :max-height="curatedTagPage.headerImage?.height"
         :ratio="[5, 1]"
       />
     </section>
@@ -138,25 +138,27 @@ if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
           <div class="col">
             <v-streamfield
               :streamfield-blocks="curatedTagPage.topPageZone"
-              trackingComponentLocation="Tag Page Top Curated Zone"
+              tracking-component-location="Tag Page Top Curated Zone"
               class="pt-4 lg:pt-6"
             />
           </div>
-          <div class="col-fixed col-fixed-width-330 hidden xl:block"></div>
+          <div class="col-fixed col-fixed-width-330 hidden xl:block" />
         </div>
       </div>
-      <HtlAd layout="rectangle" slot="htlad-gothamist_interior_midpage_1" />
+      <HtlAd slot="htlad-gothamist_interior_midpage_1" layout="rectangle" />
     </section>
     <section class="block xl:hidden">
       <div
         class="content"
         :class="curatedTagPage?.topPageZone.length ? 'py-0' : 'pb-0'"
-      ></div>
+      />
     </section>
     <section v-if="articles">
       <div class="content">
         <div id="articleList" class="grid gutter-x-30 tag-river">
-          <h2 class="sr-only">Latest Articles Tagged "{{ tagName }}"</h2>
+          <h2 class="sr-only">
+            Latest Articles Tagged "{{ tagName }}"
+          </h2>
           <div class="col">
             <div
               v-for="(article, index) in articles"
@@ -168,10 +170,10 @@ if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
                 class="mod-horizontal mb-5"
                 :width="318"
                 :height="212"
-                :trackClicks="true"
-                trackingComponentLocation="Tag Page River"
-                trackingComponent="Tag Page River"
-                :trackingComponentPosition="index + 1"
+                :track-clicks="true"
+                tracking-component-location="Tag Page River"
+                tracking-component="Tag Page River"
+                :tracking-component-position="index + 1"
               >
                 <p>
                   {{ article.description }}
@@ -181,7 +183,7 @@ if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
                   @link-click="$event => card.trackClick($event)"
                 />
               </gothamist-card>
-              <hr class="mb-5" />
+              <hr class="mb-5">
               <!-- mid page zone should go after the third article -->
               <div
                 v-if="index === 2 && curatedTagPage?.midPageZone.length"
@@ -189,7 +191,7 @@ if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
               >
                 <v-streamfield
                   :streamfield-blocks="curatedTagPage.midPageZone"
-                  trackingComponentLocation="Tag Page Middle Curated Zone"
+                  tracking-component-location="Tag Page Middle Curated Zone"
                 />
               </div>
             </div>
@@ -198,16 +200,15 @@ if (!curatedTagPage || curatedTagPage.preventSearchIndexing) {
               class="p-button-rounded"
               label="Load More"
               @click="loadMoreArticles"
-            >
-            </Button>
+            />
           </div>
           <div class="col-fixed mx-auto hidden xl:block">
-            <HtlAd layout="rectangle" slot="htlad-gothamist_interior_river" />
+            <HtlAd slot="htlad-gothamist_interior_river" layout="rectangle" />
           </div>
         </div>
         <!-- newsletter -->
         <div class="mt-8 mb-5">
-          <hr class="black mb-4" />
+          <hr class="black mb-4">
           <newsletter-home @submit="newsletterSubmitEvent" />
         </div>
       </div>

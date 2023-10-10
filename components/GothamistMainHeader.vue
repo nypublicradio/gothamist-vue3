@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Navigation from '~~/composables/types/Navigation'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
+import type Navigation from '~~/composables/types/Navigation'
 
 defineProps<{
   isMinimized: boolean
@@ -8,7 +8,7 @@ defineProps<{
   donateUrlBase: string
   utmCampaign: string
 }>()
-const emit = defineEmits(['visible','not-visible'])
+const emit = defineEmits(['visible', 'not-visible'])
 const currentSteamStation = useCurrentSteamStation()
 const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
@@ -24,7 +24,7 @@ const onNotVisible = () => emit('not-visible')
 useVisibilityTracking(headerElement, onVisible, onNotVisible)
 
 const trackClick = (category, label) => {
-  //emitted mobile menu click event
+  // emitted mobile menu click event
   $analytics.sendEvent('click_tracking', {
     event_category: category,
     component: 'header',
@@ -42,7 +42,7 @@ const trackClick = (category, label) => {
       class="top flex justify-content-between align-items-center sm:align-items-end"
     >
       <div class="gothamist-header-left">
-        <v-flexible-link
+        <VFlexibleLink
           class="block"
           :class="isMinimized ? 'hidden' : 'xl:hidden'"
           to="/"
@@ -50,22 +50,22 @@ const trackClick = (category, label) => {
           @click="trackClick('Click Tracking - Header', 'header logo')"
         >
           <LogoGothamist class="gothamist-header-logo pr-2" />
-        </v-flexible-link>
+        </VFlexibleLink>
         <div class="gothamist-header-tagline-holder hidden sm:block">
           <div class="gothamist-header-tagline" v-html="strapline" />
         </div>
       </div>
-      <v-flexible-link
+      <VFlexibleLink
         class="hidden"
         :class="isMinimized ? 'xl:hidden' : 'xl:block'"
         to="/"
         raw
-        @click="trackClick('Click Tracking - Header', 'header logo')"
         role="heading"
         aria-level="1"
+        @click="trackClick('Click Tracking - Header', 'header logo')"
       >
         <LogoGothamist class="gothamist-header-center-logo" />
-      </v-flexible-link>
+      </VFlexibleLink>
       <div class="gothamist-header-right align-items-center gap-2">
         <!-- <ListenAllLiveButton class="hidden md:block" /> -->
         <ListenLiveButton
@@ -100,8 +100,8 @@ const trackClick = (category, label) => {
       <div class="col-12 p-0">
         <menu-list
           class="p-0"
-          isHeader
-          :navLinks="navigation.primaryNavigation"
+          is-header
+          :nav-links="navigation.primaryNavigation"
         />
       </div>
     </div>

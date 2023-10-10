@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { transformResponseData } from '~~/composables/useAviary'
 import { normalizeFindPageResponse } from '~~/composables/data'
-import { ArticlePage, GalleryPage } from '~~/composables/types/Page'
+import type { ArticlePage } from '~~/composables/types/Page'
+import { GalleryPage } from '~~/composables/types/Page'
 import { usePreviewData } from '~/composables/states'
 
 const config = useRuntimeConfig()
@@ -14,7 +15,7 @@ const token = route.query.token
 const formatData = (data) => {
   const transformedData = transformResponseData(data)
   const normalizedData = normalizeFindPageResponse(
-    transformedData
+    transformedData,
   ) as ArticlePage
   return normalizedData
 }
@@ -22,7 +23,7 @@ let fetchData = null
 
 const handlePreviewData = () => {
   useFetch(
-    `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`
+    `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`,
   ).then((res) => {
     fetchData = res.data
     previewData.value = { data: formatData(res.data), error: res.error }
@@ -37,7 +38,7 @@ watch(previewData, (res) => {
   switch (fetchData.value.meta.type) {
     case 'news.ArticlePage':
       return navigateTo(
-        `/${previewData.value.data.section.slug}/${previewData.value.slug}?preview=true`
+        `/${previewData.value.data.section.slug}/${previewData.value.slug}?preview=true`,
       )
     case 'tagpages.TagPage':
       return navigateTo(`/tags/${previewData.value.slug}?preview=true`)
@@ -59,8 +60,10 @@ handlePreviewData()
       <i
         class="pi pi-spin pi-spinner lnline-block mr-3"
         style="font-size: 2rem"
-      ></i>
-      <h3 class="inline-block">Building preview...</h3>
+      />
+      <h3 class="inline-block">
+        Building preview...
+      </h3>
     </div>
   </div>
 </template>
