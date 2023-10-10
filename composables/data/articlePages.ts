@@ -140,6 +140,7 @@ export function normalizeSearchResults(results: Record<string, any | undefined>)
     socialTitle: results.result.socialTitle || results.result.title,
     socialDescription: results.result.socialText || results.result.description,
 
+    preventSearchIndexing: results.result.preventSearchIndexing,
     seoTitle: results.result.meta?.seoTitle || results.result.title,
     searchDescription: results.result.meta?.searchDescription || results.result.description,
 

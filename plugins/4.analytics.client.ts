@@ -6,6 +6,7 @@ export default defineNuxtPlugin(() => {
   const { $experiments } = useNuxtApp()
 
   window.dataLayer = window.dataLayer || []
+  const dataLayer = (window as any).dataLayer
   // init gtag function
   function gtag(...args) {
     dataLayer.push(args)

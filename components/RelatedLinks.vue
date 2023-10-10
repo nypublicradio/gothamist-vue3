@@ -73,6 +73,4 @@ const relatedLinks = await Promise.all(props.article.relatedLinks.slice(0, limit
 </template>
 
 <style lang="scss">
-.related-links {
-}
 </style>

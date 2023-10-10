@@ -64,6 +64,5 @@ function togglePlay() {
 </template>
 
 <style lang="scss">
-.listen-live-button {
-}
+
 </style>

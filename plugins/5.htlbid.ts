@@ -1,4 +1,3 @@
-/* global htlbid */
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   useHead({
@@ -14,6 +13,7 @@ export default defineNuxtPlugin(() => {
   })
   if (!process.server) {
     window.htlbid = window.htlbid || {}
+    const htlbid = (window as any).htlbid
     htlbid.cmd = htlbid.cmd || []
 
     const init = () => {

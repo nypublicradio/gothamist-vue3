@@ -17,6 +17,7 @@ export default defineNuxtPlugin(() => {
     provide: {
       nativo: {
         refresh: () => {
+          const PostRelease = (window as any).PostRelease
           if (typeof PostRelease !== 'undefined')
             PostRelease.Start()
         },
