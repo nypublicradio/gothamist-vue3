@@ -6,13 +6,13 @@ const emit = defineEmits<{
   (e: 'wall-cleared'): void
 }>()
 const status = ref('')
-const decline = () => {
+function decline() {
   status.value = 'declined'
 }
-const unDecline = () => {
+function unDecline() {
   status.value = ''
 }
-const startReading = () => {
+function startReading() {
   emit('wall-cleared')
 }
 
@@ -27,7 +27,7 @@ const newsletterSignup = useNewsletterSignup({
   source: 'gothamist_archive_regWall',
 })
 
-const handleSubmit = (emailAddress) => {
+function handleSubmit(emailAddress) {
   email.value = emailAddress
   newsletterSignup.submitForm()
 }

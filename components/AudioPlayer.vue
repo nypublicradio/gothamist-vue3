@@ -1,7 +1,6 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import VPersistentPlayer from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VPersistentPlayer.vue'
-import { Howl, Howler } from 'howler'
 import {
   audioPlayerHeight,
   useCurrentEpisode,
@@ -20,7 +19,7 @@ const showPlayer = ref(false)
 const playerRef = ref()
 const playerHeight = ref(`${audioPlayerHeight}px`)
 /* function that updated the global useIsEpisodePlaying */
-const updateUseIsEpisodePlaying = (e) => {
+function updateUseIsEpisodePlaying(e) {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Audio Player play toggle button',
     component: 'Audio Player',
@@ -29,7 +28,7 @@ const updateUseIsEpisodePlaying = (e) => {
   isEpisodePlaying.value = e
 }
 /* function that updated the global useIsPlayerMinimized */
-const updateUseIsPlayerMinimized = (e) => {
+function updateUseIsPlayerMinimized(e) {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Audio Player minimized',
     component: 'Audio Player',
@@ -55,7 +54,7 @@ const currentEpisodeShow = computed(
 
 let delay = 0
 // function that handles the logic for the persistent player to show and hide when the user changes the episode
-const switchEpisode = () => {
+function switchEpisode() {
   showPlayer.value = false
   setTimeout(() => {
     showPlayer.value = true
@@ -73,7 +72,7 @@ watch(togglePlayTrigger, () => {
 })
 let timer = null
 let isInitialPing = true
-const pingEvent = () => {
+function pingEvent() {
   const station = currentEpisodeData.value.name
   const title = currentEpisodeShow.value.title
   $analytics.sendEvent('event_tracking', {

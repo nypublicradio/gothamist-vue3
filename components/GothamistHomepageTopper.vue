@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.vue'
 import type { ArticlePage } from '~~/composables/types/Page'
 

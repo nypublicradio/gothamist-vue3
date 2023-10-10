@@ -37,31 +37,31 @@ const sensitiveContent = useSensitiveContent()
 const fixedHeaderVisible = useFixedHeaderVisible()
 const sidebarOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
-const closeSidebar = () => {
+function closeSidebar() {
   sidebarOpen.value = false
 }
 let sidebarElements, firstElement, lastElement
 
-const handleSidebarHidden = () => {
+function handleSidebarHidden() {
   if (sidebarOpenedFrom.value?.focus)
     sidebarOpenedFrom.value.focus()
 }
 
-const handleSidebarTab = (e) => {
+function handleSidebarTab(e) {
   if (!e.shiftKey && document.activeElement === lastElement) {
     firstElement.focus()
     e.preventDefault()
   }
 }
 
-const handleSidebarShiftTab = (e) => {
+function handleSidebarShiftTab(e) {
   if (document.activeElement === firstElement) {
     lastElement.focus()
     e.preventDefault()
   }
 }
 
-const handleSidebarShown = () => {
+function handleSidebarShown() {
   sidebarElements = Array.from(
     document.querySelectorAll(
       '.p-sidebar a:not([disabled]), .p-sidebar button:not([disabled])',
@@ -71,7 +71,7 @@ const handleSidebarShown = () => {
   lastElement = sidebarElements[sidebarElements.length - 1]
 }
 
-const trackSidebarClick = (label) => {
+function trackSidebarClick(label) {
   // emitted mobile menu click event
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Mobile Menu',
@@ -103,7 +103,7 @@ watch(route, (value) => {
   $htlbid.clearAds()
 })
 
-const newsletterSubmitEvent = () => {
+function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',

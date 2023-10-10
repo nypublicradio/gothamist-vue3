@@ -1,8 +1,5 @@
 <script async setup lang="ts">
-import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import type { ArticlePage } from '~~/composables/types/Page'
-import { GalleryPage } from '~~/composables/types/Page'
-import Image from '~~/composables/types/Image'
 import type NavigationLink from '~~/composables/types/NavigationLink'
 
 const props = withDefaults(defineProps<{

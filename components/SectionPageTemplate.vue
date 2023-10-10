@@ -27,7 +27,7 @@ const initialArticles = await findArticlePages({
   offset: featuredStoryCount.value,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 const articles = ref(initialArticles)
-const loadMoreArticles = async () => {
+async function loadMoreArticles() {
   const newArticles = await useLoadMoreArticles({
     sponsored_content: false,
     limit: loadMoreStoryCount.value,
@@ -45,7 +45,7 @@ const { $analytics } = useNuxtApp()
 onMounted(() => {
   useUpdateCommentCounts(articles.value)
 })
-const newsletterSubmitEvent = () => {
+function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',

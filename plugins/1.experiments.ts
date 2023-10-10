@@ -1,4 +1,3 @@
-import { get } from 'cypress/types/lodash'
 import currentExperiments from '~/experiments'
 import type Experiment from '~/composables/types/Experiment'
 

@@ -60,7 +60,7 @@ onMounted(() => {
 })
 
 // function to check if the email is a valid format and to set the error text
-const validateEmail = () => {
+function validateEmail() {
   // See also isValidEmail in useNewsletterSignup.ts
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#basic_validation
   const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
@@ -92,7 +92,7 @@ watch(
 )
 
 // submit the email value through the emit if the email is valid
-const submitForm = () => {
+function submitForm() {
   if (validateEmail())
     emit('submit', email.value)
 }

@@ -10,13 +10,13 @@ const emit = defineEmits<{
   (e: 'wall-seen'): void
   (e: 'all-blocks-mounted'): void
 }>()
-const handleSeen = () => {
+function handleSeen() {
   emit('wall-seen')
 }
-const handleDismissed = () => {
+function handleDismissed() {
   emit('wall-dismissed')
 }
-const handleArticleMounted = () => {
+function handleArticleMounted() {
   emit('all-blocks-mounted')
 }
 const contentWallRef = ref()

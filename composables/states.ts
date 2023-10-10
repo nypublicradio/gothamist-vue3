@@ -5,16 +5,18 @@ export const useSidebarIsOpen = () => useState<boolean>('sidebarIsOpen', () => f
 export const useSidebarOpenedFrom = () => useState<HTMLElement>('sidebarOpenedFrom', () => null)
 export const useMembershipStatus = () => useState<string>('membershipStatus', () => 'status-unknown')
 export const useFixedHeaderVisible = () => useState<boolean>('fixedHeaderVisible', () => false)
-export const useNavigation = () => useState<Navigation>('navigation', () => ({
-  id: 0,
-  primaryNavigation: [],
-  secondaryNavigation: [],
-  primaryFooterLinks: [],
-  secondaryFooterLinks: [],
-  legalLinks: [],
-  copyrightYear: '',
-  propertyDescription: '',
-}))
+export function useNavigation() {
+  return useState<Navigation>('navigation', () => ({
+    id: 0,
+    primaryNavigation: [],
+    secondaryNavigation: [],
+    primaryFooterLinks: [],
+    secondaryFooterLinks: [],
+    legalLinks: [],
+    copyrightYear: '',
+    propertyDescription: '',
+  }))
+}
 export const useStrapline = () => useState<string>('strapline', () => 'A non-profit newsroom, powered by WNYC.')
 export const useChartbeatFirstPageLoaded = () => useState<boolean>('chartbeatFirstPageLoaded', () => false)
 

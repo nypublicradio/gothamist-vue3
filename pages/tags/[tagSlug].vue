@@ -46,7 +46,7 @@ if (!initialCount) {
   })
 }
 
-const loadMoreArticles = async () => {
+async function loadMoreArticles() {
   const newArticles = await useLoadMoreArticles({
     limit: loadMoreStoryCount.value,
     offset: articles.value.length,
@@ -89,7 +89,7 @@ onUnmounted(() => {
   $htlbid.clearTargeting({ Template: 'Tag' })
 })
 
-const newsletterSubmitEvent = () => {
+function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',

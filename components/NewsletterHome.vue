@@ -58,12 +58,12 @@ const submissionStatus = ref(null)
 const isSubmitting = ref(false)
 
 // hides the entire component when the "No Thanks" button is clicked
-const hideComp = () => {
+function hideComp() {
   showComponent.value = false
 }
 
 // submit the newsletter form and add email address to the Gothamist Newsletter list
-const submitForm = (email) => {
+function submitForm(email) {
   isSubmitting.value = true
   submissionStatus.value = null
   $fetch(config.public.NEWSLETTER_API, {

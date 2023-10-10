@@ -124,7 +124,7 @@ function useInsertAd(targetElement) {
   }
 }
 
-const newsletterSubmitEvent = (e) => {
+function newsletterSubmitEvent(e) {
   $analytics.sendEvent('click_tracking', {
     event_category: `Click Tracking - ${e} - Newsletter`,
     component: e,
@@ -132,7 +132,7 @@ const newsletterSubmitEvent = (e) => {
   })
 }
 
-const trackWallSeen = () => {
+function trackWallSeen() {
   $analytics.sendEvent('view_promotion', {
     creative_slot: 'article-registration-wall',
     location_id: '',
@@ -141,7 +141,7 @@ const trackWallSeen = () => {
   })
 }
 
-const trackSignUp = () => {
+function trackSignUp() {
   $analytics.sendEvent('select_promotion', {
     creative_slot: 'article-registration-wall',
     location_id: '',

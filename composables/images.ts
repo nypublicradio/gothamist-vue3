@@ -19,18 +19,18 @@ export function useImageUrl(image: Image, options?: { width: number; height: num
     .replace('%quality%', (options?.quality && String(options.quality)) ?? '%quality%')
 }
 
-const calcQuality = (quality, size) => {
+function calcQuality(quality, size) {
   const qual = size >= 2 ? quality - Math.round(size * 5) : quality
   return qual >= 15 ? qual : 15
 }
 
-const getResponsiveSizes = (options: {
+function getResponsiveSizes(options: {
   sizes: number[]
   width: number
   height: number
   maxWidth: number
   maxHeight: number
-}): { size: number; width: number; height: number }[] => {
+}): { size: number; width: number; height: number }[] {
   const responsiveSizes = []
   let isFinalSize = false
   for (const size of options.sizes) {

@@ -14,7 +14,7 @@ const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = await useStrapline()
-const openSidebar = (e) => {
+function openSidebar(e) {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target
 }
@@ -23,7 +23,7 @@ const onVisible = () => emit('visible')
 const onNotVisible = () => emit('not-visible')
 useVisibilityTracking(headerElement, onVisible, onNotVisible)
 
-const trackClick = (category, label) => {
+function trackClick(category, label) {
   // emitted mobile menu click event
   $analytics.sendEvent('click_tracking', {
     event_category: category,

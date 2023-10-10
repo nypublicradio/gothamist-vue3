@@ -54,7 +54,7 @@ onUnmounted(() => {
   $htlbid.clearTargeting(adTargetingData)
 })
 
-const goBack = () => {
+function goBack() {
   // When in preview mode, and an article is not published, the gallery will not have access to its parent article slug and is just passed "null" (please see galleryPages.ts ~line: 56), so we just use the window history in this case.
   if (!gallery.articleLink) {
     window.history.go(-1)
