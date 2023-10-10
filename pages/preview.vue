@@ -31,7 +31,7 @@ function handlePreviewData() {
   })
 }
 
-watch(previewData, (res) => {
+watch(previewData, () => {
   const url = new URL(previewData.value.data?.url || fetchData.value.url)
   const path = url.pathname
   switch (fetchData.value.meta.type) {

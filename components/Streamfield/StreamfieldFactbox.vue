@@ -2,7 +2,7 @@
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import type { FactboxBlock } from '../../composables/types/StreamfieldBlock'
 
-const props = defineProps<{
+defineProps<{
   block: FactboxBlock
 }>()
 </script>

@@ -2,7 +2,7 @@
 import type { ArticlePage } from '~/composables/types/Page'
 import useTrackSeen from '~/composables/useTrackSeen'
 
-const props = defineProps<{
+defineProps<{
   article: ArticlePage
 }>()
 const emit = defineEmits<{

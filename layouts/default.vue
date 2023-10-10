@@ -3,7 +3,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 
 const config = useRuntimeConfig()
 const route = useRoute()
-const { $htlbid, $analytics, $features } = useNuxtApp()
+const { $htlbid, $analytics } = useNuxtApp()
 
 const navigationState = useNavigation()
 const navigationPromise = findNavigation().then(({ data }) => {
@@ -12,12 +12,8 @@ const navigationPromise = findNavigation().then(({ data }) => {
   return navigationData
 })
 
-const breakingNewsPromise = findBreakingNews().then(({ data }) =>
-  normalizeFindBreakingNewsResponse(data),
-)
-const [navigation, breakingNews] = await Promise.all([
+const [navigation] = await Promise.all([
   navigationPromise,
-  breakingNewsPromise,
 ])
 const isSponsoredRoute = route.name === 'sponsored'
 const strapline = useStrapline()
@@ -94,7 +90,6 @@ onMounted(() => {
     })
     $htlbid.setTargetingForRoute(route)
   }
-  const url = new URL(window.location.href)
 })
 watch(route, (value) => {
   if (typeof $htlbid !== 'undefined') {

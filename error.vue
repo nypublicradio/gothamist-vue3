@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
-const props = defineProps({
+defineProps({
   error: {
     type: Object,
     default: {},
@@ -18,17 +18,8 @@ const navigationPromise = findNavigation().then(({ data }) => {
   return navigationData
 })
 
-const breakingNewsPromise = findBreakingNews().then(({ data }) =>
-  normalizeFindBreakingNewsResponse(data),
-)
-const productBannersPromise = findProductBanners().then(({ data }) =>
-  normalizeFindProductBannersResponse(data),
-)
-
-const [navigation, breakingNews, productBanners] = await Promise.all([
+const [navigation] = await Promise.all([
   navigationPromise,
-  breakingNewsPromise,
-  productBannersPromise,
 ])
 
 const atTop = ref(true)
@@ -87,7 +78,7 @@ onBeforeMount(() => {
 })
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'error_page' })
-  document.addEventListener('scroll', (e) => {
+  document.addEventListener('scroll', () => {
     atTop.value = !(window.scrollY > 0)
     // atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
   })

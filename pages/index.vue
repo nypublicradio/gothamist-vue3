@@ -114,7 +114,6 @@ function newsletterSubmitEvent() {
     event_label: 'Newsletter',
   })
 }
-const navigation = useNavigation()
 
 useChartbeat()
 useOptinMonster()

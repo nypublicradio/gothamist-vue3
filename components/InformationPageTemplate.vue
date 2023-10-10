@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { InformationPage } from '../composables/types/Page'
 
-const props = defineProps<{
+defineProps<{
   page: InformationPage
 }>()
 
