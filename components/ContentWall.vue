@@ -4,11 +4,11 @@ const emit = defineEmits<{
   (e: 'dismissed'): void
 }>()
 const showContent = ref(false)
-const signUp = () => {
+function signUp() {
   emit('sign-up')
 }
 
-const dismiss = () => {
+function dismiss() {
   showContent.value = true
   emit('dismissed')
 }

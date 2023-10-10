@@ -30,7 +30,7 @@ const props = defineProps({
 })
 
 // function to format the date based on being fuzzy or showing the prefix
-const createDateLine = (date, prefix) => {
+function createDateLine(date, prefix) {
   if (date) {
     if (props.fuzzy)
       return `${prefix}${fuzzyDateTime(date)}`

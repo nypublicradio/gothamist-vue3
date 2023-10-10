@@ -1,5 +1,3 @@
-import { nextTick } from 'vue'
-
 export default defineNuxtPlugin(() => {
   const firstPageLoaded = useChartbeatFirstPageLoaded()
 

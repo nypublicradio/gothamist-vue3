@@ -33,7 +33,7 @@ const streamsMenu = ref(null)
 
 const streamItems = ref([])
 
-const toggleMenu = (event) => {
+function toggleMenu(event) {
   streamsMenu.value.toggle(event)
 }
 
@@ -62,7 +62,7 @@ onBeforeMount(async () => {
   })
 })
 
-const togglePlay = async () => {
+async function togglePlay() {
   if (!gotStream) {
     await getLiveStream(slug.value)
     gotStream = true

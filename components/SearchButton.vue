@@ -16,7 +16,7 @@ const emit = defineEmits(['onSearch', 'onNavigate'])
 const route = useRoute()
 
 const searchTerm = ref('')
-const onSearch = () => {
+function onSearch() {
   emit('onSearch', searchTerm.value)
   return navigateTo({ path: '/search', query: { q: searchTerm.value } })
 }

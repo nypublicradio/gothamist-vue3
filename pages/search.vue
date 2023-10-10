@@ -32,7 +32,7 @@ async function getSearchResults() {
   isSearching.value = false
 }
 
-const loadMoreArticles = async () => {
+async function loadMoreArticles() {
   const topArticle = articlesToShow.value
   articlesToShow.value += 6
   await nextTick()
@@ -70,7 +70,7 @@ watch(route, (value) => {
   getSearchResults()
 })
 
-const newsletterSubmitEvent = () => {
+function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, toValue } from 'vue'
-import { onBeforeRouteUpdate } from 'vue-router'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import type { ArticlePage } from '~~/composables/types/Page'
 
@@ -87,7 +86,7 @@ const riverSegments = computed(() => {
   return segments
 })
 
-const loadMoreArticles = async () => {
+async function loadMoreArticles() {
   let loadMoreOffset
   if ($features.enabled['experiment-deduplicate-river'])
     loadMoreOffset = latestArticles.value.length + actualDuplicateCount.value
@@ -108,7 +107,7 @@ const loadMoreArticles = async () => {
 }
 
 const { $analytics, $nativo } = useNuxtApp()
-const newsletterSubmitEvent = () => {
+function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',
@@ -134,7 +133,7 @@ onMounted(() => {
 })
 
 const loadedNativoElements = []
-const nativoSectionLoaded = (name) => {
+function nativoSectionLoaded(name) {
   loadedNativoElements.push(name)
   if (
     loadedNativoElements.includes('ntv-stream-3')

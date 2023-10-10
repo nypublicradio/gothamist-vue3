@@ -40,7 +40,7 @@ const imageSize = ref(
   props.staffPage ? profileImageSizeLg.value : profileImageSizeMd.value,
 )
 const imageSizePx = ref(`${imageSize.value}px`)
-const accountNameFromUrl = (url) => {
+function accountNameFromUrl(url) {
   return url?.split('/').filter(str => str !== '').slice(-1)[0]
 }
 </script>

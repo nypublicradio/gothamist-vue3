@@ -35,7 +35,7 @@ if (!articleTotal.value) {
   })
 }
 
-const loadMoreArticles = async () => {
+async function loadMoreArticles() {
   const newArticles = await useLoadMoreArticles({
     author_slug: staffSlug,
     limit: loadMoreStoryCount.value,
@@ -55,7 +55,7 @@ const authorProfileData = articles.value[1]?.authors.find((author) => {
 })
 
 // formats the name of the author by manipulating the slug. This is used when authorProfileData returns no data
-const getAuthorNameFromSlug = () => {
+function getAuthorNameFromSlug() {
   const splitStr = typeof staffSlug === 'string' && staffSlug.toLowerCase().split('-')
   for (let i = 0; i < splitStr.length; i++)
     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1)
@@ -64,7 +64,7 @@ const getAuthorNameFromSlug = () => {
 }
 
 // emitted event from the newsletter submission form
-const newsletterSubmitEvent = () => {
+function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',

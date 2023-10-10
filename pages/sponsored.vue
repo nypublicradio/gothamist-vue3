@@ -44,7 +44,7 @@ onUnmounted(() => {
   sensitiveContent.value = false
 })
 
-const newsletterSubmitEvent = () => {
+function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',

@@ -2,7 +2,6 @@
 import { transformResponseData } from '~~/composables/useAviary'
 import { normalizeFindPageResponse } from '~~/composables/data'
 import type { ArticlePage } from '~~/composables/types/Page'
-import { GalleryPage } from '~~/composables/types/Page'
 import { usePreviewData } from '~/composables/states'
 
 const config = useRuntimeConfig()
@@ -12,7 +11,7 @@ const previewData = usePreviewData()
 const identifier = route.query.identifier
 const token = route.query.token
 
-const formatData = (data) => {
+function formatData(data) {
   const transformedData = transformResponseData(data)
   const normalizedData = normalizeFindPageResponse(
     transformedData,
@@ -21,7 +20,7 @@ const formatData = (data) => {
 }
 let fetchData = null
 
-const handlePreviewData = () => {
+function handlePreviewData() {
   useFetch(
     `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`,
   ).then((res) => {

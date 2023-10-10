@@ -9,11 +9,11 @@ const props = defineProps({
 const config = useRuntimeConfig()
 
 // return the tags as a comma separated string for openWeb comments data-article-tags
-const getArticleTagsString = () => {
+function getArticleTagsString() {
   const tags = props.article.tags || []
   return tags.map(tag => tag.name).join(', ')
 }
-const getArticleUrl = () => {
+function getArticleUrl() {
   const url = props.article.url
   return url
 }

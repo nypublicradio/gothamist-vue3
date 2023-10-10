@@ -36,7 +36,7 @@ const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
 const strapline = useStrapline()
 const progressPercentage = computed(() => `${props.progress}%`)
-const openSidebar = (e) => {
+function openSidebar(e) {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target
 }

@@ -24,7 +24,7 @@ const togglePlayTrigger = useTogglePlayTrigger()
 const currentEpisode = useCurrentEpisode()
 const currentEpisodeHolder = useCurrentEpisodeHolder()
 
-const togglePlay = () => {
+function togglePlay() {
   if (!currentEpisode.value)
     currentEpisode.value = currentEpisodeHolder.value
 
