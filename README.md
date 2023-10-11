@@ -17,6 +17,12 @@ cp .npmrc.sample .npmrc
 ```
 and add your token to the end of line 2 of `.npmrc`.
 
+## Setup git hooks (optional)
+
+Set up a pre-commit hook to run eslint with autofix before each commit
+
+`npx simple-git-hooks`
+
 ### Recommended VS Code plugins:
 [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
