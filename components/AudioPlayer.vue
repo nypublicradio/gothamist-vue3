@@ -1,4 +1,7 @@
 <script setup>
+// had to install howler.js locally and add this import to stop it from breaking the build
+// eslint-ignore no-unused-expressions
+import { Howl, Howler } from 'howler'
 import { computed, ref, watch } from 'vue'
 import VPersistentPlayer from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VPersistentPlayer.vue'
 import {
@@ -9,7 +12,6 @@ import {
   useTogglePlayTrigger,
 } from '~/composables/states'
 
-// had to install howler.js locally and add this import to stop it from breaking the build
 const { $analytics } = useNuxtApp()
 const currentEpisode = useCurrentEpisode()
 const isEpisodePlaying = useIsEpisodePlaying()
