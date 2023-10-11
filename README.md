@@ -2,28 +2,27 @@
 
 ## Setup
 
-This project expects 
-node version `16.14.2`
-npm version 8.6.0
+### Requirements:
+node version 16
 
-to install the npm version, run the following
-npm install npm@8.6.0 -g
+### Create .npmrc file
 
-```bash
-npm install
-```
+To install our nypr-design-system dependency you need to create a personal access token through Github and add it to a local .npmrc file.
 
-in VS Code, use the following plugins for formatting:
-https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar
-https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin
+Create a personal access token in Github under Settings -> Developer settings -> Personal access tokens -> Tokens (classic). You will need to give your token the `read:packages` permission.
 
-## Create .npmrc file
-
+Copy the sample .npmrc file to a local version (will be .gitignore'd),
 ```bash
 cp .npmrc.sample .npmrc
 ```
+and add your token to the end of line 2 of `.npmrc`.
 
-You will need to update the newly created .npmrc file and add your own personal access token at the end of line 2. You can create one in github under settings -> developer settings -> personal access tokens
+### Recommended VS Code plugins:
+[Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+[TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
+[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+This project uses [antfu/eslint-config](https://github.com/antfu/eslint-config), [follow the instructions there to setup your VSCode to autoformat and fix errors](https://github.com/antfu/eslint-config#vs-code-support-auto-fix)
 
 ## Development
 
@@ -31,6 +30,18 @@ Start the development server on `http://localhost:3000`
 
 ```bash
 npm run dev
+```
+
+Run linter and tests
+
+```
+npm run test
+```
+
+If linter fails you can try to autofix errors
+
+```
+npm run lint:fix
 ```
 
 ## Production
