@@ -154,7 +154,7 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
       { property: 'og:image:alt', content: article.socialImage?.alt },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'article:published_time', content: article.publicationDate?.toISOString() },
-      { name: 'article:modified_time', content: article.updatedDate?.toISOString() || '' },
+      { name: 'article:modified_time', content: article.updatedDate?.toISOString() ?? '' },
       { name: 'article:section', content: article.section.name },
       { name: 'article:tag', content: article.tags.map(tag => tag.slug).join(',') },
     ],

@@ -8,8 +8,8 @@ const props = defineProps({
 
 const { $analytics } = useNuxtApp()
 const tags = ref(props.article.tags)
-const isSponsored = ref(props.article?.sponsoredContent || false)
-const isDisableComments = ref(props.article?.disableComments || false)
+const isSponsored = ref(props.article?.sponsoredContent ?? false)
+const isDisableComments = ref(props.article?.disableComments ?? false)
 const profileData = isSponsored.value
   ? props.article?.sponsors
   : props.article.authors

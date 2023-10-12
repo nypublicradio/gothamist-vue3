@@ -37,7 +37,7 @@ function _getWordWeight(node) {
 // Gets the sub-landmarks in rich text blocks so we can insert between paragraphs
 const _getTextFieldLandmarks = function (rootElement, startingWordWeight) {
   const landmarks = []
-  let wordWeight = startingWordWeight || 0
+  let wordWeight = startingWordWeight ?? 0
   const nodes = [...rootElement.childNodes].filter(_isNotWhitespaceOnly).filter(_isNotComment)
   for (const node of nodes) {
     if (node.nextSibling) {
