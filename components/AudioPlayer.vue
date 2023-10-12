@@ -1,7 +1,7 @@
 <script setup>
 // had to install howler.js locally and add this import to stop it from breaking the build
-// eslint-disable-next-line unused-imports/no-unused-imports
-import { Howl, Howler } from 'howler'
+// eslint-disable-next-line  unused-imports/no-unused-imports
+import { Howl, Howler } from 'howler' // skipcq JS-0128
 import VPersistentPlayer from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VPersistentPlayer.vue'
 import {
   audioPlayerHeight,

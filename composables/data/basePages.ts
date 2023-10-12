@@ -13,7 +13,7 @@ export function normalizePage(page: Record<string, any>): Page {
     id: page.id,
     title: page.title,
     uuid: page.uuid,
-    type: WAGTAIL_PAGE_TYPES[page.meta?.type] || 'unknown',
+    type: WAGTAIL_PAGE_TYPES[page.meta?.type] ?? 'unknown',
 
     listingTitle: page.listingTitle || page.title,
     listingDescription: page.listingSummary || page.description,
