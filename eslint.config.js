@@ -9,6 +9,7 @@ export default antfu({
     'assets/gsap/**',
     'cf_functions/**',
     'cypress/fixtures/**',
+    'node_modules/**',
   ],
   typescript: {
     tsconfigPath: './tsconfig.json',
@@ -35,6 +36,7 @@ export default antfu({
       'ts/no-unsafe-call': 'off',
       'ts/no-unsafe-member-access': 'off',
       'ts/no-unsafe-return': 'off',
+      'ts/restrict-template-expressions': 'off',
     },
     vue: {
       'vue/no-duplicate-attr-inheritance': 'error',

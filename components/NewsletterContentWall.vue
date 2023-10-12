@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import Button from 'primevue/button'
 
-const emit = defineEmits<{
-  (e: 'signUp'): void
-  (e: 'wallCleared'): void
-}>()
+const emit = defineEmits<(e: 'signUp' | 'wallCleared') => void>()
 const status = ref('')
 function decline() {
   status.value = 'declined'

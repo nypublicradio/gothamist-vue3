@@ -6,7 +6,7 @@ import {
   useTogglePlayTrigger,
 } from '~/composables/states'
 
-const props = defineProps({
+defineProps({
   label: {
     type: String,
     default: 'Listen Live',
@@ -54,15 +54,11 @@ function togglePlay() {
         <img v-else alt="pause icon" src="/pause.svg" class="mr-2">
         <img
           alt="WNYC"
-          :src="`/live-stream-logos-white/${props.slug}.svg`"
+          :src="`/live-stream-logos-white/${slug}.svg`"
           class="mr-2"
         >
-        {{ props.label }}
+        {{ label }}
       </div>
     </Button>
   </div>
 </template>
-
-<style lang="scss">
-
-</style>

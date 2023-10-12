@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useBreakpoints } from '@vueuse/core'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
-import { ref } from 'vue'
 import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = defineProps<{

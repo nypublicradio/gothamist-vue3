@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
 const props = defineProps({
@@ -47,9 +46,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits<{
-  (e: 'submit', value: any): void
-}>()
+const emit = defineEmits<(e: 'submit', value: any) => void>()
 
 const config = useRuntimeConfig()
 

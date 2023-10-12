@@ -2,6 +2,9 @@
 import type { ArticlePage } from '~~/composables/types/Page'
 import type NavigationLink from '~~/composables/types/NavigationLink'
 
+defineOptions({
+  inheritAttrs: false,
+})
 const props = withDefaults(defineProps<{
   article: ArticlePage
   limit?: number
@@ -23,7 +26,7 @@ async function getRelatedPage(item) {
   }
 }
 
-async function getRelatedExternalLink(item) {
+function getRelatedExternalLink(item) {
   return {
     listingTitle: item.value.title,
     listingImage: item.value.thumbnail,
@@ -31,11 +34,12 @@ async function getRelatedExternalLink(item) {
   }
 }
 
-async function getRelatedItem(item: NavigationLink) {
+function getRelatedItem(item: NavigationLink) {
   if (item.type === 'cms_page')
     return getRelatedPage(item)
   else if (item.type === 'external_link')
     return getRelatedExternalLink(item)
+  return null
 }
 
 const limit = ref(Math.max(props.article.relatedLinks.length, props.limit))
@@ -71,6 +75,3 @@ const relatedLinks = await Promise.all(props.article.relatedLinks.slice(0, limit
     </div>
   </div>
 </template>
-
-<style lang="scss">
-</style>

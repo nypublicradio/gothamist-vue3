@@ -1,5 +1,5 @@
-import currentExperiments from '~/experiments'
 import type Experiment from '~/composables/types/Experiment'
+import currentExperiments from '~/experiments'
 
 export default defineNuxtPlugin(() => {
   let activeVariant: number
@@ -17,6 +17,7 @@ export default defineNuxtPlugin(() => {
       if (choice <= threshold)
         return i
     }
+    return null
   }
 
   const chooseVariant = (experiment: Experiment): number => {
@@ -27,6 +28,7 @@ export default defineNuxtPlugin(() => {
     const cookie = useCookie(`_experiment_${experiment.name}`, { path: '/' })
     if (typeof cookie.value !== 'undefined')
       return Number(cookie.value)
+    return null
   }
 
   const saveVariant = (experiment: Experiment, variant: number): void => {
@@ -44,7 +46,7 @@ export default defineNuxtPlugin(() => {
     if (currentExperiments.length > 0)
       return currentExperiments[0]
     else
-      return undefined
+      return null
   }
 
   const assignVariants = (experiments: Experiment[]): void => {

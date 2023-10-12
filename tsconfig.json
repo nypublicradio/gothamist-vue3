@@ -7,6 +7,5 @@
       "vitest/globals"
     ],
     "strict": false
-  },
-  "include": ["./**/*.js", "./**/*.ts", "./**/*.vue"]
+  }
 }

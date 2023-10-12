@@ -9,7 +9,7 @@ import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 /* preview */
 const previewData = usePreviewData()
 const route = useRoute()
-const isPreview = !!route.query.preview
+const isPreview = Boolean(route.query.preview)
 /* preview */
 
 const config = useRuntimeConfig()

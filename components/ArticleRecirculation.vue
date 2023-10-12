@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import type { ArticlePage } from '~~/composables/types/Page'
 

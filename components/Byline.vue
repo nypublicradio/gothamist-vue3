@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import VSimpleResponsiveImage from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VSimpleResponsiveImage.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
@@ -23,9 +21,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits<{
-  (e: 'link-click', value: any): void
-}>()
+const emit = defineEmits<(e: 'link-click', value: any) => void>()
 
 const { $analytics } = useNuxtApp()
 
@@ -67,9 +63,9 @@ const commentCount = computed(() => {
         <VFlexibleLink :to="sponsor?.link" class="author-name">
           {{ sponsor?.name }}
         </VFlexibleLink>
-        <date-published :article="props.article" />
+        <date-published :article="article" />
         <VFlexibleLink
-          v-if="!isDisableComments && props.showComments && commentCount"
+          v-if="!isDisableComments && showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
@@ -112,9 +108,9 @@ const commentCount = computed(() => {
           @name-click="$event => emit('link-click', $event?.url)"
           @organization-click="$event => emit('link-click', $event?.url)"
         />
-        <date-published :article="props.article" />
+        <date-published :article="article" />
         <VFlexibleLink
-          v-if="!isDisableComments && props.showComments && commentCount"
+          v-if="!isDisableComments && showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >

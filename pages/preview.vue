@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { transformResponseData } from '~~/composables/useAviary'
+import { usePreviewData } from '~/composables/states'
 import { normalizeFindPageResponse } from '~~/composables/data'
 import type { ArticlePage } from '~~/composables/types/Page'
-import { usePreviewData } from '~/composables/states'
+import { transformResponseData } from '~~/composables/useAviary'
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -48,6 +48,7 @@ watch(previewData, () => {
     default:
       break
   }
+  return null
 })
 
 handlePreviewData()
@@ -66,7 +67,3 @@ handlePreviewData()
     </div>
   </div>
 </template>
-
-<style lang="scss">
-
-</style>
