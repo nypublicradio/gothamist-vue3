@@ -1,5 +1,4 @@
 <script setup>
-import { onBeforeMount, ref } from 'vue'
 import {
   useAllCurrentEpisodes,
   useIsEpisodePlaying,
@@ -38,11 +37,9 @@ function toggleMenu(event) {
 }
 
 // lifecycle hooks
-onBeforeMount(async () => {
+onBeforeMount(() => {
   getAllLiveStreams().then(() => {
-    // console.log('allCurrentEpisodes.value', allCurrentEpisodes.value)
     allCurrentEpisodes.value.data.forEach((stream) => {
-      // console.log('stream', stream)
       // conditional to check what shows are currently running
       // if (stream.relationships['current-show'].data !== null) {
       streamItems.value.push({
@@ -51,7 +48,6 @@ onBeforeMount(async () => {
         slug: stream.attributes.slug,
         image: stream.attributes['image-logo'],
         command: async () => {
-          // console.log('command - ', stream.attributes.slug)
           slug.value = stream.attributes.slug
           await getLiveStream(stream.attributes.slug)
           gotStream = true
@@ -92,7 +88,7 @@ async function togglePlay() {
             alt="show-logo"
             :src="`/live-stream-logos-white/${slug}.svg`"
           >
-          <span>{{ props.label }}</span>
+          <span>{{ label }}</span>
         </div>
       </Button>
       <Button

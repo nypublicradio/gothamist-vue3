@@ -13,7 +13,7 @@ const currentSteamStation = useCurrentSteamStation()
 const { $analytics } = useNuxtApp()
 const sidebarIsOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
-const strapline = await useStrapline()
+const strapline = useStrapline()
 function openSidebar(e) {
   sidebarIsOpen.value = true
   sidebarOpenedFrom.value = e.target

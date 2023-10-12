@@ -23,7 +23,7 @@ export default function useNewsletterSignup(options: {
   const isFormValid = computed(() => {
     return isValidEmail(toValue(options.email))
   && toValue(options.selectedLists).length > 0
-  && toValue(options.consent) === true
+  && toValue(options.consent)
   })
   const submitForm = (event = new Event('')) => {
     if (!isFormValid)

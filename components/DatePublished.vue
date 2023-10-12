@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import { formatDateForByline, fuzzyDateTime } from '~/utilities/date'
 
 const props = defineProps({
@@ -50,10 +49,10 @@ const modifiedDate = ref(
 
 <template>
   <div class="date-published">
-    <p :class="props.typeClass">
+    <p :class="typeClass">
       {{ date }}
     </p>
-    <p v-if="modifiedDate" :class="props.typeClass">
+    <p v-if="modifiedDate" :class="typeClass">
       {{ modifiedDate }}
     </p>
   </div>

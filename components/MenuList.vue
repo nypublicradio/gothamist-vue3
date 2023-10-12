@@ -3,7 +3,7 @@ import type { PropType } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import type NavigationLink from '~/composables/types/NavigationLink'
 
-const props = defineProps({
+defineProps({
   navLinks: {
     type: Object as PropType<NavigationLink[]>,
     required: true,
@@ -22,7 +22,7 @@ const emit = defineEmits(['menu-list-click'])
     <hr v-if="isHeader" class="line black mb-4">
     <div class="menu-list">
       <VFlexibleLink
-        v-for="(item, index) in props.navLinks"
+        v-for="(item, index) in navLinks"
         :key="`primaryFooterLinks-${item.value.title}-${index}`"
         :to="item.value.url"
         @click="emit('menu-list-click', item.value.title)"

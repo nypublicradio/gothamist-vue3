@@ -26,7 +26,7 @@ export default defineNuxtPlugin(() => {
 
   const updatePage = (pageInfo) => {
     if (!process.server) {
-      if (firstPageLoaded.value === false) {
+      if (!firstPageLoaded.value) {
         firstPageLoaded.value = true
         initializeChartbeat(pageInfo)
       }

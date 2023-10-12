@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = defineProps<{

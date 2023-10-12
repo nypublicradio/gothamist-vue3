@@ -65,7 +65,7 @@ const _getTextFieldLandmarks = function (rootElement, startingWordWeight) {
 // Insert next to insertLocation, or append the end.
 const useInsertAfterElement = function (element, target) {
   const parent = target.parentNode
-  if (target && target.nextSibling)
+  if (target?.nextSibling)
     parent.insertBefore(element, target.nextSibling)
   else
     parent.appendChild(element)

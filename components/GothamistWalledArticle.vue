@@ -5,11 +5,7 @@ import useTrackSeen from '~/composables/useTrackSeen'
 defineProps<{
   article: ArticlePage
 }>()
-const emit = defineEmits<{
-  (e: 'wallDismissed'): void
-  (e: 'wallSeen'): void
-  (e: 'allBlocksMounted'): void
-}>()
+const emit = defineEmits<(e: 'wallDismissed' | 'wallSeen' | 'allBlocksMounted') => void>()
 function handleSeen() {
   emit('wallSeen')
 }

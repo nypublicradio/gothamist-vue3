@@ -10,7 +10,7 @@ import { usePreviewData } from '~/composables/states'
 
 const previewData = usePreviewData()
 const route = useRoute()
-const isPreview = !!route.query.preview
+const isPreview = Boolean(route.query.preview)
 /* preview */
 
 const { $analytics, $htlbid } = useNuxtApp()

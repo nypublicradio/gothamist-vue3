@@ -2,13 +2,13 @@
 import VImageWithCaption from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VImageWithCaption.vue'
 import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
 import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
-import type { GalleryPage } from '~/composables/types/Page'
 import { usePreviewData } from '~/composables/states'
+import type { GalleryPage } from '~/composables/types/Page'
 
 const previewData = usePreviewData()
 const route = useRoute()
 const { $analytics, $htlbid } = useNuxtApp()
-const isPreview = !!route.query.preview
+const isPreview = Boolean(route.query.preview)
 
 const gallery = isPreview
   ? previewData.value.data
@@ -60,6 +60,7 @@ function goBack() {
     window.history.go(-1)
     return false
   }
+  return null
 }
 </script>
 

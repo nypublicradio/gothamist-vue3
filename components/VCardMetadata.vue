@@ -18,9 +18,7 @@ const props = withDefaults(defineProps<{
   showDescription: true,
 })
 
-const emit = defineEmits<{
-  (e: 'link-click', value: any): void
-}>()
+const emit = defineEmits<(e: 'link-click', value: any) => void>()
 
 const commentCounts = ref(useCommentCounts())
 const commentCount = computed(() => {
@@ -32,24 +30,24 @@ const commentCount = computed(() => {
   <div
     v-if="props.article"
     class="article-metadata v-card-metadata"
-    :class="[{ stack: props.stack }, { 'alt-design': props.altDesign }]"
+    :class="[{ stack }, { 'alt-design': altDesign }]"
   >
     <!-- default byline and comments -->
-    <template v-if="!props.altDesign">
+    <template v-if="!altDesign">
       <span>
         <VByline
-          :authors="props.article.authors || props.article.relatedAuthors"
+          :authors="article.authors || article.relatedAuthors"
           @name-click="$event => emit('link-click', $event?.url)"
           @organization-click="$event => emit('link-click', $event?.url)"
         />
       </span>
       <span
-        v-if="!props.article.disableComments && showComments && commentCount"
+        v-if="!article.disableComments && showComments && commentCount"
         class="comments"
       >
         <NuxtLink
-          :to="{ path: props.article.link, hash: '#comments' }"
-          @click="$event => emit('link-click', `${props.article.link}#comments`)"
+          :to="{ path: article.link, hash: '#comments' }"
+          @click="$event => emit('link-click', `${article.link}#comments`)"
         >{{ String(Number(commentCount)) }}
           {{ commentCount === 1 ? 'comment' : 'comments' }}</NuxtLink>
       </span>
@@ -60,24 +58,24 @@ const commentCount = computed(() => {
       <div class="grid w-full gutter-x-xxl flex-grow-1">
         <div v-if="showDescription" class="col-12 md:col-6 separator">
           <p class="desc">
-            {{ props.article.description }}
+            {{ article.description }}
           </p>
         </div>
         <div :class="showDescription ? 'col-12 md:col-6' : 'col-12'">
           <byline
-            :article="props.article"
+            :article="article"
             :show-social="false"
             :show-comments="false"
             @link-click="$event => emit('link-click', $event)"
           />
         </div>
         <span
-          v-if="!props.article.disableComments && showComments && commentCount"
+          v-if="!article.disableComments && showComments && commentCount"
           class="col-12 comments"
         >
           <NuxtLink
-            :to="{ path: props.article.link, hash: '#comments' }"
-            @click="$event => emit('link-click', `${props.article.link}#comments`)"
+            :to="{ path: article.link, hash: '#comments' }"
+            @click="$event => emit('link-click', `${article.link}#comments`)"
           >
             {{ String(Number(commentCount)) }}
             {{ commentCount === 1 ? 'comment' : 'comments' }}

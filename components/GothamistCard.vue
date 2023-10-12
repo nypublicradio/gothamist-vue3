@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import VCard from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VCard.vue'
 import type { ArticlePage, GalleryPage } from '~~/composables/types/Page'
 import type Image from '~~/composables/types/Image'
@@ -10,9 +9,11 @@ interface CardData {
   link: string
 }
 
+defineOptions({
+  inheritAttrs: false,
+})
 const props = withDefaults(defineProps<{
   article?: ArticlePage | GalleryPage | CardData
-  class: string
   width?: number
   height?: number
   ratio?: number[]
@@ -75,7 +76,6 @@ const trackClick = function (targetUrl: string) {
   <VCard
     v-if="article"
     class="gothamist-card"
-    :class="props.class"
     :image="hideImage ? null : useImageUrl(article.listingImage)"
     :title="article.listingTitle"
     :title-link="link"
@@ -86,7 +86,7 @@ const trackClick = function (targetUrl: string) {
     :width="width"
     :height="height"
     :sizes="sizes"
-    :quality="80"
+    :quality="quality"
     :tags="tags"
     :loading="loading"
     v-bind="{ ...$props, ...$attrs }"

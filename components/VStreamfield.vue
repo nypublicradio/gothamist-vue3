@@ -7,9 +7,7 @@ const props = withDefaults(defineProps<{
 }>(), {
   trackingComponentLocation: 'Streamfield',
 })
-const emit = defineEmits<{
-  (e: 'allBlocksMounted', value: any): void
-}>()
+const emit = defineEmits<(e: 'allBlocksMounted', value: any) => void>()
 const el = ref(null)
 
 let blocksMounted = 0

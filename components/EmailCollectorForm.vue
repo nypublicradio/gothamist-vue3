@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-
 const props = defineProps({
   showNoThanks: {
     type: Boolean,
@@ -103,7 +101,7 @@ function submitForm() {
     <div class="email-collector-form">
       <!-- when the submissionStatus is 'success' it will hide the form and show Thank you message -->
       <span
-        v-if="props.submissionStatus !== 'success'"
+        v-if="submissionStatus !== 'success'"
         class="flex flex-column lg:flex-row"
         style="gap: 1rem"
       >
@@ -113,33 +111,33 @@ function submitForm() {
               ref="submitButtonRef"
               class="submit-icon"
               :class="[
-                { altDesignIcon: props.altDesign && props.submitButtonIcon },
+                { altDesignIcon: altDesign && submitButtonIcon },
               ]"
-              :data-style-mode="props.dark ? 'dark' : 'default'"
+              :data-style-mode="dark ? 'dark' : 'default'"
             >
               <Button
-                :disabled="props.isSubmitting || !checked"
+                :disabled="isSubmitting || !checked"
                 class="submit-btn p-button-rounded"
-                :class="[{ 'p-button-outlined': props.outlined }]"
+                :class="[{ 'p-button-outlined': outlined }]"
                 :icon="submitButtonIcon ? `pi ${submitButtonIcon}` : null"
                 icon-pos="right"
-                :label="submitButtonIcon ? null : props.submitButtonText"
-                :aria-label="props.submitButtonText"
+                :label="submitButtonIcon ? null : submitButtonText"
+                :aria-label="submitButtonText"
                 @click="submitForm"
               >
-                <i v-if="props.isSubmitting" class="pi pi-spin pi-spinner" />
+                <i v-if="isSubmitting" class="pi pi-spin pi-spinner" />
               </Button>
             </i>
             <span class="field">
               <label :class="emailErrorText ? 'p-error' : ''" for="email">Email address</label>
               <InputText
                 v-model="email"
-                :disabled="props.isSubmitting"
+                :disabled="isSubmitting"
                 class="w-full p-inputtext-lg"
                 :class="[
                   { 'p-invalid': emailErrorText },
-                  { 'alt-design': props.altDesign },
-                  { dark: props.dark },
+                  { 'alt-design': altDesign },
+                  { dark },
                 ]"
                 :style="`padding-right: ${submitButtonWidth}px`"
                 type="email"
@@ -165,26 +163,26 @@ function submitForm() {
               role="checkbox"
               aria-label="Toggle agreement to the terms"
               :aria-checked="checked"
-              :disabled="props.isSubmitting"
+              :disabled="isSubmitting"
               :binary="true"
               @click="!checked"
             />
             <label for="binary"><slot /></label>
           </div>
         </div>
-        <div v-if="props.showNoThanks" class="flex justify-content-start">
+        <div v-if="showNoThanks" class="flex justify-content-start">
           <div>
             <Button
               class="no-thanks-btn p-button-link"
               label="No thanks"
-              :style="props.isSubmitting ? 'visibility: hidden' : ''"
+              :style="isSubmitting ? 'visibility: hidden' : ''"
               @click="emit('noThanksClick')"
             />
           </div>
         </div>
       </span>
       <p v-else class="type-paragraph3">
-        {{ props.thanksMessage }}
+        {{ thanksMessage }}
       </p>
     </div>
   </div>

@@ -1,8 +1,7 @@
 <script setup>
-import { ref } from 'vue'
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 
-const props = defineProps({
+defineProps({
   placeholder: {
     type: String,
     default: 'Search...',
@@ -29,8 +28,8 @@ function onSearch() {
         v-model="searchTerm"
         class="w-full alt-design dark"
         type="text"
-        :placeholder="props.placeholder"
-        :aria-label="props.placeholder"
+        :placeholder="placeholder"
+        :aria-label="placeholder"
         name="search"
         @keypress.enter="onSearch"
       />
