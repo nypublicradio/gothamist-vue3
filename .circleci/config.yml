@@ -104,7 +104,7 @@ jobs:
       - checkout
       - restore_cache:
           key: v3-deps-{{ checksum "package-lock.json" }}
-      # run test suite
+      # run linter
       - run:
           name: Run eslint
           command: |
@@ -118,7 +118,7 @@ jobs:
           key: v3-deps-{{ checksum "package-lock.json" }}
       # run test suite
       - run:
-          name: Run unit tests
+          name: Run e2e tests
           command: |
             npx nuxi prepare
             npm run test-cypress-ci
