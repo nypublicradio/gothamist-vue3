@@ -46,7 +46,7 @@
     "eslint": "^8.51.0",
     "jest-axe": "^5.0.1",
     "lint-staged": "^14.0.1",
-    "nuxt": "^3.7.4",
+    "nuxt": "^3.8.0",
     "simple-git-hooks": "^2.9.0",
     "start-server-and-test": "^2.0.0",
     "typescript": "^5.2.2"
