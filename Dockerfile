@@ -33,7 +33,7 @@ RUN npm install sass
 COPY . .
 RUN npm run build
 
-FROM node:16.14.2-slim as app
+FROM node:18-slim as app
 
 
 WORKDIR /app

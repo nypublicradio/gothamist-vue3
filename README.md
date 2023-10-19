@@ -3,7 +3,7 @@
 ## Setup
 
 ### Requirements:
-node version 16
+node version 18
 
 ### Create .npmrc file
 
@@ -17,7 +17,7 @@ cp .npmrc.sample .npmrc
 ```
 and add your token to the end of line 2 of `.npmrc`.
 
-## Setup git hooks (optional)
+### Setup git hooks (optional)
 
 Set up a pre-commit hook to run eslint with autofix before each commit
 
