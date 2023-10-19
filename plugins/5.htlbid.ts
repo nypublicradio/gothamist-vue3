@@ -1,8 +1,8 @@
 interface htlbidType {
   cmd: (() => void)[]
-  layout: (string) => void
+  layout: (type: string) => void
   setTargeting: (keys: string, targetingParams: string[]) => void
-  clearTargeting: (string) => void
+  clearTargeting: (key: string) => void
   forceRefresh: () => void
 }
 
