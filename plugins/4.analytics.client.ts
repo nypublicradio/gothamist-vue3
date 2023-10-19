@@ -1,12 +1,18 @@
 import { useMembershipStatus } from '~~/composables/states'
 
+type WindowWithDataLayer = Window & {
+  dataLayer: Record<string, any>[]
+}
+
+declare const window: WindowWithDataLayer
+declare const dataLayer: Record<string, any>[]
+
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const membershipStatus = useMembershipStatus()
   const { $experiments } = useNuxtApp()
-
   window.dataLayer = window.dataLayer || []
-  const dataLayer = (window as any).dataLayer
+
   // init gtag function
   function gtag(...args) {
     dataLayer.push(args)

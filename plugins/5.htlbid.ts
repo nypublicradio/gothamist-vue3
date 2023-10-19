@@ -1,3 +1,18 @@
+interface htlbidType {
+  cmd: (() => void)[]
+  layout: (string) => void
+  setTargeting: (keys: string, targetingParams: string[]) => void
+  clearTargeting: (string) => void
+  forceRefresh: () => void
+}
+
+type WindowWithHtlbid = Window & {
+  htlbid: htlbidType
+}
+
+declare const window: WindowWithHtlbid
+declare const htlbid: htlbidType
+
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   useHead({
@@ -13,7 +28,6 @@ export default defineNuxtPlugin(() => {
   })
   if (!process.server) {
     window.htlbid = window.htlbid || {}
-    const htlbid = (window as any).htlbid
     htlbid.cmd = htlbid.cmd || []
 
     const init = () => {
