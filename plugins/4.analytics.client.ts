@@ -14,8 +14,8 @@ export default defineNuxtPlugin(() => {
   window.dataLayer = window.dataLayer || []
 
   // init gtag function
-  function gtag(...args) {
-    dataLayer.push(args)
+  function gtag() {
+    dataLayer.push(arguments) // eslint-disable-line prefer-rest-params
   }
   gtag('js', new Date())
   gtag('set', 'send_page_view', false)
