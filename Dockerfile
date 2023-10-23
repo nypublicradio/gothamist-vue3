@@ -41,7 +41,7 @@ WORKDIR /app
 RUN apt-get update \
     && apt-get install -y \
     curl \
-    netcat \
+    netcat-traditional \
     nginx-extras \
     python3 \
     python3-pip \
