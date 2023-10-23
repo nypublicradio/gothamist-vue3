@@ -43,9 +43,9 @@ RUN apt-get update \
     curl \
     netcat \
     nginx-extras \
-    python \
-    python-pip \
-    python-setuptools \
+    python3 \
+    python3-pip \
+    python3-setuptools \
     unzip 
 RUN pip install supervisor
 
