@@ -12,9 +12,15 @@ const navigationPromise = findNavigation().then(({ data }) => {
   return navigationData
 })
 
-const [navigation] = await Promise.all([
+const breakingNewsPromise = findBreakingNews().then(({ data }) => {
+  return normalizeFindBreakingNewsResponse(data)
+})
+
+const [navigation, breakingNews] = await Promise.all([
   navigationPromise,
+  breakingNewsPromise,
 ])
+
 const isSponsoredRoute = route.name === 'sponsored'
 const strapline = useStrapline()
 const sensitiveContent = useSensitiveContent()
@@ -211,6 +217,14 @@ else {
           @visible="() => { fixedHeaderVisible = false }"
           @not-visible="() => { fixedHeaderVisible = true }"
         />
+        <div class="breaking-news-wrapper">
+          <BreakingNews
+            v-if="breakingNews.length"
+            :title="breakingNews[0].title"
+            :link="breakingNews[0].link"
+            :callout-text="breakingNews[0].description"
+          />
+        </div>
         <slot />
       </main>
       <gothamist-footer :navigation="navigation" />
@@ -299,6 +313,15 @@ else {
 }
 
 .fixed-header-enter-active, .fixed-header-leave-active { opacity: 0; }
+
+.breaking-news-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  padding: 1rem 2.5rem;
+  @include media('<lg') {
+    padding: 1rem 1.5rem;
+  }
+}
 
 .main {
   @include page-top-gradient;
