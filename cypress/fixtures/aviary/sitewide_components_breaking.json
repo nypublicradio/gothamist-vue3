@@ -1,0 +1,20 @@
+{
+  "id": 2,
+  "meta": {
+      "type": "sitewide.SiteWideComponents",
+      "detail_url": "https://cms.demo.nypr.digital/api/v2/sitewide_components/2/"
+  },
+  "breaking_news": [
+      {
+          "type": "breaking_news",
+          "value": {
+              "title": "Test Breaking News Title",
+              "link": "/news/early-addition-mediocrity-is-in-for-spring-2022/",
+              "description": "<p><b>Test Breaking News Description</b></p>",
+              "is_live_eligible": true,
+              "start_time": "2023-08-29T17:00:00-04:00"
+          },
+          "id": "6f08df22-632d-465b-bc0d-a4783881f98e"
+      }
+  ]
+}
