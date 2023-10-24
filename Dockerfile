@@ -1,4 +1,4 @@
-FROM node:18 as build
+FROM node:18.18.2 as build
 
 ARG SENTRY_DSN
 ARG SENTRY_ENV
@@ -33,7 +33,7 @@ RUN npm install sass
 COPY . .
 RUN npm run build
 
-FROM node:18-slim as app
+FROM node:18.18.2-slim as app
 
 
 WORKDIR /app
