@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import type Navigation from '~~/composables/types/Navigation'
 
 defineProps<{
@@ -42,30 +41,28 @@ function trackClick(category, label) {
       class="top flex justify-content-between align-items-center sm:align-items-end"
     >
       <div class="gothamist-header-left">
-        <VFlexibleLink
+        <NuxtLink
           class="block"
           :class="isMinimized ? 'hidden' : 'xl:hidden'"
           to="/"
-          raw
           @click="trackClick('Click Tracking - Header', 'header logo')"
         >
           <LogoGothamist class="gothamist-header-logo pr-2" />
-        </VFlexibleLink>
+        </NuxtLink>
         <div class="gothamist-header-tagline-holder hidden sm:block">
           <div class="gothamist-header-tagline" v-html="strapline" />
         </div>
       </div>
-      <VFlexibleLink
+      <NuxtLink
         class="hidden"
         :class="isMinimized ? 'xl:hidden' : 'xl:block'"
         to="/"
-        raw
         role="heading"
         aria-level="1"
         @click="trackClick('Click Tracking - Header', 'header logo')"
       >
         <LogoGothamist class="gothamist-header-center-logo" />
-      </VFlexibleLink>
+      </NuxtLink>
       <div class="gothamist-header-right align-items-center gap-2">
         <!-- <ListenAllLiveButton class="hidden md:block" /> -->
         <ListenLiveButton

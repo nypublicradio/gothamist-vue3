@@ -33,9 +33,9 @@ const copyrightYear = ref(props.navigation.copyrightYear)
         </div>
         <div class="col-12 lg:col-9 xl:col-8 right p-0">
           <div class="logo-lockup">
-            <VFlexibleLink to="/" class="gothamist-logo">
+            <NuxtLink to="/" class="gothamist-logo">
               <logo-gothamist />
-            </VFlexibleLink>
+            </NuxtLink>
             <div
               class="property-description"
               v-html="propertyDescription"

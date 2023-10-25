@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-
 const props = defineProps({
   showNoThanks: {
     type: Boolean,
@@ -123,9 +121,9 @@ function submitForm(email) {
       >
         By submitting your information, you're agreeing to receive
         communications from New York Public Radio in accordance with our
-        <VFlexibleLink to="https://www.wnyc.org/terms/">
+        <a href="https://www.wnyc.org/terms/" target="_blank" rel="noopener">
           Terms
-        </VFlexibleLink>.
+        </a>.
       </email-collector-form>
     </div>
   </div>

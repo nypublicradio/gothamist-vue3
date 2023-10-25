@@ -1,6 +1,4 @@
 <script setup>
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-
 const props = defineProps({
   title: {
     type: String,
@@ -37,13 +35,15 @@ const getCurrentYear = () => new Date().getFullYear()
     <p class="type-textlink2 no-underline">
       Make your contribution now and help Gothamist thrive in
       {{ getCurrentYear() }}.
-      <VFlexibleLink
-        :to="donateUrl"
+      <a
+        :href="donateUrl"
         class="author-name"
+        target="_blank"
+        rel="noopener"
         @click="emit('donate-click', donateUrl)"
       >
         Donate today
-      </VFlexibleLink>
+      </a>
     </p>
   </div>
 </template>

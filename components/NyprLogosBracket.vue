@@ -1,36 +1,32 @@
-<script setup>
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-</script>
-
 <template>
   <div class="nypr-logos-bracket flex">
     <logo-nypr />
     <div class="bracket bracket-left" />
-    <VFlexibleLink to="https://www.wnyc.org/" target="_blank">
+    <a href="https://www.wnyc.org/" target="_blank" rel="noopener">
       <logo-wnyc />
-    </VFlexibleLink>
-    <VFlexibleLink to="/" target="_blank">
+    </a>
+    <NuxtLink to="/">
       <logo-gothamist />
-    </VFlexibleLink>
-    <VFlexibleLink to="https://www.wnycstudios.org/" target="_blank">
+    </NuxtLink>
+    <a href="https://www.wnycstudios.org/" target="_blank" rel="noopener">
       <logo-wnyc-studios />
-    </VFlexibleLink>
-    <VFlexibleLink
-      to="https://www.wnyc.org/series/new-jersey-public-radio/"
-      target="_blank"
+    </a>
+    <a
+      href="https://www.wnyc.org/series/new-jersey-public-radio/"
+      target="_blank" rel="noopener"
     >
       <logo-njpr />
-    </VFlexibleLink>
-    <VFlexibleLink to="https://www.wqxr.org/" target="_blank">
+    </a>
+    <a href="https://www.wqxr.org/" target="_blank" rel="noopener">
       <logo-wqxr />
-    </VFlexibleLink>
-    <VFlexibleLink to="https://www.newsounds.org/" target="_blank">
+    </a>
+    <a href="https://www.newsounds.org/" target="_blank" rel="noopener">
       <logo-new-sounds />
-    </VFlexibleLink>
+    </a>
     <div class="inline-flex">
-      <VFlexibleLink to="https://www.thegreenespace.org/" target="_blank">
+      <a href="https://www.thegreenespace.org/" target="_blank" rel="noopener">
         <logo-the-greene-space />
-      </VFlexibleLink>
+      </a>
       <div class="bracket bracket-right ml-3" />
     </div>
   </div>

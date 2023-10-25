@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-
 defineProps({
   error: {
     type: Object,
@@ -174,13 +172,12 @@ useServerHead({
     >
       <template #header>
         <div class="gothamist-sidebar-header flex md:hidden">
-          <VFlexibleLink
+          <NuxtLink
             to="/"
-            raw
             @click="trackSidebarClick('sidebar logo')"
           >
             <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
-          </VFlexibleLink>
+          </NuxtLink>
           <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
         </div>
       </template>

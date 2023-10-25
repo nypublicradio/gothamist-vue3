@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
-
 const config = useRuntimeConfig()
 const route = useRoute()
 const { $htlbid, $analytics } = useNuxtApp()
@@ -232,9 +230,9 @@ else {
   >
     <template #header>
       <div class="gothamist-sidebar-header flex md:hidden">
-        <VFlexibleLink to="/" raw @click="trackSidebarClick('sidebar logo')">
+        <NuxtLink to="/" @click="trackSidebarClick('sidebar logo')">
           <LogoGothamist class="gothamist-sidebar-header-logo pr-2" />
-        </VFlexibleLink>
+        </NuxtLink>
         <div class="gothamist-sidebar-header-tagline" v-html="strapline" />
       </div>
     </template>

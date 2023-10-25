@@ -64,14 +64,14 @@ const commentCount = computed(() => {
           {{ sponsor?.name }}
         </VFlexibleLink>
         <date-published :article="article" />
-        <VFlexibleLink
+        <a
           v-if="!isDisableComments && showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
           {{ String(Number(commentCount)) }}
           {{ commentCount === 1 ? 'comment' : 'comments' }}
-        </VFlexibleLink>
+        </a>
       </div>
     </div>
     <!-- authors -->
@@ -109,14 +109,14 @@ const commentCount = computed(() => {
           @organization-click="$event => emit('link-click', $event?.url)"
         />
         <date-published :article="article" />
-        <VFlexibleLink
+        <a
           v-if="!isDisableComments && showComments && commentCount"
           to="#comments"
           class="type-textlink2"
         >
           {{ String(Number(commentCount)) }}
           {{ commentCount === 1 ? 'comment' : 'comments' }}
-        </VFlexibleLink>
+        </a>
       </div>
     </div>
     <!-- social share -->
