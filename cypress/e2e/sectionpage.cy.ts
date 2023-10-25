@@ -73,4 +73,23 @@ describe('A section page', () => {
     cy.get('#articleList .gothamist-card').should('have.length', 30)
     cy.get('#articleList .card-title-link').eq(20).should('have.focus')
   })
+  it('has no detectable critical a11y violations on load', () => {
+    cy.visit('/news')
+    cy.wait('@sectionArticles')
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+      includedImpacts: ['critical'],
+    })
+  })
+  it('has no detectable a11y violations of any severity on load (report only)', () => {
+    cy.visit('/news')
+    cy.wait('@sectionArticles')
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+    }, null, true)
+  })
 })

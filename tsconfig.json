@@ -3,7 +3,9 @@
   "compilerOptions": {
     "resolveJsonModule": true,
     "types": [
-      "node"
+      "node",
+      "cypress",
+      "cypress-axe"
     ],
     "strict": false
   }

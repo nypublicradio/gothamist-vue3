@@ -50,4 +50,21 @@ describe('The newsletter page', () => {
     cy.get('#sign-up').should('have.attr', 'aria-disabled')
     cy.get('#sign-up').should('not.have.attr', 'type', 'submit')
   })
+  it('Has no detectable critical a11y violations on load', () => {
+    cy.visit('/newsletters')
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+      includedImpacts: ['critical'],
+    })
+  })
+  it('Has no detectable a11y violations of any severity on load (report only)', () => {
+    cy.visit('/newsletters')
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+    }, null, true)
+  })
 })
