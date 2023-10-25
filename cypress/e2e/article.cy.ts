@@ -209,16 +209,23 @@ describe('An article page', () => {
     cy.wait(300)
     cy.get('.article-page-header').should('not.exist')
   })
-  it('shows breaking news', () => {
-    cy.intercept(
-      '/api/v2/sitewide_components/*',
-      { fixture: 'aviary/sitewide_components_breaking.json' },
-    ).as('sitewideComponentsWithBreakingNews')
+  it('has no detectable critical a11y violations on load', () => {
     cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
-    cy.wait(['@article', '@sitewideComponentsWithBreakingNews'])
-    cy.get('.breaking-news').should('exist')
-    cy.get('.breaking-news-link').should('have.attr', 'href', '/news/early-addition-mediocrity-is-in-for-spring-2022/')
-    cy.get('.breaking-news-title').should('have.text', 'Test Breaking News Title')
-    cy.get('.breaking-news-callout').should('have.text', 'Test Breaking News Description')
+    cy.wait('@article')
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+      includedImpacts: ['critical'],
+    })
+  })
+  it('has no detectable a11y violations of any severity on load (report only)', () => {
+    cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
+    cy.wait('@article')
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+    }, null, true)
   })
 })

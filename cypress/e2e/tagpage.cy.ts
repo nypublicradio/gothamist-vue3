@@ -61,4 +61,23 @@ describe('A tag page', () => {
     cy.get('h1').contains('Bagel Fest').should('exist')
     cy.get('.tag-page-top-zone').contains('Zombie ipsum').should('exist')
   })
+  it('has no detectable critical a11y violations on load', () => {
+    cy.visit('/tags/dogs')
+    cy.wait(['@tagPage', '@tagArticles'])
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+      includedImpacts: ['critical'],
+    })
+  })
+  it('has no detectable a11y violations of any severity on load (report only)', () => {
+    cy.visit('/tags/dogs')
+    cy.wait(['@tagPage', '@tagArticles'])
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+    }, null, true)
+  })
 })

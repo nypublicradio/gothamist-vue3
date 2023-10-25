@@ -40,4 +40,23 @@ describe('A staff page', () => {
     cy.get('#articleList .gothamist-card').should('have.length', 24)
     cy.get('#articleList .card-title-link').eq(12).should('have.focus')
   })
+  it('has no detectable critical a11y violations on load', () => {
+    cy.visit('/staff/jen-chung')
+    cy.wait('@staffArticles')
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+      includedImpacts: ['critical'],
+    })
+  })
+  it('has no detectable a11y violations of any severity on load (report only)', () => {
+    cy.visit('/staff/jen-chung')
+    cy.wait('@staffArticles')
+    cy.injectAxe()
+    cy.checkA11y(null, {
+      retries: 3,
+      interval: 200,
+    }, null, true)
+  })
 })
