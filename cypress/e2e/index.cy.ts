@@ -80,7 +80,7 @@ describe('The home page', () => {
     cy.injectAxe()
     cy.checkA11y(null, {
       retries: 3,
-      interval: 200,
+      interval: 500,
       includedImpacts: ['critical'],
     })
   })
@@ -90,7 +90,7 @@ describe('The home page', () => {
     cy.injectAxe()
     cy.checkA11y(null, {
       retries: 3,
-      interval: 200,
+      interval: 500,
     }, null, true)
   })
 })
