@@ -119,7 +119,6 @@ jobs:
       # run test suite
       - run:
           name: Run e2e tests
-          parallelism: 2
           command: |
             npx nuxi prepare
             npm run test-cypress-ci
