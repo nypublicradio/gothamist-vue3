@@ -79,7 +79,6 @@ describe('The home page', () => {
       '/api/v2/sitewide_components/*',
       { fixture: 'aviary/sitewide_components_breaking.json' },
     ).as('sitewideComponentsWithBreakingNews')
-
     cy.visit('/')
     cy.wait(['@index', '@latest', '@sitewideComponentsWithBreakingNews'])
     cy.get('.breaking-news').should('exist')
