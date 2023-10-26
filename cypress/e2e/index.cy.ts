@@ -74,4 +74,17 @@ describe('The home page', () => {
     cy.wait(300)
     cy.get('.fixed-header').should('not.exist')
   })
+  it('shows breaking news', () => {
+    cy.intercept(
+      '/api/v2/sitewide_components/*',
+      { fixture: 'aviary/sitewide_components_breaking.json' },
+    ).as('sitewideComponentsWithBreakingNews')
+
+    cy.visit('/')
+    cy.wait(['@index', '@latest', '@sitewideComponentsWithBreakingNews'])
+    cy.get('.breaking-news').should('exist')
+    cy.get('.breaking-news-link').should('have.attr', 'href', '/news/early-addition-mediocrity-is-in-for-spring-2022/')
+    cy.get('.breaking-news-title').should('have.text', 'Test Breaking News Title')
+    cy.get('.breaking-news-callout').should('have.text', 'Test Breaking News Description')
+  })
 })
