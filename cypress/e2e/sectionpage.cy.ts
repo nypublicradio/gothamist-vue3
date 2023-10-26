@@ -83,13 +83,4 @@ describe('A section page', () => {
       includedImpacts: ['critical'],
     })
   })
-  it('has no detectable a11y violations of any severity on load (report only)', () => {
-    cy.visit('/news')
-    cy.wait('@sectionArticles')
-    cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-    }, null, true)
-  })
 })

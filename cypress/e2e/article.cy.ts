@@ -219,13 +219,4 @@ describe('An article page', () => {
       includedImpacts: ['critical'],
     })
   })
-  it('has no detectable a11y violations of any severity on load (report only)', () => {
-    cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
-    cy.wait('@article')
-    cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-    }, null, true)
-  })
 })
