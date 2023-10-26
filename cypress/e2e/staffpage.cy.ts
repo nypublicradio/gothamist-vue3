@@ -50,13 +50,4 @@ describe('A staff page', () => {
       includedImpacts: ['critical'],
     })
   })
-  it('has no detectable a11y violations of any severity on load (report only)', () => {
-    cy.visit('/staff/jen-chung')
-    cy.wait('@staffArticles')
-    cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-    }, null, true)
-  })
 })

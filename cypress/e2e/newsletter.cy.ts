@@ -59,12 +59,4 @@ describe('The newsletter page', () => {
       includedImpacts: ['critical'],
     })
   })
-  it('Has no detectable a11y violations of any severity on load (report only)', () => {
-    cy.visit('/newsletters')
-    cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-    }, null, true)
-  })
 })

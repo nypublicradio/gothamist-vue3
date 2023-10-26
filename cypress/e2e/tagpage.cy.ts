@@ -71,13 +71,4 @@ describe('A tag page', () => {
       includedImpacts: ['critical'],
     })
   })
-  it('has no detectable a11y violations of any severity on load (report only)', () => {
-    cy.visit('/tags/dogs')
-    cy.wait(['@tagPage', '@tagArticles'])
-    cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-    }, null, true)
-  })
 })
