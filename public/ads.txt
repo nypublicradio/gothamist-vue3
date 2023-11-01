@@ -175,6 +175,7 @@ rubiconproject.com, 21022, DIRECT, 0bfd66d529a55807
 
 #OpenX EBDA
 openx.com, 540717748, DIRECT, 6a698e2ec38604c6
+openx.com, 559601858, RESELLER, 6a698e2ec38604c6
 
 #Next Millenium
 nextmillennium.io, 5534, DIRECT, 65bd090fa4a1e3d6
