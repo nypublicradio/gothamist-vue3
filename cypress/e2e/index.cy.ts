@@ -1,3 +1,5 @@
+import { cypressConfig } from '../support/config'
+
 describe('The home page', () => {
   beforeEach(() => {
     cy.loadGlobalFixtures()
@@ -74,14 +76,10 @@ describe('The home page', () => {
     cy.wait(300)
     cy.get('.fixed-header').should('not.exist')
   })
-  it('has no detectable critical a11y violations on load', () => {
+  it('has no detectable a11y violations on load', () => {
     cy.visit('/')
     cy.wait(['@index', '@latest'])
     cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-      includedImpacts: ['critical'],
-    })
+    cy.checkA11y(null, cypressConfig)
   })
 })

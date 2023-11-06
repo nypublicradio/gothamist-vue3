@@ -1,3 +1,5 @@
+import { cypressConfig } from '../support/config'
+
 describe('A section page', () => {
   beforeEach(() => {
     cy.loadGlobalFixtures()
@@ -73,14 +75,10 @@ describe('A section page', () => {
     cy.get('#articleList .gothamist-card').should('have.length', 30)
     cy.get('#articleList .card-title-link').eq(20).should('have.focus')
   })
-  it('has no detectable critical a11y violations on load', () => {
+  it('has no detectable a11y violations on load', () => {
     cy.visit('/news')
     cy.wait('@sectionArticles')
     cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-      includedImpacts: ['critical'],
-    })
+    cy.checkA11y(null, cypressConfig)
   })
 })

@@ -1,3 +1,5 @@
+import { cypressConfig } from '../support/config'
+
 describe('The newsletter page', () => {
   beforeEach(() => {
     cy.loadGlobalFixtures()
@@ -50,13 +52,9 @@ describe('The newsletter page', () => {
     cy.get('#sign-up').should('have.attr', 'aria-disabled')
     cy.get('#sign-up').should('not.have.attr', 'type', 'submit')
   })
-  it('Has no detectable critical a11y violations on load', () => {
+  it('Has no detectable a11y violations on load', () => {
     cy.visit('/newsletters')
     cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-      includedImpacts: ['critical'],
-    })
+    cy.checkA11y(null, cypressConfig)
   })
 })

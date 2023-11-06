@@ -9,3 +9,4 @@ coverage
 .npmrc
 cypress/videos/
 cypress/screenshots/
+cypress/downloads/
