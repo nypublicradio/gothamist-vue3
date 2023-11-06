@@ -1,3 +1,5 @@
+import { cypressConfig } from '../support/config'
+
 describe('An article page', () => {
   beforeEach(() => {
     cy.loadGlobalFixtures()
@@ -209,14 +211,10 @@ describe('An article page', () => {
     cy.wait(300)
     cy.get('.article-page-header').should('not.exist')
   })
-  it('has no detectable critical a11y violations on load', () => {
+  it('has no detectable a11y violations on load', () => {
     cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
     cy.wait('@article')
     cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-      includedImpacts: ['critical'],
-    })
+    cy.checkA11y(null, cypressConfig)
   })
 })

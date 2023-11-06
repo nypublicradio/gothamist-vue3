@@ -1,3 +1,5 @@
+import { cypressConfig } from '../support/config'
+
 describe('A staff page', () => {
   beforeEach(() => {
     cy.loadGlobalFixtures()
@@ -40,14 +42,10 @@ describe('A staff page', () => {
     cy.get('#articleList .gothamist-card').should('have.length', 24)
     cy.get('#articleList .card-title-link').eq(12).should('have.focus')
   })
-  it('has no detectable critical a11y violations on load', () => {
+  it('has no detectable a11y violations on load', () => {
     cy.visit('/staff/jen-chung')
     cy.wait('@staffArticles')
     cy.injectAxe()
-    cy.checkA11y(null, {
-      retries: 3,
-      interval: 500,
-      includedImpacts: ['critical'],
-    })
+    cy.checkA11y(null, cypressConfig)
   })
 })
