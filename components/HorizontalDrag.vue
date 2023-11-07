@@ -3,7 +3,6 @@ import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/library/breakpoints.module.scss'
 import { Draggable } from '~/assets/gsap/Draggable.js'
-import { InertiaPlugin } from '~/assets/gsap/InertiaPlugin.js'
 
 const props = defineProps<{
   items: any[]
@@ -21,13 +20,11 @@ onMounted(() => {
   if (window.innerWidth < breakpoint.xl && props.items) {
     isMobile.value = true
     setTimeout(() => {
-      gsap.registerPlugin(InertiaPlugin)
       gsap.registerPlugin(Draggable)
       Draggable.create(dragContentRef.value, {
         type: 'x',
         edgeResistance: 0.45,
         bounds: dragBoundsRef.value,
-        inertia: true,
       })
     }, 1000)
   }
