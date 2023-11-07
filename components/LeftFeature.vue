@@ -103,24 +103,26 @@ props.collection.data?.[4] && articlesSm.value.push(normalizeArticlePage(props.c
               />
             </gothamist-card>
             <hr class="my-3">
-            <horizontal-drag v-if="articlesSm" v-slot="slotProps" :items="articlesSm">
-              <gothamist-card
-                v-slot="card"
-                :article="slotProps.item"
-                class="article-sm mod-horizontal mod-small mb-3 tag-small"
-                :hide-image="true"
-                :hide-tags="true"
-                :track-clicks="true"
-                :tracking-component="trackingComponent"
-                :tracking-component-location="trackingComponentLocation"
-                :tracking-component-position="slotProps.index + 3"
-              >
-                <v-card-metadata
+            <load-lazily>
+              <lazy-horizontal-drag v-if="articlesSm" v-slot="slotProps" :items="articlesSm">
+                <gothamist-card
+                  v-slot="card"
                   :article="slotProps.item"
-                  @link-click="$event => card.trackClick($event)"
-                />
-              </gothamist-card>
-            </horizontal-drag>
+                  class="article-sm mod-horizontal mod-small mb-3 tag-small"
+                  :hide-image="true"
+                  :hide-tags="true"
+                  :track-clicks="true"
+                  :tracking-component="trackingComponent"
+                  :tracking-component-location="trackingComponentLocation"
+                  :tracking-component-position="slotProps.index + 3"
+                >
+                  <v-card-metadata
+                    :article="slotProps.item"
+                    @link-click="$event => card.trackClick($event)"
+                  />
+                </gothamist-card>
+              </lazy-horizontal-drag>
+            </load-lazily>
           </div>
         </div>
       </div>

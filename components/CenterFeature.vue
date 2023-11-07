@@ -98,29 +98,31 @@ const articlesSm = ref([
       </div>
       <div class="col-3 flex-order-3">
         <hr class="my-3 block xl:hidden">
-        <horizontal-drag v-slot="slotProps" :items="articlesSm">
-          <gothamist-card
-            v-slot="card"
-            :article="slotProps.item"
-            class="mod-horizontal mod-left mod-small mb-0"
-            :width="106"
-            :height="106"
-            :ratio="[1, 1]"
-            :hide-tags="true"
-            :sizes="[2]"
-            :track-clicks="true"
-            :tracking-component-location="trackingComponentLocation"
-            :tracking-component="trackingComponent"
-            :tracking-component-position="slotProps.index + 3"
-          >
-            <div />
-            <v-card-metadata
+        <load-lazily>
+          <lazy-horizontal-drag v-slot="slotProps" :items="articlesSm">
+            <gothamist-card
+              v-slot="card"
               :article="slotProps.item"
-              :show-comments="false"
-              @link-click="$event => card.trackClick($event)"
-            />
-          </gothamist-card>
-        </horizontal-drag>
+              class="mod-horizontal mod-left mod-small mb-0"
+              :width="106"
+              :height="106"
+              :ratio="[1, 1]"
+              :hide-tags="true"
+              :sizes="[2]"
+              :track-clicks="true"
+              :tracking-component-location="trackingComponentLocation"
+              :tracking-component="trackingComponent"
+              :tracking-component-position="slotProps.index + 3"
+            >
+              <div />
+              <v-card-metadata
+                :article="slotProps.item"
+                :show-comments="false"
+                @link-click="$event => card.trackClick($event)"
+              />
+            </gothamist-card>
+          </lazy-horizontal-drag>
+        </load-lazily>
         <div class="block lg:hidden mb-4 xl:mb-7 m-auto mt-6">
           <HtlAd slot-name="htlad-gothamist_index_topper" layout="rectangle" />
         </div>
