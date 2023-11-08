@@ -11,9 +11,9 @@ const newsletters = [
     description: 'Get links to our top stories delivered to your inbox every day at 5 p.m.',
   },
   {
-    title: 'We the Commuters',
+    title: 'On The Way',
     id: 'We The Commuters',
-    description: 'Essential transportation coverage to your inbox every Thursday.',
+    description: 'The week’s transit news, exclusive analysis, answers to your burning commuter questions and more.',
   },
   {
     title: 'Politics Brief',
