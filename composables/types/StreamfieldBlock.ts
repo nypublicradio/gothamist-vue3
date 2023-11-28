@@ -34,7 +34,7 @@ export interface HeadingBlock {
 export interface ImageBlock {
   id: string
   type: 'image'
-  value: { heading: string; image: Image }
+  value: { heading: string, image: Image }
 }
 
 export interface ParagraphBlock {
@@ -46,7 +46,7 @@ export interface ParagraphBlock {
 export interface PullQuoteBlock {
   id: string
   type: 'pull_quote'
-  value: { pullQuote: string; attribution: string }
+  value: { pullQuote: string, attribution: string }
 }
 
 // Factbox blocks
@@ -59,7 +59,7 @@ export interface TextBlock {
 export interface CustomListBlock {
   id: string
   type: 'custom_list'
-  value: { listItemLabel: string; listItemText: string }[]
+  value: { listItemLabel: string, listItemText: string }[]
 }
 
 export type FactboxBodyBlock = TextBlock | CustomListBlock
@@ -69,7 +69,7 @@ export interface FactboxBlock {
   type: 'factbox'
   value: {
     heading: string
-    image: { image: Image; caption: string }
+    image: { image: Image, caption: string }
     caption: string
     body: FactboxBodyBlock[]
   }

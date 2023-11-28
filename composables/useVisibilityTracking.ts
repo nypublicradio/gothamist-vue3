@@ -2,7 +2,7 @@ export default function useVisibilityTracking(
   elementRef,
   onVisible,
   onNotVisible,
-  options?: { root?: HTMLElement; rootMargin?: string; threshold?: number | number[] },
+  options?: { root?: HTMLElement, rootMargin?: string, threshold?: number | number[] },
 ) {
   const componentIsVisible = ref()
   options = {}

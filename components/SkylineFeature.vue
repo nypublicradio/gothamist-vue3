@@ -4,7 +4,7 @@ import breakpoint from '@nypublicradio/nypr-design-system-vue3/src/assets/librar
 import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = defineProps<{
-  collection: { label: string; data: ArticlePage[] }
+  collection: { label: string, data: ArticlePage[] }
   trackingComponentLocation: string
 }>()
 const trackingComponent = 'Skyline Feature'
