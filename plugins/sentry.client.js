@@ -12,15 +12,18 @@ export default defineNuxtPlugin((nuxtApp) => {
       new Sentry.BrowserTracing({
         routingInstrumentation: Sentry.vueRouterInstrumentation(nuxtApp.$router),
       }),
+      new HttpClient(),
+      new Sentry.Replay(),
     ],
-    tracesSampleRate: 1.0,
+    tracesSampleRate: 0.5,
+    replaysSessionSampleRate: 0.05,
+    replaysOnErrorSampleRate: 0.05,
     tracePropagationTargets: ['cms.demo.nypr.digital', 'api.demo.nypr.digital', 'cms.prod.nypr.digital', 'api.prod.nypr.digital'],
     trackComponents: true,
     timeout: 2000,
     hooks: ['activate', 'mount', 'update'],
     logErrors: true,
     debug: false,
-    tracesSampleRate: 1,
     environment: config.public.SENTRY_ENV,
   })
 
