@@ -1,3 +1,5 @@
+import { sentryVitePlugin } from '@sentry/vite-plugin'
+
 export default defineNuxtConfig({
   app: {
     pageTransition: false,
@@ -59,6 +61,21 @@ export default defineNuxtConfig({
         ],
       },
     },
+    plugins: [
+      process.env.SENTRY_ENV === 'development'
+        ? null
+        : sentryVitePlugin({
+          include: '.nuxt/dist',
+          ignore: ['node_modules', 'nuxt.config.ts'],
+          org: 'nypublicradio',
+          project: 'gothamist-vue-3',
+          authToken: process.env.SENTRY_AUTH_TOKEN,
+        }),
+    ],
+  },
+  sourcemap: {
+    client: true,
+    server: true,
   },
   imports: {
     dirs: [
