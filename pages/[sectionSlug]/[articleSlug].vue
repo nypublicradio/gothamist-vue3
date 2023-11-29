@@ -279,6 +279,7 @@ const tagSlug = computed(() => article?.sponsoredContent ? '' : `/${article?.sec
                 tracking-component-location="Article Page Related Links"
               />
             </LoadLazily>
+            <div :id="config.public.OPTIN_MONSTER_ARTICLE_CAMPAIGN_ID" />
           </div>
         </div>
       </div>
