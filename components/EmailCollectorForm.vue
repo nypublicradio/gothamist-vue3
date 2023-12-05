@@ -160,9 +160,7 @@ function submitForm() {
           <div class="field-checkbox mt-3 mb-0">
             <Checkbox
               v-model="checked"
-              role="checkbox"
               aria-label="Toggle agreement to the terms"
-              :aria-checked="checked"
               :disabled="isSubmitting"
               :binary="true"
               @click="!checked"

@@ -1,5 +1,5 @@
-export const cypressConfig = {
+export const axeConfig = {
   retries: 3,
   interval: 500,
-  includedImpacts: ['critical'],
+  includedImpacts: ['critical', 'serious'],
 }

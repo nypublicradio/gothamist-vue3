@@ -64,8 +64,8 @@ const newsletterSignup = useNewsletterSignup({
               <div v-for="(newsletter, index) in newsletters" :key="newsletter.id" class="newsletter-list-item">
                 <div class="newsletter-checkbox">
                   <Checkbox
-                    :id="`newsletter-${index}`"
                     v-model="selectedLists"
+                    :input-id="`newsletter-${index}`"
                     :value="newsletter.id"
                   />
                 </div>
@@ -82,9 +82,7 @@ const newsletterSignup = useNewsletterSignup({
               <Checkbox
                 id="agree"
                 v-model="agree"
-                role="checkbox"
                 aria-label="Toggle agreement to the terms"
-                :aria-checked="agree"
                 :disabled="newsletterSignup.isSubmitting.value"
                 :binary="true"
               />
