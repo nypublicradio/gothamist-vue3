@@ -19,6 +19,11 @@ export default defineNuxtPlugin((nuxtApp) => {
     tracesSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.5 : 1.0,
     replaysSessionSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.05 : 1.0,
     replaysOnErrorSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.05 : 1.0,
+    allowUrls: [
+      'https://gothamist.com',
+      'https://gothamist-vue3.demo.nypr.digital',
+      'https://gothamist-vue3demo.gothamist.com',
+    ],
     tracePropagationTargets: ['cms.demo.nypr.digital', 'api.demo.nypr.digital', 'cms.prod.nypr.digital', 'api.prod.nypr.digital'],
     trackComponents: true,
     timeout: 2000,
