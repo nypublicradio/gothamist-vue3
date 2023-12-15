@@ -1,4 +1,4 @@
-import { cypressConfig } from '../support/config'
+import { axeConfig } from '../support/config'
 
 describe('A staff page', () => {
   beforeEach(() => {
@@ -46,6 +46,6 @@ describe('A staff page', () => {
     cy.visit('/staff/jen-chung')
     cy.wait('@staffArticles')
     cy.injectAxe()
-    cy.checkA11y(null, cypressConfig)
+    cy.checkA11y(null, axeConfig)
   })
 })
