@@ -1,4 +1,4 @@
-import { cypressConfig } from '../support/config'
+import { axeConfig } from '../support/config'
 
 describe('The home page', () => {
   beforeEach(() => {
@@ -80,6 +80,6 @@ describe('The home page', () => {
     cy.visit('/')
     cy.wait(['@index', '@latest'])
     cy.injectAxe()
-    cy.checkA11y(null, cypressConfig)
+    cy.checkA11y(null, axeConfig)
   })
 })
