@@ -23,7 +23,7 @@ const initialArticles = await findArticlePages({
 }).then(({ data }) => ({
   articles: normalizeFindArticlePagesResponse(data),
   count: data.value && Number(data.value.meta.totalCount),
-})) as { articles: ArticlePage[]; count: number }
+})) as { articles: ArticlePage[], count: number }
 
 const articleTotal = ref(initialArticles.count)
 const articles = ref(initialArticles.articles)

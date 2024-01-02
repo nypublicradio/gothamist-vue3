@@ -44,12 +44,12 @@ const props = withDefaults(defineProps<{
 const { $analytics } = useNuxtApp()
 const sponsored = computed(() => 'sponsoredContent' in props.article && props.article.sponsoredContent)
 const link = computed(() => ('link' in props.article && props.article.link)
-             || ('url' in props.article && props.article.url))
+  || ('url' in props.article && props.article.url))
 
 const tags = computed(() => {
   if (props.hideTags
-        || sponsored.value
-        || !('section' in props.article))
+    || sponsored.value
+    || !('section' in props.article))
     return []
 
   return [

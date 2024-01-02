@@ -7,7 +7,7 @@ import type Image from './types/Image'
 
 // if you just have the image ID you can use it like this
 // useImageUrl({ id: imageId })
-export function useImageUrl(image: Image, options?: { width: number; height: number; quality: number }): string {
+export function useImageUrl(image: Image, options?: { width: number, height: number, quality: number }): string {
   const config = useRuntimeConfig()
   if (!image)
     return ''
@@ -30,7 +30,7 @@ function getResponsiveSizes(options: {
   height: number
   maxWidth: number
   maxHeight: number
-}): { size: number; width: number; height: number }[] {
+}): { size: number, width: number, height: number }[] {
   const responsiveSizes = []
   let isFinalSize = false
   for (const size of options.sizes) {
@@ -54,7 +54,7 @@ function getResponsiveSizes(options: {
   return responsiveSizes
 }
 
-export function useResponsiveSrcset(image: Image, sizes: number[], options?: { width: number; height: number; quality: number; maxWidth?: number; maxHeight?: number }) {
+export function useResponsiveSrcset(image: Image, sizes: number[], options?: { width: number, height: number, quality: number, maxWidth?: number, maxHeight?: number }) {
   const maxWidth = options.maxWidth ?? image.width ?? Number.POSITIVE_INFINITY
   const maxHeight = options.maxHeight ?? image.height ?? Number.POSITIVE_INFINITY
   const responsiveSizes = getResponsiveSizes({
