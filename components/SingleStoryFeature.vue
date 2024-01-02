@@ -2,7 +2,7 @@
 import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = defineProps<{
-  collection: { label: string; data: ArticlePage[] }
+  collection: { label: string, data: ArticlePage[] }
   trackingComponentLocation: string
 }>()
 const trackingComponent = 'Single Story Feature'

@@ -8,7 +8,7 @@ const EMBED_WEIGHT = 50
 // Returns whether a node only contains whitespace or not
 function _isNotWhitespaceOnly(node) {
   return !(['#text', 'P'].includes(node.nodeName)
-  && node.textContent.replace(/\s/g, '').length === 0)
+    && node.textContent.replace(/\s/g, '').length === 0)
 }
 function _isNotComment(node) {
   return (node.nodeName !== '#comment')

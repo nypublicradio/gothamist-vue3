@@ -2,7 +2,7 @@
 import type { ArticlePage } from '~~/composables/types/Page'
 
 const props = withDefaults(defineProps<{
-  collection: { label?: string; data: ArticlePage[] }
+  collection: { label?: string, data: ArticlePage[] }
   trackingComponent?: string
   trackingComponentLocation?: string
   nativoId?: string

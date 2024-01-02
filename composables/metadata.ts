@@ -27,7 +27,7 @@ function useArticlePageAdTargetingData(article: ArticlePage): Record<string, str
 
 // Get the list of breadcrumbs, different paths to the
 // article via sections and tags
-function useBreadcrumbs(article: ArticlePage): { name: string; url: string }[] {
+function useBreadcrumbs(article: ArticlePage): { name: string, url: string }[] {
   const breadcrumbs = [
     {
       name: article.section.name,
@@ -64,7 +64,7 @@ function useBreadcrumbs(article: ArticlePage): { name: string; url: string }[] {
 }
 
 // turn a breadcrumb into a JSON-LD breadcrumbList
-function useBreadcrumbList(breadcrumb: { name: string; url: string }): Record<string, unknown> {
+function useBreadcrumbList(breadcrumb: { name: string, url: string }): Record<string, unknown> {
   return {
     '@type': 'BreadcrumbList',
     'itemListElement': [{
@@ -138,7 +138,7 @@ function useArticlePageStructuredData(article: ArticlePage): Record<string, unkn
 }
 
 // Get <head> metadata values (for use with useHead) for an article
-function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: string; content: string } | { property: string; content: string })[] } {
+function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: string, content: string } | { property: string, content: string })[] } {
   const config = useRuntimeConfig()
   const metadata = {
     link: [
@@ -182,7 +182,7 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
 }
 
 // Get <head> metadata values (for use with useHead) for a gallery
-function useGalleryPageHeadMetadata(gallery: GalleryPage): { meta: ({ name: string; content: string } | { property: string; content: string })[] } {
+function useGalleryPageHeadMetadata(gallery: GalleryPage): { meta: ({ name: string, content: string } | { property: string, content: string })[] } {
   const config = useRuntimeConfig()
   const metadata = {
     link: [

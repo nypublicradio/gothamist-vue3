@@ -73,7 +73,7 @@ export function normalizeArticlePage(article: Record<string, any | undefined>): 
     contributingOrganizations: article.relatedContributingOrganizations,
     sponsors: article.relatedSponsors,
     publicationDate: (article.publicationDate && new Date(article.publicationDate))
-                         || (article.meta?.firstPublishedAt && new Date(article.meta?.firstPublishedAt)),
+    || (article.meta?.firstPublishedAt && new Date(article.meta?.firstPublishedAt)),
     updatedDate: article.updatedDate ? new Date(article.updatedDate) : undefined,
     showAsFeature: article.showAsFeature,
     sensitiveContent: article.sensitiveContent,
@@ -117,7 +117,7 @@ export function normalizeSearchResults(results: Record<string, any | undefined>)
     contributingOrganizations: results.result.relatedContributingOrganizations,
     sponsors: results.result.relatedSponsors,
     publicationDate: (results.result.publicationDate && new Date(results.result.publicationDate))
-                         || (results.result.meta?.firstPublishedAt && new Date(results.result.meta?.firstPublishedAt)),
+    || (results.result.meta?.firstPublishedAt && new Date(results.result.meta?.firstPublishedAt)),
     updatedDate: results.result.updatedDate ? new Date(results.result.updatedDate) : undefined,
     showAsFeature: results.result.showAsFeature,
     sensitiveContent: results.result.sensitiveContent,

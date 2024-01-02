@@ -28,7 +28,6 @@ export default defineNuxtPlugin(() => {
         style/max-statements-per-line,
         style/comma-spacing,
         style/quote-props,
-        style/object-property-newline,
         eqeqeq
       */
       (function (w, d, s, l, i) {
