@@ -191,7 +191,7 @@ jobs:
             nyprsetuptools DockerDeploy \
               --fargate \
               --cpu=$CPU \
-              --memory-reservation=$MEMORY/ \
+              --memory-reservation=$MEMORY \
               --ecr-repository=gothamist-vue3 \
               --ecs-cluster=gothamist-vue3 \
               --ports=80 \
