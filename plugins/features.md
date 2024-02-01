@@ -2,7 +2,7 @@
 
 The feature toggle plugin was created to enable us to toggle a/b test experiment features
 without the rest of the code needing to know anything about the a/b testing setup. The client code
-(or someone reading it) shouldn't need to know what experiment id #123 variant #2 means, it just 
+(or someone reading it) shouldn't need to know what experiment id #123 variant #2 means, it just
 needs to know if a feature is enabled or disabled.
 
 While this was created with a/b testing in mind it also has other applications:
@@ -20,13 +20,13 @@ const features = {
   // Makes the logo bigger
   // - Matt Walsh
   // Expires: 2023/04/30
-  'experiment-bigger-logo': 
-    $experiments.current?.name === 'test' && 
+  'experiment-bigger-logo':
+    $experiments.current?.name === 'test' &&
     $experiments.activeVariant === 1
 }
 ```
 
-## Usage 
+## Usage
 
 ### Using a feature toggle in CSS
 
@@ -65,8 +65,8 @@ mounted () {
 First, decide if it makes sense for your feature to use a feature toggle. While there
 are several cases where they're useful, too many toggles will create technical debt.
 
-When you add a new feature toggle, add a comment with a breif description of the feature 
-and your name to aid in cleaning up the toggle later. If possible add an expiration date for 
+When you add a new feature toggle, add a comment with a breif description of the feature
+and your name to aid in cleaning up the toggle later. If possible add an expiration date for
 the feature as well.
 
 Use a prefixes to designate the type of feature.
