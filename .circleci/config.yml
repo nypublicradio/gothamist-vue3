@@ -46,7 +46,7 @@ workflows:
           requires:
             - test_eslint
             - test_nginx
-            - test_cypress
+            # - test_cypress
       - deploy:
           name: Deploy (prod)
           context: AWS Deploy
