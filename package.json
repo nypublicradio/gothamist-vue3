@@ -5,7 +5,7 @@
     "dev": "nuxi dev",
     "dev-no-ssr": "NUXT_SSR=false nuxi dev",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs",
+    "start": "NODE_ENV=production node .output/server/index.mjs",
     "preview": "nuxi preview",
     "test": "eslint . && start-server-and-test dev-no-ssr http://localhost:3000 cy:run",
     "cy:run": "cypress run --browser chrome",
