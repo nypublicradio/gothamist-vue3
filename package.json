@@ -28,6 +28,7 @@
     "humps": "^2.0.1",
     "primeicons": "5.0.0",
     "primevue": "3.21.0",
+    "sentry": "^0.1.2",
     "vue-social-sharing": "^4.0.0-alpha4"
   },
   "devDependencies": {
