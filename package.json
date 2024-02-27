@@ -37,7 +37,7 @@
     "cypress-axe": "^1.5.0",
     "eslint": "^8.51.0",
     "lint-staged": "^14.0.1",
-    "nuxt": "^3.10.1",
+    "nuxt": "^3.10.3",
     "sass": "^1.69.4",
     "simple-git-hooks": "^2.9.0",
     "start-server-and-test": "^2.0.0",
