@@ -60,6 +60,13 @@ COPY --from=build /code/.nuxt/ ./.nuxt/
 COPY --from=build /code/node_modules/ ./node_modules/
 COPY --from=build /code/package.json .
 
+# This patches some bothersome favicon code that exists within nitro 
+# See original code here: https://github.com/unjs/nitro/blob/928373ccecffc7c1bf519543ffeba11bfcfeb4ea/src/runtime/renderer.ts#L26
+# by modifying the code to never execute (the addition of 1 == 2).
+# the original line of code reads: if (event.path.endsWith("/favicon.ico")) {
+# the patched line of code reads: if (event.path.endsWith("/favicon.ico") && 1 == 2)
+RUN find './.output/server/chunks/handlers' -type f -exec sed -i 's/event\.path\.endsWith("\/favicon.ico")/event.path.endsWith("\/favicon.ico") \&\& 1 == 2/g' {} +;
+
 ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
