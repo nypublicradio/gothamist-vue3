@@ -120,11 +120,6 @@ useHead({
   ],
   script: [
     {
-      'src': 'https://s.ntv.io/serve/load.js',
-      'async': true,
-      'data-ntv-set-no-auto-start': '',
-    },
-    {
       src: config.public.HTL_JS,
       async: true,
     },
