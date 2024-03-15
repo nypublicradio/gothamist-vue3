@@ -40,6 +40,20 @@ export default defineNuxtConfig({
     'primeicons/primeicons.css',
   ],
   vite: {
+    optimizeDeps: {
+      include: ['@nypublicradio/nypr-design-system-vue3'],
+    },
+    build: {
+      chunkSizeWarningLimit: 400,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            gsap: ['gsap'],
+            sentry: ['@sentry/vue', '@sentry/integrations'],
+          },
+        },
+      },
+    },
     css: {
       preprocessorOptions: {
         scss: {
