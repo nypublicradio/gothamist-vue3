@@ -202,14 +202,14 @@ describe('An article page', () => {
     })
   })
   it('hides and shows the fixed header', () => {
+    cy.viewport('macbook-13')
     cy.visit('/news/extra-extra-meet-connecticuts-answer-to-pizza-rat')
     cy.wait('@article')
+    cy.wait(300)
     cy.get('.article-page-header').should('not.exist')
-    cy.scrollTo(0, 500)
-    cy.wait(300)
+    cy.scrollTo(0, 500, {duration: 300})
     cy.get('.article-page-header').should('exist')
-    cy.scrollTo(0, 0)
-    cy.wait(300)
+    cy.scrollTo(0, 0, {duration: 300})
     cy.get('.article-page-header').should('not.exist')
   })
   it('has no detectable a11y violations on load', () => {

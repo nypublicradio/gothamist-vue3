@@ -1,5 +1,4 @@
 version = 1
-
 exclude_patterns = [
   "plugins/**",
   "assets/**"
@@ -9,8 +8,8 @@ exclude_patterns = [
 name = "javascript"
 enabled = true
 
-  [analyzers.meta]
-  plugins = ["vue"]
+[analyzers.meta]
+plugins = [ "vue" ]
 
 [[analyzers]]
 name = "test-coverage"

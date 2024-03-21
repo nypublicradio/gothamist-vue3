@@ -60,4 +60,10 @@ Cypress.Commands.add('loadGlobalFixtures', () => {
   cy.intercept({
     hostname: 'news.google.com',
   }, { statusCode: 200, body: '' }).as('googleNews')
+  cy.intercept({
+    hostname: 'securepubads.g.doubleclick.net',
+  }, { statusCode: 200, body: '' }).as('googleAds')
+  cy.intercept({
+    hostname: 'ingest.sentry.io',
+  }, { statusCode: 200, body: '' }).as('sentry')
 })
