@@ -8,7 +8,6 @@ export default function useNewsletterSignup(options: {
   source: MaybeRefOrGetter<string>
 }) {
   options.additionalLists = options.additionalLists ?? []
-  const { $sentry } = useNuxtApp()
   const config = useRuntimeConfig()
 
   const isSubmitting = ref(false)
@@ -46,11 +45,6 @@ export default function useNewsletterSignup(options: {
         const maxAge = 60 * 60 * 24 * 30 * 12 // about 12 months
         const cookie = useCookie('__gothamistNewsletterMember', { path: '/', maxAge })
         cookie.value = 'true'
-      })
-      .catch((error) => {
-        isError.value = true
-        isSubmitting.value = false
-        $sentry.captureException(error.response)
       })
     return event.preventDefault()
   }
