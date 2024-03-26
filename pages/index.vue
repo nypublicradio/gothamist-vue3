@@ -1,21 +1,14 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, toValue } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import type { ArticlePage } from '~~/composables/types/Page'
 
-const { $features } = useNuxtApp()
-const possibleDuplicateCount = ref(6) // from the topper
-const actualDuplicateCount = ref(4)
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
 const riverAdRepeatRate = ref(6)
 const riverContainer = ref('#latest')
 
-let findArticleLimit
-if ($features.enabled['experiment-deduplicate-river'])
-  findArticleLimit = riverStoryCount.value + possibleDuplicateCount.value
-else
-  findArticleLimit = riverStoryCount.value
+const findArticleLimit = riverStoryCount.value
 
 const articlesPromise = findArticlePages({
   limit: findArticleLimit,
@@ -43,23 +36,7 @@ const latestArticles = ref([...articles])
 // the home page featured article should display only the first and second story in the home page content collection
 const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
 
-actualDuplicateCount.value = 4
-const firstFour = articles.slice(0, 6).map(article => article.uuid)
-if (firstFour.includes(featuredArticles[0].uuid))
-  actualDuplicateCount.value += 1
-if (firstFour.includes(featuredArticles[1].uuid))
-  actualDuplicateCount.value += 1
-
-const filteredLatestArticles = computed(() => {
-  if (toValue(latestArticles))
-    return [...toValue(latestArticles)].slice(actualDuplicateCount.value)
-  else
-    return []
-})
-
-const riverArticles = $features.enabled['experiment-deduplicate-river']
-  ? filteredLatestArticles
-  : latestArticles
+const riverArticles = latestArticles
 
 const mainImage = featuredArticles?.[0]?.listingImage
 if (mainImage) {
@@ -87,11 +64,7 @@ const riverSegments = computed(() => {
 })
 
 async function loadMoreArticles() {
-  let loadMoreOffset
-  if ($features.enabled['experiment-deduplicate-river'])
-    loadMoreOffset = latestArticles.value.length + actualDuplicateCount.value
-  else
-    loadMoreOffset = latestArticles.value.length
+  const loadMoreOffset = latestArticles.value.length
 
   const newArticles = await useLoadMoreArticles({
     sponsored_content: false,
