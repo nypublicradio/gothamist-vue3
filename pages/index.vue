@@ -40,14 +40,14 @@ const [articles, homePageCollections] = await Promise.all([
 // the latest articles
 const latestArticles = ref([...articles])
 
-// the home page featured article should display only the first and second story in the home page content collection
+// the home page featured article should display the first and second story in the home page content collection
 const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
 
 actualDuplicateCount.value = 4
 const firstFour = articles.slice(0, 6).map(article => article.uuid)
-if (firstFour.includes(featuredArticles[0].uuid))
+if (firstFour.includes(featuredArticles[0]?.uuid))
   actualDuplicateCount.value += 1
-if (firstFour.includes(featuredArticles[1].uuid))
+if (firstFour.includes(featuredArticles[1]?.uuid))
   actualDuplicateCount.value += 1
 
 const filteredLatestArticles = computed(() => {
