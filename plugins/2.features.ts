@@ -1,11 +1,6 @@
 export default defineNuxtPlugin(() => {
   // Add your features here
-  const features = {
-    // Remove duplicate stories from the river on the home page
-    // Part of an a/b test
-    // - Matt Walsh
-    // Experiment started: May 17 2023
-  }
+  const features = {}
 
   const enabled: Record<string, boolean> = features || {}
   const disabled: Record<string, boolean> = {}
