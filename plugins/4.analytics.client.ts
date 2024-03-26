@@ -10,7 +10,6 @@ declare const dataLayer: Record<string, any>[]
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const membershipStatus = useMembershipStatus()
-  const { $experiments } = useNuxtApp()
   window.dataLayer = window.dataLayer || []
 
   // init gtag function
@@ -23,16 +22,7 @@ export default defineNuxtPlugin(() => {
 
   // event to use when sending gtag events
   const sendEvent = (name: string, params: Record<string, string>) => {
-    if ($experiments.current) {
-      gtag('event', name, {
-        experimentName: $experiments.current.name,
-        experimentVariant: $experiments.activeVariant,
-        ...params,
-      })
-    }
-    else {
-      gtag('event', name, params)
-    }
+    gtag('event', name, params)
   }
   // gtag even for reporting on page views
   const sendPageView = (params: Record<string, string>) => {
