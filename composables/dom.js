@@ -88,7 +88,7 @@ const useStreamfieldLandmarks = function (rootElement) {
     if ([...node.classList].includes(TEXT_CLASS)) {
       const childLandmarks = _getTextFieldLandmarks(node, wordWeight)
       landmarks.push(...childLandmarks);
-      ({ wordWeight } = landmarks.at(-1))
+      ({ wordWeight } = landmarks[landmarks.length - 1])
     }
     else {
       wordWeight += _getWordWeight(node)
