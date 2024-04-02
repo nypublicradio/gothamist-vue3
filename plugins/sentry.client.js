@@ -1,5 +1,4 @@
 import * as Sentry from '@sentry/vue'
-import { HttpClient } from '@sentry/integrations'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { vueApp } = nuxtApp
@@ -10,11 +9,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     app: [vueApp],
     dsn: config.public.SENTRY_DSN,
     integrations: [
-      new Sentry.BrowserTracing({
-        routingInstrumentation: Sentry.vueRouterInstrumentation(nuxtApp.$router),
-      }),
-      new HttpClient(),
-      new Sentry.Replay(),
+      Sentry.browserTracingIntegration({ router: vueApp.router }),
+      Sentry.replayIntegration(),
     ],
     tracesSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.5 : 1.0,
     replaysSessionSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.0005 : 1.0,
@@ -23,6 +19,12 @@ export default defineNuxtPlugin((nuxtApp) => {
       'https://gothamist.com',
       'https://gothamist-vue3.demo.nypr.digital',
       'https://gothamist-vue3demo.gothamist.com',
+    ],
+    ignoreErrors: [
+      'ResizeObserver loop limit exceeded',
+      'Failed to fetch',
+      'NetworkError when attempting to fetch resource.',
+      'Load failed',
     ],
     tracePropagationTargets: ['cms.demo.nypr.digital', 'api.demo.nypr.digital', 'cms.prod.nypr.digital', 'api.prod.nypr.digital'],
     trackComponents: true,
