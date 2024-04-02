@@ -18,8 +18,7 @@
   },
   "dependencies": {
     "@nypublicradio/nypr-design-system-vue3": "^1.0.8",
-    "@sentry/integrations": "^7.83.0",
-    "@sentry/vue": "^7.83.0",
+    "@sentry/vue": "^7.109.0",
     "@vueuse/core": "^9.1.0",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",

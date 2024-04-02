@@ -5,8 +5,14 @@ export function transformResponseData(data: Record<string, any>): Record<string,
 }
 
 export default async function useAviary(path: string, options: Record<string, any> = {}) {
+  const { $sentry } = useNuxtApp()
   const config = useRuntimeConfig()
   const { data, error } = await useFetch(path, { baseURL: config.public.API_URL, ...options })
+    .then((response) => {
+      if (response.error.value)
+        $sentry.captureException(response.error.value)
+      return { data: response.data, error: response.error }
+    })
   const transformedData = transformResponseData(data)
   return { data: transformedData, error }
 }
