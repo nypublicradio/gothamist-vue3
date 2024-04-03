@@ -24,6 +24,16 @@ export default defineNuxtPlugin((nuxtApp) => {
       'https://gothamist-vue3.demo.nypr.digital',
       'https://gothamist-vue3demo.gothamist.com',
     ],
+    denyUrls: [
+      // https://nypublicradio.sentry.io/issues/4698415321
+      /openx.net/i,
+      // https://nypublicradio.sentry.io/issues/4698415321/
+      /doubleclick.net/i,
+      // https://nypublicradio.sentry.io/issues/3698873317/
+      /criteo.net/i,
+      // https://nypublicradio.sentry.io/issues/4341972076/
+      /spot.im/i,
+    ],
     tracePropagationTargets: ['cms.demo.nypr.digital', 'api.demo.nypr.digital', 'cms.prod.nypr.digital', 'api.prod.nypr.digital'],
     trackComponents: true,
     timeout: 2000,
