@@ -26,13 +26,13 @@ export default defineNuxtPlugin((nuxtApp) => {
     ],
     denyUrls: [
       // https://nypublicradio.sentry.io/issues/4698415321
-      /openx.net/i,
+      'openx.net',
       // https://nypublicradio.sentry.io/issues/4698415321/
-      /doubleclick.net/i,
+      'doubleclick.net',
       // https://nypublicradio.sentry.io/issues/3698873317/
-      /criteo.net/i,
+      'criteo.net',
       // https://nypublicradio.sentry.io/issues/4341972076/
-      /spot.im/i,
+      'spot.im',
     ],
     tracePropagationTargets: ['cms.demo.nypr.digital', 'api.demo.nypr.digital', 'cms.prod.nypr.digital', 'api.prod.nypr.digital'],
     trackComponents: true,
