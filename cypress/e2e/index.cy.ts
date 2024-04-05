@@ -61,7 +61,7 @@ describe('The home page', () => {
   it('loads more', () => {
     cy.visit('/')
     cy.wait('@latest')
-    cy.contains('Load More').click()
+    cy.contains('Load More').trigger('mouseover').click()
     cy.wait('@indexMore')
     cy.get('#articleList .gothamist-card').should('have.length', 12)
     cy.get('#articleList .card-title-link').eq(6).should('have.focus')

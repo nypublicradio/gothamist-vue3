@@ -131,7 +131,7 @@ describe('An article page', () => {
         cy.get('h2.regwall-header').should('contain', 'Read this story completely free')
         cy.get('.regwall-form-wrapper input[type=email]').type(emailAddress)
         cy.wait(500)
-        cy.contains('Sign Up').click()
+        cy.contains('Sign Up').trigger('mouseover').click()
         cy.wait('@emailProxy')
         cy.get('h2.regwall-header').should('contain', 'Thanks for subscribing!')
       })

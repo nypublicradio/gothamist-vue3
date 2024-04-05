@@ -70,7 +70,7 @@ describe('A section page', () => {
   it('loads more', () => {
     cy.visit('/news')
     cy.wait('@sectionArticles')
-    cy.contains('Load More').click()
+    cy.contains('Load More').trigger('mouseover').click()
     cy.wait('@sectionMore')
     cy.get('#articleList .gothamist-card').should('have.length', 30)
     cy.get('#articleList .card-title-link').eq(20).should('have.focus')
