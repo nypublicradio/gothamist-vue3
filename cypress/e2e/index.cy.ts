@@ -69,11 +69,11 @@ describe('The home page', () => {
   it('hides and shows the fixed header', () => {
     cy.visit('/')
     cy.get('.fixed-header').should('not.exist')
-    cy.scrollTo(0, 500)
-    cy.wait(300)
+    cy.scrollTo(0, 600)
+    cy.wait(400)
     cy.get('.fixed-header').should('exist')
     cy.scrollTo(0, 0)
-    cy.wait(300)
+    cy.wait(400)
     cy.get('.fixed-header').should('not.exist')
   })
   it('has no detectable a11y violations on load', () => {
