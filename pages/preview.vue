@@ -24,8 +24,10 @@ function handlePreviewData() {
   useFetch(
     `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`,
   ).then((response) => {
-    if (response.error.value)
+    if (process.client && response.error.value) {
+      const { $sentry } = useNuxtApp()
       $sentry.captureException(response.error.value)
+    }
     fetchData = response.data
     previewData.value = { data: formatData(response.data), error: response.error }
     // add slug to data for the Tags pages

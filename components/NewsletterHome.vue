@@ -48,8 +48,6 @@ const props = defineProps({
 
 const emit = defineEmits<(e: 'submit', value: any) => void>()
 
-const { $sentry } = useNuxtApp()
-
 const config = useRuntimeConfig()
 
 const showComponent = ref(true)
@@ -77,8 +75,7 @@ function submitForm(email) {
       submissionStatus.value = 'success'
       emit('submit', 'success')
     })
-    .catch((error) => {
-      $sentry.captureException(error)
+    .catch(() => {
       submissionStatus.value = 'error'
       isSubmitting.value = false
       emit('submit', 'error')
