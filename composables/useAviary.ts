@@ -8,7 +8,7 @@ export default async function useAviary(path: string, options: Record<string, an
   const config = useRuntimeConfig()
   const { data, error } = await useFetch(path, { baseURL: config.public.API_URL, ...options })
     .then((response) => {
-      if (process.client && response.error.value) {
+      if (process.client && response.error.value && response.error.values.statusCode !== 404) {
         const { $sentry } = useNuxtApp()
         $sentry.captureException(response.error.value)
       }
