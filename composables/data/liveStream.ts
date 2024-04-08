@@ -10,6 +10,7 @@ export async function updateLiveStream(slug: string) {
         const { $sentry } = useNuxtApp()
         $sentry.captureException(error)
       }
+      return null
     })
   currentEpisodeHolder.value = data
 }
@@ -24,6 +25,7 @@ export async function updateAllLiveStreams() {
         const { $sentry } = useNuxtApp()
         $sentry.captureException(error)
       }
+      return null
     })
   allCurrentEpisodes.value = data
 }

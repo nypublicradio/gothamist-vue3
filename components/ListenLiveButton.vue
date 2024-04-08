@@ -25,6 +25,15 @@ const currentEpisode = useCurrentEpisode()
 const currentEpisodeHolder = useCurrentEpisodeHolder()
 
 function togglePlay() {
+  // if there is no current episode, retry fetching the live stream
+  if (currentEpisodeHolder.value?.data?.length <= 0) {
+    const currentSteamStation = useCurrentSteamStation()
+    await updateLiveStream(currentSteamStation.value)
+    // if there is still no current episode, return
+    if (currentEpisodeHolder.value?.data?.length <= 0)
+      return
+  }
+
   if (!currentEpisode.value)
     currentEpisode.value = currentEpisodeHolder.value
 
