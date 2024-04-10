@@ -24,7 +24,7 @@ const togglePlayTrigger = useTogglePlayTrigger()
 const currentEpisode = useCurrentEpisode()
 const currentEpisodeHolder = useCurrentEpisodeHolder()
 
-function togglePlay() {
+async function togglePlay() {
   // if there is no current episode, retry fetching the live stream
   if (currentEpisodeHolder.value?.data?.length <= 0) {
     const currentSteamStation = useCurrentSteamStation()
