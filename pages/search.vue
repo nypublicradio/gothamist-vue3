@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref, watch } from 'vue'
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 const route = useRoute()
 const config = useRuntimeConfig()
@@ -58,8 +59,7 @@ if (query.value)
 
 useChartbeat()
 useOptinMonster()
-// Five minutes
-useCacheControlMaxAge().value = 5 * 60 * 1000
+useCacheControlMaxAge().value = CacheControlAgeTime.FIVE_MINUTES
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'search_page' })

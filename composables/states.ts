@@ -1,6 +1,7 @@
 import type Navigation from './types/Navigation'
+import type { CacheControlAgeTime } from './types/CacheControlAgeTime'
 
-export const useCacheControlMaxAge = () => useState<number | null>('cacheControlMaxAge', () => null)
+export const useCacheControlMaxAge = () => useState<CacheControlAgeTime | null>('cacheControlMaxAge', () => null)
 export const useSensitiveContent = () => useState<boolean>('sensitiveContent', () => false)
 export const useSidebarIsOpen = () => useState<boolean>('sidebarIsOpen', () => false)
 export const useSidebarOpenedFrom = () => useState<HTMLElement>('sidebarOpenedFrom', () => null)

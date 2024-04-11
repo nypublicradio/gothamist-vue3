@@ -5,9 +5,11 @@ import VTag from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VTag.
 import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VFlexibleLink.vue'
 import type { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 /* preview */
 const previewData = usePreviewData()
+const cacheControlMaxAge = useCacheControlMaxAge()
 const route = useRoute()
 const isPreview = Boolean(route.query.preview)
 /* preview */
@@ -28,7 +30,6 @@ const article = isPreview
     })) as ArticlePage)
 
 // Configure a cache header for articles older than three days
-const cacheControlMaxAge = useCacheControlMaxAge()
 if (!isPreview && article.publicationDate) {
   const articleDate = article.publicationDate
   const now = new Date()
@@ -36,7 +37,7 @@ if (!isPreview && article.publicationDate) {
   const threeDays = 72 * 60 * 60 * 1000
   const difference = now.getTime() - articleDate.getTime()
   if (difference > threeDays)
-    cacheControlMaxAge.value = 2592000
+    cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 }
 
 let gallery

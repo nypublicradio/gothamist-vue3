@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
+
 const newsletters = [
   {
     title: 'Early Addition',
@@ -35,8 +37,7 @@ const newsletterSignup = useNewsletterSignup({
   consent: agree,
   source: 'gothamist_newsletter_landing_page',
 })
-// 90 days
-useCacheControlMaxAge().value = 90 * 24 * 60 * 60 * 1000
+useCacheControlMaxAge().value = CacheControlAgeTime.QUARTER
 </script>
 
 <template>

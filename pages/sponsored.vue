@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 const config = useRuntimeConfig()
 const { $analytics, $nativo } = useNuxtApp()
@@ -43,8 +44,7 @@ onMounted(() => {
 onUnmounted(() => {
   sensitiveContent.value = false
 })
-// 90 days
-useCacheControlMaxAge().value = 90 * 24 * 60 * 60 * 1000
+useCacheControlMaxAge().value = CacheControlAgeTime.MONTH
 
 function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {

@@ -3,9 +3,11 @@ import { nextTick, ref } from 'vue'
 
 // import { StaffPage } from '../../composables/types/Page'
 import type { ArticlePage } from '~~/composables/types/Page'
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 const { $analytics, $htlbid } = useNuxtApp()
 const route = useRoute()
+const cacheControlMaxAge = useCacheControlMaxAge()
 const config = useRuntimeConfig()
 const staffSlug = route.params.staffSlug
 // const curatedStaffPage = await findPage(`staff/${staffSlug}`).then(
@@ -28,7 +30,7 @@ const initialArticles = await findArticlePages({
 const articleTotal = ref(initialArticles.count)
 const articles = ref(initialArticles.articles)
 if (!articleTotal.value) {
-  useCacheControlMaxAge().value = 30 * 24 * 60 * 60 * 1000
+  cacheControlMaxAge.value = CacheControlAgeTime.MONTH
   throw createError({
     statusCode: 404,
     statusMessage: 'Page Not Found',
