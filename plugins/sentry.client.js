@@ -26,6 +26,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       'NetworkError when attempting to fetch resource.',
       'Load failed',
     ],
+    maxValueLength: 1000,
     tracePropagationTargets: ['cms.demo.nypr.digital', 'api.demo.nypr.digital', 'cms.prod.nypr.digital', 'api.prod.nypr.digital'],
     trackComponents: true,
     timeout: 2000,
