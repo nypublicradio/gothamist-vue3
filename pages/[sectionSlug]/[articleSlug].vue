@@ -32,10 +32,10 @@ const cacheControlMaxAge = useCacheControlMaxAge()
 if (article.publicationDate) {
   const articleDate = article.publicationDate
   const now = new Date()
-  // one day in ms
-  const oneDay = 72 * 60 * 60 * 1000
+  // three day in ms
+  const threeDays = 72 * 60 * 60 * 1000
   const difference = now.getTime() - articleDate.getTime()
-  if (difference > oneDay)
+  if (difference > threeDays)
     cacheControlMaxAge.value = 2592000
 }
 
