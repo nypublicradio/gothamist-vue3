@@ -58,6 +58,8 @@ if (query.value)
 
 useChartbeat()
 useOptinMonster()
+// Five minutes
+useCacheControlMaxAge().value = 5 * 60 * 1000
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'search_page' })

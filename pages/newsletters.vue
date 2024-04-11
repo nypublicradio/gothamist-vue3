@@ -35,6 +35,8 @@ const newsletterSignup = useNewsletterSignup({
   consent: agree,
   source: 'gothamist_newsletter_landing_page',
 })
+// 90 days
+useCacheControlMaxAge().value = 90 * 24 * 60 * 60 * 1000
 </script>
 
 <template>

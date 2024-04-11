@@ -29,7 +29,7 @@ const article = isPreview
 
 // Configure a cache header for articles older than three days
 const cacheControlMaxAge = useCacheControlMaxAge()
-if (article.publicationDate) {
+if (!isPreview && article.publicationDate) {
   const articleDate = article.publicationDate
   const now = new Date()
   // three day in ms

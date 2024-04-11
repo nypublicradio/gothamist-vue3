@@ -43,6 +43,8 @@ onMounted(() => {
 onUnmounted(() => {
   sensitiveContent.value = false
 })
+// 90 days
+useCacheControlMaxAge().value = 90 * 24 * 60 * 60 * 1000
 
 function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {

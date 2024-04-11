@@ -28,6 +28,7 @@ const initialArticles = await findArticlePages({
 const articleTotal = ref(initialArticles.count)
 const articles = ref(initialArticles.articles)
 if (!articleTotal.value) {
+  useCacheControlMaxAge().value = 90 * 24 * 60 * 60 * 1000
   throw createError({
     statusCode: 404,
     statusMessage: 'Page Not Found',
@@ -74,6 +75,7 @@ function newsletterSubmitEvent() {
 
 useChartbeat()
 useOptinMonster()
+useCacheControlMaxAge().value = 60 * 60 * 1000
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'staff_page' })

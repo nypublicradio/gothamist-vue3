@@ -13,6 +13,7 @@ const page = isPreview
   : await findPage(route?.params?.sectionSlug as string).then(
     ({ data }) => normalizeFindPageResponse(data),
   ).catch(() => {
+    useCacheControlMaxAge().value = 90 * 24 * 60 * 60 * 1000
     throw createError({
       statusCode: 404,
       statusMessage: 'Page Not Found',
@@ -24,6 +25,7 @@ const { $analytics } = useNuxtApp()
 
 useChartbeat()
 useOptinMonster()
+useCacheControlMaxAge().value = isPreview ? null : 5 * 60 * 1000
 
 onMounted(() => {
   if (isPreview)

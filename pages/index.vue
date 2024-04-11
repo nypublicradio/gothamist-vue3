@@ -90,6 +90,8 @@ function newsletterSubmitEvent() {
 
 useChartbeat()
 useOptinMonster()
+// 5 minutes
+useCacheControlMaxAge().value = 5 * 60 * 1000
 
 onMounted(() => {
   $analytics.sendPageView({

@@ -39,6 +39,7 @@ const [curatedTagPage, { articles: initialArticles, count: initialCount }] = awa
 const articleTotal = ref(initialCount)
 const articles = ref(initialArticles)
 if (!initialCount) {
+  useCacheControlMaxAge().value = 90 * 24 * 60 * 60 * 1000
   throw createError({
     statusCode: 404,
     statusMessage: 'Page Not Found',
@@ -64,6 +65,7 @@ const tag = articles.value[0]?.tags.find(tag => tag.slug === tagSlug)
 const tagName = tag?.name || tag?.slug.replace(/-/g, ' ')
 useChartbeat()
 useOptinMonster()
+useCacheControlMaxAge().value = 60 * 60 * 1000
 
 onMounted(() => {
   $analytics.sendPageView({
