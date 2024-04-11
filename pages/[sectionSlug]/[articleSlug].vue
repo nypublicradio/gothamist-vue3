@@ -27,6 +27,21 @@ const article = isPreview
       })
     })) as ArticlePage)
 
+// Configure a cache header for articles older than one day
+// useRequestEvent() is only available on the server and returns undefined on the client
+const event = useRequestEvent()
+if (event && article.publicationDate) {
+  const articleDate = article.publicationDate
+  const now = new Date()
+  // one day in ms
+  const oneDay = 24 * 60 * 60 * 1000
+  const difference = now.getTime() - articleDate.getTime()
+  if (difference > oneDay) {
+    // cache for 30 days
+    event.node.res.setHeader('Cache-Control', 'public, max-age=2592000')
+  }
+}
+
 let gallery
 if (article.leadGallery) {
   gallery = (await usePageById(article.leadGallery.gallery).then(({ data }) =>
