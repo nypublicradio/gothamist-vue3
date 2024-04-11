@@ -5,6 +5,7 @@ import type { InformationPage } from '../../composables/types/Page'
 import { usePreviewData } from '~/composables/states'
 import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
+const cacheControlMaxAge = useCacheControlMaxAge()
 const previewData = usePreviewData()
 const route = useRoute()
 const isPreview = Boolean(route.query.preview)
@@ -26,7 +27,7 @@ const { $analytics } = useNuxtApp()
 useChartbeat()
 useOptinMonster()
 if (!isPreview && page)
-  useCacheControlMaxAge().value = CacheControlAgeTime.FIVE_MINUTES
+  cacheControlMaxAge.value = CacheControlAgeTime.FIVE_MINUTES
 
 onMounted(() => {
   if (isPreview)
