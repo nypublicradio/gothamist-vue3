@@ -30,6 +30,7 @@ const selectedLists = ref<Array<string>>(newsletters.map(newsletter => newslette
 const agree = ref(true)
 const email = ref<string>(null)
 
+const cacheControlMaxAge = useCacheControlMaxAge()
 const newsletterSignup = useNewsletterSignup({
   email,
   selectedLists,
@@ -37,7 +38,7 @@ const newsletterSignup = useNewsletterSignup({
   consent: agree,
   source: 'gothamist_newsletter_landing_page',
 })
-useCacheControlMaxAge().value = CacheControlAgeTime.QUARTER
+cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 </script>
 
 <template>
