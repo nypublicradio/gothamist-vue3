@@ -50,7 +50,7 @@ export default function useNewsletterSignup(options: {
       .catch((error) => {
         isError.value = true
         isSubmitting.value = false
-        $sentry.captureException(error.response)
+        $sentry.captureException(error)
       })
     return event.preventDefault()
   }
