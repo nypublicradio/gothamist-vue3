@@ -4,6 +4,7 @@ import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 const config = useRuntimeConfig()
 const { $analytics, $nativo } = useNuxtApp()
+const cacheControlMaxAge = useCacheControlMaxAge()
 const article = {
   title: '',
   socialTitle: '',
@@ -28,6 +29,7 @@ const fixedHeaderVisible = useFixedHeaderVisible()
 
 useChartbeat()
 useOptinMonster()
+cacheControlMaxAge.value = CacheControlAgeTime.MONTH
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponsored_article' })
@@ -44,7 +46,6 @@ onMounted(() => {
 onUnmounted(() => {
   sensitiveContent.value = false
 })
-useCacheControlMaxAge().value = CacheControlAgeTime.MONTH
 
 function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
