@@ -39,7 +39,7 @@ const [curatedTagPage, { articles: initialArticles, count: initialCount }] = awa
 const articleTotal = ref(initialCount)
 const articles = ref(initialArticles)
 if (!initialCount) {
-  useCacheControlMaxAge().value = 90 * 24 * 60 * 60 * 1000
+  useCacheControlMaxAge().value = 30 * 24 * 60 * 60 * 1000
   throw createError({
     statusCode: 404,
     statusMessage: 'Page Not Found',
