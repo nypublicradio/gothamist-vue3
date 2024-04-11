@@ -22,7 +22,7 @@ describe('The newsletter page', () => {
     ).as('emailProxy')
     cy.visit('/newsletters')
     cy.get('.newsletter-form input').first().type(emailAddress)
-    cy.get('#sign-up').click()
+    cy.get('#sign-up').trigger('mouseover').click()
     cy.wait('@emailProxy')
     cy.get('.newsletter-form').contains('Thank you for signing up!')
   })

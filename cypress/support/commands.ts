@@ -49,14 +49,17 @@ Cypress.Commands.add('loadGlobalFixtures', () => {
   cy.intercept('/api/v2/navigation/*', { fixture: 'aviary/navigation.json' }).as('navigation')
   cy.intercept('/api/v4/whats_on/**', { fixture: 'publisher/whats_on.json' }).as('whatsOn')
   cy.intercept({
-    hostname: 'open-api.spot.im',
-  }, { statusCode: 200, body: { messages_count: [] } }).as('commentCounts')
+    hostname: /([^.]*\.)+doubleclick.net/,
+  }, { statusCode: 200, body: '' }).as('doubleclick')
   cy.intercept({
-    hostname: 'api.omappapi.com',
+    hostname: /([^.]*\.)+omappapi.com/,
   }, { statusCode: 200, body: '' }).as('optinMonster')
   cy.intercept({
-    hostname: 'a.omappapi.com',
-  }, { statusCode: 200, body: '' }).as('optinMonster2')
+    hostname: /([^.]*\.)+spot.im/,
+  }, { statusCode: 200, body: '' }).as('openWeb')
+  cy.intercept({
+    hostname: /([^.]*\.)+sentry.io/,
+  }, { statusCode: 200, body: '' }).as('sentry')
   cy.intercept({
     hostname: 'news.google.com',
   }, { statusCode: 200, body: '' }).as('googleNews')
