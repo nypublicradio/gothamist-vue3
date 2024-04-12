@@ -65,7 +65,7 @@ COPY --from=build /code/package.json .
 # by modifying the code to never execute (the addition of 1 == 2).
 # the original line of code reads: if (event.path.endsWith("/favicon.ico")) {
 # the patched line of code reads: if (event.path.endsWith("/favicon.ico") && 1 == 2)
-RUN find './.output/server/chunks/handlers' -type f -exec sed -i 's/event\.path\.endsWith("\/favicon.ico")/event.path.endsWith("\/favicon.ico") \&\& 1 == 2/g' {} +;
+RUN find './.output/server/chunks/routes' -type f -exec sed -i 's/event\.path\.endsWith("\/favicon.ico")/event.path.endsWith("\/favicon.ico") \&\& 1 == 2/g' {} +;
 
 ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
