@@ -37,7 +37,7 @@ describe('A staff page', () => {
   it('loads more', () => {
     cy.visit('/staff/jen-chung')
     cy.wait('@staffArticles')
-    cy.contains('Load More').click()
+    cy.contains('Load More').trigger('mouseover').click()
     cy.wait('@staffMore')
     cy.get('#articleList .gothamist-card').should('have.length', 24)
     cy.get('#articleList .card-title-link').eq(12).should('have.focus')

@@ -18,8 +18,7 @@
   },
   "dependencies": {
     "@nypublicradio/nypr-design-system-vue3": "^1.0.8",
-    "@sentry/integrations": "^7.83.0",
-    "@sentry/vue": "^7.83.0",
+    "@sentry/vue": "^7.109.0",
     "@vueuse/core": "^9.1.0",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
@@ -33,7 +32,8 @@
   "devDependencies": {
     "@antfu/eslint-config": "^1.0.0-beta.24",
     "@sentry/vite-plugin": "^2.10.2",
-    "cypress": "^13.6.0",
+    "axe-core": "^4.9.0",
+    "cypress": "^13.7.2",
     "cypress-axe": "^1.5.0",
     "eslint": "^8.51.0",
     "lint-staged": "^14.0.1",

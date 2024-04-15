@@ -61,7 +61,7 @@ describe('The home page', () => {
   it('loads more', () => {
     cy.visit('/')
     cy.wait('@latest')
-    cy.contains('Load More').click()
+    cy.contains('Load More').trigger('mouseover').click()
     cy.wait('@indexMore')
     cy.get('#articleList .gothamist-card').should('have.length', 12)
     cy.get('#articleList .card-title-link').eq(6).should('have.focus')
@@ -69,11 +69,11 @@ describe('The home page', () => {
   it('hides and shows the fixed header', () => {
     cy.visit('/')
     cy.get('.fixed-header').should('not.exist')
-    cy.scrollTo(0, 500)
-    cy.wait(300)
+    cy.scrollTo(0, 600)
+    cy.wait(400)
     cy.get('.fixed-header').should('exist')
     cy.scrollTo(0, 0)
-    cy.wait(300)
+    cy.wait(400)
     cy.get('.fixed-header').should('not.exist')
   })
   it('has no detectable a11y violations on load', () => {
