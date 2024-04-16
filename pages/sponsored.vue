@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 const config = useRuntimeConfig()
 const { $analytics, $nativo } = useNuxtApp()
+const cacheControlMaxAge = useCacheControlMaxAge()
 const article = {
   title: '',
   socialTitle: '',
@@ -27,6 +29,7 @@ const fixedHeaderVisible = useFixedHeaderVisible()
 
 useChartbeat()
 useOptinMonster()
+cacheControlMaxAge.value = CacheControlAgeTime.MONTH
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'sponsored_article' })

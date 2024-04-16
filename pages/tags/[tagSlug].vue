@@ -7,8 +7,10 @@ import { useUpdateCommentCounts } from '~~/composables/comments'
 
 /* preview */
 import { usePreviewData } from '~/composables/states'
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 const previewData = usePreviewData()
+const cacheControlMaxAge = useCacheControlMaxAge()
 const route = useRoute()
 const isPreview = Boolean(route.query.preview)
 /* preview */
@@ -39,6 +41,7 @@ const [curatedTagPage, { articles: initialArticles, count: initialCount }] = awa
 const articleTotal = ref(initialCount)
 const articles = ref(initialArticles)
 if (!initialCount) {
+  cacheControlMaxAge.value = CacheControlAgeTime.MONTH
   throw createError({
     statusCode: 404,
     statusMessage: 'Page Not Found',
@@ -64,6 +67,7 @@ const tag = articles.value[0]?.tags.find(tag => tag.slug === tagSlug)
 const tagName = tag?.name || tag?.slug.replace(/-/g, ' ')
 useChartbeat()
 useOptinMonster()
+cacheControlMaxAge.value = CacheControlAgeTime.HOUR
 
 onMounted(() => {
   $analytics.sendPageView({

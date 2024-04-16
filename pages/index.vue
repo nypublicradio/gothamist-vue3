@@ -2,6 +2,7 @@
 import { computed, nextTick, ref } from 'vue'
 import { useUpdateCommentCounts } from '~~/composables/comments'
 import type { ArticlePage } from '~~/composables/types/Page'
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
@@ -80,6 +81,7 @@ async function loadMoreArticles() {
 }
 
 const { $analytics, $nativo } = useNuxtApp()
+const cacheControlMaxAge = useCacheControlMaxAge()
 function newsletterSubmitEvent() {
   $analytics.sendEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
@@ -90,6 +92,7 @@ function newsletterSubmitEvent() {
 
 useChartbeat()
 useOptinMonster()
+cacheControlMaxAge.value = CacheControlAgeTime.FIVE_MINUTES
 
 onMounted(() => {
   $analytics.sendPageView({
