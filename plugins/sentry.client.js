@@ -9,7 +9,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     app: [vueApp],
     dsn: config.public.SENTRY_DSN,
     integrations: [
-      Sentry.browserTracingIntegration({ router: nuxtApp.$router }),
+      Sentry.browserTracingIntegration({ router: nuxtApp.$router, enableInp: true }),
       Sentry.replayIntegration(),
     ],
     tracesSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.5 : 1.0,
