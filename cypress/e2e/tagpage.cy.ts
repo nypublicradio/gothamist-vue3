@@ -43,7 +43,7 @@ describe('A tag page', () => {
   it('loads more', () => {
     cy.visit('/tags/dogs')
     cy.wait('@tagArticles')
-    cy.contains('Load More').click()
+    cy.contains('Load More').trigger('mouseover').click()
     cy.wait('@tagMore')
     cy.get('#articleList .gothamist-card').should('have.length', 20)
     cy.get('#articleList .card-title-link').eq(10).should('have.focus')

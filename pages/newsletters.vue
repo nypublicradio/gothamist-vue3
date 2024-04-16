@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
+
 const newsletters = [
   {
     title: 'Early Addition',
@@ -28,6 +30,7 @@ const selectedLists = ref<Array<string>>(newsletters.map(newsletter => newslette
 const agree = ref(true)
 const email = ref<string>(null)
 
+const cacheControlMaxAge = useCacheControlMaxAge()
 const newsletterSignup = useNewsletterSignup({
   email,
   selectedLists,
@@ -35,6 +38,7 @@ const newsletterSignup = useNewsletterSignup({
   consent: agree,
   source: 'gothamist_newsletter_landing_page',
 })
+cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 </script>
 
 <template>

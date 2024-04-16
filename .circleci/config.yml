@@ -58,26 +58,6 @@ workflows:
             - test_eslint
             - test_nginx
             - test_cypress
-      - cf-function-deploy:
-          name: Deploy CloudFront Functions (demo)
-          context: AWS Deploy
-          env: demo
-          <<: *filter_demo
-          requires:
-            - test_eslint
-            - test_nginx
-            - test_cypress
-            - Deploy (demo)
-      - cf-function-deploy:
-          name: Deploy CloudFront Functions (prod)
-          context: AWS Deploy
-          env: prod
-          <<: *filter_prod
-          requires:
-            - test_eslint
-            - test_nginx
-            - test_cypress
-            - Deploy (prod)
 
 jobs:
   # Note (allie): This is its own job because I don't
@@ -201,53 +181,6 @@ jobs:
               --tag=$TAG \
               --wait=300
 
-  cf-function-deploy:
-    working_directory: ~/project/cf_functions
-    executor: aws-cli/default
-    parameters:
-      env:
-        type: enum
-        default: demo
-        enum: [demo, prod]
-    steps:
-      - checkout:
-          path: ~/project
-      - aws-cli/setup
-      - run:
-          name: Deploy
-          environment:
-            ENV: <<parameters.env>>
-          command: |
-            for x in *.js; do
-              functionName=$(basename $x .js)
-              aws cloudfront describe-function --name $functionName-$ENV > /dev/null 2>&1
-              if [[ $? == 0 ]]; then
-                etag=$(aws cloudfront describe-function --name $functionName-$ENV --query 'ETag' --output text)
-                aws cloudfront update-function \
-                  --name $functionName-$ENV \
-                  --function-config Comment="$functionName",Runtime="cloudfront-js-1.0" \
-                  --if-match $etag \
-                  --function-code fileb://$x
-              else
-                aws cloudfront create-function \
-                  --name $functionName-$ENV \
-                  --function-config Comment="$functionName",Runtime="cloudfront-js-1.0" \
-                  --function-code fileb://$x
-              fi
-            done
-      - run:
-          name: Publish Functions
-          environment:
-            ENV: <<parameters.env>>
-          command: |
-            for x in *.js; do
-              functionName=$(basename $x .js)
-              etag=$(aws cloudfront describe-function --name $functionName-$ENV --query 'ETag' --output text)
-              aws cloudfront publish-function \
-                --name $functionName-$ENV \
-                --if-match $etag
-            done
-
 commands:
   setup_npmrc:
     steps:
@@ -263,6 +196,3 @@ executors:
       - image: cypress/browsers:node-18.16.1-chrome-114.0.5735.133-1-ff-114.0.2-edge-114.0.1823.51-1
     environment:
       JOBS: 2
-
-orbs:
-  aws-cli: circleci/aws-cli@3.1.5
