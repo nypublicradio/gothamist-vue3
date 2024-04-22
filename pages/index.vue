@@ -83,7 +83,7 @@ async function loadMoreArticles() {
 const { $analytics, $nativo } = useNuxtApp()
 const cacheControlMaxAge = useCacheControlMaxAge()
 function newsletterSubmitEvent() {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',
     event_label: 'Newsletter',
@@ -95,7 +95,7 @@ useOptinMonster()
 cacheControlMaxAge.value = CacheControlAgeTime.FIVE_MINUTES
 
 onMounted(() => {
-  $analytics.sendPageView({
+  $analytics.schedulePageView({
     page_type: 'home_page',
     content_group: 'homepage',
   })

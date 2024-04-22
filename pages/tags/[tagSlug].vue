@@ -70,7 +70,7 @@ useOptinMonster()
 cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 
 onMounted(() => {
-  $analytics.sendPageView({
+  $analytics.schedulePageView({
     page_type: 'tag_page',
     content_group: 'tag-page',
   })
@@ -94,7 +94,7 @@ onUnmounted(() => {
 })
 
 function newsletterSubmitEvent() {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',
     event_label: 'Newsletter',

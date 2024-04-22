@@ -17,7 +17,7 @@ const profileData = isSponsored.value
 // function attached to the emit of the article-tags when clicked
 function onTagClick(tag) {
   if (tag) {
-    $analytics.sendEvent('click_tracking', {
+    $analytics.scheduleEvent('click_tracking', {
       event_category: 'Click Tracking',
       component: 'Article Tags',
       event_label: tag.name,

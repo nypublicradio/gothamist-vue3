@@ -62,7 +62,7 @@ const tags = computed(() => {
 
 const trackClick = function (targetUrl: string) {
   if (props.trackClicks) {
-    $analytics.sendEvent('click_tracking', {
+    $analytics.scheduleEvent('click_tracking', {
       event_category: `Click Tracking - ${props.trackingComponentLocation}`,
       component: props.trackingComponent,
       component_position: props.trackingComponentPosition && String(props.trackingComponentPosition),

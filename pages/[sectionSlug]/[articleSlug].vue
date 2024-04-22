@@ -98,7 +98,7 @@ useChartbeat({
 useOptinMonster()
 
 onMounted(() => {
-  $analytics.sendPageView(trackingData)
+  $analytics.schedulePageView(trackingData)
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
   useUpdateCommentCounts([article])
@@ -141,7 +141,7 @@ function useInsertAd(targetElement) {
 }
 
 function newsletterSubmitEvent(e) {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: `Click Tracking - ${e} - Newsletter`,
     component: e,
     event_label: 'Newsletter',
@@ -149,7 +149,7 @@ function newsletterSubmitEvent(e) {
 }
 
 function trackWallSeen() {
-  $analytics.sendEvent('view_promotion', {
+  $analytics.scheduleEvent('view_promotion', {
     creative_slot: 'article-registration-wall',
     location_id: '',
     promotion_name: `Registration Wall - ${article.title}`,
@@ -158,7 +158,7 @@ function trackWallSeen() {
 }
 
 function trackSignUp() {
-  $analytics.sendEvent('select_promotion', {
+  $analytics.scheduleEvent('select_promotion', {
     creative_slot: 'article-registration-wall',
     location_id: '',
     promotion_name: `Registration Wall - ${article.title}`,

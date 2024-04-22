@@ -33,11 +33,24 @@ export default defineNuxtPlugin(() => {
       ...params,
     })
   }
+  const scheduleEvent = (name: string, params: Record<string, string>) => {
+    requestIdleCallback(() => {
+      sendEvent(name, params)
+    }, { timeout: 3000 })
+  }
+  const schedulePageView = (params: Record<string, string>) => {
+    requestIdleCallback(() => {
+      sendPageView(params)
+    }, { timeout: 3000 })
+  }
+
   return {
     provide: {
       analytics: {
         sendEvent,
         sendPageView,
+        scheduleEvent,
+        schedulePageView,
       },
     },
   }

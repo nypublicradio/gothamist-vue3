@@ -68,7 +68,7 @@ function getAuthorNameFromSlug() {
 
 // emitted event from the newsletter submission form
 function newsletterSubmitEvent() {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',
     event_label: 'Newsletter',
@@ -80,7 +80,7 @@ useOptinMonster()
 cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'staff_page' })
+  $analytics.schedulePageView({ page_type: 'staff_page' })
   $htlbid.setTargeting({ Template: 'Staff' })
 })
 

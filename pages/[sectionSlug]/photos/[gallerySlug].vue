@@ -44,7 +44,7 @@ useChartbeat({
 useOptinMonster()
 
 onMounted(() => {
-  $analytics.sendPageView({
+  $analytics.schedulePageView({
     page_type: 'gallery',
     content_group: article?.sponsoredContent ? 'sponsored-content' : `${route.params.sectionSlug}-gallery`,
   })
@@ -80,7 +80,7 @@ function goBack() {
                 campaign: 'shared_facebook',
               }"
               @share="
-                $analytics.sendEvent('click_tracking', {
+                $analytics.scheduleEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Byline',
                   event_label: 'Social Share Facebook',
@@ -98,7 +98,7 @@ function goBack() {
                 campaign: 'shared_twitter',
               }"
               @share="
-                $analytics.sendEvent('click_tracking', {
+                $analytics.scheduleEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Byline',
                   event_label: 'Social Share Twitter',
@@ -116,7 +116,7 @@ function goBack() {
                 campaign: 'shared_reddit',
               }"
               @share="
-                $analytics.sendEvent('click_tracking', {
+                $analytics.scheduleEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Byline',
                   event_label: 'Social Share Reddit',
@@ -134,7 +134,7 @@ function goBack() {
                 campaign: 'shared_email',
               }"
               @share="
-                $analytics.sendEvent('click_tracking', {
+                $analytics.scheduleEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Byline',
                   event_label: 'Social Share Email',

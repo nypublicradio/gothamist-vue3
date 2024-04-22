@@ -25,7 +25,7 @@ useVisibilityTracking(headerElement, onVisible, onNotVisible)
 
 function trackClick(category, label) {
   // emitted mobile menu click event
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: category,
     component: 'header',
     event_label: label,
