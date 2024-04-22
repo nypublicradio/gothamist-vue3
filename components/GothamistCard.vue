@@ -117,4 +117,14 @@ div.gothamist-card.sponsored {
 .gothamist-card {
   --tag-bg: transparent;
 }
+
+@media(pointer:coarse) {
+  .image-with-caption-image-link img {
+    transition: transform 0.1s ease-in;
+  }
+  .image-with-caption-image-link:active img {
+    transition: transform 0.1s ease-out;
+    transform: scale(0.97);
+  }
+}
 </style>
