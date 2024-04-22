@@ -64,7 +64,7 @@ function handleSidebarShiftTab(e) {
 
 function trackSidebarClick(label) {
   // emitted mobile menu click event
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Mobile Menu',
     component: 'header',
     event_label: label,

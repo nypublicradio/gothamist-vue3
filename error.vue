@@ -64,7 +64,7 @@ function handleSidebarShown() {
 
 function trackSidebarClick(label) {
   // emitted mobile menu click event
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Mobile Menu',
     component: 'header',
     event_label: label,
@@ -77,7 +77,7 @@ onBeforeMount(() => {
   updateLiveStream(currentSteamStation.value)
 })
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'error_page' })
+  $analytics.schedulePageView({ page_type: 'error_page' })
   document.addEventListener('scroll', () => {
     atTop.value = !(window.scrollY > 0)
     // atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false
@@ -95,7 +95,7 @@ watch(route, (value) => {
 })
 
 function newsletterSubmitEvent() {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',
     event_label: 'Newsletter',

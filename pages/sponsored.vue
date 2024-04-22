@@ -32,7 +32,7 @@ useOptinMonster()
 cacheControlMaxAge.value = CacheControlAgeTime.MONTH
 
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'sponsored_article' })
+  $analytics.schedulePageView({ page_type: 'sponsored_article' })
   sensitiveContent.value = true
   $nativo.refresh()
 
@@ -48,7 +48,7 @@ onUnmounted(() => {
 })
 
 function newsletterSubmitEvent() {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',
     event_label: 'Newsletter',

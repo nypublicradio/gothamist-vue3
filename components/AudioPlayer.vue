@@ -22,7 +22,7 @@ const playerRef = ref()
 const playerHeight = ref(`${audioPlayerHeight}px`)
 /* function that updated the global useIsEpisodePlaying */
 function updateUseIsEpisodePlaying(e) {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Audio Player play toggle button',
     component: 'Audio Player',
     event_label: `playing = ${e}`,
@@ -31,7 +31,7 @@ function updateUseIsEpisodePlaying(e) {
 }
 /* function that updated the global useIsPlayerMinimized */
 function updateUseIsPlayerMinimized(e) {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Audio Player minimized',
     component: 'Audio Player',
     event_label: `minimized = ${e}`,
@@ -77,7 +77,7 @@ let isInitialPing = true
 function pingEvent() {
   const station = currentEpisodeData.value.name
   const title = currentEpisodeShow.value.title
-  $analytics.sendEvent('event_tracking', {
+  $analytics.scheduleEvent('event_tracking', {
     event_category: 'Ping',
     component: 'Audio Player',
     event_label: `${station} - ${title}`,

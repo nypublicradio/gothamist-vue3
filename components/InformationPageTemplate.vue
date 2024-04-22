@@ -8,7 +8,7 @@ defineProps<{
 const { $analytics } = useNuxtApp()
 
 function newsletterSubmitEvent() {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',
     event_label: 'Newsletter',

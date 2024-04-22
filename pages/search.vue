@@ -24,7 +24,7 @@ async function getSearchResults() {
   articles.value = await searchArticlePages({ q: query.value }).then(
     ({ data }) => normalizeSearchArticlePagesResponse(data),
   )
-  $analytics.sendEvent('event_tracking', {
+  $analytics.scheduleEvent('event_tracking', {
     event_category: 'search query',
     content_group: 'search',
     component: 'search page',
@@ -62,7 +62,7 @@ useOptinMonster()
 useCacheControlMaxAge().value = CacheControlAgeTime.FIVE_MINUTES
 
 onMounted(() => {
-  $analytics.sendPageView({ page_type: 'search_page' })
+  $analytics.schedulePageView({ page_type: 'search_page' })
   getSearchResults()
 })
 
@@ -73,7 +73,7 @@ watch(route, (value) => {
 })
 
 function newsletterSubmitEvent() {
-  $analytics.sendEvent('click_tracking', {
+  $analytics.scheduleEvent('click_tracking', {
     event_category: 'Click Tracking - Footer - Newsletter',
     component: 'footer',
     event_label: 'Newsletter',

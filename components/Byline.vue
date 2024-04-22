@@ -133,7 +133,7 @@ const commentCount = computed(() => {
             campaign: 'shared_facebook',
           }"
           @share="
-            $analytics.sendEvent('click_tracking', {
+            $analytics.scheduleEvent('click_tracking', {
               event_category: 'Click Tracking',
               component: 'Article Byline',
               event_label: 'Social Share Facebook',
@@ -152,7 +152,7 @@ const commentCount = computed(() => {
             campaign: 'shared_twitter',
           }"
           @share="
-            $analytics.sendEvent('click_tracking', {
+            $analytics.scheduleEvent('click_tracking', {
               event_category: 'Click Tracking',
               component: 'Article Byline',
               event_label: 'Social Share Twitter',
@@ -170,7 +170,7 @@ const commentCount = computed(() => {
             campaign: 'shared_reddit',
           }"
           @share="
-            $analytics.sendEvent('click_tracking', {
+            $analytics.scheduleEvent('click_tracking', {
               event_category: 'Click Tracking',
               component: 'Article Byline',
               event_label: 'Social Share Reddit',
@@ -188,7 +188,7 @@ const commentCount = computed(() => {
             campaign: 'shared_email',
           }"
           @share="
-            $analytics.sendEvent('click_tracking', {
+            $analytics.scheduleEvent('click_tracking', {
               event_category: 'Click Tracking',
               component: 'Article Byline',
               event_label: 'Social Share Email',

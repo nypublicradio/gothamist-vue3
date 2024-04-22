@@ -69,7 +69,7 @@ function openSidebar(e) {
                 campaign: 'shared_facebook',
               }"
               @share="
-                $analytics.sendEvent('click_tracking', {
+                $analytics.scheduleEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Page Header',
                   event_label: 'Social Share Facebook',
@@ -88,7 +88,7 @@ function openSidebar(e) {
                 campaign: 'shared_twitter',
               }"
               @share="
-                $analytics.sendEvent('click_tracking', {
+                $analytics.scheduleEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Page Header',
                   event_label: 'Social Share Twitter',
@@ -106,7 +106,7 @@ function openSidebar(e) {
                 campaign: 'shared_reddit',
               }"
               @share="
-                $analytics.sendEvent('click_tracking', {
+                $analytics.scheduleEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Page Header',
                   event_label: 'Social Share Reddit',
@@ -124,7 +124,7 @@ function openSidebar(e) {
                 campaign: 'shared_email',
               }"
               @share="
-                $analytics.sendEvent('click_tracking', {
+                $analytics.scheduleEvent('click_tracking', {
                   event_category: 'Click Tracking',
                   component: 'Article Page Header',
                   event_label: 'Social Share Email',

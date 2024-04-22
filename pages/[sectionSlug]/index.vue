@@ -35,13 +35,13 @@ onMounted(() => {
 
   switch (page?.type) {
     case 'information_page':
-      $analytics.sendPageView({
+      $analytics.schedulePageView({
         page_type: 'information_page',
         content_group: 'static-page',
       })
       break
     case 'section_page':
-      $analytics.sendPageView({
+      $analytics.schedulePageView({
         page_type: 'section_page',
         content_group: 'section-front',
       })
