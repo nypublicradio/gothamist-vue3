@@ -12,7 +12,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       Sentry.browserTracingIntegration({ router: nuxtApp.$router, enableInp: true }),
       Sentry.replayIntegration(),
     ],
-    tracesSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.5 : 1.0,
+    tracesSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.1 : 1.0,
     replaysSessionSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.0005 : 1.0,
     replaysOnErrorSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.001 : 1.0,
     allowUrls: [
