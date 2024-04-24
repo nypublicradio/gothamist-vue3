@@ -22,6 +22,7 @@ const article = isPreview
       `${route.params.sectionSlug}/${route.params.articleSlug}`,
     ).then(({ data }) => normalizeFindPageResponse(data),
     ).catch(() => {
+      cacheControlMaxAge.value = CacheControlAgeTime.MONTH
       throw createError({
         statusCode: 404,
         statusMessage: 'Page Not Found',
@@ -38,6 +39,8 @@ if (!isPreview && article.publicationDate) {
   const difference = now.getTime() - articleDate.getTime()
   if (difference > threeDays)
     cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
+  else
+    cacheControlMaxAge.value = CacheControlAgeTime.HOUR
 }
 
 let gallery

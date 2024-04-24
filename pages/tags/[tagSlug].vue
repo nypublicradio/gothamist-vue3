@@ -67,7 +67,7 @@ const tag = articles.value[0]?.tags.find(tag => tag.slug === tagSlug)
 const tagName = tag?.name || tag?.slug.replace(/-/g, ' ')
 useChartbeat()
 useOptinMonster()
-cacheControlMaxAge.value = CacheControlAgeTime.HOUR
+cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 
 onMounted(() => {
   $analytics.sendPageView({
