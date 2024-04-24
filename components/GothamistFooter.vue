@@ -33,9 +33,9 @@ const copyrightYear = ref(props.navigation.copyrightYear)
         </div>
         <div class="col-12 lg:col-9 xl:col-8 right p-0">
           <div class="logo-lockup">
-            <VFlexibleLink to="/" class="gothamist-logo">
-              <logo-gothamist />
-            </VFlexibleLink>
+            <NuxtLink to="/" class="gothamist-logo">
+              <LogoGothamist />
+            </NuxtLink>
             <div
               class="property-description"
               v-html="propertyDescription"
@@ -44,9 +44,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
           <div class="block lg:hidden">
             <menu-list :nav-links="props.navigation.primaryFooterLinks" />
           </div>
-          <LoadLazily>
-            <lazy-nypr-logos-bracket />
-          </LoadLazily>
+          <NyprLogosBracket />
         </div>
       </div>
       <hr class="w-full my-4">

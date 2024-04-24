@@ -127,6 +127,9 @@ export default defineNuxtConfig({
     },
   },
   ssr: Boolean(process.env.NUXT_SSR !== 'false'),
+  experimental: {
+    componentIslands: { selectiveClient: true },
+  },
   typescript: {
     strict: true,
   },
