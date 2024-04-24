@@ -77,7 +77,7 @@ function newsletterSubmitEvent() {
 
 useChartbeat()
 useOptinMonster()
-cacheControlMaxAge.value = CacheControlAgeTime.HOUR
+cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 
 onMounted(() => {
   $analytics.sendPageView({ page_type: 'staff_page' })
