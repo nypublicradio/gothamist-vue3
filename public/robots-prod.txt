@@ -1,6 +1,8 @@
 User-agent: *
 Disallow: /mt/
 Disallow: /profile/
+Disallow: /search?
+Disallow: /search/
 
 User-agent: CCBot
 Disallow: /
