@@ -1,6 +1,8 @@
 User-agent: *
 Disallow: /mt/
 Disallow: /profile/
+Disallow: /search?
+Disallow: /search/
 
 Sitemap: https://gothamist.com/sitemap.xml
 Sitemap: https://gothamist.com/sitemap-news.xml
