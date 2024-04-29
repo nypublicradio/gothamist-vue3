@@ -6,8 +6,8 @@ export default defineNuxtPlugin(() => {
     ],
     noscript: [
       {
-        children: `<iframe src=&quot;https://www.googletagmanager.com/ns.html?id=${config.public.GTM_ID}&quot;
-        height=&quot;0&quot; width=&quot;0&quot; style=&quot;display:none;visibility:hidden&quot;></iframe>`,
+        children: `<iframe src="https://www.googletagmanager.com/ns.html?id=${config.public.GTM_ID}"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
       },
     ],
   })
