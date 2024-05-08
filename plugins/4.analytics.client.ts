@@ -34,14 +34,24 @@ export default defineNuxtPlugin(() => {
     })
   }
   const scheduleEvent = (name: string, params: Record<string, string>) => {
-    requestIdleCallback(() => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        sendEvent(name, params)
+      }, { timeout: 3000 })
+    }
+    else {
       sendEvent(name, params)
-    }, { timeout: 3000 })
+    }
   }
   const schedulePageView = (params: Record<string, string>) => {
-    requestIdleCallback(() => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        sendPageView(params)
+      }, { timeout: 3000 })
+    }
+    else {
       sendPageView(params)
-    }, { timeout: 3000 })
+    }
   }
 
   return {
