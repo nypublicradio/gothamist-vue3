@@ -1,4 +1,5 @@
 import humps from 'humps'
+import { hash } from 'ohash'
 
 export function transformResponseData(data: Record<string, any>): Record<string, any> {
   return humps.camelizeKeys(data)
@@ -11,7 +12,7 @@ export default async function useAviary(path: string, options: Record<string, an
   const { payload } = useNuxtApp()
   delete payload?.path
 
-  const { data, error } = await useFetch(path, { baseURL: config.public.API_URL, ...options })
+  const { data, error } = await useFetch(path, { baseURL: config.INTERNAL_API_URL ?? config.public.API_URL, key: hash([path, options]), ...options })
     .then((response) => {
       if (process.client && response.error.value && response.error.value.statusCode !== 404) {
         const { $sentry } = useNuxtApp()

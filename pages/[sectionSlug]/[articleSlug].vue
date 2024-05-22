@@ -22,7 +22,6 @@ const article = isPreview
       `${route.params.sectionSlug}/${route.params.articleSlug}`,
     ).then(({ data }) => normalizeFindPageResponse(data),
     ).catch(() => {
-      cacheControlMaxAge.value = CacheControlAgeTime.MONTH
       throw createError({
         statusCode: 404,
         statusMessage: 'Page Not Found',
