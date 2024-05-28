@@ -34,8 +34,8 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   // kill draggable
-  if (isMobile.value)
-    Draggable.get(dragContentRef.value).kill()
+  if (isMobile.value && dragContentRef.value)
+    Draggable.get(dragContentRef.value)?.kill()
 })
 </script>
 

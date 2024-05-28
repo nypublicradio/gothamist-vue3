@@ -53,7 +53,8 @@ onMounted(() => {
   // this is a known bug: https://github.com/nuxt/framework/issues/3587
   setTimeout(() => {
     // gets the width of the submit button to set the padding right on the input field
-    submitButtonWidth.value = submitButtonRef.value.offsetWidth + 20
+    if (submitButtonRef.value)
+      submitButtonWidth.value = submitButtonRef.value.offsetWidth + 20
   }, 500)
 })
 
