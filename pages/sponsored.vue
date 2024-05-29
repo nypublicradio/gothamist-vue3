@@ -38,7 +38,7 @@ onMounted(() => {
 
   // getting title from element after the sponsored content loads
   setTimeout(() => {
-    loadedTitle.value = titleRef.value.textContent
+    loadedTitle.value = titleRef.value?.textContent
   }, 1000)
   isMounted.value = true
 })
