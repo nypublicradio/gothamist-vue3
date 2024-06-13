@@ -68,6 +68,9 @@ const isMounted = ref(false)
 
 useHead({
   title: `${article.seoTitle} - Gothamist`,
+  link: [
+    { rel: 'canonical', href: article?.url },
+  ],
 })
 if (article.preventSearchIndexing) {
   useServerHead({

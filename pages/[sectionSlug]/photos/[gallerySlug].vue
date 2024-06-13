@@ -35,6 +35,9 @@ const article = gallery.relatedArticles?.[0]
 
 useHead({
   title: `${article.seoTitle} - Gothamist`,
+  link: [
+    { rel: 'canonical', href: gallery?.url },
+  ],
 })
 useServerHead(headMetadata)
 useChartbeat({

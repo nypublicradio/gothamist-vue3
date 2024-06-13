@@ -39,6 +39,10 @@ const newsletterSignup = useNewsletterSignup({
   source: 'gothamist_newsletter_landing_page',
 })
 cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
+
+useHead({
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/newsletters` }],
+})
 </script>
 
 <template>

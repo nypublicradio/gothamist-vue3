@@ -44,16 +44,16 @@ async function loadMoreArticles() {
 }
 
 const pageTitle = () => querySlug.value ? `Search Results for "${querySlug.value}" | Gothamist` : 'Search | Gothamist'
-
+useHead({
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/search` }],
+})
 useHeadSafe({
   title: pageTitle,
 })
 useServerHeadSafe({
   meta: [{ property: 'og:title', content: pageTitle }],
 })
-useServerHead({
-  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/search` }],
-})
+
 if (query.value)
   useServerHead({ meta: [{ name: 'robots', content: 'noindex' }] })
 

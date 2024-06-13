@@ -104,10 +104,10 @@ function newsletterSubmitEvent() {
 const pageTitle = `Articles about ${tagName} | Gothamist`
 useHead({
   title: curatedTagPage?.seoTitle || pageTitle,
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/tags/${tagSlug}` }],
 })
 useServerHead({
   meta: [{ property: 'og:title', content: curatedTagPage?.socialTitle || pageTitle }],
-  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/tags/${tagSlug}` }],
 })
 if (!curatedTagPage || curatedTagPage.preventSearchIndexing)
   useServerHead({ meta: [{ name: 'robots', content: 'noindex' }] })

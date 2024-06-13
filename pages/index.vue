@@ -64,6 +64,10 @@ const riverSegments = computed(() => {
   return segments
 })
 
+useHead({
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/` }],
+})
+
 async function loadMoreArticles() {
   const loadMoreOffset = latestArticles.value.length
 

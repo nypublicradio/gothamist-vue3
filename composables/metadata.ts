@@ -141,9 +141,6 @@ function useArticlePageStructuredData(article: ArticlePage): Record<string, unkn
 function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: string, content: string } | { property: string, content: string })[] } {
   const config = useRuntimeConfig()
   const metadata = {
-    link: [
-      { rel: 'canonical', href: article?.url },
-    ],
     meta: [
       { property: 'og:title', content: article.socialTitle },
       { property: 'og:description', content: article.socialDescription },
@@ -185,9 +182,6 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
 function useGalleryPageHeadMetadata(gallery: GalleryPage): { meta: ({ name: string, content: string } | { property: string, content: string })[] } {
   const config = useRuntimeConfig()
   const metadata = {
-    link: [
-      { rel: 'canonical', href: gallery?.url },
-    ],
     meta: [
       { property: 'og:title', content: `${gallery.socialTitle} - Photo Gallery - Gothamist` },
       { property: 'og:description', content: gallery.socialDescription },
