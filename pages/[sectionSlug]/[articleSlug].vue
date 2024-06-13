@@ -68,6 +68,9 @@ const isMounted = ref(false)
 
 useHead({
   title: article.seoTitle ? `${article.seoTitle} - Gothamist` : `${article.title} - Gothamist`,
+  link: [
+    { rel: 'canonical', href: article?.url },
+  ],
 })
 
 useServerHead(headMetadata)
