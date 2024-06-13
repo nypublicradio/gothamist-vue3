@@ -92,10 +92,10 @@ const authorName = authorProfileData?.name || getAuthorNameFromSlug()
 const pageTitle = `Articles by ${authorName} | Gothamist`
 useHead({
   title: pageTitle,
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/staff/${staffSlug}` }],
 })
 useServerHead({
   meta: [{ property: 'og:title', content: pageTitle }],
-  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/staff/${staffSlug}` }],
 })
 </script>
 
