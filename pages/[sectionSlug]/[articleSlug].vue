@@ -70,12 +70,6 @@ useHead({
   title: article.seoTitle ? `${article.seoTitle} - Gothamist` : `${article.title} - Gothamist`,
 })
 
-if (article.preventSearchIndexing) {
-  useServerHead({
-    meta: [{ name: 'robots', content: 'noindex' }],
-  })
-}
-
 useServerHead(headMetadata)
 if (topImage) {
   usePreloadResponsiveImage(
