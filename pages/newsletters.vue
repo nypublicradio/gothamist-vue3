@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
+const config = useRuntimeConfig()
+
 const newsletters = [
   {
     title: 'Early Addition',
