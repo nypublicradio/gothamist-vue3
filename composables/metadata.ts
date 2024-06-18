@@ -175,7 +175,7 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
   else if (article.preventSearchIndexing) {
     metadata.meta.push({
       name: 'robots',
-      content: 'noindex,nofollow',
+      content: 'noindex',
     })
   }
   else {
