@@ -43,7 +43,7 @@ workflows:
           tag: demo
           cpu: 256
           memory: 512
-          purge: '{\"files\": [\"https://demo.gothamist.com\"]}'
+          purge: '{"files": ["https://demo.gothamist.com"]}'
           requires:
             - test_eslint
             - test_nginx
