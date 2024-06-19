@@ -54,7 +54,7 @@ workflows:
           env: prod
           cpu: 1024
           memory: 2048
-          purge: '{"purge_everything": true}'
+          purge: '{\"purge_everything\": true}'
           <<: *filter_prod
           requires:
             - test_eslint
