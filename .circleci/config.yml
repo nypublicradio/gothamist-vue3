@@ -163,6 +163,7 @@ jobs:
             ROLE: gothamist-vue3-<<parameters.env>>
             CPU: <<parameters.cpu>>
             MEMORY: <<parameters.memory>>
+            PURGE: <<parameters.purge>>
           command: |
             TAG=${TAG:-$CIRCLE_TAG}
 
