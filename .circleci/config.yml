@@ -43,7 +43,7 @@ workflows:
           tag: demo
           cpu: 256
           memory: 512
-          purge: '{"files": ["https://demo.gothamist.com"]}'
+          purge: '{\"files\": [\"https://demo.gothamist.com\"]}'
           requires:
             - test_eslint
             - test_nginx
@@ -189,7 +189,7 @@ jobs:
 
               curl --request POST \
                 --url https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache \
-                --header 'Content-Type: application/json' \
+                --header "Content-Type: application/json" \
                 --header "Authorization: Bearer $CLOUDFLARE_PURGE_KEY" \
                 --data "$PURGE"
 
