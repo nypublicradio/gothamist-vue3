@@ -150,6 +150,9 @@ jobs:
       memory:
         type: integer
         default: 512
+      purge:
+        type: string
+        default: ''
     steps:
       - checkout
       - setup_npmrc
