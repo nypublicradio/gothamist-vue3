@@ -43,6 +43,7 @@ workflows:
           tag: demo
           cpu: 256
           memory: 512
+          purge: '{"files": ["https://demo.gothamist.com"]}'
           requires:
             - test_eslint
             - test_nginx
@@ -53,6 +54,7 @@ workflows:
           env: prod
           cpu: 1024
           memory: 2048
+          purge: '{"purge_everything": true}'
           <<: *filter_prod
           requires:
             - test_eslint
@@ -148,6 +150,9 @@ jobs:
       memory:
         type: integer
         default: 512
+      purge:
+        type: string
+        default: ''
     steps:
       - checkout
       - setup_npmrc
@@ -161,6 +166,7 @@ jobs:
             ROLE: gothamist-vue3-<<parameters.env>>
             CPU: <<parameters.cpu>>
             MEMORY: <<parameters.memory>>
+            PURGE: <<parameters.purge>>
           command: |
             TAG=${TAG:-$CIRCLE_TAG}
 
@@ -180,6 +186,12 @@ jobs:
               --environment=$ENV \
               --tag=$TAG \
               --wait=300
+
+              curl --request POST \
+                --url https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache \
+                --header "Content-Type: application/json" \
+                --header "Authorization: Bearer $CLOUDFLARE_PURGE_KEY" \
+                --data "$PURGE"
 
 commands:
   setup_npmrc:
