@@ -145,6 +145,7 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
       { rel: 'canonical', href: article?.url },
     ],
     meta: [
+      { name: 'description', content: article.searchDescription || article.description },
       { property: 'og:title', content: article.socialTitle },
       { property: 'og:description', content: article.socialDescription },
       { property: 'og:url', content: article.url },
