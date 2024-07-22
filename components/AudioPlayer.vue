@@ -43,12 +43,16 @@ const currentEpisodeData = computed(
   () => currentEpisode.value.data[0].attributes,
 )
 const currentEpisodeImage = computed(
-  () =>
-    currentEpisode.value.included?.find(include => include.type === 'image')?.attributes,
+  () => {
+    const image = currentEpisode.value.included.find(include => include.type === 'image')
+    return image?.attributes
+  },
 )
 const currentEpisodeShow = computed(
-  () =>
-    currentEpisode.value.included?.find(include => include.type === 'show')?.attributes,
+  () => {
+    const show = currentEpisode.value.included.find(include => include.type === 'show')
+    return show?.attributes
+  },
 )
 
 let delay = 0
