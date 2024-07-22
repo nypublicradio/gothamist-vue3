@@ -116,11 +116,11 @@ watch(isEpisodePlaying, (e) => {
         class="player"
         :auto-play="true"
         :livestream="true"
-        :title="currentEpisodeShow.title ?? currentAiring.title ?? currentEpisodeData.name"
+        :title="currentEpisodeShow.title ?? currentAiring.title ?? currentEpisodeData?.name"
         :title-link="currentEpisodeShow.url ?? currentAiring.href"
         :station="currentEpisodeData.name"
-        :description="currentEpisodeShow?.featured?.title ?? currentAiring.description ?? currentEpisodeData['short-description']"
-        :image="currentEpisodeImage.url ?? currentEpisodeData['image-logo']"
+        :description="currentEpisodeShow?.featured?.title ?? currentAiring.description ?? currentEpisodeData?.['short-description']"
+        :image="currentEpisodeImage.url ?? currentEpisodeData?.['image-logo'].url"
         :file="currentEpisodeData['mobile-mp3']"
         :show-skip="false"
         :can-minimize="true"
@@ -145,5 +145,15 @@ watch(isEpisodePlaying, (e) => {
 .player-enter-from,
 .player-leave-to {
   transform: translateY(v-bind(playerHeight));
+}
+
+.track-info .track-info-details .track-info-title div.h2 {
+    box-sizing: border-box;
+    font-size: var(--font-size-9);
+    font-weight: 500;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 </style>
