@@ -1,8 +1,7 @@
 <script setup>
 // had to install howler.js locally and add this import to stop it from breaking the build
 // skipcq JS-0128
-// eslint-disable-next-line  unused-imports/no-unused-imports
-import { Howl, Howler } from 'howler'
+
 import VPersistentPlayer from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VPersistentPlayer.vue'
 import {
   audioPlayerHeight,
@@ -45,13 +44,11 @@ const currentEpisodeData = computed(
 )
 const currentEpisodeImage = computed(
   () =>
-    currentEpisode.value.included.find(include => include.type === 'image')
-      .attributes,
+    currentEpisode.value.included?.find(include => include.type === 'image')?.attributes,
 )
 const currentEpisodeShow = computed(
   () =>
-    currentEpisode.value.included.find(include => include.type === 'show')
-      .attributes,
+    currentEpisode.value.included?.find(include => include.type === 'show')?.attributes,
 )
 
 let delay = 0
