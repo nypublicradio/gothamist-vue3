@@ -55,7 +55,12 @@ const currentEpisodeShow = computed(
     return show ? show.attributes : {}
   },
 )
-
+const currentAiring = computed(
+  () => {
+    const airing = currentEpisode.value.included.find(include => include.type === 'airing')
+    return airing ? airing.attributes : {}
+  },
+)
 let delay = 0
 // function that handles the logic for the persistent player to show and hide when the user changes the episode
 function switchEpisode() {
@@ -111,10 +116,10 @@ watch(isEpisodePlaying, (e) => {
         class="player"
         :auto-play="true"
         :livestream="true"
-        :title="currentEpisodeShow.title"
+        :title="currentEpisodeShow.title ?? currentAiring.title"
         :title-link="currentEpisodeShow.url"
         :station="currentEpisodeData.name"
-        :description="currentEpisodeShow?.featured?.title"
+        :description="currentEpisodeShow?.featured?.title ?? currentAiring.description"
         :image="currentEpisodeImage.url || currentEpisodeData['image-logo']"
         :file="currentEpisodeData['mobile-mp3']"
         :show-skip="false"
