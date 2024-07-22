@@ -1,7 +1,7 @@
 <script setup>
 // had to install howler.js locally and add this import to stop it from breaking the build
 // skipcq JS-0128
-// eslint-disable-next-line  unused-imports/no-unused-imports
+// eslint-disable-next-line unused-imports/no-unused-imports
 import { Howl, Howler } from 'howler'
 import VPersistentPlayer from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VPersistentPlayer.vue'
 import {
@@ -116,11 +116,11 @@ watch(isEpisodePlaying, (e) => {
         class="player"
         :auto-play="true"
         :livestream="true"
-        :title="currentEpisodeShow.title ?? currentAiring.title"
-        :title-link="currentEpisodeShow.url"
+        :title="currentEpisodeShow.title ?? currentAiring.title ?? currentEpisodeData.name"
+        :title-link="currentEpisodeShow.url ?? currentAiring.href"
         :station="currentEpisodeData.name"
-        :description="currentEpisodeShow?.featured?.title ?? currentAiring.description"
-        :image="currentEpisodeImage.url || currentEpisodeData['image-logo']"
+        :description="currentEpisodeShow?.featured?.title ?? currentAiring.description ?? currentEpisodeData['short-description']"
+        :image="currentEpisodeImage.url ?? currentEpisodeData['image-logo']"
         :file="currentEpisodeData['mobile-mp3']"
         :show-skip="false"
         :can-minimize="true"
