@@ -110,10 +110,10 @@ function handleArticleMounted(el) {
   const element = el.value
   let landmarks = useStreamfieldLandmarks(element)
   do {
-    const adTarget = landmarks[Math.min(landmarks.length - 1, 5)].node
+    const adTarget = landmarks[Math.min(landmarks.length - 1, 6)].node
     useInsertAd(adTarget)
-    landmarks = landmarks.slice(6)
-  } while (landmarks.length > 6)
+    landmarks = landmarks.slice(7)
+  } while (landmarks.length > 7)
 
   Array.from(element.querySelectorAll('[data-optin-monster-id]')).forEach((div: HTMLElement) => {
     if (div.parentElement)
