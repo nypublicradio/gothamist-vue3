@@ -40,10 +40,10 @@ const emit = defineEmits(['menu-list-click'])
     flex-direction: column;
     gap: 0.5rem;
     flex-wrap: wrap;
+    width: 225px;
     @include media('<md') {
       gap: 1rem;
     }
-    width: 225px;
     @include media('>lg') {
       width: 300px;
     }

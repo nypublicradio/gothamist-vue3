@@ -45,14 +45,16 @@ useTrackSeen(contentWallRef, handleSeen)
   <style lang="scss">
   .content-wall {
     --content-wall-height: 650px;
+    position: relative;
     @media only screen and (min-width: 410px) {
       --content-wall-height: 600px;
     }
     @media only screen and (min-width: 440px) {
       --content-wall-height: 550px;
     }
-    position: relative;
-    min-height: var(--content-wall-height);
+    & {
+      min-height: var(--content-wall-height);
+    }
   }
   .leadin  {
     max-height: var(--content-wall-height);
