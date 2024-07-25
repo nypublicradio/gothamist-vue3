@@ -33,12 +33,14 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   css: [
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/fonts/fonts.css',
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/gothamist.min.css',
     'primevue/resources/primevue.min.css',
     'primeicons/primeicons.css',
   ],
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -73,27 +75,32 @@ export default defineNuxtConfig({
         }),
     ],
   },
+
   sourcemap: {
     client: true,
     server: true,
   },
+
   imports: {
     dirs: [
       'composables', // top-level modules
       'composables/*/index.{ts,js,mjs,mts}', // one level directories's index.js
     ],
   },
+
   components: [
     {
       path: '~/components',
     },
   ],
+
   build: {
     transpile: [
       'primevue',
       'gsap',
     ],
   },
+
   runtimeConfig: {
     INTERNAL_API_URL: process.env.INTERNAL_API_URL ?? 'https://cms.demo.nypr.digital/api/v2',
     public: {
@@ -127,8 +134,12 @@ export default defineNuxtConfig({
       OPTIN_MONSTER_ARTICLE_CAMPAIGN_ID: 'om-e0aehkmwfjzwwqry7sim-holder',
     },
   },
+
   ssr: Boolean(process.env.NUXT_SSR !== 'false'),
+
   typescript: {
     strict: true,
   },
+
+  compatibilityDate: '2024-07-25',
 })
