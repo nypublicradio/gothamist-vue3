@@ -150,11 +150,11 @@ watch(newsletterSignup.isSuccess, (value) => {
   text-align: left;
   font-size: var(--font-size-11);
   padding-bottom: 8px;
+  padding-right: 4rem;
   @include media(">large") {
     padding-bottom: 0px;
     font-size: var(--font-size-14);
   }
-  padding-right: 4rem;
 }
 a.regwall-link {
   font-family: var(--font-family-header);
@@ -165,10 +165,10 @@ a.regwall-link {
   line-height: 1.2;
   font-size: var(--font-size-6);
   padding-bottom: 8px;
+  padding-right: 4rem;
   @include media(">large") {
     font-size: var(--font-size-6);
   }
-  padding-right: 4rem;
 }
 .regwall .email-collector-form .field-checkbox label {
   font-size: var(--font-size-5);

@@ -244,8 +244,8 @@ function goBack() {
 .sectionSlug-photos-gallerySlug
   .image-with-caption
   .image-with-caption-credit-link {
-  @include font-config($type-fineprint);
   color: var(--black400) !important;
   margin-top: 0.5rem;
+  @include font-config($type-fineprint);
 }
 </style>
