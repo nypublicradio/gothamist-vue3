@@ -34,7 +34,7 @@
     "@antfu/eslint-config": "^1.0.0-beta.24",
     "@sentry/vite-plugin": "^2.10.2",
     "axe-core": "^4.9.0",
-    "cypress": "^13.7.2",
+    "cypress": "^13.13.1",
     "cypress-axe": "^1.5.0",
     "eslint": "^8.51.0",
     "lint-staged": "^14.0.1",
