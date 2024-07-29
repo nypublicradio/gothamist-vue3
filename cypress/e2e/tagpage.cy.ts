@@ -1,4 +1,4 @@
-import { axeConfig } from '../support/config'
+import { axeConfig, logViolations } from '../support/config'
 
 describe('A tag page', () => {
   beforeEach(() => {
@@ -67,6 +67,6 @@ describe('A tag page', () => {
     cy.visit('/tags/dogs')
     cy.wait(['@tagPage', '@tagArticles'])
     cy.injectAxe()
-    cy.checkA11y(null, axeConfig)
+    cy.checkA11y(null, axeConfig, logViolations)
   })
 })
