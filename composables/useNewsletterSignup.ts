@@ -1,3 +1,4 @@
+import { computed, ref } from 'vue'
 import type { MaybeRefOrGetter } from 'vue'
 
 export default function useNewsletterSignup(options: {
