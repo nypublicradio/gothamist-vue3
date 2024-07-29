@@ -1,4 +1,4 @@
-import { axeConfig } from '../support/config'
+import { axeConfig, logViolations } from '../support/config'
 
 describe('The newsletter page', () => {
   beforeEach(() => {
@@ -55,6 +55,6 @@ describe('The newsletter page', () => {
   it('Has no detectable a11y violations on load', () => {
     cy.visit('/newsletters')
     cy.injectAxe()
-    cy.checkA11y(null, axeConfig)
+    cy.checkA11y(null, axeConfig, logViolations)
   })
 })
