@@ -2,6 +2,10 @@ export const axeConfig = {
   retries: 3,
   interval: 500,
   includedImpacts: ['critical', 'serious'],
+  rules: {
+    // triggered by inserted nativo iframes that we can't control
+    'frame-title': { enabled: false },
+  },
 }
 
 export function logViolations(violations) {
