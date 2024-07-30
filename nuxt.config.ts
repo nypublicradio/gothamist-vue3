@@ -47,6 +47,23 @@ export default defineNuxtConfig({
         scss: {
           // besure to mirror theses imports in the vitest.config.ts
           additionalData: '@import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/breakpoints.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/_mixins.scss"; @import "@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/typography.scss"; @import "~/assets/scss/global.scss";',
+          logger: {
+            warn(message, options) {
+              const { stderr } = process
+              // ignore deprecation warnings from nypr-design-system-vue3
+              if (!options.stack.toString().includes('nypr-design-system-vue3')) {
+                stderr.write('\n')
+                if (options.deprecation)
+                  stderr.write('Deprecation ')
+                stderr.write(`Warning: ${message}\n`)
+                if (options.span !== undefined)
+                  stderr.write(`\n>>>  "${options.span.text}"\n`)
+                if (options.stack !== undefined)
+                  stderr.write(`    ${options.stack.toString().trimEnd().replace(/\n/gm, '\n    ')}\n`)
+                stderr.write('\n')
+              }
+            },
+          },
         },
       },
       postcss: {
