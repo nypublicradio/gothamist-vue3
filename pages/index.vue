@@ -4,6 +4,8 @@ import { useUpdateCommentCounts } from '~~/composables/comments'
 import type { ArticlePage } from '~~/composables/types/Page'
 import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
+const config = useRuntimeConfig()
+
 const riverStoryCount = ref(6)
 const riverAdOffset = ref(2)
 const riverAdRepeatRate = ref(6)
@@ -62,6 +64,10 @@ const riverSegments = computed(() => {
     segments.push(riverCopy.splice(0, riverStoryCount.value))
 
   return segments
+})
+
+useHead({
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/` }],
 })
 
 async function loadMoreArticles() {

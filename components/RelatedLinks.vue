@@ -17,6 +17,8 @@ const trackingComponent = 'Related Links'
 
 async function getRelatedPage(item) {
   const pageResponse = await usePageById(item.value.page)
+  if (pageResponse.error?.value?.statusCode === 404)
+    return null
   const page = normalizeFindPageResponse(pageResponse.data)
   const link = ('link' in page && page.link) || ('url' in page && page.url)
   return {
@@ -44,7 +46,7 @@ function getRelatedItem(item: NavigationLink) {
 
 const limit = ref(Math.max(props.article.relatedLinks.length, props.limit))
 
-const relatedLinks = await Promise.all(props.article.relatedLinks.slice(0, limit.value).map(getRelatedItem))
+const relatedLinks = await Promise.all(props.article.relatedLinks.slice(0, limit.value).map(getRelatedItem)).then(items => items.filter(item => item))
 </script>
 
 <template>

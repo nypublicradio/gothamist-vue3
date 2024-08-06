@@ -16,10 +16,10 @@ const pageTitle = `${props.page.title} | Gothamist | News For New Yorkers`
 
 useHead({
   title: pageTitle,
+  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/${sectionSlug.value}` }],
 })
 useServerHead({
   meta: [{ property: 'og:title', content: pageTitle }],
-  link: [{ rel: 'canonical', href: `https://${config.public.CANONICAL_HOST}/${sectionSlug.value}` }],
 })
 const initialArticles = await findArticlePages({
   sponsored_content: false,
