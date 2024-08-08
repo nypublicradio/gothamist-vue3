@@ -6,7 +6,7 @@ export default antfu({
   vue: true,
   ignores: [
     'api.json',
-    'assets/gsap/**',
+    'app/assets/gsap/**',
     'cf_functions/**',
     'cypress/fixtures/**',
     'node_modules/**',
