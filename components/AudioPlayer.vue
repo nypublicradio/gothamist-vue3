@@ -1,7 +1,7 @@
 <script setup>
 // had to install howler.js locally and add this import to stop it from breaking the build
 // skipcq JS-0128
-// eslint-disable-next-line  unused-imports/no-unused-imports
+// eslint-disable-next-line unused-imports/no-unused-imports
 import { Howl, Howler } from 'howler'
 import VPersistentPlayer from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VPersistentPlayer.vue'
 import {
@@ -44,16 +44,23 @@ const currentEpisodeData = computed(
   () => currentEpisode.value.data[0].attributes,
 )
 const currentEpisodeImage = computed(
-  () =>
-    currentEpisode.value.included.find(include => include.type === 'image')
-      .attributes,
+  () => {
+    const image = currentEpisode.value.included.find(include => include.type === 'image')
+    return image ? image.attributes : {}
+  },
 )
 const currentEpisodeShow = computed(
-  () =>
-    currentEpisode.value.included.find(include => include.type === 'show')
-      .attributes,
+  () => {
+    const show = currentEpisode.value.included.find(include => include.type === 'show')
+    return show ? show.attributes : {}
+  },
 )
-
+const currentAiring = computed(
+  () => {
+    const airing = currentEpisode.value.included.find(include => include.type === 'airing')
+    return airing ? airing.attributes : {}
+  },
+)
 let delay = 0
 // function that handles the logic for the persistent player to show and hide when the user changes the episode
 function switchEpisode() {
@@ -109,11 +116,11 @@ watch(isEpisodePlaying, (e) => {
         class="player"
         :auto-play="true"
         :livestream="true"
-        :title="currentEpisodeShow.title"
-        :title-link="currentEpisodeShow.url"
+        :title="currentEpisodeShow.title ?? currentAiring.title ?? currentEpisodeData?.name"
+        :title-link="currentEpisodeShow.url ?? currentAiring.href"
         :station="currentEpisodeData.name"
-        :description="currentEpisodeShow?.featured?.title"
-        :image="currentEpisodeImage.url || currentEpisodeData['image-logo']"
+        :description="currentEpisodeShow?.featured?.title ?? currentAiring.description ?? currentEpisodeData?.['short-description']"
+        :image="currentEpisodeImage.url ?? currentEpisodeData?.['image-logo']"
         :file="currentEpisodeData['mobile-mp3']"
         :show-skip="false"
         :can-minimize="true"
@@ -138,5 +145,15 @@ watch(isEpisodePlaying, (e) => {
 .player-enter-from,
 .player-leave-to {
   transform: translateY(v-bind(playerHeight));
+}
+
+.track-info .track-info-details .track-info-title div.h2 {
+    box-sizing: border-box;
+    font-size: var(--font-size-9);
+    font-weight: 500;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 </style>
