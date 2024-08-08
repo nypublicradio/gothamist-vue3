@@ -1,6 +1,9 @@
 import { sentryVitePlugin } from '@sentry/vite-plugin'
 
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
   app: {
     pageTransition: false,
     layoutTransition: false,
