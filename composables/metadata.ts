@@ -1,5 +1,7 @@
 import type { ArticlePage, GalleryPage } from './types/Page'
 
+const META_TAG_PRIORITY = 2
+
 // Get tracking values for GA for an article
 function useArticlePageTrackingData(article: ArticlePage): Record<string, string> {
   return {
@@ -142,15 +144,15 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
   const config = useRuntimeConfig()
   const metadata = {
     meta: [
-      { name: 'description', content: article.searchDescription || article.description },
-      { property: 'og:title', content: article.socialTitle },
-      { property: 'og:description', content: article.socialDescription },
-      { property: 'og:url', content: article.url },
-      { property: 'og:image', content: useImageUrl(article.socialImage, { width: 1200, height: 650, quality: 85 }) || config.public.OG_IMAGE },
-      { property: 'og:image:width', content: '1200' },
-      { property: 'og:image:height', content: '650' },
-      { property: 'og:image:alt', content: article.socialImage?.alt },
-      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'description', content: article.searchDescription || article.description, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:title', content: article.socialTitle, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:description', content: article.socialDescription, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:url', content: article.url, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image', content: useImageUrl(article.socialImage, { width: 1200, height: 650, quality: 85 }) || config.public.OG_IMAGE, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image:width', content: '1200', tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image:height', content: '650', tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image:alt', content: article.socialImage?.alt, tagPriority: META_TAG_PRIORITY },
+      { name: 'twitter:card', content: 'summary_large_image', tagPriority: META_TAG_PRIORITY },
       { name: 'article:published_time', content: article.publicationDate?.toISOString() },
       { name: 'article:modified_time', content: article.updatedDate?.toISOString() ?? '' },
       { name: 'article:section', content: article.section.name },
@@ -180,6 +182,7 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
     metadata.meta.push({
       name: 'robots',
       content: 'max-image-preview:large',
+      tagPriority: META_TAG_PRIORITY,
     })
   }
   return metadata
@@ -190,14 +193,14 @@ function useGalleryPageHeadMetadata(gallery: GalleryPage): { meta: ({ name: stri
   const config = useRuntimeConfig()
   const metadata = {
     meta: [
-      { property: 'og:title', content: `${gallery.socialTitle} - Photo Gallery - Gothamist` },
-      { property: 'og:description', content: gallery.socialDescription },
-      { property: 'og:url', content: gallery.url },
-      { property: 'og:image', content: useImageUrl(gallery.socialImage, { width: 1200, height: 650, quality: 85 }) || config.public.OG_IMAGE },
-      { property: 'og:image:width', content: '1200' },
-      { property: 'og:image:height', content: '650' },
-      { property: 'og:image:alt', content: gallery.socialImage?.alt },
-      { name: 'twitter:card', content: 'summary_large_image' },
+      { property: 'og:title', content: `${gallery.socialTitle} - Photo Gallery - Gothamist`, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:description', content: gallery.socialDescription, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:url', content: gallery.url, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image', content: useImageUrl(gallery.socialImage, { width: 1200, height: 650, quality: 85 }) || config.public.OG_IMAGE, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image:width', content: '1200', tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image:height', content: '650', tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image:alt', content: gallery.socialImage?.alt, tagPriority: META_TAG_PRIORITY },
+      { name: 'twitter:card', content: 'summary_large_image', tagPriority: META_TAG_PRIORITY },
     ],
   }
   return metadata
