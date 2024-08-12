@@ -27,6 +27,7 @@ const sensitiveContent = useSensitiveContent()
 const fixedHeaderVisible = useFixedHeaderVisible()
 const sidebarOpen = useSidebarIsOpen()
 const sidebarOpenedFrom = useSidebarOpenedFrom()
+const META_TAG_PRIORITY = 2
 function closeSidebar() {
   sidebarOpen.value = false
 }
@@ -113,6 +114,7 @@ useHead({
     {
       name: 'description',
       content: 'Gothamist is a non-profit local newsroom, powered by WNYC.',
+      tagPriority: META_TAG_PRIORITY,
     },
   ],
   link: [
@@ -143,28 +145,31 @@ if (isSponsoredRoute) {
 else {
   useServerHead({
     meta: [
-      { property: 'og:site_name', content: 'Gothamist' },
-      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: 'Gothamist', tagPriority: META_TAG_PRIORITY },
+      { property: 'og:type', content: 'website', tagPriority: META_TAG_PRIORITY },
       {
         property: 'og:url',
         content: `https://www.gothamist.com${route.fullPath}`,
+        tagPriority: META_TAG_PRIORITY,
       },
       {
         property: 'og:title',
         content: 'Gothamist: New York City Local News, Food, Arts & Events',
+        tagPriority: META_TAG_PRIORITY,
       },
-      { property: 'og:site_name', content: 'Gothamist' },
+      { property: 'og:site_name', content: 'Gothamist', tagPriority: META_TAG_PRIORITY },
       {
         property: 'og:description',
         content: 'Gothamist is a non-profit local newsroom, powered by WNYC.',
+        tagPriority: META_TAG_PRIORITY,
       },
-      { property: 'og:image', content: config.public.OG_IMAGE },
-      { property: 'og:locale', content: 'en_US' },
-      { property: 'og:image:width', content: '1200' },
-      { property: 'og:image:height', content: '650' },
-      { property: 'fb:app_id', content: '151261804904925' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:site', content: '@gothamist' },
+      { property: 'og:image', content: config.public.OG_IMAGE, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:locale', content: 'en_US', tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image:width', content: '1200', tagPriority: META_TAG_PRIORITY },
+      { property: 'og:image:height', content: '650', tagPriority: META_TAG_PRIORITY },
+      { property: 'fb:app_id', content: '151261804904925', tagPriority: META_TAG_PRIORITY },
+      { name: 'twitter:card', content: 'summary_large_image', tagPriority: META_TAG_PRIORITY },
+      { name: 'twitter:site', content: '@gothamist', tagPriority: META_TAG_PRIORITY },
     ],
   })
 }
