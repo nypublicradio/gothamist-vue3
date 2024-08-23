@@ -78,7 +78,7 @@ workflows:
           name: Purge (prod)
           context: AWS Deploy
           <<: *filter_prod
-          purge: '{"purge_everything": true}'
+          purge_files: '{"purge_everything": true}'
           requires:
             - Deploy (prod)
 
