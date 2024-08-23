@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  nypr-deploy: nypr/nypr-deploy@0.0.46
+
 filter_all: &filter_all
   filters:
     branches:
@@ -36,30 +39,48 @@ workflows:
           <<: *filter_all
           requires:
             - build
-      - deploy:
+      - nypr-deploy/build_and_deploy:
           name: Deploy (demo)
           context: AWS Deploy
           <<: *filter_demo
-          tag: demo
+          env: demo
+          repo: gothamist-vue3
+          service: gothamist-vue3
+          cluster: gothamist-vue3
           cpu: 256
           memory: 512
-          purge: '{"files": ["https://demo.gothamist.com"]}'
           requires:
             - test_eslint
             - test_nginx
             - test_cypress
-      - deploy:
+      - nypr-deploy/build_and_deploy:
           name: Deploy (prod)
           context: AWS Deploy
           env: prod
+          repo: gothamist-vue3
+          service: gothamist-vue3
+          cluster: gothamist-vue3
           cpu: 1024
           memory: 2048
-          purge: '{"purge_everything": true}'
           <<: *filter_prod
           requires:
             - test_eslint
             - test_nginx
             - test_cypress
+      - purge:
+          name: Purge (demo)
+          context: AWS Deploy
+          <<: *filter_demo
+          purge_files: '{"files": ["https://demo.gothamist.com"]}'
+          requires:
+            - Deploy (demo)
+      - purge:
+          name: Purge (prod)
+          context: AWS Deploy
+          <<: *filter_prod
+          purge: '{"purge_everything": true}'
+          requires:
+            - Deploy (prod)
 
 jobs:
   # Note (allie): This is its own job because I don't
@@ -133,65 +154,24 @@ jobs:
             cp ./nginx/*.conf /etc/nginx/
             nginx -t
 
-  deploy:
+  purge:
     docker:
       - image: circleci/python:3.8
     parameters:
-      env:
-        type: enum
-        default: demo
-        enum: [demo, prod]
-      tag:
-        type: string
-        default: ''
-      cpu:
-        type: integer
-        default: 256
-      memory:
-        type: integer
-        default: 512
-      purge:
+      purge_files:
         type: string
         default: ''
     steps:
-      - checkout
-      - setup_npmrc
-      - setup_remote_docker:
-          version: 20.10.12
       - run:
-          name: Deploy
+          name: Purge Cloudflare
           environment:
-            ENV: <<parameters.env>>
-            TAG: <<parameters.tag>>
-            ROLE: gothamist-vue3-<<parameters.env>>
-            CPU: <<parameters.cpu>>
-            MEMORY: <<parameters.memory>>
-            PURGE: <<parameters.purge>>
+            PURGE: <<parameters.purge_files>>
           command: |
-            TAG=${TAG:-$CIRCLE_TAG}
-
-            python3 -m venv ~/.venv
-            source ~/.venv/bin/activate
-            pip3 install -U git+https://github.com/nypublicradio/nyprsetuptools.git
-
-            nyprsetuptools DockerDeploy \
-              --fargate \
-              --cpu=$CPU \
-              --memory-reservation=$MEMORY \
-              --ecr-repository=gothamist-vue3 \
-              --ecs-cluster=gothamist-vue3 \
-              --ports=80 \
-              --execution-role=$ROLE \
-              --task-role=$ROLE \
-              --environment=$ENV \
-              --tag=$TAG \
-              --wait=300
-
-              curl --request POST \
-                --url https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache \
-                --header "Content-Type: application/json" \
-                --header "Authorization: Bearer $CLOUDFLARE_PURGE_KEY" \
-                --data "$PURGE"
+            curl --request POST \
+              --url https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache \
+              --header "Content-Type: application/json" \
+              --header "Authorization: Bearer $CLOUDFLARE_PURGE_KEY" \
+              --data "$PURGE"
 
 commands:
   setup_npmrc:
