@@ -1,17 +1,4 @@
 //prime-flex gap does not work for some reason, so I am adding the helpfull classes here
-$flexGaps: (
-  0: 0rem,
-  125: 0.125rem,
-  1: 0.25rem,
-  2: 0.5rem,
-  3: 1rem,
-  4: 1.5rem,
-  5: 2rem,
-  6: 3rem,
-  7: 4rem,
-  8: 5rem,
-);
-
 @each $key, $value in $flexGaps {
   .gap-#{$key} {
     gap: $value;

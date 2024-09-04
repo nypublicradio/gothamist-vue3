@@ -1,13 +1,5 @@
 /*grid col padding*/
-$gridGutterSizes: (
-  sm: 0.25rem,
-  md: 0.5rem,
-  lg: 1rem,
-  xl: 1.5rem,
-  xxl: 2rem,
-  xxxl: 2.5rem,
-  30: 15px,
-);
+
 .grid {
   @each $size in $gridGutterSizes {
     $key: nth($size, 1);
