@@ -1,0 +1,380 @@
+@use 'sass:map';
+$contentWidth: 1440px;
+$mobileBreakpoint: '<lg';
+$col-fixed-width-330: 330px;
+$col-fixed-width-316: 316px;
+
+$gridGutterSizes: (
+  sm: 0.25rem,
+  md: 0.5rem,
+  lg: 1rem,
+  xl: 1.5rem,
+  xxl: 2rem,
+  xxxl: 2.5rem,
+  30: 15px,
+);
+
+$flexGaps: (
+  0: 0rem,
+  125: 0.125rem,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 2rem,
+  6: 3rem,
+  7: 4rem,
+  8: 5rem,
+);
+
+$type-header1: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-19),
+            'line-height': var(--font-size-19),
+            'font-weight': var(--font-weight-600),
+            'letter-spacing': -0.02em,
+            'color': var(--text-color),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-10),
+            'line-height': var(--font-size-10),
+        ),
+    ),
+);
+$type-header2: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-17),
+            'line-height': var(--font-size-17),
+            'font-weight': var(--font-weight-600),
+            'letter-spacing': -0.02em,
+            'color': var(--text-color),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-10),
+            'line-height': var(--font-size-10),
+        ),
+    ),
+);
+$type-header3: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-14),
+            'line-height': var(--font-size-14),
+            'font-weight': var(--font-weight-600),
+            'letter-spacing': -0.02em,
+            'color': var(--text-color),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-10),
+            'line-height': var(--font-size-10),
+        ),
+    ),
+);
+$type-header4: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-12),
+            'line-height': var(--font-size-12),
+            'font-weight': var(--font-weight-600),
+            'letter-spacing': -0.02em,
+            'color': var(--text-color),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-7),
+            'line-height': var(--font-size-7),
+            'letter-spacing': -0.01em,
+        ),
+    ),
+);
+
+$type-header5: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-8),
+            'line-height': var(--font-size-9),
+            'font-weight': var(--font-weight-600),
+            'letter-spacing': -0.02em,
+            'color': var(--text-color),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-6),
+            'line-height': var(--font-size-7),
+            'letter-spacing': -0.01em,
+        ),
+    ),
+);
+
+$type-header6: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-6),
+            'line-height': var(--font-size-7),
+            'font-weight': var(--font-weight-600),
+            'letter-spacing': -0.02em,
+            'color': var(--text-color),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-6),
+            'letter-spacing': -0.01em,
+        ),
+    ),
+);
+
+$type-header7: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family),
+            'font-size': var(--font-size-6),
+            'line-height': var(--font-size-8),
+            'font-weight': var(--font-weight-500),
+            'color': var(--text-color),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-7),
+        ),
+    ),
+);
+
+$type-title: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-7),
+            'font-weight': var(--font-weight-600),
+            'color': var(--text-color),
+            'letter-spacing': 0.05em,
+            'text-transform': uppercase,
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-3),
+            'line-height': var(--font-size-4),
+        ),
+    ),
+);
+
+$type-paragraph1: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family),
+            'font-size': var(--font-size-8),
+            'line-height': var(--font-size-12),
+            'font-weight': var(--font-weight),
+            'color': var(--black200),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-6),
+            'line-height': var(--font-size-10),
+        ),
+    ),
+);
+
+$type-paragraph2: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family),
+            'font-size': var(--font-size-6),
+            'line-height': var(--font-size-9),
+            'font-weight': var(--font-weight),
+            'color': var(--black200),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-8),
+        ),
+    ),
+);
+$type-paragraph3: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-6),
+            'line-height': var(--font-size-9),
+            'font-weight': var(--font-weight),
+            'color': var(--black200),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-8),
+        ),
+    ),
+);
+
+$type-label1: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-10),
+            'line-height': var(--font-size-10),
+            'font-weight': var(--font-weight),
+            'color': var(--text-color),
+            'letter-spacing': -0.01em,
+            'text-transform': uppercase,
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-5),
+        ),
+    ),
+);
+
+$type-label2: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-7),
+            'line-height': var(--font-size-7),
+            'font-weight': var(--font-weight),
+            'color': var(--text-color),
+            'letter-spacing': -0.01em,
+            'text-transform': uppercase,
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-5),
+        ),
+    ),
+);
+
+$type-label3: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-6),
+            'line-height': var(--font-size-6),
+            'font-weight': var(--font-weight),
+            'color': var(--text-color),
+            'letter-spacing': -0.01em,
+            'text-transform': uppercase,
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-5),
+        ),
+    ),
+);
+
+$type-link: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-5),
+            'line-height': 15.4px,
+            'font-weight': var(--font-weight-500),
+            'color': var(--text-color),
+            'text-decoration': none,
+        ),
+    ),
+);
+$type-listlink: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-7),
+            'line-height': var(--font-size-7),
+            'font-weight': var(--font-weight-500),
+            'color': var(--text-color),
+            'letter-spacing': -0.01em,
+            'text-transform': uppercase,
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': var(--font-size-6),
+            'line-height': var(--font-size-6),
+        ),
+    ),
+);
+$type-textlink1: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': var(--font-size-5),
+            'line-height': var(--font-size-6),
+            'font-weight': var(--font-weight-500),
+            'color': var(--text-color),
+            'text-decoration': underline,
+        ),
+    ),
+);
+
+$type-textlink2: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': 13px,
+            'line-height': var(--font-size-6),
+            'font-weight': var(--font-weight),
+            'color': var(--text-color),
+            'text-decoration': underline,
+        ),
+    ),
+);
+
+$type-caption: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': 13px,
+            'line-height': var(--font-size-7),
+            'font-weight': var(--font-weight),
+            'color': var(--black200),
+        ),
+    ),
+);
+
+$type-fineprint: (
+    'default': (
+        'values': (
+            'font-family': var(--font-family-header),
+            'font-size': 12px,
+            'line-height': var(--font-size-6),
+            'font-weight': var(--font-weight),
+            'color': var(--black100),
+        ),
+    ),
+    $medium: (
+        'values': (
+            'font-size': 11px,
+            'line-height': var(--font-size-5),
+        ),
+    ),
+);

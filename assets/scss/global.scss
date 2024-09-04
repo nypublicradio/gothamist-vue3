@@ -1,10 +1,5 @@
 @import './extensions';
 
-$contentWidth: 1440px;
-$mobileBreakpoint: '<lg';
-$col-fixed-width-330: 330px;
-$col-fixed-width-316: 316px;
-
 .col-fixed-width-330 {
   width: $col-fixed-width-330;
 }
@@ -20,15 +15,6 @@ body {
   height: 100vh;
 }
 
-@mixin page-top-gradient {
-  background: linear-gradient(
-    180deg,
-    #f3f3e4 0,
-    #f3f3e4 130px,
-    rgba(255, 255, 255, 0) 720px,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
 
 hr {
   border: 0;
@@ -147,4 +133,8 @@ a.mod-button.pi {
 }
 .v-card-metadata.article-metadata .comments {
   min-width: 110px;
+}
+
+.truncate {
+  @include truncate();
 }
