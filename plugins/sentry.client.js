@@ -14,7 +14,6 @@ export default defineNuxtPlugin((nuxtApp) => {
         enableInp: true,
         interactionsSampleRate: 0.5,
       }),
-      Sentry.replayIntegration(),
     ],
     tracesSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.1 : 1.0,
     replaysSessionSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.0005 : 1.0,
