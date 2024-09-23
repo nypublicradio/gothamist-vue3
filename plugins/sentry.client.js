@@ -16,8 +16,6 @@ export default defineNuxtPlugin((nuxtApp) => {
       }),
     ],
     tracesSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.1 : 1.0,
-    replaysSessionSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.0005 : 1.0,
-    replaysOnErrorSampleRate: config.public.SENTRY_ENV.toUpperCase() === 'PROD' ? 0.001 : 1.0,
     allowUrls: [
       'https://gothamist.com',
       'https://gothamist-vue3.demo.nypr.digital',
