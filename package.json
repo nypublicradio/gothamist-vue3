@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@nypublicradio/nypr-design-system-vue3": "^1.0.8",
-    "@sentry/browser": "^8.20.0",
-    "@sentry/vue": "^8.20.0",
+    "@sentry/browser": "^8.31.0",
+    "@sentry/vue": "^8.31.0",
     "@vueuse/core": "^9.1.0",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.0.1",
