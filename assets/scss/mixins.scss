@@ -1,0 +1,122 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:string';
+@import '@nypublicradio/nypr-design-system-vue3/src/assets/library/include-media';
+// font config
+@mixin font-config($config-map) {
+  @each $breakpoint, $values in $config-map {
+    // @debug "breakpoint = #{$breakpoint}";
+    @if $breakpoint == "default" {
+      @each $key, $value in map.get($values, "values") {
+        #{$key}: #{$value};
+      }
+    } @else {
+      @include media("<#{$breakpoint}") {
+        //@media screen and (min-width: $breakpoint) {
+        @each $key, $value in map.get($values, "values") {
+          #{$key}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+//spacing
+$spacing-base: 0.25; //  matches prime-flex
+@function spacing($y) {
+  @return calc($spacing-base * $y) + rem;
+}
+@function spacingXY($x, $y) {
+  @return calc($spacing-base * $x) + rem calc($spacing-base * $y) + rem;
+}
+@function spacingTRBL($t, $r, $b, $l) {
+  @return calc($spacing-base * $t) + rem calc($spacing-base * $r) + rem calc($spacing-base * $b) + rem
+    calc($spacing-base * $l) + rem;
+}
+
+// hex to rgb
+@function hex2rgb($hexColor) {
+  @return "#{red($hexColor)},#{green($hexColor)},#{blue($hexColor)}";
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+
+@mixin truncate() {
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  position: relative;
+  background: inherit;
+  -webkit-box-orient: vertical;
+  word-break: var(--word-break, "none");
+  overflow: hidden;
+  hyphens: auto;
+
+  // fade text's last word, if clamped ()
+  &::after {
+      content: "";
+      height: 2ch;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      pointer-events: none;
+      //background: linear-gradient(90deg, transparent, var(--bg));
+      background: inherit; // it's easier to work with inheritance
+      mask-image: linear-gradient(to left, black, transparent);
+      transition: 0.2s;
+      width: 3em;
+  }
+  &.t2lines {
+      -webkit-line-clamp: 2;
+  }
+  &.t3lines {
+      -webkit-line-clamp: 3;
+  }
+  &.t4lines {
+      -webkit-line-clamp: 4;
+  }
+  &.t5lines {
+      -webkit-line-clamp: 5;
+  }
+  &.t6lines {
+      -webkit-line-clamp: 6;
+  }
+  &.t7lines {
+      -webkit-line-clamp: 7;
+  }
+}
+
+@mixin t2lines() {
+  -webkit-line-clamp: 2;
+}
+@mixin t3lines() {
+  -webkit-line-clamp: 3;
+}
+@mixin t4lines() {
+  -webkit-line-clamp: 4;
+}
+@mixin t5lines() {
+  -webkit-line-clamp: 5;
+}
+@mixin t6lines() {
+  -webkit-line-clamp: 6;
+}
+@mixin t7lines() {
+  -webkit-line-clamp: 7;
+}
+
+
+@mixin page-top-gradient {
+  background: linear-gradient(
+    180deg,
+    #f3f3e4 0,
+    #f3f3e4 130px,
+    rgba(255, 255, 255, 0) 720px,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
