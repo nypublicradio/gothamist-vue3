@@ -53,7 +53,6 @@ const copyrightYear = ref(props.navigation.copyrightYear)
       <div class="bottom grid">
         <VShareTools class="left col-12 lg:col-3 xl:col-4 pr-0">
           <VShareToolsItem service="facebook" username="gothamist" />
-          <VShareToolsItem service="twitter" username="gothamist" />
           <VShareToolsItem service="instagram" username="gothamist" />
           <VShareToolsItem
             service="youtube"
