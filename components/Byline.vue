@@ -140,25 +140,6 @@ const commentCount = computed(() => {
             })
           "
         />
-
-        <VShareToolsItem
-          action="share"
-          service="twitter"
-          :url="shareUrl"
-          :share-parameters="{ text: shareTitle, via: 'gothamist' }"
-          :utm-parameters="{
-            medium: 'social',
-            source: 'twitter',
-            campaign: 'shared_twitter',
-          }"
-          @share="
-            $analytics.scheduleEvent('click_tracking', {
-              event_category: 'Click Tracking',
-              component: 'Article Byline',
-              event_label: 'Social Share Twitter',
-            })
-          "
-        />
         <VShareToolsItem
           action="share"
           service="reddit"

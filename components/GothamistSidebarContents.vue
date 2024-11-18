@@ -41,7 +41,6 @@ const emit = defineEmits(['menuListClick'])
       <VShareTools class="mb-3">
         <span>Follow Us</span>
         <VShareToolsItem service="facebook" username="gothamist" />
-        <VShareToolsItem service="twitter" username="gothamist" />
         <VShareToolsItem service="instagram" username="gothamist" />
         <VShareToolsItem
           service="youtube"
