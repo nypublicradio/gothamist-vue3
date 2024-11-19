@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  nypr-deploy: nypr/nypr-deploy@0.0.81
+  nypr-deploy: nypr/nypr-deploy@0.0.102
 
 filter_all: &filter_all
   filters:
@@ -49,6 +49,7 @@ workflows:
           cluster: gothamist-vue3
           cpu: 256
           memory: 512
+          use_firelens: true
           requires:
             - test_eslint
             - test_nginx
@@ -62,6 +63,7 @@ workflows:
           cluster: gothamist-vue3
           cpu: 1024
           memory: 2048
+          use_firelens: true
           <<: *filter_prod
           requires:
             - test_eslint
