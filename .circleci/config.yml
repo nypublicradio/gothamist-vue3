@@ -50,7 +50,6 @@ workflows:
           cpu: 256
           memory: 512
           use_firelens: true
-          debug: true
           requires:
             - test_eslint
             - test_nginx
