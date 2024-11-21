@@ -73,20 +73,20 @@ workflows:
             - test_eslint
             - test_nginx
             - test_cypress
-      - purge:
-          name: Purge (demo)
-          context: AWS Deploy
-          <<: *filter_demo
-          purge_files: '{"files": ["https://demo.gothamist.com"]}'
-          requires:
-            - Deploy (demo)
-      - purge:
-          name: Purge (prod)
-          context: AWS Deploy
-          <<: *filter_prod
-          purge_files: '{"purge_everything": true}'
-          requires:
-            - Deploy (prod)
+      # - purge:
+      #     name: Purge (demo)
+      #     context: AWS Deploy
+      #     <<: *filter_demo
+      #     purge_files: '{"files": ["https://demo.gothamist.com"]}'
+      #     requires:
+      #       - Deploy (demo)
+      # - purge:
+      #     name: Purge (prod)
+      #     context: AWS Deploy
+      #     <<: *filter_prod
+      #     purge_files: '{"purge_everything": true}'
+      #     requires:
+      #       - Deploy (prod)
 
 jobs:
   # Note (allie): This is its own job because I don't
