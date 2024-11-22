@@ -39,8 +39,17 @@ const imageSize = ref(
   props.staffPage ? profileImageSizeLg.value : profileImageSizeMd.value,
 )
 const imageSizePx = ref(`${imageSize.value}px`)
-function accountNameFromUrl(url) {
-  return url?.split('/').filter(str => str !== '').slice(-1)[0]
+// for services where the domain doesn't change we can just use the username
+function accountNameFromProfile(account) {
+  if (!['mastodon', 'homepage'].includes(account.service))
+    return url?.split('/').filter(str => str !== '').slice(-1)[0]
+  return ''
+}
+// otherwise we need to use the full url
+function urlFromProfile(account) {
+  if (!['mastodon', 'homepage'].includes(account.service))
+    return account.profileUrl
+  return ''
 }
 </script>
 
@@ -91,7 +100,8 @@ function accountNameFromUrl(url) {
               v-for="account in profile.socialMediaProfile"
               :key="account.id"
               :service="account.service"
-              :username="accountNameFromUrl(account.profileUrl)"
+              :username="accountNameFromProfile(account)"
+              :link="urlFromProfile(account)"
             />
           </VShareTools>
         </span>
