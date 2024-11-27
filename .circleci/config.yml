@@ -50,8 +50,6 @@ workflows:
           cpu: 256
           memory: 512
           use_firelens: true
-          debug: true
-          disable_service_update: true
           requires:
             - test_eslint
             - test_nginx
@@ -66,8 +64,6 @@ workflows:
           cpu: 1024
           memory: 2048
           use_firelens: true
-          debug: true
-          disable_service_update: true
           <<: *filter_prod
           requires:
             - test_eslint
