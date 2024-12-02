@@ -17,7 +17,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@nypublicradio/nypr-design-system-vue3": "^1.0.8",
+    "@nypublicradio/nypr-design-system-vue3": "^2.1.52",
     "@sentry/browser": "^8.31.0",
     "@sentry/vue": "^8.31.0",
     "@vueuse/core": "^9.1.0",
