@@ -42,14 +42,14 @@ const imageSizePx = ref(`${imageSize.value}px`)
 // for services where the domain doesn't change we can just use the username
 function accountNameFromProfile(account) {
   if (!['mastodon', 'homepage'].includes(account.service))
-    return account.profileUrl?.split('/').filter(str => str !== '').slice(-1)[0]
-  return ''
+    return account.profileUrl?.split('/').filter(str => str !== '').slice(-1)[0].replace('@', '')
+  return undefined
 }
 // otherwise we need to use the full url
 function urlFromProfile(account) {
   if (['mastodon', 'homepage'].includes(account.service))
     return account.profileUrl
-  return ''
+  return undefined
 }
 </script>
 
