@@ -1,312 +1,104 @@
 {
     "meta": {
-        "total_count": 137067
+        "total_count": 147548
     },
     "items": [
         {
-            "id": 151275,
+            "id": 162182,
             "meta": {
-                "first_published_at": "2023-01-17T15:13:04.164851-05:00",
+                "first_published_at": "2025-01-08T13:37:13.571789-05:00",
                 "type": "news.ArticlePage",
-                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151275/",
-                "html_url": "http://cms.prod.nypr.digital/news/test-of-openweb-liveblog/",
-                "slug": "test-of-openweb-liveblog"
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162182/",
+                "html_url": "http://cms.prod.nypr.digital/arts-entertainment/dry-january-is-back-and-no-it-doesnt-annoy-these-nyc-bar-owners/",
+                "slug": "dry-january-is-back-and-no-it-doesnt-annoy-these-nyc-bar-owners"
             },
-            "title": "Test of OpenWeb liveblog",
+            "title": "Dry January is back. And no, it doesn't annoy these NYC bar owners.",
             "listing_title": "",
             "listing_summary": "",
             "listing_image": null,
-            "uuid": "206ca8b8-3830-4096-aa53-cb10b5dad485",
-            "url": "https://gothamist-vue3demo.gothamist.com/news/test-of-openweb-liveblog",
-            "publication_date": "2023-01-17T15:13:04.164851-05:00",
+            "uuid": "7e838323-8879-40fa-91d4-68c6ebe28fbd",
+            "url": "https://gothamist.com/arts-entertainment/dry-january-is-back-and-no-it-doesnt-annoy-these-nyc-bar-owners",
+            "publication_date": "2025-01-08T13:37:00-05:00",
             "updated_date": null,
-            "description": "",
+            "description": "Now, more than ever, they have stuff to sell you.",
             "lead_asset": [
                 {
                     "type": "lead_image",
                     "value": {
                         "image": {
-                            "id": 329934,
-                            "title": "traditional-food-around-the-world-Travlinmad.jpeg",
-                            "width": 960,
-                            "height": 589,
-                            "created_at": "2022-09-13T05:41:41.557763-04:00",
+                            "id": 349100,
+                            "title": "Courtesy Abby Ehmann - grand opening toast.jpg",
+                            "width": 2048,
+                            "height": 1506,
+                            "created_at": "2025-01-07T13:15:41.459650-05:00",
                             "focal_point_x": null,
                             "focal_point_y": null,
                             "focal_point_width": null,
                             "focal_point_height": null,
-                            "file_size": 376370,
-                            "file_hash": "475ff05ed409177432214120a72c24b0527bb440",
-                            "alt": "image of foods around the world test",
-                            "caption": "caption test",
-                            "credit": "credit test",
+                            "file_size": 724678,
+                            "file_hash": "9f027a93ee9f0e0698ec4d55213e9abfa829e810",
+                            "alt": "People cheer at a bar.",
+                            "caption": "An alcohol-free toast at the grand opening of Hekate Café & Elixir Lounge.",
+                            "credit": "Photo by Christopher Joseph Ryan",
                             "credit_link": "",
-                            "file": "https://cdn.cms.demo.nypr.digital/original_images/traditional-food-around-the-world-Travlinmad.jpeg",
+                            "file": "https://images-prod.gothamist.com/original_images/Courtesy_Abby_Ehmann_-_grand_opening_toast.jpg",
                             "usage_limitations": "",
                             "expiry_date": null,
                             "collection": 1,
-                            "uploaded_by_user": 133
+                            "uploaded_by_user": 141
                         },
                         "caption": "",
                         "image_link": ""
                     },
-                    "id": "064d47d8-2171-47a2-96d5-98541f572c53"
+                    "id": "444c1e6a-27cd-4757-968c-adb5721c21c5"
                 }
             ],
             "sponsored_content": false,
             "related_authors": [
                 {
-                    "id": 288,
-                    "first_name": "Yaron",
-                    "last_name": "Weitzman",
+                    "id": 168,
+                    "first_name": "Hannah",
+                    "last_name": "Frishberg",
                     "job_title": "Gothamist Editor",
                     "biography": "",
                     "website": "",
                     "email": "",
-                    "slug": "yaron-weitzman",
-                    "social_media_profile": []
-                }
-            ],
-            "tags": [],
-            "show_as_feature": false,
-            "legacy_id": null,
-            "ancestry": [
-                {
-                    "id": 4,
-                    "meta": {
-                        "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
-                        "html_url": "http://cms.prod.nypr.digital/news/"
-                    },
-                    "title": "News",
-                    "slug": "news"
-                },
-                {
-                    "id": 3,
-                    "meta": {
-                        "type": "home.HomePage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
-                        "html_url": "http://cms.prod.nypr.digital/"
-                    },
-                    "title": "Gothamist",
-                    "slug": "home"
-                },
-                {
-                    "id": 1,
-                    "meta": {
-                        "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
-                        "html_url": null
-                    },
-                    "title": "Root",
-                    "slug": "root"
-                }
-            ]
-        },
-        {
-            "id": 151273,
-            "meta": {
-                "first_published_at": "2023-01-11T09:26:58.700927-05:00",
-                "type": "news.ArticlePage",
-                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151273/",
-                "html_url": "http://cms.prod.nypr.digital/news/webp-image-test-article/",
-                "slug": "webp-image-test-article"
-            },
-            "title": "WebP Image Test Article",
-            "listing_title": "TEST WEBP TITLE",
-            "listing_summary": "",
-            "listing_image": null,
-            "uuid": "8e4e60d6-5dac-48d9-a2b9-853b7d5e444b",
-            "url": "https://gothamist-vue3demo.gothamist.com/news/webp-image-test-article",
-            "publication_date": "2023-01-11T09:26:00-05:00",
-            "updated_date": null,
-            "description": "Another test for image rendering",
-            "lead_asset": [
-                {
-                    "type": "lead_image",
-                    "value": {
-                        "image": {
-                            "id": 329940,
-                            "title": "skyline_800.webp",
-                            "width": 800,
-                            "height": 800,
-                            "created_at": "2022-11-30T13:15:17.574918-05:00",
-                            "focal_point_x": null,
-                            "focal_point_y": null,
-                            "focal_point_width": null,
-                            "focal_point_height": null,
-                            "file_size": 134268,
-                            "file_hash": "95d7e784fd93097097589f6f0433d1d4cccf4065",
-                            "alt": "NYC skyline photo",
-                            "caption": "",
-                            "credit": "",
-                            "credit_link": "",
-                            "file": "https://cdn.cms.demo.nypr.digital/original_images/skyline_800.webp",
-                            "usage_limitations": "",
-                            "expiry_date": null,
-                            "collection": 1,
-                            "uploaded_by_user": 132
-                        },
-                        "caption": "Skyline",
-                        "image_link": ""
-                    },
-                    "id": "40405fb8-4020-41ef-ab1f-b5c753561e6a"
-                }
-            ],
-            "sponsored_content": false,
-            "related_authors": [
-                {
-                    "id": 261,
-                    "first_name": "Taylor",
-                    "last_name": "Wofford",
-                    "job_title": "Gothamist Editor",
-                    "biography": "",
-                    "website": "",
-                    "email": "",
-                    "slug": "taylor-wofford",
+                    "slug": "hannah-frishberg",
                     "social_media_profile": []
                 }
             ],
             "tags": [
-                {
-                    "name": "skyline",
-                    "slug": "skyline"
-                },
-                {
-                    "name": "nature",
-                    "slug": "nature"
-                },
-                {
-                    "name": "nyc",
-                    "slug": "nyc"
-                }
-            ],
-            "show_as_feature": false,
-            "legacy_id": null,
-            "ancestry": [
-                {
-                    "id": 4,
-                    "meta": {
-                        "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
-                        "html_url": "http://cms.prod.nypr.digital/news/"
-                    },
-                    "title": "News",
-                    "slug": "news"
-                },
-                {
-                    "id": 3,
-                    "meta": {
-                        "type": "home.HomePage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
-                        "html_url": "http://cms.prod.nypr.digital/"
-                    },
-                    "title": "Gothamist",
-                    "slug": "home"
-                },
-                {
-                    "id": 1,
-                    "meta": {
-                        "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
-                        "html_url": null
-                    },
-                    "title": "Root",
-                    "slug": "root"
-                }
-            ]
-        },
-        {
-            "id": 151272,
-            "meta": {
-                "first_published_at": "2023-01-10T15:44:23.817526-05:00",
-                "type": "news.ArticlePage",
-                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151272/",
-                "html_url": "http://cms.prod.nypr.digital/food/test-article-with-gallery/",
-                "slug": "test-article-with-gallery"
-            },
-            "title": "Test Article with Gallery",
-            "listing_title": "",
-            "listing_summary": "",
-            "listing_image": null,
-            "uuid": "7e17b5e3-34ca-4f3e-a280-080fa7fd5123",
-            "url": "https://gothamist-vue3demo.gothamist.com/food/test-article-with-gallery",
-            "publication_date": "2023-01-10T15:44:00-05:00",
-            "updated_date": null,
-            "description": "This is a test article with gallery.",
-            "lead_asset": [
-                {
-                    "type": "lead_gallery",
-                    "value": {
-                        "gallery": 151268,
-                        "default_image": {
-                            "id": 329940,
-                            "title": "skyline_800.webp",
-                            "width": 800,
-                            "height": 800,
-                            "created_at": "2022-11-30T13:15:17.574918-05:00",
-                            "focal_point_x": null,
-                            "focal_point_y": null,
-                            "focal_point_width": null,
-                            "focal_point_height": null,
-                            "file_size": 134268,
-                            "file_hash": "95d7e784fd93097097589f6f0433d1d4cccf4065",
-                            "alt": "NYC skyline photo",
-                            "caption": "",
-                            "credit": "",
-                            "credit_link": "",
-                            "file": "https://cdn.cms.demo.nypr.digital/original_images/skyline_800.webp",
-                            "usage_limitations": "",
-                            "expiry_date": null,
-                            "collection": 1,
-                            "uploaded_by_user": 132
-                        }
-                    },
-                    "id": "828e8def-2795-44cd-9cb1-8f79f9660570"
-                }
-            ],
-            "sponsored_content": false,
-            "related_authors": [
-                {
-                    "id": 162,
-                    "first_name": "Neil",
-                    "last_name": "Epstein",
-                    "job_title": "Gothamist Editor",
-                    "biography": "",
-                    "website": "",
-                    "email": "",
-                    "slug": "neil-epstein",
-                    "social_media_profile": []
-                }
-            ],
-            "tags": [
-                {
-                    "name": "taco bell",
-                    "slug": "taco-bell"
-                },
                 {
                     "name": "food",
                     "slug": "food"
+                },
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "alcohol",
+                    "slug": "alcohol"
                 }
             ],
             "show_as_feature": false,
             "legacy_id": null,
             "ancestry": [
                 {
-                    "id": 5,
+                    "id": 8,
                     "meta": {
                         "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/5/",
-                        "html_url": "http://cms.prod.nypr.digital/food/"
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/8/",
+                        "html_url": "http://cms.prod.nypr.digital/arts-entertainment/"
                     },
-                    "title": "Food",
-                    "slug": "food"
+                    "title": "Arts & Entertainment",
+                    "slug": "arts-entertainment"
                 },
                 {
                     "id": 3,
                     "meta": {
                         "type": "home.HomePage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
                         "html_url": "http://cms.prod.nypr.digital/"
                     },
                     "title": "Gothamist",
@@ -316,7 +108,7 @@
                     "id": 1,
                     "meta": {
                         "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
                         "html_url": null
                     },
                     "title": "Root",
@@ -325,282 +117,86 @@
             ]
         },
         {
-            "id": 151270,
+            "id": 162180,
             "meta": {
-                "first_published_at": "2023-01-04T17:52:55.425219-05:00",
+                "first_published_at": "2025-01-08T11:01:09.376838-05:00",
                 "type": "news.ArticlePage",
-                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151270/",
-                "html_url": "http://cms.prod.nypr.digital/news/test-article/",
-                "slug": "test-article"
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162180/",
+                "html_url": "http://cms.prod.nypr.digital/news/law-meant-to-make-bail-more-affordable-in-new-york-isnt-working-report-finds/",
+                "slug": "law-meant-to-make-bail-more-affordable-in-new-york-isnt-working-report-finds"
             },
-            "title": "Test Article",
+            "title": "Law meant to make bail more affordable in New York isn’t working, report finds",
             "listing_title": "",
             "listing_summary": "",
             "listing_image": null,
-            "uuid": "380891e8-d253-4fdb-b186-3612ec2d5732",
-            "url": "https://gothamist-vue3demo.gothamist.com/news/test-article",
-            "publication_date": "2023-01-04T17:52:00-05:00",
+            "uuid": "578dd168-4787-4a4e-83e0-ffcc6e16ac7d",
+            "url": "https://gothamist.com/news/law-meant-to-make-bail-more-affordable-in-new-york-isnt-working-report-finds",
+            "publication_date": "2025-01-08T11:00:00-05:00",
             "updated_date": null,
-            "description": "Testing",
+            "description": "Researchers studied a little-known portion of the controversial law in the first four years it was in effect.",
             "lead_asset": [
                 {
                     "type": "lead_image",
                     "value": {
                         "image": {
-                            "id": 329936,
-                            "title": "Pumpkins",
-                            "width": 4032,
-                            "height": 3024,
-                            "created_at": "2022-11-15T16:37:57.988492-05:00",
+                            "id": 349111,
+                            "title": "GettyImages-1195677473.jpg",
+                            "width": 7200,
+                            "height": 5400,
+                            "created_at": "2025-01-08T09:26:22.027272-05:00",
                             "focal_point_x": null,
                             "focal_point_y": null,
                             "focal_point_width": null,
                             "focal_point_height": null,
-                            "file_size": 793155,
-                            "file_hash": "88bcd419122eb553cafdb48adce507ac213371d0",
-                            "alt": "Close-up of a pumpkin sitting in a pumpkin patch",
-                            "caption": "",
-                            "credit": "Marius Ciocirlan",
-                            "credit_link": "https://unsplash.com/@madebymarius",
-                            "file": "https://cdn.cms.demo.nypr.digital/original_images/marius-ciocirlan-T9pdHqCsyoQ-unsplash.jpg",
-                            "usage_limitations": "",
-                            "expiry_date": null,
-                            "collection": 1,
-                            "uploaded_by_user": 6
-                        },
-                        "caption": "",
-                        "image_link": ""
-                    },
-                    "id": "2edcdd37-9ddc-43c5-9fa2-25509d3dc8be"
-                }
-            ],
-            "sponsored_content": false,
-            "related_authors": [
-                {
-                    "id": 319,
-                    "first_name": "Courtney",
-                    "last_name": "Iseman",
-                    "job_title": "Gothamist Editor",
-                    "biography": "",
-                    "website": "",
-                    "email": "",
-                    "slug": "courtney-iseman",
-                    "social_media_profile": []
-                }
-            ],
-            "tags": [
-                {
-                    "name": "test",
-                    "slug": "test"
-                },
-                {
-                    "name": "pumpkins",
-                    "slug": "pumpkins"
-                }
-            ],
-            "show_as_feature": false,
-            "legacy_id": null,
-            "ancestry": [
-                {
-                    "id": 4,
-                    "meta": {
-                        "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
-                        "html_url": "http://cms.prod.nypr.digital/news/"
-                    },
-                    "title": "News",
-                    "slug": "news"
-                },
-                {
-                    "id": 3,
-                    "meta": {
-                        "type": "home.HomePage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
-                        "html_url": "http://cms.prod.nypr.digital/"
-                    },
-                    "title": "Gothamist",
-                    "slug": "home"
-                },
-                {
-                    "id": 1,
-                    "meta": {
-                        "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
-                        "html_url": null
-                    },
-                    "title": "Root",
-                    "slug": "root"
-                }
-            ]
-        },
-        {
-            "id": 151267,
-            "meta": {
-                "first_published_at": "2022-12-19T11:50:35.137682-05:00",
-                "type": "news.ArticlePage",
-                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151267/",
-                "html_url": "http://cms.prod.nypr.digital/news/test-another-twitter-embed/",
-                "slug": "test-another-twitter-embed"
-            },
-            "title": "Test Another Twitter Embed",
-            "listing_title": "",
-            "listing_summary": "",
-            "listing_image": null,
-            "uuid": "8c589751-7b16-41ac-8c3c-0ef8d7e90a2e",
-            "url": "https://gothamist-vue3demo.gothamist.com/news/test-another-twitter-embed",
-            "publication_date": "2022-12-19T11:50:00-05:00",
-            "updated_date": null,
-            "description": "Tweet embed test",
-            "lead_asset": [
-                {
-                    "type": "lead_image",
-                    "value": {
-                        "image": {
-                            "id": 329936,
-                            "title": "Pumpkins",
-                            "width": 4032,
-                            "height": 3024,
-                            "created_at": "2022-11-15T16:37:57.988492-05:00",
-                            "focal_point_x": null,
-                            "focal_point_y": null,
-                            "focal_point_width": null,
-                            "focal_point_height": null,
-                            "file_size": 793155,
-                            "file_hash": "88bcd419122eb553cafdb48adce507ac213371d0",
-                            "alt": "Close-up of a pumpkin sitting in a pumpkin patch",
-                            "caption": "",
-                            "credit": "Marius Ciocirlan",
-                            "credit_link": "https://unsplash.com/@madebymarius",
-                            "file": "https://cdn.cms.demo.nypr.digital/original_images/marius-ciocirlan-T9pdHqCsyoQ-unsplash.jpg",
-                            "usage_limitations": "",
-                            "expiry_date": null,
-                            "collection": 1,
-                            "uploaded_by_user": 6
-                        },
-                        "caption": "",
-                        "image_link": ""
-                    },
-                    "id": "1d59e15b-3f0d-40ba-8a54-40119ad38425"
-                }
-            ],
-            "sponsored_content": false,
-            "related_authors": [
-                {
-                    "id": 380,
-                    "first_name": "Peter",
-                    "last_name": "Trinkle",
-                    "job_title": "Gothamist Editor",
-                    "biography": "",
-                    "website": "",
-                    "email": "",
-                    "slug": "peter-trinkle",
-                    "social_media_profile": []
-                }
-            ],
-            "tags": [],
-            "show_as_feature": false,
-            "legacy_id": null,
-            "ancestry": [
-                {
-                    "id": 4,
-                    "meta": {
-                        "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
-                        "html_url": "http://cms.prod.nypr.digital/news/"
-                    },
-                    "title": "News",
-                    "slug": "news"
-                },
-                {
-                    "id": 3,
-                    "meta": {
-                        "type": "home.HomePage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
-                        "html_url": "http://cms.prod.nypr.digital/"
-                    },
-                    "title": "Gothamist",
-                    "slug": "home"
-                },
-                {
-                    "id": 1,
-                    "meta": {
-                        "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
-                        "html_url": null
-                    },
-                    "title": "Root",
-                    "slug": "root"
-                }
-            ]
-        },
-        {
-            "id": 151266,
-            "meta": {
-                "first_published_at": "2022-12-14T11:49:09.561943-05:00",
-                "type": "news.ArticlePage",
-                "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/151266/",
-                "html_url": "http://cms.prod.nypr.digital/news/new-article-byline-test-sophie-kleeman/",
-                "slug": "new-article-byline-test-sophie-kleeman"
-            },
-            "title": "New Article Byline Test- Sophie Kleeman",
-            "listing_title": "",
-            "listing_summary": "",
-            "listing_image": null,
-            "uuid": "bd35e08e-3ace-4ca6-b5f1-42e31f1ec012",
-            "url": "https://gothamist-vue3demo.gothamist.com/news/new-article-byline-test-sophie-kleeman",
-            "publication_date": "2022-12-14T11:49:09.561943-05:00",
-            "updated_date": null,
-            "description": "",
-            "lead_asset": [
-                {
-                    "type": "lead_image",
-                    "value": {
-                        "image": {
-                            "id": 329935,
-                            "title": "helthy-eating.jpeg",
-                            "width": 290,
-                            "height": 174,
-                            "created_at": "2022-09-14T09:56:36.480787-04:00",
-                            "focal_point_x": null,
-                            "focal_point_y": null,
-                            "focal_point_width": null,
-                            "focal_point_height": null,
-                            "file_size": 11735,
-                            "file_hash": "4b174f6d17740e44fb46bbdce7ec42bbeab27812",
-                            "alt": "image test",
-                            "caption": "",
-                            "credit": "",
+                            "file_size": 18371617,
+                            "file_hash": "42a80e7dcfe38b52e32faf25912266ec99f73b70",
+                            "alt": "A sign advertises services for bail bonds along Atlantic Avenue near the Brooklyn Detention Complex in Brooklyn, New York, December 21, 2019. A state license is required to be a bail bondsman.",
+                            "caption": "A sign advertises services for bail bonds along Atlantic Avenue near the Brooklyn Detention Complex in Brooklyn, New York, December 21, 2019. A state license is required to be a bail bondsman.",
+                            "credit": "Photo by Robert Nickelsberg/Getty Images",
                             "credit_link": "",
-                            "file": "https://cdn.cms.demo.nypr.digital/original_images/helthy-eating.jpeg",
+                            "file": "https://images-prod.gothamist.com/original_images/GettyImages-1195677473.jpg",
                             "usage_limitations": "",
                             "expiry_date": null,
                             "collection": 1,
-                            "uploaded_by_user": 133
+                            "uploaded_by_user": 128
                         },
                         "caption": "",
                         "image_link": ""
                     },
-                    "id": "b4a1f663-1fc2-4ad1-9245-ed4046c906a9"
+                    "id": "7869eca7-6c30-4db7-9818-fd00a1f372cc"
                 }
             ],
             "sponsored_content": false,
             "related_authors": [
                 {
-                    "id": 371,
-                    "first_name": "Sophie",
-                    "last_name": "Kleeman",
-                    "job_title": "Gothamist Editor",
-                    "biography": "",
+                    "id": 151868,
+                    "first_name": "Samantha",
+                    "last_name": "Max",
+                    "photo": 334517,
+                    "job_title": "Public Safety Reporter",
+                    "biography": "Samantha reports on whether New Yorkers feel safe and whether the institutions that are supposed to protect them are working. Before coming to WNYC/Gothamist, she spent three years covering the criminal justice system in Tennessee for Nashville Public Radio. Her reporting on Nashville's police department received multiple awards, including the Daniel Schorr Journalism Prize. Samantha was also part of the inaugural class of Report for America, a service journalism program that sends up-and-coming reporters to local newsrooms across the country. She is a Northwestern University grad, a Baltimore native and fluent in Spanish. Got a tip? Email smax@nypublicradio.org or Signal: samanthamaxwnyc.93.",
                     "website": "",
                     "email": "",
-                    "slug": "sophie-kleeman",
+                    "slug": "samantha-max",
                     "social_media_profile": []
                 }
             ],
             "tags": [
                 {
-                    "name": "salad",
-                    "slug": "salad"
+                    "name": "courts",
+                    "slug": "courts"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                },
+                {
+                    "name": "new york state",
+                    "slug": "new-york-state"
+                },
+                {
+                    "name": "Bail reform",
+                    "slug": "bail-reform"
                 }
             ],
             "show_as_feature": false,
@@ -610,7 +206,7 @@
                     "id": 4,
                     "meta": {
                         "type": "standardpages.IndexPage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/4/",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
                         "html_url": "http://cms.prod.nypr.digital/news/"
                     },
                     "title": "News",
@@ -620,7 +216,7 @@
                     "id": 3,
                     "meta": {
                         "type": "home.HomePage",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/3/",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
                         "html_url": "http://cms.prod.nypr.digital/"
                     },
                     "title": "Gothamist",
@@ -630,7 +226,940 @@
                     "id": 1,
                     "meta": {
                         "type": "wagtailcore.Page",
-                        "detail_url": "https://cms.demo.nypr.digital/api/v2/pages/1/",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 162179,
+            "meta": {
+                "first_published_at": "2025-01-08T10:01:04.605978-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162179/",
+                "html_url": "http://cms.prod.nypr.digital/news/early-addition-limos-were-cool/",
+                "slug": "early-addition-limos-were-cool"
+            },
+            "title": "Early Addition: Limos were cool",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "afcd35f8-587c-400b-8d40-fb09845d8b8c",
+            "url": "https://gothamist.com/news/early-addition-limos-were-cool",
+            "publication_date": "2025-01-08T10:01:04.605978-05:00",
+            "updated_date": null,
+            "description": "Because a Yukon XL doesn't have the same spice, here are your early links: George Santos wants to stay out of prison a little longer to keep podcasting, Hipster Grifter wrote a book, “Shrek” donkey died and more.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 349110,
+                            "title": "limo.jpg",
+                            "width": 1024,
+                            "height": 660,
+                            "created_at": "2025-01-08T09:12:28.665895-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 166636,
+                            "file_hash": "989ddf0f0da64e3f57dc373eae9af66a4298cccd",
+                            "alt": "two women outside a limo on 5th Avenue",
+                            "caption": "",
+                            "credit": "Walter Leporati/Getty Images",
+                            "credit_link": "",
+                            "file": "https://images-prod.gothamist.com/original_images/limo.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 33
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "269c6b74-7a14-406a-8493-e78af1cd1a7e"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 35,
+                    "first_name": "James",
+                    "last_name": "Ramsay",
+                    "photo": 327650,
+                    "job_title": "Digital Producer",
+                    "biography": "",
+                    "website": "",
+                    "email": "",
+                    "slug": "james-ramsay",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "early addition",
+                    "slug": "early-addition"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 162181,
+            "meta": {
+                "first_published_at": "2025-01-08T09:53:10.857059-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162181/",
+                "html_url": "http://cms.prod.nypr.digital/news/nyc-board-of-elections-head-keeps-job-after-watchdog-found-he-made-racial-sexual-jokes/",
+                "slug": "nyc-board-of-elections-head-keeps-job-after-watchdog-found-he-made-racial-sexual-jokes"
+            },
+            "title": "NYC Board of Elections head keeps job after watchdog found he made racial, sexual jokes",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "57357a39-88dc-4f64-8ca6-60d4a422c7ba",
+            "url": "https://gothamist.com/news/nyc-board-of-elections-head-keeps-job-after-watchdog-found-he-made-racial-sexual-jokes",
+            "publication_date": "2025-01-08T09:53:00-05:00",
+            "updated_date": "2025-01-08T12:09:00-05:00",
+            "description": "Executive Director Mike Ryan was suspended for three weeks without pay after the city's Department of Investigation substantiated allegations of harassment against him.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 349112,
+                            "title": "ryan.PNG",
+                            "width": 1095,
+                            "height": 831,
+                            "created_at": "2025-01-08T09:45:01.659383-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 1661206,
+                            "file_hash": "9d1feb731bf95af5887bf836e3b5e0be51a9f5b1",
+                            "alt": "A man in front of a Board of Elections seal.",
+                            "caption": "Board of Elections executive director Mike Ryan.",
+                            "credit": "Brigid Bergin",
+                            "credit_link": "",
+                            "file": "https://images-prod.gothamist.com/original_images/ryan.PNG",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 139
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "f9e54469-a538-4318-85ac-7a7d02d54a4a"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 31,
+                    "first_name": "Brigid",
+                    "last_name": "Bergin",
+                    "photo": 334518,
+                    "job_title": "Senior Reporter - People and Power",
+                    "biography": "Brigid Bergin is an award-winning senior reporter on the People and Power desk. She is fiercely committed to telling stories that help people engage and support democracy. In 2022, she hosted a live, ten-week call-in politics show ahead of the midterm elections called The People's Guide to Power. Brigid's reporting in 2017 included some of the first coverage of a political newcomer now known as AOC. In 2016, she broke the news of a voter purge in Brooklyn just days before New York’s presidential primary, triggering city, state and federal investigations. Brigid also guest hosts The Brian Lehrer Show and All Of It. She graduated from the University at Albany and the CUNY Newmark School of Journalism. Got a tip? Email bbergin@wnyc.org or Signal 917-723-4719.",
+                    "website": "",
+                    "email": "bbergin@wnyc.org",
+                    "slug": "brigid-bergin",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/brigidbergin"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                },
+                {
+                    "name": "Politics",
+                    "slug": "politics"
+                },
+                {
+                    "name": "elections",
+                    "slug": "elections"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 162178,
+            "meta": {
+                "first_published_at": "2025-01-08T08:29:51.303558-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162178/",
+                "html_url": "http://cms.prod.nypr.digital/news/woman-stabbed-to-death-at-staten-island-public-housing-development-nypd-says/",
+                "slug": "woman-stabbed-to-death-at-staten-island-public-housing-development-nypd-says"
+            },
+            "title": "Woman stabbed to death at Staten Island public housing development, NYPD says",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "0ef73708-97cd-46d0-bdf0-e1828ef5fa67",
+            "url": "https://gothamist.com/news/woman-stabbed-to-death-at-staten-island-public-housing-development-nypd-says",
+            "publication_date": "2025-01-08T08:29:00-05:00",
+            "updated_date": "2025-01-08T11:38:00-05:00",
+            "description": "Police said they were still looking for suspects in one of the borough’s first killings of the year.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 346390,
+                            "title": "00187.JPG",
+                            "width": 3000,
+                            "height": 2001,
+                            "created_at": "2024-07-31T07:35:16.461618-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 3064618,
+                            "file_hash": "f29edac0cba0ba73fac9fa0aea596136af0524e4",
+                            "alt": "Police officers stand at a corner in Staten Island near the Richmond County Clerk on March 8, 2024.",
+                            "caption": "Police officers stand at a corner in Staten Island near the Richmond County Clerk on March 8, 2024.",
+                            "credit": "José A. Alvarado Jr. / Gothamist",
+                            "credit_link": "",
+                            "file": "https://images-prod.gothamist.com/original_images/00187_ztlqMvt.JPG",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 151
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "1743e2ec-f165-4df0-89e1-9cf9a36889bd"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 155152,
+                    "first_name": "Brittany",
+                    "last_name": "Kriegstein",
+                    "photo": 339904,
+                    "job_title": "Reporter",
+                    "biography": "Brittany Kriegstein covers all breaking news around New York City, with a focus on crime and gun violence. Got a tip? Email Brittany at bkriegstein@nypublicradio.org.",
+                    "website": "",
+                    "email": "",
+                    "slug": "brittany-kriegstein",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/BKriegstein"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                },
+                {
+                    "name": "staten island",
+                    "slug": "staten-island"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 162160,
+            "meta": {
+                "first_published_at": "2025-01-08T06:31:07.568631-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162160/",
+                "html_url": "http://cms.prod.nypr.digital/news/popular-home-care-program-undergoing-overhaul-begins-outreach-to-250k-new-yorkers/",
+                "slug": "popular-home-care-program-undergoing-overhaul-begins-outreach-to-250k-new-yorkers"
+            },
+            "title": "Popular home care program undergoing overhaul begins outreach to 250K New Yorkers",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "692d4eaa-71c7-44d7-83fc-620232a0eae3",
+            "url": "https://gothamist.com/news/popular-home-care-program-undergoing-overhaul-begins-outreach-to-250k-new-yorkers",
+            "publication_date": "2025-01-08T06:31:00-05:00",
+            "updated_date": "2025-01-08T17:16:00-05:00",
+            "description": "Hundreds of intermediary or “go-between” companies are being replaced with a single firm.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 349088,
+                            "title": "GettyImages-2012840901.jpg",
+                            "width": 8192,
+                            "height": 5464,
+                            "created_at": "2025-01-06T15:40:56.790547-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 29665065,
+                            "file_hash": "abed84e9398fb79d27caaf3cdfff74c739cd67cf",
+                            "alt": "Image of health care consumer receiving services in their home",
+                            "caption": "",
+                            "credit": "zeljkosantrac/Getty Images",
+                            "credit_link": "",
+                            "file": "https://images-prod.gothamist.com/original_images/GettyImages-2012840901.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 125
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "4936587e-a556-4857-a1e6-4b550b9d5b45"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 22,
+                    "first_name": "Caroline",
+                    "last_name": "Lewis",
+                    "photo": 334520,
+                    "job_title": "Health Reporter",
+                    "biography": "Caroline Lewis is on the health care beat for WNYC and Gothamist. She has covered COVID, a nurses' strike, the overdose crisis and New York’s marijuana legalization effort, and spent a year investigating patients' medical bills. She always wants to hear about how everyday New Yorkers experience the health system. Got a tip? Email clewis@wnyc.org.",
+                    "website": "",
+                    "email": "",
+                    "slug": "caroline-lewis",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "new york state",
+                    "slug": "new-york-state"
+                },
+                {
+                    "name": "Health and Science",
+                    "slug": "health-and-science"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 162177,
+            "meta": {
+                "first_published_at": "2025-01-08T06:01:13.000861-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162177/",
+                "html_url": "http://cms.prod.nypr.digital/news/gov-hochul-looks-to-expand-forced-hospitalization-as-albany-returns-to-session/",
+                "slug": "gov-hochul-looks-to-expand-forced-hospitalization-as-albany-returns-to-session"
+            },
+            "title": "Gov. Hochul looks to expand forced hospitalization as Albany returns to session",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "a2e4cd4a-75bf-4c24-9f5d-0ff11569b6a6",
+            "url": "https://gothamist.com/news/gov-hochul-looks-to-expand-forced-hospitalization-as-albany-returns-to-session",
+            "publication_date": "2025-01-08T06:01:13.000861-05:00",
+            "updated_date": null,
+            "description": "The Democratic governor is putting her muscle behind efforts to ease restrictions in New York’s involuntary commitment law, which have stalled in recent years.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 349109,
+                            "title": "54213636075_a765c010a1_k.jpg",
+                            "width": 2048,
+                            "height": 1365,
+                            "created_at": "2025-01-07T17:59:43.366746-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 450067,
+                            "file_hash": "14c56162c8f4bfe0b592fbfb8a3b86a48cc1c9c4",
+                            "alt": "Gov. Kathy Hochul speaks at a podium",
+                            "caption": "Hochul has made crime in the subways a priority as the new legislative session begins.",
+                            "credit": "Office of Governor Kathy Hochul",
+                            "credit_link": "",
+                            "file": "https://images-prod.gothamist.com/original_images/54213636075_a765c010a1_k.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 154
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "e40aaea9-f2f6-4c21-96ee-a08cc5cb6a22"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 171,
+                    "first_name": "Jon",
+                    "last_name": "Campbell",
+                    "photo": 328437,
+                    "job_title": "Reporter",
+                    "biography": "Jon Campbell covers the New York State Capitol for WNYC and Gothamist. Prior to that, he covered the Capitol for more than a decade for the USA TODAY Network. He has twice earned the Walter T. Brown Memorial Award, an honor given annually by the Legislative Correspondents Association alumni for outstanding state government coverage. Jon grew up in the Buffalo area and graduated from the University at Albany. Got a tip? Email Jon at jcampbell@wnyc.org or Signal 518-210-7087.",
+                    "website": "",
+                    "email": "jcampbell@wnyc.org",
+                    "slug": "jon-campbell",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/JonCampbellNY"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "Kathy Hochul",
+                    "slug": "kathy-hochul"
+                },
+                {
+                    "name": "new york state",
+                    "slug": "new-york-state"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 162172,
+            "meta": {
+                "first_published_at": "2025-01-08T06:01:08.909709-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162172/",
+                "html_url": "http://cms.prod.nypr.digital/news/manhattan-community-board-4-votes-to-oppose-casino-complex-proposed-for-hudson-yards/",
+                "slug": "manhattan-community-board-4-votes-to-oppose-casino-complex-proposed-for-hudson-yards"
+            },
+            "title": "Manhattan Community Board 4 votes to oppose casino complex proposed for Hudson Yards",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "718ffeb2-07e9-44d9-9e26-00428a6006b5",
+            "url": "https://gothamist.com/news/manhattan-community-board-4-votes-to-oppose-casino-complex-proposed-for-hudson-yards",
+            "publication_date": "2025-01-08T06:01:08.909709-05:00",
+            "updated_date": null,
+            "description": "The advisory board's vote against the sprawling development by Wynn New York City was unanimous.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 347119,
+                            "title": "Hudson Green_Summer_Rendering Courtesy of Related Companies and Wynn Resorts.jpg",
+                            "width": 6000,
+                            "height": 3375,
+                            "created_at": "2024-09-15T08:19:03.702083-04:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 9585090,
+                            "file_hash": "36fda8ef9daa7a5a5da165a2a36ae3313381991c",
+                            "alt": "Rendering of the proposed Wynn New York City casino and resort development at Hudson Yards in Manhattan.",
+                            "caption": "Rendering of the proposed Wynn New York City casino and resort development at Hudson Yards in Manhattan.",
+                            "credit": "Courtesy of Wynn New York City",
+                            "credit_link": "",
+                            "file": "https://images-prod.gothamist.com/original_images/Hudson_Green_Summer_Rendering_Courtesy_of_Related_Companies_and_Wynn_Resor.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 125
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "1b23cfeb-d11f-4815-9c0d-36efd58d30df"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 81,
+                    "first_name": "Arun",
+                    "last_name": "Venugopal",
+                    "photo": 334514,
+                    "job_title": "Senior Reporter, Race and Justice",
+                    "biography": "Arun Venugopal is a senior reporter for the WNYC and Gothamist Race & Justice Unit who focuses on issues of race and bias in our region. His reporting also tackles the topics of immigration, faith, and inequality. Arun serves as the regular fill-in host of the station's \"U.S. of Anxiety\" program.\r\n\r\nArun was the creator and host of Micropolis, a series about race and identity. He is a contributor to NPR's Morning Edition and All Things Considered. He has appeared on PBS Newshour, On the Media and Studio 360, and has been published in The Guardian, The Wall Street Journal and Salon. He also frequently serves as an emcee and moderator of panel discussions on race, religion, and identity issues and has been a guest host of NPR's \"Fresh Air.\" He lives with his family in Queens.",
+                    "website": "",
+                    "email": "",
+                    "slug": "arun-venugopal",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/arunNYC"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "economy",
+                    "slug": "economy"
+                },
+                {
+                    "name": "Race And Justice Unit",
+                    "slug": "race-and-justice-unit"
+                },
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                },
+                {
+                    "name": "hudson yards",
+                    "slug": "hudson-yards"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 162176,
+            "meta": {
+                "first_published_at": "2025-01-07T17:54:26.124671-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162176/",
+                "html_url": "http://cms.prod.nypr.digital/news/163k-jewelry-heist-nyc-thieves-use-distractions-to-pull-off-multi-borough-thefts-police-say/",
+                "slug": "163k-jewelry-heist-nyc-thieves-use-distractions-to-pull-off-multi-borough-thefts-police-say"
+            },
+            "title": "$163K jewelry heist: NYC thieves use distractions to pull off multi-borough thefts, police say",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "a9cfc7d7-355d-4787-b555-d4a1ca492f17",
+            "url": "https://gothamist.com/news/163k-jewelry-heist-nyc-thieves-use-distractions-to-pull-off-multi-borough-thefts-police-say",
+            "publication_date": "2025-01-07T17:54:26.124671-05:00",
+            "updated_date": null,
+            "description": "Police are seeking the public’s help identifying the suspects in a series of brazen grand larcenies targeting packages and vehicles.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 348376,
+                            "title": "00015.JPG",
+                            "width": 8192,
+                            "height": 5464,
+                            "created_at": "2024-11-25T07:00:30.344635-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 15415430,
+                            "file_hash": "a1c2ca3b8b5b3f4cc3d8d65e5dfa2aa0ca45042c",
+                            "alt": "A police barricade sits outside the NYPD's 73rd Precinct in Brooklyn on March 4, 2024.",
+                            "caption": "A police barricade sits outside the NYPD's 73rd Precinct in Brooklyn on March 4, 2024.",
+                            "credit": "José A. Alvarado Jr. / Gothamist",
+                            "credit_link": "",
+                            "file": "https://images-prod.gothamist.com/original_images/00015_Z8T3QYU.JPG",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 151
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "84f56255-002c-4553-8a4c-240bf0289e38"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 150887,
+                    "first_name": "Phil",
+                    "last_name": "Corso",
+                    "photo": 334535,
+                    "job_title": "News Editor",
+                    "biography": "Phil Corso is the evening news editor at WNYC/Gothamist. Got a tip? Email pcorso@nypublicradio.org.",
+                    "website": "",
+                    "email": "pcorso@nypublicradio.org",
+                    "slug": "phil-corso",
+                    "social_media_profile": [
+                        {
+                            "service": "twitter",
+                            "profile_url": "https://twitter.com/philcorso"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                },
+                {
+                    "name": "manhattan",
+                    "slug": "manhattan"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
+                        "html_url": null
+                    },
+                    "title": "Root",
+                    "slug": "root"
+                }
+            ]
+        },
+        {
+            "id": 162175,
+            "meta": {
+                "first_published_at": "2025-01-07T17:52:03.012613-05:00",
+                "type": "news.ArticlePage",
+                "detail_url": "https://api-prod.gothamist.com/api/v2/pages/162175/",
+                "html_url": "http://cms.prod.nypr.digital/news/2-bodies-found-in-jetblue-planes-landing-gear-after-flight-from-jfk/",
+                "slug": "2-bodies-found-in-jetblue-planes-landing-gear-after-flight-from-jfk"
+            },
+            "title": "2 bodies found in JetBlue plane’s landing gear after flight from JFK",
+            "listing_title": "",
+            "listing_summary": "",
+            "listing_image": null,
+            "uuid": "bf248f66-a3f0-42dd-8eb8-3c0b6cc70641",
+            "url": "https://gothamist.com/news/2-bodies-found-in-jetblue-planes-landing-gear-after-flight-from-jfk",
+            "publication_date": "2025-01-07T17:52:03.012613-05:00",
+            "updated_date": null,
+            "description": "The bodies were discovered during a post-flight inspection in Florida.",
+            "lead_asset": [
+                {
+                    "type": "lead_image",
+                    "value": {
+                        "image": {
+                            "id": 349108,
+                            "title": "GettyImages-2168457510.jpg",
+                            "width": 4498,
+                            "height": 3000,
+                            "created_at": "2025-01-07T17:17:39.333981-05:00",
+                            "focal_point_x": null,
+                            "focal_point_y": null,
+                            "focal_point_width": null,
+                            "focal_point_height": null,
+                            "file_size": 2302637,
+                            "file_hash": "8ed88676c90c505ae8de3f0a84386ca16a130cfe",
+                            "alt": "A general view of a jetBlue airliner headed towards JFK Airport on Aug. 23, 2024.",
+                            "caption": "A general view of a jetBlue airliner headed towards JFK Airport on Aug. 23, 2024.",
+                            "credit": "Bruce Bennett/Getty Images",
+                            "credit_link": "",
+                            "file": "https://images-prod.gothamist.com/original_images/GettyImages-2168457510.jpg",
+                            "usage_limitations": "",
+                            "expiry_date": null,
+                            "collection": 1,
+                            "uploaded_by_user": 129
+                        },
+                        "caption": "",
+                        "image_link": ""
+                    },
+                    "id": "38a44bc1-75eb-4dd0-8037-734cee951769"
+                }
+            ],
+            "sponsored_content": false,
+            "related_authors": [
+                {
+                    "id": 154865,
+                    "first_name": "Giulia",
+                    "last_name": "Heyward",
+                    "photo": 338377,
+                    "job_title": "Politics Reporter",
+                    "biography": "Giulia Heyward is a breaking news reporter on the Day-Of desk. She previously worked at NPR, as a breaking news reporter, and the New York Times, as a reporting fellow on the national desk. Her work has also appeared in CNN, The Atlantic and Politico. \r\n\r\nGot a tip? Email gheyward@nypublicradio.org or more securely on signal at 917-715-1458.",
+                    "website": "",
+                    "email": "gheyward@nypublicradio.org",
+                    "slug": "giulia-heyward",
+                    "social_media_profile": []
+                }
+            ],
+            "tags": [
+                {
+                    "name": "new york city",
+                    "slug": "new-york-city"
+                },
+                {
+                    "name": "public safety",
+                    "slug": "public-safety"
+                },
+                {
+                    "name": "transportation",
+                    "slug": "transportation"
+                }
+            ],
+            "show_as_feature": false,
+            "legacy_id": null,
+            "ancestry": [
+                {
+                    "id": 4,
+                    "meta": {
+                        "type": "standardpages.IndexPage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/4/",
+                        "html_url": "http://cms.prod.nypr.digital/news/"
+                    },
+                    "title": "News",
+                    "slug": "news"
+                },
+                {
+                    "id": 3,
+                    "meta": {
+                        "type": "home.HomePage",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/3/",
+                        "html_url": "http://cms.prod.nypr.digital/"
+                    },
+                    "title": "Gothamist",
+                    "slug": "home"
+                },
+                {
+                    "id": 1,
+                    "meta": {
+                        "type": "wagtailcore.Page",
+                        "detail_url": "https://api-prod.gothamist.com/api/v2/pages/1/",
                         "html_url": null
                     },
                     "title": "Root",

@@ -6,15 +6,20 @@ import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
 
 const config = useRuntimeConfig()
 
-const riverStoryCount = ref(6)
+const riverLatestCount = ref(10)
+const topRailLatestCount = ref(4)
+const featuredArticleCount = ref(2)
+const articlesToFetchOnPageLoadCount = computed(() => {
+  return riverLatestCount.value + topRailLatestCount.value + featuredArticleCount.value
+})
+const loadMoreCount = ref(10)
+const riverStoryCount = ref(10)
 const riverAdOffset = ref(2)
 const riverAdRepeatRate = ref(6)
 const riverContainer = ref('#latest')
 
-const findArticleLimit = riverStoryCount.value
-
-const articlesPromise = findArticlePages({
-  limit: findArticleLimit,
+const latestArticlesPromise = findArticlePages({
+  limit: articlesToFetchOnPageLoadCount.value,
   sponsored_content: false,
 }).then(({ data }) => normalizeFindArticlePagesResponse(data))
 
@@ -30,18 +35,28 @@ const homePageCollectionsPromise = findPage('/').then(({ data }) => {
 })
 
 const [articles, homePageCollections] = await Promise.all([
-  articlesPromise,
+  latestArticlesPromise,
   homePageCollectionsPromise,
 ])
-// the latest articles
-const latestArticles = ref([...articles])
 
-// the home page featured article should display only the first and second story in the home page content collection
-const featuredArticles = homePageCollections?.[0].data.map(normalizeArticlePage)
+const loadedArticles = ref(articles)
 
-const riverArticles = latestArticles
+const featuredArticles = computed(() => {
+  return homePageCollections?.[0].data.map(normalizeArticlePage)
+})
 
-const mainImage = featuredArticles?.[0]?.listingImage
+const latestArticles = computed(() => {
+  return loadedArticles.value.filter(article => !featuredArticles.value.some(featured => featured.uuid === article.uuid))
+})
+
+const topRailLatestArticles = computed(() => {
+  return latestArticles.value.slice(0, topRailLatestCount.value)
+})
+const riverLatestArticles = computed(() => {
+  return latestArticles.value.slice(topRailLatestCount.value, riverStoryCount.value + topRailLatestCount.value)
+})
+
+const mainImage = featuredArticles.value?.[0]?.listingImage
 if (mainImage) {
   usePreloadResponsiveImage(
     useImageUrl(mainImage, {
@@ -58,7 +73,7 @@ if (mainImage) {
 }
 
 const riverSegments = computed(() => {
-  const riverCopy = riverArticles.value.slice()
+  const riverCopy = riverLatestArticles.value.slice()
   const segments = [] as ArticlePage[][]
   while (riverCopy.length >= 6)
     segments.push(riverCopy.splice(0, riverStoryCount.value))
@@ -71,19 +86,20 @@ useHead({
 })
 
 async function loadMoreArticles() {
-  const loadMoreOffset = latestArticles.value.length
+  const loadMoreOffset = loadedArticles.value.length
 
   const newArticles = await useLoadMoreArticles({
     sponsored_content: false,
-    limit: riverStoryCount.value,
+    limit: loadMoreCount.value,
     offset: loadMoreOffset,
   })
-  latestArticles.value.push(...newArticles)
+  loadedArticles.value.push(...newArticles)
   await nextTick()
   if (newArticles.length) {
     ([...document.querySelectorAll(`${riverContainer.value} .v-card .card-title-link`)]
       .slice(-newArticles.length)[0] as HTMLElement).focus()
   }
+  riverStoryCount.value = riverStoryCount.value + loadMoreCount.value
 }
 
 const { $analytics, $nativo } = useNuxtApp()
@@ -133,7 +149,7 @@ function nativoSectionLoaded(name) {
         <gothamist-homepage-topper
           :feature-large="featuredArticles[0]"
           :feature-medium="featuredArticles[1]"
-          :latest-articles="articles"
+          :latest-articles="topRailLatestArticles"
           tracking-component-location=""
           @vue:mounted="nativoSectionLoaded('ntv-latest-1')"
         />
@@ -184,7 +200,7 @@ function nativoSectionLoaded(name) {
       <!-- river -->
 
       <div id="articleList" class="content">
-        <template v-if="articles">
+        <template v-if="riverLatestArticles.length">
           <hr class="mb-4 black">
           <div id="latest">
             <div
