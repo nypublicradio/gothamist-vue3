@@ -75,7 +75,7 @@ if (mainImage) {
 const riverSegments = computed(() => {
   const riverCopy = riverLatestArticles.value.slice()
   const segments = [] as ArticlePage[][]
-  while (riverCopy.length >= 6)
+  while (riverCopy.length > 0)
     segments.push(riverCopy.splice(0, riverStoryCount.value))
 
   return segments
@@ -94,12 +94,12 @@ async function loadMoreArticles() {
     offset: loadMoreOffset,
   })
   loadedArticles.value.push(...newArticles)
+  riverStoryCount.value = riverStoryCount.value + loadMoreCount.value
   await nextTick()
   if (newArticles.length) {
     ([...document.querySelectorAll(`${riverContainer.value} .v-card .card-title-link`)]
       .slice(-newArticles.length)[0] as HTMLElement).focus()
   }
-  riverStoryCount.value = riverStoryCount.value + loadMoreCount.value
 }
 
 const { $analytics, $nativo } = useNuxtApp()
