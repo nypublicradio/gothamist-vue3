@@ -64,7 +64,7 @@ describe('The home page', () => {
     cy.contains('Load More').trigger('mouseover').click()
     cy.wait('@indexMore')
     cy.get('#articleList .gothamist-card').should('have.length', 20)
-    cy.get('#articleList .card-title-link').eq(6).should('have.focus')
+    cy.get('#articleList .card-title-link').eq(10).should('have.focus')
   })
   it('hides and shows the fixed header', () => {
     cy.visit('/')
