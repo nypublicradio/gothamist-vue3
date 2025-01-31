@@ -110,13 +110,13 @@ useHead({
     lang: 'en',
   },
   title: 'Gothamist: New York City Local News, Food, Arts & Events',
-  meta: [
-    {
-      name: 'description',
-      content: 'Gothamist is a non-profit local newsroom, powered by WNYC.',
-      tagPriority: META_TAG_PRIORITY,
-    },
-  ],
+  // meta: [
+  // {
+  // name: 'description',
+  // content: 'Gothamist is a non-profit local newsroom, powered by WNYC.',
+  // tagPriority: META_TAG_PRIORITY,
+  // },
+  // ],
   link: [
     { rel: 'preconnect', href: config.public.API_URL },
   ],

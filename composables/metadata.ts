@@ -144,7 +144,7 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
   const config = useRuntimeConfig()
   const metadata = {
     meta: [
-      { name: 'description', content: article.searchDescription || article.description, tagPriority: META_TAG_PRIORITY },
+      { name: 'description', content: article.searchDescription ? article.searchDescription : 'Gothamist is a non-profit local newsroom, powered by WNYC.', tagPriority: META_TAG_PRIORITY },
       { property: 'og:title', content: article.socialTitle, tagPriority: META_TAG_PRIORITY },
       { property: 'og:description', content: article.socialDescription, tagPriority: META_TAG_PRIORITY },
       { property: 'og:url', content: article.url, tagPriority: META_TAG_PRIORITY },
