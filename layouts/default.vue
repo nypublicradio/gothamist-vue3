@@ -113,7 +113,7 @@ useHead({
   // meta: [
   // {
   // name: 'description',
-  // content: 'Gothamist is a non-profit local newsroom, powered by WNYC. Test this',
+  // content: 'Gothamist is a non-profit local newsroom, powered by WNYC.',
   // tagPriority: META_TAG_PRIORITY,
   // },
   // ],
