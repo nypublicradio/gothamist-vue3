@@ -144,9 +144,9 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
   const config = useRuntimeConfig()
   const metadata = {
     meta: [
-      { name: 'description', content: article.searchDescription ? article.searchDescription : 'Gothamist is a non-profit local newsroom, powered by WNYC.', tagPriority: META_TAG_PRIORITY },
+      { name: 'description', content: article.searchDescription || article.listingDescription || article.description || 'Gothamist is a non-profit local newsroom, powered by WNYC.', tagPriority: META_TAG_PRIORITY },
       { property: 'og:title', content: article.socialTitle, tagPriority: META_TAG_PRIORITY },
-      { property: 'og:description', content: article.socialDescription, tagPriority: META_TAG_PRIORITY },
+      { property: 'og:description', content: article.searchDescription || article.socialDescription || article.description || 'Gothamist is a non-profit local newsroom, powered by WNYC.', tagPriority: META_TAG_PRIORITY },
       { property: 'og:url', content: article.url, tagPriority: META_TAG_PRIORITY },
       { property: 'og:image', content: useImageUrl(article.socialImage, { width: 1200, height: 650, quality: 85 }) || config.public.OG_IMAGE, tagPriority: META_TAG_PRIORITY },
       { property: 'og:image:width', content: '1200', tagPriority: META_TAG_PRIORITY },
