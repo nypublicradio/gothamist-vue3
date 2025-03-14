@@ -8,7 +8,7 @@ export default antfu({
     'api.json',
     'assets/gsap/**',
     'cf_functions/**',
-    'cypress/fixtures/**',
+    'cypress/**/**',
     'node_modules/**',
   ],
 }, {
