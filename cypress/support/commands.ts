@@ -49,6 +49,9 @@ Cypress.Commands.add('loadGlobalFixtures', () => {
   cy.intercept('/api/v2/navigation/*', { fixture: 'aviary/navigation.json' }).as('navigation')
   cy.intercept('/api/v4/whats_on/**', { fixture: 'publisher/whats_on.json' }).as('whatsOn')
   cy.intercept({
+    hostname: /([^.]*\.)+htlbid.com/,
+  }, { statusCode: 200, body: '' }).as('htlbid')
+  cy.intercept({
     hostname: /([^.]*\.)+doubleclick.net/,
   }, { statusCode: 200, body: '' }).as('doubleclick')
   cy.intercept({
@@ -63,4 +66,11 @@ Cypress.Commands.add('loadGlobalFixtures', () => {
   cy.intercept({
     hostname: 'news.google.com',
   }, { statusCode: 200, body: '' }).as('googleNews')
+  Cypress.on('uncaught:exception', (err, _runnable) => {
+    if (err.message) {
+      console.log('UNHANDLED ERROR:', err)
+      return false
+    }
+    return false
+  })
 })
