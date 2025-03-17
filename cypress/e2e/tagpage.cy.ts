@@ -60,6 +60,7 @@ describe('A tag page', () => {
 
     cy.visit('/preview?identifier=abc&token=123')
     cy.wait('@draftTagpagePreview')
+    cy.wait(1000)
     cy.get('h1').contains('Bagel Fest').should('exist')
     cy.get('.tag-page-top-zone').contains('Zombie ipsum').should('exist')
   })
