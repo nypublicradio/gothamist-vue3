@@ -131,6 +131,10 @@ jobs:
           command: |
             npx nuxi prepare
             npm run test-cypress-ci
+      - store_artifacts:
+          path: root/project/cypress/videos
+      - store_artifacts:
+          path: root/project/cypress/screenshots
 
   test_nginx:
     docker:
