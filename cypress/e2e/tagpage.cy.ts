@@ -49,10 +49,6 @@ describe('A tag page', () => {
     cy.get('#articleList .card-title-link').eq(10).should('have.focus')
   })
   it('shows preview for draft tag pages', () => {
-    cy.intercept({
-      pathname: '/api/v2/pages/find',
-      query: { html_path: 'tags/bagels' },
-    }, { fixture: 'aviary/tag-page.json' }).as('tagPage')
     cy.intercept(
       '/api/v2/page_preview/*',
       { fixture: 'aviary/preview-tagpage-draft.json' },
@@ -60,7 +56,6 @@ describe('A tag page', () => {
 
     cy.visit('/preview?identifier=abc&token=123')
     cy.wait('@draftTagpagePreview')
-    cy.wait(1000)
     cy.get('h1').contains('Bagel Fest').should('exist')
     cy.get('.tag-page-top-zone').contains('Zombie ipsum').should('exist')
   })
