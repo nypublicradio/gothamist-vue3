@@ -49,13 +49,24 @@ describe('A tag page', () => {
     cy.get('#articleList .card-title-link').eq(10).should('have.focus')
   })
   it('shows preview for draft tag pages', () => {
+    cy.intercept({
+      pathname: '/api/v2/pages',
+      query: {
+        type: 'news.ArticlePage',
+        fields: 'ancestry,description,lead_asset,legacy_id,listing_image,publication_date,show_as_feature,sponsored_content,tags,updated_date,url,uuid,listing_title,listing_summary,related_authors',
+        order: '-publication_date',
+        show_on_index_listing: 'true',
+        limit: '10',
+        tag_slug: 'bagelfest',
+      },
+    }, { fixture: 'aviary/tag-articles.json' }).as('draftTagPageArticles')
     cy.intercept(
       '/api/v2/page_preview/*',
       { fixture: 'aviary/preview-tagpage-draft.json' },
-    ).as('draftTagpagePreview')
+    ).as('draftTagpageCuratedData')
 
     cy.visit('/preview?identifier=abc&token=123')
-    cy.wait('@draftTagpagePreview')
+    cy.wait(['@draftTagpageCuratedData','@draftTagPageArticles'])
     cy.get('h1').contains('Bagel Fest').should('exist')
     cy.get('.tag-page-top-zone').contains('Zombie ipsum').should('exist')
   })
