@@ -28,7 +28,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       'Load failed',
     ],
     maxValueLength: 1000,
-    tracePropagationTargets: ['cms.demo.nypr.digital', 'api.demo.nypr.digital', 'cms.prod.nypr.digital', 'api.prod.nypr.digital'],
+    tracePropagationTargets: ['cms.demo.nypr.digital', 'cms.prod.nypr.digital'],
     trackComponents: true,
     timeout: 2000,
     hooks: ['activate', 'mount', 'update'],
