@@ -170,6 +170,7 @@ else {
       { property: 'fb:app_id', content: '151261804904925', tagPriority: META_TAG_PRIORITY },
       { name: 'twitter:card', content: 'summary_large_image', tagPriority: META_TAG_PRIORITY },
       { name: 'twitter:site', content: '@gothamist', tagPriority: META_TAG_PRIORITY },
+      { name: 'apple-itunes-app', content: 'app-id=470219771, app-argument=wnyc://', tagPriority: META_TAG_PRIORITY },
     ],
   })
 }

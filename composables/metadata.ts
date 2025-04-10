@@ -153,6 +153,7 @@ function useArticlePageHeadMetadata(article: ArticlePage): { meta: ({ name: stri
       { property: 'og:image:height', content: '650', tagPriority: META_TAG_PRIORITY },
       { property: 'og:image:alt', content: article.socialImage?.alt, tagPriority: META_TAG_PRIORITY },
       { name: 'twitter:card', content: 'summary_large_image', tagPriority: META_TAG_PRIORITY },
+      { name: 'apple-itunes-app', content: `app-id=470219771, app-argument=wnyc://story/${article.id}?src=wagtail`, tagPriority: META_TAG_PRIORITY },
       { name: 'article:published_time', content: article.publicationDate?.toISOString() },
       { name: 'article:modified_time', content: article.updatedDate?.toISOString() ?? '' },
       { name: 'article:section', content: article.section.name },
