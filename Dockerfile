@@ -1,4 +1,4 @@
-FROM node:18.18.2 as build
+FROM node:22.15.0 as build
 
 ARG API_URL
 ARG CANONICAL_HOST
@@ -35,7 +35,7 @@ RUN npm install sass
 COPY . .
 RUN npm run build
 
-FROM node:18.18.2-slim as app
+FROM node:22.15.0-slim as app
 
 
 WORKDIR /app
