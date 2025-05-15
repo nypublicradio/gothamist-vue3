@@ -66,10 +66,18 @@ const sectionSlug = computed(() => route?.params?.sectionSlug as string)
 const contentLocked = ref(false) // starts unlocked for ssr, we check content wall state during onMounted hook
 const isMounted = ref(false)
 
+const appArgumentContent = computed(() => `app-id=470219771, app-argument=wnyc://story/${article.id}?src=wagtail`)
+
 useHead({
   title: article.seoTitle ? `${article.seoTitle} - Gothamist` : `${article.title} - Gothamist`,
   link: [
     { rel: 'canonical', href: article?.url },
+  ],
+  meta: [
+    {
+      name: 'apple-itunes-app',
+      content: appArgumentContent,
+    },
   ],
 })
 
