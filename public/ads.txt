@@ -573,3 +573,10 @@ sonobi.com, da6df59178, RESELLER, d1a215d9eb5aee9e
 smaato.com, 1100058321, RESELLER, 07bcf65f187117b4
 lijit.com, 57729, RESELLER, fafdf38b16bf6b2b
 improvedigital.com, 2434, RESELLER
+
+#Nexxen
+video.unrulymedia.com, 772489825, DIRECT 
+rubiconproject.com, 15268, RESELLER, 0bfd66d529a55807
+pubmatic.com, 159277, RESELLER
+appnexus.com, 6849, RESELLER
+pubnative.net, 1007449, RESELLER, d641df8625486a7b
