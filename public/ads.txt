@@ -1,3 +1,6 @@
+ownerdomain=wnyc.org
+managerdomain=hashtag-labs.com
+
 #Google AdExchange
 google.com, pub-6728307037029826, RESELLER, f08c47fec0942fa0
 
