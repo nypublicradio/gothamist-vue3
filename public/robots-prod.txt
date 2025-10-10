@@ -16,5 +16,8 @@ Disallow: /
 User-agent: Google-Extended
 Disallow: /
 
+User-agent: PerplexityBot
+Disallow: /
+
 Sitemap: https://gothamist.com/sitemap.xml
 Sitemap: https://gothamist.com/sitemap-news.xml
