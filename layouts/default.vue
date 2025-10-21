@@ -98,6 +98,12 @@ onMounted(() => {
     $htlbid.setTargetingForRoute(route)
   }
 })
+
+onErrorCaptured((err, instance, info) => {
+  console.log('ERROR:', info) // eslint-disable-line no-console
+  console.log(err) // eslint-disable-line no-console
+})
+
 watch(route, (value) => {
   if (typeof $htlbid !== 'undefined') {
     $htlbid.setTargetingForRoute(value)
