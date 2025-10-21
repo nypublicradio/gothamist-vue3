@@ -124,6 +124,7 @@ useHead({
     {
       src: config.public.HTL_JS,
       async: true,
+      key: 'htlbid-script',
     },
   ],
 })

@@ -24,6 +24,7 @@ export default defineNuxtPlugin(() => {
     script: [{
       src: config.public.HTL_JS,
       async: true,
+      key: 'htlbid-script',
     }],
   })
   if (!process.server) {
