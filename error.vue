@@ -201,7 +201,7 @@ useServerHead({
           <div class="error-page-error pt-2">
             {{ error.statusCode }} Error - {{ error.statusMessage }}
           </div>
-          <div v-if="config.public.DEBUG === 'true'" class="mt-4">
+          <div class="mt-4">
             <pre class="font-bold">{{ error.message }}</pre>
             <div v-html="error.description" />
           </div>
