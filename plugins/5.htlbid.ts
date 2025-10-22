@@ -32,32 +32,24 @@ export default defineNuxtPlugin(() => {
       key: 'htlbid-script',
     }],
   })
-
-  function queueCommand(command: () => void) {
-    window.tude = window.tude || {}
-    window.tude.cmd = window.tude.cmd || []
-    window.tude.cmd.push(() => {
-      window.htlbid = window.htlbid || {}
-      window.htlbid.cmd = window.htlbid.cmd || []
-      window.htlbid.cmd.push(command)
-    })
-  }
-
   if (!process.server) {
+    window.htlbid = window.htlbid || {}
+    htlbid.cmd = htlbid.cmd || []
+
     const init = () => {
-      queueCommand(() => {
+      htlbid.cmd.push(() => {
         htlbid.layout('universal')
       })
     }
     const setTargeting = (targetingParams) => {
-      queueCommand(() => {
+      htlbid.cmd.push(() => {
         for (const key in targetingParams)
           htlbid.setTargeting(key, targetingParams[key])
       })
     }
     const clearTargeting = (targetingParams) => {
       const targetingKeys = Object.keys(targetingParams)
-      queueCommand(() => {
+      htlbid.cmd.push(() => {
         targetingKeys.forEach((key) => {
           htlbid.clearTargeting(key)
         })
@@ -74,8 +66,14 @@ export default defineNuxtPlugin(() => {
       })
     }
     const clearAds = () => {
-      queueCommand(() => {
-        htlbid.forceRefresh()
+      window.tude = window.tude || {}
+      window.tude.cmd = window.tude.cmd || []
+      window.tude.cmd.push(() => {
+        window.htlbid = window.htlbid || {}
+        window.htlbid.cmd = window.htlbid.cmd || []
+        window.htlbid.cmd.push(() => {
+          window.htlbid.forceRefresh()
+        })
       })
     }
     return {
