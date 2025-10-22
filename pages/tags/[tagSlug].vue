@@ -69,12 +69,11 @@ useChartbeat()
 useOptinMonster()
 cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 
-onMounted(() => {
+onMounted(async () => {
   $analytics.schedulePageView({
     page_type: 'tag_page',
     content_group: 'tag-page',
   })
-  $htlbid.setTargeting({ Template: 'Tag' })
 
   function getPagesFromZone(zone: StreamfieldBlock[]) {
     if (!zone)
@@ -87,6 +86,8 @@ onMounted(() => {
   const midPageArticles = getPagesFromZone(curatedTagPage?.midPageZone)
   const allArticles = [...articles.value, ...topPageArticles, ...midPageArticles]
   useUpdateCommentCounts(allArticles)
+  await nextTick()
+  $htlbid.setTargeting({ Template: 'Tag' })
 })
 
 onUnmounted(() => {

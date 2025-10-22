@@ -76,8 +76,9 @@ onBeforeMount(() => {
   const currentSteamStation = useCurrentSteamStation()
   updateLiveStream(currentSteamStation.value)
 })
-onMounted(() => {
+onMounted(async () => {
   $analytics.schedulePageView({ page_type: 'error_page' })
+  await nextTick()
   document.addEventListener('scroll', () => {
     atTop.value = !(window.scrollY > 0)
     // atBottom.value = ((window.scrollY + (window.innerHeight + 115) >= document.body.scrollHeight)) ? true : false

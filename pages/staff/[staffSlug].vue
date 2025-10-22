@@ -79,8 +79,9 @@ useChartbeat()
 useOptinMonster()
 cacheControlMaxAge.value = CacheControlAgeTime.QUARTER
 
-onMounted(() => {
+onMounted(async () => {
   $analytics.schedulePageView({ page_type: 'staff_page' })
+  await nextTick()
   $htlbid.setTargeting({ Template: 'Staff' })
 })
 

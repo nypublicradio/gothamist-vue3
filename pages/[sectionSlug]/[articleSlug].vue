@@ -94,8 +94,9 @@ useChartbeat({
 })
 useOptinMonster()
 
-onMounted(() => {
+onMounted(async () => {
   $analytics.schedulePageView(trackingData)
+  await nextTick()
   $htlbid.setTargeting(adTargetingData)
   sensitiveContent.value = article.sensitiveContent
   useUpdateCommentCounts([article])

@@ -46,11 +46,12 @@ useChartbeat({
 })
 useOptinMonster()
 
-onMounted(() => {
+onMounted(async () => {
   $analytics.schedulePageView({
     page_type: 'gallery',
     content_group: article?.sponsoredContent ? 'sponsored-content' : `${route.params.sectionSlug}-gallery`,
   })
+  await nextTick()
   $htlbid.setTargeting(adTargetingData)
 })
 onUnmounted(() => {

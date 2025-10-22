@@ -89,8 +89,9 @@ onBeforeMount(async () => {
   const currentSteamStation = useCurrentSteamStation()
   await updateLiveStream(currentSteamStation.value)
 })
-onMounted(() => {
+onMounted(async () => {
   if (typeof $htlbid !== 'undefined') {
+    await nextTick()
     $htlbid.init()
     $htlbid.setTargeting({
       is_testing: config.public.HTL_IS_TESTING,
@@ -104,8 +105,9 @@ onErrorCaptured((err, instance, info) => {
   console.log(err) // eslint-disable-line no-console
 })
 
-watch(route, (value) => {
+watch(route, async (value) => {
   if (typeof $htlbid !== 'undefined') {
+    await nextTick()
     $htlbid.setTargetingForRoute(value)
     $htlbid.clearAds()
   }
