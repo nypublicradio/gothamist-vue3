@@ -6,8 +6,13 @@ interface htlbidType {
   forceRefresh: () => void
 }
 
+interface tudeType {
+  cmd: (() => void)[]
+}
+
 type WindowWithHtlbid = Window & {
   htlbid: htlbidType
+  tude: tudeType
 }
 
 declare const window: WindowWithHtlbid
@@ -27,24 +32,32 @@ export default defineNuxtPlugin(() => {
       key: 'htlbid-script',
     }],
   })
-  if (!process.server) {
-    window.htlbid = window.htlbid || {}
-    htlbid.cmd = htlbid.cmd || []
 
+  function queueCommand(command: () => void) {
+    window.tude = window.tude || {}
+    window.tude.cmd = window.tude.cmd || []
+    window.tude.cmd.push(() => {
+      window.htlbid = window.htlbid || {}
+      window.htlbid.cmd = window.htlbid.cmd || []
+      window.htlbid.cmd.push(command)
+    })
+  }
+
+  if (!process.server) {
     const init = () => {
-      htlbid.cmd.push(() => {
+      queueCommand(() => {
         htlbid.layout('universal')
       })
     }
     const setTargeting = (targetingParams) => {
-      htlbid.cmd.push(() => {
+      queueCommand(() => {
         for (const key in targetingParams)
           htlbid.setTargeting(key, targetingParams[key])
       })
     }
     const clearTargeting = (targetingParams) => {
       const targetingKeys = Object.keys(targetingParams)
-      htlbid.cmd.push(() => {
+      queueCommand(() => {
         targetingKeys.forEach((key) => {
           htlbid.clearTargeting(key)
         })
@@ -61,7 +74,7 @@ export default defineNuxtPlugin(() => {
       })
     }
     const clearAds = () => {
-      htlbid.cmd.push(() => {
+      queueCommand(() => {
         htlbid.forceRefresh()
       })
     }
