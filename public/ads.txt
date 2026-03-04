@@ -7,7 +7,7 @@ aditude.io, 336, DIRECT
 
 
 #AdExchange
-google.com, pub-8534650309828026, DIRECT, f08c47fec0942fa0
+google.com, pub-9835879021808285, DIRECT, f08c47fec0942fa0
 
 
 #Amazon
