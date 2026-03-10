@@ -13,7 +13,7 @@ export default function useWalledState(article: ArticlePage) {
       return false
 
     // articles newer than the threshold date shouldn't be walled
-    const wallThreshold = subMonths(new Date(), 6) // 6 months ago
+    const wallThreshold = subMonths(new Date(), 1) // update rule so stories older than 1 month are locked
     if (compareAsc(article.updatedDate || article.publicationDate, wallThreshold) > 0)
       return false
 
