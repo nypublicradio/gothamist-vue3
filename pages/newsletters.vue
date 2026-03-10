@@ -5,6 +5,11 @@ const config = useRuntimeConfig()
 
 const newsletters = [
   {
+    title: 'Brian Lehrer Show Newsletter',
+    id: 'The Brian Lehrer Show',
+    description: 'Dig deeper into your favorite show with a weekly newsletter from Brian Lehrer.',
+  },
+  {
     title: 'Early Addition',
     id: 'Gothamist - Early Addition',
     description: 'Start your weekdays with a guide of the local stories you need to know, plus tidbits from around the internet.',
@@ -15,6 +20,11 @@ const newsletters = [
     description: 'Get links to our top stories delivered to your inbox every day at 5 p.m.',
   },
   {
+    title: 'Looped In NYC',
+    id: 'Looped in NYC',
+    description: 'Sign up to get a weekly guide on what to know and where to go in the city.',
+  },
+  {
     title: 'On The Way',
     id: 'We The Commuters',
     description: 'The week’s transit news, exclusive analysis, answers to your burning commuter questions and more.',
@@ -22,6 +32,11 @@ const newsletters = [
   {
     title: 'Politics Brief',
     id: 'Politics Brief Newsletter',
+    description: 'Everything you need to know as a voter in New York or New Jersey.',
+  },
+  {
+    title: 'WNYC Weekly Brief',
+    id: 'WNYC Weekly Brief',
     description: 'Everything you need to know as a voter in New York or New Jersey.',
   },
 ]
