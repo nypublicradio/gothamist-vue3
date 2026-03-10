@@ -138,3 +138,7 @@ a.mod-button.pi {
 .truncate {
   @include truncate();
 }
+
+.streamfield.article-body p {
+    color: #111111;
+}
