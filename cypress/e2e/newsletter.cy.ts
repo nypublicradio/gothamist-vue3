@@ -9,11 +9,21 @@ describe('The newsletter page', () => {
   })
   it('submits correctly', () => {
     const emailAddress = 'test@example.com'
+    const lists = [
+    'The Brian Lehrer Show',
+    'Gothamist - Early Addition',
+    'Gothamist',
+    'Looped in NYC',
+    'We The Commuters',
+    'Politics Brief Newsletter',
+    'WNYC Weekly Brief', 
+    'Gothamist Membership',
+    ]
     cy.intercept(
       'email-proxy/subscribe',
       (req) => {
         expect(req.body.email).to.eq(emailAddress)
-        expect(req.body.list).to.eq('Gothamist - Early Addition++Gothamist++We The Commuters++Politics Brief Newsletter++Gothamist Membership')
+        expect(req.body.list).to.eq(lists.join('++'))
         expect(req.body.source).to.eq('gothamist_newsletter_landing_page')
         req.reply({
           statusCode: 200,
