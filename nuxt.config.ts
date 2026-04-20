@@ -35,8 +35,8 @@ export default defineNuxtConfig({
   },
 
   css: [
-    'assets/scss/global.scss',
-    'assets/scss/typography.scss',
+    '~/assets/scss/global.scss',
+    '~/assets/scss/typography.scss',
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/fonts/fonts.css',
     '@nypublicradio/nypr-design-system-vue3/src/assets/themes/gothamist/gothamist.min.css',
     'primevue/resources/primevue.min.css',

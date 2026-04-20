@@ -37,8 +37,8 @@ const commentCount = computed(() => {
       <span>
         <VByline
           :authors="article.authors || article.relatedAuthors"
-          @name-click="$event => emit('link-click', $event?.url)"
-          @organization-click="$event => emit('link-click', $event?.url)"
+          @name-click="$event => emit('linkClick', $event?.url)"
+          @organization-click="$event => emit('linkClick', $event?.url)"
         />
       </span>
       <span
@@ -47,7 +47,7 @@ const commentCount = computed(() => {
       >
         <NuxtLink
           :to="{ path: article.link, hash: '#comments' }"
-          @click="$event => emit('link-click', `${article.link}#comments`)"
+          @click="$event => emit('linkClick', `${article.link}#comments`)"
         >{{ String(Number(commentCount)) }}
           {{ commentCount === 1 ? 'comment' : 'comments' }}</NuxtLink>
       </span>
@@ -66,7 +66,7 @@ const commentCount = computed(() => {
             :article="article"
             :show-social="false"
             :show-comments="false"
-            @link-click="$event => emit('link-click', $event)"
+            @link-click="$event => emit('linkClick', $event)"
           />
         </div>
         <span
@@ -75,7 +75,7 @@ const commentCount = computed(() => {
         >
           <NuxtLink
             :to="{ path: article.link, hash: '#comments' }"
-            @click="$event => emit('link-click', `${article.link}#comments`)"
+            @click="$event => emit('linkClick', `${article.link}#comments`)"
           >
             {{ String(Number(commentCount)) }}
             {{ commentCount === 1 ? 'comment' : 'comments' }}
