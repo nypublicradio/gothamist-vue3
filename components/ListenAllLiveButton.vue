@@ -79,10 +79,10 @@ async function togglePlay() {
           <img
             v-if="!isEpisodePlaying"
             alt="play icon"
-            src="/play.svg"
+            src="./play.svg"
             class="mr-2"
           >
-          <img v-else alt="pause icon" src="/pause.svg" class="mr-2">
+          <img v-else alt="pause icon" src="./pause.svg" class="mr-2">
           <img
             class="logo mr-2"
             alt="show-logo"

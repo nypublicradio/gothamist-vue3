@@ -21,7 +21,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits<(e: 'link-click', value: any) => void>()
+const emit = defineEmits<(e: 'linkClick', value: any) => void>()
 
 const { $analytics } = useNuxtApp()
 
@@ -53,7 +53,7 @@ const commentCount = computed(() => {
             :ratio="[1, 1]"
             alt="Sponsor's image"
           />
-          <img v-else src="/avatar.svg" alt="Sponsor's image" loading="lazy">
+          <img v-else src="./avatar.svg" alt="Sponsor's image" loading="lazy">
         </VFlexibleLink>
       </div>
       <div class="flex flex-column gap-125">
@@ -97,7 +97,7 @@ const commentCount = computed(() => {
               :ratio="[1, 1]"
               alt=""
             />
-            <img v-else src="/avatar.svg" alt="" loading="lazy">
+            <img v-else src="./avatar.svg" alt="" loading="lazy">
           </VFlexibleLink>
         </div>
       </div>
@@ -105,8 +105,8 @@ const commentCount = computed(() => {
         <VByline
           :authors="authors"
           prefix="By"
-          @name-click="$event => emit('link-click', $event?.url)"
-          @organization-click="$event => emit('link-click', $event?.url)"
+          @name-click="$event => emit('linkClick', $event?.url)"
+          @organization-click="$event => emit('linkClick', $event?.url)"
         />
         <date-published :article="article" />
         <VFlexibleLink
