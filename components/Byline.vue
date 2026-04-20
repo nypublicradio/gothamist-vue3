@@ -21,7 +21,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits<(e: 'linkClick', value: any) => void>()
+const emit = defineEmits<(e: 'link-click', value: any) => void>()
 
 const { $analytics } = useNuxtApp()
 
@@ -105,8 +105,8 @@ const commentCount = computed(() => {
         <VByline
           :authors="authors"
           prefix="By"
-          @name-click="$event => emit('linkClick', $event?.url)"
-          @organization-click="$event => emit('linkClick', $event?.url)"
+          @name-click="$event => emit('link-click', $event?.url)"
+          @organization-click="$event => emit('link-click', $event?.url)"
         />
         <date-published :article="article" />
         <VFlexibleLink
