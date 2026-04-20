@@ -53,7 +53,7 @@ const commentCount = computed(() => {
             :ratio="[1, 1]"
             alt="Sponsor's image"
           />
-          <img v-else src="./avatar.svg" alt="Sponsor's image" loading="lazy">
+          <img v-else src="/avatar.svg" alt="Sponsor's image" loading="lazy">
         </VFlexibleLink>
       </div>
       <div class="flex flex-column gap-125">
@@ -97,7 +97,7 @@ const commentCount = computed(() => {
               :ratio="[1, 1]"
               alt=""
             />
-            <img v-else src="./avatar.svg" alt="" loading="lazy">
+            <img v-else src="/avatar.svg" alt="" loading="lazy">
           </VFlexibleLink>
         </div>
       </div>
