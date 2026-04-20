@@ -12,7 +12,17 @@ export default async function useAviary(path: string, options: Record<string, an
   const { payload } = useNuxtApp()
   delete payload?.path
 
-  const { data, error } = await useFetch(path, { baseURL: config.INTERNAL_API_URL ?? config.public.API_URL, key: hash([path, options]), ...options })
+  const { data, error } = await useFetch(
+    path,
+    {
+      baseURL: process.client ? config.public.API_URL : config.INTERNAL_API_URL,
+      key: hash([path, options]),
+      transform: (data) => {
+        return transformResponseData(data)
+      },
+      ...options,
+    },
+  )
     .then((response) => {
       if (process.client && response.error.value && response.error.value.statusCode !== 404) {
         const { $sentry } = useNuxtApp()
@@ -20,6 +30,5 @@ export default async function useAviary(path: string, options: Record<string, an
       }
       return response
     })
-  const transformedData = transformResponseData(data)
-  return { data: transformedData, error }
+  return { data, error }
 }
