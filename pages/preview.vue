@@ -7,55 +7,53 @@ import { transformResponseData } from '~~/composables/useAviary'
 const config = useRuntimeConfig()
 const route = useRoute()
 const previewData = usePreviewData()
+const fetchData = ref()
 
 const identifier = route.query.identifier
 const token = route.query.token
 
-function formatData(data) {
-  const transformedData = transformResponseData(data)
-  const normalizedData = normalizeFindPageResponse(
-    transformedData,
-  ) as ArticlePage
-  return normalizedData
-}
-let fetchData = null
-
-function handlePreviewData() {
-  useFetch(
-    `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`,
-  ).then((response) => {
-    if (process.client && response.error.value) {
-      const { $sentry } = useNuxtApp()
-      $sentry.captureException(response.error.value)
-    }
-    fetchData = response.data
-    previewData.value = { data: formatData(response.data), error: response.error }
-    // add slug to data for the Tags pages
-    previewData.value.slug = fetchData.value.meta.slug
-  })
-}
-
-watch(previewData, () => {
-  const url = new URL(previewData.value.data?.url || fetchData.value.url)
-  const path = url.pathname
-  switch (fetchData.value.meta.type) {
-    case 'news.ArticlePage':
-      return navigateTo(
-        `/${previewData.value.data.section.slug}/${previewData.value.slug}?preview=true`,
-      )
-    case 'tagpages.TagPage':
-      return navigateTo(`/tags/${previewData.value.slug}?preview=true`)
-    case 'gallery.GalleryPage':
-      return navigateTo(`${path}?preview=true`)
-    case 'standardpages.InformationPage':
-      return navigateTo(`${path}?preview=true`)
-    default:
-      break
+previewData.value = await useFetch(
+  `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`,
+  {
+    transform: (data) => {
+      fetchData.value = data
+      const transformedData = ref(transformResponseData(data))
+      const normalizedData = normalizeFindPageResponse(
+        transformedData,
+      ) as ArticlePage
+      normalizedData.slug = data.meta.slug
+      return normalizedData
+    },
+  },
+).catch((response) => {
+  if (process.client && response.error.value) {
+    const { $sentry } = useNuxtApp()
+    $sentry.captureException(response.error.value)
   }
-  return null
+  return response
 })
 
-handlePreviewData()
+const url = new URL(previewData.value.data?.url || fetchData.value.url)
+const path = url.pathname
+const pageType = fetchData.value?.meta.type
+switch (pageType) {
+  case 'news.ArticlePage':
+    navigateTo(
+      `/${previewData.value.data.section.slug}/${previewData.value.slug}?preview=true`,
+    )
+    break
+  case 'tagpages.TagPage':
+    navigateTo(`/tags/${previewData.value.slug}?preview=true`)
+    break
+  case 'gallery.GalleryPage':
+    navigateTo(`${path}?preview=true`)
+    break
+  case 'standardpages.InformationPage':
+    navigateTo(`${path}?preview=true`)
+    break
+  default:
+    break
+}
 </script>
 
 <template>
