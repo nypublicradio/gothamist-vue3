@@ -14,10 +14,9 @@ const cacheControlMaxAge = useCacheControlMaxAge()
 const route = useRoute()
 const isPreview = Boolean(route.query.preview)
 /* preview */
-
 const { $analytics, $htlbid } = useNuxtApp()
 const config = useRuntimeConfig()
-const tagSlug = isPreview ? previewData.value.slug : route.params.tagSlug
+const tagSlug = isPreview ? previewData.value.data.slug : route.params.tagSlug
 const initialStoryCount = ref(10)
 const loadMoreStoryCount = ref(10)
 const loadMoreContainer = ref('#articleList')
