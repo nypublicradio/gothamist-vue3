@@ -38,6 +38,7 @@ export default antfu({
 }, {
   files: ['**/*.vue'],
   rules: {
+    'vue/custom-event-name-casing': ['off'],
     'vue/no-duplicate-attr-inheritance': 'error',
     'vue/no-empty-component-block': 'error',
     'vue/no-unused-properties': 'error',
