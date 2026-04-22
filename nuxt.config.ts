@@ -34,6 +34,11 @@ export default defineNuxtConfig({
     },
   },
 
+  experimental: {
+    granularCachedData: false,
+    purgeCachedData: false,
+  },
+
   css: [
     '~/assets/scss/global.scss',
     '~/assets/scss/typography.scss',
