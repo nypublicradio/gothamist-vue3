@@ -39,14 +39,14 @@
     "cypress-axe": "^1.6.0",
     "eslint": "^8.51.0",
     "lint-staged": "^14.0.1",
-    "nuxt": "3.17.4",
+    "nuxt": "3.17.7",
     "sass": "^1.69.4",
     "simple-git-hooks": "^2.9.0",
     "start-server-and-test": "^2.0.0",
     "typescript": "^5.2.2"
   },
   "overrides": {
-    "nuxt": "3.17.4",
+    "nuxt": "3.17.7",
     "vite": "7.3.2"
   },
   "simple-git-hooks": {
