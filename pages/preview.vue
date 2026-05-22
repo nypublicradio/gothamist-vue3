@@ -38,18 +38,18 @@ const path = url.pathname
 const pageType = fetchData.value?.meta.type
 switch (pageType) {
   case 'news.ArticlePage':
-    navigateTo(
+    await navigateTo(
       `/${previewData.value.data.section.slug}/${previewData.value.data.slug}?preview=true`,
     )
     break
   case 'tagpages.TagPage':
-    navigateTo(`/tags/${previewData.value.data.slug}?preview=true`)
+    await navigateTo(`/tags/${previewData.value.data.slug}?preview=true`)
     break
   case 'gallery.GalleryPage':
-    navigateTo(`${path}?preview=true`)
+    await navigateTo(`${path}?preview=true`)
     break
   case 'standardpages.InformationPage':
-    navigateTo(`${path}?preview=true`)
+    await navigateTo(`${path}?preview=true`)
     break
   default:
     break
