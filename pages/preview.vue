@@ -39,11 +39,11 @@ const pageType = fetchData.value?.meta.type
 switch (pageType) {
   case 'news.ArticlePage':
     navigateTo(
-      `/${previewData.value.data.section.slug}/${previewData.value.slug}?preview=true`,
+      `/${previewData.value.data.section.slug}/${previewData.value.data.slug}?preview=true`,
     )
     break
   case 'tagpages.TagPage':
-    navigateTo(`/tags/${previewData.value.slug}?preview=true`)
+    navigateTo(`/tags/${previewData.value.data.slug}?preview=true`)
     break
   case 'gallery.GalleryPage':
     navigateTo(`${path}?preview=true`)
