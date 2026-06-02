@@ -16,12 +16,12 @@ const isPreview = Boolean(route.query.preview)
 /* preview */
 const { $analytics, $htlbid } = useNuxtApp()
 const config = useRuntimeConfig()
-const tagSlug = isPreview ? previewData.value.data.slug : route.params.tagSlug
+const tagSlug = isPreview ? toValue(previewData).meta?.slug : route.params.tagSlug
 const initialStoryCount = ref(10)
 const loadMoreStoryCount = ref(10)
 const loadMoreContainer = ref('#articleList')
 const curatedTagPagePromise = isPreview
-  ? previewData.value.data
+  ? toValue(previewData) as TagPage
   : findPage(`tags/${tagSlug}`).then(
     ({ data }) => data?.value && (normalizeFindPageResponse(data) as TagPage),
   )

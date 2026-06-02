@@ -80,7 +80,7 @@ const currentSteamStation = 'wnyc-fm939'
 export const useCurrentSteamStation = () => useState('useCurrentSteamStation', () => currentSteamStation)
 
 // CMS preview globals
-const previewData = null
+const previewData = {}
 /**
  * Global state for the current episode object.
  */
