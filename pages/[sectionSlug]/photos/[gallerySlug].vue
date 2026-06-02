@@ -11,7 +11,7 @@ const { $analytics, $htlbid } = useNuxtApp()
 const isPreview = Boolean(route.query.preview)
 
 const gallery = isPreview
-  ? previewData.value.data
+  ? toValue(previewData) as GalleryPage
   : ((await findPage(
       `${route.params.sectionSlug}/photos/${route.params.gallerySlug}`,
     ).then(({ data }) => normalizeFindPageResponse(data),

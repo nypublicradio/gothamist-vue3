@@ -11,7 +11,7 @@ const route = useRoute()
 const isPreview = Boolean(route.query.preview)
 
 const page = isPreview
-  ? previewData.value.data
+  ? toValue(previewData)
   : await findPage(route?.params?.sectionSlug as string).then(
     ({ data }) => normalizeFindPageResponse(data),
   ).catch(() => {
