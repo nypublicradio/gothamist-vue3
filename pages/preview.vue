@@ -34,7 +34,7 @@ previewData.value = toValue(previewResponse.data)
 
 onMounted(async () => {
   const preview = previewData.value
-  const url = new URL(preview.url)
+  const url = new URL(preview.url || preview.meta?.html_url)
   const path = url.pathname
   const pageType = previewData.value?.meta.type
   switch (pageType) {
@@ -45,7 +45,7 @@ onMounted(async () => {
       )
       break
     case 'tagpages.TagPage':
-      await navigateTo(`/tags/${preview.slug}?preview=true`)
+      await navigateTo(`/tags/${preview.meta?.slug}?preview=true`)
       break
     case 'gallery.GalleryPage':
       await navigateTo(`${path}?preview=true`)
