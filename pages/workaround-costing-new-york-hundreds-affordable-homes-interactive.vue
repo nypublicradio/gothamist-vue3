@@ -25,13 +25,6 @@ const article = {
   //   publicationDate: "2026-06-10T09:00:00-04:00",
 }
 
-const byline = computed(() => {
-  const names = article.authors.map(a => `${a.firstName} ${a.lastName}`)
-  if (names.length === 1)
-    return `By ${names[0]}`
-  return `By ${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`
-})
-
 onMounted(() => {
   const steps = document.querySelectorAll('.step')
   const imageLayers = document.querySelectorAll('.image-layer')
@@ -286,7 +279,16 @@ onMounted(() => {
             >
           </div>
           <div class="byline">
-            {{ byline }}
+            By
+            <template v-for="(author, index) in article.authors" :key="author.slug">
+              <NuxtLink :to="`/staff/${author.slug}`">
+                {{ author.firstName }} {{ author.lastName }}
+              </NuxtLink><template v-if="index < article.authors.length - 2">
+                ,
+              </template><template v-else-if="index === article.authors.length - 2">
+                and
+              </template>
+            </template>
           </div>
           <date-published :article="article" />
         </div>
