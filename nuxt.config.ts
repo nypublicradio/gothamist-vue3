@@ -87,6 +87,16 @@ export default defineNuxtConfig({
         ],
       },
     },
+    vue: {
+      template: {
+        // Vite 7 resolves root-relative `/path.svg` as virtual:public modules,
+        // causing double-encoded URLs in Nuxt's vite node SSR resolver (400s).
+        // Disabling img transformation keeps public asset paths as literal strings.
+        transformAssetUrls: {
+          img: [],
+        },
+      },
+    },
     plugins: [
       process.env.SENTRY_ENV === 'development'
         ? null
