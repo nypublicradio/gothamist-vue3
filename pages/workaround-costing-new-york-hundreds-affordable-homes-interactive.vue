@@ -1,4 +1,30 @@
 <script setup>
+import VShareTools from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareTools.vue'
+import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/components/VShareToolsItem.vue'
+
+const shareTitle = 'The workaround that\'s costing New York hundreds of affordable homes'
+const shareUrl
+  = 'https://gothamist.com/workaround-costing-new-york-hundreds-affordable-homes-interactive'
+const article = {
+  authors: [
+    {
+      firstName: 'David',
+      lastName: 'Brand',
+      photo:
+        'https://api-prod.gothamist.com/images/338981/fill-60x60%7Cformat-webp%7Cwebpquality-70/',
+      slug: 'david-brand',
+    },
+    {
+      firstName: 'Joe',
+      lastName: 'Hong',
+      photo: '/avatar.svg',
+      slug: 'joe-hong',
+    },
+  ],
+  publicationDate: '2026-06-10',
+  //   publicationDate: "2026-06-10T09:00:00-04:00",
+}
+
 onMounted(() => {
   const steps = document.querySelectorAll('.step')
   const imageLayers = document.querySelectorAll('.image-layer')
@@ -239,10 +265,131 @@ onMounted(() => {
         </div>
       </div>
     </section>
+    <section>
+      <div class="content">
+        <hr class="black">
+        <div class="flex flex-column gap-125 pt-4">
+          <div class="author-images flex flex-wrap">
+            <img
+              v-for="author in article.authors"
+              :key="author.slug"
+              :src="author.photo"
+              :alt="`${author.firstName} ${author.lastName}`"
+              class="author-image"
+            >
+          </div>
+          <div class="byline">
+            By
+            <template v-for="(author, index) in article.authors" :key="author.slug">
+              <NuxtLink :to="`/staff/${author.slug}`">
+                {{ author.firstName }} {{ author.lastName }}
+              </NuxtLink><template v-if="index < article.authors.length - 2">
+                ,
+              </template><template v-else-if="index === article.authors.length - 2">
+                and
+              </template>
+            </template>
+          </div>
+          <date-published :article="article" />
+        </div>
+        <hr class="mt-4">
+        <VShareTools label="Share" class="mt-3">
+          <VShareToolsItem
+            action="share"
+            service="facebook"
+            :url="shareUrl"
+            :utm-parameters="{
+              medium: 'social',
+              source: 'facebook',
+              campaign: 'shared_facebook',
+            }"
+            @share="
+              $analytics.scheduleEvent('click_tracking', {
+                event_category: 'Click Tracking',
+                component: 'Article Byline',
+                event_label: 'Social Share Facebook',
+              })
+            "
+          />
+
+          <VShareToolsItem
+            action="share"
+            service="twitter"
+            :url="shareUrl"
+            :share-parameters="{ text: shareTitle, via: 'gothamist' }"
+            :utm-parameters="{
+              medium: 'social',
+              source: 'twitter',
+              campaign: 'shared_twitter',
+            }"
+            @share="
+              $analytics.scheduleEvent('click_tracking', {
+                event_category: 'Click Tracking',
+                component: 'Article Byline',
+                event_label: 'Social Share Twitter',
+              })
+            "
+          />
+          <VShareToolsItem
+            action="share"
+            service="reddit"
+            :url="shareUrl"
+            :share-parameters="{ title: shareTitle }"
+            :utm-parameters="{
+              medium: 'social',
+              source: 'reddit',
+              campaign: 'shared_reddit',
+            }"
+            @share="
+              $analytics.scheduleEvent('click_tracking', {
+                event_category: 'Click Tracking',
+                component: 'Article Byline',
+                event_label: 'Social Share Reddit',
+              })
+            "
+          />
+          <VShareToolsItem
+            action="share"
+            service="email"
+            :url="shareUrl"
+            :share-parameters="{ body: `${shareTitle} - %URL%` }"
+            :utm-parameters="{
+              medium: 'social',
+              source: 'email',
+              campaign: 'shared_email',
+            }"
+            @share="
+              $analytics.scheduleEvent('click_tracking', {
+                event_category: 'Click Tracking',
+                component: 'Article Byline',
+                event_label: 'Social Share Email',
+              })
+            "
+          />
+        </VShareTools>
+        <hr class="mt-3">
+      </div>
+    </section>
   </div>
 </template>
 
 <style>
+.byline {
+  color: var(--text-color);
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-500);
+  line-height: 15.4px;
+  text-decoration: none;
+}
+.author-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  margin-bottom: 10px;
+}
 /* The global section rule sets overflow:hidden which breaks position:sticky.
    Override it so #sticky-side can stick correctly. */
 .custom-page section {
@@ -252,12 +399,12 @@ onMounted(() => {
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem;
-}
-h1 {
-  margin-bottom: 1rem;
-}
-p {
-  margin-bottom: 1rem;
+  h1 {
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
 }
 /* Scrollytelling — desktop */
 #scrolly {
