@@ -23,9 +23,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
   >
     <div
       class="content"
-      :style="`padding-bottom:${
-        currentEpisode ? `${audioPlayerHeight + 25}px` : '25px'
-      }`"
+      :style="`padding-bottom:${currentEpisode ? `${audioPlayerHeight + 25}px` : '25px'}`"
     >
       <div class="top grid">
         <div class="hidden lg:flex lg:col-3 xl:col-4 p-0">
@@ -36,10 +34,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
             <VFlexibleLink to="/" class="gothamist-logo">
               <logo-gothamist />
             </VFlexibleLink>
-            <div
-              class="property-description"
-              v-html="propertyDescription"
-            />
+            <div class="property-description" v-html="propertyDescription" />
           </div>
           <div class="block lg:hidden">
             <menu-list :nav-links="props.navigation.primaryFooterLinks" />
@@ -55,10 +50,7 @@ const copyrightYear = ref(props.navigation.copyrightYear)
           <VShareToolsItem service="facebook" username="gothamist" />
           <VShareToolsItem service="twitter" username="gothamist" />
           <VShareToolsItem service="instagram" username="gothamist" />
-          <VShareToolsItem
-            service="youtube"
-            username="UCY_2VeS5Q9_sMZRhtvF0c5Q"
-          />
+          <VShareToolsItem service="youtube" username="UCY_2VeS5Q9_sMZRhtvF0c5Q" />
         </VShareTools>
         <div class="right col-12 lg:col-9 xl:col-8">
           <div class="menu">
@@ -82,41 +74,53 @@ const copyrightYear = ref(props.navigation.copyrightYear)
 <style lang="scss">
 .gothamist-footer {
   background-color: var(--black-500);
+
   .content {
     padding-bottom: 25px;
+
     .top {
       margin: 0;
+
       .right {
         min-height: 250px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         gap: 3rem;
-        @include media('<lg') {
+
+        @include media("<lg") {
           min-height: none;
         }
+
         .logo-lockup {
           display: flex;
           align-items: flex-end;
           gap: 0.5rem;
-          @include media('<lg') {
+
+          @include media("<lg") {
             flex-direction: column;
             align-items: flex-start;
           }
+
           .gothamist-logo {
+            img,
             svg {
               width: 225px;
               height: auto;
+
               path {
                 fill: var(--white);
               }
             }
-            @include media('<lg') {
+
+            @include media("<lg") {
               width: 190px;
             }
           }
+
           .property-description {
             max-width: 370px;
+
             * {
               @include font-config($type-fineprint);
             }
@@ -124,24 +128,29 @@ const copyrightYear = ref(props.navigation.copyrightYear)
         }
       }
     }
+
     .bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 0;
-      @include media('<lg') {
+
+      @include media("<lg") {
         flex-direction: row-reverse;
         align-items: flex-start;
       }
+
       .left {
         padding-left: 0;
         padding-right: 0;
-        @include media('<lg') {
+
+        @include media("<lg") {
           z-index: 2;
           width: auto;
           justify-content: flex-end;
         }
       }
+
       .right {
         display: flex;
         justify-content: space-between;
@@ -149,21 +158,26 @@ const copyrightYear = ref(props.navigation.copyrightYear)
         gap: 1.5rem;
         padding-left: 0;
         padding-right: 0;
-        @include media('<lg') {
+
+        @include media("<lg") {
           margin-top: -2rem;
           flex-direction: column;
         }
+
         .menu {
           display: flex;
           align-self: flex-start;
           gap: 1rem;
+
           a {
             @include font-config($type-fineprint);
           }
-          @include media('<md') {
+
+          @include media("<md") {
             flex-direction: column;
           }
         }
+
         .copyright {
           color: var(--black300);
         }

@@ -9,7 +9,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
     <VFlexibleLink to="https://www.wnyc.org/" target="_blank">
       <logo-wnyc />
     </VFlexibleLink>
-    <VFlexibleLink to="/" target="_blank">
+    <VFlexibleLink to="/" target="_blank" class="gothamist-logo">
       <logo-gothamist />
     </VFlexibleLink>
     <VFlexibleLink to="https://www.wnycstudios.org/" target="_blank">
@@ -42,15 +42,16 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 1.25rem;
-  @include media('<xl') {
+  @include media("<xl") {
     gap: 1rem 0.75rem;
   }
-  @include media('<lg') {
+  @include media("<lg") {
     gap: 1rem 1rem;
   }
-  @include media('<sm') {
+  @include media("<sm") {
     gap: 1rem 0.65rem;
   }
+  img,
   svg {
     &.gothamist-logo {
       width: auto;
