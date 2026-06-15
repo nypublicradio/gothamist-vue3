@@ -5,6 +5,16 @@ import VShareToolsItem from '@nypublicradio/nypr-design-system-vue3/v2/src/compo
 const shareTitle = 'The workaround that\'s costing New York hundreds of affordable homes'
 const shareUrl
   = 'https://gothamist.com/workaround-costing-new-york-hundreds-affordable-homes-interactive'
+
+useSeoMeta({
+  ogTitle: shareTitle,
+  ogImage:
+    'https://demo.gothamist.com/workaround-costing-new-york-hundreds-affordable-homes-interactive/image1.jpg',
+  ogDescription:
+    'An in-depth look at the workaround that\'s costing New York hundreds of affordable homes.',
+  ogUrl: shareUrl,
+})
+
 const article = {
   authors: [
     {
@@ -21,8 +31,8 @@ const article = {
       slug: 'joe-hong',
     },
   ],
-  publicationDate: '2026-06-10',
-  //   publicationDate: "2026-06-10T09:00:00-04:00",
+  publicationDate: '2026-06-18',
+  publicationDate: '2026-06-18T09:00:00-04:00',
 }
 
 onMounted(() => {
@@ -109,8 +119,11 @@ onMounted(() => {
 
 <template>
   <div class="custom-page">
-    <section>
-      <div class="content">
+    <section class="mb-6">
+      <div class="article-body">
+        <h1 class="mb-6">
+          The workaround that's costing New York hundreds of affordable homes
+        </h1>
         <hr class="black">
         <div class="flex flex-column gap-125 pt-4">
           <div class="author-images flex flex-wrap">
@@ -215,265 +228,157 @@ onMounted(() => {
       </div>
     </section>
     <!-- custom section -->
-    <section>
-      <div class="content">
-        <div class="article-body">
-          <h1>The workaround that's costing New York hundreds of affordable homes</h1>
-          <p>
-            Something is missing on the nearly block-size gravel lot at East 125th Street
-            and Park Avenue in East Harlem, and it's not just the building.
-          </p>
-          <p>
-            The property owner, Clipper Equity, has designs to construct several highrise
-            apartment towers that could soon reach hundreds of feet above the Metronorth
-            train station next door. Absent from the plans, however, are about three dozen
-            affordable units that may have been added to the city's housing stock if not
-            for a tax break program that critics say incentivizes developers to break big
-            projects up into smaller buildings in order to skirt higher pay standards.
-          </p>
-          <p>
-            Instead of a single structure, Clipper filed permits to develop a cluster of
-            seven 99-unit buildings on newly divided tax lots and receive a property tax
-            exemption through the state's 485x program. The attic, approved by city
-            officials, has become commonplace, leading to an ongoing dispute with
-            influential labor unions who say it suppresses wages.
-          </p>
-          <p>
-            But the 99-unit strategy poses another issue: A Gothamist analysis of building
-            permit data shows dozens of arrangements like this one are taking a rising
-            toll on the city's affordable housing production.
-          </p>
-          <p>
-            Gothamist identified 48 clusters of multiple buildings with less than 100
-            units, like the proposed East Harlem complex. In total, developers plan to
-            construct 538 fewer units of affordable housing than they would have been
-            required to if each assemblage was instead a single building.
-          </p>
-          <p>
-            "You're losing units of production on the affordable side and overall," said
-            Brad Greenburg, CEO of NYU's Furman Center, a housing research group. "These
-            projects are not delivering the maximum number of units that they could have,
-            and it's never good to lose units."
-          </p>
-          <p>
-            To conduct the analysis, Gothamist used city data to identify adjacent 99-unit
-            buildings with the same owners, architects, zoning diagrams and financing
-            records.
-          </p>
-        </div>
-
-        <div id="scrolly">
-          <div id="sticky-side">
-            <div id="img-intro" class="image-layer is-visible">
-              <img
-                src="/workaround-costing-new-york-hundreds-affordable-homes-interactive/image0.jpg"
-                alt="Introduction image"
-              >
-            </div>
-            <div id="img-building" class="image-layer">
-              <img
-                src="/workaround-costing-new-york-hundreds-affordable-homes-interactive/image1.jpg"
-                alt="Architectural diagram of building cluster in Southeast Queens"
-              >
-            </div>
-            <div id="img-zoning" class="image-layer">
-              <img
-                src="/workaround-costing-new-york-hundreds-affordable-homes-interactive/image2.jpg"
-                alt="Building A and Building B zoning diagram, Upper East Side"
-              >
-            </div>
-          </div>
-
-          <div id="scroll-steps">
-            <div class="step is-active" data-image="img-intro">
-              <div class="step-inner">
-                <p class="step-text">
-                  So far, at least 538 affordable units have been lost.
-                </p>
-              </div>
-            </div>
-            <div class="step" data-image="img-building">
-              <div class="step-inner">
-                <p class="step-text">
-                  The loss is the result of bigger constructions being broken up into
-                  clusters of smaller buildings. Some of these clusters are adjacent
-                  buildings, each with less than 100 units.
-                </p>
-              </div>
-            </div>
-            <div class="step" data-image="img-building">
-              <div class="step-inner">
-                <p class="step-text">
-                  If this development in Southeast Queens had been built as a single
-                  building, it could have added 72 affordable units to the city's housing
-                  stock.
-                </p>
-              </div>
-            </div>
-            <div class="step" data-image="img-building">
-              <div class="step-inner">
-                <p class="step-text">
-                  But as three separate buildings, the developer was only required to
-                  include 57 affordable units in the project.
-                </p>
-              </div>
-            </div>
-            <div class="step" data-image="img-zoning">
-              <div class="step-inner">
-                <p class="step-text">
-                  From the outside, other clusters appear to be a single building, like
-                  this one on the Upper East Side of Manhattan.
-                </p>
-              </div>
-            </div>
-            <div class="step" data-image="img-zoning">
-              <div class="step-inner">
-                <p class="step-text">
-                  As a single 198-unit building, it would have been required to have 50
-                  affordable units. But as a cluster of two 99-unit buildings, that
-                  overall number dropped to just 40.
-                </p>
-              </div>
-            </div>
-            <div class="scroll-spacer" />
-          </div>
-        </div>
-
-        <div class="article-body">
-          <p>
-            Here's a map of all the clusters and where the 538 missing affordable units
-            would have been located:
-          </p>
-          <div class="map-wrapper">
-            <iframe
-              src="https://gothamist-project-prod.s3.amazonaws.com/485x/index.html"
-              width="100%"
-              height="600"
-              style="border: none"
-              title="Affordable Units Lost"
-              allowfullscreen
-            />
-            <button class="map-overlay" aria-label="Click to interact with the map">
-              <span class="map-overlay-label">Click to interact with map</span>
-            </button>
-          </div>
-          <p>
-            State lawmakers enacted the property tax break, known as 485x, in 2024 to
-            replace a previous exemption that expired two years earlier. The program
-            applies different construction wage and affordable housing rules to different
-            size projects in exchange for decades-long tax abatements.
-          </p>
-          <p>
-            Under the new scheme, higher wage standards kick in for projects of 100 or
-            more units, meaning developers who build just under the threshold can save
-            money — a strategy they say keeps construction financially feasible.
-          </p>
-        </div>
+    <section class="mb-6">
+      <div class="article-body">
+        <p>
+          Something is missing on the nearly block-size gravel lot at East 125th Street
+          and Park Avenue in East Harlem, and it's not just the building.
+        </p>
+        <p>
+          The property owner, Clipper Equity, has designs to construct several highrise
+          apartment towers that could soon reach hundreds of feet above the Metronorth
+          train station next door. Absent from the plans, however, are about three dozen
+          affordable units that may have been added to the city's housing stock if not for
+          a tax break program that critics say incentivizes developers to break big
+          projects up into smaller buildings in order to skirt higher pay standards.
+        </p>
+        <p>
+          Instead of a single structure, Clipper filed permits to develop a cluster of
+          seven 99-unit buildings on newly divided tax lots and receive a property tax
+          exemption through the state's 485x program. The attic, approved by city
+          officials, has become commonplace, leading to an ongoing dispute with
+          influential labor unions who say it suppresses wages.
+        </p>
+        <p>
+          But the 99-unit strategy poses another issue: A Gothamist analysis of building
+          permit data shows dozens of arrangements like this one are taking a rising toll
+          on the city's affordable housing production.
+        </p>
+        <p>
+          Gothamist identified 48 clusters of multiple buildings with less than 100 units,
+          like the proposed East Harlem complex. In total, developers plan to construct
+          538 fewer units of affordable housing than they would have been required to if
+          each assemblage was instead a single building.
+        </p>
+        <p>
+          "You're losing units of production on the affordable side and overall," said
+          Brad Greenburg, CEO of NYU's Furman Center, a housing research group. "These
+          projects are not delivering the maximum number of units that they could have,
+          and it's never good to lose units."
+        </p>
+        <p>
+          To conduct the analysis, Gothamist used city data to identify adjacent 99-unit
+          buildings with the same owners, architects, zoning diagrams and financing
+          records.
+        </p>
       </div>
-    </section>
-    <section>
-      <div class="content">
-        <hr class="black">
-        <div class="flex flex-column gap-125 pt-4">
-          <div class="author-images flex flex-wrap">
+
+      <div id="scrolly">
+        <div id="sticky-side">
+          <div id="img-intro" class="image-layer is-visible">
             <img
-              v-for="author in article.authors"
-              :key="author.slug"
-              :src="author.photo"
-              :alt="`${author.firstName} ${author.lastName}`"
-              class="author-image"
+              src="/workaround-costing-new-york-hundreds-affordable-homes-interactive/image0.jpg"
+              alt="Introduction image"
             >
           </div>
-          <div class="byline">
-            By
-            <template v-for="(author, index) in article.authors" :key="author.slug">
-              <NuxtLink :to="`/staff/${author.slug}`">
-                {{ author.firstName }} {{ author.lastName }}
-              </NuxtLink><template v-if="index < article.authors.length - 2">
-                ,
-              </template><template v-else-if="index === article.authors.length - 2">
-                and
-              </template>
-            </template>
+          <div id="img-building" class="image-layer">
+            <img
+              src="/workaround-costing-new-york-hundreds-affordable-homes-interactive/image1.jpg"
+              alt="Architectural diagram of building cluster in Southeast Queens"
+            >
           </div>
-          <date-published :article="article" />
+          <div id="img-zoning" class="image-layer">
+            <img
+              src="/workaround-costing-new-york-hundreds-affordable-homes-interactive/image2.jpg"
+              alt="Building A and Building B zoning diagram, Upper East Side"
+            >
+          </div>
         </div>
-        <hr class="mt-4">
-        <VShareTools label="Share" class="mt-3">
-          <VShareToolsItem
-            action="share"
-            service="facebook"
-            :url="shareUrl"
-            :utm-parameters="{
-              medium: 'social',
-              source: 'facebook',
-              campaign: 'shared_facebook',
-            }"
-            @share="
-              $analytics.scheduleEvent('click_tracking', {
-                event_category: 'Click Tracking',
-                component: 'Article Byline',
-                event_label: 'Social Share Facebook',
-              })
-            "
-          />
 
-          <VShareToolsItem
-            action="share"
-            service="twitter"
-            :url="shareUrl"
-            :share-parameters="{ text: shareTitle, via: 'gothamist' }"
-            :utm-parameters="{
-              medium: 'social',
-              source: 'twitter',
-              campaign: 'shared_twitter',
-            }"
-            @share="
-              $analytics.scheduleEvent('click_tracking', {
-                event_category: 'Click Tracking',
-                component: 'Article Byline',
-                event_label: 'Social Share Twitter',
-              })
-            "
+        <div id="scroll-steps">
+          <div class="step is-active" data-image="img-intro">
+            <div class="step-inner">
+              <p class="step-text">
+                So far, at least 538 affordable units have been lost.
+              </p>
+            </div>
+          </div>
+          <div class="step" data-image="img-building">
+            <div class="step-inner">
+              <p class="step-text">
+                The loss is the result of bigger constructions being broken up into
+                clusters of smaller buildings. Some of these clusters are adjacent
+                buildings, each with less than 100 units.
+              </p>
+            </div>
+          </div>
+          <div class="step" data-image="img-building">
+            <div class="step-inner">
+              <p class="step-text">
+                If this development in Southeast Queens had been built as a single
+                building, it could have added 72 affordable units to the city's housing
+                stock.
+              </p>
+            </div>
+          </div>
+          <div class="step" data-image="img-building">
+            <div class="step-inner">
+              <p class="step-text">
+                But as three separate buildings, the developer was only required to
+                include 57 affordable units in the project.
+              </p>
+            </div>
+          </div>
+          <div class="step" data-image="img-zoning">
+            <div class="step-inner">
+              <p class="step-text">
+                From the outside, other clusters appear to be a single building, like this
+                one on the Upper East Side of Manhattan.
+              </p>
+            </div>
+          </div>
+          <div class="step" data-image="img-zoning">
+            <div class="step-inner">
+              <p class="step-text">
+                As a single 198-unit building, it would have been required to have 50
+                affordable units. But as a cluster of two 99-unit buildings, that overall
+                number dropped to just 40.
+              </p>
+            </div>
+          </div>
+          <div class="scroll-spacer" />
+        </div>
+      </div>
+
+      <div class="article-body">
+        <p>
+          Here's a map of all the clusters and where the 538 missing affordable units
+          would have been located:
+        </p>
+        <div class="map-wrapper mb-6">
+          <iframe
+            src="https://gothamist-project-prod.s3.amazonaws.com/485x/index.html"
+            width="100%"
+            height="600"
+            style="border: none"
+            title="Affordable Units Lost"
+            allowfullscreen
           />
-          <VShareToolsItem
-            action="share"
-            service="reddit"
-            :url="shareUrl"
-            :share-parameters="{ title: shareTitle }"
-            :utm-parameters="{
-              medium: 'social',
-              source: 'reddit',
-              campaign: 'shared_reddit',
-            }"
-            @share="
-              $analytics.scheduleEvent('click_tracking', {
-                event_category: 'Click Tracking',
-                component: 'Article Byline',
-                event_label: 'Social Share Reddit',
-              })
-            "
-          />
-          <VShareToolsItem
-            action="share"
-            service="email"
-            :url="shareUrl"
-            :share-parameters="{ body: `${shareTitle} - %URL%` }"
-            :utm-parameters="{
-              medium: 'social',
-              source: 'email',
-              campaign: 'shared_email',
-            }"
-            @share="
-              $analytics.scheduleEvent('click_tracking', {
-                event_category: 'Click Tracking',
-                component: 'Article Byline',
-                event_label: 'Social Share Email',
-              })
-            "
-          />
-        </VShareTools>
-        <hr class="mt-3">
+          <button class="map-overlay" aria-label="Click to interact with the map">
+            <span class="map-overlay-label">Click to interact with map</span>
+          </button>
+        </div>
+        <p>
+          State lawmakers enacted the property tax break, known as 485x, in 2024 to
+          replace a previous exemption that expired two years earlier. The program applies
+          different construction wage and affordable housing rules to different size
+          projects in exchange for decades-long tax abatements.
+        </p>
+        <p>
+          Under the new scheme, higher wage standards kick in for projects of 100 or more
+          units, meaning developers who build just under the threshold can save money — a
+          strategy they say keeps construction financially feasible.
+        </p>
       </div>
     </section>
   </div>
@@ -504,7 +409,7 @@ onMounted(() => {
 .article-body {
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
   h1 {
     margin-bottom: 1rem;
   }
@@ -621,7 +526,7 @@ onMounted(() => {
   }
   #sticky-side {
     position: sticky;
-    top: 0;
+    top: 125px;
     width: 100%;
     height: 50vh;
     z-index: 10;
