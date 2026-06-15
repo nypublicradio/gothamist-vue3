@@ -18,7 +18,7 @@ useSeoMeta(
       'An in-depth look at the workaround that\'s costing New York hundreds of affordable homes.',
     ogUrl: shareUrl,
   },
-  { tagPriority: 3 },
+  { tagPriority: 1 },
 )
 
 const article = {
