@@ -34,7 +34,7 @@ const article = {
       slug: 'joe-hong',
     },
   ],
-  publicationDate: '2026-06-18',
+  // publicationDate: '2026-06-18',
   publicationDate: '2026-06-18T09:00:00-04:00',
 }
 
