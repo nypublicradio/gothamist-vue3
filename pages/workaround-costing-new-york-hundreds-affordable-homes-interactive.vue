@@ -371,6 +371,111 @@ onMounted(() => {
         </div>
       </div>
     </section>
+    <section>
+      <div class="content">
+        <hr class="black">
+        <div class="flex flex-column gap-125 pt-4">
+          <div class="author-images flex flex-wrap">
+            <img
+              v-for="author in article.authors"
+              :key="author.slug"
+              :src="author.photo"
+              :alt="`${author.firstName} ${author.lastName}`"
+              class="author-image"
+            >
+          </div>
+          <div class="byline">
+            By
+            <template v-for="(author, index) in article.authors" :key="author.slug">
+              <NuxtLink :to="`/staff/${author.slug}`">
+                {{ author.firstName }} {{ author.lastName }}
+              </NuxtLink><template v-if="index < article.authors.length - 2">
+                ,
+              </template><template v-else-if="index === article.authors.length - 2">
+                and
+              </template>
+            </template>
+          </div>
+          <date-published :article="article" />
+        </div>
+        <hr class="mt-4">
+        <VShareTools label="Share" class="mt-3">
+          <VShareToolsItem
+            action="share"
+            service="facebook"
+            :url="shareUrl"
+            :utm-parameters="{
+              medium: 'social',
+              source: 'facebook',
+              campaign: 'shared_facebook',
+            }"
+            @share="
+              $analytics.scheduleEvent('click_tracking', {
+                event_category: 'Click Tracking',
+                component: 'Article Byline',
+                event_label: 'Social Share Facebook',
+              })
+            "
+          />
+
+          <VShareToolsItem
+            action="share"
+            service="twitter"
+            :url="shareUrl"
+            :share-parameters="{ text: shareTitle, via: 'gothamist' }"
+            :utm-parameters="{
+              medium: 'social',
+              source: 'twitter',
+              campaign: 'shared_twitter',
+            }"
+            @share="
+              $analytics.scheduleEvent('click_tracking', {
+                event_category: 'Click Tracking',
+                component: 'Article Byline',
+                event_label: 'Social Share Twitter',
+              })
+            "
+          />
+          <VShareToolsItem
+            action="share"
+            service="reddit"
+            :url="shareUrl"
+            :share-parameters="{ title: shareTitle }"
+            :utm-parameters="{
+              medium: 'social',
+              source: 'reddit',
+              campaign: 'shared_reddit',
+            }"
+            @share="
+              $analytics.scheduleEvent('click_tracking', {
+                event_category: 'Click Tracking',
+                component: 'Article Byline',
+                event_label: 'Social Share Reddit',
+              })
+            "
+          />
+          <VShareToolsItem
+            action="share"
+            service="email"
+            :url="shareUrl"
+            :share-parameters="{ body: `${shareTitle} - %URL%` }"
+            :utm-parameters="{
+              medium: 'social',
+              source: 'email',
+              campaign: 'shared_email',
+            }"
+            @share="
+              $analytics.scheduleEvent('click_tracking', {
+                event_category: 'Click Tracking',
+                component: 'Article Byline',
+                event_label: 'Social Share Email',
+              })
+            "
+          />
+        </VShareTools>
+        <hr class="mt-3">
+      </div>
+    </section>
   </div>
 </template>
 
