@@ -6,17 +6,20 @@ const shareTitle = 'The workaround that\'s costing New York hundreds of affordab
 const shareUrl
   = 'https://gothamist.com/workaround-costing-new-york-hundreds-affordable-homes-interactive'
 
-useSeoMeta({
-  title: `${shareTitle} - Gothamist`,
-  description:
-    'An in-depth look at the workaround that\'s costing New York hundreds of affordable homes.',
-  ogTitle: shareTitle,
-  ogImage:
-    'https://demo.gothamist.com/workaround-costing-new-york-hundreds-affordable-homes-interactive/image1.jpg',
-  ogDescription:
-    'An in-depth look at the workaround that\'s costing New York hundreds of affordable homes.',
-  ogUrl: shareUrl,
-})
+useSeoMeta(
+  {
+    title: `${shareTitle} - Gothamist`,
+    description:
+      'An in-depth look at the workaround that\'s costing New York hundreds of affordable homes.',
+    ogTitle: shareTitle,
+    ogImage:
+      'https://demo.gothamist.com/workaround-costing-new-york-hundreds-affordable-homes-interactive/image1.jpg',
+    ogDescription:
+      'An in-depth look at the workaround that\'s costing New York hundreds of affordable homes.',
+    ogUrl: shareUrl,
+  },
+  { tagPriority: 3 },
+)
 
 const article = {
   authors: [
