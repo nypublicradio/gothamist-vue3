@@ -7,53 +7,56 @@ import { transformResponseData } from '~~/composables/useAviary'
 const config = useRuntimeConfig()
 const route = useRoute()
 const previewData = usePreviewData()
-const fetchData = ref()
 
 const identifier = route.query.identifier
 const token = route.query.token
 
-previewData.value = await useFetch(
-  `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`,
-  {
-    transform: (data) => {
-      fetchData.value = data
-      const transformedData = ref(transformResponseData(data))
-      const normalizedData = normalizeFindPageResponse(
-        transformedData,
-      ) as ArticlePage
-      normalizedData.slug = data.meta.slug
-      return normalizedData
+const previewResponse = await useFetch(
+    `${config.public.API_URL}/page_preview/?identifier=${identifier}&token=${token}`,
+    {
+      transform: (data) => {
+        const transformedData = ref(transformResponseData(data))
+        const normalizedData = normalizeFindPageResponse(
+          transformedData,
+        ) as ArticlePage
+        normalizedData.meta = data.meta
+        return normalizedData
+      },
     },
-  },
 ).catch((response) => {
-  if (process.client && response.error.value) {
+  if (response.error.value) {
     const { $sentry } = useNuxtApp()
     $sentry.captureException(response.error.value)
   }
   return response
 })
+previewData.value = toValue(previewResponse.data)
 
-const url = new URL(previewData.value.data?.url || fetchData.value.url)
-const path = url.pathname
-const pageType = fetchData.value?.meta.type
-switch (pageType) {
-  case 'news.ArticlePage':
-    navigateTo(
-      `/${previewData.value.data.section.slug}/${previewData.value.slug}?preview=true`,
-    )
-    break
-  case 'tagpages.TagPage':
-    navigateTo(`/tags/${previewData.value.slug}?preview=true`)
-    break
-  case 'gallery.GalleryPage':
-    navigateTo(`${path}?preview=true`)
-    break
-  case 'standardpages.InformationPage':
-    navigateTo(`${path}?preview=true`)
-    break
-  default:
-    break
-}
+onMounted(async () => {
+  const preview = previewData.value
+  const url = new URL(preview.url || preview.meta?.html_url)
+  const path = url.pathname
+  const pageType = previewData.value?.meta.type
+  switch (pageType) {
+    case 'news.ArticlePage':
+      await navigateTo(
+        `/${preview.section.slug}/${preview.meta?.slug}?preview=true`,
+        { replace: true },
+      )
+      break
+    case 'tagpages.TagPage':
+      await navigateTo(`/tags/${preview.meta?.slug}?preview=true`)
+      break
+    case 'gallery.GalleryPage':
+      await navigateTo(`${path}?preview=true`)
+      break
+    case 'standardpages.InformationPage':
+      await navigateTo(`${path}?preview=true`)
+      break
+    default:
+      break
+  }
+})
 </script>
 
 <template>

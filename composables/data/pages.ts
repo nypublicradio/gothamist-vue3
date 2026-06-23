@@ -19,17 +19,18 @@ export function normalizeInformationPage(page: Record<string, any>): Information
 }
 
 export function normalizeFindPageResponse(pageResponse: Record<string, any>): Page | ArticlePage | TagPage | InformationPage {
-  const pageType = pageResponse.value?.meta?.type
+  const page = toValue(pageResponse)
+  const pageType = page.meta?.type
   switch (WAGTAIL_PAGE_TYPES[pageType]) {
     case 'article_page':
-      return normalizeArticlePage(pageResponse.value)
+      return normalizeArticlePage(page)
     case 'gallery':
-      return normalizeGalleryPage(pageResponse.value)
+      return normalizeGalleryPage(page)
     case 'tag_page':
-      return normalizeTagPage(pageResponse.value)
+      return normalizeTagPage(page)
     case 'information_page':
-      return normalizeInformationPage(pageResponse.value)
+      return normalizeInformationPage(page)
     default:
-      return normalizePage(pageResponse.value)
+      return normalizePage(page)
   }
 }

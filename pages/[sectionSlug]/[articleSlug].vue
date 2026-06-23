@@ -6,6 +6,7 @@ import VFlexibleLink from '@nypublicradio/nypr-design-system-vue3/v2/src/compone
 import type { ArticlePage, GalleryPage } from '../../composables/types/Page'
 import { normalizeGalleryPage } from '~~/composables/data/galleryPages'
 import { CacheControlAgeTime } from '~/composables/types/CacheControlAgeTime'
+import { usePreviewData } from '~/composables/states'
 
 /* preview */
 const previewData = usePreviewData()
@@ -17,7 +18,7 @@ const isPreview = Boolean(route.query.preview)
 const config = useRuntimeConfig()
 const { $analytics, $htlbid } = useNuxtApp()
 const article = isPreview
-  ? previewData.value.data as ArticlePage
+  ? toValue(previewData) as ArticlePage
   : ((await findPage(
       `${route.params.sectionSlug}/${route.params.articleSlug}`,
     ).then(({ data }) => normalizeFindPageResponse(data),
