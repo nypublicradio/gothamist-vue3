@@ -312,18 +312,25 @@ onMounted(() => {
           <div class="step" data-image="img-building">
             <div class="step-inner">
               <p class="step-text">
-                The loss is the result of bigger constructions being broken up into
-                clusters of smaller buildings. Some of these clusters are adjacent
-                buildings, each with less than 100 units.
+                The reduction is the result of bigger development projects being broken up
+                into clusters of smaller buildings.
               </p>
             </div>
           </div>
           <div class="step" data-image="img-building">
             <div class="step-inner">
               <p class="step-text">
-                If this development in Southeast Queens had been built as a single
-                building, it could have added 72 affordable units to the city's housing
-                stock.
+                Some residential clusters are made up of adjacent buildings, each with 99
+                or fewer units, like this development on Far Rockaway Boulevard in
+                Southeast Queens.
+              </p>
+            </div>
+          </div>
+          <div class="step" data-image="img-building">
+            <div class="step-inner">
+              <p class="step-text">
+                If it had been built as a single building, it would have added 72
+                affordable units to the city's housing stock.
               </p>
             </div>
           </div>
@@ -339,7 +346,7 @@ onMounted(() => {
             <div class="step-inner">
               <p class="step-text">
                 From the outside, other clusters appear to be a single building, like this
-                one on the Upper East Side of Manhattan.
+                one on the Upper East Side of Manhattan:
               </p>
             </div>
           </div>
@@ -347,8 +354,8 @@ onMounted(() => {
             <div class="step-inner">
               <p class="step-text">
                 As a single 198-unit building, it would have been required to have 50
-                affordable units. But as a cluster of two 99-unit buildings, that overall
-                number dropped to just 40.
+                affordable units. But as an assemblage of two 99-unit buildings, that
+                overall number dropped to just 40.
               </p>
             </div>
           </div>
