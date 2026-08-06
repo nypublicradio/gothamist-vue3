@@ -36,6 +36,14 @@ export default defineNuxtPlugin((nuxtApp) => {
     environment: config.public.SENTRY_ENV,
   })
 
+  // report when a third-party script attempts to clobber window.Image (see plugins/1.protect-image.ts)
+  window.addEventListener('gothamist:image-overwrite-blocked', (event) => {
+    Sentry.captureMessage('Blocked attempt to overwrite window.Image', {
+      level: 'warning',
+      extra: { stack: event.detail?.stack },
+    })
+  })
+
   return {
     provide: {
       sentry: {
