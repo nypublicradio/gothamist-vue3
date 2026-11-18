@@ -37,7 +37,7 @@ const newsletters = [
   {
     title: 'WNYC Weekly Brief',
     id: 'WNYC Weekly Brief',
-    description: 'Everything you need to know as a voter in New York or New Jersey.',
+    description: 'A weekly, behind-the-scenes update from the people behind your favorite shows.',
   },
 ]
 const thanksMessage = 'Thank you for signing up!'
