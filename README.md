@@ -3,7 +3,7 @@
 ## Setup
 
 ### Requirements:
-node version 18
+node version 22
 
 ### Create .npmrc file
 

@@ -138,6 +138,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     INTERNAL_API_URL: process.env.INTERNAL_API_URL ?? 'https://cms.demo.nypr.digital/api/v2',
     public: {
+      // Publisher API with trailing slash; used by server/api/legacy-audio
+      PUBLISHER_BASE_API: process.env.PUBLISHER_BASE_API ?? 'https://api.wnyc.org/api/',
       SENTRY_DSN: process.env.SENTRY_DSN ?? 'https://531d9ce2b7a14759a35f95f3dd1ee743@o557978.ingest.sentry.io/6537168',
       SENTRY_ENV: process.env.SENTRY_ENV ?? 'development',
       HTL_CSS: process.env.HTL_CSS ?? 'https://htlbid.com/stage/v3/gothamistv3.com/htlbid.css',
