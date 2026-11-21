@@ -12,6 +12,9 @@ const requestedAudioIds = new Set<string>()
 export function useWnycAudioEmbeds(html: string): string {
   if (!html)
     return ''
+  // most embeds have no WNYC player, so skip the parse/serialize round trip for them
+  if (!html.includes('ondemand_player') && !html.includes('/audio/json/'))
+    return html
   const doc = parseDocument(html)
 
   for (const iframe of DomUtils.getElementsByTagName('iframe', doc)) {
@@ -21,12 +24,13 @@ export function useWnycAudioEmbeds(html: string): string {
 
     // Serve WNYC's on-demand player locally (public/widgets/ondemand_player); station variants like /widgets/ondemand_player/wnyc/ use the same player
     try {
-      const url = new URL(src)
-      if (url.hostname.includes('wnyc.org') && url.pathname.startsWith('/widgets/ondemand_player'))
+      // the base resolves protocol-relative //www.wnyc.org srcs; an encoded %23file= becomes a real hash so the rewrite keeps it
+      const url = new URL(src.replace(/%23file=/i, '#file='), 'https://localhost')
+      if (/(?:^|\.)wnyc\.org$/.test(url.hostname) && url.pathname.startsWith('/widgets/ondemand_player'))
         src = `/widgets/ondemand_player/${url.search}${url.hash}`
     }
     catch {
-      // already relative
+      // malformed src, leave it as is
     }
 
     // Resolve legacy Publisher audio embeds. Publisher's CORS only allows wnyc.org, so look the story up through our server (server/api/legacy-audio).
@@ -39,8 +43,8 @@ export function useWnycAudioEmbeds(html: string): string {
             legacyAudioUrls[legacyAudioId] = audio
           })
           .catch((error) => {
-            // no response = network failure (e.g. offline), so let a later render retry; an HTTP error like 404 is final
-            if (!error?.response)
+            // network failure or 5xx is transient: clearing the id lets the recompute this '' write triggers (once) and later mounts retry; a 4xx is final
+            if (!error?.response || error.response.status >= 500)
               requestedAudioIds.delete(legacyAudioId)
             legacyAudioUrls[legacyAudioId] = ''
           })

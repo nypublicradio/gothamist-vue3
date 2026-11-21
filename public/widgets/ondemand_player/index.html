@@ -79,7 +79,12 @@
         if (parts.length > 1) {
           const fileString = parts[1].split("&")[0]
           if (fileString) {
-            fileToPlay = fileString
+            // the path form is still percent-encoded (the #file= form was already decoded by URLSearchParams)
+            try {
+              fileToPlay = decodeURIComponent(fileString)
+            } catch (e) {
+              fileToPlay = fileString
+            }
           }
         }
       }
@@ -89,11 +94,8 @@
 
       if (fileToPlay) {
         let isValidUrl = false
-        // URLSearchParams already decoded the #file= value, so a literal % makes this second decode throw; keep the value as-is then
-        let decodedFile = fileToPlay
-        try {
-          decodedFile = decodeURIComponent(fileToPlay)
-        } catch (e) {}
+        // already decoded once above; decoding again would turn escapes like %26 in the audio URL into real & etc.
+        const decodedFile = fileToPlay
 
         try {
           // Parse the URL (using current origin as base for relative URLs)
