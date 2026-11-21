@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import type { EmbedBlock } from '../../composables/types/StreamfieldBlock'
 
-defineProps<{
+const props = defineProps<{
   block: EmbedBlock
 }>()
 const el = ref(null)
+const embedHtml = computed(() => useWnycAudioEmbeds(props.block.value.embed))
 </script>
 
 <template>
   <div
     ref="el"
     class="streamfield-embed streamfield-embed-default streamfield-paragraph mb-7"
-    v-html="block.value.embed"
+    v-html="embedHtml"
   />
 </template>
 
