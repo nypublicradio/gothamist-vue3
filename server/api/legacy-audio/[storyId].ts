@@ -1,4 +1,4 @@
-// Audio URL for a Publisher story; resolves legacy /audio/json/<id>/ player embeds (see composables/useWnycAudioEmbeds.ts)
+// Audio URL for a Publisher story; resolves legacy /audio/json/<id>/ player embeds (called by public/widgets/ondemand_player)
 export default defineEventHandler(async (event) => {
   const storyId: string | undefined = event?.context?.params?.storyId
   if (!/^\d+$/.test(storyId ?? ''))

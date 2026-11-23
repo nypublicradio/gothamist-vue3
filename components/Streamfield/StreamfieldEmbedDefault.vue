@@ -5,7 +5,10 @@ const props = defineProps<{
   block: EmbedBlock
 }>()
 const el = ref(null)
-const embedHtml = computed(() => useWnycAudioEmbeds(props.block.value.embed))
+// Use the default formatting function to process the embed HTML before rendering it. As of now (11/26) it is just handling the WNYC on-demand player embeds.
+const embedHtml = computed(() =>
+  useStreamfieldEmbedDefaultFormatting(props.block.value.embed),
+)
 </script>
 
 <template>

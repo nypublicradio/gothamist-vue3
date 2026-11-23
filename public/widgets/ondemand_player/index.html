@@ -52,7 +52,7 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
       let fileToPlay = ""
       const hash = window.location.hash
       const pathname = window.location.pathname
@@ -87,6 +87,15 @@
             }
           }
         }
+      }
+
+      // Legacy embeds name a Publisher story (/audio/json/<id>/) instead of a file; our server looks up its audio URL (server/api/legacy-audio)
+      const legacyStoryId = fileToPlay.match(/^\/audio\/json\/(\d+)/)?.[1]
+      if (legacyStoryId) {
+        fileToPlay = await fetch(`/api/legacy-audio/${legacyStoryId}`)
+          .then((res) => res.ok ? res.json() : {})
+          .then((data) => data.audio || "")
+          .catch(() => "")
       }
 
       const audioEl = document.getElementById("audio-player")
