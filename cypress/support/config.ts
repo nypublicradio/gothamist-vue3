@@ -8,6 +8,10 @@ export const axeConfig = {
   },
 }
 
+// what checkA11y scans: the page, minus the Nuxt DevTools overlay the dev server injects (not our UI;
+// newer axe-core flags its low-contrast labels)
+export const axeContext = { exclude: [['nuxt-devtools-frame']] }
+
 export function logViolations(violations) {
   cy.task(
     'log',
