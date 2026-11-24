@@ -161,6 +161,11 @@ const filteredLatestArticles = computed(() => {
     }
   }
   .homepage-topper-latest {
+    // Nativo inserts the sponsored card before the last Latest story.
+    > :has(~ #ntv-latest-1) {
+      contain: paint;
+    }
+
     .v-card.mod-small .image-with-caption {
       width: var(--img-width-mobile) !important;
     }
