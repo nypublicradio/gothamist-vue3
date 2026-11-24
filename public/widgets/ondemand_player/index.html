@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audio Player</title>
+  <style>
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: transparent !important;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .ondemand-player-widget {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 100%;
+      outline: none;
+    }
+
+    .error-msg {
+      font-family: sans-serif;
+      color: #6b7280;
+      /* text-500 equivalent */
+      font-size: 0.875rem;
+      /* text-sm equivalent */
+      text-align: center;
+      padding: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ondemand-player-widget">
+    <audio id="audio-player" controls style="display: none;"></audio>
+    <div id="error-msg" class="error-msg">Audio player unavailable</div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      let fileToPlay = ""
+      const hash = window.location.hash
+      const pathname = window.location.pathname
+
+      // Case 1: Standard #file=... hash
+      if (hash && hash.startsWith("#file=")) {
+        const paramsString = hash.substring(1)
+        const params = new URLSearchParams(paramsString)
+        let file = params.get("file")
+
+        // Fallback manual regex
+        if (!file) {
+          const match = paramsString.match(/file=([^&]+)/)
+          if (match) file = match[1]
+        }
+
+        if (file) {
+          fileToPlay = file
+        }
+      }
+      // Case 2: URL encoded hash (%23file=...) interpreted as part of the path
+      else if (pathname.includes("%23file=") || pathname.includes("#file=")) {
+        const parts = pathname.split(/%23file=|#file=/)
+        if (parts.length > 1) {
+          const fileString = parts[1].split("&")[0]
+          if (fileString) {
+            // the path form is still percent-encoded (the #file= form was already decoded by URLSearchParams)
+            try {
+              fileToPlay = decodeURIComponent(fileString)
+            } catch (e) {
+              fileToPlay = fileString
+            }
+          }
+        }
+      }
+
+      // Legacy embeds name a Publisher story (/audio/json/<id>/) instead of a file; our server looks up its audio URL (server/api/legacy-audio)
+      const legacyStoryId = fileToPlay.match(/^\/audio\/json\/(\d+)/)?.[1]
+      if (legacyStoryId) {
+        fileToPlay = await fetch(`/api/legacy-audio/${legacyStoryId}`)
+          .then((res) => res.ok ? res.json() : {})
+          .then((data) => data.audio || "")
+          .catch(() => "")
+      }
+
+      const audioEl = document.getElementById("audio-player")
+      const errorMsg = document.getElementById("error-msg")
+
+      if (fileToPlay) {
+        let isValidUrl = false
+        // already decoded once above; decoding again would turn escapes like %26 in the audio URL into real & etc.
+        const decodedFile = fileToPlay
+
+        try {
+          // Parse the URL (using current origin as base for relative URLs)
+          const urlObj = new URL(decodedFile, window.location.origin)
+          // Ensure it uses a safe web protocol
+          if (urlObj.protocol === "http:" || urlObj.protocol === "https:") {
+            isValidUrl = true
+          }
+        } catch (e) {
+          // new URL() throws an error if the string is completely malformed
+          isValidUrl = false
+        }
+
+        if (isValidUrl) {
+          // Listen for media loading errors (e.g., 404, dead link)
+          audioEl.addEventListener("error", () => {
+            audioEl.style.display = "none"
+            errorMsg.style.display = "block"
+          })
+          
+          audioEl.src = decodedFile
+          audioEl.style.display = "block"
+        } else {
+          audioEl.style.display = "none"
+          errorMsg.style.display = "block"
+        }
+      } else {
+        audioEl.style.display = "none"
+        errorMsg.style.display = "block"
+      }
+    });
+  </script>
+</body>
+
+</html>
