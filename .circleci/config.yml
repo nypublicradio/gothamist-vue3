@@ -71,14 +71,14 @@ workflows:
             - test_cypress
       - purge:
           name: Purge (demo)
-          context: AWS Deploy
+          context: Gothamist Cloudflare Purge
           <<: *filter_demo
           purge_files: '{"files": ["https://demo.gothamist.com"]}'
           requires:
             - Deploy (demo)
       - purge:
           name: Purge (prod)
-          context: AWS Deploy
+          context: Gothamist Cloudflare Purge
           <<: *filter_prod
           purge_files: '{"purge_everything": true}'
           requires:
